@@ -1,0 +1,191 @@
+<sly data-sly-use.login="com.mcd.rwd.us.core.sso_profile.Login" />
+
+<div tabindex="0" class="main sso-full-height ssoMainContent" role="main" data-json="${login.json}" ng-cloak ng-controller="LoginForm" data-regex="${login.emailRegEx}" ng-switch="view">
+    <div class="sso-preloader" ng-show="preloader"></div>
+    <div class="container" ng-switch-when="login">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+                <h1 class="sso-h1" data-sly-test="${login.loginFormTitle}">${login.loginFormTitle}</h1>
+
+                <div class="sso-input-error" ng-show="hasError">{{errorMsg}}</div>
+
+                <form name="loginForm" ng-submit="submitForm(loginForm)" novalidate>
+                    <div class="sso-input-wrapper ">
+                        <input name="username"
+                               ng-model="loginFormData.username"
+                               ng-required="true"
+                               ng-pattern="emailRegEx"
+                               aria-describedby="describedby-username"
+                               type="email"
+                               class="sso-input"
+                               placeholder="${login.emailPlaceholder}"
+                               aria-label="${login.emailPlaceholder}"
+                               autocomplete="off"
+                               ng-change="revalidate(loginForm, 'username')"
+                               aria-invalid="!loginForm.username.$invalid && loginForm.username.$pristine && !loginForm.username.$touched">
+                        <span class="sso-required asterisk"></span>
+                        <!--<i-->
+                        <!--ng-show="loginForm.username.$invalid && loginForm.username.$dirty && loginForm.username.$touched"-->
+                        <!--class="sso-input-tooltip-error fa fa-exclamation-circle fa-lg" aria-hidden="true"></i>-->
+                        <small
+                                id="describedby-username"
+                                ng-show="!loginForm.username.$isEmpty(loginForm.username.$$rawModelValue) && (loginForm.username.$invalid && emailRegEx!='') && !loginForm.username.$pristine && loginForm.username.$touched"
+                                class="sso-input-error">
+                            ${login.emailRegExError}
+                        </small>
+                        <small
+                                id="describedby-username"
+                                ng-show="loginForm.username.$isEmpty(loginForm.username.$$rawModelValue) && loginForm.username.$error.required && loginForm.username.$touched"
+                                class="sso-input-error">
+                            ${login.emailRequiredError}
+                        </small>
+                    </div>
+                    <div class="sso-input-wrapper ">
+                        <input name="password"
+                               ng-model="loginFormData.password"
+                               ng-required="true"
+                               aria-describedby="describedby-pwd"
+                               type="password"
+                               class="sso-input"
+                               placeholder="${login.passwordPlaceholder}"
+                               aria-label="${login.passwordPlaceholder}"
+                               ng-change="revalidate(loginForm, 'password')"
+                               aria-invalid="!loginFormData.password.$invalid && loginFormData.password.$pristine && !loginFormData.password.$touched"
+                               autocomplete="off">
+                        <span class="sso-required asterisk"></span>
+                        <!--<i ng-show="loginForm.password.$invalid && !loginForm.password.$pristine && loginForm.password.$touched && !loginForm.password.$error.required"-->
+                        <!--class="sso-input-tooltip-error fa fa-exclamation-circle fa-lg" aria-hidden="true"></i>-->
+                        <small
+                                id="describedby-pwd"
+                                ng-show="loginForm.password.$isEmpty(loginForm.password.$$modelValue) && loginForm.password.$error.required && loginForm.password.$touched"
+                                class="sso-input-error">
+                            ${login.passwordRequiredError}
+                        </small>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <div class="sso-fac sso-fac-checkbox sso-fac-default sso-fac-short">
+                                <span>
+                                    <div tabindex="0" class="sso-checkbox-box-checked" role="checkbox" aria-checked="false" aria-label="${login.rememberMeLabel}">
+                                        <i class="fa fa-check"></i>
+                                    </div>
+                                </span>
+                                <input
+                                        class="sso-checkbox"
+                                        name="rememberMe"
+                                        id="rememberMe"
+                                        type="checkbox"
+                                        ng-required="false"
+                                        ng-model="loginFormData.rememberMe"
+                                        aria-describedby="describedby-rememberMe"
+                                        ng-class="sso-checkbox"
+                                        aria-label="${login.rememberMeLabel}"
+                                        aria-checked="false"
+                                        onkeydown="toggleCheckbox(event)" onclick="toggleCheckbox(event)" onfocus="focusCheckbox(event)" onblur="blurCheckbox(event)"/>
+                                <!--/* <input ng-model="loginFormData.rememberMe" class="sso-checkbox" id="checkbox-1" type="checkbox" value="1" aria-label="${login.rememberMeLabel}" role="checkbox" aria-checked="false" onkeydown="toggleCheckbox(event)" onclick="toggleCheckbox(event)" onfocus="focusCheckbox(event)" onblur="blurCheckbox(event)"> */-->
+                                <label for="rememberMe" class="sso-checkbox-short-label">
+                                    <div class="sso-checkbox-box"></div>
+                                    ${login.rememberMeLabel}
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 text-right">
+                            <a href="#" ng-click="viewSwitch('forgot-password')" title="${login.forgotPasswordLinkTitle}" class="sso-cta-link-small">${login.forgotPasswordLinkTitle}</a>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="sso-fac sso-fac-checkbox sso-fac-default sso-disclaimer">
+                                <div class="sso-tc-text">${login.termsAndPrivacyLabelWithLinks @ context='html'}</div>
+                            </div>
+
+                            <div class="sso-require-explainer" data-sly-test="${login.requiredFieldsText}">${login.requiredFieldsText}</div>
+                            <div class="sso-spacer-wrapper"></div>
+                            <button type="submit" ng-disabled="loginForm.$invalid" href="#" title="${login.loginFormSubmitButtonTitle}" class="sso-btn-red" aria-haspopup="true" aria-disabled="false">${login.loginFormSubmitButtonTitle}</button>
+
+                            <!-- /*  Social Login buttons (included if so configured) */ -->
+                            <p class="sso-p-btn" data-sly-test="${login.facebookLoginEnabled || login.googleLoginEnabled}">${login.labelOr}</p>
+                            <a login-facebook cb="socialLoginCB(loginForm)" href="#" redirectafterloginpath="{{redirectAfter}}" title="${login.socialFacebookButtonTitle}" class="sso-btn-red" aria-haspopup="true" aria-disabled="false" data-sly-test="${login.facebookLoginEnabled}">${login.socialFacebookButtonTitle}</a>
+                            <a login-google cb="socialLoginCB(loginForm)" href="#" redirectafterloginpath="{{redirectAfter}}"  class="sso-btn-red" aria-haspopup="true" aria-disabled="false" data-sly-test="${login.googleLoginEnabled}">${login.socialGoogleButtonTitle}</a>
+
+                            <div class="sso-spacer-wrapper text-center"><a href="${login.registrationLinkHref}" title="${login.registrationLinkTitle}" class="sso-cta-link-small">${login.registrationLinkTitle}</a></div>
+                            <div class="sso-spacer-wrapper"></div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div ng-switch-when="forgot-password">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+                    <h1 class="sso-h1">${login.forgotPasswordFormTitle}</h1>
+                    <p class="sso-p" data-sly-test="${login.forgotPasswordFormInstructions}"><strong>${login.forgotPasswordFormInstructions}</strong></p>
+                    <form name="forgotPass" ng-submit="forgotPassword()" novalidate>
+                        <div class="sso-input-error" ng-show="forgotError">{{errorMsg}}</div>
+                        <div class="sso-input-wrapper ">
+                            <input name="username"
+                                   aria-describedby="describedby-email"
+                                   type="email"
+                                   class="sso-input"
+                                   placeholder="${login.emailPlaceholder}"
+                                   value="forgotPWFormData.username"
+                                   aria-label="${login.emailPlaceholder}"
+                                   aria-invalid="false"
+                                   ng-model="forgotPWFormData.username"
+                                   ng-pattern="emailRegEx"
+                                   ng-required="true">
+                            <span class="sso-required asterisk"></span>
+                            <!--<i-->
+                            <!--ng-show="forgotPass.username.$invalid && !forgotPass.username.$pristine && forgotPass.username.$touched"-->
+                            <!--class="sso-input-tooltip-error fa fa-exclamation-circle fa-lg" aria-hidden="true"></i>-->
+                            <small
+                                    id="describedby-username"
+                                    ng-show="!forgotPass.username.$isEmpty(forgotPass.username.$$rawModelValue) && forgotPass.username.$invalid && !forgotPass.username.$pristine && forgotPass.username.$touched"
+                                    class="sso-input-error">
+                                ${login.emailRegExError}
+                            </small>
+                            <small
+                                    id="describedby-username"
+                                    ng-show="forgotPass.username.$isEmpty(forgotPass.username.$$rawModelValue) && forgotPass.username.$error.required && forgotPass.username.$dirty"
+                                    class="sso-input-error">
+                                ${login.emailRequiredError}
+                            </small>
+                        </div>
+                        <div class="sso-require-explainer" data-sly-test="${login.requiredFieldsText}">${login.requiredFieldsText}</div>
+                        <!--/* ${login.emailRequiredError} - this is the error message to show when user didn't fill out the email field -->
+                        <!-- ${login.emailRegEx} - this is RegEx with the email format -->
+                        <!-- ${login.emailRegExError} - this is the error message to show when provided email is not in a valid format */-->
+                        <div class="sso-spacer-wrapper"></div>
+                        <button type="submit" href="#" title="${login.forgotPasswordFormSubmitButtonTitle}" class="sso-btn-red" ng-disabled="forgotPass.$invalid">${login.forgotPasswordFormSubmitButtonTitle}</button>
+                        <div class="sso-cta-link-spacer-align">
+                            <a ng-click="viewSwitch('login')" href="javascript:void(0);" class="sso-cta-link back"><i class="fa fa-chevron-left"></i> {{backLinkText}}</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container" ng-switch-when="forgot-password-submitted">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-sm-offset-3 loginforgotpasswordmessage">
+                <h1 class="sso-h1">${login.forgotPasswordFormTitle}</h1>
+                ${login.forgotPasswordMessage @ context='html'}
+            </div>
+        </div>
+    </div>
+    <div class="container" ng-switch-when="locked">
+        <div class="row">
+            <div class="col-xs-12 col-sm-10 col-sm-offset-1 sso-paragragh">
+                <h1 class="sso-h1">${login.accountLockedOutTitle}</h1>
+                <!--/* <p class="sso-p"> You’ve made too many unsucessful login attempts so we locked your account for safety. </p> -->
+                <!-- <p class="sso-p"> To unlock your account please call us at <a href="tel://123.123.1234" title="123.123.1234">123.123.1234</a> </p> -->
+                <!-- <p class="sso-p"> or send us an email at <a href="mailto:support@mcd.example.com" title="support@mcd.example.com">support@mcd.example.com</a> </p> */-->
+                ${login.accountLockedOutMessage @ context='html'}
+                <div class="sso-spacer-wrapper"></div>
+            </div>
+        </div>
+    </div>
+</div>

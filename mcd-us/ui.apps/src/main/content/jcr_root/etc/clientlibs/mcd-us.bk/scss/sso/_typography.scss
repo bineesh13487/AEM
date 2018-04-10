@@ -1,0 +1,107 @@
+// Adds a font family to the css and loads it
+/// @group typography
+/// @param {string} $font-family With or without quotes
+/// @param {string} $file-path Path to font file, minus the extension
+/// @param {string|number} $font-weight
+/// @param {string} $font-style
+/// @example
+///   @include font-face(LovinSansWeb-Black, 'fonts/LovinSansWeb/black', normal, normal);
+@mixin font-face($font-family, $file-path, $font-weight, $font-style) {
+  @font-face {
+    font-family: $font-family;
+      src: url('#{$file-path}/#{$font-family}.eot');
+      src: url('#{$file-path}/#{$font-family}.eot?#iefix') format('embedded-opentype'),
+           url('#{$file-path}/#{$font-family}.woff') format('woff'),
+           url('#{$file-path}/#{$font-family}.ttf') format('truetype'),
+           url('#{$file-path}/#{$font-family}.svg##{$font-family}') format('svg');
+    font-weight: $font-weight;
+    font-style: $font-style;
+  }
+  // Chrome for Windows rendering fix: http://www.adtrak.co.uk/blog/font-face-chrome-rendering/
+  @media screen and (-webkit-min-device-pixel-ratio: 0) {
+    @font-face {
+      font-family: $font-family;
+        src: url('#{$file-path}/#{$font-family}.svg##{$font-family}') format('svg');
+    }
+  }
+}
+
+@include font-face(LovinSansWeb-Black, 'fonts/LovinSansWeb/black', normal, normal);
+@include font-face(LovinSansWeb-Bold, 'fonts/LovinSansWeb/bold', normal, normal);
+@include font-face(LovinSansWeb-Medium, 'fonts/LovinSansWeb/medium', normal, normal);
+@include font-face(LovinSansWeb-Regular, 'fonts/LovinSansWeb/regular', normal, normal);
+@include font-face(LovinSansWeb-Light, 'fonts/LovinSansWeb/light', normal, normal);
+@include font-face(LovinSansWeb-Thin, 'fonts/LovinSansWeb/thin', normal, normal);
+
+.sso-h1 {
+  font-family: $font-lovinsans-medium;
+  text-transform: uppercase;
+  @include fontSet(24px, 24px);
+  text-align: center;
+  margin-bottom: 25px;
+  margin-top: 30px;
+
+  @media (min-width: 768px){
+    @include fontSet(26px, 26px);
+  }
+}
+
+.sso-h2 {
+  @include fontNormal();
+  @include fontSet(15px, 18px);
+  text-align: center;
+  margin-bottom: 25px;
+  margin-top: -10px;
+
+  @media (min-width: 768px){
+    @include fontSet(20px, 23px);
+  }
+}
+
+.sso-li-text p, .sso-p {
+  @include fontNormal();
+  @include fontSet(15px, 18px);
+
+  a {
+    color: $red;
+    text-decoration: underline;
+    @include fontBold();
+  }
+
+  strong {
+    @include fontBold();
+  }
+}
+.sso-li-text p a {display: inline;}
+
+.sso-p-error {
+  color: $red;
+  @include fontNormal();
+  @include fontSet(15px, 18px);
+
+  a {
+    color: $red;
+    text-decoration: underline;
+    @include fontBold();
+  }
+
+  strong {
+    @include fontBold();
+  }
+}
+
+.sso-p-btn {
+  @include fontNormal();
+  @include fontSet(15px, 18px);
+  text-align: center;
+  width: 100%;
+  margin: 20px 0px;
+  display: block;
+}
+
+.sso-disclaimer {
+  a {
+    color: $red;
+    text-decoration: underline;
+  }
+}

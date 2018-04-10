@@ -1,0 +1,227 @@
+.flexslider {
+  @include make-container();
+  width: 100%;
+  height: to-rem(510);
+  background-color: transparent;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  box-shadow: 0, 0, 0, rgba(0, 0, 0, 0);
+  overflow: hidden;
+  margin-top: to-rem(20);
+
+  .slides > li {
+    overflow: hidden;
+    position: relative;
+  }
+  .flex-control-nav {
+    bottom: 0;
+    li {
+      height: to-rem(22);
+    }
+  }
+
+  /*
+    Note: .flex-control-paging is the container for tiny dots representing a slide
+    */
+  .flex-control-paging li a {
+    background: transparent;
+    border: to-rem(3) solid $interface-fill-1;
+    width: to-rem(15);
+    height: to-rem(15);
+    @include box-shadow(00 00 00 rgba(0, 0, 0, 0)); //outline: none;
+    &.flex-active {
+      background: $interface-fill-1;
+    }
+    .cont-play-pause-buttons {
+      position: relative;
+      z-index: 2;
+      @media only screen and (min-width: $break-point) {
+        z-index: 2;
+      }
+      button {
+        color: $interface-fill-1;
+        border: 0;
+        padding: 0;
+        background: transparent;
+        margin-left: to-rem(10);
+        position: absolute;
+        top: 0;
+        &.paused i:before {
+          content: "\f28b";
+        }
+      }
+    }
+  }
+
+  /*
+    Note: .custom-direction-nav is the container for next & previous buttons
+    */
+  .custom-direction-nav {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    a {
+      text-decoration: none;
+      display: block;
+      margin: to-rem(-20) 0 0;
+      position: absolute;
+      z-index: 10;
+      overflow: hidden;
+      cursor: pointer;
+      text-shadow: to-rem(1) to-rem(1) 0 rgba(255, 255, 255, 0.3);
+      -webkit-transition: all 0.3s ease-in-out;
+      -moz-transition: all 0.3s ease-in-out;
+      -ms-transition: all 0.3s ease-in-out;
+      -o-transition: all 0.3s ease-in-out;
+      transition: all 0.3s ease-in-out;
+      &:before {
+        font-family: "flexslider-icon";
+        display: inline-block;
+        content: '\f001';
+        font-size: to-rem(24);
+        padding-top: to-rem(8);
+        text-shadow: none;
+        color: #fff;
+      }
+      &.flex-next {
+        &:before {
+          content: '\f002';
+        }
+      }
+    }
+  }
+  .flex-prev,
+  .flex-next {
+    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzAwMDAwMCIgc3RvcC1vcGFjaXR5PSIwLjc1Ii8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMDAwMDAiIHN0b3Atb3BhY2l0eT0iMC43NSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+    background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.75) 100%);
+    background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.75) 100%);
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.75) 100%);
+    bottom: to-rem(20);
+    top: initial;
+    opacity: 1;
+  }
+  .flex-prev {
+    padding-left: to-rem(10);
+    border-radius: 0, to-rem(40), to-rem(40), 0;
+    left: 0;
+  }
+  .flex-next {
+    padding-right: to-rem(10);
+    border-radius: to-rem(40), 0, 0, to-rem(40);
+    right: 0;
+    text-align: right;
+  }
+  .flex-direction-nav a,
+  .custom-direction-nav a {
+    color: $interface-fill-1;
+    opacity: 0.7;
+    height: to-rem(40);
+    width: to-rem(40);
+    &::before {
+      font-size: to-rem(24);
+      padding-top: to-rem(8);
+      text-shadow: none;
+      color: $interface-fill-1;
+    }
+  }
+  @media only screen and (min-width: $break-point) {
+    height: to-rem(520);
+    .flex-prev,
+    .flex-next {
+      bottom: initial;
+      top: 50%;
+      opacity: 1;
+    }
+    .flex-direction-nav a,
+    .custom-direction-nav a {
+      opacity: 1;
+      height: to-rem(60);
+      width: to-rem(50);
+      &::before {
+        font-size: to-rem(30);
+        padding-top: to-rem(20);
+        margin-bottom: to-rem(10);
+      }
+    }
+    .flex-direction-nav .flex-prev,
+    .custom-direction-nav .flex-prev {
+      left: 0;
+    }
+    .flex-direction-nav .flex-next,
+    .custom-direction-nav .flex-next {
+      right: 0;
+    }
+  }
+
+  .caption {
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+
+    .large-headline-text {
+      margin: to-rem(142) to-rem(590) to-rem(10) to-rem(45);
+      @include make-h1($white-1);
+    }
+  }
+}
+
+// #homeCarouselComponent .custom-direction-nav a.flex-next:before {
+//   margin-left: to-rem(15);
+// // }
+// .flex-nav-cust {
+//   position: absolute;
+//   z-index: 10;
+//   top: 0;
+//   margin-top: 0;
+//   @media only screen and (min-width: $break-point) {
+//     top: 50%;
+//     margin-top: to-rem(-50);
+//   }
+//   &.flex-nav-prev {
+//     left: 0;
+//   }
+//   &.flex-nav-next {
+//     right: 0;
+//   }
+//   a {
+//     height: to-rem(40);
+//     width: to-rem(40);
+//     background: #fff;
+//     display: block;
+//     overflow: hidden;
+//     @media only screen and (min-width: $break-point) {
+//       height: to-rem(56);
+//       width: to-rem(50);
+//     }
+//     &:before {
+//       color: $mcdonalds-red;
+//       font-family: "flexslider-icon";
+//       font-size: to-rem(24);
+//       padding-top: to-rem(8);
+//       display: inline-block;
+//       content: '\f001';
+//       text-shadow: to-rem(1) to-rem(1) 0 rgba(255, 255, 255, 0.3);
+//       @media only screen and (min-width: $break-point) {
+//         font-size: to-rem(30);
+//         padding-top: to-rem(19);
+//       }
+//     }
+//     &.flex-prev {
+//       padding-left: to-rem(10);
+//       border-radius: 0, to-rem(40), to-rem(40), 0;
+//     }
+//     &.flex-next {
+//       padding-right: to-rem(10);
+//       border-radius: to-rem(40), 0, 0, to-rem(40);
+//       text-align: right;
+//       &:before {
+//         content: '\f002';
+//       }
+//     }
+//   }
+// }

@@ -1,0 +1,244 @@
+$social-icon-font-size: 32;
+
+.mcd-global-footer {
+  padding: 3rem 0;
+  font-family: 'ArchSans';
+
+  .footer__container {
+    @include make-container();
+  }
+
+  .links {
+    padding: 0;
+    margin: 0;
+
+    .link {
+      line-height: 1.25rem;
+    }
+
+    &__item {
+      list-style: none;
+      margin-bottom: 0.6rem;
+
+      .link {
+        color: $dark-gray-1;
+      }
+    }
+
+    .links--title {
+      margin-bottom: 1rem;
+
+      .link {
+        color: $dark-gray-2;
+      }
+    }
+  }
+
+  &__profiles {
+    margin: 2.5rem 0;
+
+    @extend .clearfix;
+
+    .links__item {
+      display: inline;
+    }
+
+    .social,
+    .apps {
+      text-align: center;
+    }
+
+    .social {
+      margin-bottom: to-rem(20);
+
+      .link {
+        font-size: to-rem($social-icon-font-size);
+        margin-right: to-rem(20);
+
+        &:hover {
+          text-decoration: none;
+          [class^="icon-"],
+          [class*=" icon-"] {
+            width: to-rem(34);
+            height: to-rem(34);
+            border-radius: to-rem(17);
+
+            [class^="path"],
+            [class*=" path"] {
+              margin-top: to-rem(10);
+              -ms-text-fill-color: white;
+              -webkit-text-fill-color: white;
+              fill: white;
+            }
+          }
+
+          .icon-facebook {
+            background-color: $facebook;
+            .path1 {
+              -ms-text-fill-color: $facebook;
+              -webkit-text-fill-color: $facebook;
+              fill: $facebook;
+            }
+          }
+
+          .icon-twitter {
+            background-color: $twitter;
+            .path1 {
+              -ms-text-fill-color: $twitter;
+              -webkit-text-fill-color: $twitter;
+              fill: $twitter;
+            }
+          }
+
+          .icon-youtube {
+            background-color: $youtube;
+            .path1 {
+              -ms-text-fill-color: $youtube;
+              -webkit-text-fill-color: $youtube;
+              fill: $youtube;
+            }
+          }
+
+          .icon-instagram {
+            background-color: $instagram;
+            .path1 {
+              -ms-text-fill-color: $instagram;
+              -webkit-text-fill-color: $instagram;
+              fill: $instagram;
+            }
+          }
+
+          .icon-tumblr {
+            background-color: $tumblr;
+            .path1 {
+              -ms-text-fill-color: $tumblr;
+              -webkit-text-fill-color: $tumblr;
+              fill: $tumblr;
+            }
+          }
+
+          .icon-spotify {
+            background-color: $spotify;
+            .path1 {
+              -ms-text-fill-color: $spotify;
+              -webkit-text-fill-color: $spotify;
+              fill: $spotify;
+            }
+          }
+        }
+      }
+    }
+
+    .apps {
+      font-size: to-rem(35);
+      a {
+        color: $dark-gray-1;
+        &:hover {
+          text-decoration: none;
+          color: $dark-gray-2;
+        }
+      }
+    }
+  }
+
+  &__legal {
+    border-top: to-rem(1) solid $light-gray-1;
+    padding-top: to-rem(30);
+    text-align: center;
+    font-family: 'Archsans-Light';
+
+    .links {
+      margin: to-rem(20) 0;
+
+      &__item {
+        display: inline;
+        padding: 0 to-rem(5);
+
+        &:first-of-type {
+          display: block;
+          margin-bottom: to-rem(20);
+        }
+
+        .link {
+          font-size: to-rem(11);
+        }
+      }
+    }
+
+    .details {
+      .copyright {
+        color: $dark-gray-1;
+        font-size: to-rem(11);
+      }
+    }
+  }
+}
+
+@media screen and (min-width: $break-point) {
+  .mcd-global-footer {
+    &__profiles {
+      .social,
+      .apps {
+        @include make-lg-column(6, 0);
+
+        text-align: left;
+      }
+
+      .social {
+        margin-bottom: 0;
+
+        [class^="icon-"],
+        [class*=" icon-"] {
+          &:hover {
+            &:before {
+              color: blue;
+            }
+          }
+        }
+      }
+
+      .apps {
+        text-align: right;
+      }
+    }
+
+    &__legal {
+      text-align: left;
+
+      .links {
+        margin: 0;
+
+        @include make-lg-column(8, 0);
+
+        padding-top: to-rem(10);
+
+        &__item {
+          display: inline;
+          padding: 0 to-rem(40) 0 0;
+
+          &:first-of-type {
+            display: inline;
+            margin: 0;
+          }
+        }
+      }
+
+      .details {
+        @include make-lg-column(4, 0);
+
+        padding-top: to-rem(10);
+        text-align: right;
+
+        .copyright {
+          font-size: to-rem(14);
+          .icon-golden-arches {
+            display: inline-block;
+            font-size: to-rem(25);
+            margin-right: to-rem(10);
+            vertical-align: middle;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,332 @@
+<sly data-sly-use.info="com.mcd.rwd.us.core.sightly.NutritionCalculator">
+	<sly data-sly-test="${info.categoryDetailList[0].id ==null || info.allNutrients =='' || info.secondaryNutrients==''}">
+		<h2>Please configure the image, category, primary nutrients and secondary nutrients</h2>
+	</sly>
+	<sly data-sly-test="${info.categoryDetailList[0].id !=null && info.allNutrients !='' && info.secondaryNutrients!=''}">
+	      <div class="nutrition-calculator" ng-controller="nutritionCalculatorController" ng-cloak>
+	        <div class="cont-hero" style="background: url('${info.imageHref @ context='unsafe'}'); background-size: cover; background-position: 50% 0%;"> <img src="${info.imageHref}" class="cont-100 hidden-xs zoom-anim-target img-responsive" alt="${info.title}" title="${info.title}" />
+	          <div class="absolute-content">
+	            <div class="absolute-content-wrapper">
+	              <div class="container">
+	                <div class="row">
+	                  <div class="col-md-12 col-lg-10 col-lg-offset-1">
+	                    <div class="text-wrapper">
+	                      <h1>${info.title}</h1>
+	                      <div class="row">
+	                        <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
+	                          <p>${info.description}</p>
+	                          <div class="select"> <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{catName}}<i class="fa fa-chevron-down"></i></button>
+	                            <ul class="dropdown-menu">
+	                              <div class="dropdown-list-wrapper">
+	                              <sly data-sly-list.categoryDetailList="${info.categoryDetailList}">
+	                                <li ng-click="catName='${categoryDetailList.marketingName}';catId='${categoryDetailList.Id}';getCatDetails();hideMyMeal() ">
+	                                	<a href="#categoryLoading" data-catid="${categoryDetailList.Id}">${categoryDetailList.marketingName}</a>
+	                                </li>
+	                                </sly>
+	                              </div>
+	                            </ul>
+	                          </div>
+	                        </div>
+	                      </div>
+	                    </div>
+	                  </div>
+	                </div> <span id="scroll-top"></span> </div>
+	            </div>
+	          </div>
+	          <div class="cont-meal-tab">
+	            <div class="container">
+	              <div ng-click="openMyMeal($event)" class="row">
+						<div class="col-xs-12 cont-text">
+							<a role="button" class="btn scroll-btn"> {{myMealCounter}} ${info.itemIn} <span
+								class="large">${info.myMeal}</span> <i aria-label="down"
+								class="fa fa-chevron-down"></i>
+							</a>
+						</div>
+					</div>
+	            </div>
+	          </div>
+	        </div>
+
+	        <!-- start of my meal -->
+
+	        <div class="meal-items">
+	          <div class="my-meal">
+	            <h4><span>${info.myMeal}</span> ${info.total}</h4>
+	            <div class="container totals">
+	               <sly data-sly-list.nutrientsList="${info.nutrientsList}">
+	              	<div><span>{{allData['${nutrientsListList.index}']}}<span class="small" style="outline: none;">{{allDataUom['${nutrientsListList.index}']}}</span></span>${nutrientsList.marketingName}<span class="yellow" style="outline: none;">{{allDataPercent['${nutrientsListList.index}']}}</span></div>
+	               </sly>
+	            </div>
+	          </div>
+	          <div class="ncshowtext" style="display:none;">${info.showDetails}</div>
+	          <div class="nchidetext" style="display:none;">${info.hideDetails}</div>
+	        <div class="mymealloader" style="text-align:center;">
+	   			<img src="/etc/clientlibs/mcd-us/images/spinner.gif" alt="loading">
+			</div>
+
+	          <div class="panel-group" id="nutrition-accordion" role="tablist" aria-multiselectable="true">
+
+	            <div class="panel" ng-repeat="z in itemsJsonResponse" on-finish-render-nc="ngRepeatFinishedNc">
+	            <div ng-init="p=z;buildList=buildList(z)">
+	              <div class="panel-heading" id="{{$index+'-'+z.item.item_id}}Heading" data-itemid="{{z.item.item_id}}">
+	                <div class="panel-title container">
+	                  <div class="row">
+	                    <div class="col-sm-2 col-xs-3 col-sm-offset-0 col-xs-offset-1 image">
+	                    	<img alt="{{equals(z.item.item_marketing_name,{}) ? z.item.item_name : z.item.item_marketing_name}}" title="{{equals(z.item.item_marketing_name,{}) ? z.item.item_name : z.item.item_marketing_name}}" ng-src="${info.itemImageFolderPath}/{{getItemImage(z.item)}}" />
+	                    </div>
+	                    <div class="col-sm-6 col-xs-5 name"> {{equals(z.item.item_marketing_name,{}) ? z.item.item_name : z.item.item_marketing_name}} </div>
+	                    <div class="col-sm-4 col-xs-3 actions">
+	                     <a class="details-toggle collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#{{$index+'-'+z.item.item_id}}" aria-expanded="true" aria-controls="{{z.item.item_id}}">${info.showDetails}</a>
+	                      <button class="add-item" ng-click="addItem(z.item.id,true)"></button>
+	                      <button class="remove-item" ng-click="removeItem(z.item.id)"></button>
+	                    </div>
+	                  </div>
+	                </div>
+	              </div>
+	              <div id="{{$index+'-'+z.item.item_id}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="{{z.item.item_id}}Heading"  ng-init="mutex= getMutex(z);comps =getComponents(z)">
+	                <div class="panel-body">
+	                  <div class="container">
+	                    <div class="row">
+	                      <div class="col-xs-12">
+	                        <h4>${info.customize}
+	                         <span class="large"> {{equals(z.item.item_marketing_name,{}) ? z.item.item_name : z.item.item_marketing_name}} </span>
+	                        </h4>
+	                     </div>
+	                    </div>
+	                    <div class="row slider">
+	                      <div class="flex-container">
+	                        <div class="customize-flexslider flexslider">
+	                          <div class="custom-flex-navigation">
+	                            <a href="#" class="flex-prev"></a>
+	                            <div class="custom-controls-container"></div>
+	                            <a href="#" class="flex-next"></a>
+	                          </div>
+	                          <ul class="slides">
+	                         	<!-- Mutex start -->
+								<li ng-repeat="j in mutex">
+									<input ng-click="updateItemList(z.item.id,j.id,j.radioName,$parent.$index,$event);toggleMutex($event,j.radioName,j.id)" ng-init="itemName=j.product_name!=null ? j.product_name:j.item_name" type="radio" name="{{z.item.id}}-{{j.radioName}}-components" id="{{$parent.$index+'-'+z.item.id}}-{{j.radioName}}-{{itemName}}" value="{{itemName}}" role="radio" aria-checked="{{j.is_default}}" ng-checked="j.is_default">
+										<label class="radio-inline" for="{{$parent.$index+'-'+z.item.id}}-{{j.radioName}}-{{itemName}}">
+											<img class="img-responsive op" title="{{itemName}}" alt="{{itemName}}"	ng-src="${info.componentImageFolderPath}/{{getComponentImage(j)}}" />
+											<div class="caption">
+												<span> {{itemName}}	</span>
+											</div>
+										</label>
+								</li>
+							<!-- 	Mutex end -->
+
+							<!-- Component start -->
+
+								  <li ng-repeat="j in comps ">
+	                            	<input ng-click="updateItemList(z.item.id,j.id,j.id,$parent.$index,$event);toggleIngredient($event,j.id)" ng-init="itemName=j.product_name!=null ? j.product_name:j.item_name;selected=isComponentChecked(j.id) ? true:false" type="checkbox" role="checkbox" aria-checked="{{selected}}" id="{{$parent.$index+'-'+z.item.id}}-{{j.radioName}}-{{itemName}}" value="{{itemName}}" ng-checked="selected">
+	                            	 <label for="{{$parent.$index+'-'+z.item.id}}-{{j.radioName}}-{{itemName}}">
+	                            	 	<img class="img-responsive op" alt="{{itemName}}" title="{{itemName}}" ng-src="${info.componentImageFolderPath}/{{getComponentImage(j)}}" />
+										<div class="caption">
+											<span>  {{itemName}} </span>
+										</div>
+									</label>
+								</li>
+
+								<!-- Component end -->
+							</ul>
+	                        </div>
+	                      </div>
+	                    </div>
+
+	                    <!-- 	servig size start -->
+
+	                    <div ng-init="serveSize = getServingSize(z)" class="row item-options">
+	                      <div ng-if="serveSize.length>0"  class="options-container col-xs-12">
+	                        <div class="option">
+	                          <div class="select">
+	                           ${info.servingSize}
+	                          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	                          	{{serveSize.first}}
+	                          		<i class="fa fa-chevron-down"></i>
+	                          </button>
+	                            <ul class="dropdown-menu">
+	                              <div class="dropdown-list-wrapper">
+	                                <li ng-repeat="r in serveSize">
+	                                	<a ng-click="updateItems(r.id,z.item.item_id)" href="">{{r.label}}</a>
+	                                </li>
+	                              </div>
+	                            </ul>
+	                          </div>
+	                        </div>
+	                      </div>
+	                    </div>
+
+	                    <!-- 	servig size end -->
+
+	                  </div>
+	                  <div class="item-details">
+	                    <!-- Nav tabs -->
+	                    <div class="tab-contain">
+	                      <ul class="container nav nav-tabs" role="tablist">
+	                        <li role="presentation" class="active"><a href="#{{$index+'-'+z.item.item_id}}nutrition" aria-controls="nutrition" role="tab" data-toggle="tab">${info.nutritiontTab}</a></li>
+	                        <li role="presentation"><a href="#{{$index+'-'+z.item.item_id}}full-ingredients" aria-controls="{{z.item.item_id}}full-ingredients" role="tab" data-toggle="tab">${info.fullIngredientsTab}</a></li>
+	                      </ul>
+	                    </div>
+	                    <!-- Tab panes -->
+	                    <div class="container tab-content">
+	                      <div role="tabpanel" class="tab-pane active" id="{{$index+'-'+z.item.item_id}}nutrition">
+	                        <div class="totals">
+	                          <ul>
+		                        <sly data-sly-list.nutrientsList="${info.nutrientsList}">
+    		      	                <li>
+	           		                  <div class="number"> {{primaryNutritionData[$index]['${nutrientsListList.index}'].value}} {{primaryNutritionData[$index]['${nutrientsListList.index}'].uom}}</div>
+	                   		          <div class="type"> ${nutrientsList.marketingName} {{primaryNutritionData[$index]['${nutrientsListList.index}'].percent}} </div>
+		    	            		</li>
+	                        	</sly>
+	                          </ul>
+	                        </div>
+	                        <div class="row detailed">
+	                        <sly data-sly-list.secondaryNutrientsList="${info.secondaryNutrientsList}">
+	                          <div class="col-sm-4 col-xs-6"> <span>${secondaryNutrientsList.marketingName}:</span> {{secondaryNutritionData[$index]['${secondaryNutrientsListList.index}'].value}} {{secondaryNutritionData[$index]['${secondaryNutrientsListList.index}'].uom}} {{secondaryNutritionData[$index]['${secondaryNutrientsListList.index}'].percent}}</div>
+	                        </sly>
+	                        <div  ng-if="getServes(z.item)!=''" class="col-sm-4 col-xs-6"> <span>${info.serves}: </span>{{getServes(z.item)}}</div>
+	                        </div>
+	                      </div>
+	                      <div role="tabpanel" class="tab-pane" id="{{$index+'-'+z.item.item_id}}full-ingredients">
+	                        <div class="full-detailed container">
+	                          <div class="row">
+	                      
+	                           	<div ng-if="isArray(comps)">
+		                            <div ng-repeat="c in comps" ng-if="getStatement(c.ingredient_statement)!=''" ng-class="!isComponentChecked(c.id) ? 'col-sm-4 col-xs-12 nc_item_ingredient ingredienthide' : 'col-sm-4 col-xs-12 nc_item_ingredient'" data-ingredientid="{{c.id}}">
+			                            <h5>
+			                            	{{angular.equals(c.product_marketing_name,{}) ? c.product_marketing_name : c.product_name}}
+			                            </h5>
+			                            {{getStatement(c.ingredient_statement)}}
+			                            <span ng-if="getAllergen(c.product_allergen)!=''">
+			                              	${info.allergen}: {{getAllergen(c.product_allergen)}}
+			                            </span>
+			                            <div>{{getAdditionalStatement(c.product_additional_text_ingredient_statement)}}</div>
+		                           	</div>
+		                           	
+		                           	 <div ng-repeat="c in comps" ng-if="getStatement(c.item_ingredient_statement)!=''" ng-class="!isComponentChecked(c.id) ? 'col-sm-4 col-xs-12 nc_item_ingredient ingredienthide' : 'col-sm-4 col-xs-12 nc_item_ingredient'" data-ingredientid="{{c.id}}">
+			                            <h5>
+			                            	{{angular.equals(c.item_marketing_name,{}) ? c.item_marketing_name : c.item_name}}
+			                            </h5>
+			                            {{getStatement(c.item_ingredient_statement)}}
+			                            <span ng-if="getAllergen(c.item_allergen)!=''">
+			                              	${info.allergen}: {{getAllergen(c.item_allergen)}}
+			                            </span>
+			                            <div>{{getAdditionalStatement(c.item_additional_text_ingredient_statement)}}</div>
+		                           	</div>
+		                           	
+	                           	</div>
+	                 
+	                           	<div ng-if="isArray(mutex)" >
+		                           	<div ng-repeat="c in mutex" ng-if="getStatement(c.ingredient_statement)!=''" ng-class="c.is_default ? 'col-sm-4 col-xs-12 nc_mutex_ingredient' : 'col-sm-4 col-xs-12 nc_mutex_ingredient mutexhide'" data-mutexgroupid="{{c.radioName}}" data-mutexid="{{c.id}}">
+		                           		<h5>
+		                           			{{angular.equals(c.product_marketing_name,{}) ? c.product_marketing_name : c.product_name}}
+		                           		</h5>
+		                           		{{getStatement(c.ingredient_statement)}}
+		                           		<span ng-if="getAllergen(c.product_allergen)!=''">
+		                           			${info.allergen}: {{getAllergen(c.product_allergen)}}
+		                           		</span>
+		                           		<div>{{getAdditionalStatement(c.product_additional_text_ingredient_statement)}}</div>
+		                           	</div>
+		                           	
+		                           	 <div ng-repeat="c in mutex" ng-if="getStatement(c.item_ingredient_statement)!=''" ng-class="c.is_default ? 'col-sm-4 col-xs-12 nc_mutex_ingredient' : 'col-sm-4 col-xs-12 nc_mutex_ingredient mutexhide'" data-mutexgroupid="{{c.radioName}}" data-mutexid="{{c.id}}">
+		                           		<h5>
+		                           			{{angular.equals(c.item_marketing_name,{}) ? c.item_marketing_name : c.item_name}}
+		                           		</h5>
+		                           		{{getStatement(c.item_ingredient_statement)}}
+		                           		<span ng-if="getAllergen(c.item_allergen)!=''">
+		                           			${info.allergen}: {{getAllergen(c.item_allergen)}}
+		                           		</span>
+		                           		<div>{{getAdditionalStatement(c.item_additional_text_ingredient_statement)}}</div>
+		                           	</div>
+		                           	
+	                           	</div>
+	                           	
+	                          </div>
+	                        </div>
+	                      </div>
+	                    </div>
+	                  </div>
+	                </div>
+	              </div>
+	            </div>
+	            </div>
+	          </div>
+	     </div>
+
+	        <!-- end of my meal -->
+
+	        <div class="cont-food" ng-show="!categoryLoading" id="categoryLoading">
+	          <div class="container">
+	            <table class="table table-striped">
+	              <thead class="hidden-xs">
+	                <tr>
+	                  <th colspan="2" class="col-xs-2 col-sm-3 col-md-4 cont-name"> {{catName}} </th>
+	                  <th class="col-xs-10 col-sm-8 col-md-7 cont-data">
+	                    <table class="table">
+	                      <thead>
+	                        <tr>
+	                        <sly data-sly-list.nutrientsList="${info.nutrientsList}">
+	                          <th id="c${nutrientsList.index} " class="col-xs-2"> ${nutrientsList.marketingName} </th>
+	                        </sly>
+	                        <th id="c${nutrientsList.index} " class="col-xs-2">${info.addRemove}</th>
+	                        </tr>
+	                      </thead>
+	                    </table>
+	                  </th>
+	                </tr>
+	              </thead>
+	              <tbody>
+	              <tr ng-repeat-start="x in catItems" ng-if=displayItem(x)>
+	                  <td class="col-xs-4 col-sm-1 col-md-1 cont-img">
+	                    <a class="visible-xs-inline-block btn collapsed" role="button" data-toggle="collapse" href="#collapseBurger{{$index}}" aria-expanded="false" aria-controls="collapseBurger{{$index}}">
+	                     <i class="fa fa-chevron-right fa-lg"></i>
+	                    </a>
+	                    <img class="img-responsive" ng-src="${info.itemImageFolderPath}/{{getItemImage(x)}}" alt="{{x.item_marketing_name}}" title="{{x.item_marketing_name}}" />
+	                  <td class="col-xs-7 col-sm-3 col-md-4 cont-name"> {{x.item_marketing_name}} </td>
+	                  <td class="col-xs-1 col-sm-8 col-md-7 cont-data">
+	                    <table class="table">
+	                      <tbody>
+	                        <tr>
+	                          <td ng-if="isArray(x.nutrient_facts.nutrient)" ng-repeat="y in x.nutrient_facts.nutrient" headers="c1" class="hidden-xs col-xs-2">
+	                          	 {{getNutritionData(x,$index).value}}
+	                          </td>
+	                          <td ng-if="!equals({}, x.nutrient_facts) && !isArray(x.nutrient_facts.nutrient)" headers="c1" class="hidden-xs col-xs-2">
+	                          	 {{getNutritionData(x,0).value}}
+	                          </td>
+	                          <td ng-if="equals({}, x.nutrient_facts)" ng-repeat="y in allNutritionIds" headers="c1" class="hidden-xs col-xs-2">
+	                          	 N/A
+	                          </td>
+	                          <td headers="c6" class="col-xs-12 col-sm-2">
+	                          	<a href="" title="${info.addRemove}">
+	                          		<i ng-init="selectedClass=getClass(x.item_id)" class="fa fa-{{selectedClass}}-circle fa-2x" ng-click="addItem(x.item_id,false);selectedClass='check'" data-itemId="{{x.item_id}}">
+	                          		</i>
+	                          	</a>
+	                          </td>
+	                        </tr>
+	                      </tbody>
+	                    </table>
+	                  </td>
+	              </tr>
+	                <tr id="collapseBurger{{$index}}" ng-repeat-end="" class="collapse fade data-mobile" ng-if=displayItem(x)>
+	                  <td colspan="3">
+	                    <div class="cont-items clearfix">
+	                    	<sly data-sly-list.nutrientsList="${info.nutrientsList}">
+		                        <div class="item"> {{getNutritionData(x,'${nutrientsListList.index}').value}}{{getNutritionData(x,'${nutrientsListList.index}').uom}} <span class="light">${nutrientsList.marketingName} {{getNutritionData(x,'${nutrientsListList.index}').percent}} </span> </div>
+	                    	</sly>
+	                    </div>
+	                  </td>
+	                </tr>
+
+	              </tbody>
+	            </table>
+	          </div>
+	        </div>
+
+	        <div ng-show="categoryLoading" style="text-align:center;">
+	   			<img src="/etc/clientlibs/mcd-us/images/spinner.gif" alt="loading">
+			</div>
+
+            <div class="nutritionData hidden" data-catname="${info.categoryDetailList[0].marketingName @ context='unsafe'}" data-catid="${info.categoryDetailList[0].Id @ context='unsafe'}" data-ids="${info.allNutrients @ context='unsafe'}" data-secondaryids="${info.secondaryNutrients @ context='unsafe'}" data-allnutrients="${info.allNutrients @ context='unsafe'}"></div>
+            <div class="nutritionDnaUrl hidden" data-catdetails="${info.dnaCategoryDetailsUrl @ context='unsafe'}" data-itemdetails="${info.dnaItemDetailsUrl @ context='unsafe'}" data-itemlist="${info.dnaItemListUrl @ context='unsafe'}"></div>
+	      </div>
+	</sly>
+</sly>

@@ -1,0 +1,134 @@
+.page-offers {
+
+  .template-hero-bg {
+    min-height: 350px;
+
+    @include breakpoint(sm) {
+      min-height: 400px;
+    }
+
+    .cont-btns {
+      padding-top: 25px;
+    }
+
+    .absolute-content .absolute-content-wrapper {
+      text-align: center;
+
+      .h1 {
+        margin: 0;
+        color: $black;
+        @include fontSet(50px, 50px, $font-lovinsans-black);
+
+        @media only screen and (min-width: 320px) {
+            @include fontSet(75px, 75px, $font-lovinsans-black);
+        }
+        @media only screen and (min-width: 480px) {
+            @include fontSet(100px, 100px, $font-lovinsans-black);
+        }
+        @media only screen and (min-width: 768px) {
+            @include fontSet(125px, 125px, $font-lovinsans-black);
+        }
+        @media only screen and (min-width: 992px) {
+            @include fontSet(150px, 150px, $font-lovinsans-black);
+        }
+      }
+      p {
+        color: $black;
+        margin-bottom: 0;
+        @include fontSet(26px, 36px, $font-lovinsans);
+      }
+    }
+  }
+
+
+  // COMPONENT: FEATURE CALLOUT
+  .component-feature-callout .absolute-content .absolute-content-wrapper.offer {
+    padding-top: 5%;
+
+    @media only screen and (min-width: 768px) {
+      padding-top: 1%;
+    }
+  }
+
+
+  .inbox-offers-cont {
+    background: $light-gray;
+
+    .inbox-label {
+      padding-top: 30px;
+      text-align: center;
+      color: $gray;
+      @include fontSet(44px, 20px, 'Droid_Arabic_Kufi_Bold');
+
+      .large {
+        text-transform: uppercase;
+        @include fontSet(44px, 20px, 'Droid_Arabic_Kufi_Bold');
+      }
+    }
+    .inbox-inputs-cont {
+      margin: 10px 0 30px;
+      padding: 10px 0 20px;
+    }
+  }
+
+
+  .cont-form {
+    .cont-heading {
+      a {
+        text-decoration: none;
+      }
+      .heading-one {
+        margin: 22px 0;
+        text-align: center;
+        color: $black-text;
+        @include fontSet(22px, 22px, 'Droid_Arabic_Kufi_Regular');
+
+        @media only screen and (min-width: 480px){
+          @include fontSet(28px, 28px, 'Droid_Arabic_Kufi_Regular');
+        }
+
+        .large {
+          text-transform: uppercase;
+          @include fontSet(22px, 22px, 'Droid_Arabic_Kufi_Bold');
+
+          @media only screen and (min-width: 480px){
+            @include fontSet(28px, 28px, 'Droid_Arabic_Kufi_Bold');
+          }
+        }
+
+        .fa {
+          color: $red;
+        }
+      }
+    }
+
+    .cont-content {
+      .content-wrapper {
+        padding-bottom: 40px;
+        padding-top: 20px;
+      }
+
+      .close-offer {
+        background: transparent;
+        border: 0;
+        float: left;
+      }
+      .inbox-label-inner {
+        text-align: center;
+        color: $black-text;
+        @include fontSet(33px, 40px, 'Droid_Arabic_Kufi_Bold');
+
+
+
+        .large {
+          @include fontSet(100px, 100px, 'Droid_Arabic_Kufi_Bold');
+
+          @media only screen and (min-width: 480px){
+            @include fontSet(125px, 125px, 'Droid_Arabic_Kufi_Bold');
+          }
+        }
+      }
+    }
+  }
+
+}

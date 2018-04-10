@@ -1,0 +1,30 @@
+<sly data-sly-use.wtaInfo="com.mcd.rwd.us.core.sightly.forms.IssueTypeTrademark">
+    <sly data-sly-test="${!wtaInfo.aboutOptions && !wcmmode.disabled}">
+        <p>Please configure form subsection in dialog.</p>
+    </sly>
+    <sly data-sly-test="${wtaInfo.aboutOptions}">
+        <section class="page-contact-us__subpage__what-about" style="background:${wtaInfo.sectionBackgroundColor @ context='styleToken'};">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <h2>${wtaInfo.sectionTopHeading}</h2>
+                            <p style="outline: none;" data-sly-test="${wtaInfo.sectionSubHeading}">${wtaInfo.sectionSubHeading}</p>
+                            <div class="select select--@@modifiers">
+                                <select aria-label="${wtaInfo.wtaAriaLabel}"  class="form-control" name="topic" id="whatIsThisAboutTradeMark" >
+                                    <option data-hidden="true" value="">Select</option>
+                                    <sly data-sly-list="${wtaInfo.aboutOptions}">
+                                        <option value="${item}">${item}</option>
+                                    </sly>
+                                </select>
+                            </div>
+                            <p>&nbsp;</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </section>
+        <div class="clear"></div>
+    </sly>
+</sly>                         

@@ -1,0 +1,14 @@
+ <section title="banner">
+    <div data-sly-use.articleDsec="com.mcd.rwd.newsroom.core.sightly.ArticleDescriptionHandler">
+        <div class="container" style="outline: none;">
+            <div class="row" data-sly-test="${articleDsec.articleDescription}">
+                <div class="how-can-we-help-text">
+                    ${articleDsec.articleDescription @ context='html'}
+                </div>
+            </div>
+        </div>
+        <sly data-sly-test="${(!articleDsec.articleDescription) && (wcmmode.edit || wcmmode.design)}">
+            <h3>Please Configure the Article Description Component</h3>
+        </sly>
+    </div>
+</section>

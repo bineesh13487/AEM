@@ -1,0 +1,157 @@
+<!--Start of Results content-->
+<sly data-sly-use.cokeStoreHandler="com.mcd.rwd.us.core.sightly.CokeStoreHandler">
+<div class="restaurantLocator_results" ng-show="displayRlResultView">
+  <div name="displayResultView" class="container">
+    <p ng-bind-html="resultMessage"></p>
+    <a ng-show="isMulti" class="disambiguitydemo" data-toggle="modal" data-target="#restaurantLocatorDisambiguityModal" ng-cloak></a>
+  </div>
+</div>
+
+<section title="${cokeStoreHandler.ariaLabelSearchResult}" class="restaurantLocator_view-container" ng-show="displayRlResultView">
+  <!--Tab navigation header for Map and List view-->
+  <div class="nav-container" ng-show="showTabContent" >
+    <div class="container">
+      <ul class="nav nav-tabs row" role="tablist">
+        <li class="col-xs-3 active" role="presentation">
+          <a href="javascript:void()" id="tab-rl-mapView" ng-click="mapViewClick()" aria-controls="coke-store-mapView" data-target="#rl-mapView" role="tab" data-toggle="tab" aria-expanded="true" ng-cloak>${cokeStoreHandler.cokeMapView}</a>
+        </li>
+        <li class="col-xs-3" role="presentation">
+          <a href="javascript:void()" id="tab-rl-listView" ng-click="listViewClick()" aria-controls="coke-store-listView" data-target="#rl-listView" role="tab" data-toggle="tab" aria-expanded="false" ng-cloak>${cokeStoreHandler.cokeListView}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <!--End of Tab navigation header for Map and List view-->
+  <!--Tab content for Map and List view-->
+  <div id="tab-content" class="tab-content" ng-show="showTabContent">
+
+    <!--Map view tab content-->
+    <div id="rl-mapView" role="tabpanel" class="tab-pane fade in active map-parent">
+
+      <!--Google map-->
+      <div class="map-container">
+        <div id="gmap_canvas"></div>
+      </div>
+      <!--End Google map-->
+      <div class="container">
+        <div ng-cloak data-ng-repeat="restaurant in restaurants" class="row">
+          <div class="col-sm-6">
+            <ul class="restaurant-location-container" aria-label="search result list">
+              <li id="restaurant-location-map-{{$index}}" ng-show="showStore(restaurant, $index)" class="restaurant-location row">
+                <div class="container-fluid">
+                  <div class="row">
+                    <!--Address container-->
+                    <div class="col-xs-12">
+                      <div class="restaurant-location__address-container">
+                        <div class="restaurant-location__map-pin" aria-label="${cokeStoreHandler.ariaLabelCokeStore} {{$index + 1}}" ng-bind="{{$index + 1}}"></div>
+                        <h3 class="restaurant-location__title" ng-bind="restaurant.outlet.name"></h3>
+                        <h4 class="restaurant-location__address" ng-cloak>{{restaurant.outlet.address.formattedAddress}}</h4>
+                      </div>
+                    </div>
+                    <!--End Address container-->
+                    <!--Distance and phone container-->
+                    <div class="col-xs-12">
+                      <div class="container-fluid no-gutter">
+                        <div class="row">
+                          <div class="col-xs-6">
+                            <div class="restaurant-location__distance">
+                              <div class="heading" ng-cloak>{{restaurant.distance}} ${cokeStoreHandler.milesText} ${cokeStoreHandler.awayText}</div>
+                              <a data-at="${cokeStoreHandler.ariaLabelGetDir}" data-track="externalLink" target="_blank" class="restaurant-location__directions-link external" ng-href="http://maps.google.com/?saddr={{currentLatitude}},{{currentLongitude}}&daddr={{restaurant.outlet.address.latitude}},{{restaurant.outlet.address.longitude}}"
+                                ng-cloak>${cokeStoreHandler.directionLinkText}</a>
+                            </div>
+                          </div>
+                          <div class="col-xs-6">
+                            <!--<div class="restaurant-location__phone">
+                              <div class="heading">${cokeStoreHandler.phoneHeading}</div>
+                              <a x-cq-linkchecker="skip" ng-href="tel:{{restaurant.outlet.phoneNumber}}" class="phone" aria-label="{{restaurant.outlet.phoneNumber}}">
+                                		{{restaurant.outlet.phoneNumber}}</a>
+                            </div>-->
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!--End Distance and phone container-->
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--End of Map view tab content-->
+
+    <!--List view Tab content-->
+    <div id="rl-listView" role="tabpanel" class="tab-pane fade accordion-collapse-container">
+      <ul class="restaurant-location-list container" aria-label="${cokeStoreHandler.ariaLabelSearchResult}">
+        <li id="restaurant-location-list-{{$index}}" ng-show="showListview" data-ng-repeat="restaurant in restaurants | limitTo:resultShown" class="restaurant-location row">
+          <div class="container-fluid">
+            <div class="row">
+              <!--Address container-->
+              <div class="col-xs-12 col-sm-6 col-md-6">
+                <div class="restaurant-location__address-container">
+                  <a class="expand-mobile pull-right collapsed" role="button" data-toggle="collapse" href="#rlRestDetails-{{$index + 1}}-collapse" aria-controls="rlRestDetails-{{$index + 1}}-collapse" aria-expanded="false" ng-click="setAlerts($event)">
+                          <span class="visuallyhidden">
+						  <span class="closed">${cokeStoreHandler.ariaLabelExpandStore} - ${cokeStoreHandler.ariaLabelCokeStore} {{$index + 1}}</span>
+                          <span class="open">${cokeStoreHandler.ariaLabelCollapseStore} - ${cokeStoreHandler.ariaLabelCokeStore} {{$index + 1}}</span>
+                          </span>
+                        </a>
+                  <div class="restaurant-location__map-pin" aria-label="${cokeStoreHandler.ariaLabelCokeStore} {{$index + 1}}" ng-bind="{{$index + 1}}"></div>
+                  <h3 class="restaurant-location__title" ng-bind="restaurant.outlet.name"></h3>
+                  <h4 class="restaurant-location__address" ng-cloak>{{restaurant.outlet.address.formattedAddress}}</h4>
+				 <!--<div class="restaurant-location__phone hidden-xs"> 
+                          <a x-cq-linkchecker="skip" ng-href="tel:{{restaurant.outlet.phoneNumber}}" class="phone" aria-label="{{restaurant.outlet.phoneNumber}}">
+                                		{{restaurant.outlet.phoneNumber}}</a>
+                  </div>-->
+				</div>
+              </div>
+              <!--End Address container-->
+              <!--Distance and phone container-->
+              <div class="collapse details" id="rlRestDetails-{{$index + 1}}-collapse">
+                <div class="col-xs-12 col-sm-2">
+                  <div class="container-fluid no-gutter">
+                    <div class="row">
+                      <div class="col-xs-6 col-sm-12">
+                        <div class="restaurant-location__distance">
+                          <div class="heading" ng-cloak>{{restaurant.distance}} ${cokeStoreHandler.milesText} ${cokeStoreHandler.awayText}</div>
+                          <a data-at="Exit:restaurant-locator:Get Directions" data-track="externalLink" target="_blank" class="restaurant-location__directions-link external" ng-href="http://maps.google.com/?saddr={{currentLatitude}},{{currentLongitude}}&daddr={{restaurant.outlet.address.latitude}},{{restaurant.outlet.address.longitude}}"
+                            ng-cloak>${cokeStoreHandler.directionLinkText}</a>
+                        </div>
+                        <div class="spacer"></div>
+                      </div>
+                      <div class="col-xs-6 col-sm-12">
+                       <!--<div class="restaurant-location__phone visible-xs-inline">
+                          <div class="heading" ng-cloak>${cokeStoreHandler.phoneHeading}</div>
+                          <a x-cq-linkchecker="skip" ng-href="tel:{{restaurant.outlet.phoneNumber}}" class="phone" aria-label="{{restaurant.outlet.phoneNumber}}">
+                                		{{restaurant.outlet.phoneNumber}}</a>
+                        </div>-->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!--End Distance and phone container-->
+            </div>
+          </div>
+        </li>
+
+      </ul>
+      <!--Load more in list view-->
+      <div class="clear load-more-row" ng-cloak ng-show="showLoadMore">
+        <button role="button" ng-click="loadMoreCokeStores()" class="load-more-btn" aria-label="${cokeStoreHandler.loadMoreText}">${cokeStoreHandler.loadMoreText}
+                <br>
+                <span class="fa-stack fa-lg">
+						<i class="fa fa-circle fa-stack-2x"></i>
+						<i class="fa fa-chevron-down fa-stack-1x"></i>
+				</span>
+              </button>
+        <!-- /.load-more-btn -->
+      </div>
+      <!--End Load more in list view-->
+    </div>
+    <!--End of List view Tab content-->
+  </div>
+  <!--End of  Tab content-->
+</section>
+</sly>
+<!-- End of Results content-->

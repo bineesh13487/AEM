@@ -1,0 +1,24 @@
+/// Wraps `$myBlock` within `$templateBlock` for component based structure.
+/// @group components
+/// @param {string} $parentBlock The containing block
+/// @param {string} $childBlock The child block
+/// @param {boolean} $direct [false] Whether the $childBlock is directly within the $parentBlock
+/// @example
+///   // Targets hero component,
+///   // when it is within the Contact Us page block
+///   @include withinBlock($page-contact-us, $component-hero){
+///     ...
+///   }
+///
+///   // Target $component-question-answer,
+///   // ONLY when it's a direct child of $component-questions-answers-list
+///   @include withinBlock($component-questions-answers-list, $component-question-answer, true){
+///     ...
+///   }
+@mixin withinBlock($parentBlock, $childBlock, $direct:false){
+  $direct: if($direct, '>', null);
+
+  #{$parentBlock} #{$direct} #{$childBlock} {
+    @content;
+  }
+}

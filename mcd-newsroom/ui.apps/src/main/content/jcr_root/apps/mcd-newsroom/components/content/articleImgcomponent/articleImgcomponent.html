@@ -1,0 +1,11 @@
+<section title="banner">
+  <div class="template component-hero" data-sly-use.hero="com.mcd.rwd.newsroom.core.sightly.ArticleImageHandler">
+    <div class="template-hero hidden-xs" style="background-image: url('${hero.getImageHref @context='uri'}'); ">
+    </div>
+    <div class="template-hero visible-xs-block" style="background-image: url('${hero.getMobileImageHref @context='uri'}');">
+    </div>
+    <sly data-sly-test="${(hero.getImageHref== null) && (wcmmode.edit || wcmmode.design)}">
+      <h3>Please Configure the Article Image Component - No image is Selected.</h3>
+    </sly>
+  </div>
+</section>

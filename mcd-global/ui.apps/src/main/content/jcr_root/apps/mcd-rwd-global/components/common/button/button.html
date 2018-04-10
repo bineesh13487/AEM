@@ -1,0 +1,9 @@
+<sly data-sly-use.buttonObj="com.mcd.rwd.global.core.components.common.Button">
+    <sly data-sly-test.isConfigured = "${wcmmode.edit && (!buttonObj.buttonText || !buttonObj.buttonUrl)}">
+        <h1>Click to Edit Button Component</h1>
+    </sly>
+    <sly data-sly-test = "${!isConfigured}">
+        <a data-sly-test="${buttonObj.buttonText && buttonObj.buttonUrl}" href="${buttonObj.buttonUrl}"
+           target="${buttonObj.targetText}">${buttonObj.buttonText}</a>
+    </sly>
+</sly>

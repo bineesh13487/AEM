@@ -1,0 +1,12 @@
+#base=js
+common.js
+multifieldpanel.js
+richtext.js
+slideshowpanel.js
+thumbnailpanel.js
+showcasePanel.js
+calloutPanel.js
+tabs.js
+customwidget.js
+promosection.js
+CokeCustomListener.js

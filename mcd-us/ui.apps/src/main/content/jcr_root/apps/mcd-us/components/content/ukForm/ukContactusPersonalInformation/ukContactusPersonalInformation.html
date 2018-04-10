@@ -1,0 +1,62 @@
+<sly data-sly-use.ukPersonalInfo="com.mcd.rwd.us.core.sightly.forms.UKcontactuspersonalInfo">
+    <section class="row-title page-contact-us__subpage__about-yourself @@modifiers">
+        <div class="container">
+            <div action="google.com">	          
+                  <div class="row">
+					   <div class="col-sm-3">
+					      <div class="form-group">
+					         <div class="select ${ukPersonalInfo.titleReq}" id="contactUs-title-select">
+					            <label for="title-select" id="title-select-label" aria-hidden="true">${ukPersonalInfo.titleText} <sup data-sly-test="${ukPersonalInfo.titleReq=='yes'}">*</sup></label> 
+					            <select class="form-control" title="Title" id="title-select" data-sly-list="${ukPersonalInfo.titleOptions}">
+					               <option value="${item}">${item}</option>
+					            </select>
+					         </div>
+					      </div>
+					   </div>
+					</div>
+					<div class="row">
+						<div class="col-sm-6 form-group text-group">
+							<input type="hidden" class="" id="contactUs-title-input" name="titleInput" value="" maxlength="6">
+						</div>
+					</div>
+                	<div class="row">
+                      <div class="col-sm-6">
+                        <div class="form-group text-group">
+							<label id="contactUs-firstname-label" for="contactUs-firstname" aria-hidden="true">${ukPersonalInfo.firstName} <sup data-sly-test="${ukPersonalInfo.firstNameReq=='yes'}">*</sup></label> 
+							<input type="text" class="form-control ${ukPersonalInfo.firstNameReq}" id="contactUs-first-name"  name="firstName"  aria-labelledby="contactUs-firstname-label" maxlength="25">
+						</div>
+                        <div class="form-group text-group">
+                        	<label id="contactUs-lastname-label" for="contactUs-lastname" aria-hidden="true">${ukPersonalInfo.lastName} <sup data-sly-test="${ukPersonalInfo.lastNameReq=='yes'}">*</sup></label> 
+							<input type="text" class="form-control ${ukPersonalInfo.lastNameReq}" id="contactUs-last-name" name="lastName" aria-required="true" aria-labelledby="contactUs-lastname-label" maxlength="25"> 
+						</div>
+						<div class="form-group text-group">
+							<label id="contactUs-address1-label" for="contactUs-address1" aria-hidden="true">${ukPersonalInfo.address} <sup data-sly-test="${ukPersonalInfo.addressReq=='yes'}">*</sup></label> 
+							<input type="text" class="form-control ${ukPersonalInfo.addressReq}" id="contactUs-addess" name="address" aria-labelledby="contactUs-address1-label" maxlength="50">
+						</div>
+                        <div class="form-group text-group"> 
+							<label id="contactUs-postcode-label" for="contactUs-postcode" aria-hidden="true">${ukPersonalInfo.postcode} <sup data-sly-test="${ukPersonalInfo.postcodeReq=='yes'}">*</sup></label> 
+							<input type="text" class="form-control ${ukPersonalInfo.postcodeReq}" id="contactUs-postcode" name="postcode" aria-labelledby="contactUs-postcode-label" maxlength="8">
+						</div>
+                        <div class="form-group text-group"> 
+							<label id="contactUs-phone-label" for="contactUs-phone" aria-hidden="true">${ukPersonalInfo.phone} <sup data-sly-test="${ukPersonalInfo.phoneReq=='yes'}">*</sup></label>
+							<input type="text" class="form-control ${ukPersonalInfo.phoneReq}" id="contactUsuk-phone" name="phone" aria-labelledby="contactUs-phone-label" maxlength="11"> 
+						</div>
+                        <div class="form-group text-group">
+                        	<label id="contactUs-email-label" for="contactUs-email" aria-hidden="true">${ukPersonalInfo.email} <sup data-sly-test="${ukPersonalInfo.emailReq=='yes'}">*</sup></label>
+							<input type="email" class="form-control ${ukPersonalInfo.emailReq}" id="contactUs-email" name="email" aria-labelledby="contactUs-email-label" maxlength="64"> 
+						</div>
+                      </div>
+                    </div>
+            </div>
+        </div>
+    </section> 
+    <div class="hidden">
+        <div id="contactUs-title-input-message">${ukPersonalInfo.titleMessage}</div>
+        <div id="contactUs-first-name-message">${ukPersonalInfo.firstNameMessage}</div>
+        <div id="contactUs-last-name-message">${ukPersonalInfo.lastNameMessage}</div>
+		<div id="contactUs-address-message">${ukPersonalInfo.addressMessage}</div>
+        <div id="contactUs-postcode-message">${ukPersonalInfo.postcodeMessage}</div>
+        <div id="contactUs-phone-message">${ukPersonalInfo.phoneMessage}</div>
+        <div id="contactUs-email-message">${ukPersonalInfo.emailMessage}</div>
+    </div>
+</sly>

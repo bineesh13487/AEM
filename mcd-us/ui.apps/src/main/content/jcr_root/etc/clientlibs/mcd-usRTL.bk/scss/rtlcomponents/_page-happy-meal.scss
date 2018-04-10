@@ -1,0 +1,226 @@
+.page-happy-meal {
+	.template-hero-bg {
+		.absolute-content .absolute-content-wrapper {
+			text-align: center;
+
+			@media only screen and (min-width: 768px) {
+				text-align: center;
+			}
+		}
+		h1 {
+			margin: 0;
+			@include fontSet(50px, 50px, $font-lovinsans-black);
+
+			@media only screen and (min-width: 320px) {
+				@include fontSet(75px, 75px, $font-lovinsans-black);
+			}
+			@media only screen and (min-width: 480px) {
+				@include fontSet(100px, 100px, $font-lovinsans-black);
+			}
+			@media only screen and (min-width: 768px) {
+				@include fontSet(100px, 100px, $font-lovinsans-black);
+			}
+			@media only screen and (min-width: 992px) {
+				@include fontSet(125px, 125px, $font-lovinsans-black);
+			}
+		}
+	}
+
+	.tabs-container .tabs li a {
+    text-transform: uppercase;
+	}
+
+	.cont-logo {
+		text-align: center;
+		position: relative;
+
+		img {
+			max-width: 100%;
+			margin: auto;
+			padding-top: 0px;
+			padding-bottom: 0px;
+
+			@media only screen and (min-width: 768px) {
+				padding-bottom: 30px;
+			}
+		}
+
+		.text {
+			position: relative;
+			max-width: none;
+			text-align: center;
+			padding: 0 15px;
+
+			@media only screen and (min-width: 768px) {
+				max-width: 250px;
+				text-align: right;
+				position: absolute;
+				bottom: 35px;
+				left: 50px;
+				padding: 0;
+			}
+			@media only screen and (min-width: 992px) {
+				bottom: 35px;
+				left: 150px;
+			}
+			@media only screen and (min-width: 1200px) {
+				bottom: 35px;
+				left: 250px;
+			}
+
+			&.wide {
+				@media only screen and (min-width: 768px) {
+					bottom: -10px;
+					left: 0px;
+				}
+				@media only screen and (min-width: 992px) {
+					bottom: 0px;
+					left: 0px;
+				}
+				@media only screen and (min-width: 1200px) {
+					bottom: 40px;
+					left: 50px;
+				}
+			}
+		}
+	}
+
+	.cont-feature-callout {
+		margin-bottom: 0px;
+
+		@media only screen and (min-width: 768px) {
+			margin-bottom: 50px;
+		}
+	}
+
+	.cont-cta {
+		margin-top: 30px;
+		margin-bottom: 30px;
+		text-align: center;
+
+		@media only screen and (min-width: 768px) {
+			margin-bottom: 50px;
+		}
+
+		.btn {
+			padding-right: 15px;
+			padding-left: 15px;
+
+			@media only screen and (min-width: 480px) {
+				padding-right: 30px;
+				padding-left: 30px;
+			}
+		}
+
+		p.light {
+			@include fontSet(26px, 36px, $font-lovinsans);
+		}
+	}
+
+	.cont-slides {
+		margin-bottom: 15px;
+
+		@media only screen and (min-width: 768px) {
+			margin-bottom: 50px;
+		}
+
+		h2 {
+			color: $gray;
+			@include fontSet(26px, 60px, 'Droid_Arabic_Kufi_Bold');
+
+			@media only screen and (min-width: 480px) {
+				@include fontSet(30px, 60px, 'Droid_Arabic_Kufi_Bold');
+			}
+			@media only screen and (min-width: 768px) {
+				@include fontSet(30px, 30px, 'Droid_Arabic_Kufi_Bold');
+			}
+		}
+
+		.wrapper {
+			@include flex-related-scale();
+			padding-right: 0;
+			padding-left: 0;
+		}
+		.related-flexslider {
+			overflow: visible;
+
+			.flex-viewport {
+				background: transparent;
+
+				@media only screen and (min-width: 768px) {
+				//Removed for the incorporating with the image optimization picture tag
+					//background: url('../images/slide-bg.jpg') no-repeat;
+					//background-size: 100%;
+				}
+			}
+			.slides {
+				li {
+					overflow: hidden;
+
+					a {
+						display: block;
+						overflow: hidden;
+						box-shadow: none;
+						border-bottom: 5px solid transparent;
+
+						@media only screen and (min-width: 768px) {
+							box-shadow: inset 0 -5px 0 0 transparent;
+							border-bottom: 0;
+						}
+
+						&:focus{
+
+							img{
+								position: relative;
+								z-index: -1;
+							}
+						}
+						&.active {
+							box-shadow: none;
+							border-bottom: 5px solid $red;
+							position: relative;
+
+							@media only screen and (min-width: 768px) {
+								box-shadow: inset 0 -5px 0 0 $red;
+								border-bottom: 0;
+
+								.red-border{
+									position: absolute;
+									width: 100%;
+									height: 100%;
+									border-bottom: 10px solid $red;
+									bottom: 0;
+									right: 0;
+								}
+							}
+						}
+					}
+
+					img {
+						background: url('../images/slide-bg.jpg') no-repeat;
+						background-size: cover;
+						background-position: center top;
+
+						@media only screen and (min-width: 768px) {
+							background: transparent;
+						}
+					}
+				}
+			}
+
+			.custom-navigation {
+				.flex-prev,
+				.flex-next {
+					margin-top: -25px;
+
+					@media only screen and (min-width: 768px) {
+						margin-top: -30px;
+					}
+				}
+			}
+		}
+
+	}
+}
+
+.happymeallocalitem {display:none !important};

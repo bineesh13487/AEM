@@ -1,0 +1,93 @@
+<sly data-sly-use.relatedcontent="com.mcd.rwd.us.core.sightly.RelatedContentHandler">
+<div class="related-content ${relatedcontent.gutterspace == 'true' ? 'rc-no-gutter':''}">
+	<!--First row promo units starts here-->
+	<sly data-sly-test="${relatedcontent.listsize != '0'}">
+		<div class="rc-rowbgstyle" style="background:${relatedcontent.backGroundColor @ context='styleToken'}">
+			<div class="container">
+			<sly data-sly-test="${!relatedcontent.relatedContentTitle.isEmpty}">
+				<div class="rc-text-${relatedcontent.titleAlignment}">
+					<h2 class="rc-title" style="color:${relatedcontent.titleColor @ context='styleToken'}">${relatedcontent.relatedContentTitle}</h2>
+				</div>
+			</sly>
+				<div class="row row-eq-height-sm no-gutter">
+					<!--LEFT column promo unit starts here-->
+					<sly
+						data-sly-test="${relatedcontent.listsize == '2'}">
+						<sly data-sly-list="${relatedcontent.relatedContentList}">
+							<div class="col-xs-12 col-sm-6 col-md-6 rc-outer">
+								<div class="rc-box">
+									<div class="rc-box-inner">
+									<a class="img-link" href="${item.ctaButtonLink.href}" data-at="" data-track="" aria-describedby="related-content${itemList.index}">
+										<img src="${item.getImagePath}"
+											class="img-responsive cont-100" alt="${item.getImageAriaLabel}"
+											aria-hidden="true">
+									</a>
+									</div>
+									<div class="text-wrapper rc-text-${relatedcontent.textAlignment}">
+										<h2 aria-label="${item.getHeading}">
+											<span class="visuallyhidden">${item.getHeading}</span> <span
+												aria-hidden="true">
+												<p id="related-content${itemList.index}" class="headline-text-large text-transform-none rc-text-large">${item.getHeading}</p>
+											</span>
+										</h2>
+										<p class="rc-text-small">${item.getDescription @ context='html'}</p>
+										<a role="button"
+											class=" ${item.ctaButtonLink.linkClass} btn btn-red small text-transform-none" 
+											aria-label="${item.ariaLAbel}" 
+											target="${item.ctaButtonLink.target}"
+											href="${item.ctaButtonLink.href}"
+											data-at=""
+											data-track="" 
+											aria-describedby="related-content${itemList.index}"
+											style="background: ${relatedcontent.ctaButtonColor @ context='styleToken'};border-color:${relatedcontent.ctaButtonColor @ context='styleToken'}" aria-describedby="info4">${item.ctaButtonLink.text}</a>
+										<p class="rc-legalcopystyle">${item.getLegalText @ context='html'}</p>
+									</div>
+								</div>
+
+							</div>
+						</sly>
+					</sly>
+
+					<sly
+						data-sly-test="${relatedcontent.listsize == '1' }">
+						<sly data-sly-list="${relatedcontent.relatedContentList}">
+							<div class="col-xs-12 col-sm-6 col-md-6 rc-outer">
+								<div class="rc-box">
+									<div class="rc-box-inner">
+									<a class="img-link" href="${item.ctaButtonLink.href}" data-at="" data-track="" aria-describedby="related-content${itemList.index}">
+										<img src="${item.getImagePath}"
+											class="img-responsive cont-100" alt="${item.getImageAriaLabel}"
+											aria-hidden="true">
+									</a>
+									</div>
+									<div class="text-wrapper rc-text-${relatedcontent.textAlignment}">
+										<h2 aria-label="${item.getHeading}">
+											<span class="visuallyhidden">${item.getHeading}</span> <span
+												aria-hidden="true">
+												<p id="related-content${itemList.index}" class="headline-text-large text-transform-none rc-text-large">${item.getHeading}</p>
+											</span>
+										</h2>
+										<p class="rc-text-small">${item.getDescription @ context='html'}</p>
+										<a role="button"
+											class=" ${item.ctaButtonLink.linkClass} btn btn-red small text-transform-none" aria-label="${item.ariaLAbel}" target="${item.ctaButtonLink.target}"
+											href="${item.ctaButtonLink.href}"
+											data-at=""
+											data-track=""
+											aria-describedby="related-content${itemList.index}" 
+											style="background: ${relatedcontent.ctaButtonColor @ context='styleToken'};border-color:${relatedcontent.ctaButtonColor @ context='styleToken'}" aria-describedby="info4">${item.ctaButtonLink.text}</a>
+										<p class="rc-legalcopystyle">${item.getLegalText @ context='html'}</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-12 col-sm-6 col-md-6"></div>
+						</sly>
+					</sly>
+				</div>
+			</div>
+		</div>
+	</sly>
+</div>
+    <sly data-sly-test="${(relatedcontent.listsize == '0') && (wcmmode.edit || wcmmode.design)}">
+        <h5 class="component-authoring-text">Configure the related content component </h5>
+    </sly>
+</sly>

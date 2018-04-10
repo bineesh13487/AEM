@@ -1,0 +1,48 @@
+<!--/*
+    Promo Component for Responsive Pages
+*/-->
+<sly data-sly-use.handler="com.mcd.rwd.us.core.sightly.PromoViewHandler">
+	<div class="component-feature-callout zoom-anim-parent ${handler.promo.retainAlignment ? '' : 'alt_style' }">
+		<img src="${handler.promo.imagePath}" 
+			 class="zoom-anim-target img-responsive hidden-xs cont-100"
+			 alt="${handler.promo.imageAlt}" aria-hidden="true" >
+		<img src="${handler.promo.mobileImagePath}" 
+			 class="img-responsive visible-xs-block cont-100"
+			 alt="${handler.promo.imageAlt}" aria-hidden="true">
+		<div class="absolute-content border-wrapper">
+			<div class="absolute-content-wrapper promoBox${handler.promo.alignment} ${handler.promo.bottomAligned ? 'align-bottom' : '' }">
+				<div class="cont-top-img">
+					<img src="${handler.promo.mcdlogo}" class="img-responsive img-top"
+						 alt="${handler.promo.logoAlt}">
+				</div>
+				<div class="text-wrapper">
+					<h2 class="headline-text" aria-label="${handler.promo.eyetitle} ${handler.promo.title}${handler.promo.subtitle}${handler.promo.description}"  style="${handler.promo.titleColor @ context='styleString'}">
+						<span class="visuallyhidden">${handler.promo.eyetitle} ${handler.promo.title}${handler.promo.subtitle}${handler.promo.description}</span> <span aria-hidden="true">
+						<p class="${handler.promo.eyetitleFontStyle == 'small' ? 'headline-text-small' : 'headline-text-large'} text-transform-none">${handler.promo.eyetitle @ context='html'}</p>
+                        <p class="${handler.promo.titleFontStyle == 'small' ? 'headline-text-small' : 'headline-text-large'} text-transform-none">${handler.promo.title @ context='html'}</p>
+                        <p class="${handler.promo.subtitleFontStyle == 'small' ? 'headline-text-small' : 'headline-text-large'} text-transform-none">${handler.promo.subtitle @ context='html'}</p>
+                        <p class="${handler.promo.descriptionFontStyle == 'small' ? 'headline-text-small' : 'headline-text-large'} text-transform-none">${handler.promo.description @ context='html'}</p>
+					</h2>
+
+
+					<a href="${handler.promo.link.href}" title="${handler.promo.ctaAlt @ context='unsafe'}"
+					   class="hidden zoom-anim">
+						<img src="" class="hidden img-responsive img-bottom" alt="">
+					</a>
+					<a data-sly-test="${handler.promo.link.text}" role="button" class="${handler.promo.link.linkClass} zoom-anim btn btn-red small text-transform-none"
+					   aria-label= "${handler.promo.ariaLabel}" target="${handler.promo.link.target}"
+					   href="${handler.promo.link.href}" data-at="${handler.promo.analytics}" data-track="promotion">${handler.promo.link.text @ context='html'}</a>
+				</div>
+			</div>
+		</div>
+		<div data-sly-test="${handler.promo.cornerlogo}" class="caption-logo-box">
+			<img src="${handler.promo.cornerlogo}" alt="${handler.promo.cornerLogoAlt}">
+		</div>
+		<div data-sly-test="${handler.promo.disclaimer}" class="caption-disclaimer-text marginmanagement text-transform-none">
+			<p data-sly-test="${handler.promo.disclaimer}" style="${handler.promo.disclaimercolor @ context='styleString'}">${handler.promo.disclaimer @ context='html'} </p>
+		</div>
+	</div>
+	<sly data-sly-test="${(!handler.promo.getImagePath) && (wcmmode.edit || wcmmode.design)}">
+		<h3>Please configure the promo component.</h3>
+	</sly>
+</sly>

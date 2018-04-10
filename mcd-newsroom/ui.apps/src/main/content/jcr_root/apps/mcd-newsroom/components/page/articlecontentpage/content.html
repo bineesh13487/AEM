@@ -1,0 +1,15 @@
+<!--/*
+    Content Section
+*/-->
+<sly data-sly-use.articleMetaData="com.mcd.rwd.newsroom.core.sightly.ArticleContentPageHandler">
+  <sly data-sly-test="${articleMetaData.articleType == 'image'}">
+    <div data-sly-resource="${'articleHeroImage' @ resourceType='mcd-newsroom/components/content/articleImgcomponent'}"></div>
+  </sly>
+  <sly data-sly-test="${articleMetaData.articleType == 'video'}">
+    <div data-sly-resource="${'articleVideoComponent' @ resourceType='mcd-rwd-global/components/content/video'}"></div>
+  </sly>
+
+  <div data-sly-resource="${'articlePar' @ resourceType='wcm/foundation/components/parsys'}">
+
+  </div>
+</sly>

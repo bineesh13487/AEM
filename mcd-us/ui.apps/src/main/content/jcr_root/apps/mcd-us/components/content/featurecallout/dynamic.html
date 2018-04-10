@@ -1,0 +1,51 @@
+<!--/*
+    Dynamic Callout Renderer.
+*/-->
+<sly data-sly-use.dynamicCallout="com.mcd.rwd.us.core.sightly.callouts.DynamicCalloutHandler">
+    <sly data-sly-list.callout="${dynamicCallout.calloutMap}">
+        <div class="promo col-sm-${dynamicCallout.calloutWidths[calloutList.index]}"
+             data-sly-attribute.data-ng-init="init(${dynamicCallout.calloutMap[callout]}, '${dynamicCallout.type}')"
+             data-sly-attribute.data-type="${dynamicCallout.type}" id="${callout}" ng-controller="PromoController">
+            <div class="component-feature-callout zoom-anim-parent wide" ng-cloak>
+                <img ng-src="{{promo.imagePath}}" ng-show="{{promo.imagePath}}" class="img-responsive hidden-xs cont-100 zoom-anim-target" alt="" aria-hidden="true">
+                <img ng-src="{{promo.mobileImagePath}}" ng-show="{{promo.mobileImagePath}}" class="img-responsive visible-xs-block cont-100 zoom-anim-target" alt="" aria-hidden="true">
+                <sly data-sly-test.calloutFlag="${dynamicCallout.calloutWidths[calloutList.index]=='6'}"></sly>
+
+                <div class="absolute-content border-wrapper ${calloutFlag ? 'feature50' : ''}">
+                    <div class="absolute-content-wrapper promoBox{{promo.alignment}} {{callout.bottomAligned ? 'align-bottom' : '' }}">
+                        <div class="cont-top-img">
+                            <img ng-show="{{promo.mcdlogo}}" ng-src="{{promo.mcdlogo}}" alt="" aria-hidden="true" class="img-responsive img-top">
+                        </div>
+                        <div class="text-wrapper">
+                            <div class="headline-text" ng-style="{'color': '#'+promo.titleColor}">
+	                           	<p ng-if="promo.eyetitleFontStyle == 'small' " class="headline-text-small text-transform-none" ng-bind="promo.eyetitle"></p>
+	                           	<p ng-if="promo.eyetitleFontStyle == 'large' " class="headline-text-large text-transform-none" ng-bind="promo.eyetitle"></p>
+	                           	
+		                        <p ng-if="promo.eyetitleFontStyle == 'small' " class="headline-text-small text-transform-none" ng-bind="promo.title"></p>
+		                        <p ng-if="promo.eyetitleFontStyle == 'large' " class="headline-text-large text-transform-none" ng-bind="promo.title"></p>
+		                        
+								 <p ng-if="promo.eyetitleFontStyle == 'small' " class="headline-text-small text-transform-none" ng-bind="promo.subtitle"></p>
+								 <p ng-if="promo.eyetitleFontStyle == 'large' " class="headline-text-large text-transform-none" ng-bind="promo.subtitle"></p>
+								
+								<p ng-if="promo.eyetitleFontStyle == 'small' " class="headline-text-small text-transform-none" ng-bind="promo.description"></p>
+								<p ng-if="promo.eyetitleFontStyle == 'large' " class="headline-text-large text-transform-none" ng-bind="promo.description"></p>
+                            </div>
+                            <a x-cq-linkchecker="skip" href="javascript:void(0);" href="{{promo.link.href}}"
+                            	aria-label= "${promo.ariaLabel}" 
+                               target="{{promo.link.target}}"
+                               class="zoom-anim btn btn-red btn--xsm {{promo.link.linkClass}} text-transform-none"
+                               title="{{promo.ctaAlt}}"
+                               data-at="{{promo.analytics}}" data-track="promotion" ng-cloak>{{promo.link.text}}</a>
+                        </div>
+                    </div>
+                </div>
+                <div ng-if="promo.cornerlogo" class="caption-logo-box">
+					<img ng-src="{{promo.cornerlogo}}" ng-show="{{promo.cornerlogo}}" alt="" aria-hidden="true">
+				</div>
+				<div ng-if="promo.disclaimer" class="caption-disclaimer-text marginmanagement text-transform-none">
+					<p ng-bind="promo.disclaimer"></p>
+				</div>
+            </div>
+        </div>
+    </sly>
+</sly>

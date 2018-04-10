@@ -1,0 +1,221 @@
+/*Gird Color CSS */
+.questionfeed .grid-color:nth-of-type(4n+3) {
+  background: #333333;
+}
+.questionfeed .grid-color:nth-of-type(4n+3) .m-text-box .m-t-b-title {
+  color: #ffcc00;
+}
+.questionfeed .grid-color:nth-of-type(4n) {
+  background: #000000;
+}
+.questionfeed .grid-color:nth-of-type(4n) .m-text-box .m-t-b-title {
+  color: #bf0c0c;
+}
+.questionfeed .grid-color:nth-of-type(4n+1) {
+  background: #ffcc00;
+}
+.questionfeed .grid-color:nth-of-type(4n+1) .m-text-box .m-t-b-title {
+  color: #000000;
+}
+.questionfeed .grid-color:nth-of-type(4n+1) .m-p-text p {
+  color: #000000;
+}
+.questionfeed .grid-color:nth-of-type(4n+1) .m-t-b-username {
+  color: #333 !important;
+}
+.questionfeed .grid-color:nth-of-type(4n+2) {
+  background: #515151;
+}
+.questionfeed .grid-color:nth-of-type(4n+2) .m-text-box .m-t-b-title {
+  color: #ffffff;
+}
+.questionfeed .grid-color-4 {
+  background: #333333;
+}
+.questionfeed .grid-color-4 .m-text-box .m-t-b-title {
+  color: #ffcc00 !important;
+}
+.questionfeed .grid-color-1 {
+  background: #000000;
+}
+.questionfeed .grid-color-1 .m-text-box .m-t-b-title {
+  color: #bf0c0c !important;
+}
+.questionfeed .grid-color-2 {
+  background: #ffcc00;
+}
+.questionfeed .grid-color-2 .m-text-box .m-t-b-title {
+  color: #000000 !important;
+}
+.questionfeed .grid-color-2 .m-text-box .m-t-b-username {
+  color: #333 !important;
+}
+.questionfeed .grid-color-2 .m-text-box p {
+  color: #000000 !important;
+}
+.questionfeed .grid-color-2 .m-text-box .ovr-tags strong {
+  color: #333 !important;
+}
+.questionfeed .grid-color-3 {
+  background: #515151;
+}
+.questionfeed .grid-color-3 .m-text-box .m-t-b-title {
+  color: #ffffff !important;
+}
+
+.yrtpApplication {
+  /*Embedded Youtube style*/
+  /*.ovr-canvas.ovr-view-question .m-text-box .share-red-icon {
+      right: 65px;
+      top: 16px;
+  }
+  */
+}
+.yrtpApplication .ovr-view-question .share-red-icon {
+  right: 69px;
+  top: 16px;
+}
+.yrtpApplication .m-img-box div {
+  height: 100%;
+}
+.yrtpApplication .drop-check label {
+  font-weight: 400;
+  font-size: 14px;
+}
+.yrtpApplication .drop-check label a {
+  color: #000;
+}
+.yrtpApplication .drop-check.xfield-error-block label a {
+  color: red;
+}
+.yrtpApplication .drop-check label a:hover {
+  color: #000;
+  text-decoration: underline;
+}
+.yrtpApplication #question-form input.ng-invalid-required.ng-touched {
+  border: 2px solid red !important;
+}
+.yrtpApplication #question-form input.ng-invalid-required.ng-dirty {
+  border: 2px solid red !important;
+}
+.yrtpApplication #question-form input.ng-invalid-email.ng-dirty {
+  border: 2px solid red !important;
+}
+.yrtpApplication .questionsearch {
+  padding-top: 100px;
+  background: #000;
+}
+.yrtpApplication .banner-box {
+  margin-top: 0;
+}
+.yrtpApplication .banner-box .mob-on {
+  height: 371px;
+  object-fit: cover;
+}
+.yrtpApplication input::-webkit-input-placeholder {
+  color: #757575 !important;
+}
+.yrtpApplication input:focus::-webkit-input-placeholder {
+  color: #757575 !important;
+}
+.yrtpApplication input:focus:-moz-placeholder {
+  color: #757575 !important;
+}
+.yrtpApplication input:focus::-moz-placeholder {
+  color: #757575 !important;
+}
+.yrtpApplication input:focus:-ms-input-placeholder {
+  color: #757575 !important;
+}
+.yrtpApplication input:-moz-placeholder {
+  color: #757575 !important;
+}
+.yrtpApplication input::-moz-placeholder {
+  color: #757575 !important;
+}
+.yrtpApplication input:-ms-input-placeholder {
+  color: #757575 !important;
+}
+.yrtpApplication .modal-type-Text .share-tooltip {
+  right: auto !important;
+  top: 16px !important;
+  left: 69px !important;
+}
+.yrtpApplication .questionfeed a {
+  word-wrap: break-word;
+}
+@media only screen and (max-width: 767px) {
+  .yrtpApplication .modal-type-Text .share-tooltip {
+    right: 50px !important;
+    top: 14px !important;
+    transform: scale(0.7);
+  }
+  .yrtpApplication .questionsearch {
+    margin-top: 94px;
+    padding-top: 0;
+  }
+  .yrtpApplication .ovr-canvas.ovr-view-question .ovr-tags .btn-border-white:last-of-type {
+    word-wrap: break-word;
+    max-width: 225px;
+  }
+  .yrtpApplication .banner-content p {
+    max-height: 80px;
+  }
+}
+.yrtpApplication .ovr-canvas {
+  z-index: 10000;
+}
+.yrtpApplication .masonry-box .share-tooltip .share-box {
+  z-index: 100;
+}
+.yrtpApplication .modal-type-Text .masonry-box .share-tooltip .share-box {
+  top: 80px;
+}
+.yrtpApplication .modal-type-Text .masonry-box .share-tooltip .share-box:after {
+  bottom: auto;
+  top: -25px;
+  border-color: transparent transparent #000 transparent;
+}
+.yrtpApplication .masonry-box .m-text-box {
+  min-height: 10px;
+}
+.yrtpApplication .masonry-box .m-text-box .m-p-text {
+  overflow: hidden;
+}
+
+.questionfeed .ovr-canvas {
+  max-height: 90%;
+  overflow: auto;
+}
+
+#question-form .has-error label {
+  color: red;
+}
+#question-form .has-error label a {
+  color: red;
+}
+#question-form .questionform-error-msgs p {
+  color: red;
+  display: table;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media only screen and (max-width: 1366px) {
+  .questionsearch .ovr-canvas.ovr-ask-a-question {
+    height: 715px;
+  }
+}
+.questionsearch .ovrlay {
+  overflow: scroll;
+}
+
+.questionsearch .ovr-canvas.ovr-thank-you h3 {
+  line-height: 1.1;
+}
+
+.overlay-no-vertical {
+  position: fixed;
+}
+
+/*# sourceMappingURL=custom_style.css.map */

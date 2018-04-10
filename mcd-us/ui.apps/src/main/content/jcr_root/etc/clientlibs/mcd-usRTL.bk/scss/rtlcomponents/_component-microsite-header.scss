@@ -1,0 +1,236 @@
+.component-microsite-header {
+  position: relative;
+  z-index: 11;
+  width: 100%;
+  .header-title-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    img {
+      max-width: 100%;
+    }
+  }
+  .header-box {
+    margin: 0px;
+    padding: 0px;
+    background-color: #000000;    
+    background-size: 100%;
+  }
+  .header-title {
+    min-height: 110px;
+    position: relative;
+    h2 {
+	font-family: "Droid_Arabic_Kufi_Bold";
+      font-size: 2.8rem;
+      line-height: 4rem;
+      text-align: center;
+      letter-spacing: 2px;
+      color: white;
+      font-weight: 800;
+      margin: 0;
+    }
+  }
+  .navbar {
+    background: white;
+    min-height: 55px;
+    .container-fluid {
+      text-align: center;
+    }
+    .navbar-nav {
+      display: inline-block;
+      float: none !important;
+      vertical-align: top;
+    }
+    ul > li > a {
+      font-family: "Droid_Arabic_Kufi_Bold";
+      font-size: 1.2rem;
+      line-height: 1.4rem;
+      padding: 20.5px 30px;
+      color: #bf0c0c;
+      font-weight: 800;
+      &:hover {
+        background-color: transparent;
+        color: #333333;
+      }
+      &.active {
+        background-color: #ebebeb;
+        color: black !important;
+        border-color: #dddddd;
+        border-style: solid;
+        border-width: 0px 1px 0px 1px;
+      }
+    }
+    .dropdown .dropdown-menu {
+      min-width: 123px;
+      margin: 0;
+      border: 0;
+    }
+  }
+  .microNavbar {
+    width: 80%;
+    margin: 0 auto;
+    margin-bottom: 5%;
+    .bootstrap-select.btn-group .dropdown-toggle .caret:after {
+      top: -5px !important;
+    }
+  }
+  .mobile-nav {
+    margin: 0 8%;
+    font-family: "LovinSansWeb-Bold", sans-serif;
+    font-size: 1.4rem;
+    line-height: 1.4rem;
+    position: relative;
+    margin-bottom: 34px;
+  }
+  .mobile-nav-button {
+    border-radius: 20px;
+    background: #ffffff;
+    padding: 10px 20px;
+    text-align: right;
+  }
+  .mobile-nav-items {
+    width: 100%;
+    margin: 0;
+    top: 0;
+    border: 0;
+    border-radius: 20px;
+    padding: 0 0 10px 0;
+    box-shadow: none;
+    max-height: 210px;
+    overflow-y: auto;
+    li a {
+      padding: 8px 21px 8px 21px;
+      color: #bf0c0c;
+      background-color: transparent;
+      font-size: 1.4rem;
+      line-height: 1.4rem;
+      &:hover {
+        color: #333333;
+        background-color: transparent;
+      }
+      &.active {
+        color: #333333;
+        &:hover {
+          color: #333333;
+        }
+        &:focus {
+          color: #333333;
+          background-color: transparent;
+        }
+      }
+    }
+  }
+  .mobile-lang-toggler {
+    text-align: center;
+    margin-top: -3px;
+    .btn-link {
+      color: #ffffff;
+      border: 0;
+      font-size: 1.4rem;
+      line-height: 1.4rem;
+      padding: 0px 12px 15px 12px;
+      &:focus, &:hover {
+        text-decoration: none;
+      }
+    }
+    .language-items {
+      padding: 0;
+      margin: 0;
+      list-style-type: none;
+      a {
+        color: #ffffff;
+        padding: 17px 12px;
+        font-size: 1.4rem;
+        line-height: 1.4rem;
+        display: inline-block;
+        margin-bottom: 2px;
+        &:focus {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+  .dropdown-arrow-icon {
+    margin-right: 5px;
+  }
+  .dropdown.open .fa-chevron-down:before {
+    content: "\f077";
+  }
+  .mobile-lang-toggler button {
+    .fa-chevron-down:before {
+      content: "\f077";
+    }
+    &.collapsed .fa-chevron-down:before {
+      content: "\f078";
+    }
+  }
+  .dropdwon-arrow-pos {
+    position: absolute;
+    z-index: 1001;
+    left: 20px;
+  }
+}
+
+
+
+@media only screen and (max-width: 767px) {
+  .secondaryNavigation {
+    margin-top: -18px;
+  }
+  .component-microsite-header {
+    .header-title {
+      min-height: 100px;
+    }
+    .header-box {
+      padding: 0 0 14px 0;
+    }
+    .header-title-text{
+	    img{
+	    	max-width:275px;
+	    	width: auto;
+	    }
+    }
+    
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .component-microsite-header .navbar ul > li > a {
+    padding: 20.5px 15px;
+  }
+}
+
+/* iPhone 4/4S */
+@media 
+    only screen and (min-device-width: 320px) 
+    and (max-device-width: 480px) 
+    and (-webkit-device-pixel-ratio: 2) 
+    and (device-aspect-ratio: 2/3)
+{
+
+.component-microsite-header{
+		.header-title{
+	        min-height: 80px;
+	    }
+	    .mobile-nav{
+	        margin-bottom: 26px;
+	    }
+	    .mobile-lang-toggler{
+	        margin-top: -7px;
+	    }
+	}    
+}
+
+
+.header-nav-relative {
+  position: relative !important;
+}
+
+.headerFixed {
+  position: fixed !important;
+  top: 0;
+  width: 100%;
+}

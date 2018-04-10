@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:tiff="http://ns.adobe.com/tiff/1.0/" xmlns:xmp="http://ns.adobe.com/xap/1.0/" xmlns:xmpMM="http://ns.adobe.com/xap/1.0/mm/" xmlns:stRef="http://ns.adobe.com/xap/1.0/sType/ResourceRef#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dam="http://www.day.com/dam/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:isCheckedOut="{Boolean}true"
+    jcr:mixinTypes="[mix:versionable]"
+    jcr:primaryType="dam:Asset"
+    jcr:uuid="b19a3923-d293-43bf-a3b5-3c5d7e0db298">
+    <jcr:content
+        cq:lastModified="{Date}2016-06-03T15:20:05.454+05:30"
+        cq:lastModifiedBy="admin"
+        cq:name="billboard-tile4.jpg"
+        cq:parentPath="/content/dam/mcd-wifi/us/slider/slider-tiles"
+        jcr:lastModified="{Date}2016-06-03T15:22:48.328+05:30"
+        jcr:lastModifiedBy="admin"
+        jcr:primaryType="dam:AssetContent">
+        <metadata
+            dam:Bitsperpixel="{Long}24"
+            dam:extracted="{Date}2016-06-03T15:22:47.512+05:30"
+            dam:Fileformat="JPEG"
+            dam:MIMEtype="image/jpeg"
+            dam:Numberofimages="{Long}1"
+            dam:Numberoftextualcomments="{Long}0"
+            dam:Physicalheightindpi="{Long}96"
+            dam:Physicalheightininches="{Decimal}2.5208332538604736"
+            dam:Physicalwidthindpi="{Long}96"
+            dam:Physicalwidthininches="{Decimal}2.5208332538604736"
+            dam:Progressive="no"
+            dam:sha1="70173335772d5ba90b182c62340649771c033768"
+            dam:size="{Long}28083"
+            dc:format="image/jpeg"
+            dc:modified="{Date}2016-05-26T12:04:49.802+05:30"
+            jcr:lastModified="{Date}2016-06-03T15:20:11.364+05:30"
+            jcr:lastModifiedBy="admin"
+            jcr:mixinTypes="[cq:Taggable]"
+            jcr:primaryType="nt:unstructured"
+            tiff:ImageLength="{Long}242"
+            tiff:ImageWidth="{Long}242"
+            tiff:Orientation="{Long}1"
+            xmp:CreatorTool="Adobe Photoshop CC 2015 (Macintosh)"
+            xmpMM:DocumentID="xmp.did:4CF88F5CD55111E58E0FBB496EB6CF08"
+            xmpMM:InstanceID="xmp.iid:4CF88F5BD55111E58E0FBB496EB6CF08"
+            xmpMM:OriginalDocumentID="xmp.did:cc10b780-3fd5-43e7-bb3f-980e3542f139">
+            <xmpMM:DerivedFrom
+                jcr:primaryType="nt:unstructured"
+                stRef:documentID="adobe:docid:photoshop:ff7844d6-1dbd-1179-82ee-a42b5da7ca1d"
+                stRef:instanceID="xmp.iid:96e00431-9ead-4d75-aceb-dd56208b6fa2"
+                xmpNodeType="xmpStruct"/>
+        </metadata>
+        <related jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>

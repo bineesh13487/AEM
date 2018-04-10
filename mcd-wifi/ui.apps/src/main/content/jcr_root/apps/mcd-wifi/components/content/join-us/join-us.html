@@ -1,0 +1,12 @@
+<sly data-sly-use.meta="com.mcd.rwd.global.core.sightly.page.PageMeta"/>
+<sly data-sly-use.tile="com.mcd.rwd.wifi.core.sightly.JoinUsHandler"/>
+<h3 data-sly-test="${wcmmode.edit && !tile.defaultImagePath}"> Please configure the Join-Us component</h3>
+<div class="grid-item">
+    <div class="recruiter-tile">
+        <a id="joinUsLink" href="#" title="${tile.defaultAltText}" data-src="" data-link-target="${tile.defaultTarget}" data-at="Exit:${meta.title @ context = 'unsafe'}:${tile.defaultAltText}" data-track="externalLink">
+            <span title="${tile.defaultTitle}" class="recruiter-tile-text ${tile.defaultTextAlign}" style="color:${tile.defaultColorpicker @ context='styleToken'};">${tile.defaultTitle}</span>
+            <img src="${tile.defaultImagePath}" alt="${tile.defaultAltText}" />
+        </a>
+    </div>
+</div>
+<span class="dataforjoinus" data-joinuslink="${tile.defaultURL}"></span>

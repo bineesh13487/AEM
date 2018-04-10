@@ -1,0 +1,11 @@
+<sly data-sly-use.gridData="com.mcd.rwd.wifi.core.sightly.GridHeaderHandler"/>
+<sly data-sly-test="${gridData.gridHeaderText}">
+    <div class="row nopadding">
+        <section class="grid-header nopadding" style="background-color: ${gridData.bgColor @ context='styleToken'};">
+            <h3 tabindex='0' class="inthisrestaurant nopadding" style="color: ${gridData.textColor @ context='styleToken'};">${gridData.gridHeaderText}</h3>
+        </section>
+    </div>
+</sly>
+<sly data-sly-test="${!gridData.gridHeaderText}" data-sly-unwrap>
+    <h3 title="Please configure the Grid Header Component">Please configure the Grid Header Component</h3>
+</sly>

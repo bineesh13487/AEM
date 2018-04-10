@@ -1,0 +1,651 @@
+<style>
+    [ng\:cloak], [ng-cloak], .ng-cloak {
+        display: none !important;
+    }
+</style>
+<div data-component="rlresults-component" class="mcd-rlresults" ng-show="displaySearchResults">
+    <div class="mcd-rlresults__filters container rl-desktop">
+        <div class="">
+            <div class="mcd-rlresults__filters__heading" ng-bind="getResultMessage()"></div>
+            <div class="mcd-rlresults__filters__toggle-buttons">
+                <div class="button-toggle" ng-show="restaurants.length > 0">
+                    <div ng-show="!showListView">
+                        <button ng-click="toggleListMapView()" class="">
+                            <span aria-hidden="true" data-icon="&#xe9a6" class="icon-bars"></span>
+                            &nbsp;&nbsp;List View
+                        </button>
+                    </div>
+                    <div class="button-toggle" ng-show="showListView">
+                        <button ng-click="toggleListMapView()" class="">
+                            <span class="icon-pin"><span class="path1"></span><span class="path2"></span></span>
+                            &nbsp;&nbsp;Map View
+                        </button>
+                    </div>
+                </div>
+                <div class="button-toggle">
+                    <button class="" data-ng-click="showFilters = !showFilters">
+                        <span class="icon-filters"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span></span>&nbsp;&nbsp;
+                        <span>Filters</span>
+                        <span ng-show="selectedRestaurantFilters.length > 0">({{selectedRestaurantFilters.length}})</span>&nbsp;&nbsp;
+                        <span aria-hidden="true" data-icon="&#xe904" class="icon-chevron-down"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="mcd-rlresults__filter-items" ng-show="showFilters">
+            <label ng-repeat="restaurantFilter in restaurantFilters" class="filter-item">{{restaurantFilter.filterName}}
+                <input type="checkbox" ng-model="restaurantFilter.Selected" ng-click="filterRestaurants(restaurantFilter.filterValue)" aria-checked="false">
+                <span class="checkmark"></span>
+            </label>
+            <div class="sr-reset">
+                <div class="sr-reset__sr">
+                    <div>Search Radius (miles)</div>
+                    <div class="sr-options">
+                        <form>
+                            <label ng-repeat="radius in fullRlData.radius" class="radio-inline" aria-label="{{fullRlData.arialabelforradius}}">
+                                <input type="radio" name="optradio">{{radius}}
+                            </label>
+                        </form>
+                    </div>
+                </div>
+                <div class="sr-reset__reset text-right"><button ng-click="resetFilters()" class="btn btn-link">Reset</button></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="rl-mobile">
+        <div class="mcd-rlresults__buttons container">
+            <div class="mcd-rlresults__buttons-container">
+                <button class="button" data-ng-click="showRestaurantsForCurrentLocation()">
+                    <span class="icon-crosshairs"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span></span>&nbsp;&nbsp;&nbsp;<span class="text">Locate Me</span></button>
+            </div>
+            <div class="mcd-rlresults__buttons-container">
+                <button class="button" data-ng-click="openFiltersPopup('open')">
+                    <span class="icon-filters"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span></span>&nbsp;&nbsp;
+                    <span class="text">
+                        <span>Filters</span>
+                        <span ng-show="selectedRestaurantFilters.length > 0">({{selectedRestaurantFilters.length}})</span>&nbsp;&nbsp;
+                        <span aria-hidden="true" data-icon="&#xe904" class="icon-chevron-down"></span>
+                    </span>
+                </button>
+            </div>
+        </div>
+        <div class="mcd-rlresults__toggle-views container" ng-show="restaurants.length > 0">
+            <div class="toggle-views__heading">Restaurants ({{restaurants.length}})</div>
+            <div class="toggle-views__toggle-button">
+                <div class="button-toggle" ng-show="!showListView">
+                    <button ng-click="toggleListMapView()" class="">
+                        <span aria-hidden="true" data-icon="&#xe9a6" class="icon-bars"></span>
+                    </button>
+                </div>
+                <div class="button-toggle" ng-show="showListView">
+                    <button ng-click="toggleListMapView()" class="">
+                        <span class="icon-pin"><span class="path1"></span><span class="path2"></span></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="mcd-rlresults__rlviews container-fluid">
+        <!--        <div style="width: 100%; height: 600px;" id="map"></div>-->
+
+        <div class="tab-content">
+            <div class="rlviews__rl-listview" role="tabpanel" ng-show="showListView">
+                <ul class="rl-listview__rl-list container" aria-label="{{fullRlData.arialabelsearchresult}}">
+                    <li ng-click="openRestaurantDetailsPopup(restaurant, $index+1, 'open')" id="rl-list-{{restaurant.properties.id}}" class="rl-list__item row" data-ng-repeat="restaurant in restaurants | limitTo:totalVisibleRestaurants">
+                        <div class="rl-listitem-block" ng-show="enabledRestaurantsCount == 0 || restaurant.isEnabled">
+                            <!--
+<div class="rl-map-pin">
+<span class="rl-map-pin__count">{{$index+1}}</span>
+</div> 
+-->
+                            <div class="rl-map-pin">
+                                <span class="icon-map-pin"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span></span>
+                                <span class="rl-map-pin__count">{{$index+1}}</span>
+                            </div>
+                            <div class="rl-details">
+                                <div class="rl-heading">OPEN NOW</div>
+                                <h4 class="rl-title">
+                                    {{capitalizeFirstLetter(restaurant.properties.name?restaurant.properties.name:restaurant.properties.addressLine1)}}
+                                </h4>
+                                <span class="rl-subheading" ng-bind-html="capitalizeFirstLetter(getRestaurantFullAddress1(restaurant.properties.name, restaurant.properties.addressLine1, restaurant.properties.addressLine3, restaurant.properties.subDivision, restaurant.properties.postcode))"></span>
+                                <span class="rl-subheading-extradetails">&nbsp;&nbsp;|&nbsp;&nbsp;{{restaurant.properties.distance}} {{fullRlData.distanceUnitLocal}} {{fullRlData.away}}&nbsp;&nbsp;|&nbsp;&nbsp;
+                                    <a data-at="Exit:{{fullRlData.page_name}}:{{fullRlData.directionLinkName}}" data-track="externalLink" target="_blank" class="restaurant-location__directions-link external" ng-href="http://maps.google.com/?saddr={{currentLatitude}},{{currentLongitude}}&daddr={{restaurant.geometry.coordinates[1]}},{{restaurant.geometry.coordinates[0]}}" ng-cloak>{{fullRlData.directionLinkName}}
+                                    </a>
+                                    &nbsp;&nbsp;|&nbsp;&nbsp;<a x-cq-linkchecker="skip" ng-href="tel:{{restaurant.properties.telephone}}" class="phone" aria-label="{{restaurant.properties.telephoneTitle}}">{{restaurant.properties.telephone}}</a>
+                                </span>
+                                <div id="more-details-{{$index}}" class="rl_load-details-desktop collapse">
+                                    <div class="rl_set-preferred-location">
+                                        <div class="radio">
+                                            <label><input ng-click="setPrefered(restaurant,$event)" type="radio" name="optradio">{{fullRlData.preferedText}}</label>
+                                        </div>
+                                    </div>
+                                    <div class="rl-res-hours">
+                                        <div class="heading--bold">Restaurant Hours</div>
+                                        <table class="table">
+                                            <tr>
+                                                <td>Mon</td>
+                                                <td>10:00am - 11:00pm</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Tue</td>
+                                                <td>10:00am - 11:00pm</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Wed</td>
+                                                <td>10:00am - 11:00pm</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Thu</td>
+                                                <td>10:00am - 11:00pm</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Fri</td>
+                                                <td>10:00am - 11:00pm</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Sat</td>
+                                                <td>10:00am - 11:00pm</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Sun</td>
+                                                <td>10:00am - 11:00pm</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div class="rl-drive-thru-hours">
+                                        <div class="heading--bold">Drive Thru Hours</div>
+                                        <table class="table">
+                                            <tr>
+                                                <td>Mon</td>
+                                                <td>10:00am - 11:00pm</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Tue</td>
+                                                <td>10:00am - 11:00pm</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Wed</td>
+                                                <td>10:00am - 11:00pm</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Thu</td>
+                                                <td>10:00am - 11:00pm</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Fri</td>
+                                                <td>10:00am - 11:00pm</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Sat</td>
+                                                <td>10:00am - 11:00pm</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Sun</td>
+                                                <td>10:00am - 11:00pm</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div class="rl-services">
+                                        <div class="heading--bold">{{fullRlData.serviceText}}</div>
+                                        <div class="">
+                                            <div class="rl-services-item">
+                                                <span class="icon-bag-small"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></span>&nbsp;&nbsp;
+                                                <span>Mobile Ordering</span>
+                                            </div>
+                                            <div class="rl-services-item">
+                                                <span class="icon-deals"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span><span class="path7"></span><span class="path8"></span></span>&nbsp;&nbsp;
+                                                <span>Mobile Deals</span>
+                                            </div>
+                                            <div class="rl-services-item">
+                                                <span class="icon-wifi"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span><span class="path7"></span></span>&nbsp;&nbsp;
+                                                <span>Wifi</span>
+                                            </div>
+                                            <div class="rl-services-item">
+                                                <span class="icon-vehicle"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span><span class="path7"></span><span class="path8"></span><span class="path9"></span><span class="path10"></span><span class="path11"></span><span class="path12"></span><span class="path13"></span><span class="path14"></span><span class="path15"></span><span class="path16"></span><span class="path17"></span><span class="path18"></span><span class="path19"></span><span class="path20"></span><span class="path21"></span></span>&nbsp;&nbsp;
+                                                <span>Drive Thru</span>
+                                            </div>
+                                            <div class="rl-services-item">
+                                                <span class="icon-table"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span><span class="path7"></span><span class="path8"></span><span class="path9"></span><span class="path10"></span><span class="path11"></span><span class="path12"></span><span class="path13"></span><span class="path14"></span><span class="path15"></span><span class="path16"></span></span>&nbsp;&nbsp;
+                                                <span>Indoor Dining</span>
+                                            </div>
+                                            <div class="rl-services-item">
+                                                <span class="icon-gift"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span><span class="path7"></span><span class="path8"></span><span class="path9"></span><span class="path10"></span><span class="path11"></span><span class="path12"></span><span class="path13"></span><span class="path14"></span><span class="path15"></span><span class="path16"></span><span class="path17"></span></span>&nbsp;&nbsp;
+                                                <span>Gift Cards</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="rl-careers">
+                                        <div class="heading--bold">{{fullRlData.carriersHeading}}</div>
+                                        <div class="subheading">Like eating at McDonalds ? Ever thought of working here ?</div>
+                                        <!--                                        <div><a href="#">Apply for Job</a></div>-->
+                                        <div ng-if="!fullRlData.isApplyForJob">   
+                                            <a ng-show="restaurant.properties.restaurantUrl" class="restaurant-location__directions-link" target="_blank" ng-href="{{restaurant.properties.restaurantUrl}}" ng-cloak ng-bind="fullRlData.mCarriers"></a>
+                                            <br/>
+                                            <a ng-show="restaurant.properties.jobUrl" class="restaurant-location__directions-link" target="_blank" ng-href="{{restaurant.properties.jobUrl}}" ng-cloak ng-bind="fullRlData.maCarriers"></a>
+                                            <p ng-if="!restaurant.properties.restaurantUrl && !restaurant.properties.jobUrl" ng-cloak> {{fullRlData.noCarrier}}</p>
+                                            <p itemprop="description" class="HomeHeader-restaurantLabel" ng-show="getJobProvider(restaurant.properties.jobUrl)" ng-bind="getHrOLegalText(restaurant)"></p>
+                                            <p itemprop="description" class="HomeHeader-restaurantLabel" ng-show="!getJobProvider(restaurant.properties.jobUrl)">{{fullRlData.oFText}}</p>
+                                        </div>
+                                        <div ng-if="fullRlData.isApplyForJob">
+                                            <div ng-show="restaurant.properties.restaurantUrl" class="restaurant-location__secondary-actions"> 
+                                                <a  target="_blank" ng-href="{{restaurant.properties.restaurantUrl}}" ng-cloak ng-bind="fullRlData.applyforjob"></a>  
+                                            </div>
+                                            <p ng-if="!restaurant.properties.restaurantUrl && !restaurant.properties.jobUrl" ng-cloak> {{fullRlData.noCarrier}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!--Restaurant Details Popup for Mobile-->
+                                <!--
+<div class="rl_load-details-mobile hide">
+<div class="rl-map-pin">
+<span class="rl-map-pin__count">{{$index+1}}</span>
+</div>
+<div class="rl-heading">OPEN NOW</div>
+<h4 class="rl-title" ng-bind="selectedRestaurant.properties.name?selectedRestaurant.properties.name:selectedRestaurant.properties.addressLine1"></h4>
+<span class="rl-subheading" ng-bind-html="getRestaurantFullAddress1(selectedRestaurant.properties.name, selectedRestaurant.properties.addressLine1, selectedRestaurant.properties.addressLine3, selectedRestaurant.properties.subDivision, selectedRestaurant.properties.postcode)"></span>
+<span class="rl-subheading-extradetails">&nbsp;&nbsp;|&nbsp;&nbsp;{{selectedRestaurant.properties.distance}} {{fullRlData.distanceUnitLocal}} {{fullRlData.away}}<br/>Get Directions
+&nbsp;&nbsp;&nbsp;&nbsp;{{selectedRestaurant.properties.telephone}}
+</span>
+<div class="rl_set-preferred-location">
+<div class="radio">
+<label><input type="radio" name="optradio">Preferred Location</label>
+</div>
+</div>
+<div class="rl-show-hours dropdown-toggle">
+<div class="heading">Show Hours</div>
+<div class="rl-chevron-down">
+<span aria-hidden="true" data-icon="&#xe905" class="icon-chevron-down"></span>
+</div>
+</div>
+<div class="rl-show-services dropdown-toggle">
+<div class="heading">Show Services</div>
+<div class="rl-chevron-down">
+<span aria-hidden="true" data-icon="&#xe905" class="icon-chevron-down"></span>
+</div>
+</div>
+<div class="rl-careers">
+<div class="heading">{{fullRlData.carriersHeading}}:</div>
+<div class="">Like eating at McDonalds ? Ever thought of working here ?</div>
+<div><a href="#">Apply for Job</a></div>
+</div>
+<i ng-click="openRestaurantDetailsPopup(restaurant, 'close')" class="icon-times"></i>
+</div>
+-->
+                                <!--------------------------------------->
+
+                            </div>
+                            <div class="rl-chevron-down" data-toggle="collapse" data-target="#more-details-{{$index}}">
+                                <span aria-hidden="true" data-icon="&#xe905" class="icon-chevron-down"></span>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <div class="rl-listview__load-more" ng-show="restaurants.length > 5">
+                    <button class="button" ng-click="toggleTotalVisibleRestaurants()">Load {{totalVisibleRestaurants > 5 ? 'Less' : 'More'}}</button>
+                </div>
+            </div>
+            <div class="rlviews__rl-mapview" role="tabpanel" ng-show="!showListView">
+                <div class="container-fluid">
+                    <div class="rl-mapview-container">
+                        <div class="rl-mapview__details">
+                            <!--
+<div class="rl-map-pin">
+<span class="rl-map-pin__count">{{$index+1}}</span>
+</div>
+-->
+                            <div class="rl-map-pin">
+                                <span class="icon-map-pin"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span></span>
+                                <span class="rl-map-pin__count">{{$index+1}}</span>
+                            </div>
+                            <div class="rl-heading">OPEN NOW</div>
+                            <h4 class="rl-title" ng-bind="capitalizeFirstLetter(selectedRestaurant.properties.name?selectedRestaurant.properties.name:selectedRestaurant.properties.addressLine1)"></h4>
+                            <span class="rl-subheading" ng-bind-html="capitalizeFirstLetter(getRestaurantFullAddress1(selectedRestaurant.properties.name, selectedRestaurant.properties.addressLine1, selectedRestaurant.properties.addressLine3, selectedRestaurant.properties.subDivision, selectedRestaurant.properties.postcode))"></span>
+                            <span class="rl-subheading-extradetails">&nbsp;&nbsp;|&nbsp;&nbsp;{{selectedRestaurant.properties.distance}} {{fullRlData.distanceUnitLocal}} {{fullRlData.away}}&nbsp;&nbsp;|&nbsp;&nbsp;<a data-at="Exit:{{fullRlData.page_name}}:{{fullRlData.directionLinkName}}" data-track="externalLink" target="_blank" class="restaurant-location__directions-link external" ng-href="http://maps.google.com/?saddr={{currentLatitude}},{{currentLongitude}}&daddr={{selectedRestaurant.geometry.coordinates[1]}},{{selectedRestaurant.geometry.coordinates[0]}}" ng-cloak>{{fullRlData.directionLinkName}}</a>
+                                <p><a x-cq-linkchecker="skip" ng-href="tel:{{selectedRestaurant.properties.telephone}}" class="phone" aria-label="{{selectedRestaurant.properties.telephoneTitle}}">{{selectedRestaurant.properties.telephone}}</a></p>
+                            </span>
+                            <div class="rl_set-preferred-location">
+                                <div class="radio">
+                                    <label><input ng-click="setPrefered(selectedRestaurant,$event)" type="radio" name="optradio">{{fullRlData.preferedText}}</label>
+                                </div>
+                            </div>
+                            <div class="rl-show-hours dropdown-toggle">
+                                <div class="heading">Show Hours</div>
+                                <div class="rl-chevron-down" data-toggle="collapse" data-target=".show-hours">
+                                    <span aria-hidden="true" data-icon="&#xe905" class="icon-chevron-down"></span>
+                                </div>
+                            </div>
+                            <div class="rl-res-tables show-hours collapse">
+                                <div class="rl-res-hours">
+                                    <div class="heading--bold">Restaurant Hours</div>
+                                    <table class="table">
+                                        <tr>
+                                            <td>Mon</td>
+                                            <td>10:00am - 11:00pm</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Tue</td>
+                                            <td>10:00am - 11:00pm</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Wed</td>
+                                            <td>10:00am - 11:00pm</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Thu</td>
+                                            <td>10:00am - 11:00pm</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Fri</td>
+                                            <td>10:00am - 11:00pm</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Sat</td>
+                                            <td>10:00am - 11:00pm</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Sun</td>
+                                            <td>10:00am - 11:00pm</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="rl-drive-thru-hours">
+                                    <div class="heading--bold">Drive Thru Hours</div>
+                                    <table class="table">
+                                        <tr>
+                                            <td>Mon</td>
+                                            <td>10:00am - 11:00pm</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Tue</td>
+                                            <td>10:00am - 11:00pm</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Wed</td>
+                                            <td>10:00am - 11:00pm</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Thu</td>
+                                            <td>10:00am - 11:00pm</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Fri</td>
+                                            <td>10:00am - 11:00pm</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Sat</td>
+                                            <td>10:00am - 11:00pm</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Sun</td>
+                                            <td>10:00am - 11:00pm</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="rl-show-services dropdown-toggle">
+                                <div class="heading">Show Services</div>
+                                <div class="rl-chevron-down" data-toggle="collapse" data-target=".show-services">
+                                    <span aria-hidden="true" data-icon="&#xe905" class="icon-chevron-down"></span>
+                                </div>
+                            </div>
+                            <div class="show-services collapse">
+                                <div class="rl-services-item">
+                                    <span class="icon-bag-small"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></span>&nbsp;&nbsp;
+                                    <span>Mobile Ordering</span>
+                                </div>
+                                <div class="rl-services-item">
+                                    <span class="icon-deals"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span><span class="path7"></span><span class="path8"></span></span>&nbsp;&nbsp;
+                                    <span>Mobile Deals</span>
+                                </div>
+                                <div class="rl-services-item">
+                                    <span class="icon-wifi"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span><span class="path7"></span></span>&nbsp;&nbsp;
+                                    <span>Wifi</span>
+                                </div>
+                                <div class="rl-services-item">
+                                    <span class="icon-vehicle"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span><span class="path7"></span><span class="path8"></span><span class="path9"></span><span class="path10"></span><span class="path11"></span><span class="path12"></span><span class="path13"></span><span class="path14"></span><span class="path15"></span><span class="path16"></span><span class="path17"></span><span class="path18"></span><span class="path19"></span><span class="path20"></span><span class="path21"></span></span>&nbsp;&nbsp;
+                                    <span>Drive Thru</span>
+                                </div>
+                                <div class="rl-services-item">
+                                    <span class="icon-table"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span><span class="path7"></span><span class="path8"></span><span class="path9"></span><span class="path10"></span><span class="path11"></span><span class="path12"></span><span class="path13"></span><span class="path14"></span><span class="path15"></span><span class="path16"></span></span>&nbsp;&nbsp;
+                                    <span>Indoor Dining</span>
+                                </div>
+                                <div class="rl-services-item">
+                                    <span class="icon-gift"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span><span class="path7"></span><span class="path8"></span><span class="path9"></span><span class="path10"></span><span class="path11"></span><span class="path12"></span><span class="path13"></span><span class="path14"></span><span class="path15"></span><span class="path16"></span><span class="path17"></span></span>&nbsp;&nbsp;
+                                    <span>Gift Cards</span>
+                                </div>
+                            </div><br/>
+                            <div class="rl-careers">
+                                <div class="heading--bold">{{fullRlData.carriersHeading}}</div>
+                                <div class="subheading">Like eating at McDonalds ? Ever thought of working here ?</div>
+                                <!--                                <div><a href="#">Apply for Job</a></div>-->
+                                <div ng-if="!fullRlData.isApplyForJob">   
+                                    <a ng-show="restaurant.properties.restaurantUrl" class="restaurant-location__directions-link" target="_blank" ng-href="{{restaurant.properties.restaurantUrl}}" ng-cloak ng-bind="fullRlData.mCarriers"></a>
+                                    <br/>
+                                    <a ng-show="restaurant.properties.jobUrl" class="restaurant-location__directions-link" target="_blank" ng-href="{{restaurant.properties.jobUrl}}" ng-cloak ng-bind="fullRlData.maCarriers"></a>
+                                    <p ng-if="!restaurant.properties.restaurantUrl && !restaurant.properties.jobUrl" ng-cloak> {{fullRlData.noCarrier}}</p>
+                                    <p itemprop="description" class="HomeHeader-restaurantLabel" ng-show="getJobProvider(restaurant.properties.jobUrl)" ng-bind="getHrOLegalText(restaurant)"></p>
+                                    <p itemprop="description" class="HomeHeader-restaurantLabel" ng-show="!getJobProvider(restaurant.properties.jobUrl)">{{fullRlData.oFText}}</p>
+                                </div>
+                                <div ng-if="fullRlData.isApplyForJob">
+                                    <div ng-show="restaurant.properties.restaurantUrl" class="restaurant-location__secondary-actions"> 
+                                        <a  target="_blank" ng-href="{{restaurant.properties.restaurantUrl}}" ng-cloak ng-bind="fullRlData.applyforjob"></a>  
+                                    </div>
+                                    <p ng-if="!restaurant.properties.restaurantUrl && !restaurant.properties.jobUrl" ng-cloak> {{fullRlData.noCarrier}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="rl-mapview__map">
+                            <div style="width: 100%; height: 600px;" id="map"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!--Restaurant Details Popup for Mobile-->
+        <div class="rl_load-details-mobile popup-mobile hide">
+            <!--
+<div class="rl-map-pin">
+<span class="rl-map-pin__count">{{selectedRestaurant.properties.index}}</span>
+</div>
+-->
+            <div class="rl-map-pin">
+                <span class="icon-map-pin"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span></span>
+                <span class="rl-map-pin__count">{{selectedRestaurant.index}}</span>
+            </div>
+            <div class="rl-heading">OPEN NOW</div>
+            <h4 class="rl-title" ng-bind="capitalizeFirstLetter(selectedRestaurant.properties.name?selectedRestaurant.properties.name:selectedRestaurant.properties.addressLine1)"></h4>
+            <span class="rl-subheading" ng-bind-html="capitalizeFirstLetter(getRestaurantFullAddress1(selectedRestaurant.properties.name, selectedRestaurant.properties.addressLine1, selectedRestaurant.properties.addressLine3, selectedRestaurant.properties.subDivision, selectedRestaurant.properties.postcode))"></span>
+            <span class="rl-subheading-extradetails">&nbsp;&nbsp;|&nbsp;&nbsp;{{selectedRestaurant.properties.distance}} {{fullRlData.distanceUnitLocal}} {{fullRlData.away}}<br/><a data-at="Exit:{{fullRlData.page_name}}:{{fullRlData.directionLinkName}}" data-track="externalLink" target="_blank" class="restaurant-location__directions-link external" ng-href="http://maps.google.com/?saddr={{currentLatitude}},{{currentLongitude}}&daddr={{selectedRestaurant.geometry.coordinates[1]}},{{selectedRestaurant.geometry.coordinates[0]}}" ng-cloak>{{fullRlData.directionLinkName}}</a>
+                &nbsp;&nbsp;|&nbsp;&nbsp;
+                <a x-cq-linkchecker="skip" ng-href="tel:{{selectedRestaurant.properties.telephone}}" class="phone" aria-label="{{selectedRestaurant.properties.telephoneTitle}}">{{selectedRestaurant.properties.telephone}}</a>
+            </span>
+            <div class="rl_set-preferred-location">
+                <div class="radio">
+                    <label><input ng-click="setPrefered(selectedRestaurant,$event)" type="radio" name="optradio">{{fullRlData.preferedText}}</label>
+                </div>
+            </div>
+            <div class="rl-show-hours dropdown-toggle">
+                <div class="heading">Show Hours</div>
+                <div class="rl-chevron-down" data-toggle="collapse" data-target=".show-hours">
+                    <span aria-hidden="true" data-icon="&#xe905" class="icon-chevron-down"></span>
+                </div>
+            </div>
+            <div class="rl-res-tables show-hours collapse">
+                <div class="rl-res-hours">
+                    <div class="heading--bold">Restaurant Hours</div>
+                    <table class="table">
+                        <tr>
+                            <td>Mon</td>
+                            <td>10:00am - 11:00pm</td>
+                        </tr>
+                        <tr>
+                            <td>Tue</td>
+                            <td>10:00am - 11:00pm</td>
+                        </tr>
+                        <tr>
+                            <td>Wed</td>
+                            <td>10:00am - 11:00pm</td>
+                        </tr>
+                        <tr>
+                            <td>Thu</td>
+                            <td>10:00am - 11:00pm</td>
+                        </tr>
+                        <tr>
+                            <td>Fri</td>
+                            <td>10:00am - 11:00pm</td>
+                        </tr>
+                        <tr>
+                            <td>Sat</td>
+                            <td>10:00am - 11:00pm</td>
+                        </tr>
+                        <tr>
+                            <td>Sun</td>
+                            <td>10:00am - 11:00pm</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="rl-drive-thru-hours">
+                    <div class="heading--bold">Drive Thru Hours</div>
+                    <table class="table">
+                        <tr>
+                            <td>Mon</td>
+                            <td>10:00am - 11:00pm</td>
+                        </tr>
+                        <tr>
+                            <td>Tue</td>
+                            <td>10:00am - 11:00pm</td>
+                        </tr>
+                        <tr>
+                            <td>Wed</td>
+                            <td>10:00am - 11:00pm</td>
+                        </tr>
+                        <tr>
+                            <td>Thu</td>
+                            <td>10:00am - 11:00pm</td>
+                        </tr>
+                        <tr>
+                            <td>Fri</td>
+                            <td>10:00am - 11:00pm</td>
+                        </tr>
+                        <tr>
+                            <td>Sat</td>
+                            <td>10:00am - 11:00pm</td>
+                        </tr>
+                        <tr>
+                            <td>Sun</td>
+                            <td>10:00am - 11:00pm</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="rl-show-services dropdown-toggle">
+                <div class="heading">Show Services</div>
+                <div class="rl-chevron-down" data-toggle="collapse" data-target=".show-services">
+                    <span aria-hidden="true" data-icon="&#xe905" class="icon-chevron-down"></span>
+                </div>
+            </div>
+            <div class="show-services collapse">
+                <div class="rl-services-item">
+                    <span class="icon-bag-small"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></span>&nbsp;&nbsp;
+                    <span>Mobile Ordering</span>
+                </div>
+                <div class="rl-services-item">
+                    <span class="icon-deals"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span><span class="path7"></span><span class="path8"></span></span>&nbsp;&nbsp;
+                    <span>Mobile Deals</span>
+                </div>
+                <div class="rl-services-item">
+                    <span class="icon-wifi"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span><span class="path7"></span></span>&nbsp;&nbsp;
+                    <span>Wifi</span>
+                </div>
+                <div class="rl-services-item">
+                    <span class="icon-vehicle"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span><span class="path7"></span><span class="path8"></span><span class="path9"></span><span class="path10"></span><span class="path11"></span><span class="path12"></span><span class="path13"></span><span class="path14"></span><span class="path15"></span><span class="path16"></span><span class="path17"></span><span class="path18"></span><span class="path19"></span><span class="path20"></span><span class="path21"></span></span>&nbsp;&nbsp;
+                    <span>Drive Thru</span>
+                </div>
+                <div class="rl-services-item">
+                    <span class="icon-table"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span><span class="path7"></span><span class="path8"></span><span class="path9"></span><span class="path10"></span><span class="path11"></span><span class="path12"></span><span class="path13"></span><span class="path14"></span><span class="path15"></span><span class="path16"></span></span>&nbsp;&nbsp;
+                    <span>Indoor Dining</span>
+                </div>
+                <div class="rl-services-item">
+                    <span class="icon-gift"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span><span class="path7"></span><span class="path8"></span><span class="path9"></span><span class="path10"></span><span class="path11"></span><span class="path12"></span><span class="path13"></span><span class="path14"></span><span class="path15"></span><span class="path16"></span><span class="path17"></span></span>&nbsp;&nbsp;
+                    <span>Gift Cards</span>
+                </div>
+            </div><br/>
+            <div class="rl-careers">
+                <div class="heading--bold">{{fullRlData.carriersHeading}}:</div>
+                <div class="subheading">Like eating at McDonalds ? Ever thought of working here ?</div>
+                <!--                <div><a href="#">Apply for Job</a></div>-->
+                <div ng-if="!fullRlData.isApplyForJob">   
+                    <a ng-show="selectedRestaurant.properties.restaurantUrl" class="restaurant-location__directions-link" target="_blank" ng-href="{{selectedRestaurant.properties.restaurantUrl}}" ng-cloak ng-bind="fullRlData.mCarriers"></a>
+                    <br/>
+                    <a ng-show="selectedRestaurant.properties.jobUrl" class="restaurant-location__directions-link" target="_blank" ng-href="{{selectedRestaurant.properties.jobUrl}}" ng-cloak ng-bind="fullRlData.maCarriers"></a>
+                    <p ng-if="!selectedRestaurant.properties.restaurantUrl && !selectedRestaurant.properties.jobUrl" ng-cloak> {{fullRlData.noCarrier}}</p>
+                    <p itemprop="description" class="HomeHeader-restaurantLabel" ng-show="getJobProvider(selectedRestaurant.properties.jobUrl)" ng-bind="getHrOLegalText(selectedRestaurant)"></p>
+                    <p itemprop="description" class="HomeHeader-restaurantLabel" ng-show="!getJobProvider(selectedRestaurant.properties.jobUrl)">{{fullRlData.oFText}}</p>
+                </div>
+                <div ng-if="fullRlData.isApplyForJob">
+                    <div ng-show="selectedRestaurant.properties.restaurantUrl" class="restaurant-location__secondary-actions"> 
+                        <a  target="_blank" ng-href="{{selectedRestaurant.properties.restaurantUrl}}" ng-cloak ng-bind="fullRlData.applyforjob"></a>  
+                    </div>
+                    <p ng-if="!selectedRestaurant.properties.restaurantUrl && !selectedRestaurant.properties.jobUrl" ng-cloak> {{fullRlData.noCarrier}}</p>
+                </div>
+            </div>
+            <i ng-click="openRestaurantDetailsPopup(selectedRestaurant, selectedRestaurant.properties.index, 'close')" class="icon-times"></i>
+        </div>
+        <!--------------------------------------->
+
+        <!--Filters Popup for Mobile-->
+        <div class="rl-filters-popup-mobile popup-mobile hide">
+            <div class="filter-heading">Filter Locations</div>
+            <div class="mcd-rlresults__filter-items">
+                <label ng-repeat="restaurantFilter in restaurantFilters" class="filter-item">{{restaurantFilter.filterName}}
+                    <input type="checkbox" ng-click="filterRestaurants(restaurantFilter.filterValue)" aria-checked="false">
+                    <span class="checkmark"></span>
+                </label><br/><br/>
+                <div class="text-center">
+                    <button class="button" ng-click="openFiltersPopup('close')">Update Results</button>
+                </div><br/>
+                <div class="text-center">
+                    <button ng-click="resetFilters()" class="btn btn-link">Reset</button>
+                </div>
+                <i ng-click="openFiltersPopup('close')" class="icon-times"></i>
+            </div>
+        </div>
+        <!--------------------------------------->
+
+    </div>
+    <!--
+<script>
+function initMap() {
+var uluru = {lat: 33.9602099, lng: -118.226507};
+var options = {
+zoom: 11,
+center: new google.maps.LatLng(uluru.lat, uluru.lng),
+zoomControl: true,
+zoomControlOptions: {
+position: google.maps.ControlPosition.LEFT_CENTER
+},
+streetViewControl: true,
+mapTypeId: google.maps.MapTypeId.ROADMAP
+};
+var map = new google.maps.Map(document.getElementById('map'), options);
+var marker = new google.maps.Marker({
+position: uluru,
+map: map
+});
+}
+</script>
+-->
+    <!--
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA9c0iED_gp7_aLBo9gj6gqu-zcyD88gFQ&callback=initMap">
+</script>
+-->
+</div>
+
+
+
+
+

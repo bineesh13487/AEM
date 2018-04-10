@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+    <filter root="/apps/mcd-arabia">
+        <exclude pattern="/apps/mcd-arabia/install" />
+    </filter>
+    <filter root="/etc/clientlibs/mcd-arabia"/>
+    <filter root="/etc/clientlibs/mcd-arabia-author"/>
+</workspaceFilter>

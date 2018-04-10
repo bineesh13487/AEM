@@ -1,0 +1,144 @@
+// COMPONENT: FULL MENU
+.component-related-items{
+.wrapper {
+			padding-bottom: 0;
+
+			.view-all {
+				text-transform: uppercase;
+				text-align: center;
+				color: $red;
+				@include fontSet(18px, 30px, 'Droid_Arabic_Kufi_Bold');
+				padding-bottom: 20px;
+				margin-bottom: 10px;
+				border-bottom: 2px solid #e1e1e1;
+
+				i {
+					margin-right: 10px;
+				}
+
+				@media only screen and (min-width: 768px) {
+					float: left;
+					padding-bottom: 0px;
+					margin-bottom: 0px;
+					border-bottom: 0px solid #e1e1e1;
+				}
+			}
+		}
+}
+
+
+.component-full-menu {
+
+	/*.component-related-items {
+		.related-flex-container {
+			padding-bottom: 20px;
+
+			@media only screen and (min-width: 768px) {
+				border-bottom: 1px solid #e1e1e1;
+			}
+		}
+
+		h2 {
+			margin-top:10px;
+
+			@media only screen and (min-width: 768px) {
+				margin-bottom: 10px;
+
+			}
+
+		}
+
+		.wrapper {
+			padding-bottom: 0;
+
+			.view-all {
+				text-transform: uppercase;
+				text-align: center;
+				color: $red;
+				@include fontSet(18px, 30px, 'Droid_Arabic_Kufi_Bold');
+				padding-bottom: 20px;
+				margin-bottom: 10px;
+				border-bottom: 2px solid #e1e1e1;
+
+				i {
+					margin-right: 10px;
+				}
+
+				@media only screen and (min-width: 768px) {
+					float: left;
+					padding-bottom: 0px;
+					margin-bottom: 0px;
+					border-bottom: 0px solid #e1e1e1;
+				}
+			}
+		}
+
+		&:last-child {
+			.related-flex-container {
+				border-bottom: 0px solid #e1e1e1;
+			}
+		}
+
+	}*/
+
+	.template-hero {
+		margin-bottom: 0px;
+		position: relative;
+		min-height: 260px;
+
+		@media only screen and (min-width: 768px) {
+			min-height: initial;
+			margin-bottom: 50px;
+		}
+
+		.absolute-content .absolute-content-wrapper {
+			.text-wrapper {
+				padding-top: $exact-mobile-nav-space;
+
+				@media only screen and (min-width: 768px) {
+					padding-top: $exact-nav-space;
+				}
+			}
+			h1 {
+				text-transform: uppercase;
+				margin-top: 0;
+				margin-bottom: 15px;
+				@include fontSet(50px, 50px, 'Droid_Arabic_Kufi_Bold');
+				color: $white;
+
+				@media only screen and (min-width: 320px) {
+					@include fontSet(75px, 75px, 'Droid_Arabic_Kufi_Bold');
+				}
+				@media only screen and (min-width: 480px) {
+					@include fontSet(100px, 100px, 'Droid_Arabic_Kufi_Bold');
+				}
+				@media only screen and (min-width: 768px) {
+					@include fontSet(100px, 100px, 'Droid_Arabic_Kufi_Bold');
+				}
+				@media only screen and (min-width: 992px) {
+					@include fontSet(125px, 125px, 'Droid_Arabic_Kufi_Bold');
+				}
+			}
+			p {
+				@include fontSet(20px, 30px);
+				color: $white;
+				margin-bottom: 25px;
+
+				@media only screen and (min-width: 320px) {
+					@include fontSet(22px, 32px);
+				}
+				@media only screen and (min-width: 480px) {
+					@include fontSet(24px, 34px);
+				}
+				@media only screen and (min-width: 992px) {
+					@include fontSet(26px, 36px);
+				}
+			}
+		}
+	}
+
+	.menu-categories {
+
+	}
+
+}

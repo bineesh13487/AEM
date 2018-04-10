@@ -1,0 +1,20 @@
+html,
+body {
+  text-align: left;
+  font-family: $font-family-base;
+  font-size: 1rem;
+
+  &[dir=rtl] {
+    font-family: $rtl-font-family-base;
+  }
+}
+
+.main-container {
+  padding: 0 to-rem(12) 0 to-rem(12);
+  padding-top: to-rem(25);
+  background-color: $interface-fill-1;
+}
+
+.ng-scope.cookie-banner.no-touch.ext-webkit.ext-safari.ext-safari4.ext-mac {
+  margin-top: 0 !important;
+}

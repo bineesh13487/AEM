@@ -1,0 +1,9 @@
+<div data-component="button-comp" class="button-comp"> 
+    <button role="button" class="button <%=subclass%>" aria-label="<%=icon%>">
+        <% if (icon === 'search') { %>
+            <span aria-hidden="true" data-icon="&#xe986" class="icon-search"></span>
+        <% } else { %>
+            <%= title %>
+        <% } %>
+    </button>
+</div>

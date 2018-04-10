@@ -1,0 +1,113 @@
+<!--/*
+    Gallery / carousel component html
+*/-->
+
+<div ng-controller="carouselController" ng-init="init('${resource.path}')" class="carousel">
+
+  <sly data-sly-test="${(wcmmode.edit || wcmmode.design)}">
+		<h3 ng-if="localSlides.length == 0" ng-cloak>Please configure the dialog to render Image Gallery on page</h3>
+  </sly>
+
+	<div ng-if="localSlides.length > 0">
+		<template data-sly-template.showVideo="${ @ videoId, slideId }">
+			<div id="videoModal_${slideId}" class="component-video">
+				<div class="container">
+					<div class="row no-gutter">
+						<div class="col-sm-12">
+							<h3 class="video-title"></h3>
+							<div class="embed-responsive embed-responsive-16by9">
+								<div id="data-videos" data-videos="${videoId}"></div>
+								<div id="player_${slideId}"></div>
+							</div>
+							<div></div>
+							<div class="cont-playlist">
+								<ul class="list-unstyled">
+									<li class="active">
+										<div class="media">
+											<div class="media-left media-middle">
+												<button>
+													<img class="media-object" src="" alt="...">
+												</button>
+											</div>
+											<div class="media-body media-middle">
+												<h4 class="media-heading"></h4>
+											</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</template>
+		<section title="carousel">
+      <h2 class="visuallyhidden">Carousel Title</h2>
+			<div id="homeCarouselComponent" class="component-carousel mcd-carousel home-flexslider flexslider" data-animation="{{slides.animation}}"
+			 data-slideshow="{{slides.slideshow}}" data-slide-speed="{{slides.speed}}" data-slideSize="{{localSlides.length}}">
+				<ul class="slides mcd-carousel__slides">
+					<li ng-repeat="data in localSlides" on-slide-finish-render="ngLocalSlidesFinished" data-mobile="url('{{data.mobileImagePath}}') no-repeat"
+           data-desktop="url('{{data.imagePath}}') no-repeat" ng-style="{'backgroundImage':'url('+data.mobileImagePath+')', 'backgroundRepeat': 'no-repeat','backgroundPosition':'center','backgroundSize':'cover'}"
+           class="mcd-carousel__slide">
+						<div class="caption">
+							<div class="caption-wrapper">
+								<a ng-if="data.videoIds.length > 0" ng-href="#videoModal_{{ $index + 1 }}" class="trigger-carousel-video" data-at="{{data.analytics}}:{{ $index + 1 }}"
+								 data-track="carousal">
+									<span class="button-play">
+										<img src="/etc/clientlibs/mcd-us/images/video-black-play-icon.png" alt="">
+									</span>
+									<sly data-sly-test.slideCount="{{ $index + 1 }}" data-sly-test.videoIds="{{data.videoIds}}">
+										<sly data-sly-call="${showVideo @ videoId=videoIds, slideId=slideCount}"></sly>
+									</sly>
+								</a>
+								<!-- <h2 class="large-headline-text">
+									<span class="visuallyhidden focus-start" tabindex="-1">{{data.eyetitle}}{{data.title}}{{data.description}}</span>
+									<span aria-hidden="true">{{data.eyetitle}}
+										<span class="large">{{data.title}}</span>{{data.description}}</span>
+								</h2> -->
+
+
+
+
+
+								<!-- <div class="headline-container">
+										<p class="headline-text" tabindex="-1">{{data.eyetitle}}{{data.title}}</p>
+										<p class="headline-description">{{data.description}}</p>
+										<button class="learn-btn">Learn More</button>
+								</div> -->
+
+								<div class="headline-container">
+										<p class="headline-text" tabindex="-1">{{data.title}}</p>
+										<p class="headline-description">{{data.description}}</p>
+										<button class="learn-btn">Learn More</button>
+								</div>
+
+
+								<!--
+								<p class="cont-btn" ng-if="data.linkText">
+									<a ng-href="{{data.href}}" role="button" aria-label="{{data.ariaLabel}}" target="{{data.target}}" class="btn btn-red" data-at="{{data.analytics}}:{{ $index + 1 }}"
+									 data-track="carousal">{{data.linkText}}</a>
+								</p> -->
+
+
+							</div>
+						</div>
+					</li>
+				</ul>
+
+			<!--
+				<ul class="custom-paging"></ul>
+				<ul class="custom-direction-nav">
+					<li class="flex-nav-prev">
+						<a class="flex-prev keep-outline" ng-click="Prev()" href="#" title="visit previous slide" tabindex="0">Previous</a>
+					</li>
+					<li class="flex-nav-next">
+						<a class="flex-next keep-outline" ng-click="Next()" href="#" title="visit next slide" tabindex="0">Next</a>
+					</li>
+				</ul> -->
+
+
+			</div>
+		</section>
+	</div>
+</div>

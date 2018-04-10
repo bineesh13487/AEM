@@ -1,0 +1,353 @@
+<sly data-sly-template.showProductInfo="${@ product}">
+    <div class="component-product-detail">
+        <div class="itemID" data-item-id="${product.getProductInfo.getItem.getItemId}" data-item-name="${product.getProductInfo.getItem.getItemMarketingName}" data-category-id="${product.productInfo.item.defaultCategory.category.id.toString}"/>
+       <div class="cont-hero">
+           <div class="cont-img"> 	
+			<picture>
+				<!--[if IE 9]><video style="display: none;"><![endif]-->
+				<source srcset="${product.getDynamicMediaServerContextURL @context='uri'}${product.getProductInfo.getItem.getProductMobileImagePath @context='uri'}${product.getDynamicMediaXSmallParameter @context='uri'}" media="(max-width: 432px)">
+				<source srcset="${product.getProductInfo.getItem.getProductMobileImagePath @context='uri'}" media="(max-width: 767px)">
+				<source srcset="${product.getDynamicMediaServerContextURL @context='uri'}${product.getProductInfo.getItem.getProductDesktopImagePath @context='uri'}${product.getDynamicMediaMediumParameter @context='uri'}" media="(max-width: 1024px)">
+				<source srcset="${product.getProductInfo.getItem.getProductDesktopImagePath @context='uri'}" media="(max-width: 1920px)">
+				<!--[if IE 9]></video><![endif]-->
+				<img class="img-responsive cont-100" srcset="${product.getProductInfo.getItem.getProductDesktopImagePath}" alt="">
+                </picture>
+				</div>
+            <div class="absolute-content border-wrapper">
+                <div class="absolute-content-wrapper offer">
+                    <div class="text-wrapper">
+                        <div class="cont-title">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-6 col-sm-7 col-xs-12 title">
+                                    	<div class="headline-text">
+			                              <h1 class="headline-text" style="outline: none;">${product.getProductInfo.getItem.getText @context='unsafe'}
+										  <span class="large text-transform-none">${product.getProductInfo.getItem.getItemMarketingName}</span>
+										  </h1>
+										  <p class="headline-text hidden-xs"><span class="small">${product.getProductInfo.getItem.getDescription @context='unsafe'}</span></p> 										  
+											<div data-sly-test="${product.showOrderNow == 'true'}"><a class="zoom-anim btn btn-red btn-xsm text-transform-none click-before-outline" target="_self" href=${product.orderNowURL} data-at="Promotion:product:See the menu" data-track="promotion" style="outline: none;">
+												${product.ordernowTitle}
+											</a></div>
+			                          	</div>
+			                        </div>  
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="barrier visible-xs"></div>
+        <div class="description visible-xs">
+            <div class="container"> <span class="small"><p>${product.getProductInfo.getItem.getDescription @context='unsafe'}</p></span></div>
+        </div>
+        <div data-ng-controller="productController" data-ng-cloak>
+        <sly data-sly-test="${product.showIngredients == 'True'}">
+		  <div data-sly-test="${product.ingredientsList.size>0}" class="ingredients-wrapper">
+            <div class="ingredients-flex-container">
+            	<div class="flex-nav-cust flex-nav-prev"> <a class="flex-prev" href="#" role="button">Previous ingredients</a> </div>
+                <div id="productDetailCarouselComponent" class="ingredients-flexslider flexslider">
+                    <ol class="slides">
+                        <sly data-sly-list.component="${product.ingredientsList}">
+                        	<li>
+                        		<div class="visuallyhidden">${component.name}</div>
+                             	<span aria-hidden="true">
+                             		<img class="img-responsive" alt="" src="${component.imagePath}" />
+                                	<div class="ingredient-caption">
+                                    	<div class="caption-wrapper"> 
+                                    		<span class="ingredient-text">${component.name}</span> 
+                                    	</div>
+                                	</div>
+                                </span>
+                            </li>
+                        </sly>
+                    </ol>
+                </div>
+                <div class="flex-nav-cust flex-nav-next"> <a class="flex-next" href="#" role="button">Next ingredients</a> </div>
+            </div>
+        </div>
+       </sly>
+         <sly data-sly-test="${product.showNutritionTabs == 'True'}">
+       <div class="nutrition-wrapper">
+       <div class="nutritionData hidden" data-item-id="${product.getProductInfo.getItem.getItemId}" data-ids="${product.allNutrients @ context='unsafe'}" data-secondaryids="${product.secondaryNutrients @ context='unsafe'}" data-allnutrients="${product.allNutrients @ context='unsafe'}" data-dvtext="${product.dvText @ context='unsafe'}"></div>
+            <div class="nutritionDnaUrl hidden" data-itemdetails="${product.dnaItemDetailsUrl @ context='unsafe'}" ></div>
+            <div class="selectedView hidden" data-view-type=${product.secondaryNutrientsViewType} ></div>
+          <div class="container panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+            <div class="panel">
+              <div class="panel-heading left" id="headingOne"> <a href="#nutrition" class="collapsed" id="nutrition-head" aria-controls="nutrition" role="button" data-parent="#accordion" aria-expanded="false" data-toggle="collapse">${product.tab1Text}<i class="fa fa-chevron-right"></i></a> </div>
+              <div id="nutrition" class="panel-collapse collapse" role="tabpanel" aria-labelledby="nutrition-head">
+                <div class="panel-body row">
+                  <div class="col-sm-12 col-md-10 col-md-offset-1">
+                    <div ng-if="serveSize.length>0"  class="item-options">
+                      <div class="options-container">
+                        <div class="option">
+                          <div class="select" ng-init="serveLabel=serveSize.first">
+                            <div class="select-title"> ${product.serveText} </div>
+                            <div class="selectable"> <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-label="${product.serveText}" aria-haspopup="true" aria-expanded="false">{{serveSize.first}}<i class="fa fa-chevron-down"></i></button>
+                              <ul class="dropdown-menu">
+                                <div class="dropdown-list-wrapper">
+			                                  <li ng-repeat="r in serveSize" ng-click="updateItems(r.id,false,$event)"><a href="#accordion" ng-click="serveSize.first=r.label">{{r.label}}</a></li>
+                                </div>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="nutrition-numbers ${product.nutrientClassName}">
+                      <div class="totals">
+                        <ul>
+                         <sly data-sly-list.nutrientsList="${product.pcNutrientsList}">
+                          <li>
+<!--                             <div class="number">{{isUndefined(allNutritionValues[${nutrientsList.id}].value) ? "0" : allNutritionValues[${nutrientsList.id}].value}}<sub>{{allNutritionValues[${nutrientsList.id}].uom}}</sub></div>
+                            <div class="type"> ${nutrientsList.marketingName} <span ng-if="${nutrientsList.percentageUnitFlag}">{{allNutritionValues[${nutrientsList.id}].adult_dv}}</span></div> -->
+							<div class="number"><span aria-hidden="true">{{isUndefined(allNutritionValues[${nutrientsList.id}].value) ? "0" : allNutritionValues[${nutrientsList.id}].value}}<sub>{{allNutritionValues[${nutrientsList.id}].uom}}</sub></span><span class="visuallyhidden">{{isUndefined(allNutritionValues[${nutrientsList.id}].value) ? "0" : allNutritionValues[${nutrientsList.id}].value}} {{allNutritionValues[${nutrientsList.id}].uomDescription}}</span></div>
+                          	<div class="type"><span aria-hidden="true">${nutrientsList.marketingName} <sly data-sly-test="${nutrientsList.percentageUnitFlag}">{{allNutritionValues[${nutrientsList.id}].adult_dv}}</sly></span><span class="visuallyhidden">${nutrientsList.marketingName} <sly data-sly-test="${nutrientsList.percentageUnitFlag}">{{allNutritionValues[${nutrientsList.id}].adult_dv}}</sly></span></div>                          
+                          </li>
+                          </sly>
+                        </ul>
+                      </div>
+                      <div class="row detailed" data-sly-test="${product.secondaryNutrientsViewType == 'tableView'}">
+                         	<div class="row column-wrapper hidden-xs">
+		                        <sly data-sly-test="${product.secondaryColCount == 'one'}">
+		                        	<ul class="col-sm-12">
+		                        		<sly data-sly-list.secondaryNutrientsList="${product.secondaryNutrientsList}">
+		                          	  		
+		                          	  		<li>
+												<span>${secondaryNutrientsList.marketingName}:</span>
+												<span aria-hidden="true"><sly data-sly-test="${secondaryNutrientsList.measurementUnitFlag}">{{isUndefined(allNutritionValues[${secondaryNutrientsList.id}].value) ? "0" : allNutritionValues[${secondaryNutrientsList.id}].value}}{{allNutritionValues[${secondaryNutrientsList.id}].uom}}</sly> <sly data-sly-test="${secondaryNutrientsList.percentageUnitFlag}">{{allNutritionValues[${secondaryNutrientsList.id}].adult_dv}}</sly></span>
+												<span class="visuallyhidden"><sly data-sly-test="${secondaryNutrientsList.measurementUnitFlag}">{{isUndefined(allNutritionValues[${secondaryNutrientsList.id}].value) ? "0" : allNutritionValues[${secondaryNutrientsList.id}].value}} {{allNutritionValues[${secondaryNutrientsList.id}].uomDescription}} </sly><sly data-sly-test="${secondaryNutrientsList.percentageUnitFlag}">{{allNutritionValues[${secondaryNutrientsList.id}].adult_dv}}</sly></span>
+											</li>
+										</sly>
+											<li ng-show="serves!=''">
+												<span>${product.servesText} </span> {{serves}}
+											</li>
+		                          	</ul>
+		                        </sly>
+		                        <sly data-sly-test="${product.secondaryColCount == 'two'}">
+	                        	<ul class="col-sm-6">
+		                        		<sly data-sly-list.secondaryNutrientsList="${product.secondaryNutrientsList}">
+		                          	  		<li>
+												<span>${secondaryNutrientsList.marketingName}:</span>
+												<span aria-hidden="true"><sly data-sly-test="${secondaryNutrientsList.measurementUnitFlag}">{{isUndefined(allNutritionValues[${secondaryNutrientsList.id}].value) ? "0" : allNutritionValues[${secondaryNutrientsList.id}].value}}{{allNutritionValues[${secondaryNutrientsList.id}].uom}}</sly> <sly data-sly-test="${secondaryNutrientsList.percentageUnitFlag}">{{allNutritionValues[${secondaryNutrientsList.id}].adult_dv}}</sly></span>
+												<span class="visuallyhidden"><sly data-sly-test="${secondaryNutrientsList.measurementUnitFlag}">{{isUndefined(allNutritionValues[${secondaryNutrientsList.id}].value) ? "0" : allNutritionValues[${secondaryNutrientsList.id}].value}} {{allNutritionValues[${secondaryNutrientsList.id}].uomDescription}} </sly><sly data-sly-test="${secondaryNutrientsList.percentageUnitFlag}">{{allNutritionValues[${secondaryNutrientsList.id}].adult_dv}}</sly></span>
+											</li>
+										</sly>
+		                          	</ul>
+		                          	<ul class="col-sm-6">
+		                        		<sly data-sly-list.secondaryNutrientsList="${product.secondaryNutrientsList2}">
+		                          	  		<li>
+												<span>${secondaryNutrientsList.marketingName}:</span>
+												<span aria-hidden="true"><sly data-sly-test="${secondaryNutrientsList.measurementUnitFlag}">{{isUndefined(allNutritionValues[${secondaryNutrientsList.id}].value) ? "0" : allNutritionValues[${secondaryNutrientsList.id}].value}}{{allNutritionValues[${secondaryNutrientsList.id}].uom}}</sly> <sly data-sly-test="${secondaryNutrientsList.percentageUnitFlag}">{{allNutritionValues[${secondaryNutrientsList.id}].adult_dv}}</sly></span>
+												<span class="visuallyhidden"><sly data-sly-test="${secondaryNutrientsList.measurementUnitFlag}">{{isUndefined(allNutritionValues[${secondaryNutrientsList.id}].value) ? "0" : allNutritionValues[${secondaryNutrientsList.id}].value}} {{allNutritionValues[${secondaryNutrientsList.id}].uomDescription}} </sly><sly data-sly-test="${secondaryNutrientsList.percentageUnitFlag}">{{allNutritionValues[${secondaryNutrientsList.id}].adult_dv}}</sly></span>
+											</li>
+										</sly>
+											<li ng-show="serves!=''">
+												<span>${product.servesText} </span> {{serves}}
+											</li>
+		                          	</ul>
+		                        </sly>
+		                        <sly data-sly-test="${product.secondaryColCount == 'three'}">
+		                        	<ul class="col-sm-4">
+		                        		<sly data-sly-list.secondaryNutrientsList="${product.secondaryNutrientsList}">
+		                          	  		<li>
+												<span>${secondaryNutrientsList.marketingName}:</span>
+												<span aria-hidden="true"><sly data-sly-test="${secondaryNutrientsList.measurementUnitFlag}">{{isUndefined(allNutritionValues[${secondaryNutrientsList.id}].value) ? "0" : allNutritionValues[${secondaryNutrientsList.id}].value}}{{allNutritionValues[${secondaryNutrientsList.id}].uom}}</sly> <sly data-sly-test="${secondaryNutrientsList.percentageUnitFlag}">{{allNutritionValues[${secondaryNutrientsList.id}].adult_dv}}</sly></span>
+												<span class="visuallyhidden"><sly data-sly-test="${secondaryNutrientsList.measurementUnitFlag}">{{isUndefined(allNutritionValues[${secondaryNutrientsList.id}].value) ? "0" : allNutritionValues[${secondaryNutrientsList.id}].value}} {{allNutritionValues[${secondaryNutrientsList.id}].uomDescription}} </sly><sly data-sly-test="${secondaryNutrientsList.percentageUnitFlag}">{{allNutritionValues[${secondaryNutrientsList.id}].adult_dv}}</sly></span>
+											</li>
+										</sly>
+		                          	</ul>
+		                          	<ul class="col-sm-4">
+		                        		<sly data-sly-list.secondaryNutrientsList="${product.secondaryNutrientsList2}">
+		                          	  		<li>
+												<span>${secondaryNutrientsList.marketingName}:</span>
+												<span aria-hidden="true"><sly data-sly-test="${secondaryNutrientsList.measurementUnitFlag}">{{isUndefined(allNutritionValues[${secondaryNutrientsList.id}].value) ? "0" : allNutritionValues[${secondaryNutrientsList.id}].value}}{{allNutritionValues[${secondaryNutrientsList.id}].uom}}</sly> <sly data-sly-test="${secondaryNutrientsList.percentageUnitFlag}">{{allNutritionValues[${secondaryNutrientsList.id}].adult_dv}}</sly></span>
+												<span class="visuallyhidden"><sly data-sly-test="${secondaryNutrientsList.measurementUnitFlag}">{{isUndefined(allNutritionValues[${secondaryNutrientsList.id}].value) ? "0" : allNutritionValues[${secondaryNutrientsList.id}].value}} {{allNutritionValues[${secondaryNutrientsList.id}].uomDescription}} </sly><sly data-sly-test="${secondaryNutrientsList.percentageUnitFlag}">{{allNutritionValues[${secondaryNutrientsList.id}].adult_dv}}</sly></span>
+											</li>
+										</sly>
+		                          	</ul>
+		                          	<ul class="col-sm-4">
+		                        		<sly data-sly-list.secondaryNutrientsList="${product.secondaryNutrientsList3}">
+		                          	  		<li>
+												<span>${secondaryNutrientsList.marketingName}:</span>
+												<span aria-hidden="true"><sly data-sly-test="${secondaryNutrientsList.measurementUnitFlag}">{{isUndefined(allNutritionValues[${secondaryNutrientsList.id}].value) ? "0" : allNutritionValues[${secondaryNutrientsList.id}].value}}{{allNutritionValues[${secondaryNutrientsList.id}].uom}}</sly> <sly data-sly-test="${secondaryNutrientsList.percentageUnitFlag}">{{allNutritionValues[${secondaryNutrientsList.id}].adult_dv}}</sly></span>
+												<span class="visuallyhidden"><sly data-sly-test="${secondaryNutrientsList.measurementUnitFlag}">{{isUndefined(allNutritionValues[${secondaryNutrientsList.id}].value) ? "0" : allNutritionValues[${secondaryNutrientsList.id}].value}} {{allNutritionValues[${secondaryNutrientsList.id}].uomDescription}} </sly><sly data-sly-test="${secondaryNutrientsList.percentageUnitFlag}">{{allNutritionValues[${secondaryNutrientsList.id}].adult_dv}}</sly></span>
+											</li>
+										</sly>
+											<li ng-show="serves!=''">
+												<span>${product.servesText} </span> {{serves}}
+											</li>
+		                          	</ul>
+		                        </sly>
+                      		</div>
+	                      <div class="row column-wrapper pc-border visible-xs">
+	                      <sly data-sly-test="${product.secondaryColCountMobile == 'one'}">
+	                      	<ul class="col-xs-12">
+	                        	<sly data-sly-list.secondaryNutrientsList="${product.secondaryNutrientsListMobile}">
+									<li>
+											<span>${secondaryNutrientsList.marketingName}:</span>
+											<span aria-hidden="true"><sly data-sly-test="${secondaryNutrientsList.measurementUnitFlag}">{{isUndefined(allNutritionValues[${secondaryNutrientsList.id}].value) ? "0" : allNutritionValues[${secondaryNutrientsList.id}].value}}{{allNutritionValues[${secondaryNutrientsList.id}].uom}}</sly> <sly data-sly-test="${secondaryNutrientsList.percentageUnitFlag}">{{allNutritionValues[${secondaryNutrientsList.id}].adult_dv}}</sly></span>
+											<span class="visuallyhidden"><sly data-sly-test="${secondaryNutrientsList.measurementUnitFlag}">{{isUndefined(allNutritionValues[${secondaryNutrientsList.id}].value) ? "0" : allNutritionValues[${secondaryNutrientsList.id}].value}} {{allNutritionValues[${secondaryNutrientsList.id}].uomDescription}} </sly><sly data-sly-test="${secondaryNutrientsList.percentageUnitFlag}">{{allNutritionValues[${secondaryNutrientsList.id}].adult_dv}}</sly></span>
+									</li>
+								</sly>
+									<li ng-show="serves!=''">
+										<span>${product.servesText} </span> {{serves}}
+									</li>
+	                        </ul>
+	                        </sly>
+	                        <sly data-sly-test="${product.secondaryColCountMobile == 'two'}">
+	                      	<ul class="col-xs-6">
+	                        	<sly data-sly-list.secondaryNutrientsList="${product.secondaryNutrientsListMobile}">
+									<li>
+												<span>${secondaryNutrientsList.marketingName}:</span>
+												<span aria-hidden="true"><sly data-sly-test="${secondaryNutrientsList.measurementUnitFlag}">{{isUndefined(allNutritionValues[${secondaryNutrientsList.id}].value) ? "0" : allNutritionValues[${secondaryNutrientsList.id}].value}}{{allNutritionValues[${secondaryNutrientsList.id}].uom}} </sly><sly data-sly-test="${secondaryNutrientsList.percentageUnitFlag}">{{allNutritionValues[${secondaryNutrientsList.id}].adult_dv}}</sly></span>
+												<span class="visuallyhidden"><sly data-sly-test="${secondaryNutrientsList.measurementUnitFlag}">{{isUndefined(allNutritionValues[${secondaryNutrientsList.id}].value) ? "0" : allNutritionValues[${secondaryNutrientsList.id}].value}} {{allNutritionValues[${secondaryNutrientsList.id}].uomDescription}} </sly><sly data-sly-test="${secondaryNutrientsList.percentageUnitFlag}">{{allNutritionValues[${secondaryNutrientsList.id}].adult_dv}}</sly></span>
+									</li>
+								</sly>
+	                        </ul>
+	                        <ul class="col-xs-6">
+	                        	<sly data-sly-list.secondaryNutrientsList="${product.secondaryNutrientsListMobile2}">
+									<li>
+												<span>${secondaryNutrientsList.marketingName}:</span>
+												<span aria-hidden="true"><sly data-sly-test="${secondaryNutrientsList.measurementUnitFlag}">{{isUndefined(allNutritionValues[${secondaryNutrientsList.id}].value) ? "0" : allNutritionValues[${secondaryNutrientsList.id}].value}}{{allNutritionValues[${secondaryNutrientsList.id}].uom}}</sly> <sly data-sly-test="${secondaryNutrientsList.percentageUnitFlag}">{{allNutritionValues[${secondaryNutrientsList.id}].adult_dv}}</sly></span>
+												<span class="visuallyhidden"><sly data-sly-test="${secondaryNutrientsList.measurementUnitFlag}">{{isUndefined(allNutritionValues[${secondaryNutrientsList.id}].value) ? "0" : allNutritionValues[${secondaryNutrientsList.id}].value}} {{allNutritionValues[${secondaryNutrientsList.id}].uomDescription}} </sly><sly data-sly-test="${secondaryNutrientsList.percentageUnitFlag}">{{allNutritionValues[${secondaryNutrientsList.id}].adult_dv}}</sly></span>
+									</li>
+								</sly>
+									<li ng-show="serves!=''">
+										<span>${product.servesText} </span> {{serves}}
+									</li>
+	                        </ul>
+	                        </sly>
+	                      </div>		  
+				      </div>
+                      <div class="row detailed uk" data-sly-test="${product.secondaryNutrientsViewType == 'columnView'}">
+                   
+                      <ul class="hidden-xs">
+                        <li class="headers">
+                          <div class="visual" aria-hidden="true">
+                            <div>${product.nutritionColumnHeading}</div>
+                            <div>${product.measurementUnitColumnHeading}</div>
+                            <div>${product.percentageUnitColumnHeading}</div>
+                          </div>
+                          <div class="visuallyhidden">Nutrition Information</div>
+                        </li>
+                        <sly data-sly-list.secondaryNutrientsList="${product.secondaryNutrientsListContainer}">
+                         <li>
+                          <div class="visual" aria-hidden="true">
+                            <div>${secondaryNutrientsList.marketingName} {{addBrakets(allNutritionValues[${secondaryNutrientsList.id}].uom)}}</div>
+                            <div ng-if="${secondaryNutrientsList.measurementUnitFlag}">{{isUndefined(allNutritionValues[${secondaryNutrientsList.id}].value) ? "0" : allNutritionValues[${secondaryNutrientsList.id}].value}}</div>
+                            <div ng-if="${secondaryNutrientsList.percentageUnitFlag}">{{removeBrakets(allNutritionValues[${secondaryNutrientsList.id}].adult_dv)}}</div>
+                          </div>
+                          <div class="visuallyhidden">${secondaryNutrientsList.marketingName}, {{isUndefined(allNutritionValues[${secondaryNutrientsList.id}].value) ? "0" : allNutritionValues[${secondaryNutrientsList.id}].value}} <sly data-sly-test="${secondaryNutrientsList.measurementUnitFlag}">{{allNutritionValues[${secondaryNutrientsList.id}].uomDescription}} ${product.measurementUnitColumnHeading},</sly> <sly data-sly-test="${secondaryNutrientsList.percentageUnitFlag}">{{removeBrakets(allNutritionValues[${secondaryNutrientsList.id}].adult_dv)}} {{allNutritionValues[${secondaryNutrientsList.id}].uomDescription}} ${product.percentageUnitColumnHeading}</sly></div>
+                         </li>
+                        </sly>
+                      </ul>
+                      
+                      
+                       <ul class="visible-xs" data-sly-test="${product.secondaryNutrientsViewType == 'columnView'}">
+                        <li class="headers">
+                          <div class="visual" aria-hidden="true">
+                            <div>${product.nutritionColumnHeading}</div>
+                            <div>${product.measurementUnitColumnHeading}</div>
+                            <div>${product.percentageUnitColumnHeading}</div>
+                          </div>
+                          <div class="visuallyhidden">Nutrition Information</div>
+                        </li>
+                        <sly data-sly-list.secondaryNutrientsList="${product.secondaryNutrientsListMobileContainer}">
+                         <li>
+                          <div class="visual" aria-hidden="true">
+                            <div>${secondaryNutrientsList.marketingName} {{addBrakets(allNutritionValues[${secondaryNutrientsList.id}].uom)}}</div>
+                            <div ng-if="${secondaryNutrientsList.measurementUnitFlag}">{{isUndefined(allNutritionValues[${secondaryNutrientsList.id}].value) ? "0" : allNutritionValues[${secondaryNutrientsList.id}].value}}</div>
+                            <div ng-if="${secondaryNutrientsList.percentageUnitFlag}">{{removeBrakets(allNutritionValues[${secondaryNutrientsList.id}].adult_dv)}}</div>
+                          </div>
+                          <div class="visuallyhidden">${secondaryNutrientsList.marketingName}, {{isUndefined(allNutritionValues[${secondaryNutrientsList.id}].value) ? "0" : allNutritionValues[${secondaryNutrientsList.id}].value}} <sly data-sly-test="${secondaryNutrientsList.measurementUnitFlag}">{{allNutritionValues[${secondaryNutrientsList.id}].uomDescription}} ${product.measurementUnitColumnHeading},</sly> <sly data-sly-test="${secondaryNutrientsList.percentageUnitFlag}">{{allNutritionValues[${secondaryNutrientsList.id}].adult_dv}} {{allNutritionValues[${secondaryNutrientsList.id}].uomDescription}} ${product.percentageUnitColumnHeading}</sly></div>
+                         </li>
+                        </sly>
+                      </ul>
+                      
+                    </div>
+                    </div>
+                    <div class="${product.dvDisclaimerStyle}"> <span>${product.legalText}</span> <span> ${product.hyperlink @ context='html'}</span> </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="panel">
+              <div class="panel-heading right" id="headingTwo"> <a href="#ingredients" id="ingredients-head" class="collapsed" aria-controls="ingredients" role="button" data-parent="#accordion" aria-expanded="false" data-toggle="collapse">${product.tab2Text}<i class="fa fa-chevron-right"></i></a> </div>
+              <div id="ingredients" class="panel-collapse collapse" role="tabpanel" aria-labelledby="ingredients-head">
+                <div class="panel-body row">
+                  <sly data-sly-test="${product.isNutritionInfoAtProductLevel}">
+                  	<div ng-repeat="c in pcIngredients" class="col-sm-12 col-md-10 col-md-offset-1" ng-if="hasComponent=='Yes'">
+	                    <div class="item-inner">
+	                    <h5 tabindex="0">{{c.name}}</h5>
+	                    <p tabindex="0" ng-bind-html="c.ingStatement"></p> 
+	                    <h5 tabindex="0" ng-bind-html="'${product.allergenText}:' +' '+ c.allergen" ng-if="c.allergen!=null"></h5>
+	                    <p tabindex="0" ng-bind-html="c.additionalStatement" ng-if="c.additionalStatement!=null"></p>
+	                    <h5 tabindex="0" ng-bind-html="'${product.allergenMayText}:' +' '+ c.additionalAllergen" ng-if="c.additionalAllergen!=null"></h5>
+	                    </div>
+                  	</div>
+                  	 <div class="col-sm-12 col-md-10 col-md-offset-1" ng-if="hasComponent=='No'">
+	                    <div class="item-inner">
+	                    <p tabindex="0" ng-bind-html="itemIngredients.item_ingredient_statement"></p> 
+	                    <h5 tabindex="0" ng-bind-html="'${product.allergenText}:' +' '+ itemIngredients.allergen" ng-if="itemIngredients.allergen!=null"></h5>
+	                    <p tabindex="0" ng-bind-html="itemIngredients.additionalStatement" ng-if="itemIngredients.additionalStatement!=null"></p>
+	                    <h5 tabindex="0" ng-bind-html="'${product.allergenMayText}:' +' '+ itemIngredients.additionalAllergen" ng-if="itemIngredients.additionalAllergen!=null"></h5>
+	                    </div>
+                 	 </div>
+                  </sly>
+                  <sly data-sly-test="${!product.isNutritionInfoAtProductLevel}">
+                  		<div class="col-sm-12 col-md-10 col-md-offset-1">
+		                    <div class="item-inner">
+		                    <p tabindex="0" ng-bind-html="itemIngredients.item_ingredient_statement"></p> 
+		                    <h5 tabindex="0" ng-bind-html="'${product.allergenText}:' +' '+ itemIngredients.allergen" ng-if="itemIngredients.allergen!=null"></h5>
+		                    <p tabindex="0" ng-bind-html="itemIngredients.additionalStatement" ng-if="itemIngredients.additionalStatement!=null"></p>
+		                    <h5 tabindex="0" ng-bind-html="'${product.allergenMayText}:' +' '+ itemIngredients.additionalAllergen" ng-if="itemIngredients.additionalAllergen!=null"></h5>
+		                    </div>
+                  		</div>
+                  </sly>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="customize-wrapper">
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-12">
+			              <h2 ng-bind-html="customizationLabelText" ng-show="customizationLabelText!=''"></h2>
+			              <h2 ng-show="!customizationLabelText!=''">${product.customizeText @ context='html'}</h2>
+			              <a ng-bind-html="customizationLabelButtonText" ng-show="customizationLabelButtonText!=''" ng-click="addToNc1()" href="${product.nutritionCalculatorURL}" data-product-analytics="{{itemId}}" aria-label="{{customizationLabelButtonText}}" class="btn btn-red button-text-lowercase"></a>
+			              <a ng-show="!customizationLabelButtonText!=''" ng-click="addToNc1()" href="${product.nutritionCalculatorURL}" data-product-analytics="{{itemId}}" aria-label="${product.nutritionCalcLinkText}" class="btn btn-red button-text-lowercase">${product.nutritionCalcLinkText @ context='html'}</a>
+              <div class="divider"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+			</sly>
+      </div>
+        <div class="related-items-wrapper">
+         <sly data-sly-test="${product.showGoesWell == 'True'}">
+            <div data-sly-resource="${'goeswellwith' @ selectors=[product.productInfo.item.itemId,product.encodedProductMarketingName], resourceType='mcd-us/components/content/goeswellwith'}"></div>
+        </sly>
+        <sly data-sly-test="${product.showMoreItems == 'True'}">
+            <div data-sly-resource="${'relatedproducts' @ addSelectors=[product.productInfo.item.defaultCategory.category.id.toString], resourceType='mcd-us/components/content/relatedproducts'}"></div>
+      	</sly><div data-sly-resource="${'par' @ resourceType='wcm/foundation/components/parsys'}"></div>
+        </div>
+        <sly data-sly-test="${product.getProductInfo.getItem.getExternalId !=null}">
+        	<sly data-sly-resource="${'cat-{0}/item-{1}' @ format=[product.productInfo.item.defaultCategory.category.id.toString,product.productInfo.item.externalId], resourceType='mcd-us/components/content/productcallouts'}"></sly>
+            <div class="container cont-legal">
+                <sly data-sly-list.legal="${product.getFooterList}">
+                    <p>${legal @ context='html'}</p>
+                </sly>
+                <sly data-sly-use.legal="com.mcd.rwd.us.core.sightly.LegalFooterHandler">
+                <h3>${legal.legalTextHeading @ context='html'}</h3>
+				${legal.legalText @ context='html'}
+				</sly>
+            </div>
+        </sly>
+        <sly data-sly-test="${product.getProductInfo.getItem.getExternalId ==null}">
+        	<sly data-sly-resource="${'cat-default/item-default' @ resourceType='mcd-us/components/content/productcallouts'}"></sly>
+        </sly>
+    </div>
+</sly>
+

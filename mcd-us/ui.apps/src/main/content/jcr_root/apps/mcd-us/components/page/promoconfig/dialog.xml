@@ -1,0 +1,467 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Dialog"
+    xtype="dialog">
+    <items jcr:primaryType="cq:WidgetCollection">
+        <tab1
+            jcr:primaryType="cq:Panel"
+            title="Page Properties">
+            <items jcr:primaryType="cq:WidgetCollection">
+                <template-type
+                    jcr:primaryType="cq:Widget"
+                    allowBlank="{Boolean}false"
+                    defaultValue="promo"
+                    fieldDescription="Please select template type."
+                    fieldLabel="Type"
+                    name="./jcr:content/templatetype"
+                    type="select"
+                    xtype="selection">
+                    <options jcr:primaryType="cq:WidgetCollection">
+                        <promo
+                            jcr:primaryType="nt:unstructured"
+                            text="Promo Item"
+                            value="promo"/>
+                        <carousel
+                            jcr:primaryType="nt:unstructured"
+                            text="Carousel Slide"
+                            value="carousel"/>
+                        <offer
+                            jcr:primaryType="nt:unstructured"
+                            text="Offer"
+                            value="offer"/>
+                    </options>
+                    <listeners
+                        jcr:primaryType="nt:unstructured"
+                        selectionchanged="function(field,value){var video = CQ.Ext.getCmp('video');var tags = CQ.Ext.getCmp('tags');var color = CQ.Ext.getCmp('color');var position = CQ.Ext.getCmp('position');var logo = CQ.Ext.getCmp('logo');var logoalt = CQ.Ext.getCmp('logoalt');var offerStart = CQ.Ext.getCmp('startdate');var offerEnd = CQ.Ext.getCmp('enddate');var bottomAligned = CQ.Ext.getCmp('bottomAligned');var retainAlignment = CQ.Ext.getCmp('retainAlignment');var ctatarget = CQ.Ext.getCmp('ctatarget');var eyetitlefontstyle = CQ.Ext.getCmp('eyetitlefontstyle');var titlefontstyle = CQ.Ext.getCmp('titlefontstyle');var subtitle = CQ.Ext.getCmp('subtitle');var subtitlefontstyle = CQ.Ext.getCmp('subtitlefontstyle');var descrfontstyle = CQ.Ext.getCmp('descrfontstyle');var disclaimer = CQ.Ext.getCmp('disclaimer');var disclaimercolorfield = CQ.Ext.getCmp('disclaimercolor');var cornerlogo = CQ.Ext.getCmp('cornerlogo');var cornerLogoAlt = CQ.Ext.getCmp('cornerLogoAlt');var ctatext = CQ.Ext.getCmp('ctatext');if (value == &quot;carousel&quot;) { video.show();ctatarget.show();ctatext.allowBlank = true;ctatext.validate();ctatext.label.update('CTA');} else {video.hide();ctatext.allowBlank = false;ctatext.validate();ctatext.label.update('CTA*');}if (value == &quot;promo&quot;) {tags.hide();color.show();position.show();logo.show();logoalt.show();bottomAligned.show();retainAlignment.show();eyetitlefontstyle.show();titlefontstyle.show();subtitle.show();subtitlefontstyle.show();descrfontstyle.show();ctatarget.show();disclaimercolorfield.show();} else {tags.show();color.hide();disclaimercolorfield.hide();position.hide();logo.hide();logoalt.hide();bottomAligned.hide();retainAlignment.hide();eyetitlefontstyle.hide();titlefontstyle.hide();subtitle.hide();subtitlefontstyle.hide();descrfontstyle.hide();}if (value == &quot;offer&quot;) {offerStart.show();offerEnd.show();disclaimer.hide();disclaimercolorfield.hide();cornerlogo.hide();cornerLogoAlt.hide();ctatarget.hide();} else {offerStart.hide();offerEnd.hide();disclaimer.show();cornerlogo.show();cornerLogoAlt.show();}}"/>
+                </template-type>
+                <title
+                    jcr:primaryType="cq:Widget"
+                    allowBlank="{Boolean}false"
+                    fieldLabel="Title"
+                    name="./jcr:content/jcr:title"/>
+                <promoResource
+                    jcr:primaryType="cq:Widget"
+                    name="./jcr:content/promo/sling:resourceType"
+                    value="mcd-us/components/content/promo"
+                    xtype="hidden"/>
+            </items>
+        </tab1>
+        <promoimage
+            jcr:primaryType="cq:Panel"
+            title="Images">
+            <items jcr:primaryType="cq:WidgetCollection">
+                <image
+                    jcr:primaryType="cq:Widget"
+                    allowBlank="{Boolean}false"
+                    allowUpload="{Boolean}true"
+                    border="true"
+                    cropParameter="./jcr:content/promo/imageCrop"
+                    ddGroups="[media]"
+                    disableZoom="true"
+                    fieldLabel="Desktop"
+                    fileNameParameter="./jcr:content/promo/fileName"
+                    fileReferenceParameter="./jcr:content/promo/fileReference"
+                    height="300"
+                    name="./jcr:content/promo/file"
+                    requestSuffix="/jcr:content/promo.img.png"
+                    rotateParameter="./jcr:content/promo/imageRotate"
+                    sizeLimit="100"
+                    xtype="html5smartimage"/>
+                <mobileImg
+                    jcr:primaryType="cq:Widget"
+                    allowBlank="{Boolean}false"
+                    allowUpload="{Boolean}true"
+                    border="true"
+                    cropParameter="./jcr:content/promo/mobile/imageCrop"
+                    ddGroups="[media]"
+                    disableZoom="true"
+                    fieldLabel="Mobile"
+                    fileNameParameter="./jcr:content/promo/mobile/fileName"
+                    fileReferenceParameter="./jcr:content/promo/mobile/fileReference"
+                    height="300"
+                    name="./jcr:content/promo/mobile/file"
+                    requestSuffix="/jcr:content/promo/mobile.img.png"
+                    rotateParameter="./jcr:content/promo/mobile/imageRotate"
+                    sizeLimit="100"
+                    xtype="html5smartimage"/>
+                <altText
+                   jcr:primaryType="cq:Widget"
+                   fieldDescription="Please provide image alternate text."
+                   fieldLabel="Alt Text"
+                   name="./jcr:content/promo/alt"
+                   width="400"
+                   xtype="textfield"/>    
+                <logo
+                    jcr:primaryType="cq:Widget"
+                    allowUpload="{Boolean}true"
+                    border="true"
+                    cropParameter="./jcr:content/promo/logo/imageCrop"
+                    ddGroups="[media]"
+                    disableZoom="true"
+                    fieldDescription="&lt;b> Applicable for promo and feature callout.&lt;/b>"
+                    fieldLabel="Logo"
+                    fileNameParameter="./jcr:content/promo/logo/fileName"
+                    fileReferenceParameter="./jcr:content/promo/logo/fileReference"
+                    height="300"
+                    id="logo"
+                    name="./jcr:content/promo/logo/file"
+                    requestSuffix="/jcr:content/promo/logo.img.png"
+                    rotateParameter="./jcr:content/promo/logo/imageRotate"
+                    sizeLimit="100"
+                    xtype="html5smartimage"/>
+                <logoAlt
+                    jcr:primaryType="cq:Widget"
+                    fieldDescription="Please provide alternate text for logo, &lt;b> Applicable for promo and feature callout.&lt;/b>"
+                    fieldLabel="Logo Alt Text"
+                    id="logoalt"
+                    name="./jcr:content/promo/logoAlt"
+                    xtype="textfield"/>
+                <cornerlogo
+                    jcr:primaryType="cq:Widget"
+                    allowUpload="{Boolean}true"
+                    border="true"
+                    cropParameter="./jcr:content/promo/cornerlogo/imageCrop"
+                    ddGroups="[media]"
+                    disableZoom="true"
+                    fieldDescription="&lt;b> Applicable for promo, feature callout and carousel.&lt;/b>"
+                    fieldLabel="Corner Logo"
+                    fileNameParameter="./jcr:content/promo/cornerlogo/fileName"
+                    fileReferenceParameter="./jcr:content/promo/cornerlogo/fileReference"
+                    height="300"
+                    id="cornerlogo"
+                    name="./jcr:content/promo/cornerlogo/file"
+                    requestSuffix="/jcr:content/promo/cornerlogo.img.png"
+                    rotateParameter="./jcr:content/promo/cornerlogo/imageRotate"
+                    sizeLimit="100"
+                    xtype="html5smartimage"/>
+                <cornerLogoAlt
+                    jcr:primaryType="cq:Widget"
+                    fieldDescription="Please provide alternate text for Corner logo, &lt;b> Applicable for promo, feature callout and carousel.&lt;/b>"
+                    fieldLabel="Corner Logo Alt Text"
+                    id="cornerLogoAlt"
+                    name="./jcr:content/promo/cornerLogoAlt"
+                    xtype="textfield"/>
+                <mobileResourceType
+                    jcr:primaryType="cq:Widget"
+                    ignoreData="true"
+                    name="./jcr:content/promo/mobile/sling:resourceType"
+                    value="foundation/components/image"
+                    width="100%"
+                    xtype="hidden"/>
+                <logoResourceType
+                    jcr:primaryType="cq:Widget"
+                    ignoreData="true"
+                    name="./jcr:content/promo/logo/sling:resourceType"
+                    value="foundation/components/image"
+                    width="100%"
+                    xtype="hidden"/>
+                <cornerlogoResourceType
+                    jcr:primaryType="cq:Widget"
+                    ignoreData="true"
+                    name="./jcr:content/promo/cornerlogo/sling:resourceType"
+                    value="foundation/components/image"
+                    width="100%"
+                    xtype="hidden"/>
+            </items>
+        </promoimage>
+        <promo
+            jcr:primaryType="cq:Panel"
+            title="Title &amp; Text">
+            <items jcr:primaryType="cq:WidgetCollection">
+            <leftpanel
+                    jcr:primaryType="cq:Widget"
+                    border="{Boolean}false"
+                    layout="form"
+                    width="600"
+                    xtype="panel">
+                    <items jcr:primaryType="cq:WidgetCollection">
+	                <eyetitle
+	                    jcr:primaryType="cq:Widget"
+	                    fieldDescription="Please provide the image eyebrow title."
+	                    fieldLabel="EyeBrow Title"
+	                    name="./jcr:content/promo/eyetitle"
+	                    width="400"
+	                    xtype="textfield"/>
+	                <title
+	                    jcr:primaryType="cq:Widget"
+	                    allowBlank="{Boolean}false"
+	                    fieldDescription="Please provide the image title."
+	                    fieldLabel="Title"
+	                    name="./jcr:content/promo/title"
+	                    width="400"
+	                    xtype="textfield"/>
+	                <subtitle
+	                    jcr:primaryType="cq:Widget"
+	                    fieldDescription="Please provide the image sub title. &lt;b> Applicable for promo and feature callout only.&lt;/b>"
+	                    fieldLabel="Sub Title"
+	                    id="subtitle"
+	                    name="./jcr:content/promo/subTitle"
+	                    width="400"
+	                    xtype="textfield"/>
+	                <descr
+	                    jcr:primaryType="cq:Widget"
+	                    fieldDescription="Please provide the image description"
+	                    fieldLabel="Description"
+	                    name="./jcr:content/promo/description"
+	                    width="400"
+	                    xtype="textarea"/>
+	                <disclaimer
+	                    jcr:primaryType="cq:Widget"
+	                    fieldDescription="Please provide the legal disclaimer text, &lt;b> Applicable for promo, feature callout and carousel.&lt;/b>"
+	                    fieldLabel="Legal Disclaimer Text"
+	                    id="disclaimer"
+	                    name="./jcr:content/promo/disclaimer"
+	                    width="400"
+	                    xtype="textfield"/>
+	                <position
+	                    jcr:primaryType="cq:Widget"
+	                    defaultValue="center"
+	                    fieldDescription="Please choose the horizontal alignment of text and logo over image, &lt;b> Applicable for promo and feature callout.&lt;/b>"
+	                    fieldLabel="Position"
+	                    id="position"
+	                    name="./jcr:content/promo/position"
+	                    width="400"
+	                    xtype="selection">
+	                    <options jcr:primaryType="cq:WidgetCollection">
+	                        <left
+	                            jcr:primaryType="nt:unstructured"
+	                            text="Left"
+	                            value="left"/>
+	                        <center
+	                            jcr:primaryType="nt:unstructured"
+	                            text="Center"
+	                            value="center"/>
+	                        <right
+	                            jcr:primaryType="nt:unstructured"
+	                            text="Right"
+	                            value="right"/>
+	                    </options>
+	                </position>
+	                <bottomAligned
+	                    jcr:primaryType="cq:Widget"
+	                    fieldDescription="Select to align the text at the bottom. &lt;b> Applicable for promo and feature callout.&lt;/b>"
+	                    fieldLabel="Bottom Align Text ?"
+	                    id="bottomAligned"
+	                    name="./jcr:content/promo/bottomAligned"
+	                    type="checkbox"
+                            width="400"
+	                    xtype="selection"/>
+	                <leftAligned
+	                    jcr:primaryType="cq:Widget"
+	                    fieldDescription="Select to retain the alignment in mobile view. Else the contents would be left aligned in mobile view. &lt;b> Applicable for promo.&lt;/b>"
+	                    fieldLabel="Retain Alignment in Mobile ?"
+	                    id="retainAlignment"
+	                    name="./jcr:content/promo/retainAlignment"
+	                    type="checkbox"
+                            width="400"
+	                    xtype="selection"/>
+	                </items>
+	         </leftpanel> 
+	         <rightpanel
+                    jcr:primaryType="cq:Widget"
+                    border="{Boolean}false"
+                    layout="form"
+                    width="600"
+                    xtype="panel">
+                    <items jcr:primaryType="cq:WidgetCollection">         
+	                <eyetitlefontstyle
+	                    jcr:primaryType="cq:Widget"
+	                    fieldDescription="Choose font style for Eyebrow Title. &lt;b> Applicable for promo and feature callout only. Default: &quot;Small&quot;&lt;/b>"
+	                    fieldLabel="EyeBrow Title Font Style"
+	                    id="eyetitlefontstyle"
+	                    name="./jcr:content/promo/eyetitleFontStyle"
+	                    type="select"
+                            width="400"
+	                    xtype="selection">
+	                    <options jcr:primaryType="cq:WidgetCollection">
+	                        <small
+	                            jcr:primaryType="nt:unstructured"
+	                            text="Small"
+	                            value="small"/>
+	                        <large
+	                            jcr:primaryType="nt:unstructured"
+	                            text="Large"
+	                            value="large"/>
+	                    </options>
+	                </eyetitlefontstyle>
+	                <titlefontstyle
+	                    jcr:primaryType="cq:Widget"
+	                    fieldDescription="Choose font style for Title. &lt;b> Applicable for promo and feature callout only. Default: &quot;Large&quot;&lt;/b>"
+	                    fieldLabel="Title Font Style"
+	                    id="titlefontstyle"
+	                    name="./jcr:content/promo/titleFontStyle"
+	                    type="select"
+                            width="400"
+	                    xtype="selection">
+	                    <options jcr:primaryType="cq:WidgetCollection">
+	                        <small
+	                            jcr:primaryType="nt:unstructured"
+	                            text="Small"
+	                            value="small"/>
+	                        <large
+	                            jcr:primaryType="nt:unstructured"
+	                            text="Large"
+	                            value="large"/>
+	                    </options>
+	                </titlefontstyle>
+	                <subtitlefontstyle
+	                    jcr:primaryType="cq:Widget"
+	                    fieldDescription="Choose font style for Sub Title. &lt;b> Applicable for promo and feature callout only. Default: &quot;Small&quot;&lt;/b>"
+	                    fieldLabel="Sub Title Font Style"
+	                    id="subtitlefontstyle"
+	                    name="./jcr:content/promo/subtitleFontStyle"
+	                    type="select"
+                            width="400"
+	                    xtype="selection">
+	                    <options jcr:primaryType="cq:WidgetCollection">
+	                        <small
+	                            jcr:primaryType="nt:unstructured"
+	                            text="Small"
+	                            value="small"/>
+	                        <large
+	                            jcr:primaryType="nt:unstructured"
+	                            text="Large"
+	                            value="large"/>
+	                    </options>
+	                </subtitlefontstyle>
+	                <descrfontstyle
+	                    jcr:primaryType="cq:Widget"
+	                    fieldDescription="Choose font style for description. &lt;b> Applicable for promo and feature callout only. Default: &quot;Small&quot;&lt;/b>"
+	                    fieldLabel="Description Font Style"
+	                    id="descrfontstyle"
+	                    name="./jcr:content/promo/descriptionFontStyle"
+	                    type="select"
+                            width="400"
+	                    xtype="selection">
+	                    <options jcr:primaryType="cq:WidgetCollection">
+	                        <small
+	                            jcr:primaryType="nt:unstructured"
+	                            text="Small"
+	                            value="small"/>
+	                        <large
+	                            jcr:primaryType="nt:unstructured"
+	                            text="Large"
+	                            value="large"/>
+	                    </options>
+	                </descrfontstyle>
+	                <color
+	                    jcr:primaryType="cq:Widget"
+	                    fieldDescription="Please provide text color, &lt;b>(Default Value: White). Applicable for promo and feature callout.&lt;/b>"
+	                    fieldLabel="Text Color"
+	                    id="color"
+	                    name="./jcr:content/promo/color"
+	                    width="400"
+	                    xtype="colorfield"/>
+	                <startdate
+	                    jcr:primaryType="cq:Widget"
+	                    fieldDescription="Offer Start Date, &lt;b> Applicable for offer only.&lt;/b>"
+	                    fieldLabel="Start Date for the Offer"
+	                    id="startdate"
+	                    name="./jcr:content/promo/start"
+	                    width="400"
+	                    xtype="datefield"/>
+	                <enddate
+	                    jcr:primaryType="cq:Widget"
+	                    fieldDescription="Offer End Date, &lt;b> Applicable for offer only.&lt;/b>"
+	                    fieldLabel="Expiry Date for the Offer"
+	                    id="enddate"
+	                    name="./jcr:content/promo/end"
+	                    width="400"
+	                    xtype="datefield"/>
+					<disclaimertextcolor
+                            jcr:primaryType="cq:Widget"
+                            colors="[FFFFFF,000000]"
+                            defaultValue="FFFFFF"
+                            fieldDescription="Please provide text color, &lt;b>(Default Value: White). Applicable for promo.&lt;/b>"
+                            fieldLabel="Disclaimer Text Color"
+                            id="disclaimercolor"
+                            name="./jcr:content/promo/disclaimertextcolor"
+                            width="400"
+                            xtype="colorfield"/>
+	                </items>
+	          </rightpanel>       
+            </items>
+            <layout
+                jcr:primaryType="nt:unstructured"
+                align="stretchmax"
+                defaultMargins="10px"
+                flex="1"
+                pack="center"
+                type="hbox"/>
+        </promo>
+        <ctaproperty
+            jcr:primaryType="cq:Panel"
+            title="CTA Property">
+            <items jcr:primaryType="cq:WidgetCollection">
+                <link
+                    jcr:primaryType="cq:Widget"
+                    allowBlank="{Boolean}true"
+                    fieldDescription="Please choose or enter any URL for the callout, &lt;b>Path must start with '/content' or 'http://w' or 'https://w'.&lt;/b>"
+                    fieldLabel="Link"
+                    name="./jcr:content/promo/link"
+                    xtype="pathfield"/>
+                <cta
+                    jcr:primaryType="cq:Widget"
+                    allowBlank="{Boolean}false"
+                    fieldDescription="Please provide the cta to be displayed over the callout image."
+                    fieldLabel="CTA"
+                    id="ctatext"
+                    name="./jcr:content/promo/cta"
+                    xtype="textfield"/>
+                <altText
+                    jcr:primaryType="cq:Widget"
+                    fieldDescription="Please provide cta title text."
+                    fieldLabel="CTA Title"
+                    name="./jcr:content/promo/ctaAlt"
+                    xtype="textfield"/>
+                <ctaTarget
+                    jcr:primaryType="cq:Widget"
+                    fieldDescription="Check to open link in new tab/window, &lt;b> Applicable for gallery/carousel and promo.&lt;/b>"
+                    fieldLabel="Open in New Window?"
+                    id="ctatarget"
+                    name="./jcr:content/promo/target"
+                    type="checkbox"
+                    xtype="selection"/>
+                <ariaLabel
+                    jcr:primaryType="cq:Widget"
+                    fieldDescription="Please provide Aria Label, &lt;b> Applicable for promo, feature callout and carousel.&lt;/b>"
+                    fieldLabel="Aria Label"
+                    name="./jcr:content/promo/ariaLabel"
+                    xtype="textfield"/>
+            </items>
+        </ctaproperty>
+        <videoproperty
+            jcr:primaryType="cq:Widget"
+            id="video"
+            title="Video Property"
+            xtype="panel">
+            <items jcr:primaryType="cq:WidgetCollection">
+                <multi
+                    jcr:primaryType="cq:Widget"
+                    fieldDescription="&lt;b> Applicable for gallery/carousel.&lt;/b>"
+                    fieldLabel="YouTube Video Ids"
+                    name="./jcr:content/promo/videoIds"
+                    xtype="multifield">
+                    <fieldConfig
+                        jcr:primaryType="nt:unstructured"
+                        allowBlank="{Boolean}false"
+                        xtype="textfield"/>
+                </multi>
+            </items>
+        </videoproperty>
+        <tags
+            jcr:primaryType="cq:Widget"
+            id="tags"
+            title="Tag"
+            xtype="panel">
+            <items jcr:primaryType="cq:WidgetCollection">
+                <tag
+                    jcr:primaryType="cq:Widget"
+                    fieldDescription="&lt;b> Applicable for gallery/carousel and offer.&lt;/b>"
+                    fieldLabel="Co-ops"
+                    name="./jcr:content/cq:tags"
+                    xtype="tags"/>
+            </items>
+        </tags>
+    </items>
+</jcr:root>

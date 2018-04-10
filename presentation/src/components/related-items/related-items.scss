@@ -1,0 +1,105 @@
+.related-items-wrapper {
+  padding: 0 to-rem(10);
+  .related-flex-container {
+    position: relative;
+    .related-flexslider {
+      height: 18rem;
+      .related-items-card {
+        height: to-rem(232);
+        width: to-rem(144) !important;
+        border: to-rem(1) solid #d6d6d6;
+        border-radius: to-rem(4);
+        background-color: #fff;
+        margin-right: to-rem(10) !important;
+        box-shadow: 0 to-rem(1.5) to-rem(1.5) 0 rgba(0, 0, 0, 0.08);
+      }
+      .caption-wrapper {
+        line-height: to-rem(20);
+        text-align: center;
+        padding-top: to-rem(15);
+        .related-item-name {
+          color: #292929;
+        }
+        .related-item-cal {
+          color: #60605b;
+          font-weight: 300;
+        }
+      }
+      .flex-control-nav li a {
+        background: #bbb;
+        width: to-rem(5);
+        height: to-rem(5);
+        border: none;
+        cursor: pointer;
+        &:hover {
+          background: #717171;
+        }
+        &.flex-active {
+          background: #717171;
+        }
+      }
+    }
+    .flex-nav-prev {
+      position: absolute;
+      right: 52.5%;
+      top: 89.5%;
+      & a {
+        &:hover {
+          text-decoration: none;
+        }
+        &:focus {
+          text-decoration: none;
+        }
+      }
+    }
+    .flex-nav-next {
+      position: absolute;
+      right: 43.2%;
+      top: 89.5%;
+      & a {
+        &:hover {
+          text-decoration: none;
+        }
+        &:focus {
+          text-decoration: none;
+        }
+      }
+    }
+    .icon-chevron-left-small,
+    .icon-chevron-right-small {
+      position: absolute;
+      right: to-rem(10);
+      font-size: to-rem(27);
+      top: to-rem(10);
+      font-weight: bold;
+      &:before {
+        color: #bd0017;
+      }
+    }
+    .slidesDesktop {
+      display: none;
+    }
+  }
+}
+
+@media only screen and (min-width: 48rem) {
+  .related-items-wrapper {
+    .related-flex-container {
+      .related-flexslider {
+        height: 26rem;
+        .related-items-card {
+          height: to-rem(341.84);
+          width: to-rem(277) !important;
+          border: to-rem(1) solid #d6d6d6;
+          border-radius: to-rem(4);
+          background-color: #fff;
+          margin-right: to-rem(20) !important;
+          box-shadow: 0 to-rem(1.5) to-rem(1.5) 0 rgba(0, 0, 0, 0.08);
+        }
+      }
+      .slidesDesktop {
+        display: inline-block;
+      }
+    }
+  }
+}

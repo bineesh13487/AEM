@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Dialog"
+    xtype="dialog">
+    <items jcr:primaryType="cq:WidgetCollection">
+        <tab1
+            jcr:primaryType="cq:Panel"
+            title="Page Properties">
+            <items jcr:primaryType="cq:WidgetCollection">
+                <title
+                    jcr:primaryType="cq:Widget"
+                    allowBlank="{Boolean}false"
+                    fieldDescription="&lt;b> Page Title will form Url of article and cannot exceed more than 20 characters.&lt;/b>"
+                    fieldLabel="Page Title"
+                    name="./jcr:content/jcr:title"/>
+            </items>
+        </tab1>
+        <tab2
+            jcr:primaryType="cq:Panel"
+            title="Article Properties">
+            <items jcr:primaryType="cq:WidgetCollection">
+                <title
+                    jcr:primaryType="cq:Widget"
+                    allowBlank="{Boolean}false"
+                    fieldLabel="Article Title"
+                    name="./jcr:content/articleTitle"/>
+                <publishedate
+                    jcr:primaryType="cq:Widget"
+                    allowBlank="{Boolean}false"
+                    fieldDescription="Published Date of Article"
+                    fieldLabel="Published Date"
+                    hideTime="{Boolean}true"
+                    name="./jcr:content/publishedDate"
+                    width="400"
+                    xtype="datetime"/>
+                <archivedate
+                    jcr:primaryType="cq:Widget"
+                    allowBlank="{Boolean}true"
+                    fieldDescription="Archive Date of Article"
+                    fieldLabel="Archived Date"
+                    hideTime="{Boolean}true"
+                    name="./jcr:content/archiveDate"
+                    width="400"
+                    xtype="datetime"/>
+                <article-type
+                    jcr:primaryType="cq:Widget"
+                    allowBlank="{Boolean}false"
+                    defaultValue="promo"
+                    fieldDescription="Please select Article type."
+                    fieldLabel="Article Type"
+                    name="./jcr:content/articleType"
+                    type="select"
+                    xtype="selection">
+                    <options jcr:primaryType="cq:WidgetCollection">
+                        <image
+                            jcr:primaryType="nt:unstructured"
+                            text="Image "
+                            value="image"/>
+                        <video
+                            jcr:primaryType="nt:unstructured"
+                            text="Video"
+                            value="video"/>
+                    </options>
+                </article-type>
+                <description
+                    jcr:primaryType="cq:Widget"
+                    allowBlank="{Boolean}false"
+                    fieldDescription="&lt;b> Summary of Article description to be shown on Listing page for Article.&lt;/b>"
+                    fieldLabel="Article Description"
+                    name="./jcr:content/articleDescription"/>
+                <isTrending
+                    jcr:primaryType="cq:Widget"
+                    fieldDescription="Check this to display news in trending section"
+                    fieldLabel="Trending News"
+                    name="./jcr:content/isTrendingNews"
+                    type="checkbox"
+                    xtype="selection"/>
+            </items>
+        </tab2>
+        <tab3
+            jcr:primaryType="cq:Panel"
+            title="Article Image Properties">
+            <items jcr:primaryType="cq:WidgetCollection">
+                <articleImg
+                    jcr:primaryType="cq:Widget"
+                    allowBlank="{Boolean}false"
+                    allowUpload="{Boolean}true"
+                    border="true"
+                    cropParameter="./jcr:content/articleImage/imageCrop"
+                    ddGroups="[media]"
+                    disableZoom="true"
+                    fieldDescription="&lt;b> Image for slider and Listing of article on page.&lt;/b>"
+                    fieldLabel="Article Image"
+                    fileNameParameter="./jcr:content/articleImage/fileName"
+                    fileReferenceParameter="./jcr:content/articleImage/fileReference"
+                    height="300"
+                    name="./jcr:content/articleImage/file"
+                    requestSuffix="/jcr:content/articleImage.img.png"
+                    rotateParameter="./jcr:content/articleImage/imageRotate"
+                    sizeLimit="100"
+                    xtype="html5smartimage"/>
+                <imgResourceType
+                    jcr:primaryType="cq:Widget"
+                    ignoreData="true"
+                    name="./jcr:content/articleImage/sling:resourceType"
+                    value="foundation/components/image"
+                    width="100%"
+                    xtype="hidden"/>
+            </items>
+        </tab3>
+        <tab4
+            jcr:primaryType="cq:Panel"
+            title="Tags">
+            <items jcr:primaryType="cq:WidgetCollection">
+                <tag
+                    jcr:primaryType="cq:Widget"
+                    allowBlank="{Boolean}false"
+                    fieldDescription="&lt;b> Tagged market to which news to be shown as Local.&lt;/b>"
+                    fieldLabel="Location"
+                    name="./jcr:content/cq:tags"
+                    namespaces="[newsroom]"
+                    xtype="tags"/>
+                <showRegional
+                    jcr:primaryType="cq:Widget"
+                    fieldDescription="Check this to do not display this  News as Regional News and will continue t be shown as Local News for country to which it is tagged."
+                    fieldLabel="Do Not Show News as Regional News"
+                    name="./jcr:content/doNotDisplayRegionalNews"
+                    type="checkbox"
+                    xtype="selection"/>
+            </items>
+        </tab4>
+    </items>
+</jcr:root>

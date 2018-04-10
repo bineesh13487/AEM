@@ -1,0 +1,6 @@
+.mcd-qna {
+  height: to-rem(300);
+  padding: to-rem(50) 0;
+
+  @include make-container();
+}

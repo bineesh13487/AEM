@@ -1,0 +1,39 @@
+
+<h3 data-sly-test="${(!properties.offerName) && (!properties.offerCategory) && (!properties.offerExpiryDate) && (wcmmode.edit || wcmmode.design)}">Please configure Offer Exception List Component.</h3>
+<sly data-sly-test="${(properties.offerName) && (properties.offerCategory) && (properties.offerExpiryDate)}">
+<div class="container">
+    <div class="col-md-8 col-xs-offset-2 proper-div">
+        <div class="row">
+            <div class="col-md-4 col-xs-12 text-center">
+                <div class="spacial-div">
+                    <span>${properties.offerName}</span>
+                </div>
+            </div>
+            <div class="col-md-4 col-xs-12 text-center spacial-cat">
+                <div class="spacial-div">
+                    <span> ${properties.offerCategory} </span>
+                </div>
+            </div>
+            <div class="col-md-4 col-xs-12 text-center">
+                <div class="spacial-div">
+                    <span>${properties.offerExpiryDate}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    </sly>
+<style>
+    .proper-div {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin-top: 15px;
+    }
+    .spacial-cat {
+    border-right: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    }
+    .proper-div .col-md-4 {
+    padding: 8px;
+    }
+</style>

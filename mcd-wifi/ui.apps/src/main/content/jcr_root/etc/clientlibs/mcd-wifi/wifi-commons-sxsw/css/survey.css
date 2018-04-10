@@ -1,0 +1,266 @@
+/*
+ *Filename: survey-small.css       
+ *Author: MCD-WiFi
+ *Description: This is css for formating survey component.
+*/
+.grid-item {
+	width: 100%;
+	max-height: 326px;
+	padding: 0 !important;
+	position: relative !important;
+}
+
+.special-tile-mobile {
+	width: 100%;
+	max-height: 305px;
+	padding: 0;
+	position: relative;
+}
+
+.btn-holder {
+	width: auto;
+	margin: 0 auto;	
+	clear: both;
+}
+
+.survey-container .f-left, .survey-container .f-right {
+	width: 120px;
+}
+
+.survey-container .survey-icon-text {
+	font-size: 24px;
+	line-height:26px;
+	word-wrap: break-word;
+}
+
+.survey-container  .p-holder {
+	float: left;
+}
+
+.survey-complete  .survey-icon-text {
+	font-size: 24px;
+	line-height:26px;
+	word-wrap: break-word;
+}
+
+.survey-complete {
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	text-align: center;
+}
+
+.survey-complete .f-right {
+	float: right;
+	padding-right: 5%;	
+	padding-bottom: 5%;	
+	padding-top: 5%;	
+	color: #ffffff;
+	font-size: 18px;
+	line-height: 20px;
+	font-family: albert-regular, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.survey-complete .f-left {
+	float: left;
+	padding-left: 5%;
+	padding-bottom: 5%;	
+	padding-top: 5%;		
+	color: #ffffff;
+	font-size: 18px;
+	line-height: 20px;
+	font-family: albert-regular, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.survey-complete .f-left, .survey-complete .f-right{width:120px;}
+
+.survey-complete .count {
+	font-size: 25px;
+	font-family: albert-regular, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-weight: 500;
+	color: #fff;
+	line-height: 1;
+	padding-bottom: 10px;
+	padding-top: 14px;
+	display:block;
+}
+
+.survey-complete h2 {
+	padding: 5% 0;
+	margin:0;	
+	color: #ffffff;
+	font-size: 24px;
+	line-height: 24px;
+	
+}
+
+.survey-complete lable {
+	display: block;
+	text-align: center;
+}
+
+.survey-complete p {
+	padding-top: 20px;
+	color: #ffffff;
+	font-size: 24px;
+}
+
+.survey-container {
+	width: 100%;	
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	text-align: center;
+}
+
+.survey-container .f-right {
+	float: right;
+	padding: 5% 5% 5% 0;	
+}
+
+.survey-container .f-left {
+	float: left;
+	padding: 5% 0 5% 5%;
+}
+
+.survey-container h2 {
+	padding: 5% 0;
+	margin:0;
+	color: #ffffff;
+	font-size: 24px;
+}
+
+.survey-container img {
+	cursor: pointer;
+}
+
+.survey-container span {
+	display: block;
+	padding-top: 20%;
+	font-size: 18px;
+	font-family: "albert-regular", "Helvetica Neue", Helvetica, Arial,
+		sans-serif;
+	font-style: normal;
+	font-variant: normal;
+	letter-spacing: .02em;
+	line-height: 26px;
+	color: #ffffff;
+}
+
+.survey-container .p-holder {
+	color: #ffffff;
+	position: absolute;
+	top: 40%;
+	left: 50%;
+	width: 80px;	
+	margin-right: -40px;
+	margin-left: -40px;
+	padding: 0;
+}
+
+.survey-container .p-holder p, .survey-container .p-holder h2 {
+	font-size: 24px;
+	line-height: 26px;
+}
+
+.survey-container a.promotional-content-btn {
+	display: inline-block;
+	width: 30%;
+	height: auto;
+	background: #fff;
+	color: #000;
+	padding: 2%;
+	margin: 5% 30%;
+	font-size: 14px;
+	line-height: 18px;
+	border-radius: 3px;
+	font-family: albert-regular, "Helvetica Neue", Helvetica, Arial,sans-serif;
+	font-weight: 800;
+	text-align: center;
+	box-shadow: 1px 1px 5px #888888;
+	text-decoration: none;
+}
+
+.survey-container a.promotional-content-btn:hover {
+	background: #ffbf25;
+	/* For browsers that do not support gradients */
+	background: -webkit-linear-gradient(#ffbf25, #f2aa0f);
+	/* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient(#ffbf25, #f2aa0f);
+	/* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(#ffbf25, #f2aa0f);
+	/* For Firefox 3.6 to 15 */
+	background: linear-gradient(#ffbf25, #f2aa0f);
+	/* Standard syntax */
+	text-decoration: none;
+}
+
+label>input {
+	visibility: hidden;
+	position: absolute;
+}
+
+label>input+img {
+	cursor: pointer;
+	border: 2px solid transparent;
+}
+
+*, *::before, *::after {
+	box-sizing: inherit;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	/* Disable selection/copy in UIWebView */
+}
+
+.survey-box-img {
+	width: 70px;
+}
+
+.survey-error-msg-box{
+  position: absolute;
+  bottom: -2%;
+  text-align: center;
+  width: 100%;
+  color: yellow;
+  font-size: 14px;
+  display:none;
+  
+}
+
+.survey-error-msg-box p{	
+	font-size:inherit;
+}
+
+@media ( max-width : 767px) {
+
+	.survey-container h2, .survey-container .survey-icon-text {
+		font-size: 24px;
+		font-size: 7.5vw;
+	}	
+		
+	.survey-container .p-holder p, .survey-container .p-holder h2 {
+		font-size: 24px;
+		font-size: 7.5vw;
+	}
+	
+	.survey-complete .count, .survey-complete  .survey-icon-text {
+		font-size: 24px;
+		font-size: 7.5vw;
+	}
+	
+	.survey-complete h2 {
+		font-size: 24px;
+		font-size: 7.5vw;
+	}
+	
+	.survey-container a.promotional-content-btn {
+		font-size:14px;
+		font-size:4.5vw;
+	}
+	
+	.survey-error-msg-box{
+		font-size:14px;
+		font-size:4.5vw;
+	}
+}

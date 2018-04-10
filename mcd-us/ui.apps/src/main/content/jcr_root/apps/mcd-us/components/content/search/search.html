@@ -1,0 +1,244 @@
+<section data-sly-use.search="com.mcd.rwd.us.core.sightly.SearchHandler" data-component="search-component" class="mcd-search"
+    data-ng-controller="searchController" data-ng-init="init()">
+    <sly data-sly-test.hide={{searchresults.isPaginated}}></sly>
+    <div data-sly-test="${ hide }" class="description_cutoff" style="display:none">${search.descriptionCutOff}</div>
+    <div data-sly-test="${ hide }" class="searchKeyword" style="display:none">${search.getSearchBoxData}</div>
+    <div data-sly-test="${ hide }" class="resultText" style="display:none">${search.resultText}</div>
+    <div data-sly-test="${ hide }" class="newsSearchText" style="display:none">${search.newsSearchText}</div>
+    <div data-sly-test="${ hide }" class="defaultImagePath" style="display:none">${search.defaultImagePath}</div>
+    <div data-sly-test="${ hide }" class="newsUrl" style="display:none">${search.newsUrl}</div>
+    <div data-sly-test="${ hide }" class="hiddenPagePath" style="display:none">${search.hiddenPage}</div>
+    <div id="search-params" style="display:none;" data-sly-test="${ hide }" data-resource="${ resource.path }.html" data-q="${search.getSearchBoxData}"
+        data-limit="${search.limit}"></div>
+    <div class="mcd-search__container" data-widget="accessible-autocomplete">
+        <div class="mcd-search__container--section" data-ng-class="isSearchInputFocus ? 'mcd-search__on-focus' : ''">
+            <div class="mcd-search__input">
+                <label for="search" style="display: none;">Search Results</label>
+                <input class="mcd-search__input--background" aria-disabled="true" tabindex="-1" type="text" ng-model="searchInputBackVal"
+                />
+                <input type="text" id="search" autocomplete="off" placeholder="How can we help you?" class="mcd-search__input--main autocomplete-search-field"
+                    aria-describedby="initInstr" aria-owns="results" aria-expanded="false" aria-autocomplete="both" aria-activedescendant=""
+                    value="${search.getSearchBoxData @ context='unsafe'}" data-ng-keyup="changeInput($event)" data-ng-blur="checkTabPress()"
+                    ng-model="searchInputVal" data-ng-focus="searchInputFocus(true)">
+                <span class="mcd-search__input--close-btn icon-x-circle" data-ng-show="searchInputCloseBtn" data-icon="&#xe90d" aria-hidden="true"
+                    data-ng-click="searchInputCloseBtnCick()"></span>
+            </div>
+            <div class="mcd-search__button">
+                <button role="button" class="button button--yellow button--sm button--yellow-border" aria-label="search" data-ng-click="loadSearchRes(searchInputVal)">
+                    <span aria-hidden="true" data-icon="&#xe90c" class="icon-search mcd-search__button--icon"></span>
+                </button>
+            </div>
+        </div>
+        <div class="mcd-search__search-cancel" data-ng-show="isSearchInputFocus">
+            <button data-ng-click="searchInputFocus(false)">Cancel</button>
+        </div>
+        <div class="clearfix"></div>
+        <div class="mcd-search__border" data-ng-class="isSearchInputFocus ? 'mcd-search__on-focus border-focus' : ''"></div>
+        <div class="mcd-search__suggestion" ng-show="searchSuggestion">
+            <ul id="results" class="mcd-search__suggestion--section autocomplete-list" role="listbox" tabindex="0" data-ng-click="selectPredictedText($event)">
+                <li class="mcd-search__suggestion--predicted-text autocomplete-item" 
+                    role="option" aria-selected="false" tabindex="-1"
+                    data-ng-repeat="autoResult in autoCompleteResult track by $index"><span ng-bind="autoResult"></span></li>
+            </ul>
+        </div>
+        <span id="initInstr" style="display: none;">When autocomplete results are available use up and down arrows to review and enter to select.</span>
+    </div>
+    <div class="mcd-search__result-section" data-component="search-result-section" data-ng-class="isSearchInputFocus ? 'mcd-search__on-focus--opacity' : ''">
+        <div class="mcd-search__no-item" data-ng-if="searchresults.hits.length === 0 ? true : false">Sorry, we couldn’t find what you’re looking for.</div>
+        <div class="mcd-search__result-section--container">
+            <div data-component="filter-component" class="mcd-filter" data-ng-show="searchresults.hits !== undefined && searchresults.hits.length !== 0">
+                <h4 class="mcd-filter__result-heading" aria-label="Results">Results</h4>
+                <div class="mcd-filter__container">
+                    <ul class="mcd-filter__carousel" role="listbox">
+                        <li data-ng-repeat="filter in filters track by $index" key={{$index}} class="mcd-filter__carousel__item" data-ng-click="carousalItemClick($event)" data-ng-class="filter.type === pageType ? 'mcd-filter__carousel__item--selected' : ''">
+                            {{filter.type}} ({{($index + 1) * 2}})
+<!--                            <span data-ng-show="filter.type === pageType">(<span data-ng-bind="totalHits"></span>)</span>-->
+                        </li>
+                    </ul>
+                    <div class="mcd-filter__horizontal-line">
+                        <div class="mcd-filter__horizontal-line--selected"></div>
+                    </div>
+                </div>
+            </div>
+            <div data-ng-repeat="hit in hits track by $index" data-ng-class="{'first-of-set': $index % ${search.limit} === 0}" on-finish-render="ngRepeatFinished"
+                class="mcd-card--result__without-image column">
+                <div class="mcd-card__text--heading"><span data-ng-bind="hit.title"></span></div>
+                <p class="mcd-card__text--title"><span data-ng-bind="hit.description"></span></p>
+                <a ng-href="{{hit.url}}" class="small link" style="text-decoration: none;" target="_blank">
+                    <span class="large" ng-bind-html="hit.url" class="mcd-card__text--footer-text"></span>
+                </a>
+            </div>
+        </div>
+        <div class="mcd-search--load-more" data-ng-show="loadMoreButton">
+            <button type="button" class="btn btn-default mcd-search--load-more__btn" ng-click="loadSearchResults(false)" aria-label="${search.loadMoreText}">${search.loadMoreText}
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- <div class="page-search-results" data-sly-use.search="com.mcd.rwd.us.core.sightly.SearchHandler" data-ng-controller="searchController"
+    data-ng-init="init()">
+    <div class="template search-hero">
+        <div class="hidden-xs template-hero-bg" style="background: url('${search.desktopHeroImagePath @context='uri'}'); background-size: cover; background-position: 50% 0%;">
+            <div class="absolute-content">
+                <div class="absolute-content-wrapper fadein fadeinnow">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="text-wrapper">
+
+                                </div>
+                            </div>
+                            <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3  nosearchtext" style="display:none;">
+                                <p>
+                                    <span class="bold">${search.noSearchQueryText}</span>
+                                </p>
+                            </div>
+                            <div class="cont-hero select-container col-xs-12 col-sm-10 col-sm-offset-1" data-sly-test="${hide}">
+                                <form action="${currentPage.path}.html" autocomplete="off" data-at="${search.pageName}:Form:SearchPage" data-track="form">
+                                    <div class="row no-gutter">
+                                        <div class="col-sm-10 col-md-8 col-md-offset-1 col-lg-6 col-lg-offset-2 padright">
+                                            <div class="form-group">
+                                                <label for="search-text-field" id="search-text-field-label" class="visuallyhidden">${search.placeHolder}</label>
+                                                <input id="search-text-field" aria-labelledby="search-text-field-label" class="form-control" type="text" name="q" autocomplete="off"
+                                                    placeholder="${search.placeHolder}" value="${search.getSearchBoxData @ context='unsafe'}">
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-2 col-md-2 col-lg-2">
+                                            <button type="submit" class="btn btn-red cont-100">
+                                                ${search.searchButtonText}
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div data-sly-test="${search.enableNewsSearch}" class="col-xs-12 cont-news-search">
+                                <a data-sly-unwrap="${!search.newsUrl}" target="_blank" class="link newsLink">
+                                    <span class="newsSearchFinalText"></span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="visible-xs-block template-hero-bg" style="background: url('${search.mobileHeroImagePath @context='uri'}'); background-size: cover; background-position: 50% 0%;">
+            <div class="absolute-content">
+                <div class="absolute-content-wrapper fadein fadeinnow">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="text-wrapper">
+                                    <h1>${search.title}</h1>
+                                </div>
+                            </div>
+                            <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3  nosearchtext" style="display:none;">
+                                <p>
+                                    <span class="bold">${search.noSearchQueryText}</span>
+                                </p>
+                            </div>
+                            <div class="cont-hero select-container col-xs-10 col-xs-offset-1" data-sly-test="${hide}">
+                                <form action="${currentPage.path}.html" autocomplete="off" data-at="${search.pageName}:Form:SearchPage" data-track="form">
+                                    <div class="row no-gutter">
+                                        <div class="col-xs-8 padright">
+                                            <div class="form-group">
+                                                <label for="search-text-field" id="search-text-field-label" class="visuallyhidden">${search.placeHolder}</label>
+                                                <input id="search-text-field" aria-labelledby="search-text-field-label" class="form-control" type="text" name="q" autocomplete="off"
+                                                    placeholder="${search.placeHolder}" value="${search.getSearchBoxData @ context='unsafe'}">
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-4">
+                                            <button type="submit" class="btn btn-red cont-100">
+                                                ${search.searchButtonText}
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div data-sly-test="${search.enableNewsSearch}" class="col-xs-12 cont-news-search">
+                                <a data-sly-unwrap="${!search.newsUrl}" target="_blank" class="link newsLink">
+                                    <span class="newsSearchFinalText"></span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="search-results-cont" data-sly-unwrap="${!hide}">
+        <div data-sly-test="${search.showFilters}" class="cont-filter">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="label-select">${search.filterLabel}:</div>
+                        <div class="cont-select gray-border-on-white">
+                            <div class="select ddCustom">
+                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                    aria-label="${search.filterDefaultText}">
+                                    <span class="value">${search.filterDefaultText}</span>
+                                    <i class="fa fa-chevron-down"></i>
+                                </button>
+                                <ul id="contactUs-form-select" class="dropdown-menu">
+                                    <div class="dropdown-list-wrapper">
+                                        <li>
+                                            <a href="" title="${search.filterDefaultText}">${search.filterDefaultText}</a>
+                                        </li>
+                                        <li data-sly-repeat="${search.filterList}">
+                                            <a href="${item.path}" title="${item.type}" target="${item.target}" class="keep-outline">${item.type}</a>
+                                        </li>
+                                    </div>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="cont-btn">
+                            <a href="" target="_self" class="searchfilter-btn">
+                                <button type="button" class="btn btn-red" ng-click="loadSearchResults(true)">${search.filterButtonText}</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container results-total">
+            <div class="row">
+                <div class="col-xs-12">
+                    <h2 tabindex="1" role="button" class="finalResultText"></h2>
+                </div>
+            </div>
+        </div>
+        <table class="table table-striped">
+            <tbody>
+                <tr class="searchList" ng-repeat="data in hits" ng-class="{'first-of-set': $index % ${search.limit} === 0}" on-finish-render="ngRepeatFinished"
+                    tabindex="-1">
+                    <td>
+                        <div class="container search-result-item ng-cloak">
+                            <div class="search-image">
+                                <img aria-hidden="true" tabindex="-1" ng-src={{showThumbnail(data)}} class="media-object" alt="" style="float:none" />
+                            </div>
+                            <div class="search-text">
+                                <a ng-href="{{data.url}}" class="small link" style="float:left">
+                                    <h3 class="large" ng-bind-html="data.title"></h3>
+                                </a>
+                                <span class="visuallyhidden">{{data.descriptionAria}}</span>
+                                <p aria-hidden="true" tabindex="-1" class="hidden-xs small removeMore" ng-bind-html="data.description" style="clear:both"></p>
+                                <p aria-hidden="true" tabindex="-1" class="visible-xs-block small removeMore" ng-bind-html="data.description" style="clear:both"></p>
+                                <a ng-href="{{data.url}}" aria-label="{{data.titleForAlt}}" class="small link" style="float:left">{{data.url}}</a>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="clearfix load-more-row">
+        <span class="noMoreResults" style="display:none;">${search.noMoreResultsText}</span>
+        <button type="button" class="load-more-btn keep-outline" ng-click="loadSearchResults(false)" aria-label="${search.loadMoreText}">${search.loadMoreText}
+            <br>
+            <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-chevron-down fa-stack-1x"></i>
+            </span>
+        </button>
+    </div>
+</div> -->

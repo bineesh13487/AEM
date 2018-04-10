@@ -1,0 +1,120 @@
+<sly data-sly-use.tuselfInfo="com.mcd.rwd.us.core.sightly.forms.PersonalInfo">
+    <section class="page-contact-us__subpage__about-yourself @@modifiers" style="background:${tuselfInfo.sectionBackgroundColor @ context='styleToken'}; padding-bottom: 25% !important;">
+        <div class="container">
+            <h4 data-sly-test="tuselfInfo.sectionTopHeading">${tuselfInfo.sectionTopHeading} </h4>
+            <p class="sub">${tuselfInfo.sectionSubHeading}</p>
+            <div class="row" action="google.com">
+
+                <div class="col-xs-12 col-sm-6">
+                    <div class="form-group"> <input type="text" class="form-control placeholder ${tuselfInfo.firstNameReq}" id="contactUs-first-name" name="firstName" placeholder="${tuselfInfo.firstName}" aria-required="true" aria-invalid="true" aria-labelledby="contactUs-first-name-error" aria-label="${tuselfInfo.fNameAriaLabel}" maxlength="25"> </div>
+                </div>
+                <div class="col-xs-12 col-sm-6">
+                    <div class="form-group"> <input type="text" class="form-control placeholder ${tuselfInfo.lastNameReq}" id="contactUs-lastName" name="lastName" placeholder="${tuselfInfo.lastName}"  aria-labelledby="contactUs-lastName-error" aria-label="${tuselfInfo.lNameAriaLabel}" maxlength="25"> </div>
+                </div>
+
+                <div class="rowContainer">
+				<div class="col-xs-12">
+					<div class="form-group"> <input type="text" class="form-control placeholder ${tuselfInfo.addressReq}" id="contactUs-address-street" name="customerAddress1" placeholder="${tuselfInfo.address}" aria-labelledby="contactUs-address-street-error" aria-label="${tuselfInfo.addressAriaLabel}" maxlength="40"> </div>
+				</div>
+                </div>
+                <div class="rowContainer">
+				<div class="col-xs-12">
+					<div class="form-group"> <input type="text" class="form-control placeholder" id="contactUs-address-secondary" name="customerAddress2" placeholder="${tuselfInfo.apartment}" aria-labelledby="contactUs-address-secondary-error" aria-label="${tuselfInfo.aptAriaLabel}" maxlength="40"> </div>
+				</div>
+                </div>
+                <div class="rowContainer">
+                    <div class="col-xs-12 col-sm-5">
+                        <div class="form-group"> <input type="text" class="form-control placeholder ${tuselfInfo.cityReq}" id="contactUs-city" name="city" placeholder="${tuselfInfo.city}" aria-labelledby="contactUs-city-error" aria-label="${tuselfInfo.cityAriaLabel}" maxlength="30" > </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-2">
+                        <div class="form-group stateclass">
+                        <label id="contactUs-state-label" class="visuallyhidden" for="contactUs-state-header">${tuselfInfo.stateAriaLabel}</label>
+                            <div class="select select--state stateList ${tuselfInfo.stateReq}" id="contactUs-state-select" name="contactUs-state-select">
+                                <select id="stateValue" class="form-control" name="select-state"> 
+                                    <option data-hidden="true" value="">${tuselfInfo.stateText}</option>
+                                    <sly data-sly-list="${tuselfInfo.stateOptions}">
+                                       <option  data-content="<span aria-hidden='true'>${item}</span> <span class='visuallyhidden'>${tuselfInfo.stateOptions[item]} </span>" value="${item}">${item}</option>
+                                    </sly>
+                                </select>
+                                <input type="text" class="hidden" id="contactUs-state-input" name="state" maxlength="6">
+                                <label id="stateValue-label" class="error" for="contactUs-state-input"></label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-5">
+                        <div class="form-group"> <input type="text" class="form-control placeholder ${tuselfInfo.zipReq}" id="contactUs-zip" name="zip" placeholder="${tuselfInfo.zip}" aria-labelledby="contactUs-zip-error" aria-label="${tuselfInfo.zipAriaLabel}" maxlength="5"> </div>
+                    </div>
+                    <!--<div class="form-spacer"></div>-->
+                </div>
+
+                <div id="contactUsRWD-followup" style="clear:both">
+                    <div class="col-xs-12 col-md-5 ${tuselfInfo.hearBackReq}" id="contactUs-followup">
+                        <p> ${tuselfInfo.hearBackYes} </p>
+                    </div>
+                    <div class="col-xs-12 col-sm-1 col-md-1">
+                        <div class="form-group">
+                            <div class="radio"> <input type="radio" name="responseText" id="contactUs-ownersOrg" role="radio" aria-checked="false" value="Yes" aria-labelledby="contactUS-customer-hearback-error contactUs-ownersOrg-id"> <label id="contactUs-ownersOrg-id" for="contactUs-ownersOrg">
+                                ${tuselfInfo.yesText}<span class="visuallyhidden">${tuselfInfo.adaTextForOwnerHearbackYesRadioButton}</span>
+                            </label>
+                            </div>
+                            <label id="contactUS-customer-hearback-error" for="responseText" generated="true" class="error"></label>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-6">
+                        <div class="form-group">
+                            <div class="radio"> <input type="radio" name="responseText" id="contactUs-ownersOrg-no" role="radio" aria-checked="false" value="No" aria-labelledby="contactUS-customer-hearback-error contactUs-ownersOrg-no-id"> <label id="contactUs-ownersOrg-no-id" for="contactUs-ownersOrg-no">
+                                ${tuselfInfo.noText} <span class="visuallyhidden">${tuselfInfo.adaTextForOwnerHearbackNoRadioButton}</span><span aria-hidden='true'>${tuselfInfo.hearBackNo}</span>
+                            </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-spacer"></div>
+                </div>
+                <div class="col-xs-12 col-sm-6">
+                    <div class="form-group"> <input type="text" class="form-control placeholder ${tuselfInfo.emailReq}" id="contactUs-email" aria-labelledby="contactUs-email-error" name="email" placeholder="${tuselfInfo.email}" aria-label="${tuselfInfo.emailAriaLabel}" maxlength="40"> </div>
+                </div>
+                <div class="col-xs-12 col-sm-6">
+                    <div class="form-group"> <input type="text" class="form-control placeholder ${tuselfInfo.confirmEmailReq}" id="contactUs-emailConfirmation" name="confirmEmail" placeholder="${tuselfInfo.confirmEmail}" aria-labelledby="contactUs-emailConfirmation-error" aria-label="${tuselfInfo.confirmEmailAriaLabel}" maxlength="40"> </div>
+                </div>
+                <div class="col-xs-12 col-sm-6">
+                    <div class="form-group"> <input type="text" class="form-control placeholder ${tuselfInfo.phoneNumberReq}" id="contactUs-phone" name="phone" placeholder="${tuselfInfo.phoneNumber}" aria-labelledby="contactUs-phone-error" aria-label="${tuselfInfo.phoneAriaLabel}" maxlength="10"> </div>
+                </div>
+               <div data-sly-test="${tuselfInfo.captchaOptionReq=='Honeypot'}" >
+                	<div class="col-xs-12 col-sm-6" style="display:none;">
+                    	<div id="honeypotDiv" class="form-group"><input type="text" class="form-control placeholder ${tuselfInfo.emailReq}" id="email_hidn_norealuser" aria-labelledby="email_hidn_norealuser-error" name="email_hidn_norealuser" value=""></div>
+                	</div>
+              	</div>
+              <div class="form-spacer"></div>
+              <div class="cont-captcha">
+              	<div data-sly-test="${tuselfInfo.captchaOptionReq=='reCaptcha'}" >
+                 	<div class="col-xs-12">
+                   		<div id="captcha" class="g-recaptcha" data-sitekey="6LdGlB8TAAAAAKFGZ7Wo7D1d0XWWfP-tA9mMjeRN"></div> 
+                    	<div id="captchaError" style="margin: 10px 0px;font-family: LovinSansWeb-Regular;font-weight: bold;color: #bf0c0c;display:none;">${tuselfInfo.captchaText}</div>
+                	</div> 
+              	</div>
+              </div>
+                <div class="col-xs-12" data-sly-test="${tuselfInfo.disclaimerText}">
+                    <div class="disclaimer">${tuselfInfo.disclaimerText @ context='html'}</div>
+                </div>
+                <div class="form-spacer"></div>
+                <!--<div class="col-xs-12"> <button  onclick="javascript:validateForm();" data-toggle="modal" data-target="#scancelModal" title="Continue" id="@@id" class="btn btn-red @@modifiers">${tuselfInfo.continueText}</button> </div>-->
+                <div class="col-xs-12"> <button onclick="javascript:validateForm();" data-toggle="modal" id="continue-button" class="btn btn-red @@modifiers">${tuselfInfo.continueText}</button> </div>
+            </div>
+            <!--/.row-->
+        </div>
+    </section>
+
+    <div style="display:none;">
+        <div id="contactUs-first-name-message">${tuselfInfo.firstNameMessage}</div>
+        <div id="contactUs-lastName-message">${tuselfInfo.lastNameMessage}</div>
+        <div id="contactUs-address-street-message">${tuselfInfo.addressMessage}</div>
+        <div id="contactUs-city-message">${tuselfInfo.cityMessage}</div>
+        <div id="contactUs-state-select-message">${tuselfInfo.stateMessage}</div>
+        <div id="contactUs-zip-message">${tuselfInfo.zipMessage}</div>
+        <div id="contactUs-followup-message">${tuselfInfo.hearBackMessage}</div>
+        <div id="contactUs-email-message">${tuselfInfo.emailMessage}</div>
+        <div id="contactUs-emailConfirmation-message">${tuselfInfo.confirmEmailMessage}</div>
+        <div id="contactUs-phone-message">${tuselfInfo.phoneNumberMessage}</div>
+        <div id="state-option">${tuselfInfo.stateText}</div>
+    </div>
+</sly>

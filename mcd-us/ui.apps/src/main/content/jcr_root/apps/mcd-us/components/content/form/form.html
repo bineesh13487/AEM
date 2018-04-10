@@ -1,0 +1,173 @@
+<script type="text/javascript" src="https://l2.io/ip.js?var=customerIp"></script>
+<script src='https://www.google.com/recaptcha/api.js'></script>
+
+
+
+<sly data-sly-use.contactInfo="com.mcd.rwd.us.core.sightly.forms.Form">
+    <sly data-sly-test="${!contactInfo.formAction && !wcmmode.disabled}">
+        <p>Please configure contactus forms in dialog.</p>
+    </sly>
+    <sly data-sly-test="${contactInfo.contactLinks || contactInfo.formAction}">
+        <div id="contactUs-generalInquiry" class="page-contact-us__subpage page-contact-us__general-inquiry">
+            <div class="component-hero component-hero-half" style="background: url('${contactInfo.mobileImagePath @context='uri'}'); background-size: cover; background-position: 50% 0%;">
+                <div class="background-container zoom-anim-target" data-sly-test="${contactInfo.heroImagePath}"> <img tabindex="-1" aria-hidden="true" src="${contactInfo.heroImagePath}" class="cont-100 hidden-xs img-responsive" alt="" /> </div>
+                <div class="absolute-content hero-content-parent">
+                    <div class="absolute-content-wrapper hero-content fadein fadeinnow">
+                        <div class="container">
+                            <div class="row">
+                                        <div class="col-xs-12">
+                                            <div class="text-wrapper text-transform-none @@alignment">
+                                                ${contactInfo.imageText @ context='html'}
+                                                <div class="select-container col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+                                                    <div class="form-group">
+                                                        <div class="select select--@@modifiers" id="main-form-select">
+	                                                        <select aria-label="${contactInfo.formAriaLabel}" class="form-control" name="formCategories" id="formCategories" data-sly-test="${contactInfo.contactLinks}">
+							                                    <option data-hidden="true" value="">${contactInfo.defaultTextForformConfiguration}</option>
+							                                    <sly data-sly-list="${contactInfo.contactLinks}">
+							                                        <option value="${item.formURL}">${item.formName}</option>
+							                                    </sly>
+                                                            </select>
+                                                        </div>
+                                                        <button id="goButton" disabled=true data-sly-test="${contactInfo.contactLinks}" class="btn btn-red @@modifiers" aria-label="Go">Go</button>
+                                                        <p>&nbsp;</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                <div data-sly-test="${contactInfo.cornerlogoImagePath}"class="caption-logo-box">
+					<img tabindex="-1" aria-hidden="true" src="${contactInfo.cornerlogoImagePath}" alt="">
+		        </div>
+		        <div data-sly-test="${contactInfo.disclaimerText}" class="caption-disclaimer-text text-transform-none">
+		           <p data-sly-test="${contactInfo.disclaimerText}">${contactInfo.disclaimerText @ context='html'}</p>
+		        </div>
+            </div>
+            <div id="formAction" style="display:none;">${contactInfo.formAction}</div>
+            <form class="contactus" name="contactus" id="contactus" enctype="multipart/form-data" data-at="${contactInfo.pageNameForAnalytics}:Form: ${contactInfo.formName}" data-track="form">
+                <div class="page-contact-us__subpage__content page-contact-us-section-override">
+                    <section class="page-contact-us__subpage__how-can-we-help" style="outline: none;" data-sly-test="${!contactInfo.hideSectionContent}">
+                        <div class="container" style="outline: none;">
+                            <div class="row" data-sly-test="${contactInfo.sectionContentText}">
+                                <div class="how-can-we-help-text ${contactInfo.sectionContentDesktopImagePath && contactInfo.sectionContentMobileImagePath ? 'col-xs-8' : ''}">
+                                    ${contactInfo.sectionContentText @ context='html'}
+                                </div>
+                                <div class="col-xs-4" data-sly-test="${contactInfo.sectionContentDesktopImagePath && contactInfo.sectionContentMobileImagePath}">
+                                    <img tabindex="-1" aria-hidden="true" class="feedback-receipt hidden-xs" src="${contactInfo.sectionContentDesktopImagePath}" alt="">
+                                    <img tabindex="-1" aria-hidden="true" class="feedback-receipt visible-xs" src="${contactInfo.sectionContentMobileImagePath}" alt="">
+                                </div>
+                            </div>
+                            <div data-sly-resource="${@path='contactussectionpara', resourceType='wcm/foundation/components/parsys'}" data-sly-unwrap></div>
+                        </div>
+                    </section>
+                    <div data-sly-resource="${@path='contactuschildpara', resourceType='wcm/foundation/components/parsys'}" data-sly-unwrap></div>
+                </div>
+                <input type="hidden" name="formName" id="contactUsFormName" value="${contactInfo.formName}">
+                <input type="hidden" name="customerIp" id="customerIp" value="">
+                <input type="hidden" name="mobileFlag" id="mobileFlag" value="">
+                <input type="hidden" name="social" id="social" value="">
+                <input type="hidden" name="custServiceEmail" value="${contactInfo.custServiceEmail}">
+                <input type="hidden" name="thankYouPage" id="thankYouPage" value="${contactInfo.thankYouPage}">
+                <input type="hidden" name="errorPage" id="errorPage" value="${contactInfo.errorPage}">
+                
+           <!-- /* <div class="g-recaptcha" data-sitekey="6LdGlB8TAAAAAKFGZ7Wo7D1d0XWWfP-tA9mMjeRN"></div> */--> 
+            </form>
+        </div>
+        <div class="modal fade" id="scancelModal" tabindex="-1" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content text-center">
+                    <button class="btn-close keep-outline" data-dismiss="modal" id="modalCloseButton"><i class="fa fa-times"></i><span class="visuallyhidden">close dialog</span></button>
+                    
+                    <!-- <div class="btn-close" data-dismiss="modal"><i class="fa fa-times"></i></div> -->
+                    <h2 class="headline-text">${contactInfo.firstLine}<span class="large">${contactInfo.secLine}</span><span class="mid">${contactInfo.thirdLine}</span></h2>
+                    <p> ${contactInfo.informationText} </p>
+                    <div class="row">
+                        <div class="col-sm-6"> <a href="#" data-dismiss="modal"  class="btn btn-red-inverse">${contactInfo.cancelText}</a> </div>
+                        <div class="col-sm-6"> <a href="#"  class="btn btn-red" id="contactFormSubmit">${contactInfo.submitText}</a> </div>
+                    </div>
+                </div>
+                <!--/.modal-content-->
+            </div>
+            <!--/.modal-dialog-->
+        </div>
+  		<div class="modal fade" data-ng-app="restaurantLocatorApp" data-ng-controller="restaurantLocatorController" data-ng-init="init('body')" id="restaurantLocatorMapModal" tabindex="-1" role="dialog" aria-labelledby="restaurantLocatorMapModal">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="container-fluid">
+                        <div class="row no-gutter">
+                            <div class="col-xs-12 cont-enter-location">
+                                <div class="row no-gutter">
+                                    <div class="col-xs-12">
+                                        <div class="heading" data-sly-test="${contactInfo.resSearchHeading}">${contactInfo.resSearchHeading}</div>
+                                    </div>
+                                    <div class="col-xs-9 col-sm-10 pad-right">
+                                        <div class="form-group"> <input type="text" class="form-control placeholder" id="zip-city-state" ng-model="restaurantSearchText" placeholder="${contactInfo.resSearchPlaceholder}" aria-label="${contactInfo.resSearchPlaceholder}"> </div>
+                                    </div>
+                                    <div class="col-xs-3 col-sm-2"> <button ng-click="searchRestaurants(restaurantSearchText)" type="button" class="btn btn-red">
+                                        ${contactInfo.resSearchButtonText}
+                                        </button> <a ng-show="isMulti" class="disambiguitydemo"  data-toggle="modal" data-target="#restaurantLocatorDisambiguityModal"></a> 
+                                    </div>
+                                    <div class="col-xs-12" data-sly-test="${contactInfo.resNoLocation}"> <a href="#" class="cant-find simple-red" role="button">${contactInfo.resNoLocation}</a> </div>
+                                </div>
+                            </div>
+                            <div class="hidden-xs col-sm-12 cont-map-display">
+                                <div id="map-canvas" class="map-container">
+                                <div id='gmap_canvas' style='height:100%;width:100%;'></div>
+                                    <style>
+                                        #gmap_canvas img {
+                                        max-width: none!important;
+                                        background: none!important
+                                        }
+                                    </style>
+                                </div>
+                            </div>
+                            <div class="col-xs-0 cont-restaurant-list">
+                                <ol class="restaurant-location-modal-list" title="restaurant results" tabindex="0">
+                                    <li data-ng-repeat="restaurant in restaurants" id="restaurant-location-{{restaurant.properties.id}}" class="restaurant-location">
+                                        <div class="row" id="{{restaurant.properties.id}}">
+                                            <div class="col-xs-12">
+                                                <div class="restaurant-location__address-container">
+                                                    <div class="restaurant-location__map-pin" ng-bind = "restaurant.enabledCount"> <span class="visuallyhidden">Restaurant Number </span>{{restaurant.enabledCount}}</div>
+                                                    <div class="restaurant-location__construction" ng-bind = "restaurant.properties.storeNotice"></div>
+                                                    <h3 class="restaurant-location__title" ng-bind="restaurant.properties.name?restaurant.properties.name:restaurant.properties.addressLine1"></h3>
+                                                    <input type="hidden" value="{{restaurant.properties.addressLine3}}" id="resSearchCity">
+                                                    <input type="hidden" value="{{restaurant.properties.id}}" id="restaurantId">
+                                                    <input type="hidden" value="{{restaurant.properties.identifiers.storeIdentifier}}" id="storeIdentifier">
+                                                    <input type="hidden" value="{{restaurant.properties.subDivision}}" id="restaurantState">
+                                                    <!-- <h4 class="restaurant-location__address" ng-bind="getRestaurantFullAddress(restaurant.properties.addressLine3, restaurant.properties.subDivision, restaurant.properties.postcode)"></h4> -->
+                                                    <h4 class="restaurant-location__address" ng-bind-html="getRestaurantFullAddress1(restaurant.properties.name, restaurant.properties.addressLine1, restaurant.properties.addressLine3, restaurant.properties.subDivision, restaurant.properties.postcode)"></h4>
+                                                    <div class="restaurant-location__friendly-text">
+                                    					<p ng-cloak ng-if="fullRlData.showCustomerFriendlyText" ng-bind="restaurant.properties.longDescription"></p>
+                                  					</div>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-12 cont-btn"> <button id="selectRestaurant" data-dismiss="modal" class="btn btn-red btn--xsm select-restaurant-location">${contactInfo.resSelectButtonText}<span class="visuallyhidden">${contactInfo.resSelectButtonText} {{restaurant.enabledCount}}</span></button> </div>
+                                        </div>
+                                    </li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                    <!--<div class="btn-back" data-toggle="modal" data-target="#restaurantLocatorFormModal"><i class="fa fa-arrow-left"></i></div>-->
+                    <!--/.btn-back-->
+                    <button class="btn-close keep-outline" data-dismiss="modal" aria-label="close"><i class="fa fa-times"></i></button>
+                    <!-- <div class="btn-close" data-dismiss="modal"><i class="fa fa-times"></i></div> -->
+                    <!--/.btn-close-->
+                </div>
+                <!--/.modal-content-->
+            </div>
+            <!--/.modal-dialog-->
+        </div>
+        <!--/#restaurantLocatorModal.modal-->
+    </sly>
+</sly>
+<style>
+    .error {
+    color: #bf0c0c !important;
+    }
+    .form-group.error label {
+    color: #333333;
+    }
+</style>

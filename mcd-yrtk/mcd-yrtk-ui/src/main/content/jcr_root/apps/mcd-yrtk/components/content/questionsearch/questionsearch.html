@@ -1,0 +1,171 @@
+<sly data-sly-use.questionSearch="com.mcd.yrtk.components.content.questionsearch.QuestionSearch">
+
+    <div id="question-search-component" ng-controller="questionSearchController" data-json="${questionSearch.json}">
+        <section class="banner-box">
+
+            <img src="/etc/clientlibs/mcd-yrtk/images/banner.jpg" alt="" class="desk-on">
+            <img src="/etc/clientlibs/mcd-yrtk/images/banner-mob.jpg" alt="" class="mob-on">
+
+            <div class="col-md-7 banner-content">
+                <h1>${questionSearch.title}</h1>
+                <p data-sly-test="${questionSearch.subtitle}">${questionSearch.subtitle}</p>
+
+                <div class="search clearfix">
+                    <div class="col-md-8 col-sm-8">
+                        <div class="search-with-drop">
+                            <input type="text" ng-model-options="{debounce: 1000}" ng-change="searchKeyDown()" ng-model="searchKeyWord" id="searchBar" placeholder="${questionSearch.searchBoxPlaceholder}">
+                            <span class="icon search-icon"></span>
+
+                            <div class="after-search">
+                                <h4><span class="head-text">${questionSearch.suggestionBtn1}</span>
+                                    <span ng-click="viewAllEmitMethod();" class="btn white-hover">${questionSearch.suggestionBtn2}</span>
+                                </h4>
+                                <div style="max-height:500px !important; height:auto; overflow:auto;">
+                                    <a href="" ng-click="childmethod(questionsList.indexOf(questionheading));" ng-repeat="questionheading in questionsList | filter:{question:searchKeyWord} |  limitTo: 5"><p style="text-transform:capitalize;">{{questionheading.question}}</p></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <input type="submit" ng-click="viewAllEmitMethod();" value="${questionSearch.searchBtnText}" class="btn white-hover">
+
+                    </div>
+                    <div class="col-md-4 col-sm-4">
+                        <a onclick="appyrtk.overlay('.ovr-ask-a-question')" class="btn white-hover">${questionSearch.questionBtnText}</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <section class="ovrlay">
+        </section>
+
+        <div class="ovr-canvas ovr-ask-a-question">
+            <span class="icon close-red-icon"></span>
+
+            <h3>${questionSearch.questionTitle}</h3>
+
+            <form name="userForm" ng-submit="submitForm()" novalidate id="question-form">
+                <div class="col-md-9 margin-0-auto clearfix form-group">
+                    <input type="text"
+                           placeholder="${questionSearch.questionPlaceholder}"
+                           class="ovr-input-box"
+                           name="question"
+                           ng-model="user.question"
+                           required>
+
+                    <div ng-messages="userForm.question.$error || user.questionEmpty" ng-if="userForm.question.$touched || user.questionEmpty">
+                        <p id="user-question-error" style="color:red;" ng-message="required">${questionSearch.questionErrorRequired}</p>
+                    </div>
+                </div>
+
+                <!-- <sly data-sly-test="${questionSearch.socialLoginEnabled}">-->
+                <h6>${questionSearch.socialLoginMsg1}</h6>
+
+                <div class="ovr-social">
+                    <a data-sly-test="${questionSearch.twitterLoginEnabled}" ng-click="loginTwitter();" href="#" class="icon twi-icon" title="${questionSearch.socialTwitterButtonTitle}"></a>
+                    <a data-sly-test="${questionSearch.facebookLoginEnabled}" ng-click="loginFacebook();" href="#" class="icon fb-icon" title="${questionSearch.socialFacebookButtonTitle}"></a>
+                </div>
+
+                <h6>${questionSearch.socialLoginMsg2}</h6>
+                <!--</sly>-->
+
+                <div class="col-md-9 margin-0-auto">
+                    <div class="row nameEmailBox">
+                        <div class="col-md-6 form-group">
+                            <input type="text"
+                                   placeholder="${questionSearch.namePlaceholder}"
+                                   class="ovr-input-box"
+                                   id="userName"
+                                   name="name"
+                                   ng-model="user.name"
+                                   ng-pattern = "pattern.userName"
+                                   required>
+                            <!--  <p style="color:red;" ng-show="userForm.name.$invalid && !userForm.name.$pristine">${questionSearch.nameErrorRequired}</p>-->
+                            <div class="questionform-error-msgs" ng-messages="userForm.name.$error" ng-if="userForm.name.$touched">
+                                <p style="color:red;" ng-message="required">{{userNameRequiredMsg}}</p>
+                                <p style="color:red;" ng-message="pattern">{{userNameInvalidMsg}}</p>
+                            </div>
+
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <input placeholder="${questionSearch.emailPlaceholder}"
+                                   class="ovr-input-box"
+                                   type="text"
+                                   name="email"
+                                   id="userEmail"
+                                   ng-model="user.email"
+                                   ng-pattern='pattern.userEmail'
+                                   required>
+                            <!--   <p style="color:red;" ng-show="userForm.email.$invalid && !userForm.email.$pristine" class="help-block"></p>-->
+                            <div class="questionform-error-msgs" ng-messages="userForm.email.$error" ng-if="userForm.email.$touched">
+                                <p style="color:red;" ng-message="required">{{userEmailRequiredMsg}}</p>
+                                <p style="color:red;" ng-message="pattern">{{userEmailInvalidMsg}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="drop-check form-group" ng-class="{ 'has-error' : checkboxError}">
+                    <input required type="checkbox" ng-click="checkStatusofTerms(user.subscribe)" name="subscribe" ng-blur="doTouched()" ng-model="user.subscribe" ng-required="!someSelected(user.subscribe)" id="ovr-check-1">
+                    <label for="ovr-check-1">
+                        ${questionSearch.agreementText @ context = 'html'}
+                    </label>
+
+                </div>
+
+                <div class="ovr-google-img clearfix">
+                    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+                    <div class="col-md-12">
+                        <span>${questionSearch.securityText}</span>
+
+                        <div class="ogi-box">
+                            <div class="g-recaptcha" data-sitekey="${questionSearch.captchaSiteKey}" data-callback = "recaptcha_callback"></div>
+
+                            <p ng-show="reCaptchaError" style="color:red;">${questionSearch.captchaError}</p>
+                        </div>
+                    </div>
+                    <!--<img src="Common/images/g-img.jpg" alt="">-->
+                </div>
+
+
+                <div class="col-md-12 ovr-btn-box with-border">
+                    <input ng-disabled="!(!(userForm.$invalid) && captchaEnable)" value="${questionSearch.submitBtnText}" type="submit" id="submitbtn" href="javascript:void(0)" class="btn">
+                </div>
+
+            </form>
+        </div>
+
+        <div class="ovr-canvas ovr-thank-you">
+            <span class="icon close-red-icon"></span>
+
+            <h3>
+                <span class="pink-text">${questionSearch.successTitle1}</span><br>
+                ${questionSearch.successTitle2}
+            </h3>
+
+            <p data-sly-test="${questionSearch.successMsg}" class="col-md-5 margin-0-auto">${questionSearch.successMsg}</p>
+
+            <div class="col-md-12 ovr-btn-box">
+                <input type="submit" onclick="appyrtk.openRating()" value="${questionSearch.successBtnText}" class="btn">
+            </div>
+        </div>
+        <script type="text/javascript">
+
+    function recaptcha_callback(){
+		 var scope = angular.element($("#question-search-component")).scope();
+    scope.$apply(function(){
+        scope.captchaEnable = true;
+    })
+    }
+</script>
+    </div>
+    <form id="socialform" action="" method="get" style="display: none">
+        <input value=""  type='hidden' name="email" id='email' />
+        <input type="hidden" name="description" id="descriptionAsk" value=""/>
+        <input type="hidden" name="language_code" id="language_code" value="en"/>
+        <input type="hidden" name="country_code" id="country_codeAsk" value="je"/>
+        <input type="hidden" name="redirect_url" id="redirect_urlAsk" />
+        <input type="hidden" name="question_tstamp" id="question_tstamp" value="" />
+        <input value="" type='hidden' name="userName" id="socialUsername" />
+    </form>
+</sly>

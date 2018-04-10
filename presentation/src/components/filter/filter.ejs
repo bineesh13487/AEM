@@ -1,0 +1,15 @@
+<div data-component="filter-component" class="mcd-filter">
+    <h4 class="section-heading" aria-label="Results">Results</h4>
+    <div class="mcd-filter__container">
+        <ol class="mcd-filter__carousel">
+            <%for(var i = 0; i < Object.keys(filters).length; i += 1) {%>
+                <li key="<%=i%>" class="mcd-filter__carousel__item">
+                    <%=Object.keys(filters)[i]%>(
+                        <%=filters[Object.keys(filters)[i]]%>)</li>
+            <%}%>
+        </ol>
+        <div class="mcd-filter__horizontal-line">
+            <div class="mcd-filter__horizontal-line--selected"></div>
+        </div>
+    </div>
+</div>

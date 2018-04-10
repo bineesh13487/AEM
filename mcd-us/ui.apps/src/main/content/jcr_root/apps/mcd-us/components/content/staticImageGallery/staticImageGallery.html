@@ -1,0 +1,38 @@
+
+
+<sly data-sly-use.galleryData="com.mcd.rwd.us.core.sightly.StaticImageGallery">
+    <section title="">
+        <div class="menu-categories">
+            <div class="component-related-items">
+                <div class="container wrapper">
+                    <div class="row">
+                        <h2>${galleryData.Title}</h2>
+                        <div class="related-flex-container">
+                            <div class="related-flexslider flexslider imageGallery" style="direction:ltr"  data-count="${galleryData.count}" >
+                                <div class="custom-navigation">
+                                    <a href="javascript:void(0)"  class="flex-prev"></a>
+                                    <div class="custom-controls-container"></div>
+                                    <a href="javascript:void(0)"  class="flex-next"></a>
+                                </div>
+                                <ul class="slides" role="group" aria-label="burgers list">
+                                    <sly data-sly-list.imageList="${galleryData.imageList @context='unsafe'}">
+                                        <li role="option" class="first-focus" fx-slider-directive >
+                                            <a href="${galleryData.enableMultiRow ? '': imageList.src}" title="" class="${galleryData.enableMultiRow ? '' : 'popup-link'}"><img class="img-responsive" alt="" src="${imageList.link}" /></a>
+
+                                            <div class="caption">${imageList.title}</div>
+                                        </li>
+                                    </sly>
+
+
+                                </ul>
+                            </div>
+                        </div>  </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+</sly>
+
+
+

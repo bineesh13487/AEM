@@ -1,0 +1,158 @@
+.page-extravalue {
+	@media only screen and (min-width: 768px) {
+		padding-bottom: 40px;
+	}
+
+	.template-hero-bg {
+		.absolute-content .absolute-content-wrapper {
+			text-align: center;
+
+			@media only screen and (min-width: 768px) {
+				text-align: left;
+			}
+		}
+		h1 {
+			@include fontSet(50px, 50px, $font-lovinsans-black);
+
+			@media only screen and (min-width: 320px) {
+				@include fontSet(75px, 75px, $font-lovinsans-black);
+			}
+			@media only screen and (min-width: 480px) {
+				@include fontSet(100px, 100px, $font-lovinsans-black);
+			}
+			@media only screen and (min-width: 768px) {
+				@include fontSet(100px, 100px, $font-lovinsans-black);
+			}
+			@media only screen and (min-width: 992px) {
+				@include fontSet(125px, 125px, $font-lovinsans-black);
+			}
+		}
+	}
+
+	.template-hero {
+		margin-bottom: 0;
+
+		.absolute-top,
+		.absolute-bottom {
+			position: absolute;
+			text-align: center;
+			width: 100%;
+		}
+		.absolute-top {
+			top: $mobile-post-nav-space;
+		}
+
+		.absolute-bottom {
+			bottom: 0;
+		}
+
+		h1 {
+			text-transform: uppercase;
+			color: $white;
+			margin: 0;
+			@include fontSet(50px, 50px, $font-lovinsans-black);
+
+			@media only screen and (min-width: 320px) {
+				@include fontSet(65px, 65px, $font-lovinsans-black);
+			}
+			@media only screen and (min-width: 480px) {
+				@include fontSet(100px, 100px, $font-lovinsans-black);
+			}
+		}
+		h2 {
+			margin-top: 0;
+			margin-bottom: 5px;
+			@include fontSet(30px, 30px, $font-lovinsans-medium);
+			color: $white;
+
+			@media only screen and (min-width: 320px) {
+				margin-top: 5px;
+				@include fontSet(35px, 35px, $font-lovinsans-medium);
+			}
+			@media only screen and (min-width: 480px) {
+				margin-top: 30px;
+				@include fontSet(40px, 40px, $font-lovinsans-medium);
+			}
+		}
+		p {
+			@include fontSet(22px, 32px, $font-lovinsans);
+			color: $white;
+			margin-bottom: 55px;
+
+			@media only screen and (min-width: 480px) {
+				margin-bottom: 70px;
+				@include fontSet(24px, 34px, $font-lovinsans);
+			}
+		}
+	}
+
+	.hidden-overflow {
+		overflow: hidden;
+	}
+
+	.tabs-container .tabs li a {
+		text-transform: uppercase;
+	}
+
+	.tab-content{
+		margin-bottom: 80px;
+	}
+
+	.tab-menu {
+		text-align: center;
+		color: $gray;
+		margin: 0 auto;
+
+		.simple-red {
+			display: block;
+			margin-top: 10px;
+			font-family: $font-lovinsans-medium;
+		}
+
+		h3 {
+			padding: 0 30px;
+			@include fontSet(42px, 42px, 'LovinSansWeb-Bold');
+		}
+		.excerpt,
+		.excerpt-short {
+			padding: 0 30px;
+			@include fontSet(22px, 32px, $font-lovinsans);
+		}
+		button {
+			margin-top: 5px;
+		}
+		.cont-items > .row {
+			@include breakpoint(sm) {
+				margin: 0;
+			}
+		}
+		.btn-red-button {
+			margin-bottom: 15px;
+		}
+
+		// Centering Bootstrap column
+		.col-centered {
+			float: none;
+			margin: 0 auto;
+		}
+
+		// Extra padding for text-wrapper class
+		.text-wrapper {
+			padding-top: 5px;
+			padding-bottom: 20px;
+		}
+
+		// Bottom CTA Section
+		.value-meal-section {
+			@media (max-width: 767px) {
+				margin-bottom: 0;
+			}
+			@media (max-width: 991px) {
+				margin-left: 0;
+			}
+		}
+	}
+}
+
+.evm-last   {  margin: 0 auto;  float: none;  text-align: center;}
+.evmcoop   {display: none;}

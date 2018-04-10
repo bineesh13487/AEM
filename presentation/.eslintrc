@@ -1,0 +1,43 @@
+{
+  "parser": "babel-eslint",
+  "rules": {
+    "comma-dangle": 0,
+    "brace-style": [2, "stroustrup"],
+    "no-console": 0,
+    "padded-blocks": 0,
+    "indent": [ 2, 2,
+      {
+        "SwitchCase": 1
+      }
+    ],
+    "spaced-comment": 1,
+    "quotes": [
+      "error",
+      "single",
+      {
+        "allowTemplateLiterals": true
+      }
+    ],
+    "import/prefer-default-export": "off",
+    "import/extensions": ["error", "never", { "packages": "always" }],
+    "arrow-parens": [
+      "error",
+      "as-needed"
+    ],
+    "no-new": 0,
+    "no-plusplus": 0
+  },
+  "extends": "airbnb-base",
+  "env": {
+    "jasmine": true,
+    "jest": true,
+    "browser": true
+  },
+  "globals": {
+    "global": true,
+    "_expect": true,
+    "$": true,
+    "jQuery": true,
+    "__webpack_public_path__": true
+  }
+}

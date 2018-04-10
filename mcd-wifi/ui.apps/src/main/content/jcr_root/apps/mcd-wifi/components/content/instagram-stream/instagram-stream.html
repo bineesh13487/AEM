@@ -1,0 +1,69 @@
+<sly data-sly-use.meta="com.mcd.rwd.global.core.sightly.page.PageMeta"/>
+<sly data-sly-use.instagramStreamHandler="com.mcd.rwd.wifi.core.sightly.InstagramStreamHandler">
+   <input type="hidden" id="posts" value="${instagramStreamHandler.getInstagramPosts}" />
+</sly>
+<input type="hidden" id="numberOfPosts" value="${instagramStreamHandler.numberOfPosts}" />
+<sly data-sly-test="${instagramStreamHandler.userName}">
+   <div data-ng-controller="instagramCtrl" data-ng-cloak>
+      <div tabindex="0" class="grid-item socialTile-instagram" style="overflow: hidden;" data-mode="carousel" data-start-now="false" data-repeat='0'>
+         <div data-ng-repeat="item in instagram.items">
+            <div class="grid-item-caption socialIconsTop">
+               <a class="socialIconsTopLink" href='${instagramStreamHandler.instagramUrl}${instagramStreamHandler.userName}/' target='_blank' title="${instagramStreamHandler.altText}">
+                  <span class='instagramAvatar'><img data-ng-src="{{item.user.profile_picture}}" alt="${instagramStreamHandler.altText}" class="instagram-logo" /></span>
+                  <span class="hidden userFullName">{{item.user.full_name}}</span>
+                  <h3>@{{item.user.username}}</h3>
+               </a>
+            </div>
+            <div class="social-gradient">
+               <a href="#socialpopupInstagram" title="{{item.caption.text}}" role="button" data-toggle="modal" class="open-popup-instagram instagramBox" target='_blank' data-at="BigImg:${meta.title @ context = 'unsafe'}:{{item.code}}" data-track="instImg">
+                  <img data-ng-src="{{item.images.low_resolution.url}}" alt="{{item.caption.text}}">
+                  <video data-show={{trustSrc(item.videos.low_resolution.url)}} style="display: none">
+                     <source data-ng-src="{{trustSrc(item.videos.low_resolution.url)}}" type="video/mp4">
+                  </video>
+               </a>
+               <p class="inst-urlText">
+                  <span class="inst-urlTextData hidden">{{item.caption.text}}</span>
+                  <span class="inst-mentions hidden">{{getMentionsInstagram(item.caption.text)}}</span>
+                  <span class="inst-hastags hidden">{{getHashTagInstagram(item.caption.text)}}</span>
+               </p>
+               <div class="socialIcons instagramSocial">
+                  <div class="pull-left ins-twt-PostedBox" aria-label="${instagramStreamHandler.timeStamp} {{item.created_time | timeStampFilter}}" tabindex="0">
+                     <span class="hrs" aria-hidden="true">
+                     <i class="fa fa-instagram"></i> {{item.created_time | timeStampFilter | hrsSplit:' ':0}}<em class="ins-twt-Posted">{{item.created_time | timeStampFilter | hrsSplit:' ':1}}</em>                                                                                                          
+                     </span>
+                  </div>
+                  <div class="pull-right">
+                     <a data-ng-href="{{item.link}}" title="" target="_blank" data-at="InstComment:${meta.title @ context = 'unsafe'}:{{item.code}}" data-track="instComment">
+                     <i class="fa fa-comments"></i>
+                     {{item.comments.count}} <i class="screen-reader-text">${instagramStreamHandler.commentLink}</i>
+                     </a>
+                     <a data-ng-href="{{item.link}}" title="" target="_blank" data-at="InstLike:${meta.title @ context = 'unsafe'}:{{item.code}}" data-track="instLike">
+                     <i class="fa fa-heart" style="margin-left: 15px"></i> {{item.likes.count}} <i class="screen-reader-text">${instagramStreamHandler.likesLink}</i>
+                     </a>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</sly>
+<sly data-sly-test="${!instagramStreamHandler.userName}">
+   <h2>Please configure the Instagram Component</h2>
+</sly>
+<div id="socialpopupInstagram" class="modal fade instagramModal" role="dialog" tabindex="-1" aria-hidden="true" style="display: none;">
+   <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content ">
+         <div class="modal-header">
+            <button type="button" class="close" aria-label="${instagramStreamHandler.modalClose}" title="${instagramStreamHandler.modalClose}" data-dismiss="modal">&times;</button>
+            <div class="popUpTitle">
+            </div>
+            <div class="clearfix"></div>
+         </div>
+         <div class="modal-body">
+            <div class="content"></div>
+         </div>
+         <div class="modal-footer"></div>
+      </div>
+   </div>
+</div>

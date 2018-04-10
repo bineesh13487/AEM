@@ -1,0 +1,12 @@
+<!--/*
+
+  Includes the header content and footer.
+
+*/-->
+<sly data-sly-use.body="com.mcd.rwd.global.core.sightly.page.Body">
+    <sly data-sly-test="${body.analyticsStart}">${body.analyticsStart @ context='unsafe'</sly>
+    <sly data-sly-include="header.html"></sly>
+    <div style="${body.margin.getMarginTop @ context='styleString'}" data-sly-include="content.html"></div>
+    <sly data-sly-include="footer.html"></sly>
+    <sly data-sly-test="${body.analyticsEnd}">${body.analyticsEnd @ context='unsafe'}</sly>
+</sly>

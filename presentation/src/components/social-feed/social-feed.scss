@@ -1,0 +1,45 @@
+.social-feed {
+  text-align: center;
+  padding-top: to-rem(26);
+  background-color: #fff;
+
+  .social-feed_heading {
+    font-size: to-rem(20);
+    margin-bottom: to-rem(23);
+  }
+
+  .social-feed_links {
+    margin-bottom: to-rem(32);
+
+    [class^="icon-"],
+    [class*=" icon-"] {
+      font-size: to-rem(24);
+      padding: 0 to-rem(10);
+    }
+  }
+
+  .social-feed_language-selector {
+    margin-bottom: to-rem(31);
+  }
+
+  .dropdown-toggle {
+    font-size: 1rem;
+    padding: to-rem(10) to-rem(20);
+    background-color: #fff;
+    border: to-rem(1) solid #adadad;
+    box-shadow: 0 to-rem(1.5) to-rem(1.5) 0 rgba(0,0,0,0.08);
+
+    .icon-caret {
+      font-size: to-rem(30);
+      vertical-align: middle;
+    }
+  }
+
+  .social-feed_separator-line {
+    height: to-rem(2);
+    background-color: #292929;
+    width: 90%;
+    border: 0;
+    margin: 0 auto;
+  }
+}

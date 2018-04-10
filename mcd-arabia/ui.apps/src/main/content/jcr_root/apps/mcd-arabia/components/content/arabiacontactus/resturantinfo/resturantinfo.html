@@ -1,0 +1,176 @@
+
+<sly
+	data-sly-use.restInfo="com.mcd.rwd.arabia.core.sightly.ResturantInfoHandler">
+<section
+	class="page-contact-us__subpage__what-is-it-about gray-border-on-white ">
+	<div class="container restInfo">
+		<h3 style="outline: none;">${restInfo.sectionTopHeading}</h3>
+		<div id="restaurant-feedback-form-container" class="row">
+			<div class="col-xs-12">
+				<div id="restaurantLocatorFormContainer">
+					<div class="restaurantLocatorOpenModalBtn collapse in">
+						<div class="form-group">
+							<div class="cont-btns">
+								<div class="wrapper">
+									<label for="">${restInfo.sectionSubHeading}</label><br>
+									<button type="button" class="btn btn-red" data-toggle="modal"
+										data-target="#restaurantLocatorMapModal">${restInfo.buttonText}</button>
+								</div>
+								<div class="wrapper middle">
+									<span class="text-or">${restInfo.placeHolderText}</span>
+								</div>
+
+								<div class="wrapper bottom"
+									data-ng-controller="restaurantLocatorController">
+									<button type="button" class="btn btn-border"
+										data-toggle="modal" ng-click="searchRestaurantForLocateMe()">
+										<i class="fa fa-map-marker fa-lg fa-margin"></i>${restInfo.getLocateMeButtonText}
+									</button>
+								</div>
+							</div>
+						</div>
+						<div>
+							<a class="cant-find" tabindex="0" data-toggle="collapse"
+								data-target="#restaurantLocatorForm" role="button">${restInfo.locatorSearchText}</a>
+						</div>
+
+						<!--/#restaurantLocatorOpenModalBtn-->
+						<div id="restaurantLocatorForm"
+							class="restaurantLocatorForm collapse">
+							<div class="container-fluid no-gutter">
+								<div class="row">
+
+									<div class="col-xs-12 col-sm-6 ">
+										<div class="form-group">
+											<label class="control-label" for="restAddress">${restInfo.resAddress}<sup
+												class="asteriskAr"
+												data-sly-test="${restInfo.resAddressReq=='yes'}">*</sup></label> <input
+												type="text" name="storeAdd" id="restAddress"
+												class="locateArabiaMarket form-control ${restInfo.resAddressReq}"
+												placeholder="" aria-label="${restInfo.resAddress}"
+												>
+										</div>
+									</div>
+									<div class="col-xs-12 col-sm-3">
+										<div class="form-group resstateclass">
+											<label class="control-label" for="resStateValue"
+												id="resStateTextID">${restInfo.resStateText} <sup
+												class="asteriskAr"
+												data-sly-test="${restInfo.resStateReq=='yes'}">*</sup></label>
+											<div class="select dropDownHeight select--state resStateList ${restInfo.resStateReq}"
+													id="contactUs-resstate-select"
+													name="contactUs-resstate-select">
+												<select id="resStateValue" class="form-control"
+														aria-label="${restInfo.resStateText}"
+														name="contactUs-state" id="contactUs-state" title=""
+												<option value="city">${restInfo.resStateText}</option>
+												<sly data-sly-list="${restInfo.resStateOptions}">
+												<option value="${item}">${item}</option>
+												</sly>
+												</select> <input type="text" class="hidden"
+													id="contactUs-resstate-input" name="storeCity">
+
+
+											</div>
+										</div>
+									</div>
+									<div class="clear"></div>
+
+									<sly data-sly-test="${restInfo.dateText}">
+									<div class="col-xs-12 col-sm-12 col-md-6">
+										<div class="form-group">
+										<div class="row">
+											<fieldset>
+												<div class="col-xs-12">
+													<legend>
+														${restInfo.dateText} <sup class="asteriskAr"
+															data-sly-test="${restInfo.dateReq =='yes'}">*</sup>
+													</legend>
+												</div>
+												<div class="col-xs-12 col-sm-4 margin-bottom2">
+													<div class="form-group">
+														<div class="select dropDownHeight ${restInfo.dateReq}"
+															id="contactUs-restday-select" name="contactUs-restday-select">
+															<label for="" id="title-select-day-label"
+																class="visuallyhidden" aria-hidden="true">${restInfo.date}</label> <select
+																class="form-control" id="arabia-restday-select" title="${restInfo.date}">
+																<option value="day">${restInfo.date}</option>
+																<sly data-sly-list="${restInfo.dateOptions}">
+																<option value="${item}">${item}</option>
+																</sly>
+
+															</select>
+														</div>
+														<input type="hidden" class="" id="contactUs-restday-input"
+															name="restdayInput" maxlength="6" autocomplete="off">
+													</div>
+												</div>
+												<div class="col-xs-12 col-sm-4 margin-bottom2">
+													<div class="form-group">
+														<div class="select  dropDownHeight ${restInfo.dateReq}"
+															id="contactUs-restmonth-select" name="contactUs-restmonth-select">
+															<label for="" id="title-select-month-label"
+																class="visuallyhidden" aria-hidden="true">${restInfo.month}</label>
+															<select class="form-control" id="arabia-restmonth-select"
+																title="${restInfo.month}">
+																<option value="month">${restInfo.month}</option>
+																<sly data-sly-list="${restInfo.monthOptions}">
+																<option value="${item}">${restInfo.monthOptions[item]}</option>
+																</sly>
+															</select>
+														</div>
+														<input type="hidden" class="" id="contactUs-restmonth-input"
+															name="restmonthInput" maxlength="6" autocomplete="off">
+													</div>
+												</div>
+
+												<div class="col-xs-12 col-sm-4 margin-bottom2">
+													<div class="form-group">
+														<div class="select  dropDownHeight ${restInfo.dateReq}"
+															id="contactUs-restyear-select" name="contactUs-restyear-select">
+															<label for="" id="title-select-year-label"
+																class="visuallyhidden" aria-hidden="true">${restInfo.year}</label> <select
+																class="form-control" id="arabia-restyear-select" title="${restInfo.year}">
+																<option value="year">${restInfo.year}</option>
+																<sly data-sly-list="${restInfo.yearOptions}">
+																<option value="${item}">${item}</option>
+																</sly>
+															</select>
+														</div>
+														<input type="hidden" class="" id="contactUs-restyear-input"
+															name="restyearInput" maxlength="6" autocomplete="off">
+													</div>
+												</div>
+											</fieldset>
+											</div>
+											<input type="hidden" name="dateOfVisit" id="dateOfVisit"
+												class="form-control placeholder ${restInfo.dateReq}"
+												aria-label="Date and Time of Visit *" maxlength="30"
+												autocomplete="off"> <label for="resDate"
+												generate="true" class="error pl15"></label>
+
+										</div>
+									</div>
+									</sly>
+
+
+								</div>
+							</div>
+						</div>
+						<!--/#restaurantLocatorForm-->
+					</div>
+					<!--/#restaurantLocatorFormContainer-->
+				</div>
+			</div>
+		</div>
+	</div>
+
+</section>
+<div style="display: none;">
+	<div id="contactUs-resaddress-message">${restInfo.resAddressMessage}</div>
+	<div id="contactUs-rescity-message">${restInfo.resStateMessage}</div>
+	<div id="contactUs-resdate-message">${restInfo.dateMessage}</div>
+	<input type="hidden" name="restInfoFieldList" id="restInfoFieldList"
+		value="${restInfo.formFieldList}">
+</div>
+</sly>

@@ -1,0 +1,126 @@
+<div class="promo-ribbon" data-sly-use.promoRibbon="com.mcd.rwd.us.core.sightly.PromoRibbonViewHandler">
+<sly data-sly-test="${promoRibbon.ribbons.size > 0}">
+	<div class="${promoRibbon.promoGutter == 'true' ? 'container ribbonbox ribbon-no-gutter':'container ribbonbox'}"
+		style="background-color:${promoRibbon.backgroundColor @ context='styleToken'}">
+		
+	 	<div class="row ribbon-gutter">	 		
+				<sly data-sly-list.ribbon="${promoRibbon.ribbons}">
+					<sly data-sly-test="${ribbon.width == '50'}">
+						<div class="col-xs-12 col-sm-6 ribbon-inner" style="background-color:${promoRibbon.backgroundColor @ context='styleToken'}">
+							<div class="ribbon-relative">
+								<a class="img-link" href="${ribbon.link.href}" data-track="promotion" data-at="${ribbon.analytics}" aria-describedby="promo-ribbon${ribbonList.index}">
+									<img alt="${ribbon.imageAlt}" src="${ribbon.imagePath}" class="img-responsive cont-100" aria-hidden="true">
+								</a>
+								<div class="text-wrapper">
+									<h2 aria-label="${ribbon.title}" class="ribbon-text-white ribbon-text-${ribbon.alignment}">
+										<span class="visuallyhidden">${ribbon.title @ context='html'}</span> 
+										<span aria-hidden="true">										
+                                            <p id="promo-ribbon${ribbonList.index}" class="headline-text-large text-transform-none ribbon-text-large" style="color:${promoRibbon.textColor @ context='styleToken'}">
+                                                ${ribbon.title @ context='html'}
+                                            </p>						                							
+										</span>
+									</h2>
+									  <p class="ribbon-text-small" style="color:${promoRibbon.textColor @ context='styleToken'}">
+						                    ${ribbon.description @ context='html'}
+						             </p>
+									 
+									<a title="${ribbon.ctaAlt}"
+		                               role="button" class="${ribbon.link.linkClass} btn btn-red small text-transform-none"
+		                               aria-label= "${ribbon.ariaLabel}" 
+		                               target="${ribbon.link.target}" href="${ribbon.link.href}"
+		                               data-at="${ribbon.analytics}" data-track="promotion"
+		                               aria-describedby="promo-ribbon${ribbonList.index}"
+		                               style="background: ${promoRibbon.buttonColor @ context='styleToken'}; border-color:${promoRibbon.buttonColor @ context='styleToken'}">
+	                                    ${ribbon.link.text @ context='html'}
+	                            	</a>
+									<p class="ribbon-legalcopystyle" style="color:${promoRibbon.textColor @ context='styleToken'}">
+                						${ribbon.disclaimer @ context='html'}
+            						</p>		
+									
+								</div>
+							</div>
+						</div>
+					</sly>
+					<sly data-sly-test="${ribbon.width == '25'}">
+						<div class="col-xs-6 col-sm-3 ribbon-inner" style="background-color:${promoRibbon.backgroundColor @ context='styleToken'}">
+							<div class="ribbon-relative">
+								<a class="img-link" href="${ribbon.link.href}" data-track="promotion" data-at="${ribbon.analytics}" aria-describedby="promo-ribbon${ribbonList.index}">
+									<img alt="${ribbon.imageAlt}" src="${ribbon.imagePath}" class="img-responsive cont-100" aria-hidden="true">
+								</a>
+								<div class="text-wrapper ribbon-text-${ribbon.alignment}">
+									<h2 aria-label=${ribbon.title}
+										class="ribbon-text-white">
+										<span class="visuallyhidden">${ribbon.title @ context='html'}</span> 
+										<span aria-hidden="true">
+                                            <p id="promo-ribbon${ribbonList.index}" class="headline-text-large text-transform-none ribbon-text-large" style="color:${promoRibbon.textColor @ context='styleToken'}">
+                                                ${ribbon.title @ context='html'}
+                                            </p>						                							
+										</span>
+									</h2>
+									<p class="ribbon-text-small" style="color:${promoRibbon.textColor @ context='styleToken'}">
+						                    ${ribbon.description@ context='html'}
+						            </p>
+									
+									<a title="${ribbon.ctaAlt}"
+		                               role="button" class="${ribbon.link.linkClass} btn btn-red small text-transform-none"
+		                               aria-label= "${ribbon.ariaLabel}" 
+		                               target="${ribbon.link.target}" href="${ribbon.link.href}"
+		                               data-at="${ribbon.analytics}" data-track="promotion"
+		                               aria-describedby="promo-ribbon${ribbonList.index}"
+		                               style="background: ${promoRibbon.buttonColor @ context='styleToken'};border-color:${promoRibbon.buttonColor @ context='styleToken'}">
+                                        ${ribbon.link.text @ context='html'}
+	                            	</a>
+									<p class="ribbon-legalcopystyle" style="color:${promoRibbon.textColor @ context='styleToken'}">
+                						${ribbon.disclaimer @ context='html'}
+            						</p>		
+									
+								</div>
+							</div>
+						</div>
+					</sly>
+					<sly data-sly-test="${ribbon.width == '33'}">
+						<div class="promo col-xs-12 col-sm-4 ribbon-inner" id="callout" style="background-color:${promoRibbon.backgroundColor @ context='styleToken'}"> 
+							<div class="ribbon-relative">
+								<a class="img-link" href="${ribbon.link.href}" data-track="promotion" data-at="${ribbon.analytics}" aria-describedby="promo-ribbon${ribbonList.index}">
+									<img alt="${ribbon.imageAlt}" src="${ribbon.imagePath}" class="img-responsive cont-100" aria-hidden="true">
+								</a>
+								<div class="text-wrapper ribbon-text-${ribbon.alignment}">
+									<h2 aria-label=${ribbon.title}
+										class="ribbon-text-white">
+										<span class="visuallyhidden">${ribbon.title @ context='html'}</span> 
+										<span aria-hidden="true">
+                                            <p id="promo-ribbon${ribbonList.index}" class="headline-text-large text-transform-none ribbon-text-large" style="color:${promoRibbon.textColor @ context='styleToken'}">
+                                                ${ribbon.title @ context='html'}
+                                            </p>						                							
+										</span>
+									</h2>
+									<p class="ribbon-text-small" style="color:${promoRibbon.textColor @ context='styleToken'}">
+						                    ${ribbon.description @ context='html'}
+						            </p>
+									
+									<a title="${ribbon.ctaAlt}"
+		                               role="button" class="${ribbon.link.linkClass} btn btn-red small text-transform-none"
+		                               aria-label= "${ribbon.ariaLabel}" 
+		                               target="${ribbon.link.target}" href="${ribbon.link.href}"
+		                               data-at="${ribbon.analytics}" data-track="promotion"
+		                               aria-describedby="promo-ribbon${ribbonList.index}"
+		                               style="background: ${promoRibbon.buttonColor @ context='styleToken'};border-color:${promoRibbon.buttonColor @ context='styleToken'}">
+	                                   ${ribbon.link.text}
+	                            	</a>
+									<p class="ribbon-legalcopystyle" style="color:${promoRibbon.textColor @ context='styleToken'}">
+                						${ribbon.disclaimer @ context='html'}
+            						</p>		
+									
+								</div>
+							</div>
+						</div>
+					</sly>
+				</sly> 
+			
+		</div>
+	</div>
+</sly>
+	<sly data-sly-test="${promoRibbon.ribbons.isEmpty && (wcmmode.edit || wcmmode.design)}">
+        <h5 class="component-authoring-text">Configure the promo ribbon component </h5>
+    </sly>
+</div>

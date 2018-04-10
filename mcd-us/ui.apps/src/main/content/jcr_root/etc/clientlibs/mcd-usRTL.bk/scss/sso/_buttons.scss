@@ -1,0 +1,192 @@
+.sso-btn-red {
+  background: $red;
+	color: $white;
+  width: 80%;
+	text-transform: uppercase;
+  margin: 0 auto 20px auto;
+	padding: 0px 30px 0px;
+	opacity: 1;
+	border: 0px solid $red;
+  font-family: $font-lovinsans-medium;
+	@include fontSet(14px, 0px);
+	@include border-radius(35px);
+  @include css3-prefix('transform', translateZ(0));
+  @include css3-prefix('transform', scale(1));
+	@include transition-props(transform 0.1s ease-out 0s);
+	position: relative;
+  display: block;
+  clear: both;
+  text-align: center;
+  height: 39px;
+  line-height: 39px;
+
+  @media (min-width: 768px){
+    width: 50%;
+  }
+  @media (min-width: 480px) and (max-width:768px){
+      width: 65%;
+    }
+
+  &:before{
+		content: "";
+		position: absolute;
+		z-index: -1;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		border: 0;
+		background: $red-hover;
+		opacity: 1;
+		@include border-radius(30px);
+    @include css3-prefix('transform', scale(0));
+    @include css3-prefix('transform-origin', 50% 50%);
+		@include transition-props(opacity 0.1s ease-out 0s, transform 0.1s ease-out 0s);
+	}
+}
+.no-touch .sso-btn-red:hover,
+.sso-btn-red:hover,
+.sso-btn-red:focus,
+.sso-btn-red:active {
+  color: $white;
+	border-color: $red-hover;
+	background: $red-hover;
+  text-decoration: none;
+  @include transition-props(all 0.1s ease-in-out 0s);
+
+	&:before{
+		opacity: 0.8;
+    @include css3-prefix('transform', scale(1));
+	}
+}
+
+.sso-btn-red-small {
+  background: $red;
+  color: $white;
+  @include fontBold();
+  @include fontSet(14px, 34px);
+  display: inline-block;
+  @include border-radius(2px);
+  border: 0;
+  height: 34px;
+  padding: 0px 10px;
+  margin: 0 0 0px;
+  @include transition-half();
+
+  @media (min-width: 768px){
+    @include fontSet(18px, 40px);
+    height: 40px;
+  }
+}
+.no-touch .sso-btn-red-small:hover,
+.sso-btn-red-small:focus,
+.sso-btn-red-small:active {
+  color: $white;
+  background: $yellow;
+  text-decoration: none;
+}
+
+.sso-cta-link {
+  color: $red;
+  @include fontBold();
+  @include fontSet(18px, 18px);
+  text-align: center;
+  text-decoration: underline;
+  @include transition-half();
+
+  &.back{
+    i{
+      margin-right: 5px;
+      line-height: inherit;
+      font-size: 0.9em;
+     }
+  }
+}
+.no-touch .sso-cta-link:hover,
+.sso-cta-link:focus,
+.sso-cta-link:active {
+  color: $yellow;
+  text-decoration: underline;
+}
+
+.sso-cta-link-small-wrapper {
+  margin: 25px 0px;
+}
+.sso-cta-link-small {
+  color: $red;
+  @include fontBold();
+  @include fontSet(15px, 15px);
+  text-align: left;
+  text-decoration: underline;
+  display: inline-block;
+  @include transition-half();
+}
+.no-touch .sso-cta-link-small:hover,
+.sso-cta-link-small:focus,
+.sso-cta-link-small:active {
+  color: $yellow;
+  text-decoration: underline;
+}
+
+.sso-btn-red.disabled,
+fieldset[disabled] .sso-btn-red {
+  pointer-events: none;
+}
+.sso-btn-red.disabled,
+.sso-btn-red[disabled],
+fieldset[disabled] .sso-btn-red {
+  cursor: not-allowed;
+  filter: alpha(opacity=65);
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  background: $grey-light!important;
+}
+
+
+.sso-full-height {
+  position: relative;
+  min-height: 100vh;
+  padding-bottom: 100px;
+
+  @media (min-width: 768px){
+    min-height: auto;
+  }
+}
+.sso-btn-bottom-wrapper {
+  // position: absolute;
+  // bottom: 0px;
+  // left: 0;
+  // width: 100%;
+  // margin-top: 0px;
+  // padding-right: 0px;
+  // padding-left: 0px;
+  // overflow: hidden;
+
+  @media (min-width: 768px){
+    // position: relative;
+    // width: 750px;
+    margin-top: 50px;
+
+    // > .row {
+    //   margin-right: 0px;
+    //   margin-left: 0px;
+    // }
+  }
+  // @media (min-width: 992px){
+  //   width: 970px;
+  // }
+  // @media (min-width: 1200px){
+  //   width: 1170px;
+  // }
+
+  .sso-btn-red {
+    @include border-radius(0px);
+    width: 100%;
+    margin-bottom: 0;
+
+    @media (min-width: 768px){
+      width: 40%;
+      @include border-radius(35px);
+    }
+  }
+}

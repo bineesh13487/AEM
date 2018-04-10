@@ -1,0 +1,62 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,800,700,600,300);
+
+// Adds a font family to the css and loads it
+/// @group typography
+/// @param {string} $font-family With or without quotes
+/// @param {string} $file-path Path to font file, minus the extension
+/// @param {string|number} $font-weight
+/// @param {string} $font-style
+/// @example
+///   @include font-face(LovinSansWeb-Black, 'fonts/LovinSansWeb/black', normal, normal);
+@mixin font-face($font-family, $file-path, $font-weight, $font-style) {
+  @font-face {
+    font-family: $font-family;
+      src: url('#{$file-path}/#{$font-family}.eot');
+      src: url('#{$file-path}/#{$font-family}.eot?#iefix') format('embedded-opentype'),
+           url('#{$file-path}/#{$font-family}.woff') format('woff'),
+           url('#{$file-path}/#{$font-family}.ttf') format('truetype'),
+           url('#{$file-path}/#{$font-family}.svg##{$font-family}') format('svg');
+    font-weight: $font-weight;
+    font-style: $font-style;
+  }
+  // Chrome for Windows rendering fix: http://www.adtrak.co.uk/blog/font-face-chrome-rendering/
+  @media screen and (-webkit-min-device-pixel-ratio: 0) {
+    @font-face {
+      font-family: $font-family;
+        src: url('#{$file-path}/#{$font-family}.svg##{$font-family}') format('svg');
+    }
+  }
+}
+
+@include font-face(LovinSansWeb-Black, 'fonts/LovinSansWeb/black', normal, normal);
+@include font-face(LovinSansWeb-Bold, 'fonts/LovinSansWeb/bold', normal, normal);
+@include font-face(LovinSansWeb-Medium, 'fonts/LovinSansWeb/medium', normal, normal);
+@include font-face(LovinSansWeb-Regular, 'fonts/LovinSansWeb/regular', normal, normal);
+@include font-face(LovinSansWeb-Light, 'fonts/LovinSansWeb/light', normal, normal);
+@include font-face(LovinSansWeb-Thin, 'fonts/LovinSansWeb/thin', normal, normal);
+
+
+/***============================ AR Fonts  ==============================*/
+
+
+@font-face {
+  font-family: 'Droid_Arabic_Kufi_Bold';
+  src: url('/etc/clientlibs/mcd-usRTL/css/fonts/droidArabicKufi/bold/DroidArabicKufi-Bold.eot');
+  src: url('/etc/clientlibs/mcd-usRTL/css/fonts/droidArabicKufi/bold/DroidArabicKufi-Bold.eot?#iefix') format('embedded-opentype'),
+  url('/etc/clientlibs/mcd-usRTL/css/fonts/droidArabicKufi/bold/DroidArabicKufi-Bold.woff') format('woff'),
+  url('/etc/clientlibs/mcd-usRTL/css/fonts/droidArabicKufi/bold/DroidArabicKufi-Bold.ttf') format('truetype'),
+  url('/etc/clientlibs/mcd-usRTL/css/fonts/droidArabicKufi/bold/DroidArabicKufi-Bold.svg#DroidArabicKufi-Bold') format('svg');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Droid_Arabic_Kufi_Regular';
+  src: url('/etc/clientlibs/mcd-usRTL/css/fonts/droidArabicKufi/bold/DroidArabicKufi-Bold.eot');
+  src: url('/etc/clientlibs/mcd-usRTL/css/fonts/droidArabicKufi/bold/DroidArabicKufi-Bold.eot?#iefix') format('embedded-opentype'),
+  url('/etc/clientlibs/mcd-usRTL/css/fonts/droidArabicKufi/bold/DroidArabicKufi-Bold.woff') format('woff'),
+  url('/etc/clientlibs/mcd-usRTL/css/fonts/droidArabicKufi/bold/DroidArabicKufi-Bold.ttf') format('truetype'),
+  url('/etc/clientlibs/mcd-usRTL/css/fonts/droidArabicKufi/bold/DroidArabicKufi-Bold.svg#DroidArabicKufi-Bold') format('svg');
+  font-weight: bold;
+  font-style: normal;
+}

@@ -1,0 +1,42 @@
+<div data-sly-use.articleInfo="com.mcd.rwd.newsroom.core.sightly.ArticleListingHandler" data-ng-controller="articleListingController"
+  data-ng-init="init('${articleInfo.newsType}','${articleInfo.newsFolderPath}','${articleInfo.loadMoreCount}','${articleInfo.defaultShowItemCount}')"
+  ng-cloak>
+
+  <sly data-sly-test="${(articleInfo.newsType)}">
+    <div class="col-xs-12 col-md-12 mcd-article-listing">
+      <div class="mcd-article-listing__title">
+        ${articleInfo.headingText}
+      </div>
+      <ul class="mcd-article-listing__news">
+        <li class="mcd-news-item--listing" ng-repeat="data in itemsList">
+          <img class="mcd-news-item__thumbnail--listing" data-src="{{data.articleImagePath}}" src="/content/dam/usa/promotions/desktop/SS-LopezPotatoes_292x292.jpg" />
+          <div class="mcd-news-item__info--listing">
+            <div class="mcd-news-item__date">{{data.publishDate}}</div>
+            <h3 class="mcd-news-item__title">{{data.articleTitle | CharEllipsisFilter : '100'}}</h3>
+            <div class="mcd-news-item__preview-text">
+              <span ng-bind-html="(data.articleDescription | CharEllipsisFilter : '300')"></span>
+            </div>
+            <div class="mcd-news-item__cta">
+              <a class="mcd-news-item__cta-link" ng-href={{data.articlePagePath}} href="#">{{data.readMoreText}}</a>
+            </div>
+          </div>
+        </li>
+      </ul>
+
+      <div class="mcd-article-listing__footer">
+        <span class="mcd-article-listing__no-results" style="display: none;">${articleInfo.noMoreNewsText}</span>
+        <div class="mcd-article-listing__load-more">
+          <button type="button" class="mcd-article-listing__load-more-btn--white" ng-click="loadSearchResults(false)" aria-label="${articleInfo.loadMoreText}">
+            <span class="mcd-article-listing__load-more-btn-label">${articleInfo.loadMoreText}</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </sly>
+
+  <sly data-sly-test="${(!articleInfo.newsType) && (wcmmode.edit || wcmmode.design)}">
+    <h3>Please Configure Article Listing Component No NewsType is selected
+    </h3>
+  </sly>
+
+</div>

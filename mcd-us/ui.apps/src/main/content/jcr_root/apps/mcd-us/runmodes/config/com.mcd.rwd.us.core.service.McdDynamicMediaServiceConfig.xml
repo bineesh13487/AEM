@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="sling:OsgiConfig"
+    mcd.factoryConfig.dynamicmedia.image.herotype="HERO"
+    mcd.factoryConfig.dynamicmedia.image.iconicthumbnailtype="ICONICTHUMNAIL"
+    mcd.factoryConfig.dynamicmedia.image.large="LARGE"
+    mcd.factoryConfig.dynamicmedia.image.localoptiontype="LOCALOPTION"
+    mcd.factoryConfig.dynamicmedia.image.medium="MEDIUM"
+    mcd.factoryConfig.dynamicmedia.image.small="SMALL"
+    mcd.factoryConfig.dynamicmedia.image.thumbnailtype="THUMBNAIL"
+    mcd.factoryConfig.dynamicmedia.image.transparenttype="TRANSPARENT"
+    mcd.factoryConfig.dynamicmedia.image.xsmall="XSMALL"
+    mcd.factoryConfig.dynamicmedia.server.enable="{Boolean}true"
+    mcd.factoryConfig.dynamicmedia.imagepreset.location="/etc/dam/imageserver/macros/"
+    mcd.factoryConfig.dynamicmedia.server.url.appender="/is/image"/>

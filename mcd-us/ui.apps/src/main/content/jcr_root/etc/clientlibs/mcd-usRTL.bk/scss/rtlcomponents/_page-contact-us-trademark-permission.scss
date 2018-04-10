@@ -1,0 +1,13 @@
+/// @group pages
+$page-contact-us__trademark-permission: ".page-contact-us__trademark-permission";
+
+@include withinBlock($page-contact-us__trademark-permission, $page-contact-us__subpage){
+  &__reason-for-request,
+  &__about-yourself {
+    background: $light-gray;
+  }
+}
+
+@include withinBlock($page-contact-us__trademark-permission, $component-hero, true){
+
+}

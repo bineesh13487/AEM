@@ -1,0 +1,161 @@
+// COMPONENT: RELATED ITEMS
+.component-related-items {
+	background: $white;
+	margin-bottom: 15px;
+
+	.wrapper {
+		//padding: 60px 15px 0 15px;
+
+		//@media only screen and (min-width:768px){
+		//padding: 10px 80px;
+		//}
+
+		@include flex-related-scale();
+
+	}
+
+	h2 {
+		margin-top: 0px;
+
+		@include fontSet(30px, 60px, 'LovinSansWeb-Bold');
+		text-align: center;
+
+		@media only screen and (min-width: 768px) {
+			@include fontSet(30px, 30px, 'LovinSansWeb-Bold');
+			text-align: left;
+		}
+		
+		@media only screen and (max-width: 768px) {
+			padding: 0 40px;
+		}
+	}
+
+	.related-flexslider {
+		//@include flex-viewport-scale();
+		overflow: visible;
+
+		.flex-direction-nav{
+			display: none;
+		}
+
+		.slides {
+			li {
+				overflow: hidden;
+
+				a {
+					display: block;
+					overflow: hidden;
+					padding: 0px;
+					color: $black;
+
+					> div{
+						overflow: hidden;
+					}
+				}
+
+				img {
+					@include transition(transform 0.5s cubic-bezier(0.190, 1, 0.220, 1) 0s);
+					@include transform(scale(1.02));
+				}
+				&:hover,
+				&.focus-active {
+					img {
+						@include transform(scale(1.1));
+					}
+				}
+			}
+
+			.caption {
+				@include fontSet(18px, 22px, 'LovinSansWeb-Bold');
+				margin-top: 10px;
+				text-align: center;
+
+				@media only screen and (min-width: 768px) {
+					@include fontSet(22px, 26px, 'LovinSansWeb-Bold');
+				}
+			}
+		}
+
+		.custom-navigation,.flex-custom-nav {
+
+			.flex-prev {
+				position: absolute;
+				background: #f1f1eb;
+				height: 44px;
+				width: 44px;
+				border-radius: 0% 50% 50% 0%;
+				padding: 3px 13px;
+				display: block;
+				left: 0px;
+				top: -30px;
+				margin-top: -25px;
+				opacity: 1;
+
+				@media only screen and (min-width: 768px) {
+					left: -60px;
+					top: 50%;
+					border-radius: 50%;
+					margin-top: -50px;
+				}
+
+
+				&:before{
+					font-family: "flexslider-icon";
+					font-size: 26px;
+					display: inline-block;
+					color: $red;
+					content: "\f001";
+					margin-top: 7px;
+				}
+			}
+
+			.flex-next {
+				position: absolute;
+				background: #f1f1eb;
+				height: 44px;
+				width: 44px;
+				border-radius: 50% 0% 0% 50%;
+				padding: 3px 14px;
+				display: block;
+				right: 0px;
+				top: -30px;
+				margin-top: -25px;
+				opacity: 1;
+
+				@media only screen and (min-width: 768px) {
+					right: -60px;
+					top: 50%;
+					border-radius: 50%;
+					margin-top: -50px;
+				}
+
+
+				&:before{
+					font-family: "flexslider-icon";
+					font-size: 26px;
+					display: inline-block;
+					color: $red;
+					content: "\f002";
+					 margin-top: 7px;
+				}
+			}
+		}
+
+	}
+
+}
+.component-related-items {
+	.related-flexslider {
+		ul.slides {
+			background: #ffffff;
+		}
+	}
+}
+
+.custom-navigation{
+	a.click-before-outline{
+		&:focus{
+			outline: 0;
+		}
+	}
+}

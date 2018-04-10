@@ -1,0 +1,30 @@
+{
+  "collectCoverage": true,
+  "coverageDirectory": "./coverage",
+  "coverageThreshold": {
+    "global": {
+      "branches": 100,
+      "functions": 100,
+      "lines": 100,
+      "statements": 100
+    }
+  },
+  "collectCoverageFrom": [
+    "src/components/**/*.js",
+    "!**/node_modules/**",
+    "!src/**/*.spec.js",
+    "!src/*.js"
+  ],
+  "notify": true,
+  "setupTestFrameworkScriptFile": "./test/setup.js",
+  "roots": [
+    "src/"
+  ],
+  "moduleDirectories": [
+    "node_modules",
+    "."
+  ],
+  "transform": {
+    "^.+\\.js$": "babel-jest"
+  }
+}

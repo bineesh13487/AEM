@@ -1,0 +1,9 @@
+<sly data-sly-use.headingObj="com.mcd.rwd.global.core.components.common.Heading">
+    <sly data-sly-test.isConfigured = "${wcmmode.edit && !headingObj.title }">
+        <h1>Click to Edit Text</h1>
+    </sly>
+    <sly data-sly-test = "${!isConfigured}">
+        <p>${headingObj.headingType}<p>
+        <h1>${headingObj.title @ context="html"}</h1>
+    </sly>
+</sly>

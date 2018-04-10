@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+    <filter root="/apps/mcd-rwd-global">
+        <exclude pattern="/apps/mcd-rwd-global/install"/>
+    </filter>
+    <filter root="/apps/wcm/extensions/contentfinder"/>
+    <filter root="/etc/clientlibs/mcd-rwd-global"/>
+    <filter root="/etc/clientlibs/mcd-rwd-globalRTL"/>
+    <filter root="/etc/clientlibs/author"/>
+    <filter root="/apps/granite"/>
+</workspaceFilter>

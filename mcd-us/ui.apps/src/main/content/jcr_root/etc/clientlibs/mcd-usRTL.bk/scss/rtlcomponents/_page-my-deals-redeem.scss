@@ -1,0 +1,56 @@
+.page-my-deals-redeem {
+  .cont-border-box {
+    max-width: 400px;
+    margin: 130px auto 30px;
+
+    @media only screen and (min-width: 768px){
+      margin: 150px auto 30px;
+    }
+
+    .title {
+      margin-right: 0;
+      margin-top: 0;
+      margin-left: 0;
+    }
+  }
+  .cont-desktop-text {
+    margin-bottom: 40px;
+    text-align: center;
+    p {
+      @include fontSet(30px, 36px, $font-lovinsans-bold);
+      margin-bottom: 30px;
+    }
+    .list-inline {
+      margin-bottom: 30px;
+    }
+  }
+  .cont-mobile-text {
+    text-align: center;
+    .qr {
+      max-width: 200px;
+      margin-bottom: 30px;
+    }
+    p {
+
+    }
+    .code {
+      display: block;
+      margin-top: 5px;
+      @include fontSet(30px, 36px, $font-lovinsans-bold);
+    }
+    .bold {
+      @include fontSet(16px, 22px, $font-lovinsans-bold);
+    }
+    .btn {
+      margin-top: 15px;
+    }
+    .cont-legal {
+      margin-top: 30px;
+      margin-bottom: 80px;
+
+      .strong {
+        font-family: $font-lovinsans-bold;
+      }
+    }
+  }
+}

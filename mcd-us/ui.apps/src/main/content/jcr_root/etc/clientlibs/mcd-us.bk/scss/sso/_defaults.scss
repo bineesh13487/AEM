@@ -1,0 +1,88 @@
+* {
+  box-sizing: border-box;
+  font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+body {
+  @include fontSet(18px, 26px);
+  @include fontNormal();
+  color: $black;
+  //background: $black;
+}
+body,html{
+	//min-height: 100vh;
+}
+
+html {
+
+  @media (min-width: 768px){
+    position: relative;
+    min-height: 100%;
+  }
+
+}
+body {
+  min-height: 100%;
+	margin-bottom: 0px!important; // margin bottom by footer height
+
+	@media only screen and (min-width: 768px){
+		margin-bottom: 0px!important; // margin bottom by footer height
+	}
+}
+
+.sso-no-gutter {
+  margin-right: 0;
+  margin-left: 0;
+
+  > [class*='col-'] {
+    padding-right:0;
+    padding-left:0;
+  }
+}
+
+.sso-full-width {
+  padding: 0;
+  overflow: hidden;
+}
+
+.sso-absolute-content {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  font: 0/0 a; /* remove the gap between inline(-block) elements */
+
+  &:before {
+    content: ' ';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+  }
+
+  .sso-absolute-content-wrapper {
+    display: inline-block;
+    vertical-align: middle;
+    text-align:center;
+    width: 100%;
+    padding: 1% 0;
+  }
+}
+
+.sso-icon-large {
+  color: $red;
+  margin-bottom: 10px;
+}
+
+.sso-no-ring {
+  &:focus{
+    outline: 0 !important;
+  }
+}
+
+
+.modal-content{
+  @media only screen and (min-width: 768px){
+    padding: 15px;
+  }
+}

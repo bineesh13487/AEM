@@ -1,0 +1,2197 @@
+$brand-width: 100px;
+
+.navbar {
+	background: transparent;
+	border: 0;
+	margin-bottom: 0;
+	height: auto;
+	min-height: 90px;
+	display: block;
+	@include border-radius(0px);
+	@include transition(all 0.4s);
+	-webkit-backface-visibility: hidden;
+
+	@media only screen and (min-width: 768px) {
+		background: rgba(0,0,0,0.75);
+		min-height: 50px;
+	}
+
+	> .container{
+		height: 110px;
+		-webkit-backface-visibility: hidden;		
+		@include transition(height 0.4s);
+	}
+
+	h1{
+		margin: 0;
+	}
+	&.position-abs,
+	.position-abs {
+		position: absolute!important;
+	}
+
+	> .container {
+
+		@media only screen and (min-width: 768px) and (max-width: 991px){
+			width: 768px;
+		}
+	}
+
+	/*
+	.cont-landscape-scroll {
+
+		@media all and (orientation:portrait) {
+		    // Styles for Portrait screen
+		}
+		@media all and (orientation:landscape) {
+		    // Styles for Landscape screen
+
+		    max-height: 45vh;
+			overflow-y: scroll;
+			overflow-x: hidden;
+
+			// scrollbar styles
+			&::-webkit-scrollbar {
+				width: 10px;
+			}
+			&::-webkit-scrollbar-track {
+				background: $white;
+				border-radius: 10px;
+			}
+			&::-webkit-scrollbar-thumb {
+				border: 3px solid transparent;
+				background: $gray;
+				border-radius: 10px;
+				background-clip: content-box;
+			}
+		}
+
+		&.landscape {
+			max-height: 45vh;
+			overflow-y: scroll;
+			overflow-x: hidden;
+
+			// scrollbar styles
+			&::-webkit-scrollbar {
+				width: 10px;
+			}
+			&::-webkit-scrollbar-track {
+				background: $white;
+				border-radius: 10px;
+			}
+			&::-webkit-scrollbar-thumb {
+				border: 3px solid transparent;
+				background: $gray;
+				border-radius: 10px;
+				background-clip: content-box;
+			}
+		}
+	}*/
+
+	.navbar-header-wrapper {
+		position: absolute;
+		width: 100%;
+		margin-left: -15px;
+    	margin-right: -15px;
+    	z-index: 9999;
+    	background: rgba(0,0,0,0.75);
+
+		@media only screen and (min-width: 768px) {
+			position: relative;
+			margin-left: 0px;
+    		margin-right: 0px;
+    		z-index: 1;
+    		background: transparent;
+    		width: auto;
+		}
+	}
+
+	.navbar-collapse {
+		background: $black;
+		max-height: none;
+		border: 0;
+		margin-top: 90px;
+		z-index: 100;
+
+		@media only screen and (min-width: 768px){
+			background: transparent;
+			margin-top: 0px;
+		}
+	}
+
+	.modals-black {
+		background: $black;
+		width: 100%;
+		border-radius: 0;
+		margin-top: -1px;
+		padding: 30px 15px;
+		color: $white;
+
+		.close {
+			opacity: 1;
+			margin-top: -15px;
+
+			.fa {
+				color: $white;
+			}
+		}
+
+		p.heading {
+			color: $white;
+			@include fontSet(30px, 40px, 'LovinSansWeb-Medium');
+		}
+	}
+
+	.checkbox label {
+	  color: $white;
+	}
+
+	// COMPONENT: NAVIGATION
+	.component-navigation {
+		margin-left: $brand-width;
+
+		.nav-justified-spacing {
+			margin: 0;
+			overflow: hidden;
+			@include transition(all 0.4s);
+			background: $black;
+
+			@media only screen and (min-width: 768px){
+				margin: -0.7em -15px 0em -15px;
+				background: transparent;
+				overflow: visible;
+			}
+
+			> ul {
+				text-transform: uppercase;
+				padding: 0;
+				font-size: 0;
+				margin-bottom: 0;
+				text-align: justify;
+				text-justify: distribute;
+				width: 100%;
+
+
+				&:after {
+					// justify inline-block method:
+					// http://tympanus.net/codrops/2013/07/14/justified-and-vertically-centered-header-elements/
+					content: '';
+					display: inline-block;
+					width: 100%;
+				}
+				> li {
+					font-size: 16px;
+					padding: 0;
+					display: block;
+					position: static; // this allows the mega menu
+					border: 1px solid transparent;
+					@include transition(all 0.4s);
+					text-align: center;
+					margin-top: 4px;
+					border-bottom: 1px solid $gray-border;
+					z-index: 1000;
+
+					> a {
+						background: $black;
+					}
+					@media only screen and (max-width: 767px){
+						margin-top: 0px;
+					}
+
+					@media only screen and (min-width: 768px){
+						display: inline-block;
+						text-align: left;
+						border-bottom: 0;
+
+						a {
+							background: transparent;
+						}
+					}
+
+					.view-full-menu {
+						padding-top: 10px;
+						text-align: center;
+
+						@media only screen and (min-width: 768px) {
+							text-align: left;
+						}
+					}
+
+					.typical-list {
+						.list-media > li:first-child .media {
+							border-top: 0;
+						}
+					}
+
+					.cont-offers{
+						position: absolute;
+						top: 15px;
+						width: 100%;
+						padding-left: 40%;
+					}
+
+					.offers {
+						text-align: center;
+
+						@media only screen and (min-width: 768px) {
+							text-align: left;
+						}
+						.menu-style {
+							margin-top: 12px;
+
+							@media only screen and (min-width: 992px) {
+								margin-top: 43px;
+							}
+
+							a {
+								padding: 0;
+							}
+						}
+						.cont-form {
+							border-bottom: 1px solid $gray-border;
+							margin-bottom: 15px;
+							padding-bottom: 15px;
+
+							@media only screen and (min-width: 768px) {
+								border-bottom: 0;
+								margin-bottom: 0;
+								padding-bottom: 0px;
+							}
+
+							.form-inline {
+								.form-group {
+									display: inline-block;
+									margin-bottom: 0;
+								}
+								.form-control {
+									display: inline-block;
+									height: 30px;
+									padding:0 15px;
+									max-width: 130px;
+									text-align: left;
+									@include fontSet(26px, 36px, $font-lovinsans);
+
+									@media only screen and (min-width: 768px) {
+										@include fontSet(26px, 36px, $font-lovinsans);
+									}
+								}
+							}
+							.btn-red {
+								display: inline-block;
+								height: 30px;
+								line-height: 26px;
+								padding:0 10px;
+								margin-left: 5px;
+								width: 70px;
+							}
+						}
+
+						.cont-text {
+							color: $white;
+							text-transform: none;
+							margin-bottom: 5px;
+							@include fontSet(22px, 26px, 'LovinSansWeb-Regular');
+							margin-top: 15px;
+
+							@media only screen and (min-width: 768px) {
+								margin-top: 0;
+								margin-bottom: 0px;
+							}
+
+							.large {
+								text-transform: uppercase;
+								margin-top: 0px;
+								display: block;
+								@include fontSet(68px, 72px, 'LovinSansWeb-Bold');
+
+								@media only screen and (min-width: 768px) {
+									@include fontSet(78px, 82px, 'LovinSansWeb-Bold');
+								}
+							}
+						}
+
+						.cont-app {
+							color: $white;
+							text-transform: none;
+							margin-bottom: 10px;
+							@include fontSet(22px, 26px, 'LovinSansWeb-Medium');
+
+							.large {
+								margin-top: 0px;
+								display: block;
+								@include fontSet(42px, 46px, 'LovinSansWeb-Medium');
+							}
+
+							@media only screen and (max-width: 767px) {
+								@include fontSet(20px, 24px, 'LovinSansWeb-Medium');
+
+								.large {
+									margin-top: 5px;
+									@include fontSet(48px, 52px, 'LovinSansWeb-Medium');
+								}
+							}
+
+							@media only screen and (min-width: 768px) and (max-width: 991px) {
+								@include fontSet(18px, 22px, 'LovinSansWeb-Medium');
+								margin-bottom: 5px;
+								margin-top: -5px;
+
+								.large {
+									@include fontSet(32px, 38px, 'LovinSansWeb-Medium');
+								}
+							}
+						}
+
+						.cont-btn {
+							margin-bottom: 15px;
+							display: inline-block;
+							
+							@media only screen and (max-width: 767px) {
+							margin-bottom: 0px;
+							padding-bottom: 10px;
+							border-bottom: 1px solid $gray-border;
+							}
+
+							@media only screen and (min-width: 768px) {
+								margin-bottom: 0px;
+							}
+
+							.btn-app {
+								width: auto;
+								background: $black;
+								border-radius: 5px;
+
+								&:hover {
+									background: $gray;
+								}
+
+								@media only screen and (min-width: 768px) {
+									max-width: 80px;
+									padding: 1px 5px;
+								}
+
+								img {
+									width: auto;
+									max-width: 100%;
+									border: none;
+									padding: 0px;
+                                    background: transparent;
+
+									@media only screen and (min-width: 768px) {
+										max-height: 20px;
+									}
+								}
+							}
+						}
+					}
+
+					.cont-corner-wrapper {
+						position: absolute;
+						top: 0;
+						left: 0;
+					}
+
+					.cont-banner-wrapper {
+						position: relative;
+						z-index: 1;
+						top: 2px;
+						margin-left: -15px;
+						right: auto;
+
+						@media only screen and (min-width: 768px) {
+							position: absolute;
+							margin-left: 0;
+							right:2px;
+							left: 2px;
+						}
+
+						.cont-banner{
+							background-color: $red;
+							width: auto;
+							text-align: left;
+							padding: 3px 10px 2px 15px;
+							display: inline-block;
+
+							@media only screen and (min-width: 768px) {
+								display: block;
+								width: 100%;
+								text-align: center;
+								padding: 3px 2px 2px 2px;
+							}
+
+							.text{
+								color: $white;
+								text-transform: uppercase;
+								@include fontSet(16px, 16px, 'LovinSansWeb-Medium');
+							}
+						}
+					}
+
+					.list-media {
+						display: block;
+
+						.media {
+							margin: 5px 0;
+							padding-top: 5px;
+							border-top: 1px solid $gray-border;
+						}
+						li {
+							width: 100%;
+							padding: 0 5px;
+							display: block;
+						}
+
+						img {
+							width: 55px;
+							max-width: none;
+
+							&.large {
+								width: 85px;
+							}
+						}
+
+
+
+						@media only screen and (min-width: 768px) {
+							display: -webkit-box;
+							display: -moz-box;
+							display: -ms-flexbox;
+							display: flex;
+
+
+							li {
+								width: initial;
+								display: inline-block;
+								min-height: 0; // required for FF
+								min-width: 0; // required for FF
+								max-width: auto;
+
+
+								&:first-child {
+									padding-left: 0;
+								}
+								&:last-child {
+									padding-right: 0;
+								}
+
+							}
+							&.about-our-food{
+								margin-left: -6px;
+								margin-right: -6px;
+								li{
+									vertical-align: top;
+									width: 16.667%;
+									&:first-child {
+										padding-left: 5px;
+									}
+									&:last-child {
+										padding-right: 5px;
+									}
+								}
+							}
+							&.whats-hot{
+								margin-left: -6px;
+								margin-right: -6px;
+								li{
+									width: 25%;
+									&:first-child {
+										padding-left: 5px;
+									}
+									&:last-child {
+										padding-right: 5px;
+									}
+								}
+							}
+							img {
+								width: 100%;
+								max-width: 100%;
+
+								&.large {
+									width: initial;
+								}
+							}
+						}
+
+
+
+						&.offers-list{
+							margin-top: 15px;
+
+							@media only screen and (min-width: 768px) {
+								margin-top: 0px;
+
+								li{
+									width: 27%;
+								
+									&:first-child {
+										width: 97%;
+									}
+								}
+							}
+
+						}
+					}
+
+
+
+					.media-limit{
+						padding-right: 6px;
+						.list-media {
+
+							@media only screen and (min-width: 768px) {
+								-webkit-flex-wrap: wrap;
+	  							flex-wrap: wrap;
+
+								li {
+									vertical-align: top;
+									max-width: auto;
+									&:first-child {
+										padding-left: 5px;
+									}
+									&:last-child {
+										padding-right: 5px;
+									}
+
+								}
+							}
+
+							@media only screen and (min-width: 768px) {
+								li{
+									max-width: 84px;
+								}
+							}
+
+							@media only screen and (min-width: 990px) {
+								li{
+									max-width: 91px;
+								}
+							}
+
+							@media only screen and (min-width: 1200px) {
+								li{
+									max-width: 95px;
+								}
+							}
+						}
+					}
+
+					.menu-style {
+
+						width: 100%;
+
+						a {
+							display: block;
+							padding: 12px 10px;
+							color: $white;
+							@include fontSet(22px, 26px, 'LovinSansWeb-Medium');
+							text-transform: none;
+
+							.fa {
+								margin-left: 5px;
+							}
+
+							@media only screen and (min-width: 768px) {
+								padding: 8px 10px 7px;
+								@include fontSet(20px, 24px, 'LovinSansWeb-Medium');
+							}
+						}
+
+						li {
+							@include transition();
+							border-top: 0;
+							border-bottom: 1px solid $gray-border;
+
+							&.vertical-middle {
+								height: 55px;
+
+								a {
+									position: relative;
+									top: 50%;
+									-webkit-transform: translateY(-50%);
+									-ms-transform: translateY(-50%);
+									transform: translateY(-50%);
+								}
+
+								@media only screen and (min-width: 768px) {
+									height: auto;
+
+									a {
+										transform: none;
+										top: auto;
+									}
+								}
+							}
+
+
+							&:last-child{
+								border-bottom: 1px solid $gray-border;
+							}
+
+							&:hover {
+								background: $gray-background;
+							}
+
+							@media only screen and (min-width: 768px) {
+								border-top: 1px solid $gray-border;
+								border-bottom: 0;
+							}
+						}
+					}
+
+					> .dropdown-menu {
+						@include transition(opacity 0.4s);
+						display: none;
+						visibility: hidden;
+						opacity: 0;
+						z-index: 1000;
+						margin-top: 0;
+						margin-bottom: 15px;
+						border-radius: 0;
+						background: url('../images/bg-mobile.jpg') no-repeat;
+						background-size: cover;
+						background-position: 50% 0%;
+						width: 100%;
+						padding: 0;
+						border: 0;
+
+						@media only screen and (min-width: 768px) {
+							z-index: -1;
+							display: block;
+							background: $black;
+						}
+
+						> li {
+							border-top: 1px solid $gray-border;
+							padding: 0px 0;
+
+							@media only screen and (min-width: 768px) {
+								padding: 30px 0;
+							}
+
+							> div {
+								opacity: 0;
+							}
+						}
+
+						p.img-caption {
+							margin: 0px 0 0 0;
+							color: $white;
+							@include fontSet(22px, 26px, 'LovinSansWeb-Medium');
+							text-transform: none;
+
+							@media only screen and (min-width: 768px) {
+								margin-top: 10px;
+								@include fontSet(20px, 24px, 'LovinSansWeb-Medium');
+								padding-left: 2px;
+								margin-bottom: 10px;
+							}
+						}
+
+						.hover-border {
+							border: 2px solid transparent;
+							@include transition();
+						}
+
+						a:hover .hover-border {
+							border: 2px solid $gray-border;
+						}
+					}
+
+					&.dropdown.open{
+						background: $black;
+						border-top: 1px solid transparent;
+						border-left: 0;
+						border-right: 0;
+						border-bottom: 1px solid $gray-border;
+
+						> a {
+							background: transparent;
+							outline: none;
+						}
+
+						@media only screen and (min-width: 768px) {
+							border-top: 1px solid $gray-border;
+							border-left: 1px solid $gray-border;
+							border-right: 1px solid $gray-border;
+							border-bottom: 1px solid $black;
+
+							> a {
+								background: $black;
+							}
+						}
+
+						> .dropdown-menu {
+							opacity: 1;
+							visibility: visible;
+							display: block;
+
+							> li {
+								&:first-child {
+									padding-top: 10px;
+
+									@media only screen and (min-width: 768px) {
+										padding-top: 30px;
+									}
+								}
+								&:last-child {
+									padding-bottom: 10px;
+
+									@media only screen and (min-width: 768px) {
+										padding-bottom: 30px;
+									}
+								}
+
+								> div {
+									opacity: 1;
+								}
+							}
+						}
+					}
+
+					> a {
+						display: block;
+						padding: 1em;
+						text-transform: uppercase;
+						color: $white;
+						@include fontSet(22px, 32px, 'LovinSansWeb-Medium');
+						text-decoration: none;
+						@include transition();
+
+						&:hover,
+						&:focus,
+						&:visited {
+							color: $white;
+						}
+
+					}
+				}
+
+			}
+			.menu {
+				display: none;
+			}
+
+			@media only screen and (max-width: 767px) {
+				ul {
+					display: inline-block; // makes it only as wide as it needs to be
+					vertical-align: top;
+					position: relative;
+
+					&:hover {
+						li {
+							display: block;
+						}
+					}
+				}
+
+				.menu {
+					display: block;
+					position: relative;
+				}
+
+			}
+
+			ul{
+				&.whats-hot{
+					>li{
+						a{
+							position: relative;
+							display: block;
+
+							.media{
+								overflow: visible;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		@media only screen and (max-width: 767px) {
+			margin-left: -15px;
+			margin-right: -15px;
+		}
+
+		.btn-app {
+			width: auto;
+			max-width:160px;
+			display: inline-block;
+
+		}
+
+		.component-footer-mobile {
+			a {
+				color: $white;
+				text-transform: none;
+				display: block;
+			}
+
+			.site-map-1 {
+				margin-top: 15px;
+				margin-bottom: 15px;
+
+				li {
+					padding: 10px 15px;
+				}
+				a {
+					@include fontSet(26px, 32px, 'LovinSansWeb-Medium');
+				}
+			}
+
+			.site-map-2 {
+				margin: 15px 0 30px;
+				padding: 0;
+				display: block;
+				width: 100%;
+
+				li {
+					padding: 5px 10px;
+					display: inline-block!important;
+				}
+				a {
+					@include fontSet(22px, 32px, 'LovinSansWeb-Medium');
+				}
+			}
+
+			p.light {
+				color: #999999;
+				text-transform: none;
+				@include fontSet(20px, 26px, $font-lovinsans);
+				margin-bottom: 15px;
+			}
+
+			.separator {
+				margin: 30px -15px;
+				height: 1px;
+				background: $gray-border;
+			}
+		}
+
+		.component-social-mobile {
+			text-align: center;
+			background: url('../images/bg-mobile.jpg') no-repeat;
+			background-size: cover;
+			background-position: 50% 100%;
+
+			.wrapper {
+				padding: 30px 15px;
+			}
+
+			.separator {
+				margin: 30px -15px;
+				height: 1px;
+				background: $gray-border;
+			}
+
+			p {
+				color: $white;
+				text-transform: none;
+				@include fontSet(26px, 32px, 'LovinSansWeb-Medium');
+			}
+
+			.social-icons {
+				padding: 0;
+
+				a {
+					padding-bottom: 5px;
+					display: inline-block;
+				}
+			}
+			.cont-btn {
+				padding: 10px 5px 0;
+			}
+
+		}
+	}
+
+	&.smaller {
+		height: auto;
+
+		@media only screen and (min-width: 768px) {
+			//height: 80px;
+			height: auto;
+
+			> .container{
+				height: 80px;
+			}
+		}
+
+		.component-navigation .nav-justified-spacing {
+			margin-top: 0px;
+
+			@media only screen and (min-width: 768px) {
+				margin-top: -40px;
+			}
+		}
+		.component-logo img {
+			@media only screen and (min-width: 768px) {
+				width: 55px;
+			}
+
+
+		}
+	}
+
+	@media only screen and (max-width: 767px) {
+		height: auto;
+		.menu-style.view-full-menu > a {
+		border-bottom:1px solid #4d4a4b;
+		}
+		.nav-mobile-right{
+			float: right;
+			width: 40%;
+
+			.cont-items {
+				text-align: center;
+				width: 50%;
+				float: left;
+
+				&:last-child {
+					text-align: right;
+				}
+			}
+
+			.fa-times {
+				color: $white;
+				margin-top: -4px;
+				margin-left: 8px;
+			}
+
+			.no-show {
+				display: none;
+			}
+		}
+	}
+}
+.top-components {
+	padding-top: 0px;
+	padding-left: $brand-width;
+}
+
+.component-locate {
+	margin-top: 30px;
+
+	@media only screen and (min-width: 768px) {
+		margin-top: 0;
+	}
+
+	> a{
+		color: $white;
+		@include fontSet(19px, 30px);
+		text-decoration: none;
+	}
+	.input-group {
+		display: block;
+		padding-left: 15px;
+		padding-right: 15px;
+
+		@media only screen and (min-width: 768px){
+			display: table;
+			padding-left: 0px;
+			padding-right: 0px;
+			
+			.form-control{
+				&.bootstrap-select{
+					border-top-right-radius: 30px;
+					border-bottom-right-radius: 30px;
+
+					.dropdown-toggle{
+						border: 2px solid transparent;
+						border-left: 0;
+					}
+				}
+
+				&.open{
+					&.bootstrap-select{
+						.dropdown-toggle{
+							border: 2px solid $gray-separator;
+							border-left: 0;
+						}
+
+						.dropdown-menu{
+							&.inner{
+								border: 0;
+							}
+						}
+					}
+				}
+			}
+
+
+			.input-group-btn{
+				.dropdown-menu{
+					padding-bottom: 0;
+					margin-top: -15px;
+					border: 0px;
+
+					li{
+						&:last-child{
+							a{
+								border-bottom-right-radius: 20px;
+								border-bottom-left-radius: 20px;
+								padding-bottom: 10px;
+							}
+						}
+
+						&:first-child{
+							border-top: 0px;
+						}
+					}
+				}
+
+				.btn{
+					padding-right: 55px;
+					padding-left: 20px;
+				}
+
+			}
+		}
+
+		.form-control {
+			border-top-right-radius: 30px;
+	    	border-bottom-right-radius: 30px;
+			float: none;
+
+			@media only screen and (min-width: 768px){
+				border-top-right-radius: 0;
+		        border-bottom-right-radius: 0;
+				float: left;
+				z-index: 1;
+			}
+		}
+
+
+		.input-group-btn {
+			display: none;
+
+			@media only screen and (min-width: 768px){
+				display: table-cell;
+			}
+		}
+	}
+	.form-group {
+		margin-left: 0px;
+
+		@media only screen and (min-width: 768px) {
+			margin-left: 15px;
+		}
+	}
+	.checkbox{
+		label{
+			color: $white;
+
+			&::before {
+				border-color: $white;
+			}
+
+			&::after {
+				color: $white!important;
+			}
+		}
+	}
+	p.heading {
+		color: $white;
+		text-align: left;
+		text-transform: none;
+		margin-bottom: 5px;
+		@include fontSet(20px, 30px, 'LovinSansWeb-Medium');
+	}
+	.modals-black {
+		padding-bottom: 15px;
+	}
+	.cont-filters {
+		margin-top: 15px;
+		padding-bottom: 30px;
+
+		@media only screen and (min-width: 768px) {
+			padding-bottom: 0;
+			.col-sm-10{
+				padding-left: 0;
+				padding-right: 0;
+			}
+		}
+
+		@media only screen and (min-width: 992px) {
+			.col-sm-10{
+				padding-left: 15px;
+				padding-right: 15px;
+			}
+		}
+		.cont-toggle {
+			text-align: center;
+			margin: 10px 0 -15px;
+			position: absolute;
+			left: 0;
+			right: 0;
+			bottom: -30px;
+
+			@media only screen and (min-width: 768px) {
+				margin: -5px auto 0;
+				position: absolute;
+				left: auto;
+				bottom: auto;
+    		right: -16%;
+			}
+
+			@media only screen and (min-width: 992px) {
+				right: -14%;
+			}
+
+			a {
+				display: block;
+				padding: 10px 0;
+				color: #999999;
+				text-transform: uppercase;
+				@include fontSet(16px, 26px, 'LovinSansWeb-Medium');
+
+				@media only screen and (min-width: 768px) {
+					@include fontSet(20px, 30px, 'LovinSansWeb-Medium');
+				}
+
+				&:active{
+					color: #999999;
+				}
+
+				.fa {
+					display: block;
+					margin-top: 0px;
+
+					@media only screen and (min-width: 768px) {
+						display: inline-block;
+						margin-top: 0px;
+					}
+				}
+			}
+		}
+		.list-inline {
+			margin-left: 0;
+
+			li {
+				padding: 0;
+				width: 50%;
+				float: left;
+
+				@media only screen and (min-width: 768px) {
+					width: 20%;
+					float: left;
+				}
+
+				&.afterfold.first {
+					display: initial;
+
+					@media only screen and (min-width: 768px) {
+						display: block!important;
+					}
+
+				}
+
+				&.clear {
+					clear: both;
+				}
+
+			}
+
+			@media only screen and (max-width: 767px) {
+				> div{
+					&:nth-child(2n+1){
+						clear: left;
+					}
+				}
+			}
+
+		}
+	}
+
+	.cont-btns {
+		margin-top: 10px;
+		margin-right: 15px;
+		padding-left: 15px;
+		text-align: left;
+
+		@media only screen and (min-width: 768px) {
+			margin-top: 0;
+			padding-left: 15px;
+			margin-right: 15px;
+		}
+
+		.btn-red,
+		.btn-border {
+			padding-left: 0;
+			padding-right: 0;
+			width: 100%;
+		}
+		.btn-border .fa {
+			margin-right: 5px;
+		}
+		.wrapper {
+			display: inline-block;
+			width: 44%;
+
+			&.middle {
+				text-align: center;
+				width: 9%;
+			}
+		}
+	}
+	.text-or {
+		text-transform: uppercase;
+		color: $white;
+		@include fontSet(20px, 30px, 'LovinSansWeb-Medium');
+	}
+}
+.top-components {
+	padding-left: $brand-width;
+}
+
+ul.location-nearest{
+	display: inline-block;
+}
+
+
+.component-nearest-location-desktop-wrapper {
+		//width: 0!important;
+    //height: 0!important;
+    //border: 0!important;
+    //display: none!important;
+		position: absolute;
+
+    @include breakpoint(sm) {
+    	//display: block!important;
+    }
+
+		.dropdown-menu{
+
+		}
+		.dropdown-menu {
+			@include transition(opacity 0.4s);
+			display: none;
+			visibility: hidden;
+			opacity: 0;
+			z-index: 1000;
+			margin-top: 0;
+			margin-bottom: 15px;
+			border-radius: 0;
+			background: url('../img/nav/bg-mobile.jpg') no-repeat;
+			background-size: cover;
+			background-position: 50% 0%;
+			width: 100%;
+			padding: 0;
+			border: 0;
+
+			@media only screen and (min-width: 768px) {
+				z-index: -1;
+				display: block;
+				background: $black;
+			}
+
+			> li {
+				border-top: 1px solid $gray-border;
+				padding: 0px 0;
+
+				@media only screen and (min-width: 768px) {
+					padding: 30px 0;
+				}
+
+				> div {
+					opacity: 0;
+				}
+			}
+
+			p.img-caption {
+				margin: 0px 0 0 0;
+				color: $white;
+				@include fontSet(22px, 26px, 'LovinSansWeb-Medium');
+				text-transform: none;
+
+				@media only screen and (min-width: 768px) {
+					margin-top: 10px;
+					@include fontSet(20px, 24px, 'LovinSansWeb-Medium');
+					padding-left: 2px;
+					margin-bottom: 10px;
+				}
+			}
+
+			.hover-border {
+				border: 2px solid transparent;
+				@include transition();
+			}
+
+			a:hover .hover-border {
+				border: 2px solid $gray-border;
+			}
+		}
+
+		&.dropdown.open{
+			border-left: 0;
+			border-right: 0;
+
+			> a {
+				background: transparent;
+			}
+
+
+
+			> .dropdown-menu {
+				opacity: 1;
+				visibility: visible;
+				display: block;
+				position: fixed;
+		        left: 0;
+				z-index: 999;
+		        right: 0;
+		        top: 109px;
+				//@include transition(top 0.4s);
+
+				> li {
+					&:first-child {
+						padding-top: 10px;
+
+						@media only screen and (min-width: 768px) {
+							padding-top: 30px;
+						}
+					}
+					&:last-child {
+						padding-bottom: 10px;
+
+						@media only screen and (min-width: 768px) {
+							padding-bottom: 30px;
+						}
+					}
+
+					> div {
+						opacity: 1;
+					}
+				}
+			}
+    }
+}
+.component-nearest-location-desktop {
+	color: $white;
+	text-transform: none;
+
+	.location-alert {
+		//margin-bottom: 0;
+		@include fontSet(34px, 34px, $font-lovinsans-medium);
+	}
+	.location-street {
+		margin-bottom: 0;
+		@include fontSet(36px, 42px, $font-lovinsans);
+	}
+	.location-city {
+		@include fontSet(26px, 32px, $font-lovinsans);
+		margin-bottom: 0;
+	}
+	.location-desc {
+		@include fontSet(22px, 26px, $font-lovinsans);
+	}
+	.change-location{
+		@include fontSet(18px, 30px, $font-lovinsans);
+		a{
+			color: $white;
+			text-decoration: underline;
+		}
+	}
+	.checkbox {
+		margin-bottom: 25px;
+
+		@include breakpoint(md) {
+			margin-bottom: 50px;
+		}
+
+		label {
+			@include fontSet(22px, 34px, $font-lovinsans);
+
+			&::before {
+				border-color: $white;
+			}
+			&::after {
+				color: $white;
+				top: 1px;
+				line-height: 1.2em;
+			}
+		}
+	}
+	.location-directions,
+	.location-directions a {
+		@include fontSet(24px, 32px, $font-lovinsans-medium);
+		text-decoration: none;
+		&:focus{
+			text-decoration: none;
+		}
+	}
+	.location-phone {
+		@include fontSet(24px, 32px, $font-lovinsans-medium);
+
+		.light {
+			font-family: $font-lovinsans;
+		}
+
+		a.phone {
+			color: $white;
+		}
+	}
+	.cont-hours {
+		.heading {
+			text-transform: uppercase;
+			@include fontSet(30px, 34px, $font-lovinsans-medium);
+
+			@include breakpoint(md) {
+				@include fontSet(34px, 34px, $font-lovinsans-medium);
+			}
+		}
+		.cont-btn {
+			text-align: right;
+		}
+		button.simple-white {
+			border:0;
+			padding:0;
+			outline: none !important;
+			background:transparent;
+			@include fontSet(20px, 26px, $font-lovinsans-medium);
+			margin-right: 15px;
+
+			@include breakpoint(md) {
+				@include fontSet(22px, 26px, $font-lovinsans-medium);
+			}
+
+			&:hover {
+				color: $white;
+				//border-bottom: 1px solid $white;
+			}
+			&:focus,
+			&:active {
+				color: $white;
+				//border-bottom: 1px solid $white;
+			}
+			&:after{
+				display: inline-block;
+				margin-left: 5px;
+				font-family: FontAwesome;
+				content: "\f078";
+				font-style: normal;
+				font-variant: normal;
+				font-weight: normal;
+				font-stretch: normal;
+				font-size: inherit;
+				text-rendering: auto;
+				-webkit-font-smoothing: antialiased;
+			}
+			&.opened{
+				&:after{
+					content: "\f077";
+				}
+			}
+		}
+	}
+	.cont-hours-details {
+		margin-top: 15px;
+
+		.table td {
+			border:0;
+			padding: 0 0 5px;
+		}
+	}
+	.hours-heading {
+		@include fontSet(26px, 26px, $font-lovinsans-medium);
+		margin-bottom: 0px;
+	}
+	.hours-subheading {
+		@include fontSet(22px, 26px, $font-lovinsans-medium);
+		margin-bottom: 0px;
+	}
+	.hours-details {
+		li {
+			color: $white;
+			@include fontSet(22px, 26px, $font-lovinsans);
+
+			span{
+				display: inline-block;
+				min-width: 40px;
+			}
+		}
+
+		&.special{
+			li{
+				span{
+					min-width: 110px;
+				}
+			}
+		}
+	}
+	.location-services{
+		@include fontSet(20px, 32px, $font-lovinsans);
+
+		h4{
+			@include fontSet(24px, 32px, $font-lovinsans-medium);
+			margin-bottom: 5px;
+			margin-top: 20px;
+		}
+	}
+}
+
+
+.navbar{
+	&.smaller{
+		.component-nearest-location-desktop-wrapper.dropdown.open > .dropdown-menu{
+			top:80px !important;
+		}
+	}
+}
+
+// COMPONENT: LOGO
+.component-logo {
+	height: 71px;
+	width: 80px;
+	text-align: center;
+	padding-left: 0px;
+	padding-right: 0px;
+
+	img {
+		width: 80px;
+		//margin: auto;
+		@include transition(all 0.4s);
+	}
+
+	&.navbar-brand{
+		margin-left: 0!important;
+	}
+
+	@media only screen and (max-width: 767px) {
+		width: 20%;
+		height: auto;
+
+		img{
+			margin: 0 auto;
+			width: 56px;
+		}
+
+		&.navbar-brand{
+			padding-left: 0;
+			padding-right: 0;
+		}
+	}
+
+	@media only screen and (max-width: 320px) {
+		img{
+			width: 44px;
+			margin-top: 7px
+		}
+	}
+}
+
+// COMPONENT: NEAREST LOCATION
+.navbar .component-navigation .nav-justified-spacing > ul > li.component-nearest-location,
+.top-components .component-nearest-location {
+	color: $white;
+	@include fontSet(20px, 30px, $font-lovinsans-medium);
+	border-top: 0 !important;
+	z-index: 99999999999;
+    position: relative;
+
+	@media only screen and (max-width: 767px) {
+		z-index: 9;
+	}
+	button {
+		border:0;
+		background: transparent;
+		padding: 0;
+		text-decoration: underline;
+
+		&:focus{
+
+		}
+	}
+
+	a,
+	.light {
+		color: $white;
+		font-family: $font-lovinsans;
+		text-decoration: none;
+		@include transition();
+		text-transform: none!important;
+	}
+
+	a {
+		font-family: $font-lovinsans-medium;
+		padding: 0.9em 1em 0.7em !important;
+
+		&:before,
+		&:after{
+			border-top-color: $red;
+		}
+
+		.fa {
+			margin-left: 3px;
+			color: $white;
+
+			@media only screen and (max-width: 767px) {
+				color: $yellow;
+			}
+		}
+	}
+
+	.dropdown-menu > li {
+		border-top: 1px solid $red;
+	}
+
+	.cont-details {
+		text-align: center;
+		padding-top: 15px;
+	}
+
+	p.change-location {
+		a {
+			text-decoration: underline;
+			font-family: $font-lovinsans;
+		}
+	}
+
+	p.hours {
+		@include fontSet(26px, 30px, 'LovinSansWeb-Medium');
+		text-transform: none;
+	}
+
+	.checkbox {
+		label{
+			text-transform: none;
+			line-height: 22px;
+
+			&::before {
+				border-color: $white;
+				background: transparent;
+			}
+			&::after {
+				color: $white;
+				//top: 0;
+			}
+		}
+	}
+
+	.cont-map {
+		text-align: left;
+		margin: 15px auto;
+		max-width: 400px;
+		height: 100%;
+		background: $white;
+		@include border-radius(5px);
+
+		.cont-img {
+			min-height: 113px; // can be adjusted
+
+			img {
+				height: 100%;
+				width: 100%;
+				@include border-radius-separate(5px, 0px, 0px, 5px);
+			}
+		}
+		.cont-text {
+			.wrapper {
+				padding: 15px;
+			}
+			p.text {
+				color: $black-text;
+				@include fontSet(22px, 30px, 'LovinSansWeb-Medium');
+				margin-bottom: 0;
+			}
+			p.light {
+				color: $black-text;
+				@include fontSet(22px, 30px, $font-lovinsans);
+			}
+
+			a.simple-red {
+				padding: 0 !important;
+				color: $red;
+				background: transparent!important;
+				@include fontSet(22px, 30px, 'LovinSansWeb-Medium');
+			}
+		}
+
+		.map-container-nav{
+			position: absolute;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			top:0;
+
+			.nav-map{
+				border-radius: 5px 0px 0px 5px;
+			}
+		}
+
+	}
+
+	p.heading {
+		text-transform: none;
+
+		.light {
+			font-family: $font-lovinsans;
+		}
+	}
+
+	p.text {
+		text-transform: none;
+
+		.light {
+			font-family: $font-lovinsans;
+		}
+	}
+
+	@media only screen and (min-width: 768px) {
+		padding-top:4px;
+
+		a {
+			background: transparent;
+			padding: 0!important;
+		}
+
+	}
+}
+.navbar .component-navigation .nav-justified-spacing > ul > li.component-nearest-location {
+	border-bottom: 1px solid $red !important;
+
+	> a {
+		background: $red!important;
+	}
+
+	&.open {
+		.fa:before {
+			content: "\f078";
+		}
+	}
+}
+
+// COMPONENT: LANGUAGE TOGGLE
+.component-language-toggle {
+	color: $white;
+	@include fontSet(20px, 30px);
+	margin-right: 0px;
+	position: static;
+	z-index: 10;
+	max-height: none;
+
+	@media only screen and (min-width: 768px){
+		max-height: 30px;
+		position: relative;
+	}
+
+	.cont-items {
+		.cont-half{
+			text-align: center;
+			float: left;
+			width: 48%;
+			height: 54px;
+
+			> ul.dropdown-menu {
+				z-index: 1000;
+			}
+		}
+	}
+
+	.megamenu {
+		margin-bottom: 0;
+	}
+
+	li{
+		padding-top: 10px;
+		padding-right: 0;
+
+		&:before{
+			content: '|';
+			margin-right: 5px;
+			display: inline-block;
+		}
+
+		&:first-child{
+			&:before{
+				content: none;
+			}
+		}
+
+		&.dropdown{
+			padding-left: 5px;
+		}
+	}
+
+	a {
+		color: $white;
+		@include fontSet(20px, 30px);
+		text-decoration: none;
+	}
+
+	.dropdown-menu{
+		background: $black;
+		padding: 40px;
+		z-index: -1;
+		border: 2px solid $gray-border;
+		border-radius: 0;
+		margin: -2px 0 0 0;
+		min-width: 460px;
+		text-align: center;
+
+
+		@media only screen and (max-width: 767px){
+			border: 0;
+			min-width: initial;
+			width: 100%;
+			padding: 40px 20px;
+		}
+
+		.row{
+			margin-top: 10px;
+			margin-bottom: 5px;
+			margin-right: -5px;
+    		margin-left: -5px;
+		}
+
+		.container-fluid{
+			padding-left: 5px;
+			padding-right: 5px;
+		}
+
+		div [class*='col-']{
+			padding-left: 5px;
+			padding-right: 5px;
+		}
+
+
+		.form-group{
+			width: 100%;
+		}
+
+		button{
+			width: 100%;
+
+			@media only screen and (max-width: 420px){
+				padding-left: 10px;
+				padding-right: 10px;
+			}
+		}
+
+		.btn-black{
+			display: inline-block;
+			width: auto;
+			margin: 15px;
+			background: transparent;
+			border: 2px solid $gray-border;
+			border-radius: 35px;
+			padding: 12px 22px;
+			text-transform: uppercase;
+			@include fontSet(22px, 16px, 'LovinSansWeb-Medium');
+
+			&:hover{
+				background-color: $gray-border;
+				color: $white;
+				border-color: $gray-separator;
+			}
+
+			@media only screen and (max-width: 767px){
+				margin-bottom: 5px;
+				margin-top: 5px;
+				@include fontSet(20px, 18px, 'LovinSansWeb-Medium');
+				padding: 10px 20px;
+			}
+
+		}
+
+		.form-inline{
+			padding: 10px 15px 15px 15px;
+
+			.form-control{
+				width: 100%;
+			}
+		}
+
+		.cont-text{
+
+			h3{
+				margin-top: 0px;
+				@include fontSet(36px, 40px, 'LovinSansWeb-Bold');
+			}
+
+			&.confirmation{
+				margin-top: 100px;
+				margin-bottom: 100px;
+
+				h3{
+					@include fontSet(56px, 66px, 'LovinSansWeb-Bold');
+					text-transform: uppercase;
+					margin-bottom: 5px;
+				}
+
+				button{
+					margin: 0 auto;
+					display: block;
+					margin-top: 20px;
+					width: auto;
+				}
+			}
+
+		}
+
+		.legal{
+			color: $white;
+			@include fontSet(18px, 24px, $font-lovinsans);
+
+			a{
+				text-decoration: underline;
+			}
+		}
+
+		.cont-foot{
+			border-top: 1px solid $gray-border;
+			padding-top: 20px;
+			margin-top: 20px;
+			@include fontSet(28px, 34px, $font-lovinsans);
+
+			i{
+				margin-left: 10px;
+			}
+
+			.large{
+				@include fontSet(28px, 34px, 'LovinSansWeb-Medium');
+			}
+
+			a{
+				@include fontSet(28px, 34px, 'LovinSansWeb-Medium');
+			}
+
+			@media only screen and (max-width: 767px){
+				@include fontSet(22px, 32px, $font-lovinsans);
+
+				.large{
+					@include fontSet(22px, 32px, 'LovinSansWeb-Medium');
+				}
+
+				a{
+					@include fontSet(22px, 32px, 'LovinSansWeb-Medium');
+				}
+			}
+		}
+
+		.close{
+			color: $white;
+			font-size: 24px;
+			position: absolute;
+			display: block;
+			top: 20px;
+			right: 30px;
+			opacity: 1;
+			cursor: pointer;
+			width: auto;
+
+			&:hover{
+				background: transparent;
+			}
+
+			@media only screen and (max-width: 767px){
+				top: 10px;
+				right: 20px;
+			}
+
+		}
+
+		table{
+			text-align: left;
+			@include fontSet(24px, 30px, $font-lovinsans);
+			margin-bottom: 20px;
+			margin-top: 20px;
+			letter-spacing: 0.05em;
+
+			tr{
+				td{
+					padding-right: 20px;
+					padding-bottom: 10px;
+
+					&:first-child{
+						@include fontSet(24px, 30px, 'LovinSansWeb-Medium');
+					}
+				}
+			}
+
+			@media only screen and (max-width: 767px) {
+				@include fontSet(20px, 26px, $font-lovinsans);
+
+				tr{
+					td{
+						padding-bottom: 15px;
+
+						&:first-child{
+							@include fontSet(20px, 26px, 'LovinSansWeb-Medium');
+						}
+					}
+				}
+
+			}
+
+		}
+
+		.edit{
+			padding: 0px 20px;
+			position: absolute;
+			display: inline-block;
+			width: 100px;
+			margin-top: -20px;
+
+			@media only screen and (max-width: 767px) {
+				padding: 0px 10px;
+				right: 0px;
+
+			}
+		}
+	}
+
+	.dropdown{
+		padding: 0;
+
+		> a {
+			padding: 10px 0px 10px 5px;
+			position: relative;
+			border: 2px solid transparent;
+			display: inline-block;
+			@include transition(none);
+
+			i{
+				margin-right: 3px;
+			}
+		}
+
+		&.open{
+			margin-right: -10px;
+			margin-left: 7px;
+
+			&:before{
+				display: none;
+			}
+
+			&:after{
+				content: '';
+				width: 2px;
+				background-color: $gray-border;
+				height: 100%;
+				right: 0;
+				top:0;
+				position: absolute;
+				z-index: 2;
+			}
+
+			> a {
+				padding: 10px;
+				z-index: 1;
+				display: block;
+				background: $black;
+				border-top: 2px solid $gray-border;
+				border-left: 2px solid $gray-border;
+				border-right: 2px solid transparent;
+				border-bottom: 2px solid transparent;
+			}
+
+
+
+			@media only screen and (min-width: 768px) {
+				> a {
+					background: $black;
+					outline: none;
+				}
+			}
+		}
+
+
+	}
+
+	@media only screen and (max-width: 767px) {
+		float: left;
+		width: 40%;
+		padding: 36px 0px 0px 15px;
+
+		a{
+			@include fontSet(20px, 30px);
+		}
+	}
+
+	@media only screen and (max-width: 480px){
+		padding: 36px 0px 0px 15px;
+	}
+
+	@media only screen and (max-width: 320px){
+
+		a{
+			@include fontSet(18px, 30px);
+		}
+	}
+
+}
+
+.component-search {
+
+	.wrapper {
+		padding: 20px 15px;
+	}
+
+	.form-control {
+		@include fontSet(26px, 36px, $font-lovinsans);
+	}
+
+	.input-group .input-group-btn {
+		border-left: 0;
+
+		.btn {
+			background: $white;
+			border-top-right-radius: 30px;
+			border-bottom-right-radius: 30px;
+			border: 0;
+			padding: 9.5px 15px;
+		}
+
+		&:hover {
+			.btn {
+				background: $white;
+				border: 0;
+			}
+		}
+	}
+}
+
+/* ada skip to content */
+.nav-skip-to-content{
+	position: absolute;
+	top: -1000px;
+	left: -1000px;
+	height: 1px;
+	width: 1px;
+	text-align: left;
+	overflow: hidden;
+	padding: 0.4em;
+	background-color: #f5f3eb;
+	font-weight: bold;
+}
+
+.nav-skip-to-content:active, .nav-skip-to-content:focus, .nav-skip-to-content:hover{
+	left: 0;
+    top: 0;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    z-index: 1000;
+}
+.menubar .fa-search {
+    top: -1px;
+    position: relative;
+}
+
+form.component-locate {
+    margin-top: 0px;
+}
+.col-whole .input--checkbox {
+    min-height: 0px;
+}
+
+.localitemimagelist {display:none !important;}
+.localeventitem  {display:none !important;}
+
+@include only_ie9('.navbar .component-navigation .nav-justified-spacing > ul > li .list-media.whats-hot li', (width: 24.5%), 'sm');
+
+@include only_ie9('.navbar .component-navigation .nav-justified-spacing > ul > li .list-media.offers-list li:first-child', (width: 46%), 'sm');
+
+@include only_ie9('.navbar .component-navigation .nav-justified-spacing > ul > li .list-media.about-our-food li', (width: 16%), 'sm');
+
+.imagelist-flyout ul li a {position: relative; display: block;}

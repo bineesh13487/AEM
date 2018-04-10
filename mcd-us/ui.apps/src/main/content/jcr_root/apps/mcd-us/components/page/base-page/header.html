@@ -1,0 +1,169 @@
+<style>
+    [ng\:cloak], [ng-cloak], .ng-cloak {
+    display: none !important;
+    }
+</style>
+<script type="text/javascript"  src="//maps.google.com/maps/api/js?v=3&sensor=false&libraries=geometry&client=gme-mcdonaldscorporation2&channel=USRWD-DEP-ProdChannel"></script>
+<header class="header" role="banner" data-sly-use.handler="com.mcd.rwd.us.core.sightly.page.Header" data-ng-controller="glController" data-ng-init="init(true,false)">
+    <sly data-sly-use.enableSSO="com.mcd.rwd.us.core.sso_profile.LoginStatusIndicator" data-sly-test="${enableSSO.includeConfig}" data-sly-resource="${'privacyandtcupdate' @ resourceType='mcd-us/components/content/sso-profile/privacyandtcupdate'}"></sly>
+    <div id="rlJson" class="displayNone" data-rl-json="${handler.initializeRLJsonLabels}"></div>
+    <div id="adaTextJson" class="displayNone" data-ada-json="${handler.adaGenericTexts}"></div>
+    <div class="navbar navbar-default navbar-fixed-top">
+        <sly data-sly-include="cookiebanner.html"></sly>
+        <div class="container clearfix">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header-wrapper">
+                <sly data-sly-include="smartbanner.html"></sly>
+                <div class="navbar-header">
+
+					<a href="#maincontent-target" class="nav-skip-to-content not-first" title="Skip to Content">Skip to Content</a>
+
+                    <div class="component-language-toggle visible-xs">
+                        <div class="cont-items clearfix">
+                            <div class="cont-half dontscroll" data-sly-test="${handler.languageToggleEnabled}">
+                                <sly data-sly-resource="${'languagetoggle' @ resourceType='mcd-rwd-global/components/content/languagetoggle'}"></sly>
+                            </div>
+                            <div class="dontscroll cont-half dropdown-mobile" >
+                                  <a data-sly-test="${handler.joinLinkEnabled && handler.joinLink.href}" href="${handler.joinLink.href}" title="${handler.joinLink.text}" role="button"><i class="fa fa-envelope"></i><span class="joinpreference"> ${handler.joinLink.text}</span></a>
+
+								<a data-sly-test="${handler.joinLinkEnabled && !handler.joinLink.href}" href="#" class="dontscroll dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"><i class="fa fa-envelope"></i><span class="joinpreference"> ${handler.joinLink.text}</span></a>
+                                <ul data-sly-test="${handler.joinLinkEnabled && !handler.joinLink.href}" class="dropdown-menu joinEmailListcontainerMobile"></ul>
+
+                            </div>
+                            <div class="loginStatusIndicator">
+                                <sly data-sly-test="${enableSSO.includeConfig}" data-sly-resource="${'loginstatusindicator' @ resourceType='mcd-us/components/content/sso-profile/loginstatusindicator'}"></sly>
+                            </div>
+                            <div class="privacyAndTCUpdate">
+                                <sly data-sly-test="${enableSSO.includeConfig}" data-sly-resource="${'privacyAndTCUpdate' @ resourceType='mcd-us/components/content/sso-profile/privacyAndTCUpdate'}"></sly>
+                            </div>
+                        </div>
+                    </div>
+                    <sly data-sly-resource="${'logo' @ resourceType='mcd-rwd-global/components/content/logo'}"></sly>
+                    <div class="nav-mobile-right clearfix">
+                        <div class="cont-items">
+                            <div class="dontscroll not-on-locate component-locate dropdown-mobile visible-xs">
+                                <a data-sly-test="${handler.isRlPage && handler.locateLinkEnabled}" href="#" class="not-on-locate dropdown-toggle drop-parent disabled" data-toggle="dropdown" role="button" data-at="TopLinks:${handler.pageNameForAnalytics}:{{fullRlData.locateLabel}}" data-track="topLinks" ng-cloak>
+                                    <i class="fa fa-map-marker"></i> {{fullRlData.locateLabel}}
+                                </a>
+
+                                <a data-sly-test="${!handler.isRlPage && handler.locateLinkEnabled}" href="#" class="not-on-locate dropdown-toggle drop-parent" data-toggle="dropdown" role="button" data-at="TopLinks:${handler.pageNameForAnalytics}:{{fullRlData.locateLabel}}" data-track="topLinks" ng-cloak>
+                                    <i class="fa fa-map-marker"></i> {{fullRlData.locateLabel}}
+                                </a>
+
+                                <ul data-sly-test="${!handler.isRlPage}" data-sly-include="rlMobile.html" class="dropdown-menu modals-black"></ul>
+                            </div>
+
+                        </div>
+                        <div class="cont-items">
+                            <button role="button" id="last-target-hamburger" class="hamburger hamburger--squeeze navbar-toggle collapsed mobile-nav-area" type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false" aria-label="Main Menu" aria-controls="bs-example-navbar-collapse-1" aria-owns="bs-example-navbar-collapse-1" aria-live="polite">
+                            <span class="hamburger-box">
+                                <span class="hamburger-inner"></span>
+                            </span>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div  ng-cloak class="collapse navbar-collapse top-nav-collapse mobile-nav-area" id="bs-example-navbar-collapse-1"
+                  ng-style="{'margin-top': flyoutMargin}">
+                <div class="top-components clearfix hidden-xs" ng-cloak>
+                    <ul class="list-inline location-nearest megamenu">
+                        <li data-sly-test="${handler.locateLinkEnabled}" id="component-nearest-location-desktop" class="dropdown hidden-xs component-nearest-location-desktop-wrapper menu-parent" tabindex="-1">
+                            <div ng-if="showGeo" class="component-nearest-location navbar-left"> <span ng-cloak>{{fullRlData.locNearLabel}}</span>: <button type="button" data-target="#component-nearest-location-desktop" data-toggle="dropdown" aria-haspopup="true" title="{{fullRlData.locNearLabel}}" data-at="TopLinks:${handler.pageNameForAnalytics}:Location Nearest You" data-track="topLinks" ng-cloak ng-bind="firstRestaurantName"><i class="fa fa-chevron-right"></i></button> </div>
+                            <div ng-if="showPrefered" class="component-nearest-location navbar-left"><span ng-cloak> {{fullRlData.preferedLocLabel}}</span>: <button type="button" ng-click="updateRestaurants()" data-target="#component-nearest-location-desktop" data-toggle="dropdown" aria-haspopup="true" title="{{fullRlData.preferedLocLabel}}" data-at="TopLinks:${handler.pageNameForAnalytics}:Location Nearest You" data-track="topLinks" ng-cloak ng-bind="firstRestaurantName"><i class="fa fa-chevron-right"></i></button> </div>
+                            <div ng-if="showDefault" class="component-nearest-location navbar-left"><span ng-cloak> {{fullRlData.nearestLocLabel}}</span>: <a ng-href="{{fullRlData.restLocPath}}" data-at="TopLinks:${handler.pageNameForAnalytics}:{{fullRlData.nearestLocLabel}}" title="{{fullRlData.nearestLocLabel}}" data-track="topLinks" ng-cloak ><span ng-cloak>{{fullRlData.locateMe}}</span> <i class="fa fa-chevron-right"></i></a> </div>
+
+                            <sly data-sly-include="geoDesktop.html"/>
+                        </li>
+                    </ul>
+                    <div class="component-language-toggle navbar-right">
+                        <ul class="list-inline megamenu">
+                            <li data-sly-test="${handler.languageToggleEnabled}">
+                                <sly data-sly-resource="${'languagetoggle' @ resourceType='mcd-rwd-global/components/content/languagetoggle'}"></sly>
+                            </li>
+                            <sly data-sly-list="${handler.headerLinks}">
+                                <li data-sly-test="${item.text}">
+                                    <a href="${item.href}" class="${item.linkClass}" target="${item.target}" data-at="TopLinks:${handler.pageNameForAnalytics}:${item.text}" data-track="topLinks">${item.text}</a>
+                                </li>
+                            </sly>
+                            <li class="dropdown" data-sly-test="${handler.joinLinkEnabled && handler.joinLink.href}" ng-if="loggedout">
+                                <a href="${handler.joinLink.href}" role="button" data-at="TopLinks:${handler.pageNameForAnalytics}:${handler.joinLink.text}" data-track="topLinks" aria-haspopup="true"><i class="fa fa-envelope"></i><span class="joinpreference"> ${handler.joinLink.text}</span></a>
+                                <!--/*
+                                <a href="#" title="${handler.joinLinkText}" class="dropdown-toggle" data-toggle="dropdown" role="button"><i class="fa fa-envelope"></i><span class="joinpreference"> ${handler.joinLinkText}</span></a>
+                                <ul class="dropdown-menu joinEmailListcontainer"></ul>
+                                */-->
+                            </li>
+							<li class="dropdown" data-sly-test="${handler.joinLinkEnabled && !handler.joinLink.href}">
+                                <a href="#"  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"><i class="fa fa-envelope"></i><span class="joinpreference"> ${handler.joinLink.text}</span></a>
+                                <ul class="dropdown-menu joinEmailListcontainer">
+                                </ul>
+                            </li>
+                            <sly data-sly-test="${enableSSO.includeConfig}" data-sly-resource="${'loginstatusindicator' @ resourceType='mcd-us/components/content/sso-profile/loginstatusindicator'}"></sly>
+                        </ul>
+                    </div>
+                </div>
+                <div class="bottom-components">
+                    <div class="component-navigation">
+                        <nav class="nav-justified-spacing" aria-label="${handler.topNavigationAria}" >
+                            <ul id="mb1" role="menu" class="megamenu menubar root-level">
+
+                                <li data-sly-test="${handler.locateLinkEnabled}" class="dropdown visible-xs-block component-nearest-location menu-parent">
+                                    <a ng-show="showGeo" href="#" tabindex="0" title="{{fullRlData.locNearLabel}}" ng-click="resizeMap(restaurants)" class="dropdown-toggle nearest-mobile" data-toggle="dropdown" role="menuitem" data-at="TopLinks:${handler.pageNameForAnalytics}:{{fullRlData.locNearLabel}}" data-track="topLinks">
+                                        <span ng-cloak>{{fullRlData.locNearLabel}}</span>: <br/><span class="light" ng-cloak >{{firstRestaurantName}}</span> <i class="fa fa-chevron-right"></i>
+                                    </a>
+                                    <a ng-show="showPrefered" href="#" tabindex="0" title="{{fullRlData.preferedLocLabel}}" ng-click="updateRestaurants()" ng-click="resizeMap(restaurants)" class="dropdown-toggle nearest-mobile" data-toggle="dropdown" role="menuitem" data-at="TopLinks:${handler.pageNameForAnalytics}:{{fullRlData.preferedLocLabel}}" data-track="topLinks">
+                                        <span ng-cloak>{{fullRlData.preferedLocLabel}}</span>: <br/> <span class="light" ng-cloak >{{firstRestaurantName}}</span> <i class="fa fa-chevron-right"></i>
+                                    </a>
+                                    <a ng-show="showDefault" ng-href="{{fullRlData.restLocPath}}" ng-click="resizeMap(restaurants)" title="{{fullRlData.nearestLocLabel}}" class="" data-toggle="" role="button" data-at="TopLinks:${handler.pageNameForAnalytics}:{{fullRlData.nearestLocLabel}}" data-track="topLinks">
+                                        <span ng-cloak> {{fullRlData.nearestLocLabel}}</span>: <br/><span class="light" ng-cloak ><span ng-cloak>{{fullRlData.locateMe}}</span></span> <i class="fa fa-chevron-right"></i>
+                                    </a>
+                                    <ul class="dropdown-menu" aria-expanded="false" role="menu">
+                                        <sly data-sly-include="geoMobile.html"/>
+                                    </ul>
+                                </li>
+
+                                <sly data-sly-resource="${ 'nav' @ resourceType='mcd-us/components/content/topnavigation'}"></sly>
+
+                                <li data-sly-test="${handler.isRlPage == 'false' && handler.locateLinkEnabled}" class="dropdown hidden-xs menu-parent" ng-cloak>
+                                    <a href="#" id="menu-locate" class="not-on-locate dropdown-toggle" data-toggle="dropdown" aria-expanded="${handler.isRlPage}" role="button" ng-cloak><i class="fa fa-map-marker"></i> {{fullRlData.locateLabel}}</a>
+                                    <ul data-sly-test="${handler.isRlPage == 'false'}" data-sly-include="rlDesktop.html" class="dropdown-menu" role="menu" aria-labelledby="menu-locate" aria-expanded="false">
+                                    </ul>
+                                </li>
+
+                                <li data-sly-test="${handler.isRlPage == 'true' && handler.locateLinkEnabled}" class="dropdown hidden-xs menu-parent" ng-cloak>
+                                    <a  href="#" id="menu-locate" class="not-on-locate dropdown-toggle disabled" data-toggle="dropdown" aria-expanded="${handler.isRlPage}" role="button" ng-cloak><i class="fa fa-map-marker"></i> {{fullRlData.locateLabel}}</a>
+                                    <ul data-sly-test="${handler.isRlPage == 'true'}" data-sly-include="rlDesktop.html" class="dropdown-menu" role="menu" aria-labelledby="menu-locate" aria-expanded="false">
+                                    </ul>
+                                </li>
+                                <sly data-sly-resource="${ 'searchWidget' @ resourceType='mcd-us/components/content/searchWidget'}"></sly>
+
+                                <li class="visible-xs-block component-footer-mobile">
+                                    <div class="wrapper">
+                                        <sly data-sly-resource="${'footernav' @ resourceType='mcd-us/components/content/footernav', selectors='mobile'}"></sly>
+                                    </div>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </div>
+    <div class="sso-notification" ng-cloak ng-controller="TemporaryNotificationController">
+
+        <div ng-if="!notificationCTA" class="sso-notification-wrapper" role="alert" ng-show="notification.show">
+            <div class="sso-notification-title">{{notification.msg}}</div>
+            <a href="javascript:void(0);" ng-click="clear()" class="sso-notification-close" title="close"><i class="fa fa-times-circle" aria-hidden="true"></i></a>
+        </div>
+
+
+        <div ng-if="notificationCTA" class="sso-notification-wrapper" role="alert" ng-show="notification.show">
+            <div class="sso-notification-title"><a href="javascript:void(0);" ng-click="ctcAction()">{{notification.msg}}</a></div>
+            <a href="javascript:void(0);" ng-click="clear()" class="sso-notification-close" title="close"><i class="fa fa-times-circle" aria-hidden="true"></i></a>
+        </div>
+
+
+    </div>
+</header>

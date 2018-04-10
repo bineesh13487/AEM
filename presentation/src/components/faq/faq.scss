@@ -1,0 +1,97 @@
+$mcd-faq-border-style: to-rem(1) solid #cecece;
+.mcd-faq {
+  @include make-container();
+
+  margin-bottom: to-rem(60);
+  border-bottom: $mcd-faq-border-style;
+
+  .columncontrol & {
+    width: 100%;
+    padding: 0;
+  }
+
+  @include e('popular-topics-title') {
+    @include make-h1();
+  }
+
+  @include e('popular-topics-desc') {
+    font-size: 1rem;
+    color: $dark-gray-1;
+    margin-bottom: to-rem(53);
+    @media screen and (min-width: $screen-sm-min) {
+      padding-right: to-rem(164);
+    }
+  }
+
+  @include e('panel-title-block') {
+    height: to-rem(62);
+    border-top: $mcd-faq-border-style;
+  }
+
+  @include e('category-panel') {
+    box-shadow: none;
+    margin-bottom: 0;
+  }
+
+  @include e('panel-title') {
+    margin: 0;
+  }
+
+  @include e('panel-title-link') {
+    font-size: to-rem(18);
+    line-height: to-rem(22);
+    color: $dark-gray-2;
+    display: inline-block;
+    width: 100%;
+    padding: to-rem(20) 0 to-rem(20) to-rem(10);
+  }
+
+  @include e('panel-title-icon') {
+    width: to-rem(22);
+    height: to-rem(22);
+    margin-right: to-rem(2);
+    float: right;
+    transition: all 0.5s linear;
+    transform-origin: center center;
+    &:before {
+      color: $call-to-action-toggle-red;
+    }
+    .collapsed > & {
+      transform: rotate(180deg);
+      margin-right: to-rem(7);
+    }
+  }
+
+  @include e('panel-content-block') {
+    margin: to-rem(9) to-rem(25) to-rem(35) to-rem(10);
+  }
+
+  @include e('panel-questions-link') {
+    color: $control-blue;
+    font-size: to-rem(16);
+    margin-bottom: to-rem(14);
+  }
+  @include e('questions-panel') {
+    box-shadow: none;
+  }
+
+  @media screen and (min-width: $screen-sm-min) {
+    padding: 0 to-rem(15) 0 to-rem(15);
+    margin-bottom: to-rem(100);
+  }
+
+  /* multi-column can be implemented post backend change
+  @include e('two-columns') {
+    columns: 2;
+    @include e('accordion') {
+      width: 100%;
+      -webkit-column-break-inside: avoid;
+      list-style-position: inside;
+      -webkit-column-break-inside: avoid;
+      page-break-inside: avoid;
+      break-inside: avoid;
+      transition: all 1s ease 0.1s;
+    }
+  }
+  */
+}

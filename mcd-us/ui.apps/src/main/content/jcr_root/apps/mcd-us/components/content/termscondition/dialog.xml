@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Dialog"
+    height="700"
+    width="{Long}875"
+    xtype="dialog">
+    <items
+        jcr:primaryType="nt:unstructured"
+        xtype="tabpanel">
+        <items jcr:primaryType="cq:WidgetCollection">
+            <Title
+                jcr:primaryType="cq:Widget"
+                title="Title"
+                xtype="panel">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <title
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Terms Condition Title"
+                        fieldLabel="Title"
+                        name="./title"
+                        validateOnBlur="true"
+                        xtype="textfield"/>
+                    <buttontitle
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Button Name"
+                        fieldLabel="Button Name"
+                        name="./buttonName"
+                        validateOnBlur="true"
+                        xtype="textfield"/>
+                </items>
+            </Title>
+        </items>
+    </items>
+    <listeners
+        jcr:primaryType="nt:unstructured"
+        beforesubmit="function(dialog)&#xa;{ &#xa;var img = dialog.getField('./image/file').hasData(); &#xa;var imgPath = dialog.getField('./externalImagePath').getValue();&#xa;if(img &amp;&amp; imgPath.length>0)&#xa;{CQ.Ext.Msg.show({'title':'Dialog Validation','msg':'Please provide Image either from Image Tab or using HTTP Path of Image path.','buttons':CQ.Ext.Msg.OK,'icon':CQ.Ext.MessageBox.INFO,'scope':this}); &#xa;return false;&#xa;} &#xa;&#xa;var imageLink = dialog.getField('./imageLink').getValue();&#xa;var thumb = dialog.getField('./createThumbnail').getValue();&#xa;var uploadLink = dialog.getField('./file').hasData();&#xa;if(thumb == &quot;&quot;)&#xa;{&#xa;thumb = false;&#xa;}&#xa;if((thumb &amp;&amp; uploadLink &amp;&amp; imageLink.length>0) || (thumb &amp;&amp; uploadLink) || (thumb &amp;&amp; imageLink.length>0) || (uploadLink &amp;&amp; imageLink.length>0))&#xa;{CQ.Ext.Msg.show({'title':'Dialog Validation','msg':'Please provide Only Thumbnail Or Image Link Or Upload a file in Advanced Image Tab.','buttons':CQ.Ext.Msg.OK,'icon':CQ.Ext.MessageBox.INFO,'scope':this}); &#xa;return false;&#xa;} &#xa;}"
+        loadContent="function(dialog) { &#x9;var checkFlag = dialog.getField('./flag').getValue(); &#x9;if(checkFlag == '1') { &#x9;&#x9;dialog.getField('./flag').setValue('2'); &#x9;&#x9;var path=location.toString();path=path.replace('.html','.getTextDirection.html'); &#x9;&#x9;var value=CQ.Util.formatData(CQ.Util.eval(CQ.HTTP.get(path)));   &#x9;&#x9;if(value.direction=='rtl') { &#x9;&#x9;&#x9;dialog.getField('./textAlign').setValue('right'); &#x9;&#x9;&#x9;dialog.getField('./titleAlign').setValue('right'); &#x9;&#x9;&#x9;dialog.getField('./borderTitleAlign').setValue('right'); &#x9;&#x9;&#x9;dialog.getField('./captionAlignment').setValue('right'); &#x9;dialog.getField('./imagePosition').setValue('right'); &#x9;}  &#x9;} }"/>
+</jcr:root>

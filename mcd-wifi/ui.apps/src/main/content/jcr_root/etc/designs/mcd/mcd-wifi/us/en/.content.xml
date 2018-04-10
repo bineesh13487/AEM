@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:lastModified="{Date}2016-06-21T18:23:54.754+05:30"
+        cq:lastModifiedBy="admin"
+        cq:template="/apps/mcd-wifi/templates/siteconfig"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="English"
+        sling:resourceType="mcd-wifi/components/page/siteconfig">
+        <dialog/>
+        <logo
+            jcr:primaryType="nt:unstructured"
+            alt="McD Wifi"
+            link="/content/mcd-wifi/us/en/welcome">
+            <image
+                jcr:lastModified="{Date}2016-06-21T18:23:54.693+05:30"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="foundation/components/image"
+                fileReference="/content/dam/mcd-wifi/us/ui/logo/mcd-logo-Large.png"
+                imageRotate="0"/>
+        </logo>
+        <footer
+            jcr:primaryType="nt:unstructured"
+            channels="\{&quot;title&quot;:&quot;Terms &amp; Conditions&quot;,&quot;path&quot;:&quot;&quot;,&quot;target&quot;:false}"
+            copyright="2010-2016  McDonald's. All Rights Reserved."
+            termsBodyText="&lt;p>McDonald’s Free Wi-Fi Service and the Wi-Fi Portal in the McDonald’s Loft at SXSW Delivered by RightRound, LLC&lt;/p>&#xa;&lt;p>Wi-Fi connectivity service (“Service”) is provided by RightRound, LLC and your use of the Service is governed by RightRound, LLC's applicable terms and conditions and privacy policy, available at www.rightround.com, as well as the terms provided below. &amp;nbsp;Please contact RightRound, LLC at [INSERT ADDRESS] with any questions or concerns relating to the Service.&lt;/p>&#xa;&lt;p>Third Party Content Disclaimer/ Links to Third Party Sites&lt;/p>&#xa;&lt;p>Content provided by Third Party Providers (&amp;quot;Third Party Content&amp;quot;) has not been independently authenticated in whole or in part by RightRound, LLC. RightRound, LLC does not provide, sell, license, or lease any of the Third Party Content other than those specifically identified as being provided by RightRound, LLC. This Service may be linked to other websites which are not under the control of and are not maintained by RightRound, LLC. RightRound, LLC is not responsible for the content of those sites. RightRound, LLC is providing these links to you only as a convenience, and the inclusion of any link to such sites does not imply endorsement or support by RightRound, LLC of those sites.&lt;/p>&#xa;&lt;p>DATA COLLECTION&lt;/p>&#xa;&lt;p>The following applies whenever you connect to or your device communicates with the Wi-Fi network, including by Auto-Authentication.&lt;/p>&#xa;&lt;p>Location&lt;/p>&#xa;&lt;p>When you connect to or your device communicates with the Wi-Fi network the Wi-Fi network generates records that are specific to the Location and sometimes specific to areas within that Location. By using this Service you consent to the collection, use, and disclosure of the information as discussed below and in the RightRound, LLC Privacy Policy. For example, RightRound, LLC may use the information to assess and improve service performance. RightRound, LLC also may use the information for Metrics Reports. RightRound, LLC does not include personal information that will allow the Location owner or operator to specifically identify you, unless we give you prior notice and receive your express consent.&lt;/p>&#xa;&lt;p>Web Browsing&lt;/p>&#xa;&lt;p>When you connect to the Service, RightRound, LLC is routing your traffic from the Wi-Fi Network to other networks which will connect you to a separate Internet connection. We may also enable certain technologies intended to improve your experience, maintain network security, and/or optimize network utilization that may generate records regarding the websites you visit and search terms you enter while using the Service. We do not gather information from secure connections such as VPN or HTTPS. By using this Service, you consent to our collecting this information. You also agree and consent to our using the information as discussed below and in the RightRound, LLC Privacy Policy.&amp;nbsp;&lt;/p>&#xa;&lt;p>DATA USE&lt;/p>&#xa;&lt;p>Metric Reports&lt;/p>&#xa;&lt;p>At Locations where RightRound, LLC contracts with owners and operators of popular establishments to enable them to provide the Service to you at such Locations, we may provide those owners and operators with Metric Reports about usage of the Service within the Location. Metric reports contain statistical information including the number of devices connecting to the Service, duration of such connections, and the amount of bandwidth used during those sessions. If the owner or operator has more than one Location, the Metric Reports may contain information about or from a single Location or aggregated Locations. These reports demonstrate the value of the Service to the owner or operator of the Location, enabling the better provisioning of the Service at more Locations. The reports also provide the owner or operator of the Location with insights into how to better serve you. These reports contain aggregate and anonymous data, and are provided in accordance with RightRound, LLC’s Privacy Policy. If you don't want information about your use of the Service collected and provided in this manner, you should configure your device not to connect to the Service.&lt;/p>&#xa;"
+            termsTitle="Terms &amp; Conditions"/>
+        <scripts
+            jcr:primaryType="nt:unstructured"
+            bodyEnd="&lt;script type=&quot;text/javascript&quot;>_satellite.pageBottom();&lt;/script>"
+            head="&lt;script src=&quot;//assets.adobedtm.com/b1e0f2f1c887c13d5a8d850fc709d9f680d2011c/satelliteLib-a96c84b70273f4bbf0a8b181659531bdbb7dfb20-staging.js&quot;>&lt;/script>"/>
+        <wifi-homepage jcr:primaryType="nt:unstructured">
+            <par
+                jcr:lastModified="{Date}2016-06-03T12:44:31.622+05:30"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="wcm/foundation/components/parsys"
+                components="group:McD-Wifi">
+                <section jcr:primaryType="nt:unstructured"/>
+            </par>
+            <bottom-par
+                jcr:lastModified="{Date}2016-06-03T12:45:10.465+05:30"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="wcm/foundation/components/parsys"
+                components="[/apps/mcd-rwd-global/components/content/columncontrol,/apps/mcd-rwd-global/components/content/htmlupload,/apps/mcd-wifi/components/content/instagram-stream,/apps/mcd-wifi/components/content/twitter-stream]">
+                <section jcr:primaryType="nt:unstructured"/>
+            </bottom-par>
+        </wifi-homepage>
+        <headerGreetings
+            jcr:primaryType="nt:unstructured"
+            cookieGreetings="[Nice to see you here.,You’re back! Is it our speed or our good looks?,We’re guessing you really like our wifi.]"
+            dayPartAfternoon="Good Afternoon."
+            dayPartEvening="Good Evening."
+            dayPartMorning="Good Morning."
+            defaultGreeting="Welcome to McDonald's."/>
+    </jcr:content>
+</jcr:root>

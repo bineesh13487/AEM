@@ -1,0 +1,454 @@
+<!--/*
+
+  ADOBE CONFIDENTIAL
+  __________________
+
+   Copyright 2014 Adobe Systems Incorporated
+   All Rights Reserved.
+
+  NOTICE:  All information contained herein is, and remains
+  the property of Adobe Systems Incorporated and its suppliers,
+  if any.  The intellectual and technical concepts contained
+  herein are proprietary to Adobe Systems Incorporated and its
+  suppliers and are protected by trade secret or copyright law.
+  Dissemination of this information or reproduction of this material
+  is strictly forbidden unless prior written permission is obtained
+  from Adobe Systems Incorporated.
+
+  Include custom libraries in page's footer
+*/-->
+<sly data-sly-resource="${'socialShare' @ resourceType='mcd-us/components/content/socialShare'}"></sly>
+<footer class="footer" style="${body.background @ context='unsafe'};color:#${body.textColor @ context='styleToken'};">
+    <sly data-sly-resource="${'footernav' @ resourceType='mcd-us/components/content/footernav'}"></sly>
+    <sly data-sly-resource="${'footer' @ resourceType='mcd-us/components/content/footer'}"></sly>
+    <!-- <div data-sly-use.handler="com.mcd.rwd.global.core.sightly.page.BumperHandler" class="modal fade-in mcd-legal-bumper" 
+        id="leavingMcD" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content leaving-site-content">
+                <div class="btn-close" data-dismiss="modal">
+                    <i class="fa fa-times"></i>
+                </div>
+                <h1 class="headline-text">
+                    <span class="large-modal-text">${ handler.bumper.title @ context='unsafe' }</span>
+                </h1>
+                <p class="body-copy" data-sly-test="${ handler.bumper.text}">${ handler.bumper.text @ context='unsafe'}</p>
+                <ul class="list-inline">
+                    <li>
+                        <a href="#" id="bumper-continue" title="${ handler.bumper.btnOk }" class="btn btn-red">${ handler.bumper.btnOk @ context='unsafe' }</a>
+                    </li>
+                    <li>
+                        <a href="#" data-dismiss="modal" title="${ handler.bumper.btnCancel }" class="btn btn-red">${ handler.bumper.btnCancel @ context='unsafe' }</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div> -->
+    <!-- fade in to open the modal and remove hide to open the modal-->
+    <div class="modal mcd-legal-bumper hide" id="mcd-legal-bumper" role="dialog" aria-labelledby="mcdLegalBumperLabel">
+
+        <div class="modal-dialog mcd-legal-bumper__modal-dialog" role="document">
+
+            <div class="modal-content mcd-legal-bumper__modal-content">
+                <div class="modal-header mcd-legal-bumper__modal-header">
+                    <button type="button" class="close icon-times no-ring mcd-legal-bumper__button-close" data-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body mcd-legal-bumper__modal-body">
+                    <p class="mcd-legal-bumper__modal--heading">
+                        You?re Leaving McDonalds.com
+                    </p>
+                    <p class="mcd-legal-bumper__modal--link">
+                        https://restaurantjobs.mcdonalds.com is controlled by a third party, not affiliated with McDonald's.
+                    </p>
+                    <p class="mcd-legal-bumper__modal--description">
+                        The content and policies, including the privacy policy, on the site you are entering may vary from McDonald's viewpoints
+                        and policies. Please be sure to review the policies of every site you visit. McDonald's is not responsible
+                        for the opinions, policies, statements or practices of any other companies, such as those that may
+                        be expressed in the web site you are entering.
+                    </p>
+                </div>
+                <div class="modal-footer mcd-legal-bumper__modal-footer">
+                    <button type="button" class="btn btn-default no-ring mcd-legal-bumper__button--cancel" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-default no-ring mcd-legal-bumper__button--continue" data-dismiss="modal">Continue</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- fade in to open the modal and remove hide to open the modal-->
+    <div class="modal mcd-generic-popup hide" id="mcd-generic-popup" role="dialog" aria-labelledby="mcdGenericPopupLabel">
+
+        <div class="modal-dialog mcd-generic-popup__modal-dialog" role="document">
+
+            <div class="modal-content mcd-generic-popup__modal-content">
+                <div class="modal-header mcd-generic-popup__modal-header">
+                    <button type="button" class="close icon-times no-ring mcd-generic-popup__button-close" data-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body mcd-generic-popup__modal-body">
+                    <p class="mcd-generic-popup__modal--heading">
+                        You?re Leaving McDonalds.com
+                    </p>
+                    <p class="mcd-generic-popup__modal--link">
+                        https://restaurantjobs.mcdonalds.com is controlled by a third party, not affiliated with McDonald's.
+                    </p>
+                    <p class="mcd-generic-popup__modal--description">
+                        The content and policies, including the privacy policy, on the site you are entering may vary from McDonald's viewpoints
+                        and policies. Please be sure to review the policies of every site you visit. McDonald's is not responsible
+                        for the opinions, policies, statements or practices of any other companies, such as those that may
+                        be expressed in the web site you are entering.
+                    </p>
+                </div>
+                <div class="modal-footer mcd-generic-popup__modal-footer">
+                    <button type="button" class="btn btn-default no-ring mcd-generic-popup__button--cancel" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-default no-ring mcd-generic-popup__button--continue" data-dismiss="modal">Continue</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- mock for country switcher-->
+    <div class="modal mcd-country-switcher hide" id="mcd-country-switcher" role="dialog" aria-labelledby="mcdCountrySwitcherLabel">
+        <div class="modal-dialog mcd-country-switcher__modal-dialog" role="document">
+            <div class="modal-content mcd-country-switcher__modal-content">
+                <div class="modal-header mcd-country-switcher__modal-header">
+                    <button type="button" class="close icon-times no-ring mcd-country-switcher__button-close" data-dismiss="modal"></button>
+                </div>
+                <div class="modal-body mcd-country-switcher__modal-body">
+                    <p class="mcd-country-switcher__modal-heading">
+                        Choose Market
+                    </p>
+                    <p class="mcd-country-switcher__modal-description">
+                        Select the region that you’re looking for, then browse the list for your market.
+                    </p>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="panel-group" id="accordion">
+                                <div class="panel panel-default mcd-country-switcher__panel-default">
+                                    <div class="panel-heading mcd-country-switcher__panel-heading ">
+                                        <a class="panel-title-label mcd-country-switcher__anchor-label" data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+                                            <div>
+                                                <h4 class="panel-title mcd-country-switcher__panel-title">
+                                                    <span class="mcd-country-switcher__panel-title-label ">Africa</span>
+                                                    <span class="icon-chevron-down-small mcd-country-switcher__icon-chevron-down-small"></span>
+                                                </h4>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div id="collapse1" class="panel-collapse collapse">
+                                        <div class="panel-body mcd-country-switcher__panel-body">
+                                            <div class="row">
+                                                <div class="col-sm-12 mcd-country-switcher__grid-spacing">
+                                                    <span class=" mcd-country-switcher__checkbox-deselected"></span>
+                                                    <div class="panel-body-content-label mcd-country-switcher__panel-body-content-label">Austria </div>
+                                                </div>
+                                                <div class="col-sm-12 mcd-country-switcher__grid-spacing">
+                                                    <span class=" mcd-country-switcher__checkbox-deselected"></span>
+                                                    <div class="panel-body-content-label mcd-country-switcher__panel-body-content-label">Estonia </div>
+                                                </div>
+                                                <div class="col-sm-12 mcd-country-switcher__grid-spacing">
+                                                    <span class=" mcd-country-switcher__checkbox-deselected"></span>
+                                                    <div class="panel-body-content-label mcd-country-switcher__panel-body-content-label">Ireland </div>
+                                                </div>
+                                                <div class="col-sm-12 mcd-country-switcher__grid-spacing">
+                                                    <span class=" mcd-country-switcher__checkbox-deselected"></span>
+                                                    <div class="panel-body-content-label mcd-country-switcher__panel-body-content-label">Netherlands </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel panel-default mcd-country-switcher__panel-default">
+                                    <div class="panel-heading mcd-country-switcher__panel-heading ">
+                                        <a class="panel-title-label mcd-country-switcher__anchor-label" data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+                                            <div>
+                                                <h4 class="panel-title mcd-country-switcher__panel-title">
+                                                    <span class="mcd-country-switcher__panel-title-label ">Asia Pacific</span>
+                                                    <span class="icon-chevron-down-small mcd-country-switcher__icon-chevron-down-small"></span>
+                                                </h4>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div id="collapse2" class="panel-collapse collapse">
+                                        <div class="panel-body mcd-country-switcher__panel-body">
+                                            <div class="row">
+                                                <div class="col-sm-12 mcd-country-switcher__grid-spacing">
+                                                    <span class=" mcd-country-switcher__checkbox-deselected"></span>
+                                                    <div class="panel-body-content-label mcd-country-switcher__panel-body-content-label">Austria </div>
+                                                </div>
+                                                <div class="col-sm-12 mcd-country-switcher__grid-spacing">
+                                                    <span class=" mcd-country-switcher__checkbox-deselected"></span>
+                                                    <div class="panel-body-content-label mcd-country-switcher__panel-body-content-label">Estonia </div>
+                                                </div>
+                                                <div class="col-sm-12 mcd-country-switcher__grid-spacing">
+                                                    <span class=" mcd-country-switcher__checkbox-deselected"></span>
+                                                    <div class="panel-body-content-label mcd-country-switcher__panel-body-content-label">Ireland </div>
+                                                </div>
+                                                <div class="col-sm-12 mcd-country-switcher__grid-spacing">
+                                                    <span class=" mcd-country-switcher__checkbox-deselected"></span>
+                                                    <div class="panel-body-content-label mcd-country-switcher__panel-body-content-label">Netherlands </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel panel-default mcd-country-switcher__panel-default">
+                                    <div class="panel-heading mcd-country-switcher__panel-heading ">
+                                        <a class="panel-title-label mcd-country-switcher__anchor-label" data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+                                            <div>
+                                                <h4 class="panel-title mcd-country-switcher__panel-title">
+                                                    <span class="mcd-country-switcher__panel-title-label ">Europe</span>
+                                                    <span class="icon-chevron-down-small mcd-country-switcher__icon-chevron-down-small"></span>
+                                                </h4>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div id="collapse3" class="panel-collapse collapse">
+                                        <div class="panel-body mcd-country-switcher__panel-body">
+                                            <div class="row">
+                                                <div class="col-sm-12 mcd-country-switcher__grid-spacing">
+                                                    <span class=" mcd-country-switcher__checkbox-deselected"></span>
+                                                    <div class="panel-body-content-label mcd-country-switcher__panel-body-content-label">Austria </div>
+                                                </div>
+                                                <div class="col-sm-12 mcd-country-switcher__grid-spacing">
+                                                    <span class=" mcd-country-switcher__checkbox-deselected"></span>
+                                                    <div class="panel-body-content-label mcd-country-switcher__panel-body-content-label">Estonia </div>
+                                                </div>
+                                                <div class="col-sm-12 mcd-country-switcher__grid-spacing">
+                                                    <span class=" mcd-country-switcher__checkbox-deselected"></span>
+                                                    <div class="panel-body-content-label mcd-country-switcher__panel-body-content-label">Ireland </div>
+                                                </div>
+                                                <div class="col-sm-12 mcd-country-switcher__grid-spacing">
+                                                    <span class=" mcd-country-switcher__checkbox-deselected"></span>
+                                                    <div class="panel-body-content-label mcd-country-switcher__panel-body-content-label">Netherlands </div>
+                                                </div>
+                                                <div class="col-sm-12 mcd-country-switcher__grid-spacing">
+                                                    <span class=" mcd-country-switcher__checkbox-deselected"></span>
+                                                    <div class="panel-body-content-label mcd-country-switcher__panel-body-content-label">Slovakia </div>
+                                                </div>
+                                                <div class="col-sm-12 mcd-country-switcher__grid-spacing">
+                                                    <span class=" mcd-country-switcher__checkbox-deselected"></span>
+                                                    <div class="panel-body-content-label mcd-country-switcher__panel-body-content-label">Azerbaijan </div>
+                                                </div>
+                                                <div class="col-sm-12 mcd-country-switcher__grid-spacing">
+                                                    <span class=" mcd-country-switcher__checkbox-deselected"></span>
+                                                    <div class="panel-body-content-label mcd-country-switcher__panel-body-content-label">Debmark </div>
+                                                </div>
+                                                <div class="col-sm-12 mcd-country-switcher__grid-spacing">
+                                                    <span class=" mcd-country-switcher__checkbox-deselected"></span>
+                                                    <div class="panel-body-content-label mcd-country-switcher__panel-body-content-label">Italy </div>
+                                                </div>
+                                                <div class="col-sm-12 mcd-country-switcher__grid-spacing">
+                                                    <span class=" mcd-country-switcher__checkbox-deselected"></span>
+                                                    <div class="panel-body-content-label mcd-country-switcher__panel-body-content-label">Norway </div>
+                                                </div>
+                                                <div class="col-sm-12 mcd-country-switcher__grid-spacing">
+                                                    <span class=" mcd-country-switcher__checkbox-deselected"></span>
+                                                    <div class="panel-body-content-label mcd-country-switcher__panel-body-content-label">Slovenia </div>
+                                                </div>
+                                                <div class="col-sm-12 mcd-country-switcher__grid-spacing">
+                                                    <span class=" mcd-country-switcher__checkbox-deselected"></span>
+                                                    <div class="panel-body-content-label mcd-country-switcher__panel-body-content-label">Belarus </div>
+                                                </div>
+                                                <div class="col-sm-12 mcd-country-switcher__grid-spacing">
+                                                    <span class=" mcd-country-switcher__checkbox-deselected"></span>
+                                                    <div class="panel-body-content-label mcd-country-switcher__panel-body-content-label">Finalnd </div>
+                                                </div>
+                                                <div class="col-sm-12 mcd-country-switcher__grid-spacing">
+                                                    <span class=" mcd-country-switcher__checkbox-deselected"></span>
+                                                    <div class="panel-body-content-label mcd-country-switcher__panel-body-content-label">Kazakhstan </div>
+                                                </div>
+                                                <div class="col-sm-12 mcd-country-switcher__grid-spacing">
+                                                    <span class=" mcd-country-switcher__checkbox-deselected"></span>
+                                                    <div class="panel-body-content-label mcd-country-switcher__panel-body-content-label">Poland </div>
+                                                </div>
+                                                <div class="col-sm-12 mcd-country-switcher__grid-spacing">
+                                                    <span class=" mcd-country-switcher__checkbox-deselected"></span>
+                                                    <div class="panel-body-content-label mcd-country-switcher__panel-body-content-label">Spain </div>
+                                                </div>
+                                                <div class="col-sm-12 mcd-country-switcher__grid-spacing">
+                                                    <span class=" mcd-country-switcher__checkbox-deselected"></span>
+                                                    <div class="panel-body-content-label mcd-country-switcher__panel-body-content-label">Belgium </div>
+                                                </div>
+                                                <div class="col-sm-12 mcd-country-switcher__grid-spacing">
+                                                    <span class=" mcd-country-switcher__checkbox-deselected"></span>
+                                                    <div class="panel-body-content-label mcd-country-switcher__panel-body-content-label">Austria </div>
+                                                </div>
+                                                <div class="col-sm-12 mcd-country-switcher__grid-spacing">
+                                                    <span class=" mcd-country-switcher__checkbox-deselected"></span>
+                                                    <div class="panel-body-content-label mcd-country-switcher__panel-body-content-label">Estonia </div>
+                                                </div>
+                                                <div class="col-sm-12 mcd-country-switcher__grid-spacing">
+                                                    <span class=" mcd-country-switcher__checkbox-deselected"></span>
+                                                    <div class="panel-body-content-label mcd-country-switcher__panel-body-content-label">Ireland </div>
+                                                </div>
+                                                <div class="col-sm-12 mcd-country-switcher__grid-spacing">
+                                                    <span class=" mcd-country-switcher__checkbox-deselected"></span>
+                                                    <div class="panel-body-content-label mcd-country-switcher__panel-body-content-label">Netherlands </div>
+                                                </div>
+                                                <div class="col-sm-12 mcd-country-switcher__grid-spacing">
+                                                    <span class=" mcd-country-switcher__checkbox-deselected"></span>
+                                                    <div class="panel-body-content-label mcd-country-switcher__panel-body-content-label">Slovakia </div>
+                                                </div>
+                                                <div class="col-sm-12 mcd-country-switcher__grid-spacing">
+                                                    <span class=" mcd-country-switcher__checkbox-deselected"></span>
+                                                    <div class="panel-body-content-label mcd-country-switcher__panel-body-content-label">Azerbaijan </div>
+                                                </div>
+                                                <div class="col-sm-12 mcd-country-switcher__grid-spacing">
+                                                    <span class=" mcd-country-switcher__checkbox-deselected"></span>
+                                                    <div class="panel-body-content-label mcd-country-switcher__panel-body-content-label">Debmark </div>
+                                                </div>
+                                                <div class="col-sm-12 mcd-country-switcher__grid-spacing">
+                                                    <span class=" mcd-country-switcher__checkbox-deselected"></span>
+                                                    <div class="panel-body-content-label mcd-country-switcher__panel-body-content-label">Italy </div>
+                                                </div>
+                                                <div class="col-sm-12 mcd-country-switcher__grid-spacing">
+                                                    <span class=" mcd-country-switcher__checkbox-deselected"></span>
+                                                    <div class="panel-body-content-label mcd-country-switcher__panel-body-content-label">Norway </div>
+                                                </div>
+                                                <div class="col-sm-12 mcd-country-switcher__grid-spacing">
+                                                    <span class=" mcd-country-switcher__checkbox-deselected"></span>
+                                                    <div class="panel-body-content-label mcd-country-switcher__panel-body-content-label">Slovenia </div>
+                                                </div>
+                                                <div class="col-sm-12 mcd-country-switcher__grid-spacing">
+                                                    <span class=" mcd-country-switcher__checkbox-deselected"></span>
+                                                    <div class="panel-body-content-label mcd-country-switcher__panel-body-content-label">Belarus </div>
+                                                </div>
+                                                <div class="col-sm-12 mcd-country-switcher__grid-spacing">
+                                                    <span class=" mcd-country-switcher__checkbox-deselected"></span>
+                                                    <div class="panel-body-content-label mcd-country-switcher__panel-body-content-label">Finalnd </div>
+                                                </div>
+                                                <div class="col-sm-12 mcd-country-switcher__grid-spacing">
+                                                    <span class=" mcd-country-switcher__checkbox-deselected"></span>
+                                                    <div class="panel-body-content-label mcd-country-switcher__panel-body-content-label">Kazakhstan </div>
+                                                </div>
+                                                <div class="col-sm-12 mcd-country-switcher__grid-spacing">
+                                                    <span class=" mcd-country-switcher__checkbox-deselected"></span>
+                                                    <div class="panel-body-content-label mcd-country-switcher__panel-body-content-label">Poland </div>
+                                                </div>
+                                                <div class="col-sm-12 mcd-country-switcher__grid-spacing">
+                                                    <span class=" mcd-country-switcher__checkbox-deselected"></span>
+                                                    <div class="panel-body-content-label mcd-country-switcher__panel-body-content-label">Spain </div>
+                                                </div>
+                                                <div class="col-sm-12 mcd-country-switcher__grid-spacing">
+                                                    <span class=" mcd-country-switcher__checkbox-deselected"></span>
+                                                    <div class="panel-body-content-label mcd-country-switcher__panel-body-content-label">Belgium </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel panel-default mcd-country-switcher__panel-default">
+                                    <div class="panel-heading mcd-country-switcher__panel-heading ">
+                                        <a class="panel-title-label mcd-country-switcher__anchor-label" data-toggle="collapse" data-parent="#accordion" href="#collapse4">
+                                            <div>
+                                                <h4 class="panel-title mcd-country-switcher__panel-title">
+                                                    <span class="mcd-country-switcher__panel-title-label ">Latin America</span>
+                                                    <span class="icon-chevron-down-small mcd-country-switcher__icon-chevron-down-small"></span>
+                                                </h4>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div id="collapse4" class="panel-collapse collapse">
+                                        <div class="panel-body mcd-country-switcher__panel-body">
+                                            <div class="row">
+                                                <div class="col-sm-12 mcd-country-switcher__grid-spacing">
+                                                    <span class=" mcd-country-switcher__checkbox-deselected"></span>
+                                                    <div class="panel-body-content-label mcd-country-switcher__panel-body-content-label">Austria </div>
+                                                </div>
+                                                <div class="col-sm-12 mcd-country-switcher__grid-spacing">
+                                                    <span class=" mcd-country-switcher__checkbox-deselected"></span>
+                                                    <div class="panel-body-content-label mcd-country-switcher__panel-body-content-label">Estonia </div>
+                                                </div>
+                                                <div class="col-sm-12 mcd-country-switcher__grid-spacing">
+                                                    <span class=" mcd-country-switcher__checkbox-deselected"></span>
+                                                    <div class="panel-body-content-label mcd-country-switcher__panel-body-content-label">Ireland </div>
+                                                </div>
+                                                <div class="col-sm-12 mcd-country-switcher__grid-spacing">
+                                                    <span class=" mcd-country-switcher__checkbox-deselected"></span>
+                                                    <div class="panel-body-content-label mcd-country-switcher__panel-body-content-label">Netherlands </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel panel-default mcd-country-switcher__panel-default">
+                                    <div class="panel-heading mcd-country-switcher__panel-heading ">
+                                        <a class="panel-title-label mcd-country-switcher__anchor-label" data-toggle="collapse" data-parent="#accordion" href="#collapse5">
+                                            <div>
+                                                <h4 class="panel-title mcd-country-switcher__panel-title">
+                                                    <span class="mcd-country-switcher__panel-title-label ">Middle East</span>
+                                                    <span class="icon-chevron-down-small mcd-country-switcher__icon-chevron-down-small"></span>
+                                                </h4>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div id="collapse5" class="panel-collapse collapse">
+                                        <div class="panel-body mcd-country-switcher__panel-body">
+                                            <div class="row">
+                                                <div class="col-sm-12 mcd-country-switcher__grid-spacing">
+                                                    <span class=" mcd-country-switcher__checkbox-deselected"></span>
+                                                    <div class="panel-body-content-label mcd-country-switcher__panel-body-content-label">Austria </div>
+                                                </div>
+                                                <div class="col-sm-12 mcd-country-switcher__grid-spacing">
+                                                    <span class=" mcd-country-switcher__checkbox-deselected"></span>
+                                                    <div class="panel-body-content-label mcd-country-switcher__panel-body-content-label">Estonia </div>
+                                                </div>
+                                                <div class="col-sm-12 mcd-country-switcher__grid-spacing">
+                                                    <span class=" mcd-country-switcher__checkbox-deselected"></span>
+                                                    <div class="panel-body-content-label mcd-country-switcher__panel-body-content-label">Ireland </div>
+                                                </div>
+                                                <div class="col-sm-12 mcd-country-switcher__grid-spacing">
+                                                    <span class=" mcd-country-switcher__checkbox-deselected"></span>
+                                                    <div class="panel-body-content-label mcd-country-switcher__panel-body-content-label">Netherlands </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel panel-default mcd-country-switcher__panel-default">
+                                    <div class="panel-heading mcd-country-switcher__panel-heading ">
+                                        <a class="panel-title-label mcd-country-switcher__anchor-label" data-toggle="collapse" data-parent="#accordion" href="#collapse6">
+                                            <div>
+                                                <h4 class="panel-title mcd-country-switcher__panel-title">
+                                                    <span class="mcd-country-switcher__panel-title-label ">North America</span>
+                                                    <span class="icon-chevron-down-small mcd-country-switcher__icon-chevron-down-small"></span>
+                                                </h4>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div id="collapse6" class="panel-collapse collapse">
+                                        <div class="panel-body mcd-country-switcher__panel-body">
+                                            <div class="row">
+                                                <div class="col-sm-12 mcd-country-switcher__grid-spacing">
+                                                    <span class=" mcd-country-switcher__checkbox-deselected"></span>
+                                                    <div class="panel-body-content-label mcd-country-switcher__panel-body-content-label">Canada (English) </div>
+                                                </div>
+                                                <div class="col-sm-12 mcd-country-switcher__grid-spacing">
+                                                    <span class=" mcd-country-switcher__checkbox-deselected"></span>
+                                                    <div class="panel-body-content-label mcd-country-switcher__panel-body-content-label">Canada (French) </div>
+                                                </div>
+                                                <div class="col-sm-12 mcd-country-switcher__grid-spacing">
+                                                    <span class=" mcd-country-switcher__checkbox-deselected"></span>
+                                                    <div class="panel-body-content-label mcd-country-switcher__panel-body-content-label">USA (English) </div>
+                                                </div>
+                                                <div class="col-sm-12 mcd-country-switcher__grid-spacing">
+                                                    <span class=" mcd-country-switcher__checkbox-deselected"></span>
+                                                    <div class="panel-body-content-label mcd-country-switcher__panel-body-content-label">USA (Spanish) </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <a href="javascript:void(0);" class="btn btn-link make-it-a-meal mcd-country-switcher__make-it-a-meal">
+                                <span class="icon-external-link mcd-country-switcher__icon-external-link"></span>McDonald’s Corporate Website</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<sly data-sly-include="customfooterlibs.html"></sly>

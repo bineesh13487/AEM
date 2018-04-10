@@ -1,0 +1,1715 @@
+
+// COMPONENT: NUTRITION CALCULATOR 2017
+
+@-webkit-keyframes calcScreenOutLeft {
+  from {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    -webkit-transform: translate3d(-10%, 0, 0);
+    transform: translate3d(-10%, 0, 0);
+  }
+}
+
+@keyframes calcScreenOutLeft {
+	from {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    -webkit-transform: translate3d(-10%, 0, 0);
+    transform: translate3d(-10%, 0, 0);
+  }
+}
+
+@-webkit-keyframes calcScreenInLeft {
+  from {
+    -webkit-transform: translate3d(10%, 0, 0);
+    transform: translate3d(10%, 0, 0);
+  }
+
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes calcScreenInLeft {
+	from {
+    -webkit-transform: translate3d(10%, 0, 0);
+    transform: translate3d(10%, 0, 0);
+  }
+
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@-webkit-keyframes nutritionChange {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -20px, 0);
+    transform: translate3d(0, -20px, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes nutritionChange {
+	from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -20px, 0);
+    transform: translate3d(0, -20px, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+
+.nutrition-calculator-alter {
+
+
+	.legalca {
+		font-family: $font-lovinsans-medium;
+		font-size: 10px;
+		margin-top: 5px;
+		margin-bottom: 0px;
+		padding: 0;
+		
+		span{
+			display: block;
+		}
+
+		@media only screen and (min-width:768px){
+			font-size: 12px;
+			margin-top: 10px;
+			margin-bottom: 0px;
+			padding: 0;
+		}
+
+		a {
+			color: #ffffff;
+			text-decoration: underline;
+		}
+	}
+
+	label {
+		font-weight: normal;
+		font-size: 26px;
+		font-size: 1.625rem;
+		line-height: 36px;
+		line-height: 2.25rem;
+		font-family: "LovinSansWeb-Regular", sans-serif;
+	}
+	overflow: hidden;
+
+  .wrapper-legal-toggle {
+    text-align: center;
+    z-index: 2;
+    position: relative;
+    margin-top: -80px;
+    margin-bottom: 50px;
+
+    .bg-fade{
+      height: 40px;
+      background: -moz-linear-gradient(top,  rgba(255,255,255,0) 0%, rgba(255,255,255,1) 90%, rgba(255,255,255,1) 100%);
+    background: -webkit-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 90%,rgba(255,255,255,1) 100%);
+    background: linear-gradient(to bottom,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 90%,rgba(255,255,255,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=0 );
+    }
+
+    .btn-wrapper {
+      background: $white;
+    }
+
+    .btn-legal-display-toggle {
+      font-family: $font-lovinsans-medium;
+			font-size: 14px;
+			line-height: 1em;
+      color: $black;
+      cursor: pointer;
+
+      span {
+        display: block;
+      }
+
+      .fa {
+        margin-top: 0px;
+        display: block;
+      }
+    }
+  }
+
+	.cont-hero{
+		padding-top: 110px;
+		padding-bottom: 5px;
+		color: $white;
+		background: #393d41; /* Old browsers */
+		background: -moz-linear-gradient(top,  #393d41 22%, #1b1b1b 100%); /* FF3.6-15 */
+		background: -webkit-linear-gradient(top,  #393d41 22%,#1b1b1b 100%); /* Chrome10-25,Safari5.1-6 */
+		background: linear-gradient(to bottom,  #393d41 22%,#1b1b1b 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#393d41', endColorstr='#1b1b1b',GradientType=0 ); /* IE6-9 */
+
+
+		@media only screen and (min-width:768px){
+			padding-top: 145px;
+		}
+
+
+		h1,
+    .h1 {
+			text-transform: uppercase;
+			margin-top: 0px;
+			margin-bottom: 10px;
+			font-family: $font-lovinsans-medium;
+			font-size: 22px;
+			line-height: 1em;
+			color: $white;
+			text-align: center;
+
+			@media only screen and (min-width:768px){
+				font-family: $font-lovinsans-bold;
+				margin-bottom: 25px;
+				font-size: 40px;
+				line-height: 40px;
+			}
+
+		}
+
+		.my-meal{
+			margin-bottom: 15px;
+			color: $white;
+			border: 1px solid $gray-border;
+			border-left: 0;
+			border-right: 0;
+			@include fontSet(28px, 1.2, 'LovinSansWeb-Medium');
+			margin-left: -15px;
+			margin-right: -15px;
+
+			@media only screen and (min-width: 768px) {
+				border: 2px solid $gray-border;
+				margin-bottom: 20px;
+				margin-left: 0;
+				margin-right: 0;
+			}
+
+			@media only screen and (max-width: 767px) {
+				line-height: 1em;
+				font-size: 1em;
+			}
+
+			.totals{
+				text-align: justify;
+				padding: 15px 20px 0px 20px;
+
+				@media only screen and (min-width: 768px) {
+					padding: 25px 20px 0px 20px;
+				}
+
+				&:after{
+					content: '';
+					display: inline-block;
+					width: 100%;
+				}
+
+        .table {
+          border: 0;
+          margin-bottom: 5px;
+
+          @media only screen and (min-width: 768px) {
+            display: none;
+          }
+
+          &:last-child {
+            margin-bottom: 10px;
+          }
+
+          td {
+            border: 0;
+            padding: 0;
+            text-align: center;
+          }
+        }
+
+				div.item,
+        li{
+					display: inline-block;
+    			text-align: center;
+					@include fontSet(20px, 1, 'LovinSansWeb-Medium');
+
+          @media only screen and (min-width:992px){
+            @include fontSet(22px, 1, 'LovinSansWeb-Medium');
+          }
+
+					/*&:first-child{
+						text-align: left;
+					}
+					&:last-child{
+						text-align: right;
+					}*/
+
+					span{
+						@include fontSet(60px, 1, 'LovinSansWeb-Bold');
+						display: block;
+
+						.small{
+							@include fontSet(18px, 0, 'LovinSansWeb-Medium');
+							display: inline-block;
+						}
+
+						sub{
+							display: inline-block;
+							margin-top: -3px;
+						}
+
+					}
+
+					@media only screen and (max-width:767px){
+						@include fontSet(16px, 1.42857143, $font-lovinsans-medium);
+
+						span{
+							@include fontSet(30px, 1.42857143, $font-lovinsans-medium);
+
+							.small{
+								@include fontSet(16px, 0, 'LovinSansWeb-Medium');
+							}
+						}
+					}
+
+					@media only screen and (max-width:420px){
+						@include fontSet(16px, 1.42857143, $font-lovinsans-medium);
+
+						span{
+							@include fontSet(30px, 1.42857143, $font-lovinsans-medium);
+
+							.small{
+								@include fontSet(16px, 0, 'LovinSansWeb-Medium');
+							}
+							}
+						}
+
+          &.update{
+            -webkit-animation-duration: 0.3s;
+      			animation-duration: 0.3s;
+      			-webkit-animation-fill-mode: both;
+      			animation-fill-mode: both;
+      			-webkit-animation-timing-function: ease-out;
+      			animation-timing-function: ease-out;
+      			-webkit-animation-name: nutritionChange;
+      			animation-name: nutritionChange;
+					}
+				}
+
+        li {
+          @media only screen and (max-width:767px){
+            display: none;
+          }
+        }
+
+        div.item.desktop {
+          display: none;
+          @media only screen and (min-width: 768px) {
+            display: inline-block;
+          }
+        }
+
+			}
+
+
+
+			.fixed-totals{
+				background: #171313;
+				-webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.15);
+				-moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.15);
+				box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.15);
+				position: fixed;
+				top:-500px;
+				padding-top: 15px;
+				padding-bottom: 15px;
+				z-index: 25;
+				width: 100%;
+				left: 0;
+				opacity: 0;
+
+
+				-webkit-transition: opacity 0.2s linear, top 0s linear 0.2s;
+				-moz-transition: opacity 0.2s linear, top 0s linear 0.2s;
+				-ms-transition: opacity 0.2s linear, top 0s linear 0.2s;
+				-o-transition: opacity 0.2s linear, top 0s linear 0.2s;
+				transition: opacity 0.2s linear, top 0s linear 0.2s;
+
+				&.shown{
+					-webkit-transition: opacity 0.2s linear, top 0s linear 0s;
+					-moz-transition: opacity 0.2s linear, top 0s linear 0s;
+					-ms-transition: opacity 0.2s linear, top 0s linear 0s;
+					-o-transition: opacity 0.2s linear, top 0s linear 0s;
+					transition: opacity 0.2s linear, top 0s linear 0s;
+					top:90px;
+					opacity: 1;
+
+					@media only screen and (min-width: 768px) {
+						top:80px;
+					}
+
+				}
+
+				.totals{
+					border: 1px solid $gray-border;
+					padding: 10px 15px 0px 15px;
+			    margin-left: 20px;
+			    margin-right: 20px;
+			    line-height: 0.6em;
+
+					div{
+						span{
+							font-family: "LovinSansWeb-Medium";
+						}
+					}
+
+					@media only screen and (min-width: 768px) {
+						div{
+							font-size: 0.7em;
+							line-height: 1em;
+
+							span{
+								font-size: 2.2em;
+								line-height: 1.1em;
+
+								.small{
+									font-size: 0.5em;
+								}
+							}
+						}
+					}
+				}
+
+				@media only screen and (max-width: 767px) {
+					padding-top: 0px;
+    			padding-bottom: 0px;
+					.container{
+						padding: 0;
+						.col-sm-12{
+							padding: 0;
+							.totals{
+								margin: 0;
+								border-left: 0;
+								border-right: 0;
+							}
+						}
+					}
+				}
+
+			}
+
+			.detailed{
+				margin-left: 0;
+				margin-right: 0;
+				padding: 20px 5px;
+				position: relative;
+				color: #cccccc;
+				border-top: 2px solid $gray-border;
+				@include fontSet(20px, 1.7, $font-lovinsans);
+
+				span{
+					color: $white;
+					@include fontSet(20px, 1.7, $font-lovinsans-medium);
+				&.label{
+            		padding: 0;
+            		color: #cccccc;
+           			font-family: $font-lovinsans
+          			}
+				}
+
+				@media only screen and (max-width:767px){
+					@include fontSet(18px, 1.8, $font-lovinsans);
+					border-top: 1px solid $gray-border;
+					padding: 15px 5px;
+
+					span{
+						@include fontSet(18px, 1.8, $font-lovinsans-medium);
+					}
+				}
+
+				&:before{
+					content: "";
+					display: block;
+					background: $gray-border;
+					
+					height: 100%;
+					position: absolute;
+					top: 0;
+					bottom: 0;
+					left: 49%;
+				}
+
+				@media only screen and (min-width:768px){
+					
+				}
+
+
+				.column-wrapper{
+					margin-left: 0;
+					margin-right: 0;
+					padding-left: 0;
+
+					div,
+					li{
+						white-space: nowrap;
+					}
+					li{
+						list-style-type: none;
+					}
+
+					@media only screen and (max-width:767px){
+						margin-bottom: 0;
+					}
+
+          .column1-large{
+            float: left;
+          }
+          .column2-large{
+            float: none;
+          }
+          .column3-large{
+            float: right;
+          }
+
+				}
+
+
+			}
+
+      ~.legaluk{
+        display: none;
+      }
+
+      .uk{
+        display: none;
+      }
+
+      &.nutrition-uk{
+        .detailed{
+          display: none;
+
+          &.uk{
+            display: block;
+
+            table{
+              th{
+                font-family: $font-lovinsans-bold
+              }
+
+              width: 100%;
+            }
+          }
+
+          &:before{
+            display: block;
+            background: $gray-border;
+            width: 1px;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 37.33%;
+          }
+
+          &:after{
+            display: block;
+            background: $gray-border;
+            width: 1px;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 32%;
+          }
+
+          @media only screen and (min-width:768px){
+            &:before{
+              width: 2px;
+              left: 37.33%;
+            }
+
+            &:after{
+              display: block;
+              background: $gray-border;
+              width: 2px;
+              height: 100%;
+              position: absolute;
+              top: 0;
+              bottom: 0;
+              right: 32%;
+            }
+          }
+        }
+
+        ~.legal{
+          display: none;
+        }
+        ~.legal{
+          &.legaluk{
+            display: block;
+          }
+        }
+      }
+
+
+		}
+
+		.basket{
+			margin-top: 10px;
+			margin-left: 0;
+			margin-right: 0;
+			font-size: 14px;
+			line-height: 1em;
+			font-family: $font-lovinsans-light;
+			font-style: italic;
+			color: #cccccc;
+
+			@media only screen and (max-width:767px){
+				font-size: 10px;
+				margin-left: -15px;
+				margin-right: -15px;
+			}
+
+			.status{
+				font-size: 26px;
+				line-height: 1em;
+				font-family: $font-lovinsans-medium;
+				font-style: normal;
+				padding-top: 10px;
+				color: $white;
+
+				@media only screen and (max-width:767px){
+					font-size: 14px;
+					padding-top: 5px;
+				}
+			}
+
+			.view-btn{
+				font-size: 18px;
+				height: 44px;
+				padding: 2px 36px 0px;
+				font-style: normal;
+				float: right;
+
+				@media only screen and (max-width:767px){
+					font-size: 12px;
+					height: 28px;
+					line-height: 24px;
+					padding: 0px 30px 0px;
+				}
+			}
+		}
+
+		.legal{
+			margin-top: 10px;
+			text-align: center;
+			font-family: $font-lovinsans-light;
+			font-size: 8px;
+			//font-style: italic;
+			color: $white;
+
+			@media only screen and (min-width:768px){
+				font-size: 10px;
+				margin-top: 20px;
+			}
+		}
+
+
+
+
+	}
+
+	.nutrition-menu{
+		padding-top: 25px;
+		max-width: 406px;
+		padding-left: 15px;
+		padding-right: 15px;
+		position: relative;
+
+		.row{
+			margin-left: -10px;
+			margin-right: -10px;
+		}
+
+		@media only screen and (min-width:768px){
+			max-width: 790px;
+			padding-top: 50px;
+			padding-left: 10px;
+			padding-right: 10px;
+		}
+
+		h2,
+    .h2{
+			font-family: $font-lovinsans-medium;
+			font-size: 24px;
+			line-height: 30px;
+			margin: 0 0 35px 0;
+			text-align: center;
+
+			a{
+				font-family: $font-lovinsans-medium;
+				color: $red;
+			}
+
+			@media only screen and (max-width:767px){
+			font-size: 14px;
+		    line-height: 1.4em;
+		    margin: 0 0 15px 0;
+			}
+		}
+
+
+		button{
+			border: 0;
+			padding: 0;
+			background: transparent;
+			border-radius: 5px;
+			overflow: hidden;
+
+			&.btn-close{
+				color: $red;
+				position: absolute;
+				right: 5px;
+		    top: 20px;
+		    font-size: 30px;
+		    overflow: visible;
+			}
+		}
+
+		.menu-item{
+			margin-bottom: 20px;
+			padding-left: 10px;
+			padding-right: 10px;
+			border-radius: 5px;
+			position: relative;
+			overflow: hidden;
+
+			img{
+				width: 100%;
+				//@include css3-prefix(transform, scale(1));
+				//@include css3-prefix(transition, transform 0.6s cubic-bezier(0.190, 1, 0.220, 1) 0s);
+			}
+
+			button{
+				border: 0;
+		    padding: 0;
+		    background: transparent;
+				border-radius: 5px;
+				overflow: hidden;
+
+				&:hover{
+					img{
+						@include css3-prefix(transform, scale(1.05));
+					}
+				}
+
+			}
+
+
+			.name{
+				position: absolute;
+				z-index: 5;
+				bottom: 10px;
+				left: 20px;
+				right: 20px;
+				text-align: center;
+				color: $white;
+				text-transform: uppercase;
+				font-family: $font-lovinsans-medium;
+				font-size: 17px;
+				line-height: 19px;
+				width: auto;
+			}
+
+
+		}
+
+		&.category{
+			color: $gray;
+			min-height: 300px;
+
+			@media only screen and (max-width:767px){
+				padding-top: 30px;
+			}
+
+			h2,
+			h3,
+      .h2,
+      .h3{
+				text-align: center;
+				margin: 0;
+			}
+			h2,
+      .h2{
+				font-family: $font-lovinsans-bold;
+				font-size: 32px;
+				margin-bottom: 10px;
+				line-height: 1em;
+
+				@media only screen and (max-width:767px){
+					font-size: 18px;
+					margin-bottom: 5px;
+				}
+			}
+			h3,
+      .h3{
+				font-family: $font-lovinsans-light;
+				font-size: 23px;
+				line-height: 1em;
+				margin-bottom: 10px;
+
+				@media only screen and (max-width:767px){
+					font-size: 13px;
+				}
+			}
+
+			.btn-back{
+				overflow: visible;
+				font-family: $font-lovinsans-bold;
+				font-size: 16px;
+				line-height: 1em;
+				position: absolute;
+				top: 40px;
+    		left: 10px;
+
+				div{
+					display: inline-block;
+					padding-top: 15px;
+				}
+
+				i{
+					color: $red;
+					margin-right: 10px;
+					float: left;
+					display: inline-block;
+				}
+
+				@media only screen and (max-width:767px){
+					font-size: 9px;
+					top: 10px;
+
+					div{
+						padding-top: 9px;
+					}
+
+					i{
+						margin-right: 5px;
+						font-size: 24px;
+					}
+				}
+			}
+
+			.items{
+				margin-top: 20px;
+
+				.menu-item{
+					text-align: center;
+					min-height: 100%;
+
+					@media only screen and (max-width:767px){
+						padding-left: 5px;
+    				padding-right: 5px;
+						margin-bottom: 10px;
+					}
+
+
+
+					button,
+					input[type=radio].activate-item+label{
+						background-color: $light-gray;
+						height: 178px;
+						width: 100%;
+						overflow: hidden;
+						cursor: pointer;
+
+						@media only screen and (max-width:767px){
+							height: 110px;
+						}
+
+						img{
+							width: auto;
+							max-width: 100%;
+							position: relative;
+    					margin-top: -20px;
+							@include css3-prefix(transform, scale(1) translateY(-60%));
+							@include css3-prefix(transition, transform 0.6s cubic-bezier(0.190, 1, 0.220, 1) 0s);
+
+							@media only screen and (max-width:767px){
+								max-width: 60%;
+							}
+						}
+
+						&:hover{
+							img{
+								@include css3-prefix(transform, scale(1.1) translateY(-60%));
+							}
+						}
+
+					}
+
+					input[type=radio].activate-item {
+						//visibility: hidden;
+						position: absolute;
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            margin: 0;
+
+						+label{
+							margin-bottom: 0;
+	    				display: block;
+
+							img{
+								margin-top: 0;
+						    top: 50%;
+								@include css3-prefix(transform, scale(1) translateY(-60%));
+							}
+
+							.controls{
+								display: block;
+								visibility: hidden;
+								opacity: 0;
+								@include css3-prefix(transform, translateY(100%));
+								@include css3-prefix(transition, transform 0.5s cubic-bezier(0.190, 1, 0.220, 1) 0s);
+							}
+						}
+
+            &:checked{
+              visibility: hidden;
+              display: none;
+            }
+
+						&:checked + label {
+							.controls{
+								display: block;
+								visibility: visible;
+								opacity: 1;
+								@include css3-prefix(transform, translateY(0%));
+							}
+
+							.name{
+								opacity: 0;
+							}
+						}
+					&:focus{
+              			+label{
+                		outline: auto 5px -webkit-focus-ring-color;
+              			}
+					}
+
+					}
+
+					.name{
+						text-transform: none;
+						color: $gray;
+						position: absolute;
+						bottom: 10px;
+						padding-left: 15px;
+						padding-right: 15px;
+						font-size: 15px;
+						line-height: 1em;
+
+						@media only screen and (max-width:767px){
+							font-size: 10px;
+							bottom: 5px;
+							padding-left: 0;
+    					padding-right: 0;
+							left: 15px;
+    					right: 15px;
+						}
+					}
+
+					.controls{
+						background: rgba(0, 0, 0, 0.5);
+						position: absolute;
+						z-index: 8;
+						top: 0;
+						bottom: 0;
+						left: 10px;
+		    		right: 10px;
+						border-radius: 5px;
+						text-align: center;
+						font-family: $font-lovinsans-bold;
+						display: none;
+
+
+						@media only screen and (max-width:767px){
+							left: 5px;
+			    		right: 5px;
+						}
+
+
+						.status{
+							color: $white;
+							text-transform: uppercase;
+							font-size: 20px;
+							line-height: 1em;
+							position: absolute;
+							top: 50%;
+							left: 0;
+							right: 0;
+							-ms-transform: translateY(-70%);
+							-moz-transform: translateY(-70%);
+							transform: translateY(-70%);
+
+							@media only screen and (max-width:767px){
+								font-size: 9px;
+							}
+						}
+
+						.buttons{
+							position: absolute;
+							bottom: 10px;
+							left: 0;
+    					right: 0;
+
+							@media only screen and (max-width:767px){
+								bottom: 5px;
+						    left: 5px;
+						    right: 5px;
+							}
+
+							button{
+								background-color: $black;
+								border-radius: 5px;
+								padding: 5px;
+								width: 50%;
+								display: inline-block;
+								color: $white;
+								height: auto;
+								font-size: 12px;
+								line-height: 1em;
+								text-transform: uppercase;
+								font-family: "LovinSansWeb-Medium", sans-serif;
+
+								@media only screen and (max-width:767px){
+									width: 100%;
+									font-size: 7px;
+									padding: 4px;
+								}
+
+								i{
+									display: block;
+									clear: both;
+									margin-bottom: 5px;
+									font-size: 1.5em;
+
+									@media only screen and (max-width:767px){
+										margin-bottom: 2px;
+									}
+								}
+							}
+						}
+
+
+					}
+
+
+					&.added{
+						.controls{
+							display: block;
+						}
+
+						button{
+							.name{
+								opacity: 0;
+							}
+						}
+					}
+
+					//input[type=checkbox].activate-check:checked ~ .item-content,
+
+
+
+
+
+				}
+			}
+
+		}
+
+	}
+
+	.more{
+		text-align: center;
+		padding: 20px;
+
+		.btn-red{
+			font-size: 18px;
+			height: 44px;
+			padding: 2px 36px 0px;
+		}
+
+		@media only screen and (max-width:767px){
+			.btn-red{
+				font-size: 12px;
+		    height: 36px;
+		    padding: 0px 28px 0px;
+				line-height: 32px;
+			}
+		}
+	}
+
+	.nutrition-meal-details{
+
+		@media only screen and (max-width:767px){
+			.col-md-10{
+				padding: 0;
+			}
+		}
+
+		.triangle-down {
+	    display: inline-block;
+	    width: 0;
+	    height: 0;
+	    border-style: solid;
+	    border-width: 21px 21px 0 21px;
+	    border-color: #1b1b1b transparent transparent transparent;
+			position: absolute;
+			left: 54px;
+
+			@media only screen and (max-width:767px){
+				border-width: 16px 16px 0 16px;
+				left: 38px;
+			}
+		}
+
+		.meal-list{
+			background-color: $light-gray;
+			padding:25px 20px 5px 20px;
+
+			@media only screen and (max-width:767px){
+				padding:20px 15px 5px 15px;
+			}
+
+			.meal-item{
+				background-color: $white;
+				border-radius: 5px;
+				padding: 20px;
+				margin: 0 0 20px 0;
+
+				@media only screen and (max-width:767px){
+					padding: 12px;
+				}
+
+				.row{
+					margin: 0;
+				}
+
+				.item-content{
+					opacity: 0.25;
+					float: left;
+					position: relative;
+					margin-left: 10px;
+					width: calc(100% - 54px);
+
+					@media only screen and (max-width:767px){
+						width: calc(100% - 36px);
+					}
+
+					.btn-close{
+						margin: 0;
+						padding: 0;
+						border: 0;
+						overflow: visible;
+						background: transparent;
+				    font-family: "LovinSansWeb-Medium", sans-serif;
+				    font-size: 16px;
+				    line-height: 1em;
+				    position: absolute;
+				    top: 0;
+				    right: 0;
+
+						div{
+							display: inline-block;
+    					padding-top: 15px;
+						}
+
+						i{
+							color: $black;
+					    margin-left: 10px;
+					    float: right;
+					    display: inline-block;
+							font-size: 2.5em;
+						}
+
+						@media only screen and (max-width:767px){
+							font-size: 10px;
+
+							div{
+								padding-top: 7px;
+							}
+
+							i{
+								margin-left: 5px;
+							}
+						}
+
+					}
+
+					.prod-image{
+						display: inline-block;
+    				vertical-align: top;
+						min-width: 80px;
+						text-align: center;
+
+						@media only screen and (max-width:767px){
+							min-width: 36px;
+							width: 36px;
+							img{
+								max-width: 100%;
+								max-height: 40px;
+							}
+						}
+					}
+
+					h2,
+          .h2{
+						margin-top: 0;
+						font-family: $font-lovinsans-medium;
+						font-size: 24px;
+						margin-left: 10px;
+						display: inline-block;
+						max-width:60%;
+    				vertical-align: top;
+
+						@media only screen and (max-width:767px){
+							font-size: 14px;
+							line-height:16px;
+							margin-left: 5px;
+            				max-width: 60%;
+						}
+          			  	@media only screen and (max-width:340px){
+             				max-width: 55%;
+						}
+					}
+
+					h3,
+          			.h3{
+						font-family: $font-lovinsans-medium;
+						font-size: 20px;
+						line-height: 1em;
+						margin-top: 0;
+						margin-bottom: 5px;
+
+						@media only screen and (max-width:767px){
+							font-size: 12px;
+						}
+					}
+
+					p{
+						font-family: $font-lovinsans-light;
+						font-size: 16px;
+						line-height: 1.6em;
+						margin-bottom: 3px;
+
+						@media only screen and (max-width:767px){
+							font-size: 12px;
+						}
+					}
+
+					.allergens{
+						font-family: $font-lovinsans-medium;
+					}
+				}
+
+				.controls{
+					text-align: right;
+					opacity: 0.25;
+					clear: both;
+					padding-top: 15px;
+
+					.btn-red{
+						display: inline-block;
+						background: transparent;
+						color: $black !important;
+						font-size: 18px;
+						height: 44px;
+						padding: 2px 46px 0px 36px;
+						position: relative;
+						border: 2px solid $black;
+						pointer-events: none;
+						text-transform: none;
+
+						@media only screen and (max-width:767px){
+							font-size: 11px;
+							padding: 0px 30px 0px 20px;
+							height: 30px;
+							line-height: 29px;
+							border: 1px solid $black;
+						}
+
+						i{
+							position: absolute;
+							right: 15px;
+							top:50%;
+							-ms-transform: translateY(-50%);
+							-moz-transform: translateY(-50%);
+							transform: translateY(-50%);
+						}
+
+						.closed{
+							display: none;
+						}
+
+						&.collapsed{
+							.closed{
+								display: block;
+							}
+							.open{
+								display: none;
+							}
+						}
+
+						&:hover{
+							&:before{
+								display: none;
+							}
+
+						}
+					}
+
+					.select{
+						display: inline-block;
+						margin-right: 8px;
+
+						@media only screen and (max-width:767px){
+							margin-right: 2px;
+						}
+
+						button{
+							border: 2px solid #999999;
+							font-family: $font-lovinsans-medium;
+							font-size: 18px;
+							height: 44px;
+							padding: 2px 66px 0px 36px;
+							pointer-events: none;
+
+							@media only screen and (max-width:767px){
+								border: 1px solid #999999;
+								font-size: 11px;
+								padding: 0px 30px 0px 20px;
+								height: 30px;
+								line-height: 29px;
+							}
+
+							&.dropdown-toggle{
+								.fa{
+									position: absolute;
+									right: 15px;
+									top:50%;
+									-ms-transform: translateY(-50%);
+									-moz-transform: translateY(-50%);
+									transform: translateY(-50%);
+								}
+
+								&:after{
+									color: $gray;
+								}
+							}
+						}
+
+						.dropdown-menu{
+						
+
+							@media only screen and (max-width:767px){
+								min-width: auto;
+								margin-top: -18px;
+							}
+
+							.dropdown-list-wrapper{
+								border: 2px solid #999999;
+
+								@media only screen and (max-width:767px){
+									border: 1px solid #999999;
+									font-size: 11px;
+
+									li{
+										a{
+											padding: 5px 10px 10px 10px;
+										}
+									}
+								}
+							}
+
+						}
+					}
+				}
+
+
+				label.item-activate {
+					float: left;
+					width: 44px;
+					height: 44px;
+					position: relative;
+					margin: 0;
+					border: 2px solid $red;
+					border-radius: 5px;
+					cursor: pointer;
+
+					@media only screen and (max-width:767px){
+						width: 26px;
+    				height: 26px;
+						border: 1px solid #bf0c0c;
+					}
+
+					div{
+						font-family: $font-lovinsans-medium;
+						position: absolute;
+						bottom: -25px;
+						left:50%;
+						-ms-transform: translateX(-50%);
+						-moz-transform: translateX(-50%);
+						transform: translateX(-50%);
+
+						@media only screen and (max-width:767px){
+							font-size: 10px;
+							bottom: -20px;
+						}
+
+						&.closed{
+							display: block;
+						}
+
+						&.open{
+							display: none;
+						}
+
+					}
+
+					&:after {
+						font-family: FontAwesome;
+						content: "\f00c";
+						opacity: 0;
+						color: $red;
+						font-size:32px;
+						position: absolute;
+						top: 8px;
+						left: 4px;
+
+						@media only screen and (max-width:767px){
+							font-size: 18px;
+							top: 2px;
+    					left: 3px;
+						}
+					}
+
+					&:hover::after {
+						opacity: 0.3;
+					}
+
+				}
+
+				input[type=checkbox].activate-check {
+					//visibility: hidden;
+          opacity: 0;
+					position: absolute;
+
+          &:focus + label{
+            outline: 1px dotted #212121;
+          	outline: 5px auto -webkit-focus-ring-color;
+          }
+
+					&:checked + label:after {
+						opacity: 1;
+					}
+
+				}
+
+				input[type=checkbox].activate-check:checked ~ .item-content,
+				input[type=checkbox].activate-check:checked ~ .controls,
+				input[type=checkbox].activate-check:checked ~ .ingredients{
+				  opacity: 1;
+
+					button{
+						pointer-events: auto;
+					}
+
+					label.item-activate {
+						pointer-events: auto;
+					}
+
+					.btn-close{
+						i{
+							color: $red;
+						}
+					}
+
+					.btn-red{
+						border-color: $red;
+						color: $red !important;
+					}
+				}
+
+				input[type=checkbox].activate-check:checked ~ .item-activate{
+					.closed{
+						display: none;
+					}
+					.open{
+						display: block;
+					}
+				}
+
+				.ingredients{
+					opacity: 0.25;
+					margin-bottom: 20px;
+
+					.row{
+						margin-top: 20px;
+					}
+
+					label.item-activate {
+						width: 34px;
+						height: 34px;
+						margin-right: 10px;
+						pointer-events: none;
+						 overflow: hidden;
+
+						&:after {
+							font-size: 22px;
+					    top: 5px;
+					    left: 5px;
+						}
+
+						&:hover::after {
+							opacity: 0.3;
+						}
+
+						@media only screen and (max-width:767px){
+							width: 18px;
+    					height: 18px;
+							margin-right: 8px;
+
+							&:after{
+								font-size: 13px;
+						    top: -2px;
+						    left: 1px;
+
+							}
+						}
+
+					}
+
+					.item-content{
+						padding-bottom: 10px;
+						//border-bottom: 1px solid $gray-separator;
+					}
+				}
+
+
+			}
+
+			.more-actions{
+				text-align: center;
+				padding-top: 30px;
+				padding-bottom: 30px;
+
+				.btn-red{
+					margin-bottom: 25px;
+					font-size: 18px;
+					height: 44px;
+					padding: 2px 36px 0px;
+
+					@media only screen and (max-width:767px){
+						font-size: 12px;
+				    height: 36px;
+				    line-height: 28px;
+				    padding: 2px 45px 0px;
+					}
+				}
+
+				.text-link{
+					display: block;
+					font-family: $font-lovinsans-medium;
+					font-size: 16px;
+					line-height: 1em;
+					color: $red;
+
+					&:hover{
+						text-decoration: none;
+					}
+
+					@media only screen and (max-width:767px){
+						font-size: 13px;
+					}
+				}
+			}
+		}
+	}
+
+	.cont-legal{
+    overflow: hidden;
+    max-height: 900px;
+    margin-bottom: 60px;
+
+    -webkit-transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
+    -ms-transition: all 0.4s ease-in-out;
+    -o-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+
+    &.short {
+      max-height: 80px;
+      margin-bottom: 30px;
+    }
+
+		.row{
+			margin: 0;
+		}
+	}
+
+	.nutrition-nav-contain{
+		&.out{
+			position: absolute;
+			left: 0;
+			right: 0;
+		}
+
+	}
+
+
+
+	#level-all{
+		&.animOut{
+			-webkit-animation-duration: 0.5s;
+			animation-duration: 0.5s;
+			-webkit-animation-fill-mode: both;
+			animation-fill-mode: both;
+			-webkit-animation-timing-function: ease-out;
+			animation-timing-function: ease-out;
+			-webkit-animation-name: calcScreenOutLeft;
+			animation-name: calcScreenOutLeft;
+		}
+
+	}
+
+	#level-category{
+		&.animIn{
+			-webkit-animation-duration: 0.5s;
+		  animation-duration: 0.5s;
+		  -webkit-animation-fill-mode: both;
+		  animation-fill-mode: both;
+			-webkit-animation-timing-function: ease-out;
+    	animation-timing-function: ease-out;
+			-webkit-animation-name: calcScreenInLeft;
+		  animation-name: calcScreenInLeft;
+		}
+	}
+
+}
+
+.nutrition-delete.modal{
+	.modal-dialog{
+		max-width: 460px;
+	}
+	.modal-content{
+	 padding: 70px;
+		.headline-text{
+			font-size: 18px;
+			line-height: 22px;
+			margin-top: 0;
+			font-family: $font-lovinsans;
+
+			span{
+				font-family: $font-lovinsans-bold;
+				display: block;
+			}
+			b{
+				font-family: $font-lovinsans-bold;
+			}
+		}
+	}
+}
+
+@media only screen and (max-width: 767px) {
+  .nutrition-delete.modal .modal-content {
+    padding: 35px;
+  }
+  
+  .nc-dummy-item:nth-child(2), .nc-dummy-item:nth-child(3) {
+     display:none;
+   }
+}
+
+.component-video{
+	.container{
+		display: inline-block;
+		vertical-align: middle;
+	}
+}
+
+h2.remove-p p {display:inline;}
+
+.nutrition-calculator-alter .cont-hero .my-meal .totals li small{
+	font-size: inherit;
+}
+
+.nutrition-calculator-alter .cont-hero .my-meal .fixed-totals small{
+	font-size: inherit;
+}
+
+
+.nutrition-calculator-alter .nutrition-meal-details .meal-list .meal-item .form-separator{                             
+      border-bottom: 1px solid #cccccc;
+      margin-left: 54px;
+      padding-bottom: 10px;
+      clear: both;
+}
+                            
+@media only screen and (max-width: 767px){
+	.nutrition-delete.modal .modal-dialog {
+		    max-width: 273px;
+	}
+
+.nutrition-calculator-alter .nutrition-meal-details .meal-list .meal-item .form-separator{
+      margin-left: 36px;
+ }
+}
+
+			.nutrition-calculator-alter	.item.desktop.update {
+ 				-webkit-animation-duration: 0.3s;
+      			animation-duration: 0.3s;
+      			-webkit-animation-fill-mode: both;
+      			animation-fill-mode: both;
+      			-webkit-animation-timing-function: ease-out;
+      			animation-timing-function: ease-out;
+      			-webkit-animation-name: nutritionChange;
+      			animation-name: nutritionChange;
+      			}
+      
+      .nutrition-calculator-alter .cont-hero .my-meal .detailed .ncUnit{
+  		font-family: "LovinSansWeb-Regular", sans-serif;
+ 		 color: #cccccc;
+ 		}			
+ 		
+ 	.nc-exit-button {padding:0;}
+ 	.nc-exit-button > a {display:block;color:#ffffff;}	
+.nutrition-calculator-alter .nutrition-meal-details .meal-list .meal-item .row{
+	position: relative;
+}
+.nutrition-calculator-alter .nutrition-meal-details .meal-list .meal-item .ingredients{
+	position: relative;
+}
+
+.nutrition-calculator-alter .nutrition-meal-details .meal-list .meal-item input[type=checkbox].activate-check {
+	width: 26px;
+	height: 26px;
+	top: 0px;
+	margin: 0;
+}

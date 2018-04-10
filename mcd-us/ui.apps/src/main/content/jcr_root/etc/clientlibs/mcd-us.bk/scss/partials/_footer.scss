@@ -1,0 +1,327 @@
+.footer {
+	position: relative;
+	height: auto;
+	background: $black;
+	overflow: hidden;
+
+	@media only screen and (min-width: 768px) {
+		position: relative;
+		bottom: 0;
+		width: 100%;
+		height: auto;
+		background: transparent;
+	}
+
+	.component-footer-mobile {
+		.wrapper {
+			padding: 15px 30px;
+			text-align: center;
+		}
+		a {
+			color: $white;
+			text-transform: none;
+			display: block;
+		}
+
+		.site-map-2 {
+			margin: 0px 0 15px;
+			padding: 0;
+			display: block;
+			width: 100%;
+
+			li {
+				padding: 5px 10px;
+				display: inline-block!important;
+			}
+			a {
+				@include fontSet(22px, 32px, 'LovinSansWeb-Medium');
+			}
+		}
+
+		p.light {
+			color: #999999;
+			text-transform: none;
+			@include fontSet(20px, 26px, $font-lovinsans);
+			margin-bottom: 0px;
+		}
+
+		.separator {
+			margin: 30px -15px;
+			height: 1px;
+			background: $gray-border;
+		}
+	}
+
+	.component-social-mobile {
+		text-align: center;
+		background: url('../images/bg-mobile.jpg') no-repeat;
+		background-size: cover;
+		background-position: 50% 100%;
+		overflow: hidden;
+
+		.wrapper {
+			padding: 30px 15px;
+		}
+
+		.separator {
+			margin: 30px -15px;
+			height: 1px;
+			background: $gray-border;
+		}
+
+		p {
+			color: $white;
+			text-transform: none;
+			@include fontSet(26px, 32px, 'LovinSansWeb-Medium');
+		}
+
+		.social-icons {
+			padding: 0;
+
+			a {
+				padding-bottom: 5px;
+				display: inline-block;
+				&.social{
+                            height:42px;
+                            width:38px;
+                            display:inline-block;
+                                background-position: 0px -2px !important;
+                                transition:none !important;
+                                -webkit-transition:none !important;
+                                -moz-transition:none !important;
+                        }
+			}
+		}
+		.cont-btn {
+			padding: 10px 5px 0;
+		}
+
+	}
+
+	.cont-links {
+		padding: 30px 0;
+		background: $gray-background;
+		color: $white;
+
+		h5.headline,
+		h4.headline,
+		div.headline {
+			@include fontSet(30px, 40px, 'LovinSansWeb-Regular');
+			margin-top: 10px;
+			margin-bottom: 10px;
+		}
+
+		a {
+			color: $gray-separator;
+			padding: 5px 0;
+			display: inline-block;
+			@include fontSet(24px, 34px, $font-lovinsans);
+
+			&:hover {
+				color: $white;
+			}
+		}
+		
+		.headline {
+			font-size: 30px;
+			font-size: 1.875rem;
+			line-height: 40px;
+			line-height: 2.5rem;
+			font-family: "LovinSansWeb-Regular";
+			color: $white;
+		}
+	}
+	.cont-post-links {
+		background: $black;
+		color: $white;
+		@include fontSet(22px, 40px, 'LovinSansWeb-Regular');
+
+		@media only screen and (min-width: 992px) {
+			@include fontSet(30px, 40px, 'LovinSansWeb-Regular');
+		}
+
+		a {
+			color: $white;
+			&.social{
+                        height:42px;
+                        width:38px;
+                        display:inline-block;
+                            background-position: 0px -2px !important;
+                            transition:none !important;
+                            -webkit-transition:none !important;
+                            -moz-transition:none !important;
+                            &:hover{
+                                background-position: 0px -40px !important;
+                            }
+                    }
+		}
+
+		.cont-misc {
+			margin: 30px 0;
+
+			.heading{
+				display: inline-block;
+				line-height: 2;
+				margin-right: 10px;
+				margin-left: -5px;
+			}
+
+			li {
+				padding: 0;
+			}
+
+			.cont-apps {
+				text-align: right;
+				height: 30px;
+				line-height: 30px;
+
+				@media only screen and (min-width: 992px) {
+					height: 37px;
+				}
+			}
+
+			.social-icons {
+				.fa-circle {
+					color: $gray-footer;
+				}
+
+				.circle-facebook {
+					color: $color-facebook;
+				}
+				.circle-youtube {
+					color: $color-youtube;
+				}
+				.circle-twitter {
+					color: $color-twitter;
+				}
+				.circle-instagram {
+					color: $color-instagram;
+				}
+				.circle-tumblr {
+					color: $color-tumblr;
+				}
+				.circle-spotify {
+					color: $color-spotify;
+				}
+
+				a:hover .fa-circle {
+					color: $red;
+				}
+				.fa-lg {
+					font-size: 1em;
+				}
+			}
+
+			.btn-app {
+				display: inline;
+				margin-left: 5px;
+
+				@media only screen and (min-width: 992px) {
+					margin-left: 10px;
+				}
+
+			}
+		}
+		.cont-bottom {
+			margin-bottom: 15px;
+
+			ul {
+				float: left;
+
+				li {
+					border-right: 1px solid $gray-separator;
+					@include fontSet(20px, 20px, $font-lovinsans);
+
+					a {
+						color: $gray-separator;
+						text-transform: uppercase;
+						display: inline-block;
+						margin: 0 5px 0 5px;
+						@include fontSet(18px, 20px, $font-lovinsans);
+
+						&:hover  {
+							color: $white;
+						}
+
+						@media only screen and (min-width: 992px) {
+							margin: 0 10px 0 10px;
+							@include fontSet(20px, 20px, $font-lovinsans);
+						}
+					}
+
+					&:first-child {
+						padding-left: 0;
+						a {
+							margin-left: 0;
+						}
+					}
+
+					&:last-child {
+						border-right: 0;
+					}
+				}
+			}
+			p.copy {
+				margin-bottom: 0;
+				margin-top: 7px;
+				float: right;
+				color: $white;
+				@include fontSet(18px, 20px, $font-lovinsans);
+
+				@media only screen and (min-width: 992px) {
+					margin-top: 9px;
+					@include fontSet(20px, 20px, $font-lovinsans);
+				}
+			}
+		}
+	}
+	.socialTitle{
+                float: left;
+                margin-top: 10px;
+                margin-right: 10px;
+            }
+
+
+	.leaving-site-content {
+		text-align: center;
+
+		.large-modal-text {
+	    @include fontSet(50px, 1.1em, $font-lovinsans-black);
+	    @include breakpoint(xs){ @include fontSet(70px, 1.1em, $font-lovinsans-black); }
+	    @include breakpoint(sm){ @include fontSet(100px, 1.1em, $font-lovinsans-black); }
+	  }
+
+		p.body-copy {
+			@include fontSet(22px, 32px, $font-lovinsans);
+
+			@include breakpoint(sm) {
+				@include fontSet(26px, 36px, $font-lovinsans);
+			}
+		}
+	}
+}
+
+
+.footer-table {
+	margin-bottom: 0 !important;
+	td {
+		border-top: 0 !important;
+	}
+	th {
+		border-top: 0 !important;
+	}
+}
+
+.footer {
+	.headline {
+		.footerhead {
+			font-size: 1.875rem;
+			line-height: 40px;
+			line-height: 2.5rem;
+			font-family: "LovinSansWeb-Regular";
+			margin-top: 10px;
+			margin-bottom: 10px;
+			color: #ffffff !important;
+		}
+	}
+}

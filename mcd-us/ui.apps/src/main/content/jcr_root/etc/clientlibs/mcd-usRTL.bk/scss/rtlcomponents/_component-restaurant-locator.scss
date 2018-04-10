@@ -1,0 +1,1210 @@
+$comp-block: ".restaurantLocator";
+$restaurant-location: ".restaurant-location";
+$restaurant-location-container: ".restaurant-location-container";
+$restaurant-location-list: ".restaurant-location-list";
+$restaurant-location-modal-list: ".restaurant-location-modal-list";
+
+#{$comp-block} {
+    background: $black;
+
+    @include up-to-breakpoint(sm) {
+        padding-top: $exact-mobile-nav-space + 4px;
+
+        .component-locate{
+            margin-top: 0px;
+            padding-top: 20px;
+        }
+    }
+
+    @include breakpoint(sm) {
+        padding-top: $exact-nav-space;
+
+        &_menu {
+            padding-top: 24px;
+        }
+    }
+
+    > .inner-content {
+        background: $base;
+    }
+
+    a {
+        color: $red;
+    }
+
+    &_menu {
+        background: $white;
+        padding-bottom: 12px;
+
+        .component-locate {
+            p.heading{
+                color: $black;
+            }
+            .checkbox{
+                label{
+                    color: $black;
+
+                    &:after{
+                        color: $black !important;
+                        line-height: 1.5em;
+                        right: 0;
+                    }
+
+                    @include breakpoint-at(sm) {
+                        font-size: 1em;
+                        font-size: 13px;
+
+                        &:after{
+                            line-height: 1.8em;
+                            right: 1px;
+                        }
+                    }
+                }
+            }
+
+            .cont-filters{
+                .cont-toggle{
+                    a{
+                        color: $black;
+
+                        @include breakpoint-at(sm) {
+                            font-size: 0.85em;
+                        }
+                    }
+                }
+            }
+
+            .btn-border{
+                background: transparent;
+                color: $black;
+                border-color: $gray-separator;
+
+            }
+
+            .input-group{
+                box-shadow: none;
+                .input-group-btn{
+                    .btn{
+                        border: 2px solid $gray-separator;
+                        border-right: 0;
+                    }
+                }
+
+            }
+
+            .form-control{
+                box-shadow: none;
+                z-index: 1;
+            }
+
+            .text-or{
+                color: $black;
+            }
+
+            .input-group{
+                font-size: 14px;
+
+                .input-group-btn{
+                    .dropdown-menu{
+                        padding-bottom: 0;
+                        border: 0px;
+
+                        li{
+                            &:last-child{
+                                a{
+                                    border-bottom-left-radius: 20px;
+                                    border-bottom-right-radius: 20px;
+                                    padding-bottom: 10px;
+                                }
+                            }
+
+                            &:first-child{
+                                border-top: 0px;
+                            }
+                        }
+                    }
+
+                    .btn{
+                        padding-left: 55px;
+                        padding-right: 20px;
+                    }
+                }
+            }
+
+            .select button.dropdown-toggle{
+                font-size: 14px;
+            }
+        }
+    }
+
+    &_results,
+    .nav-container {
+        background: $light-gray;
+    }
+
+    &_results {
+        @include fontSet(48px, 1em, 'Droid_Arabic_Kufi_Regular');
+        text-align: center;
+        padding: 40px 0;
+
+        span {
+            font-family: 'Droid_Arabic_Kufi_Bold';
+        }
+
+        @include breakpoint(xxs){
+            @include fontSet(40px, 1em, 'Droid_Arabic_Kufi_Regular');
+            padding: 24px 0;
+        }
+    }
+
+    &_view-container {
+        .map-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .map-container {
+            width: 100%;
+
+            > img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        .single-container {
+            padding-top: 80px;
+            padding-bottom: 80px;
+        }
+
+        .map-parent {
+          .radio label:before {
+            top: 0px;
+          }
+          .radio input[type="radio"]:checked + label::after {
+            top: 3px;
+          }
+        }
+
+        @include breakpoint(xxs){
+            .map-container {
+                height: 220px;
+            }
+        }
+
+        @include breakpoint(sm) {
+            .map-parent {
+                position: relative;
+
+                .radio label:before {
+                  top: -4px;
+                }
+                .radio input[type="radio"]:checked + label::after {
+                  top: -1px;
+                }
+            }
+
+            .map-container {
+                position: absolute;
+                top: 0;
+                right: 50%;
+                width: 50%;
+                height: 100%;
+            }
+        }
+
+        @include breakpoint(md) {
+            .map-parent {
+              .radio label:before {
+                  top: 0px;
+              }
+              .radio input[type="radio"]:checked + label::after {
+                top: 3px;
+              }
+            }
+          }
+    }
+
+    .nav {
+        @include fontSet(20px, 1, 'Droid_Arabic_Kufi_Bold');
+        border: none;
+
+        > li {
+            text-align: center;
+            cursor: pointer;
+
+            &.active {
+                a { color: $black; }
+                font-family: 'Droid_Arabic_Kufi_Bold';
+            }
+
+            a:hover,
+            a:focus,
+            a:active,
+            &.active {
+                border: none;
+            }
+
+            a {
+                border: none;
+                border-radius: 0;
+                padding: 10px 20px;
+                text-transform: uppercase;
+            }
+
+            @include up-to-breakpoint(sm){
+                float: right;
+                width: 50%;
+
+                a {
+                    display: block;
+                    padding: 10px 0px;
+                    text-align: center;
+                    width: 100%;
+                }
+            }
+
+            @include breakpoint(md){
+                @include fontSet(22px, 1, 'Droid_Arabic_Kufi_Bold');
+            }
+        }
+    }
+
+    .nav-container {
+        @include breakpoint(xs){
+            >.container {
+                padding-left: 0;
+                padding-right: 0;
+                overflow: hidden;
+            }
+        }
+    }
+
+    .location-details-container {
+        position: relative;
+    }
+
+    .location-container {
+        @include up-to-breakpoint(sm){
+            padding-top: 28px;
+        }
+
+        @include breakpoint(sm){
+            padding-top: 25%;
+            padding-bottom: 25%;
+            padding-right: 36px;
+            position: relative;
+        }
+    }
+}
+
+#{$restaurant-location} {
+    position: relative;
+    font-size: 14px;
+
+    @include headers {
+        margin: 0;
+    }
+
+    .heading {
+        @include fontSet(24px, 1, 'Droid_Arabic_Kufi_Bold');
+        margin-bottom: 4px;
+    }
+
+    .spacer:before {
+        content: ' ';
+        display: block;
+        margin: 0;
+        padding-top: 1em;
+    }
+
+    &__address-container {
+        position: relative;
+        text-align: center;
+
+        @include breakpoint(sm){
+            text-align: right;
+        }
+    }
+
+    &__map-pin {
+        background:{
+            image: url("../images/restaurant-locator/map-marker.png");
+            size: cover;
+            repeat: no-repeat;
+        }
+        display: inline-block;
+        margin: 0 auto;
+        margin-bottom: 1em;
+        //
+        color: $white;
+        text-align: center;
+
+        box-sizing: border-box;
+        display: block;
+        @include map-pin-size(26px);
+    }
+
+    &__title {
+        @include fontSet(32px, 1.2, 'Droid_Arabic_Kufi_Bold');
+    }
+
+    &__address {
+        @include fontSet(36px, 1.3, 'Droid_Arabic_Kufi_Regular');
+        margin-bottom: .5em !important;
+    }
+
+    &__friendly-text {
+        @include fontSet(24px, 1.3, 'Droid_Arabic_Kufi_Regular');
+        margin-bottom: 1em;
+    }
+
+    &__preferred {
+        @include fontSet(20px, 1.2, 'Droid_Arabic_Kufi_Bold');
+        margin-bottom: 2em;
+
+        .radio,
+        .checkbox{
+            label{
+                @include fontSet(24px, 1.4, 'Droid_Arabic_Kufi_Bold');
+
+                @include breakpoint(sm) {
+                  @include fontSet(20px, 1.0, 'Droid_Arabic_Kufi_Bold');
+                }
+                @include breakpoint(md) {
+                  @include fontSet(24px, 1.4, 'Droid_Arabic_Kufi_Bold');
+                }
+
+                &:before{
+                    border-width: 1px;
+                }
+            }
+        }
+    }
+
+    &__distance {
+
+    }
+
+    &__directions-link {
+        font-family: 'Droid_Arabic_Kufi_Bold';
+    }
+
+    &__phone {
+
+    }
+
+    &__distance {
+
+    }
+
+    &__hours-container {
+        hr {
+            margin: 1em 0;
+            border-top: 1px solid #c9c9c9;
+        }
+    }
+
+    &__hours-toggle {
+        text-align: right;
+
+        .heading {
+            @include fontSet(24px, 1.3, 'Droid_Arabic_Kufi_Bold');
+            color:$red;
+
+            sub {
+                display: inline-block;
+                font-family: 'Droid_Arabic_Kufi_Bold';
+                bottom: 0;
+                outline: none;
+                vertical-align: text-bottom;
+                margin-top: 4px;
+                // position: relative;
+              // top: 100%;
+              // transform: translateY(-50%);
+            }
+        }
+
+        a{
+          display: block;
+
+          .heading{
+            .closed{
+              display: none;
+            }
+            .expanded{
+              display: block;
+            }
+          }
+
+          &.collapsed{
+            .heading{
+              .closed{
+                display: block;
+              }
+              .expanded{
+                display: none;
+              }
+            }
+          }
+        }
+
+        a:focus{
+          //border: 2px solid red !important;
+        }
+    }
+
+    &__hours-set {
+        padding-top: 1em;
+        text-align: center;
+
+        @media only screen and (min-width: 768px) {
+          text-align: right;
+        }
+
+        .heading {
+            @include fontSet(22px, 1.3, 'Droid_Arabic_Kufi_Bold');
+        }
+
+        .special-hours {
+            @include fontSet(20px, 1.3, 'Droid_Arabic_Kufi_Bold');
+            color: $red;
+            margin-bottom: .2em;
+        }
+    }
+
+    &__secondary-actions {
+        @include fontSet(18px, 1, 'Droid_Arabic_Kufi_Bold');
+        color: $light-gray;
+        text-align: center;
+
+        a{
+            &:after{
+                content: "|";
+                font-family: 'Droid_Arabic_Kufi_Regular';
+                color: $gray;
+                margin-right: 5px;
+                margin-left: 4px;
+            }
+
+            &:last-child{
+                &:after{
+                    content: '';
+                }
+            }
+        }
+
+
+    }
+
+    &__services {
+        li {
+            @include fontSet(20px, 1.3, 'Droid_Arabic_Kufi_Regular');
+            margin-bottom: .33em;
+        }
+    }
+
+    &__construction {
+        @include fontSet(28px, 1.2, 'Droid_Arabic_Kufi_Bold');
+        color: $red;
+    }
+
+    &__events{
+      .event{
+        @include fontSet(16px, 1.3, 'Droid_Arabic_Kufi_Regular');
+        margin-bottom: .33em;
+        span{
+          margin-left: 15px;
+        }
+      }
+      hr{
+        margin: 1em 0;
+        border-top: 1px solid #c9c9c9;
+      }
+    }
+
+    @include breakpoint(xs){
+        &__secondary-actions { @include font-size(22px); }
+        &__services li { @include font-size(24px); }
+        &__hours-set li {
+          span{
+            display: inline-block;
+            margin-left: 10px;
+          }
+        }
+        &__events{
+          .event{ @include font-size(20px); }
+        }
+    }
+
+    // Tablet
+    @include breakpoint(sm){
+        .heading { @include font-size(18px); }
+
+        &__title { @include font-size(32px); }
+        &__address { @include font-size(32px); }
+        &__friendly-text { @include font-size(20px); }
+        &__distance, &__phone { @include font-size(20px, 1); }
+        &__hours-toggle .heading { @include font-size(28px); }
+        &__hours-toggle .heading sub { @include font-size(16px); }
+        &__hours-set .heading { @include font-size(20px); }
+        &__hours-set .special-hours { @include font-size(18px); }
+        &__hours-set li {
+          @include font-size(16px);
+
+          span{
+            display: inline-block;
+            min-width: 30px;
+            margin-left: auto;
+          }
+        }
+        &__hours-set{
+          &.special{
+            li{
+              span{
+                min-width: 210px;
+              }
+            }
+          }
+        }
+
+        &__map-pin { position: absolute; top: -10px; right: -40px; }
+
+        &__secondary-actions {
+            @include font-size(16px, 1.3);
+            text-align: right;
+        }
+
+        &__services li { @include font-size(20px); }
+
+        &__construction {
+          @include font-size(28px);
+        }
+
+        &__events{
+          .event{ @include font-size(20px); }
+        }
+    }
+
+    // Desktop
+    @include breakpoint(md){
+        .heading { @include font-size(24px); }
+        &__title { @include font-size(36px); }
+        &__friendly-text { @include font-size(24px); }
+        &__distance, &__phone { @include font-size(24px); }
+        &__hours-toggle .heading { @include font-size(28px); }
+        &__hours-toggle .heading sub { @include font-size(20px); }
+        &__hours-set .special-hours { @include font-size(22px); }
+        &__hours-set li {
+          @include font-size(18px);
+
+          span{
+            display: inline-block;
+            min-width: 30px;
+          }
+        }
+        &__hours-set{
+          &.special{
+            li{
+              span{
+                min-width: 210px;
+              }
+            }
+          }
+        }
+        &__services li { @include font-size(24px); }
+        &__secondary-actions { @include font-size(20px); }
+        &__construction {
+          @include font-size(32px);
+          color: $red;
+        }
+        &__events{
+          .event{ @include font-size(24px); }
+        }
+    }
+
+    @include breakpoint(lg){
+      &__hours-set li {
+        @include font-size(22px);
+
+        span{
+          display: inline-block;
+          min-width: 42px;
+        }
+      }
+
+      &__hours-set{
+        &.special{
+          li{
+            span{
+              min-width: 220px;
+            }
+          }
+        }
+      }
+    }
+}
+
+// Restaurant location inside single container
+@include withinBlock($restaurant-location-container, $restaurant-location){
+    padding: 24px 0;
+
+    @include breakpoint(sm){
+        padding: 80px 35px 80px 0;
+    }
+}
+
+// Restaurant location inside list
+@include withinBlock($restaurant-location-list, $restaurant-location){
+    padding-top: 32px;
+
+    @include headers {
+        margin-bottom: .2em;
+    }
+
+    &__address-container {
+        .expand-mobile{
+            background-color: $light-gray;
+            @include roundEdges();
+            padding: 3px;
+            width: 26px;
+            height: 26px;
+            text-decoration: none;
+
+            &:before{
+                position: absolute;
+                font-size: 16px;
+                color: $red;
+                font-family: 'FontAwesome';
+                content: "\f068";
+                top: 1px;
+                margin-right: -6px;
+            }
+
+            .closed{
+              display: none;
+            }
+            .open{
+              display: block;
+            }
+
+            &.collapsed{
+              &:before{
+                  content: "\f067";
+              }
+              .closed{
+                display: block;
+              }
+              .open{
+                display: none;
+              }
+            }
+
+
+
+        }
+    }
+
+    @include breakpoint(sm) {
+        .heading { @include font-size(18px); }
+        &__title { @include font-size(20px); }
+        &__address { @include font-size(20px); }
+        &__friendly-text { @include font-size(16px); }
+        &__services > li { @include font-size(18px); }
+        &__address-container { padding-right: 26px; text-align: right; }
+        &__hours-toggle .heading { @include font-size(22px, 1); }
+        &__hours-toggle .heading sub { @include font-size(16px); }
+        &__directions-link { @include font-size(16px); }
+        &__events { padding-right: 36px; margin-top: 15px; margin-bottom: 15px}
+
+        &__map-pin {
+            @include map-pin-size(20px);
+            position: absolute; top: -8px; right: 0px;
+            margin: 0;
+        }
+
+        &__address-container{
+            .expand-mobile{
+                display: none;
+            }
+        }
+
+        .details{
+            display: block;
+        }
+    }
+
+    @include breakpoint(md){
+        .heading { @include font-size(24px); }
+        &__title { @include font-size(28px); }
+        &__address { @include font-size(26px); }
+        &__friendly-text { @include font-size(22px); }
+        &__hours-toggle .heading { @include font-size(26px); }
+        &__hours-toggle .heading sub { @include font-size(20px); }
+        &__distance, &__phone { @include font-size(24px, 1, true); }
+        &__directions-link { @include font-size(24px); }
+    }
+}
+
+// within list
+#{$restaurant-location-list} {
+    padding-top: 12px;
+    padding-bottom: 12px;
+
+    #{$restaurant-location} {
+        border-bottom: 1px solid $gray-separator;
+        margin-top: 24px;
+        margin-bottom: 0;
+        padding-bottom: 12px;
+
+        &:last-of-type {
+            border: none;
+        }
+    }
+}
+
+#{$restaurant-location-modal-list} {
+    height: 340px;
+    overflow-y: auto;
+    padding: 0;
+    list-style-type: none;
+
+    // scrollbar styles
+    &::-webkit-scrollbar {
+        width: 10px;
+    }
+    &::-webkit-scrollbar-track {
+        background: transparent;
+        border-radius: 10px;
+    }
+    &::-webkit-scrollbar-thumb {
+        border: 3px solid transparent;
+        background: #858585;
+        border-radius: 10px;
+        background-clip: content-box;
+    }
+
+    @include breakpoint(xs) {
+        height: 400px;
+    }
+
+    @include breakpoint(sm) {
+        height: 400px;
+    }
+
+    @include breakpoint(md) {
+        height: 400px;
+    }
+}
+
+// within modal list
+@include withinBlock($restaurant-location-modal-list, $restaurant-location) {
+    border-bottom: 2px solid $gray-separator;
+    padding: 18px 15px;
+    display: block;
+
+    &:last-child {
+        border-bottom: none;
+    }
+
+    .cont-btn {
+        padding-right: 39px;
+
+        .btn {
+            margin-bottom: 0;
+        }
+    }
+
+    &__address-container {
+        padding-right: 24px;
+    }
+
+    &__map-pin {
+        @include map-pin-size(17px);
+        position: absolute; top: -7px; right: 0px;
+        margin: 0;
+    }
+
+    &__title {
+        @include font-size(22px, 1.2);
+        text-align: right;
+    }
+
+    &__address {
+        @include font-size(20px, 1.2);
+        text-align: right;
+    }
+
+    @include breakpoint(xs){
+        &__title { @include font-size(28px, 1.2); }
+        &__address { @include font-size(20px, 1.2); }
+    }
+
+    @include breakpoint(sm) {
+        &__address {
+            @include font-size(20px, 1.2);
+        }
+    }
+
+    @include breakpoint(md) {
+        //padding-right: 30px;
+        //padding-left: 30px;
+
+        &__address {
+            @include font-size(24px, 1.2);
+        }
+    }
+}
+
+$restautant-locator-form-modal: "#restaurantLocatorFormModal";
+#{$restautant-locator-form-modal} {
+    .modal-content {
+        @include up-to-breakpoint(sm){
+            padding: 15px 0px;
+
+            .btn-close {
+                top: 5px;
+                left: 5px;
+            }
+
+            .btn-back {
+                top: 5px;
+                right: 5px;
+            }
+
+            .inner-modal-title {
+                @include font-size(30px, 1.3);
+            }
+        }
+
+        .form-group{
+            margin-bottom: 10px;
+
+            .fa-calendar {
+                cursor: pointer;
+            }
+        }
+
+        @include breakpoint(sm) {
+            padding: 30px;
+        }
+    }
+}
+
+$restautant-locator-map-modal: "#restaurantLocatorMapModal";
+#{$restautant-locator-map-modal} {
+    .modal-content {
+        padding: 0;
+        background: $light-gray;
+    }
+
+    .cont-enter-location {
+        padding: 30px;
+        border-bottom: 2px solid $gray-separator;
+
+        @include breakpoint(sm) {
+            padding: 30px 45px;
+        }
+
+        .heading {
+            @include font-size(30px, 1.3);
+            margin-bottom: 10px;
+        }
+
+        .btn-red {
+            padding: 0;
+            margin-bottom:0;
+        }
+
+        .form-group {
+            margin-bottom: 0;
+        }
+
+        .pad-right {
+            padding-left: 15px;
+        }
+
+        .simple-red {
+            margin-top: 10px;
+        }
+    }
+
+    .cont-restaurant-list {
+        -moz-box-shadow: 8px 0px 15px -5px rgba(0, 0, 0, 0.5);
+        -webkit-box-shadow: 8px 0px 15px -5px rgba(0, 0, 0, 0.5);
+        box-shadow: 8px 0px 15px -5px rgba(0, 0, 0, 0.5);
+    }
+
+    .cont-restaurant-list,
+    .cont-map-display {
+        -webkit-transition: all 0.5s ease;
+        -moz-transition: all 0.5s ease;
+        -o-transition: all 0.5s ease;
+        transition: all 0.5s ease;
+    }
+
+    .cont-map-display .map-container {
+        width: 100%;
+        height: 340px;
+
+        @include breakpoint(xs) {
+            height: 400px;
+        }
+
+        @include breakpoint(sm) {
+            height: 400px;
+        }
+
+        @include breakpoint(md) {
+            height: 400px;
+        }
+    }
+
+    .btn-back,
+    .btn-close {
+        top: 5px;
+        //box-shadow: -1px 1px 5px rgba(0,0,0,.25);
+    }
+
+    .btn-close { left: 5px; }
+    .btn-back { right: 5px; }
+
+    @include breakpoint(sm){
+        .btn-close {
+        }
+    }
+}
+
+.load-more-row {
+    text-align: center;
+}
+
+.load-more-btn {
+    @include fontSet(20px, 1.4em, 'Droid_Arabic_Kufi_Bold');
+
+    color: $red;
+    display: inline-block;
+    padding: 20px;
+    text-align: center;
+    text-transform: uppercase;
+
+    .fa {
+        text-transform: none;
+    }
+
+    .fa-circle { color: $light-gray; }
+    .fa-chevron-down { color: $red; }
+}
+
+$restautant-locator-disambiguity-modal: "#restaurantLocatorDisambiguityModal";
+#{$restautant-locator-disambiguity-modal} {
+  .modal-content {
+      padding: 0;
+      background: $light-gray;
+  }
+
+  .btn-close{
+    top: 10px;
+    left: 10px;
+    width: 30px;
+    height: 30px;
+    font-size: 20px;
+    line-height: 28px;
+
+    @include breakpoint(md) {
+      left:20px;
+      top: 15px;
+      width: 40px;
+      height: 40px;
+      font-size: 30px;
+      line-height: 38px;
+    }
+  }
+
+  .cont-select {
+      padding: 25px 25px 25px 65px;
+      border-bottom: 2px solid $gray-separator;
+
+      @include breakpoint(sm) {
+          padding: 25px 30px 25px 35px;
+      }
+
+      .heading {
+          @include fontSet(26px, 1.3, 'Droid_Arabic_Kufi_Bold');
+
+          @include breakpoint(sm) {
+
+          }
+
+          @include breakpoint(md) {
+            @include font-size(30px);
+          }
+      }
+  }
+
+  .location-list{
+      height: 240px;
+      overflow-y: auto;
+
+      // scrollbar styles
+      &::-webkit-scrollbar {
+          width: 10px;
+      }
+      &::-webkit-scrollbar-track {
+          background: transparent;
+          border-radius: 10px;
+      }
+      &::-webkit-scrollbar-thumb {
+          border: 3px solid transparent;
+          background: #858585;
+          border-radius: 10px;
+          background-clip: content-box;
+      }
+
+      @include breakpoint(xs) {
+          height: 240px;
+      }
+
+      @include breakpoint(sm) {
+          height: 260px;
+      }
+
+      @include breakpoint(md) {
+          height: 260px;
+      }
+
+      .location{
+          border-bottom: 1px solid $gray-separator;
+          margin-bottom: 0;
+          padding: 15px 25px;
+          @include fontSet(20px, 1.2, 'Droid_Arabic_Kufi_Regular');
+
+          a{
+            color: $black;
+
+            &:hover,&:focus{
+              text-decoration: underline;
+            }
+          }
+
+          &:last-of-type {
+              border: none;
+          }
+
+          @include breakpoint(sm) {
+              padding: 15px 30px;
+          }
+
+          @include breakpoint(md) {
+              @include font-size(24px);
+          }
+      }
+  }
+}
+.restaurant-location-container{
+  padding: 0;
+
+  li{
+    list-style-type: none;
+  }
+}
+
+.restaurant-location-list{
+  li{
+    list-style-type: none;
+  }
+}
+
+input[type='checkbox']:focus {
+  -webkit-appearance: none;
+}
+.restaurant-location__events {
+    ul {
+        margin: 0px;
+        padding: 0;
+    }
+}
+    .rest-loc_sec_new {
+    a {
+        content: "|";
+        border-right: 1.7px solid #666;
+        padding-right: 6px;
+        padding-left: 6px;
+        &:first-child {
+            border-right: 0px solid #bf0c0c;
+            padding-right: 0px;
+            padding-left: 6px;
+        }
+        &:after {
+            content: "";
+        }
+    }
+}
+
+@media only screen and (max-width: 767px) and (min-width: 0px) {
+    .restaurantLocator {
+        .restaurantLocator_view-container {
+            ul.nav.nav-tabs {
+                li {
+                    &:first-child {
+                        padding-right: 0 !important;
+                        + {
+                            li {
+                                padding-right: 0 !important;
+                            }
+                        }
+                    }
+                    &:last-child {
+                        padding-left: 0 !important;
+                        + {
+                            li {
+                                padding-left: 0 !important;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+.map-parent {
+    ul.restaurant-location-container {
+        margin-bottom: 0px;
+    }
+    .col-sm-6.col-md-5 {
+        min-height: 0px;
+    }
+}
+
+#rl-listView .restaurant-location-list > li .restaurant-location__hours-container .restaurant-location__hours-set > li span:nth-child(2){
+    direction:ltr;
+}
+
+
+#rl-listView .restaurant-location-list > li .restaurant-location__hours-container .restaurant-location__hours-set > li span:nth-child(2) span{
+    float:right;
+    direction: rtl;
+    min-width: 53px;
+}
+#rl-mapView .restaurant-location__hours-container:nth-child(1) .restaurant-location__hours-set li  span:nth-child(2){
+    direction:ltr;
+}
+#rl-mapView .restaurant-location__hours-container:nth-child(1) .restaurant-location__hours-set li  span:nth-child(2) span{
+     float:right;
+       direction: rtl;
+       min-width: 53px;
+}
+.component-nearest-location-desktop .cont-hours-details tr td ul li span:nth-child(2){
+    direction:ltr;
+}
+.component-nearest-location-desktop .cont-hours-details tr td ul li span:nth-child(2) span{
+    float:right;
+         direction: rtl;
+         min-width: 53px !important;;
+}
+.component-navigation .hours {
+ direction:ltr;
+}

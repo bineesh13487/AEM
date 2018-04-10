@@ -1,0 +1,663 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Dialog"
+    height="600"
+    width="800"
+    xtype="dialog">
+    <items
+        jcr:primaryType="cq:Widget"
+        hideAllTabs="function(){&#xa;&#x9;var tabs=['callout1','callout2','callout3','callout4','static1','static2','static3','static4','random1','random2','random3','random4'];&#xa;&#x9;for(var i=0;i&lt;tabs.length;i++){&#xa;&#x9;&#x9;this.hideTabStripItem(i+1);&#xa;&#x9;}&#xa;}"
+        manageTabs="function(tab,noSwitch){&#xa;&#x9;var tabs=['callout1','callout2','callout3','callout4','static1','static2','static3','static4','random1','random2','random3','random4'];&#xa;&#x9;for(var j=0; j&lt;tab.length; j++) {&#xa;&#x9;&#x9;var index=tabs.indexOf(tab[j]);&#xa;&#x9;&#x9;if(index==-1) return;&#xa;&#x9;&#x9;for(var i=0;i&lt;tabs.length;i++){&#xa;&#x9;&#x9;&#x9;if(index==i){&#xa;&#x9;&#x9;&#x9;&#x9;this.unhideTabStripItem(i+1);&#xa;&#x9;&#x9;&#x9;}&#xa;&#x9;&#x9;}&#xa;&#x9;}&#xa;&#x9;this.doLayout();&#xa;&#x9;if(!noSwitch)this.activate(index);&#xa;}"
+        xtype="tabpanel">
+        <items jcr:primaryType="cq:WidgetCollection">
+            <general
+                jcr:primaryType="cq:Panel"
+                title="General Settings">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <number
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Number of Callouts to be displayed on the page."
+                        fieldLabel="No. of Callouts"
+                        name="./number"
+                        type="select"
+                        xtype="selection">
+                        <options jcr:primaryType="cq:WidgetCollection">
+                            <three
+                                jcr:primaryType="nt:unstructured"
+                                text="3"
+                                value="3"/>
+                            <four
+                                jcr:primaryType="nt:unstructured"
+                                text="4"
+                                value="4"/>
+                        </options>
+                        <listeners
+                            jcr:primaryType="nt:unstructured"
+                            selectionchanged="function(box, value) {&#xa;&#x9;var tabPanel = box.findParentByType('tabpanel');&#xa;&#x9;var dialog = box.findParentByType('dialog');&#xa;&#x9;var type = dialog.getField('./type').getValue();&#xa;&#x9;tabPanel.hideAllTabs();&#xa;&#x9;var tabType = 'static';&#xa;&#x9;&#xa;&#x9;if(type!='static' &amp;&amp; type!='random') {&#xa;&#x9;&#x9;tabType = 'callout';&#xa;&#x9;}&#xa;&#x9;else if(type!='static' &amp;&amp; type!='time'){&#xa;&#x9;&#x9;tabType = 'random';&#xa;&#x9;}&#xa;&#x9;&#xa;&#x9;var tabs = [];&#xa;&#x9;if(type != '') {&#xa;&#x9;&#x9;for(var i=1; i&lt;=value; i++) {&#xa;&#x9;&#x9;&#x9;tabs.push(tabType+i);&#xa;&#x9;&#x9;}&#xa;&#x9;}&#xa;&#x9;tabPanel.manageTabs(tabs,true);&#xa;}"/>
+                    </number>
+                    <type
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="&lt;b>Static&lt;/b> - Only one Callout can be configured for a particular place.&lt;/br>&#xa;&lt;b>Multiple (Random)&lt;/b> - Multiple Callout can be configured which will be displayed randomly within each callout area.&lt;/br>&#xa;&lt;b>Multiple (Time Sensitive) &lt;/b>- Multiple Callout can be configured for different time slots."
+                        fieldLabel="Type"
+                        name="./type"
+                        type="select"
+                        xtype="selection">
+                        <options jcr:primaryType="cq:WidgetCollection">
+                            <static
+                                jcr:primaryType="nt:unstructured"
+                                text="Static"
+                                value="static"/>
+                            <random
+                                jcr:primaryType="nt:unstructured"
+                                text="Multiple (Random)"
+                                value="random"/>
+                            <timeBased
+                                jcr:primaryType="nt:unstructured"
+                                text="Multiple (Time Sensitive)"
+                                value="time"/>
+                        </options>
+                        <listeners
+                            jcr:primaryType="nt:unstructured"
+                            loadcontent="function(){&#xa;&#x9;var type = this.getValue();&#xa;&#x9;var tabPanel = this.findParentByType('tabpanel');&#xa;&#x9;var dialog = this.findParentByType('dialog');&#xa;&#x9;var number = dialog.getField('./number').getValue();&#xa;&#x9;tabPanel.hideAllTabs();&#xa;&#x9;var tabType = 'static';&#xa;&#x9;if(type!='static' &amp;&amp; type!='random') {&#xa;&#x9;&#x9;tabType = 'callout';&#xa;&#x9;}&#xa;&#x9;else if(type!='static' &amp;&amp; type!='time'){&#xa;&#x9;&#x9;tabType = 'random';&#xa;&#x9;}&#xa;&#x9;&#xa;&#x9;var tabs = [];&#xa;&#x9;for(var i=1; i&lt;=number; i++) {&#xa;&#x9;&#x9;tabs.push(tabType+i);&#xa;&#x9;}&#xa;&#x9;tabPanel.manageTabs(tabs,true);&#xa;}"
+                            selectionchanged="function(box,value){&#xa;&#x9;var tabPanel = box.findParentByType('tabpanel');&#xa;&#x9;var dialog = box.findParentByType('dialog');&#xa;&#x9;var number = dialog.getField('./number').getValue();&#xa;&#x9;tabPanel.hideAllTabs();&#xa;&#x9;var tabType = 'static';&#xa;&#x9;if(value!='static' &amp;&amp; value!='random') {&#xa;&#x9;&#x9;tabType = 'callout';&#xa;&#x9;}&#xa;&#x9;else if(value!='static' &amp;&amp; value!='time'){&#xa;&#x9;&#x9;tabType = 'random';&#xa;&#x9;}&#xa;&#x9;&#xa;&#x9;var tabs = [];&#xa;&#x9;for(var i=1; i&lt;=number; i++) {&#xa;&#x9;&#x9;tabs.push(tabType+i);&#xa;&#x9;}&#xa;&#x9;tabPanel.manageTabs(tabs,true);&#xa;}"/>
+                    </type>
+                </items>
+            </general>
+            <callout1
+                jcr:primaryType="cq:Widget"
+                id="callout1"
+                title="Callout 1"
+                xtype="panel">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <calloutwidth
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Width*"
+                        name="./callout1/width"
+                        type="select"
+                        xtype="selection">
+                        <options jcr:primaryType="cq:WidgetCollection">
+                            <col-3
+                                jcr:primaryType="cq:Widget"
+                                text="~25%"
+                                value="3"/>
+                            <col-4
+                                jcr:primaryType="cq:Widget"
+                                text="~33%"
+                                value="4"/>
+                            <col-6
+                                jcr:primaryType="cq:Widget"
+                                text="~50%"
+                                value="6"/>
+                        </options>
+                    </calloutwidth>
+                    <multi
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Promo Paths*"
+                        name="./callout1/data"
+                        xtype="multifield">
+                        <fieldConfig
+                            jcr:primaryType="nt:unstructured"
+                            xtype="multifieldpanel">
+                            <items jcr:primaryType="cq:WidgetCollection">
+                                <link
+                                    jcr:primaryType="cq:Widget"
+                                    editable="{Boolean}false"
+                                    fieldLabel="Link*"
+                                    key="link"
+                                    width="150"
+                                    xtype="pathfield"/>
+                                <startTime
+                                    jcr:primaryType="cq:Widget"
+                                    fieldLabel="Start Time"
+                                    key="startTime"
+                                    minListWidth="90"
+                                    width="125"
+                                    xtype="timefield"/>
+                                <endTime
+                                    jcr:primaryType="cq:Widget"
+                                    fieldLabel="End Time"
+                                    key="endTime"
+                                    minListWidth="90"
+                                    width="125"
+                                    xtype="timefield"/>
+                                <default
+                                    jcr:primaryType="cq:Widget"
+                                    fieldLabel="Default"
+                                    key="default"
+                                    type="checkbox"
+                                    xtype="selection">
+                                    <listeners
+                                        jcr:primaryType="nt:unstructured"
+                                        selectionchanged="function(comp, val, isChecked) { &#xa;&#x9;var selections = CQ.Ext.getCmp('callout1').findByType('selection');&#xa;&#xa;&#x9;if (isChecked &amp;&amp;selections) {&#xa;&#x9;&#x9;for(var i =0; i&lt; selections.length; i++) {&#xa;&#x9;&#x9;&#x9;var selection = selections[i];&#xa;&#x9;&#x9;&#x9;if (selection.type === 'checkbox' &amp;&amp; comp !== selection) {&#xa;&#x9;&#x9;&#x9;&#x9;selection.setValue(false);&#xa;&#x9;&#x9;&#x9;}&#xa;&#x9;&#x9;}&#xa;&#x9;}&#xa;}"/>
+                                </default>
+                            </items>
+                        </fieldConfig>
+                    </multi>
+                </items>
+            </callout1>
+            <callout2
+                jcr:primaryType="cq:Widget"
+                id="callout2"
+                title="Callout 2"
+                xtype="panel">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <calloutwidth
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Width*"
+                        name="./callout2/width"
+                        type="select"
+                        xtype="selection">
+                        <options jcr:primaryType="cq:WidgetCollection">
+                            <col-3
+                                jcr:primaryType="cq:Widget"
+                                text="~25%"
+                                value="3"/>
+                            <col-4
+                                jcr:primaryType="cq:Widget"
+                                text="~33%"
+                                value="4"/>
+                            <col-6
+                                jcr:primaryType="cq:Widget"
+                                text="~50%"
+                                value="6"/>
+                        </options>
+                    </calloutwidth>
+                    <multi
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Promo Paths*"
+                        name="./callout2/data"
+                        xtype="multifield">
+                        <fieldConfig
+                            jcr:primaryType="nt:unstructured"
+                            xtype="multifieldpanel">
+                            <items jcr:primaryType="cq:WidgetCollection">
+                                <link
+                                    jcr:primaryType="cq:Widget"
+                                    editable="{Boolean}false"
+                                    fieldLabel="Link*"
+                                    key="link"
+                                    width="150"
+                                    xtype="pathfield"/>
+                                <startTime
+                                    jcr:primaryType="cq:Widget"
+                                    fieldLabel="Start Time"
+                                    key="startTime"
+                                    minListWidth="90"
+                                    width="125"
+                                    xtype="timefield"/>
+                                <endTime
+                                    jcr:primaryType="cq:Widget"
+                                    fieldLabel="End Time"
+                                    key="endTime"
+                                    minListWidth="90"
+                                    width="125"
+                                    xtype="timefield"/>
+                                <default
+                                    jcr:primaryType="cq:Widget"
+                                    fieldLabel="Default"
+                                    key="default"
+                                    type="checkbox"
+                                    xtype="selection">
+                                    <listeners
+                                        jcr:primaryType="nt:unstructured"
+                                        selectionchanged="function(comp, val, isChecked) { &#xa;&#x9;var selections = CQ.Ext.getCmp('callout2').findByType('selection');&#xa;&#xa;&#x9;if (isChecked &amp;&amp;selections) {&#xa;&#x9;&#x9;for(var i =0; i&lt; selections.length; i++) {&#xa;&#x9;&#x9;&#x9;var selection = selections[i];&#xa;&#x9;&#x9;&#x9;if (selection.type === 'checkbox' &amp;&amp; comp !== selection) {&#xa;&#x9;&#x9;&#x9;&#x9;selection.setValue(false);&#xa;&#x9;&#x9;&#x9;}&#xa;&#x9;&#x9;}&#xa;&#x9;}&#xa;}"/>
+                                </default>
+                            </items>
+                        </fieldConfig>
+                    </multi>
+                </items>
+            </callout2>
+            <callout3
+                jcr:primaryType="cq:Widget"
+                id="callout3"
+                title="Callout 3"
+                xtype="panel">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <calloutwidth
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Width*"
+                        name="./callout3/width"
+                        type="select"
+                        xtype="selection">
+                        <options jcr:primaryType="cq:WidgetCollection">
+                            <col-3
+                                jcr:primaryType="cq:Widget"
+                                text="~25%"
+                                value="3"/>
+                            <col-4
+                                jcr:primaryType="cq:Widget"
+                                text="~33%"
+                                value="4"/>
+                            <col-6
+                                jcr:primaryType="cq:Widget"
+                                text="~50%"
+                                value="6"/>
+                        </options>
+                    </calloutwidth>
+                    <multi
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Promo Paths*"
+                        name="./callout3/data"
+                        xtype="multifield">
+                        <fieldConfig
+                            jcr:primaryType="nt:unstructured"
+                            xtype="multifieldpanel">
+                            <items jcr:primaryType="cq:WidgetCollection">
+                                <link
+                                    jcr:primaryType="cq:Widget"
+                                    editable="{Boolean}false"
+                                    fieldLabel="Link*"
+                                    key="link"
+                                    width="150"
+                                    xtype="pathfield"/>
+                                <startTime
+                                    jcr:primaryType="cq:Widget"
+                                    fieldLabel="Start Time"
+                                    key="startTime"
+                                    minListWidth="90"
+                                    width="125"
+                                    xtype="timefield"/>
+                                <endTime
+                                    jcr:primaryType="cq:Widget"
+                                    fieldLabel="End Time"
+                                    key="endTime"
+                                    minListWidth="90"
+                                    width="125"
+                                    xtype="timefield"/>
+                                <default
+                                    jcr:primaryType="cq:Widget"
+                                    fieldLabel="Default"
+                                    key="default"
+                                    type="checkbox"
+                                    xtype="selection">
+                                    <listeners
+                                        jcr:primaryType="nt:unstructured"
+                                        selectionchanged="function(comp, val, isChecked) { &#xa;&#x9;var selections = CQ.Ext.getCmp('callout3').findByType('selection');&#xa;&#xa;&#x9;if (isChecked &amp;&amp;selections) {&#xa;&#x9;&#x9;for(var i =0; i&lt; selections.length; i++) {&#xa;&#x9;&#x9;&#x9;var selection = selections[i];&#xa;&#x9;&#x9;&#x9;if (selection.type === 'checkbox' &amp;&amp; comp !== selection) {&#xa;&#x9;&#x9;&#x9;&#x9;selection.setValue(false);&#xa;&#x9;&#x9;&#x9;}&#xa;&#x9;&#x9;}&#xa;&#x9;}&#xa;}"/>
+                                </default>
+                            </items>
+                        </fieldConfig>
+                    </multi>
+                </items>
+            </callout3>
+            <callout4
+                jcr:primaryType="cq:Widget"
+                id="callout4"
+                title="Callout 4"
+                xtype="panel">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <calloutwidth
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Width*"
+                        name="./callout4/width"
+                        type="select"
+                        xtype="selection">
+                        <options jcr:primaryType="cq:WidgetCollection">
+                            <col-3
+                                jcr:primaryType="cq:Widget"
+                                text="~25%"
+                                value="3"/>
+                            <col-4
+                                jcr:primaryType="cq:Widget"
+                                text="~33%"
+                                value="4"/>
+                            <col-6
+                                jcr:primaryType="cq:Widget"
+                                text="~50%"
+                                value="6"/>
+                        </options>
+                    </calloutwidth>
+                    <multi
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Promo Paths*"
+                        name="./callout4/data"
+                        xtype="multifield">
+                        <fieldConfig
+                            jcr:primaryType="nt:unstructured"
+                            xtype="multifieldpanel">
+                            <items jcr:primaryType="cq:WidgetCollection">
+                                <link
+                                    jcr:primaryType="cq:Widget"
+                                    editable="{Boolean}false"
+                                    fieldLabel="Link*"
+                                    key="link"
+                                    width="150"
+                                    xtype="pathfield"/>
+                                <startTime
+                                    jcr:primaryType="cq:Widget"
+                                    fieldLabel="Start Time"
+                                    key="startTime"
+                                    minListWidth="90"
+                                    width="125"
+                                    xtype="timefield"/>
+                                <endTime
+                                    jcr:primaryType="cq:Widget"
+                                    fieldLabel="End Time"
+                                    key="endTime"
+                                    minListWidth="90"
+                                    width="125"
+                                    xtype="timefield"/>
+                                <default
+                                    jcr:primaryType="cq:Widget"
+                                    fieldLabel="Default"
+                                    key="default"
+                                    type="checkbox"
+                                    xtype="selection">
+                                    <listeners
+                                        jcr:primaryType="nt:unstructured"
+                                        selectionchanged="function(comp, val, isChecked) { &#xa;&#x9;var selections = CQ.Ext.getCmp('callout4').findByType('selection');&#xa;&#xa;&#x9;if (isChecked &amp;&amp;selections) {&#xa;&#x9;&#x9;for(var i =0; i&lt; selections.length; i++) {&#xa;&#x9;&#x9;&#x9;var selection = selections[i];&#xa;&#x9;&#x9;&#x9;if (selection.type === 'checkbox' &amp;&amp; comp !== selection) {&#xa;&#x9;&#x9;&#x9;&#x9;selection.setValue(false);&#xa;&#x9;&#x9;&#x9;}&#xa;&#x9;&#x9;}&#xa;&#x9;}&#xa;}"/>
+                                </default>
+                            </items>
+                        </fieldConfig>
+                    </multi>
+                </items>
+            </callout4>
+            <static1
+                jcr:primaryType="cq:Panel"
+                title="Callout 1">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <calloutwidth
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Width*"
+                        name="./static1/width"
+                        type="select"
+                        xtype="selection">
+                        <options jcr:primaryType="cq:WidgetCollection">
+                            <col-3
+                                jcr:primaryType="cq:Widget"
+                                text="~25%"
+                                value="3"/>
+                            <col-4
+                                jcr:primaryType="cq:Widget"
+                                text="~33%"
+                                value="4"/>
+                            <col-6
+                                jcr:primaryType="cq:Widget"
+                                text="~50%"
+                                value="6"/>
+                        </options>
+                    </calloutwidth>
+                    <link
+                        jcr:primaryType="cq:Widget"
+                        editable="{Boolean}false"
+                        fieldDescription="Please choose scaffolding page path."
+                        fieldLabel="Link*"
+                        name="./static1/link"
+                        rootPath="/content"
+                        xtype="pathfield"/>
+                </items>
+                <listeners
+                    jcr:primaryType="nt:unstructured"
+                    render="function() { this.findParentByType('tabpanel').hideTabStripItem(5); }"/>
+            </static1>
+            <static2
+                jcr:primaryType="cq:Panel"
+                title="Callout 2">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <calloutwidth
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Width*"
+                        name="./static2/width"
+                        type="select"
+                        xtype="selection">
+                        <options jcr:primaryType="cq:WidgetCollection">
+                            <col-3
+                                jcr:primaryType="cq:Widget"
+                                text="~25%"
+                                value="3"/>
+                            <col-4
+                                jcr:primaryType="cq:Widget"
+                                text="~33%"
+                                value="4"/>
+                            <col-6
+                                jcr:primaryType="cq:Widget"
+                                text="~50%"
+                                value="6"/>
+                        </options>
+                    </calloutwidth>
+                    <link
+                        jcr:primaryType="cq:Widget"
+                        editable="{Boolean}false"
+                        fieldDescription="Please choose scaffolding page path."
+                        fieldLabel="Link*"
+                        name="./static2/link"
+                        rootPath="/content"
+                        xtype="pathfield"/>
+                </items>
+                <listeners
+                    jcr:primaryType="nt:unstructured"
+                    render="function() { this.findParentByType('tabpanel').hideTabStripItem(6); }"/>
+            </static2>
+            <static3
+                jcr:primaryType="cq:Panel"
+                title="Callout 3">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <calloutwidth
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Width*"
+                        name="./static3/width"
+                        type="select"
+                        xtype="selection">
+                        <options jcr:primaryType="cq:WidgetCollection">
+                            <col-3
+                                jcr:primaryType="cq:Widget"
+                                text="~25%"
+                                value="3"/>
+                            <col-4
+                                jcr:primaryType="cq:Widget"
+                                text="~33%"
+                                value="4"/>
+                            <col-6
+                                jcr:primaryType="cq:Widget"
+                                text="~50%"
+                                value="6"/>
+                        </options>
+                    </calloutwidth>
+                    <link
+                        jcr:primaryType="cq:Widget"
+                        editable="{Boolean}false"
+                        fieldDescription="Please choose scaffolding page path."
+                        fieldLabel="Link*"
+                        name="./static3/link"
+                        rootPath="/content"
+                        xtype="pathfield"/>
+                </items>
+                <listeners
+                    jcr:primaryType="nt:unstructured"
+                    render="function() { this.findParentByType('tabpanel').hideTabStripItem(7); }"/>
+            </static3>
+            <static4
+                jcr:primaryType="cq:Panel"
+                title="Callout 4">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <calloutwidth
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Width*"
+                        name="./static4/width"
+                        type="select"
+                        xtype="selection">
+                        <options jcr:primaryType="cq:WidgetCollection">
+                            <col-3
+                                jcr:primaryType="cq:Widget"
+                                text="~25%"
+                                value="3"/>
+                            <col-4
+                                jcr:primaryType="cq:Widget"
+                                text="~33%"
+                                value="4"/>
+                            <col-6
+                                jcr:primaryType="cq:Widget"
+                                text="~50%"
+                                value="6"/>
+                        </options>
+                    </calloutwidth>
+                    <link
+                        jcr:primaryType="cq:Widget"
+                        editable="{Boolean}false"
+                        fieldDescription="Please choose scaffolding page path."
+                        fieldLabel="Link*"
+                        name="./static4/link"
+                        rootPath="/content"
+                        xtype="pathfield"/>
+                </items>
+                <listeners
+                    jcr:primaryType="nt:unstructured"
+                    render="function() { this.findParentByType('tabpanel').hideTabStripItem(8); }"/>
+            </static4>
+            <random1
+                jcr:primaryType="cq:Widget"
+                title="Callout 1"
+                xtype="panel">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <calloutwidth
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Width*"
+                        name="./random1/width"
+                        type="select"
+                        xtype="selection">
+                        <options jcr:primaryType="cq:WidgetCollection">
+                            <col-3
+                                jcr:primaryType="cq:Widget"
+                                text="~25%"
+                                value="3"/>
+                            <col-4
+                                jcr:primaryType="cq:Widget"
+                                text="~33%"
+                                value="4"/>
+                            <col-6
+                                jcr:primaryType="cq:Widget"
+                                text="~50%"
+                                value="6"/>
+                        </options>
+                    </calloutwidth>
+                    <multi
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Promo Paths*"
+                        name="./random1/paths"
+                        xtype="multifield">
+                        <fieldConfig
+                            jcr:primaryType="nt:unstructured"
+                            editable="{Boolean}false"
+                            xtype="pathfield"/>
+                    </multi>
+                </items>
+            </random1>
+            <random2
+                jcr:primaryType="cq:Widget"
+                title="Callout 2"
+                xtype="panel">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <calloutwidth
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Width*"
+                        name="./random2/width"
+                        type="select"
+                        xtype="selection">
+                        <options jcr:primaryType="cq:WidgetCollection">
+                            <col-3
+                                jcr:primaryType="cq:Widget"
+                                text="~25%"
+                                value="3"/>
+                            <col-4
+                                jcr:primaryType="cq:Widget"
+                                text="~33%"
+                                value="4"/>
+                            <col-6
+                                jcr:primaryType="cq:Widget"
+                                text="~50%"
+                                value="6"/>
+                        </options>
+                    </calloutwidth>
+                    <multi
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Promo Paths*"
+                        name="./random2/paths"
+                        xtype="multifield">
+                        <fieldConfig
+                            jcr:primaryType="nt:unstructured"
+                            editable="{Boolean}false"
+                            xtype="pathfield"/>
+                    </multi>
+                </items>
+            </random2>
+            <random3
+                jcr:primaryType="cq:Widget"
+                title="Callout 3"
+                xtype="panel">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <calloutwidth
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Width*"
+                        name="./random3/width"
+                        type="select"
+                        xtype="selection">
+                        <options jcr:primaryType="cq:WidgetCollection">
+                            <col-3
+                                jcr:primaryType="cq:Widget"
+                                text="~25%"
+                                value="3"/>
+                            <col-4
+                                jcr:primaryType="cq:Widget"
+                                text="~33%"
+                                value="4"/>
+                            <col-6
+                                jcr:primaryType="cq:Widget"
+                                text="~50%"
+                                value="6"/>
+                        </options>
+                    </calloutwidth>
+                    <multi
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Promo Paths*"
+                        name="./random3/paths"
+                        xtype="multifield">
+                        <fieldConfig
+                            jcr:primaryType="nt:unstructured"
+                            editable="{Boolean}false"
+                            xtype="pathfield"/>
+                    </multi>
+                </items>
+            </random3>
+            <random4
+                jcr:primaryType="cq:Widget"
+                title="Callout 4"
+                xtype="panel">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <calloutwidth
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Width*"
+                        name="./random4/width"
+                        type="select"
+                        xtype="selection">
+                        <options jcr:primaryType="cq:WidgetCollection">
+                            <col-3
+                                jcr:primaryType="cq:Widget"
+                                text="~25%"
+                                value="3"/>
+                            <col-4
+                                jcr:primaryType="cq:Widget"
+                                text="~33%"
+                                value="4"/>
+                            <col-6
+                                jcr:primaryType="cq:Widget"
+                                text="~50%"
+                                value="6"/>
+                        </options>
+                    </calloutwidth>
+                    <multi
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Promo Paths*"
+                        name="./random4/paths"
+                        xtype="multifield">
+                        <fieldConfig
+                            jcr:primaryType="nt:unstructured"
+                            editable="{Boolean}false"
+                            xtype="pathfield"/>
+                    </multi>
+                </items>
+            </random4>
+        </items>
+    </items>
+    <listeners
+        jcr:primaryType="nt:unstructured"
+        beforesubmit="function(dialog){&#xa;//validate static callout's mandatory fields.&#xa;&#x9;var number = dialog.getField('./number').getValue();&#xa;&#x9;var type = dialog.getField('./type').getValue();&#xa;&#x9;type = type!='static' ? type==='time' ? 'callout' :'random' : 'static'; &#xa;&#x9;for(var i=1; i&lt;=number; i++) {&#xa;&#x9;&#x9;var callOutWidthObj = dialog.getField('./'+type+i+'/width').getValue();&#xa;&#x9;&#x9;if(type=='static'){&#xa;&#x9;&#x9;&#x9;var fieldValue = dialog.getField('./static'+i+'/link').getValue();&#xa;&#x9;&#x9;&#x9;if( fieldValue=='' || callOutWidthObj == ''){&#xa;&#x9;&#x9;&#x9;&#x9;CQ.Ext.Msg.show({title: 'Callout Validation',  msg: 'Please provide the mandatory configurations for Callout '+i+'.',icon:CQ.Ext.MessageBox.WARNING,buttons: CQ.Ext.Msg.OK});&#xa;&#x9;&#x9;&#x9;&#x9;return false;&#xa;&#x9;&#x9;&#x9;}&#xa;&#x9;&#x9;}else if(type=='random'){&#xa;&#x9;&#x9;&#x9;var fieldValue = dialog.getField('./'+type+i+'/paths').getValue();&#xa;&#x9;&#x9;&#x9;if( fieldValue=='' || callOutWidthObj == ''){&#xa;&#x9;&#x9;&#x9;&#x9;CQ.Ext.Msg.show({title: 'Callout Validation',  msg: 'Please provide the mandatory configurations for Callout '+i+'.',icon:CQ.Ext.MessageBox.WARNING,buttons: CQ.Ext.Msg.OK});&#xa;&#x9;&#x9;&#x9;&#x9;return false;&#xa;&#x9;&#x9;&#x9;}&#xa;&#x9;&#x9;&#x9;for(var index=1; index&lt;=fieldValue.length; index++) {&#xa;&#x9;&#x9;&#x9;&#x9;if( fieldValue[index]=='' || callOutWidthObj == ''){&#xa;&#x9;&#x9;&#x9;&#x9;&#x9;CQ.Ext.Msg.show({title: 'Callout Validation',  msg: 'Please provide the mandatory configurations for Callout '+i+'.',icon:CQ.Ext.MessageBox.WARNING,buttons: CQ.Ext.Msg.OK});&#xa;&#x9;&#x9;&#x9;&#x9;&#x9;return false;&#xa;&#x9;&#x9;&#x9;&#x9;}&#xa;&#x9;&#x9;&#x9;}&#xa;&#x9;&#x9;}else {&#xa;&#x9;&#x9;&#x9;var fieldValue = dialog.getField('./'+type+i+'/data').getValue();&#xa;&#x9;&#x9;&#x9;if( fieldValue=='' || callOutWidthObj == ''){&#xa;&#x9;&#x9;&#x9;&#x9;CQ.Ext.Msg.show({title: 'Callout Validation',  msg: 'Please provide the mandatory configurations for Callout '+i+'.',icon:CQ.Ext.MessageBox.WARNING,buttons: CQ.Ext.Msg.OK});&#xa;&#x9;&#x9;&#x9;&#x9;return false;&#xa;&#x9;&#x9;&#x9;}&#xa;&#x9;&#x9;&#x9;for(var index=0; index&lt;fieldValue.length; index++) {&#xa;&#x9;&#x9;&#x9;&#x9;var promoPath = fieldValue[index];&#xa;&#x9;&#x9;&#x9;&#x9;var promoPathStr = promoPath.substring(promoPath.indexOf(&quot;:&quot;)+2, promoPath.indexOf(&quot;,&quot;)-1);&#xa;&#x9;&#x9;&#x9;&#x9;if( promoPathStr.length == 0 || callOutWidthObj == ''){&#xa;&#x9;&#x9;&#x9;&#x9;&#x9;CQ.Ext.Msg.show({title: 'Callout Validation',  msg: 'Please provide the mandatory configurations for Callout '+i+'.',icon:CQ.Ext.MessageBox.WARNING,buttons: CQ.Ext.Msg.OK});&#xa;&#x9;&#x9;&#x9;&#x9;&#x9;return false;&#xa;&#x9;&#x9;&#x9;&#x9;}&#xa;&#x9;&#x9;&#x9;}&#xa;&#x9;&#x9;}&#xa;&#x9;}&#xa;&#x9;&#xa;//validate column width for all callouts.&#xa;&#x9;var fcpWdth= 0;&#xa;&#x9;for(var i=1; i&lt;=number; i++) {&#xa;&#x9;&#x9;var callOutWidthObj = dialog.getField('./'+type+i+'/width').getValue();&#xa;    &#x9;&#x9;&#x9;&#x9;fcpWdth = fcpWdth + parseInt(callOutWidthObj);&#xa;&#x9; &#x9;}&#xa;&#x9;&#x9;if(fcpWdth !==12 &amp;&amp; number != '' &amp;&amp; type != ''){&#xa;&#x9;&#x9;&#x9;&#x9;CQ.Ext.Msg.show({title: 'Callout Width Validation',  msg: 'Please provide proper width for Feature Call Out',icon:CQ.Ext.MessageBox.WARNING,buttons: CQ.Ext.Msg.OK});&#xa;&#x9;&#x9;&#x9;&#x9;&#x9; return false;&#xa;&#x9;&#x9;&#x9;&#x9;}&#xa;}"/>
+</jcr:root>

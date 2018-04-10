@@ -1,0 +1,431 @@
+<sly data-sly-use.configRTL="com.mcd.rwd.us.core.sightly.page.Config"></sly>
+<div ng-controller="questionFeedController" data-sly-use.questionFeed="com.mcd.yrtk.components.content.questionfeed.QuestionFeed"
+     data-json="${questionFeed.json}" ng-cloak>
+
+    <section title="filter">
+        <div class="cont-filter gray-border-on-white">
+            <div class="container">
+                <div class="row">
+                    <div data-sly-test="${configRTL.isRtl}">
+
+                        <!--category filters-->
+                        <div class="col-xs-12 col-sm-6 ">
+                            <div class="select hastoggle">
+                                <button type="button" class="btn btn-default dropdown-toggle"  aria-haspopup="true" aria-expanded="false">
+                                    ${questionFeed.categoryFilterLabel}<i class="fa fa-chevron-down"></i>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <div class="dropdown-list-wrapper">
+                                        <li ng-repeat="filters in overAllQuestionSet | unique: 'categoryName'">
+                                            <div class="checkbox">
+                                                <input type="checkbox"
+                                                       id="d-c-{{$index}}"
+                                                       value="{{filters.categoryName}}"
+                                                       role="checkbox"
+                                                       aria-checked="false"
+                                                       ng-model="categoryFilterModel"
+                                                       ng-true-value="1"
+                                                       ng-false-value="0"
+                                                       class="filter-category-dropdown"
+                                                       ng-click="categoryFilter(filters.categoryName, categoryFilterModel);">
+                                                <label for="d-c-{{$index}}">
+                                                    {{filters.categoryName}}
+                                                </label>
+                                            </div>
+                                        </li>
+                                        <li class="nohover">
+                                            <ul class="nested-list list-inline">
+                                                <li class="nohover">
+                                                    <button class="btn btn-red" id="apply-filter" ng-click="applyFilter();">${questionFeed.applyFilterBtn}</button>
+                                                </li>
+                                                <li class="nohover" id="reset" ng-click="resetCategoryFilter();">
+                                                    <button class="link-red" id="reset-filter" >${questionFeed.resetBtn}</button>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </div>
+                                </ul>
+                            </div>
+                        </div>
+                    <!--search box-->
+                        <div class="col-xs-12 col-sm-6">
+                            <div class="dropdown-select-container cont-left">
+                                <div class="row no-gutter">
+                                    <div class="col-xs-8 input-left">
+                                        <div class="form-group form-group-typeahead">
+                                            <label for="searchForQuestion" class="visuallyhidden" id="searchForQuestion-label">${questionFeed.searchInstructionsMsg}</label>
+                                            <input type="text"  ng-model-options="{debounce: 1000}" ng-change="searchKeyDown()" ng-model="searchKeyWord" id="searchBar"  aria-live="assertive" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                                   placeholder="${questionFeed.searchBoxPlaceholder}" value="" class="typeahead form-control" id="searchForQuestion" aria-invalid="false">
+                                            <ul class="dropdown-menu" id="dropdown-menu-search-for-question">
+                                                <div class="dropdown-list-wrapper">
+                                                    <li class="nohover">
+                                                        <ul class="nested-list list-inline">
+                                                            <li class="nohover"><span class="bold-text">${questionFeed.suggestionBtn1 @ context = 'html'}</span></li>
+                                                            <li class="nohover"><button class="btn btn-red">${questionFeed.suggestionBtn2}</button></li>
+                                                        </ul>
+                                                    </li>
+                                                    <li ng-repeat="questionitem in questionsList | filter: searchedQUestionVal | limitTo: 5">
+                                                        <a href="#" ng-click="openModal(questionsList.indexOf(questionitem));">{{questionitem.question}}</a>
+                                                    </li>
+                                                </div>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-4 btn-right">
+                                        <button type="button"  class="btn btn-red">${questionFeed.searchBtnText}</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <!--number of results label-->
+                        <div class="col-xs-12" ng-if="(questionsList | filter: searchKeyWord ).length>0">
+                            <div class="cont-results ${ configRTL.isRtl ?'pull-right':''}">
+                                <p>${questionFeed.numberOfResultsText} <span ng-if="searchKeyWord"> ${questionFeed.keywordText}</span></p>
+                                <!--<p>{{(questions | filter: searchKeyWord ).length}} ${questionFeed.numberOfResultsText} <span ng-if="searchKeyWord"> ${questionFeed.keywordText}</span></p>-->
+                            </div>
+                        </div>
+
+                        <!--//TODO verify that the below messages show up when needed and if not, fix it-->
+                        <div class="col-xs-12" ng-if="(questions | filter: searchKeyWord ).length>0|| showError">
+                            <div class="cont-results">
+                                <p ng-show="showError">{{errorMsg}}</p>
+                            </div>
+                        </div>
+                   </div>
+
+                    <div data-sly-test="${!configRTL.isRtl}">
+                        <!--search box-->
+                        <div class="col-xs-12 col-sm-6">
+                            <div class="dropdown-select-container cont-left">
+                                <div class="row no-gutter">
+                                    <div class="col-xs-8 input-left">
+                                        <div class="form-group form-group-typeahead">
+                                            <label for="searchForQuestion" class="visuallyhidden" id="searchForQuestion-label">${questionFeed.searchInstructionsMsg}</label>
+                                            <input type="text"  ng-model-options="{debounce: 1000}" ng-change="searchKeyDown()" ng-model="searchKeyWord" id="searchBar"  aria-live="assertive" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                                   placeholder="${questionFeed.searchBoxPlaceholder}" value="" class="typeahead form-control" id="searchForQuestion" aria-invalid="false">
+                                            <ul class="dropdown-menu" id="dropdown-menu-search-for-question">
+                                                <div class="dropdown-list-wrapper">
+                                                    <li class="nohover">
+                                                        <ul class="nested-list list-inline">
+                                                            <li class="nohover"><span class="bold-text">${questionFeed.suggestionBtn1 @ context = 'html'}</span></li>
+                                                            <li class="nohover"><button class="btn btn-red">${questionFeed.suggestionBtn2}</button></li>
+                                                        </ul>
+                                                    </li>
+                                                    <li ng-repeat="questionitem in questionsList | filter: searchedQUestionVal | limitTo: 5">
+                                                        <a href="#" ng-click="openModal(questionsList.indexOf(questionitem));">{{questionitem.question}}</a>
+                                                    </li>
+                                                </div>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-4 btn-right">
+                                        <button type="button"  class="btn btn-red">${questionFeed.searchBtnText}</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--category filters-->
+                        <div class="col-xs-12 col-sm-6 ">
+                            <div class="select hastoggle">
+                                <button type="button" class="btn btn-default dropdown-toggle"  aria-haspopup="true" aria-expanded="false">
+                                    ${questionFeed.categoryFilterLabel}<i class="fa fa-chevron-down"></i>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <div class="dropdown-list-wrapper">
+                                        <li ng-repeat="filters in overAllQuestionSet | unique: 'categoryName'">
+                                            <div class="checkbox">
+                                                <input type="checkbox"
+                                                       id="d-c-{{$index}}"
+                                                       value="{{filters.categoryName}}"
+                                                       role="checkbox"
+                                                       aria-checked="false"
+                                                       ng-model="categoryFilterModel"
+                                                       ng-true-value="1"
+                                                       ng-false-value="0"
+                                                       class="filter-category-dropdown"
+                                                       ng-click="categoryFilter(filters.categoryName, categoryFilterModel);">
+                                                <label for="d-c-{{$index}}">
+                                                    {{filters.categoryName}}
+                                                </label>
+                                            </div>
+                                        </li>
+                                        <li class="nohover">
+                                            <ul class="nested-list list-inline">
+                                                <li class="nohover">
+                                                    <button class="btn btn-red" id="apply-filter" ng-click="applyFilter();">${questionFeed.applyFilterBtn}</button>
+                                                </li>
+                                                <li class="nohover" id="reset" ng-click="resetCategoryFilter();">
+                                                    <button class="link-red" id="reset-filter" >${questionFeed.resetBtn}</button>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </div>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!--number of results label-->
+                        <div class="col-xs-12" ng-if="(questionsList | filter: searchKeyWord ).length>0">
+                            <div class="cont-results ${ configRTL.isRtl ?'pull-right':''}">
+                                <p>${questionFeed.numberOfResultsText} <span ng-if="searchKeyWord"> ${questionFeed.keywordText}</span></p>
+                                <!--<p>{{(questions | filter: searchKeyWord ).length}} ${questionFeed.numberOfResultsText} <span ng-if="searchKeyWord"> ${questionFeed.keywordText}</span></p>-->
+                            </div>
+                        </div>
+
+                        <!--//TODO verify that the below messages show up when needed and if not, fix it-->
+                        <div class="col-xs-12" ng-if="(questions | filter: searchKeyWord ).length>0|| showError">
+                            <div class="cont-results">
+                                <p ng-show="showError">{{errorMsg}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--list of questions-->
+    <section title="questions and answers">
+        <div class="container cont-content">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6" ng-if="pinnedQuestionStatus">
+                    <div class="box-lg" style="background-image: url('{{pinnedQuestion1.heroimage}}'); background-position: 50% 50%; background-size: cover;" ng-if="pinnedQuestion1">
+                        <div class="scrim absolute-content">
+                            <div class="absolute-content-wrapper">
+                                <div class="box-text">
+                                    <div class="box-social">
+                                        <a role="button" tabindex="0" href="#" title="Share on Facebook or Twitter" data-target="share-box" aria-expanded="false">
+                                            <span class="share-icon fa-stack fa-lg" aria-hidden="true">
+                                                  <i class="fa fa-circle fa-stack-2x"></i>
+                                                  <i class="fa fa-share-alt fa-stack-1x fa-inverse"></i>
+                                            </span>
+                                        </a>
+                                        <div class="share-box">
+                                            <a href="#" title="Share on Facebook">
+                                                <span class="share-item fa-stack fa-lg" aria-hidden="true">
+                                                    <i class="fa fa-circle fa-stack-2x circle-fb"></i>
+                                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                                                </span>
+                                            </a>
+                                            <a href="#" title="Share on Twitter">
+                                                <span class="share-item fa-stack fa-lg" aria-hidden="true">
+                                                    <i class="fa fa-circle fa-stack-2x circle-tw"></i>
+                                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                              </span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <h2 class="t-question" data-content="">
+                                        <span class="t-handle click-before-outline" style="outline: none;">{{pinnedQuestion1.user[0].name}}</span>
+                                        "{{pinnedQuestion1.question}}"
+                                    </h2>
+                                    <a ng-href="{{question.alternateUrl}}" aria-label="${questionFeed.seeMoreAboutLabel} '{{question.question}}'" x-cq-linkchecker=”skip” target="_self"  data-toggle="modal"  class="btn btn-red" aria-label=""  ng-click="openModal(pinnedQuestion1,'pin');">${questionFeed.seeMoreLabel}</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6" ng-if="pinnedQuestion2Status">
+                    <div class="box-lg" ng-if="pinnedQuestion2" style="background-image: url('{{pinnedQuestion2.heroimage}}'); background-position: 50% 50%; background-size: cover;">
+                        <div class="scrim absolute-content">
+                            <div class="absolute-content-wrapper">
+                                <div class="box-text">
+                                    <div class="box-social">
+                                        <a role="button" tabindex="0" href="#" title="Share on Facebook or Twitter" data-target="share-box" aria-expanded="false">
+                                            <span class="share-icon fa-stack fa-lg" aria-hidden="true">
+                                                  <i class="fa fa-circle fa-stack-2x"></i>
+                                                  <i class="fa fa-share-alt fa-stack-1x fa-inverse"></i>
+                                            </span>
+                                        </a>
+                                        <div class="share-box">
+                                            <a href="#" title="Share on Facebook">
+                                                <span class="share-item fa-stack fa-lg" aria-hidden="true">
+                                                    <i class="fa fa-circle fa-stack-2x circle-fb"></i>
+                                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                                                </span>
+                                            </a>
+                                            <a href="#" title="Share on Twitter">
+                                                <span class="share-item fa-stack fa-lg" aria-hidden="true">
+                                                    <i class="fa fa-circle fa-stack-2x circle-tw"></i>
+                                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                              </span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <h2 class="t-question" data-content="">
+                                        <span class="t-handle click-before-outline" style="outline: none;">{{pinnedQuestion2.user[0].name}}</span>
+                                        "{{pinnedQuestion2.question}}"
+                                    </h2>
+                                    <a ng-href="{{question.alternateUrl}}" aria-label="${questionFeed.seeMoreAboutLabel} '{{question.question}}'" x-cq-linkchecker=”skip” target="_self"  data-toggle="modal"  class="btn btn-red" aria-label=""  ng-click="openModal(pinnedQuestion2,'pin');">${questionFeed.seeMoreLabel}</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row no-gutter">
+                <div class="col-xs-12 col-sm-6 col-md-4 box-reg-parent {{question.categoryName}}"
+                     ng-repeat="question in (filteredQuestions = (questions | filter: searchKeyword | filter: searchedQUestionVal)) | limitTo: limit track by $index">
+                    <div class="box-reg">
+                        <!--<a href="" title="See more about Lorem ipsum dolor sit amet adipiscing" data-toggle="modal" data-target="#seeMoreModalV3">-->
+                            <!--<div aria-hidden="true" class="box-img" style="background-image: url('assets/img/yrtk/tile-1.jpg'); background-position: 50% 50%; background-size: cover;">-->
+                                <!--<div class="absolute-content">-->
+                                    <!--<div class="absolute-content-wrapper">-->
+                                        <!--<img src="/etc/clientlibs/mcd-yrtkRTL-1/images/btn-youtube.png" alt="" />-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</a>-->
+                        <a ng-href="{{question.alternateUrl}}" target="_self" ng-if="question.videourl != ''" title="${questionFeed.seeMoreAboutLabel} '{{question.question}}'"
+                           ng-click="openModal(questions.indexOf(question));">
+                            <ng-youtube-embed video="question.videourl" autoplay="false" color="white" disablekb="true"
+                                    width="100%" height="250px" rel="false"></ng-youtube-embed>
+                        </a>
+                        <a ng-href="{{question.alternateUrl}}" target="_self" ng-if="question.heroimage != ''" title="${questionFeed.seeMoreAboutLabel} '{{question.question}}'"
+                           ng-click="openModal(questions.indexOf(question));">
+                            <div class="box-img" style="background-image: url('{{question.heroimage}}'); background-position: 50% 50%; background-size: cover;"></div>
+                        </a>
+                        <div class="box-text">
+						<sly data-sly-test="${(!properties.enableSocialShare)}">
+                            <div class="cont-box-social">
+                                <div class="box-social">
+                                    <a role="button" tabindex="0" href="#" title="${questionFeed.socialShareLabel}" data-target="share-box" aria-expanded="false">
+                                        <span class="share-icon fa-stack fa-lg" aria-hidden="true">
+                                            <i class="fa fa-circle fa-stack-2x"></i>
+                                            <i class="fa fa-share-alt fa-stack-1x fa-inverse"></i>
+                                        </span>
+                                    </a>
+                                    <div class="share-box">
+                                        <a href title="${questionFeed.facebookShareLabel}" ng-click="socialShareFacebook(question);">
+                                            <span class="share-item fa-stack fa-lg" aria-hidden="true">
+                                                <i class="fa fa-circle fa-stack-2x circle-fb"></i>
+                                                <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                                            </span>
+                                        </a>
+                                        <a href title="${questionFeed.twitterShareLabel}" ng-click="socialShareTwitter(question);">
+                                            <span class="share-item fa-stack fa-lg" aria-hidden="true">
+                                                <i class="fa fa-circle fa-stack-2x circle-tw"></i>
+                                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                            </span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </sly>    
+							<h2 class="t-question">
+                                <span class="t-handle">{{question.user[0].name}}</span>
+                                "{{question.question}}"
+                            </h2>
+                            <p class="t-answer" ng-bind-html="question.answer | addEllipsis"></p>
+                            <div class="cont-btn">
+                                <!--<button class="btn btn-red" aria-label="See more about Lorem ipsum dolor sit amet adipiscing">${questionFeed.seeMoreLabel}</button>-->
+                                <a ng-href="{{question.alternateUrl}}" target="_self" class="btn btn-red" ng-click="openModal(questions.indexOf(question));"
+                                   aria-label="${questionFeed.seeMoreAboutLabel} '{{question.question}}'" x-cq-linkchecker=”skip”>${questionFeed.seeMoreLabel}</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row no-gutter">
+                <div class="col-xs-12">
+                    <div class="cont-load-more" ng-if="(questions | filter: searchKeyWord ).length>limit">
+                        <div class="cont-scroll-up hidden-xs">
+                            <a href="#" title="${questionFeed.scrollToTopLabel}">
+                                <span class="scroll-up-icon fa-stack fa-lg" aria-hidden="true">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-chevron-up fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </div>
+                        <div class="clearfix load-more-row" >
+                            <button type="button" class="load-more-btn keep-outline" aria-label="${questionFeed.loadMoreLabel}" ng-click="loadMoreQuestions();">
+                                ${questionFeed.loadMoreLabel}
+                                <br>
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-chevron-down fa-stack-1x"></i>
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                        <div ng-if="(questionsList | filter: searchKeyWord ).length<=0">
+                        <div class="page-yrtk-loader-wrap text-center">
+                            <div class="page-yrtk-loader"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- question detail modal - new HTML from Reach -->
+    <button type="hidden" class=" btn btn-see-more-modal" data-toggle="modal" data-target="#seeMoreModal" ng-hide=true></button>
+    <div class="modal-see-more-yrtk modal fade modal-type-{{modalType}}" id="seeMoreModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <a aria-label="${questionFeed.closeLabel}" role="button" class="fancybox-item fancybox-close keep-outline" href="#" data-dismiss="modal" ng-click="resetPopupClose();">
+                    <span class="visuallyhidden">${questionFeed.closeLabel}</span>
+                    <span class="fa-stack fa-lg" aria-hidden="true">
+                        <i class="fa fa-circle fa-stack-2x"></i>
+                        <i class="fa fa-times fa-stack-1x fa-inverse"></i>
+                    </span>
+                </a>
+                <div class="cont-img" ng-if="modalImage != ''">
+                    <div class="box-img" style="background-image: url('{{modalImage}}'); background-position: 50% 50%; background-size: cover;"></div>
+                </div>
+                <div id="videoUrl" class="cont-video" data-url="{{modalVideo}}" ng-if="modalVideo != ''">
+                    <div class="embed-responsive embed-responsive-16by9">
+                    <ng-youtube-embed video=modalVideo autoplay="false" color="white" disablekb="true"
+                                      width="100%" height="250px" rel="false"></ng-youtube-embed>
+                    </div>
+
+                </div>
+                <div class="t-box">
+                    <div class="box-social">
+                        <a role="button" tabindex="0" href="#" title="${questionFeed.socialShareLabel}" data-target="share-box" aria-expanded="false">
+                            <span class="share-icon fa-stack fa-lg" aria-hidden="true">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-share-alt fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                        <div class="share-box">
+                            <a href title="${questionFeed.facebookShareLabel}" ng-click="socialShareFacebookModal();">
+                                <span class="share-item fa-stack fa-lg" aria-hidden="true">
+                                    <i class="fa fa-circle fa-stack-2x circle-fb"></i>
+                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                            <a href title="${questionFeed.twitterShareLabel}" ng-click="socialShareTwitterModal();">
+                                <span class="share-item fa-stack fa-lg" aria-hidden="true">
+                                    <i class="fa fa-circle fa-stack-2x circle-tw"></i>
+                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                    <h1 class="headline-text email-signup-headline t-question"><span class="t-handle">{{modalUsername}}</span>"{{modalQuestion}}"</h1>
+                    <p class="t-answer" ng-bind-html="modalAnswer"></p>
+                    <ul class="list-inline">
+                        <li><div class="link-red">{{modalCategory}}</div></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--/*
+    This section should be visible when page loads, and then be hidden by JS.
+    This section will only appear within the markup if a selector is specified and a matching question was found when making a call
+    to the YRTK web service from the backing bean.
+    This markup is here as a SEO accommodation for the question detail page.
+    */-->
+
+
+</div>
+

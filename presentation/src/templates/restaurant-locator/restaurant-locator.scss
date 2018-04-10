@@ -1,0 +1,570 @@
+.mcd-rlwidget {
+  padding-top: to-rem(18);
+  margin: 0 auto to-rem(45) auto;
+  max-width: to-rem(1170);
+  &__container {
+    @include make-row(0);
+  }
+  &__search-input {
+    @include make-xs-column(10, 0);
+    @include make-sm-column(10, 0);
+    @include make-row(0);
+    & .border-nofocus {
+      background-color: #cecece;
+    }
+    & .border-focus {
+      background-color: #292929;
+    }
+  }
+  &__locate-button {
+    @include make-xs-column(2, 0);
+    @include make-sm-column(2, 0);
+    text-align: right;
+    margin-top: to-rem(10);
+    & button {
+      border: to-rem(1) solid #adadad;
+      padding: to-rem(12) to-rem(30);
+    }
+  }
+  &__search-cancel {
+    @include make-xs-column(1, 0);
+    @include make-sm-column(1, 0);
+    text-align: right;
+    margin-top: to-rem(25);
+    display: none;
+    & button {
+      color: #007aca;
+      background: transparent;
+      border: 0;
+    }
+  }
+  &__input {
+    @include make-xs-column(10, 0);
+    @include make-sm-column(11, 0);
+    position: relative;
+    font-family: 'ArchSans-Light';
+    &--background {
+      position: absolute;
+      color: #999;
+      width: 100%;
+      border: none;
+      outline: none;
+      background-color: $background-color;
+      font-size: 3.125rem;
+      font-weight: 300;
+    }
+    &--main {
+      border: none;
+      width: 100%;
+      font-size: to-rem(50);
+      font-weight: 300;
+      outline: none;
+      position: relative;
+      background: transparent;
+      color: rgba(41, 41, 41, 1);
+    }
+    &--close-btn {
+      position: absolute;
+      right: to-rem(5);
+      top: to-rem(16);
+      cursor: pointer;
+      color: #999;
+    }
+  }
+  &__button {
+    @include make-xs-column(2, 0);
+    @include make-sm-column(1, 0);
+    text-align: right;
+    background: $background-color;
+    margin-top: to-rem(10);
+  }
+  &__border {
+    height: 0.1rem;
+    margin-top: to-rem(10);
+    transform: scaleY(-1);
+  }
+  &__no-item {
+    font-size: to-rem(18);
+    line-height: to-rem(22);
+    text-align: center;
+    color: rgba(31, 31, 31, 1);
+    margin: to-rem(14) to-rem(53) to-rem(53) to-rem(53);
+  }
+  &__suggestion {
+    position: absolute;
+    z-index: 1;
+    &--predicted-text {
+      cursor: pointer;
+      line-height: to-rem(46);
+      &:hover {
+        color: rgba(38, 142, 200, 1);
+      }
+      &.selected {
+        color: rgba(38, 142, 200, 1);
+      }
+    }
+    &--section {
+      color: rgba(77, 78, 73, 1);
+      font-size: 1.125rem;
+      line-height: 2.75rem;
+      list-style: none;
+      padding-left: 0;
+    }
+  }
+}
+
+.mcd-rlresults {
+  padding: 0;
+
+  /*---COMMON COMPONENTS---*/
+  & .rl-map-pin {
+    height: to-rem(47.07);
+    width: to-rem(35.24);
+    font-size: to-rem(18);
+    margin-right: to-rem(12);
+    line-height: to-rem(18);
+    padding-top: to-rem(6);
+    background-image: url('https://www.mcdonalds.com/etc/clientlibs/mcd-us/images/restaurant-locator/map-marker.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    text-align: center;
+    float: left;
+    &__count {
+      color: white;
+      position: relative;
+      top: to-rem(3);
+    }
+  }
+  & .rl-heading {
+    color: #bd0017;
+    font-size: to-rem(11);
+    letter-spacing: to-rem(1);
+    font-weight: 800;
+    font-family: 'ArchSans-Bold';
+  }
+  & .rl-title {
+    margin: to-rem(2) 0;
+    text-transform: lowercase;
+  }
+  & .rl-subheading {
+    color: #60605b;
+    font-family: 'ArchSans-Light';
+    text-transform: lowercase;
+  }
+  & .rl-subheading-extradetails {
+    font-family: 'ArchSans-Light';
+    color: #60605b;
+  }
+
+  /*------------------------*/
+  &__filters {
+    padding: 0;
+    margin-bottom: to-rem(20);
+    &__heading {
+      font-size: to-rem(22);
+      @include make-xs-column(6, 0);
+      @include make-sm-column(6, 0);
+    }
+    &__toggle-buttons {
+      @include make-xs-column(6, 0);
+      @include make-sm-column(6, 0);
+      text-align: right;
+      & .button-toggle {
+        display: inline-block;
+        position: relative;
+        font-family: 'ArchSans-Light';
+        color: #60605b;
+        & button {
+          border: 0;
+          font-size: to-rem(16);
+          background: transparent;
+        }
+      }
+    }
+  }
+  &__filter-items {
+    clear: both;
+    padding: to-rem(30) 0;
+    .filter-item {
+      display: inline-block;
+      position: relative;
+      padding-left: to-rem(35);
+      margin-bottom: to-rem(12);
+      cursor: pointer;
+      font-size: to-rem(16);
+      color: #60605b;
+      margin-right: to-rem(25);
+      font-weight: 100;
+      font-family: 'ArchSans-Light';
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+      }
+      input:checked ~ .checkmark {
+        background-color: transparent;
+      }
+      input:checked ~ .checkmark:after {
+        display: block;
+      }
+      .checkmark:after {
+        left: to-rem(7);
+        top: to-rem(3);
+        width: to-rem(5);
+        height: to-rem(10);
+        border: solid #00a9e7;
+        border-width: 0 to-rem(2) to-rem(2) 0;
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+      }
+    }
+    .checkmark {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: to-rem(20);
+      border-radius: to-rem(2);
+      width: to-rem(20);
+      border: to-rem(1) solid #adadad;
+    }
+    .checkmark:after {
+      content: "";
+      position: absolute;
+      display: none;
+    }
+  }
+  & .tab-content {
+    & .rl-listview {
+      &__rl-list {
+        list-style: none;
+        & .rl-listitem-block {
+          height: to-rem(125);
+          border-top: to-rem(1) solid #cecece;
+          padding: to-rem(28) to-rem(17.25);
+          & .rl-details {
+            float: left;
+            & .rl_load-details-desktop {
+              @include make-row(0);
+              & .heading {
+                font-size: to-rem(16);
+                font-family: 'ArchSans-Bold';
+                margin-bottom: to-rem(19);
+              }
+              & .rl_set-preferred-location {
+                & .radio {
+                  margin-top: to-rem(19);
+                  margin-bottom: to-rem(39);
+                }
+              }
+              & .rl-res-hours {
+                @include make-xs-column(3, 0);
+                @include make-sm-column(3, 0);
+                padding-right: to-rem(40);
+              }
+              & .rl-drive-thru-hours {
+                @include make-xs-column(3, 0);
+                @include make-sm-column(3, 0);
+                padding-right: to-rem(40);
+              }
+              & .rl-services {
+                @include make-xs-column(3, 0);
+                @include make-sm-column(3, 0);
+                padding-right: to-rem(40);
+                &-item {
+                  margin-bottom: to-rem(20);
+                }
+              }
+              & .rl-careers {
+                @include make-xs-column(3, 0);
+                @include make-sm-column(3, 0);
+              }
+            }
+          }
+          & .rl-chevron-down {
+            float: right;
+            margin-top: to-rem(22.5);
+            cursor: pointer;
+            & .icon-chevron-down:before {
+              color: #bd0017;
+              font-size: to-rem(24);
+            }
+          }
+        }
+      }
+      &__load-more {
+        text-align: center;
+      }
+    }
+    & .rl-mapview {
+      &-container {
+        background-color: #fff;
+        @include make-row(0);
+      }
+      &__details {
+        @include make-xs-column(6, 0);
+        @include make-sm-column(6, 0);
+        padding: to-rem(45) to-rem(114);
+        & .rl-map-pin {
+          float: none;
+        }
+        & .rl-heading {
+          padding-top: to-rem(17.68);
+          padding-bottom: to-rem(2);
+        }
+        & .rl-subheading {
+        }
+        & .rl-title {
+          font-size: to-rem(26);
+          margin-bottom: to-rem(5);
+        }
+        & .rl-subheading-extradetails {
+          display: inline;
+        }
+        & .rl_set-preferred-location {
+          & .radio {
+            margin-top: to-rem(29);
+            margin-bottom: to-rem(35);
+          }
+        }
+        & .rl-res-tables {
+          @include make-row(0);
+          & .rl-res-hours {
+            @include make-xs-column(6, 0);
+            @include make-sm-column(6, 0);
+          }
+          & .rl-drive-thru-hours {
+            @include make-xs-column(6, 0);
+            @include make-sm-column(6, 0);
+          }
+        }
+        & .dropdown-toggle {
+          padding: to-rem(20) 0;
+          border-top: to-rem(1) solid #cecece;
+          & .heading {
+            display: inline-block;
+          }
+        }
+        & .rl-chevron-down {
+          float: right;
+          cursor: pointer;
+          margin: 0;
+        }
+        & .rl-careers {
+          margin-bottom: to-rem(35);
+        }
+        & .icon-times {
+          position: absolute;
+          top: to-rem(22);
+          right: to-rem(23);
+          cursor: pointer;
+        }
+      }
+      &__map {
+        @include make-xs-column(6, 0);
+        @include make-sm-column(6, 0);
+      }
+    }
+  }
+}
+
+// @media screen and (min-width: to-rem(1200)) and (max-width: to-rem(1600)) and (-webkit-min-device-pixel-ratio: 1) {}
+@media screen and (max-width: to-rem(600)) {
+  .mcd-rlwidget {
+    padding-top: to-rem(18);
+    margin: 0 to-rem(12);
+    &__container {
+      @include make-row(0);
+    }
+    &__search-input {
+      @include make-xs-column(12, 0);
+      @include make-sm-column(12, 0);
+      @include make-row(0);
+      & .border-nofocus {
+        background-color: #cecece;
+      }
+      & .border-focus {
+        background-color: #292929;
+      }
+    }
+    &__locate-button {
+      text-align: right;
+      margin-top: to-rem(10);
+      & button {
+        border: to-rem(1) solid #adadad;
+        padding: to-rem(12) to-rem(30);
+      }
+    }
+    &__search-cancel {
+      @include make-xs-column(1, 0);
+      @include make-sm-column(1, 0);
+      text-align: right;
+      margin-top: to-rem(25);
+      display: none;
+      & button {
+        color: #007aca;
+        background: transparent;
+        border: 0;
+      }
+    }
+    &__input {
+      @include make-xs-column(10, 0);
+      @include make-sm-column(11, 0);
+      position: relative;
+      font-family: 'ArchSans-Light';
+      padding-top: to-rem(18);
+      &--background {
+        position: absolute;
+        color: #999;
+        width: 100%;
+        border: none;
+        outline: none;
+        background-color: $background-color;
+        font-size: 1.125rem;
+        font-weight: 300;
+      }
+      &--main {
+        border: none;
+        width: 100%;
+        font-size: 1.125rem;
+        font-weight: 300;
+        outline: none;
+        position: relative;
+        background: transparent;
+        color: rgba(41, 41, 41, 1);
+      }
+      &--close-btn {
+        position: absolute;
+        right: to-rem(5);
+        top: to-rem(16);
+        cursor: pointer;
+        color: #999;
+      }
+    }
+    &__button {
+      @include make-xs-column(2, 0);
+      @include make-sm-column(1, 0);
+      text-align: right;
+      background: $background-color;
+      margin-top: to-rem(10);
+    }
+    &__border {
+      height: 0.1rem;
+      margin-top: to-rem(10);
+      transform: scaleY(-1);
+    }
+    &__no-item {
+      font-size: to-rem(18);
+      line-height: to-rem(22);
+      text-align: center;
+      color: rgba(31, 31, 31, 1);
+      margin: to-rem(14) to-rem(53) to-rem(53) to-rem(53);
+    }
+    &__suggestion {
+      position: absolute;
+      z-index: 1;
+      &--predicted-text {
+        cursor: pointer;
+        line-height: to-rem(46);
+        &:hover {
+          color: rgba(38, 142, 200, 1);
+        }
+        &.selected {
+          color: rgba(38, 142, 200, 1);
+        }
+      }
+      &--section {
+        color: rgba(77, 78, 73, 1);
+        font-size: 1.125rem;
+        line-height: 2.75rem;
+        list-style: none;
+        padding-left: 0;
+      }
+    }
+  }
+
+  .mcd-rlresults {
+    & .tab-content {
+      & .rl-listview {
+        &__rl-list {
+          list-style-type: none;
+          & .rl-list__item {
+            margin-bottom: to-rem(10);
+            & .rl-listitem-block {
+              width: 100%;
+              background-color: #fff;
+              border-radius: to-rem(4);
+              border: to-rem(1) solid #d6d6d6;
+              box-shadow: 0 to-rem(1.5) to-rem(1.5) 0 rgba(0, 0, 0, 0.08);
+              padding: to-rem(24);
+              & .rl-chevron-down {
+                display: none;
+              }
+              & .rl-subheading-extradetails {
+                display: none;
+              }
+              & .rl_load-details-mobile {
+                z-index: 2;
+                padding: to-rem(26.25) to-rem(24.25);
+                position: fixed;
+                background-color: #fff;
+                width: 100%;
+                height: 100vh;
+                top: 0;
+                left: 0;
+                font-family: 'ArchSans-Light';
+                & .rl-map-pin {
+                  float: none;
+                }
+                & .rl-heading {
+                  padding-top: to-rem(17.68);
+                  padding-bottom: to-rem(2);
+                }
+                & .rl-subheading {
+                }
+                & .rl-title {
+                  font-size: to-rem(26);
+                  margin-bottom: to-rem(5);
+                }
+                & .rl-subheading-extradetails {
+                  display: inline;
+                }
+                & .rl_set-preferred-location {
+                  & .radio {
+                    margin-top: to-rem(29);
+                    margin-bottom: to-rem(35);
+                  }
+                }
+                & .dropdown-toggle {
+                  padding: to-rem(20) 0;
+                  border-top: to-rem(1) solid #cecece;
+                  & .heading {
+                    display: inline-block;
+                  }
+                }
+                & .rl-chevron-down {
+                  display: inherit;
+                  cursor: pointer;
+                  margin: 0;
+                }
+                & .rl-careers {
+                  margin-bottom: to-rem(35);
+                }
+                & .icon-times {
+                  position: absolute;
+                  top: to-rem(22);
+                  right: to-rem(23);
+                  cursor: pointer;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

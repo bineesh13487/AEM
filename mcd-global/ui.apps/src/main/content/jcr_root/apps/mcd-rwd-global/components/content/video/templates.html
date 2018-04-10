@@ -1,0 +1,69 @@
+<sly data-sly-template.thumb="${@ video }">
+    <div class="thumbsWrapper row no-gutter zoom-anim-parent">
+        <div class="videoImage col-xs-12 ${video.verticalAlign ? 'col-sm-12' : 'col-sm-6' } ${video.pullRight ? 'pull-right' : ''} ">
+            <div class="thumb-box hidden-overflow ${video.verticalAlign ? 'v-align' : '' }">
+                <a href="#${ video.id }"
+                   data-sly-attribute.href="${ video.useYouTube ? video.youtubeSrc : '#{0}' @ format=[video.id]}"
+                   class="${video.useYouTube ? 'yt-thumb-vid' : 'thumb-vid'}"
+                   data-at="Video:${ video.pageTitle }: ${video.useYouTube ? video.youtubeSrc : video.videoSrc}" data-track="video" data-player="${video.useYouTube ? 'YT' : 'HTML5'}">
+
+                    <div class="vid-buttons zoom-anim">
+                        <div aria-label="Play the video for ${ video.ariaLabel }" class="vid-button-position play-button"></div>
+                    </div>
+
+                </a>
+                <img src="${ video.poster }" class="cont-100 zoom-anim-target img-responsive" alt="${ video.imageAlt }">
+
+			<div class="thumb mobile" id="${ video.id }" data-sly-call="${drawVideo @ video=video }" ></div>
+            </div>
+        </div>
+        <sly data-sly-call="${showTitle @ video=video, isThumbnail=true }"></sly>
+        <div class="clearfix"></div>
+    </div>
+</sly>
+
+
+<sly data-sly-template.drawVideo="${@ video }">
+    <sly data-sly-test="${ video.useYouTube }">
+        <iframe src="${ video.youtubeSrc }" width="100%" allowfullscreen="${video.options.fullScreen ? 'true' : ''}"
+                frameborder="0"></iframe>
+    </sly>
+    <sly data-sly-test="${ !video.useYouTube }">
+        <sly data-sly-test.hasVideoSrc="${ video.videoSrc != null || video.webmSrc != null || video.oggSrc != null }"></sly>
+        <video controls="${ video.isBackground ? '' : 'controls' }"
+               data-sly-test="${hasVideoSrc}" data-sly-attribute="${video.options.attributes}"
+               poster="${video.isBackground ? '': video.poster}">
+            <source data-sly-test="${video.videoSrc}" src="${video.videoSrc}" type="video/mp4">
+            <source data-sly-test="${video.webmSrc}" src="${video.webmSrc}" type="video/webm">
+            <source data-sly-test="${video.oggSrc}" src="${video.oggSrc}" type="video/ogg">
+            This browser isn't video capable. Kindly upgrade your browser!!
+        </video>
+        <sly data-sly-test="${video.isBackground}">
+            <img class="video-bg-poster" src="${video.poster}" alt="${ video.imageAlt }">
+        </sly>
+        <div class="shareVideo" data-sly-test="${ !video.isBackground && video.options.socialChannels}">
+            <span class="shareButton"></span>
+            <div class="shareVia">
+                <ul data-sly-list="${video.options.socialChannels}">
+                    <li><a class="share ${item}" data-href="${ video.options.socialChannels[item]}"></a></li>
+                </ul>
+            </div>
+        </div>
+    </sly>
+</sly>
+
+
+<div data-sly-template.showTitle="${ @video, isThumbnail }">
+    <sly data-sly-test.className="${ isThumbnail ? (video.verticalAlign ? 'v-align col-sm-12' : 'col-sm-6') : 'col-sm-12' }"></sly>
+    <div data-sly-test="${ video.title || video.description || video.cta}" class="videoText col-xs-12 ${className}" style="color: ${ video.color @ context='styleToken' }">
+        <div class="text-wrapper" style="padding-top:${video.verticalVideoSpace @ context='styleToken'}px; padding-bottom:${video.textbottompace @ context='styleToken'}px ; text-align:${video.maintainAlign ? video.videoTextAlign :'' @ context='styleToken'}">
+            <h2 class="videoTitle" data-sly-test="${ video.title }"
+                data-sly-element="${video.isBackground ? 'h2' : 'h4' }">${ video.title }</h2>
+            <p class="videoDescription" data-sly-test="${ video.description }">${ video.description }</p>
+            <a class="zoom-anim learn-more-btn btn btn-red btn--xsm"
+               href="${ video.ctaTarget }" title="${ video.ctaTitle }" data-sly-test="${ video.ctaTarget != null && video.cta != null }">
+                ${ video.cta }
+            </a>
+        </div>
+    </div>
+</div>

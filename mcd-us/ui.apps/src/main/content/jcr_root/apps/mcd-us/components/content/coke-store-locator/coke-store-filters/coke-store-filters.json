@@ -1,0 +1,5184 @@
+{
+  "beverageCategory": {
+    "2": {
+      "code": "2",
+      "name": "Packaged Water (Plain & Enriched)",
+      "brand": {
+        "116": {
+          "flavor": {
+            "014": {
+              "code": "014",
+              "name": "Club Soda"
+            },
+            "058": {
+              "code": "058",
+              "name": "Water (Unflavored)"
+            }
+          },
+          "code": "116",
+          "name": "Fanta Other"
+        },
+        "306": {
+          "flavor": {
+            "058": {
+              "code": "058",
+              "name": "Water (Unflavored)"
+            }
+          },
+          "code": "306",
+          "name": "Aquarius"
+        },
+        "419": {
+          "flavor": {
+            "058": {
+              "code": "058",
+              "name": "Water (Unflavored)"
+            }
+          },
+          "code": "419",
+          "name": "Chippewa-KO"
+        },
+        "519": {
+          "flavor": {
+            "221": {
+              "code": "221",
+              "name": "Lemon Water"
+            },
+            "223": {
+              "code": "223",
+              "name": "Lime Water"
+            },
+            "240": {
+              "code": "240",
+              "name": "Apple Water"
+            },
+            "247": {
+              "code": "247",
+              "name": "Pineapple Water"
+            },
+            "248": {
+              "code": "248",
+              "name": "Raspberry Water"
+            },
+            "564": {
+              "code": "564",
+              "name": "Cherry Water"
+            },
+            "605": {
+              "code": "605",
+              "name": "Blackberry Pomegranate"
+            },
+            "610": {
+              "code": "610",
+              "name": "Berry Water"
+            },
+            "654": {
+              "code": "654",
+              "name": "Kiwi Pear"
+            },
+            "999": {
+              "code": "999",
+              "name": "Remaining Flavors"
+            },
+            "BQ1": {
+              "code": "BQ1",
+              "name": "Lemon Raspberry Water"
+            },
+            "074": {
+              "code": "074",
+              "name": "Kiwi Strawberry"
+            },
+            "031": {
+              "code": "031",
+              "name": "Lemon Lime"
+            },
+            "032": {
+              "code": "032",
+              "name": "Lemon (Lemonade)"
+            },
+            "078": {
+              "code": "078",
+              "name": "Watermelon"
+            },
+            "058": {
+              "code": "058",
+              "name": "Water (Unflavored)"
+            },
+            "037": {
+              "code": "037",
+              "name": "Orange"
+            },
+            "BC5": {
+              "code": "BC5",
+              "name": "Guava Strawberry"
+            },
+            "038": {
+              "code": "038",
+              "name": "Peach"
+            },
+            "045": {
+              "code": "045",
+              "name": "Strawberry"
+            },
+            "068": {
+              "code": "068",
+              "name": "Blueberry"
+            },
+            "047": {
+              "code": "047",
+              "name": "Orange Tangerine"
+            },
+            "A7J": {
+              "code": "A7J",
+              "name": "Kiwi Strawberry Water"
+            },
+            "028": {
+              "code": "028",
+              "name": "Grape"
+            },
+            "029": {
+              "code": "029",
+              "name": "Grapefruit"
+            }
+          },
+          "code": "519",
+          "name": "Dasani"
+        },
+        "BV5": {
+          "flavor": {
+            "058": {
+              "code": "058",
+              "name": "Water (Unflavored)"
+            }
+          },
+          "code": "BV5",
+          "name": "Spring!"
+        },
+        "CEB": {
+          "flavor": {
+            "245": {
+              "code": "245",
+              "name": "Orange Water"
+            },
+            "BMK": {
+              "code": "BMK",
+              "name": "Mango Pineapple Water"
+            },
+            "A4E": {
+              "code": "A4E",
+              "name": "Coconut Water"
+            },
+            "015": {
+              "code": "015",
+              "name": "Chocolate"
+            },
+            "016": {
+              "code": "016",
+              "name": "Coconut"
+            },
+            "BO4": {
+              "code": "BO4",
+              "name": "Raspberry Watermelon"
+            },
+            "040": {
+              "code": "040",
+              "name": "Pineapple"
+            }
+          },
+          "code": "CEB",
+          "name": "Zico-KO"
+        },
+        "CCD": {
+          "flavor": {
+            "245": {
+              "code": "245",
+              "name": "Orange Water"
+            },
+            "566": {
+              "code": "566",
+              "name": "Citrus Water"
+            },
+            "773": {
+              "code": "773",
+              "name": "Mixed Berry"
+            },
+            "815": {
+              "code": "815",
+              "name": "Grape Raspberry"
+            },
+            "A01": {
+              "code": "A01",
+              "name": "Acai Berry"
+            },
+            "BD8": {
+              "code": "BD8",
+              "name": "Grape Raspberry Water"
+            },
+            "A9A": {
+              "code": "A9A",
+              "name": "Peach Mandarin"
+            },
+            "032": {
+              "code": "032",
+              "name": "Lemon (Lemonade)"
+            }
+          },
+          "code": "CCD",
+          "name": "Glaceau Vitaminwater 10"
+        },
+        "CMN": {
+          "flavor": {
+            "221": {
+              "code": "221",
+              "name": "Lemon Water"
+            },
+            "223": {
+              "code": "223",
+              "name": "Lime Water"
+            },
+            "058": {
+              "code": "058",
+              "name": "Water (Unflavored)"
+            }
+          },
+          "code": "CMN",
+          "name": "MENDOTA SPARKLING"
+        },
+        "BBI": {
+          "flavor": {
+            "058": {
+              "code": "058",
+              "name": "Water (Unflavored)"
+            }
+          },
+          "code": "BBI",
+          "name": "Cumberland Gap-KO"
+        },
+        "BDM": {
+          "flavor": {
+            "058": {
+              "code": "058",
+              "name": "Water (Unflavored)"
+            }
+          },
+          "code": "BDM",
+          "name": "Dannon-KO"
+        },
+        "CBL": {
+          "flavor": {
+            "999": {
+              "code": "999",
+              "name": "Remaining Flavors"
+            }
+          },
+          "code": "CBL",
+          "name": "Microdose Unbranded"
+        },
+        "BAL": {
+          "flavor": {
+            "058": {
+              "code": "058",
+              "name": "Water (Unflavored)"
+            }
+          },
+          "code": "BAL",
+          "name": "H2OK"
+        },
+        "B9I": {
+          "flavor": {
+            "242": {
+              "code": "242",
+              "name": "Lemon Lime Water"
+            },
+            "317": {
+              "code": "317",
+              "name": "Grapefruit Water"
+            },
+            "058": {
+              "code": "058",
+              "name": "Water (Unflavored)"
+            }
+          },
+          "code": "B9I",
+          "name": "TOPO CHICO-KO"
+        },
+        "CC5": {
+          "flavor": {
+            "245": {
+              "code": "245",
+              "name": "Orange Water"
+            },
+            "291": {
+              "code": "291",
+              "name": "Coconut Pineapple"
+            },
+            "511": {
+              "code": "511",
+              "name": "Green Tea"
+            },
+            "565": {
+              "code": "565",
+              "name": "Dragonfruit Water"
+            },
+            "692": {
+              "code": "692",
+              "name": "Fruit Punch Water"
+            },
+            "773": {
+              "code": "773",
+              "name": "Mixed Berry"
+            },
+            "815": {
+              "code": "815",
+              "name": "Grape Raspberry"
+            },
+            "999": {
+              "code": "999",
+              "name": "Remaining Flavors"
+            },
+            "A01": {
+              "code": "A01",
+              "name": "Acai Berry"
+            },
+            "A9A": {
+              "code": "A9A",
+              "name": "Peach Mandarin"
+            },
+            "074": {
+              "code": "074",
+              "name": "Kiwi Strawberry"
+            },
+            "032": {
+              "code": "032",
+              "name": "Lemon (Lemonade)"
+            },
+            "BD2": {
+              "code": "BD2",
+              "name": "Guanabana Strawberry Water"
+            },
+            "BQC": {
+              "code": "BQC",
+              "name": "Pink Grapefruit Watermelon Water"
+            },
+            "A91": {
+              "code": "A91",
+              "name": "Acai Blueberry Pomegranate"
+            },
+            "BDA": {
+              "code": "BDA",
+              "name": "Citrus Starfruit Water"
+            }
+          },
+          "code": "CC5",
+          "name": "Glaceau Vitaminwater Zero"
+        },
+        "BC8": {
+          "flavor": {
+            "058": {
+              "code": "058",
+              "name": "Water (Unflavored)"
+            }
+          },
+          "code": "BC8",
+          "name": "Evian-KO"
+        },
+        "CBV": {
+          "flavor": {
+            "058": {
+              "code": "058",
+              "name": "Water (Unflavored)"
+            }
+          },
+          "code": "CBV",
+          "name": "PVT LBL Corner Bakery-KO"
+        },
+        "BC9": {
+          "flavor": {
+            "223": {
+              "code": "223",
+              "name": "Lime Water"
+            },
+            "237": {
+              "code": "237",
+              "name": "Peach Water"
+            },
+            "245": {
+              "code": "245",
+              "name": "Orange Water"
+            },
+            "BGE": {
+              "code": "BGE",
+              "name": "Blackberry Raspberry Water"
+            },
+            "058": {
+              "code": "058",
+              "name": "Water (Unflavored)"
+            }
+          },
+          "code": "BC9",
+          "name": "Seagrams-KO"
+        },
+        "B50": {
+          "flavor": {
+            "221": {
+              "code": "221",
+              "name": "Lemon Water"
+            },
+            "242": {
+              "code": "242",
+              "name": "Lemon Lime Water"
+            },
+            "245": {
+              "code": "245",
+              "name": "Orange Water"
+            },
+            "511": {
+              "code": "511",
+              "name": "Green Tea"
+            },
+            "565": {
+              "code": "565",
+              "name": "Dragonfruit Water"
+            },
+            "566": {
+              "code": "566",
+              "name": "Citrus Water"
+            },
+            "644": {
+              "code": "644",
+              "name": "Berry Cherry"
+            },
+            "676": {
+              "code": "676",
+              "name": "Cranberry Grapefruit Water"
+            },
+            "690": {
+              "code": "690",
+              "name": "Grape Water"
+            },
+            "692": {
+              "code": "692",
+              "name": "Fruit Punch Water"
+            },
+            "999": {
+              "code": "999",
+              "name": "Remaining Flavors"
+            },
+            "BDB": {
+              "code": "BDB",
+              "name": "Agave Blueberry Citrus Water"
+            },
+            "A01": {
+              "code": "A01",
+              "name": "Acai Berry"
+            },
+            "A67": {
+              "code": "A67",
+              "name": "Berry Cherry Water"
+            },
+            "BM5": {
+              "code": "BM5",
+              "name": "Lemon Tea Water"
+            },
+            "BBM": {
+              "code": "BBM",
+              "name": "Cherry Lime Water"
+            },
+            "074": {
+              "code": "074",
+              "name": "Kiwi Strawberry"
+            },
+            "BBN": {
+              "code": "BBN",
+              "name": "Blueberry Grape Water"
+            },
+            "032": {
+              "code": "032",
+              "name": "Lemon (Lemonade)"
+            },
+            "BG6": {
+              "code": "BG6",
+              "name": "Fuji Apple Watermelon Water"
+            },
+            "BHY": {
+              "code": "BHY",
+              "name": "Coconut Pineapple Water"
+            },
+            "036": {
+              "code": "036",
+              "name": "Mango"
+            },
+            "BQC": {
+              "code": "BQC",
+              "name": "Pink Grapefruit Watermelon Water"
+            },
+            "A2X": {
+              "code": "A2X",
+              "name": "Mango Peach"
+            },
+            "004": {
+              "code": "004",
+              "name": "Apple Raspberry"
+            },
+            "BRI": {
+              "code": "BRI",
+              "name": "Strawberry Watermelon Water"
+            }
+          },
+          "code": "B50",
+          "name": "Glaceau Vitaminwater"
+        },
+        "B51": {
+          "flavor": {
+            "244": {
+              "code": "244",
+              "name": "Mango Orange Water"
+            },
+            "247": {
+              "code": "247",
+              "name": "Pineapple Water"
+            },
+            "248": {
+              "code": "248",
+              "name": "Raspberry Water"
+            },
+            "033": {
+              "code": "033",
+              "name": "Lime"
+            },
+            "078": {
+              "code": "078",
+              "name": "Watermelon"
+            },
+            "A7J": {
+              "code": "A7J",
+              "name": "Kiwi Strawberry Water"
+            },
+            "BBM": {
+              "code": "BBM",
+              "name": "Cherry Lime Water"
+            },
+            "BI5": {
+              "code": "BI5",
+              "name": "Lemonade Water"
+            }
+          },
+          "code": "B51",
+          "name": "Glaceau Fruitwater"
+        },
+        "B52": {
+          "flavor": {
+            "058": {
+              "code": "058",
+              "name": "Water (Unflavored)"
+            }
+          },
+          "code": "B52",
+          "name": "Glaceau Smartwater"
+        }
+      }
+    },
+    "3": {
+      "code": "3",
+      "name": "Coffee",
+      "brand": {
+        "250": {
+          "flavor": {
+            "212": {
+              "code": "212",
+              "name": "Chocolate Coffee"
+            },
+            "802": {
+              "code": "802",
+              "name": "Coffee Vanilla"
+            },
+            "803": {
+              "code": "803",
+              "name": "Caramel Coffee"
+            },
+            "017": {
+              "code": "017",
+              "name": "Coffee"
+            },
+            "A4N": {
+              "code": "A4N",
+              "name": "Coffee Mocha"
+            }
+          },
+          "code": "250",
+          "name": "Georgia"
+        },
+        "B5U": {
+          "flavor": {
+            "017": {
+              "code": "017",
+              "name": "Coffee"
+            }
+          },
+          "code": "B5U",
+          "name": "Juan Valdez"
+        },
+        "B8J": {
+          "flavor": {
+            "212": {
+              "code": "212",
+              "name": "Chocolate Coffee"
+            },
+            "670": {
+              "code": "670",
+              "name": "Chocolate Coffee Milk"
+            },
+            "802": {
+              "code": "802",
+              "name": "Coffee Vanilla"
+            },
+            "017": {
+              "code": "017",
+              "name": "Coffee"
+            }
+          },
+          "code": "B8J",
+          "name": "Illy-KO"
+        },
+        "CC4": {
+          "flavor": {
+            "802": {
+              "code": "802",
+              "name": "Coffee Vanilla"
+            },
+            "803": {
+              "code": "803",
+              "name": "Caramel Coffee"
+            },
+            "017": {
+              "code": "017",
+              "name": "Coffee"
+            },
+            "A4N": {
+              "code": "A4N",
+              "name": "Coffee Mocha"
+            }
+          },
+          "code": "CC4",
+          "name": "McCafe"
+        },
+        "B16": {
+          "flavor": {
+            "802": {
+              "code": "802",
+              "name": "Coffee Vanilla"
+            },
+            "017": {
+              "code": "017",
+              "name": "Coffee"
+            }
+          },
+          "code": "B16",
+          "name": "Caribou"
+        },
+        "CME": {
+          "flavor": {
+            "212": {
+              "code": "212",
+              "name": "Chocolate Coffee"
+            },
+            "BWH": {
+              "code": "BWH",
+              "name": "Coffee Cookies and Cream"
+            },
+            "017": {
+              "code": "017",
+              "name": "Coffee"
+            },
+            "BM2": {
+              "code": "BM2",
+              "name": "French Vanilla"
+            }
+          },
+          "code": "CME",
+          "name": "DUNKIN' DONUTS"
+        },
+        "BN8": {
+          "flavor": {
+            "803": {
+              "code": "803",
+              "name": "Caramel Coffee"
+            },
+            "017": {
+              "code": "017",
+              "name": "Coffee"
+            },
+            "BSJ": {
+              "code": "BSJ",
+              "name": "Almond Coffee Toffee"
+            }
+          },
+          "code": "BN8",
+          "name": "Gold Peak"
+        }
+      }
+    },
+    "5": {
+      "code": "5",
+      "name": "Core Sparkling",
+      "brand": {
+        "108": {
+          "flavor": {
+            "018": {
+              "code": "018",
+              "name": "Cola"
+            }
+          },
+          "code": "108",
+          "name": "caffeine free Coca-Cola"
+        },
+        "109": {
+          "flavor": {
+            "038": {
+              "code": "038",
+              "name": "Peach"
+            },
+            "029": {
+              "code": "029",
+              "name": "Grapefruit"
+            },
+            "008": {
+              "code": "008",
+              "name": "Black Cherry"
+            }
+          },
+          "code": "109",
+          "name": "Fresca"
+        },
+        "116": {
+          "flavor": {
+            "210": {
+              "code": "210",
+              "name": "Bitter Water"
+            },
+            "268": {
+              "code": "268",
+              "name": "Mango Pineapple"
+            },
+            "291": {
+              "code": "291",
+              "name": "Coconut Pineapple"
+            },
+            "328": {
+              "code": "328",
+              "name": "Mango Passionfruit"
+            },
+            "358": {
+              "code": "358",
+              "name": "Citrus Strawberry"
+            },
+            "368": {
+              "code": "368",
+              "name": "Blackberry Raspberry"
+            },
+            "560": {
+              "code": "560",
+              "name": "Lime Orange"
+            },
+            "644": {
+              "code": "644",
+              "name": "Berry Cherry"
+            },
+            "645": {
+              "code": "645",
+              "name": "Cherry Lime"
+            },
+            "743": {
+              "code": "743",
+              "name": "Mandarin Tangerine"
+            },
+            "750": {
+              "code": "750",
+              "name": "Orange Vanilla"
+            },
+            "753": {
+              "code": "753",
+              "name": "Strawberry Pineapple"
+            },
+            "776": {
+              "code": "776",
+              "name": "Apple Melon"
+            },
+            "782": {
+              "code": "782",
+              "name": "Banana Pineapple"
+            },
+            "940": {
+              "code": "940",
+              "name": "Green Apple Watermelon"
+            },
+            "964": {
+              "code": "964",
+              "name": "Kumquat Orange"
+            },
+            "999": {
+              "code": "999",
+              "name": "Remaining Flavors"
+            },
+            "BJN": {
+              "code": "BJN",
+              "name": "Lemonade Mango"
+            },
+            "BFJ": {
+              "code": "BFJ",
+              "name": "Lemonade Raspberry Strawberry"
+            },
+            "BWA": {
+              "code": "BWA",
+              "name": "Basil Lime Strawberry"
+            },
+            "074": {
+              "code": "074",
+              "name": "Kiwi Strawberry"
+            },
+            "031": {
+              "code": "031",
+              "name": "Lemon Lime"
+            },
+            "075": {
+              "code": "075",
+              "name": "Tangerine"
+            },
+            "032": {
+              "code": "032",
+              "name": "Lemon (Lemonade)"
+            },
+            "033": {
+              "code": "033",
+              "name": "Lime"
+            },
+            "BBP": {
+              "code": "BBP",
+              "name": "Passionfruit Pomegranate"
+            },
+            "078": {
+              "code": "078",
+              "name": "Watermelon"
+            },
+            "BBS": {
+              "code": "BBS",
+              "name": "Lime Watermelon"
+            },
+            "036": {
+              "code": "036",
+              "name": "Mango"
+            },
+            "037": {
+              "code": "037",
+              "name": "Orange"
+            },
+            "038": {
+              "code": "038",
+              "name": "Peach"
+            },
+            "A8N": {
+              "code": "A8N",
+              "name": "Blackberry Lemonade"
+            },
+            "A4M": {
+              "code": "A4M",
+              "name": "Mint Raspberry Strawberry"
+            },
+            "A50": {
+              "code": "A50",
+              "name": "Blueberry Dragonfruit White Grape"
+            },
+            "040": {
+              "code": "040",
+              "name": "Pineapple"
+            },
+            "BH2": {
+              "code": "BH2",
+              "name": "Lemon Pie Crust"
+            },
+            "044": {
+              "code": "044",
+              "name": "Root Beer"
+            },
+            "001": {
+              "code": "001",
+              "name": "Apple"
+            },
+            "045": {
+              "code": "045",
+              "name": "Strawberry"
+            },
+            "005": {
+              "code": "005",
+              "name": "Banana"
+            },
+            "006": {
+              "code": "006",
+              "name": "Birch Beer"
+            },
+            "008": {
+              "code": "008",
+              "name": "Black Cherry"
+            },
+            "009": {
+              "code": "009",
+              "name": "Bubble Gum"
+            },
+            "A1K": {
+              "code": "A1K",
+              "name": "Strawberry Vanilla"
+            },
+            "A5Q": {
+              "code": "A5Q",
+              "name": "Blueberry Lemon"
+            },
+            "BLR": {
+              "code": "BLR",
+              "name": "Grapefruit Mint Watermelon"
+            },
+            "BHP": {
+              "code": "BHP",
+              "name": "Cherry Pomegranate"
+            },
+            "050": {
+              "code": "050",
+              "name": "Vanilla Cream"
+            },
+            "052": {
+              "code": "052",
+              "name": "Berry"
+            },
+            "011": {
+              "code": "011",
+              "name": "Cherry"
+            },
+            "014": {
+              "code": "014",
+              "name": "Club Soda"
+            },
+            "BIH": {
+              "code": "BIH",
+              "name": "Cherry Raspberry"
+            },
+            "BII": {
+              "code": "BII",
+              "name": "Peach Raspberry"
+            },
+            "BEL": {
+              "code": "BEL",
+              "name": "Yuzu Berry"
+            },
+            "BEK": {
+              "code": "BEK",
+              "name": "Lime Vanilla"
+            },
+            "061": {
+              "code": "061",
+              "name": "Raspberry"
+            },
+            "BJ9": {
+              "code": "BJ9",
+              "name": "Coconut Lime Pineapple"
+            },
+            "026": {
+              "code": "026",
+              "name": "Fruit Punch"
+            },
+            "027": {
+              "code": "027",
+              "name": "Ginger Ale"
+            },
+            "028": {
+              "code": "028",
+              "name": "Grape"
+            },
+            "029": {
+              "code": "029",
+              "name": "Grapefruit"
+            },
+            "BRN": {
+              "code": "BRN",
+              "name": "Ice Cream Vanilla"
+            }
+          },
+          "code": "116",
+          "name": "Fanta Other"
+        },
+        "132": {
+          "flavor": {
+            "731": {
+              "code": "731",
+              "name": "Cranberry Lemon Lime"
+            },
+            "031": {
+              "code": "031",
+              "name": "Lemon Lime"
+            },
+            "054": {
+              "code": "054",
+              "name": "Cherry Lemon Lime"
+            }
+          },
+          "code": "132",
+          "name": "Sprite Zero/diet Sprite/Sprite light"
+        },
+        "146": {
+          "flavor": {
+            "328": {
+              "code": "328",
+              "name": "Mango Passionfruit"
+            },
+            "011": {
+              "code": "011",
+              "name": "Cherry"
+            },
+            "046": {
+              "code": "046",
+              "name": "Banana Strawberry"
+            },
+            "A23": {
+              "code": "A23",
+              "name": "Chili Mango"
+            },
+            "BBS": {
+              "code": "BBS",
+              "name": "Lime Watermelon"
+            },
+            "037": {
+              "code": "037",
+              "name": "Orange"
+            }
+          },
+          "code": "146",
+          "name": "diet Fanta"
+        },
+        "272": {
+          "flavor": {
+            "013": {
+              "code": "013",
+              "name": "Citrus Blend"
+            }
+          },
+          "code": "272",
+          "name": "Citra"
+        },
+        "295": {
+          "flavor": {
+            "032": {
+              "code": "032",
+              "name": "Lemon (Lemonade)"
+            }
+          },
+          "code": "295",
+          "name": "Kinley CSD"
+        },
+        "298": {
+          "flavor": {
+            "001": {
+              "code": "001",
+              "name": "Apple"
+            }
+          },
+          "code": "298",
+          "name": "Lift"
+        },
+        "304": {
+          "flavor": {
+            "209": {
+              "code": "209",
+              "name": "Bitter Spice"
+            }
+          },
+          "code": "304",
+          "name": "Beverly"
+        },
+        "307": {
+          "flavor": {
+            "027": {
+              "code": "027",
+              "name": "Ginger Ale"
+            }
+          },
+          "code": "307",
+          "name": "Krest"
+        },
+        "308": {
+          "flavor": {
+            "337": {
+              "code": "337",
+              "name": "Raspberry Strawberry Vanilla Cream"
+            }
+          },
+          "code": "308",
+          "name": "SPARLETTA"
+        },
+        "324": {
+          "flavor": {
+            "045": {
+              "code": "045",
+              "name": "Strawberry"
+            },
+            "026": {
+              "code": "026",
+              "name": "Fruit Punch"
+            },
+            "037": {
+              "code": "037",
+              "name": "Orange"
+            },
+            "038": {
+              "code": "038",
+              "name": "Peach"
+            },
+            "028": {
+              "code": "028",
+              "name": "Grape"
+            },
+            "BFJ": {
+              "code": "BFJ",
+              "name": "Lemonade Raspberry Strawberry"
+            },
+            "BK2": {
+              "code": "BK2",
+              "name": "Lemonade Strawberry"
+            },
+            "072": {
+              "code": "072",
+              "name": "Lemon Raspberry"
+            },
+            "040": {
+              "code": "040",
+              "name": "Pineapple"
+            },
+            "052": {
+              "code": "052",
+              "name": "Berry"
+            },
+            "031": {
+              "code": "031",
+              "name": "Lemon Lime"
+            },
+            "032": {
+              "code": "032",
+              "name": "Lemon (Lemonade)"
+            }
+          },
+          "code": "324",
+          "name": "Minute Maid Soft Drink"
+        },
+        "394": {
+          "flavor": {
+            "044": {
+              "code": "044",
+              "name": "Root Beer"
+            }
+          },
+          "code": "394",
+          "name": "caffeine free Barq's"
+        },
+        "478": {
+          "flavor": {
+            "009": {
+              "code": "009",
+              "name": "Bubble Gum"
+            }
+          },
+          "code": "478",
+          "name": "Inca Kola"
+        },
+        "505": {
+          "flavor": {
+            "645": {
+              "code": "645",
+              "name": "Cherry Lime"
+            },
+            "739": {
+              "code": "739",
+              "name": "Cream Soda"
+            },
+            "999": {
+              "code": "999",
+              "name": "Remaining Flavors"
+            },
+            "078": {
+              "code": "078",
+              "name": "Watermelon"
+            },
+            "BE7": {
+              "code": "BE7",
+              "name": "Lime Pineapple"
+            },
+            "061": {
+              "code": "061",
+              "name": "Raspberry"
+            },
+            "050": {
+              "code": "050",
+              "name": "Vanilla Cream"
+            },
+            "052": {
+              "code": "052",
+              "name": "Berry"
+            },
+            "031": {
+              "code": "031",
+              "name": "Lemon Lime"
+            },
+            "032": {
+              "code": "032",
+              "name": "Lemon (Lemonade)"
+            }
+          },
+          "code": "505",
+          "name": "Master Chill"
+        },
+        "611": {
+          "flavor": {
+            "999": {
+              "code": "999",
+              "name": "Remaining Flavors"
+            }
+          },
+          "code": "611",
+          "name": "Variety Pack"
+        },
+        "627": {
+          "flavor": {
+            "275": {
+              "code": "275",
+              "name": "Citrus Lemon"
+            }
+          },
+          "code": "627",
+          "name": "Surge"
+        },
+        "632": {
+          "flavor": {
+            "210": {
+              "code": "210",
+              "name": "Bitter Water"
+            },
+            "029": {
+              "code": "029",
+              "name": "Grapefruit"
+            },
+            "008": {
+              "code": "008",
+              "name": "Black Cherry"
+            },
+            "031": {
+              "code": "031",
+              "name": "Lemon Lime"
+            }
+          },
+          "code": "632",
+          "name": "Master Pour"
+        },
+        "688": {
+          "flavor": {
+            "078": {
+              "code": "078",
+              "name": "Watermelon"
+            }
+          },
+          "code": "688",
+          "name": "Smart"
+        },
+        "692": {
+          "flavor": {
+            "218": {
+              "code": "218",
+              "name": "Guarana"
+            }
+          },
+          "code": "692",
+          "name": "KUAT"
+        },
+        "BJQ": {
+          "flavor": {
+            "013": {
+              "code": "013",
+              "name": "Citrus Blend"
+            },
+            "052": {
+              "code": "052",
+              "name": "Berry"
+            }
+          },
+          "code": "BJQ",
+          "name": "Sprite Remix"
+        },
+        "070": {
+          "flavor": {
+            "275": {
+              "code": "275",
+              "name": "Citrus Lemon"
+            },
+            "666": {
+              "code": "666",
+              "name": "Citrus Peach"
+            },
+            "011": {
+              "code": "011",
+              "name": "Cherry"
+            },
+            "078": {
+              "code": "078",
+              "name": "Watermelon"
+            },
+            "BDN": {
+              "code": "BDN",
+              "name": "Citrus"
+            }
+          },
+          "code": "070",
+          "name": "Mello Yello"
+        },
+        "B1X": {
+          "flavor": {
+            "333": {
+              "code": "333",
+              "name": "Cola Lemon Orange"
+            }
+          },
+          "code": "B1X",
+          "name": "Mezzo Mix"
+        },
+        "BOD": {
+          "flavor": {
+            "602": {
+              "code": "602",
+              "name": "Vanilla Cola"
+            },
+            "012": {
+              "code": "012",
+              "name": "Cherry Cola"
+            },
+            "018": {
+              "code": "018",
+              "name": "Cola"
+            }
+          },
+          "code": "BOD",
+          "name": "Coca-Cola Zero"
+        },
+        "A4I": {
+          "flavor": {
+            "050": {
+              "code": "050",
+              "name": "Vanilla Cream"
+            }
+          },
+          "code": "A4I",
+          "name": "Red Flash"
+        },
+        "BC9": {
+          "flavor": {
+            "210": {
+              "code": "210",
+              "name": "Bitter Water"
+            },
+            "014": {
+              "code": "014",
+              "name": "Club Soda"
+            },
+            "027": {
+              "code": "027",
+              "name": "Ginger Ale"
+            },
+            "043": {
+              "code": "043",
+              "name": "Ginger Ale Raspberry"
+            }
+          },
+          "code": "BC9",
+          "name": "Seagrams-KO"
+        },
+        "CMF": {
+          "flavor": {
+            "867": {
+              "code": "867",
+              "name": "Coffee Cola"
+            },
+            "018": {
+              "code": "018",
+              "name": "Cola"
+            }
+          },
+          "code": "CMF",
+          "name": "COCA-COLA FUNCTIONAL"
+        },
+        "BON": {
+          "flavor": {
+            "358": {
+              "code": "358",
+              "name": "Citrus Strawberry"
+            },
+            "013": {
+              "code": "013",
+              "name": "Citrus Blend"
+            }
+          },
+          "code": "BON",
+          "name": "Vault"
+        },
+        "CMQ": {
+          "flavor": {
+            "BT3": {
+              "code": "BT3",
+              "name": "Citrus Berry Punch"
+            },
+            "BDN": {
+              "code": "BDN",
+              "name": "Citrus"
+            }
+          },
+          "code": "CMQ",
+          "name": "MUTANT"
+        },
+        "040": {
+          "flavor": {
+            "012": {
+              "code": "012",
+              "name": "Cherry Cola"
+            }
+          },
+          "code": "040",
+          "name": "diet Cherry Coke"
+        },
+        "CIR": {
+          "flavor": {
+            "018": {
+              "code": "018",
+              "name": "Cola"
+            }
+          },
+          "code": "CIR",
+          "name": "COCA-COLA LIFE"
+        },
+        "001": {
+          "flavor": {
+            "300": {
+              "code": "300",
+              "name": "Cola Raspberry"
+            },
+            "602": {
+              "code": "602",
+              "name": "Vanilla Cola"
+            },
+            "725": {
+              "code": "725",
+              "name": "Cola Lime"
+            },
+            "883": {
+              "code": "883",
+              "name": "Black Cherry Cola Vanilla"
+            },
+            "999": {
+              "code": "999",
+              "name": "Remaining Flavors"
+            },
+            "012": {
+              "code": "012",
+              "name": "Cherry Cola"
+            },
+            "BEV": {
+              "code": "BEV",
+              "name": "Cola Peach"
+            },
+            "018": {
+              "code": "018",
+              "name": "Cola"
+            }
+          },
+          "code": "001",
+          "name": "Coca-Cola"
+        },
+        "002": {
+          "flavor": {
+            "725": {
+              "code": "725",
+              "name": "Cola Lime"
+            },
+            "883": {
+              "code": "883",
+              "name": "Black Cherry Cola Vanilla"
+            },
+            "011": {
+              "code": "011",
+              "name": "Cherry"
+            },
+            "012": {
+              "code": "012",
+              "name": "Cherry Cola"
+            },
+            "036": {
+              "code": "036",
+              "name": "Mango"
+            },
+            "037": {
+              "code": "037",
+              "name": "Orange"
+            },
+            "BSE": {
+              "code": "BSE",
+              "name": "Ginger Lime"
+            },
+            "018": {
+              "code": "018",
+              "name": "Cola"
+            }
+          },
+          "code": "002",
+          "name": "diet Coke/Coca-Cola light"
+        },
+        "047": {
+          "flavor": {
+            "762": {
+              "code": "762",
+              "name": "Passionfruit Pineapple Strawberry"
+            }
+          },
+          "code": "047",
+          "name": "Powerade"
+        },
+        "007": {
+          "flavor": {
+            "731": {
+              "code": "731",
+              "name": "Cranberry Lemon Lime"
+            },
+            "BFW": {
+              "code": "BFW",
+              "name": "Berry Tropical"
+            },
+            "BL2": {
+              "code": "BL2",
+              "name": "Fruit Punch Lemon Lime"
+            },
+            "A9D": {
+              "code": "A9D",
+              "name": "Tropical"
+            },
+            "031": {
+              "code": "031",
+              "name": "Lemon Lime"
+            },
+            "054": {
+              "code": "054",
+              "name": "Cherry Lemon Lime"
+            }
+          },
+          "code": "007",
+          "name": "Sprite"
+        },
+        "008": {
+          "flavor": {
+            "018": {
+              "code": "018",
+              "name": "Cola"
+            }
+          },
+          "code": "008",
+          "name": "Tab"
+        },
+        "094": {
+          "flavor": {
+            "044": {
+              "code": "044",
+              "name": "Root Beer"
+            },
+            "050": {
+              "code": "050",
+              "name": "Vanilla Cream"
+            }
+          },
+          "code": "094",
+          "name": "diet Barq's"
+        },
+        "095": {
+          "flavor": {
+            "662": {
+              "code": "662",
+              "name": "Root Beer Vanilla"
+            },
+            "999": {
+              "code": "999",
+              "name": "Remaining Flavors"
+            },
+            "044": {
+              "code": "044",
+              "name": "Root Beer"
+            },
+            "050": {
+              "code": "050",
+              "name": "Vanilla Cream"
+            }
+          },
+          "code": "095",
+          "name": "Barq's"
+        },
+        "BPZ": {
+          "flavor": {
+            "055": {
+              "code": "055",
+              "name": "Cherry Spice"
+            }
+          },
+          "code": "BPZ",
+          "name": "Pibb"
+        },
+        "BMD": {
+          "flavor": {
+            "018": {
+              "code": "018",
+              "name": "Cola"
+            }
+          },
+          "code": "BMD",
+          "name": "Coca-Cola C2"
+        },
+        "B8R": {
+          "flavor": {
+            "999": {
+              "code": "999",
+              "name": "Remaining Flavors"
+            },
+            "055": {
+              "code": "055",
+              "name": "Cherry Spice"
+            },
+            "044": {
+              "code": "044",
+              "name": "Root Beer"
+            },
+            "037": {
+              "code": "037",
+              "name": "Orange"
+            }
+          },
+          "code": "B8R",
+          "name": "Honest-KO"
+        },
+        "BQK": {
+          "flavor": {
+            "BE9": {
+              "code": "BE9",
+              "name": "Currant Lemon Tangerine"
+            },
+            "BFA": {
+              "code": "BFA",
+              "name": "Lemongrass Mango Pineapple"
+            },
+            "BFB": {
+              "code": "BFB",
+              "name": "Jasmine Kaffir Lime Mango"
+            }
+          },
+          "code": "BQK",
+          "name": "CASCAL"
+        },
+        "B51": {
+          "flavor": {
+            "BWN": {
+              "code": "BWN",
+              "name": "Passionfruit Pineapple Water"
+            },
+            "BWM": {
+              "code": "BWM",
+              "name": "Black Cherry Vanilla Water"
+            },
+            "A7A": {
+              "code": "A7A",
+              "name": "Mango Peach Water"
+            }
+          },
+          "code": "B51",
+          "name": "Glaceau Fruitwater"
+        },
+        "BQN": {
+          "flavor": {
+            "013": {
+              "code": "013",
+              "name": "Citrus Blend"
+            }
+          },
+          "code": "BQN",
+          "name": "Vault Zero"
+        },
+        "BAB": {
+          "flavor": {
+            "303": {
+              "code": "303",
+              "name": "Cola Lemon"
+            }
+          },
+          "code": "BAB",
+          "name": "diet Coke/Coca-Cola light with Lemon"
+        },
+        "CKM": {
+          "flavor": {
+            "044": {
+              "code": "044",
+              "name": "Root Beer"
+            },
+            "037": {
+              "code": "037",
+              "name": "Orange"
+            },
+            "031": {
+              "code": "031",
+              "name": "Lemon Lime"
+            }
+          },
+          "code": "CKM",
+          "name": "HONEST FIZZ"
+        },
+        "BAE": {
+          "flavor": {
+            "027": {
+              "code": "027",
+              "name": "Ginger Ale"
+            }
+          },
+          "code": "BAE",
+          "name": "Northern Neck"
+        },
+        "BEN": {
+          "flavor": {
+            "602": {
+              "code": "602",
+              "name": "Vanilla Cola"
+            }
+          },
+          "code": "BEN",
+          "name": "diet Vanilla Coke"
+        },
+        "CL5": {
+          "flavor": {
+            "267": {
+              "code": "267",
+              "name": "Mango Orange"
+            },
+            "044": {
+              "code": "044",
+              "name": "Root Beer"
+            },
+            "BQ2": {
+              "code": "BQ2",
+              "name": "Lime Mandarin Tangerine"
+            },
+            "037": {
+              "code": "037",
+              "name": "Orange"
+            },
+            "027": {
+              "code": "027",
+              "name": "Ginger Ale"
+            },
+            "018": {
+              "code": "018",
+              "name": "Cola"
+            },
+            "008": {
+              "code": "008",
+              "name": "Black Cherry"
+            },
+            "032": {
+              "code": "032",
+              "name": "Lemon (Lemonade)"
+            }
+          },
+          "code": "CL5",
+          "name": "BLUE SKY-KO"
+        },
+        "066": {
+          "flavor": {
+            "275": {
+              "code": "275",
+              "name": "Citrus Lemon"
+            },
+            "013": {
+              "code": "013",
+              "name": "Citrus Blend"
+            }
+          },
+          "code": "066",
+          "name": "diet Mello Yello/Mello Yello Zero"
+        },
+        "A3H": {
+          "flavor": {
+            "027": {
+              "code": "027",
+              "name": "Ginger Ale"
+            }
+          },
+          "code": "A3H",
+          "name": "Canada Dry-KO"
+        },
+        "CLH": {
+          "flavor": {
+            "267": {
+              "code": "267",
+              "name": "Mango Orange"
+            },
+            "026": {
+              "code": "026",
+              "name": "Fruit Punch"
+            },
+            "052": {
+              "code": "052",
+              "name": "Berry"
+            },
+            "032": {
+              "code": "032",
+              "name": "Lemon (Lemonade)"
+            }
+          },
+          "code": "CLH",
+          "name": "MINUTE MAID SPARKLING"
+        }
+      }
+    },
+    "7": {
+      "code": "7",
+      "name": "Juices/Nectars",
+      "brand": {
+        "127": {
+          "flavor": {
+            "268": {
+              "code": "268",
+              "name": "Mango Pineapple"
+            },
+            "349": {
+              "code": "349",
+              "name": "Passionfruit Strawberry"
+            },
+            "368": {
+              "code": "368",
+              "name": "Blackberry Raspberry"
+            },
+            "583": {
+              "code": "583",
+              "name": "Cranberry Grape"
+            },
+            "641": {
+              "code": "641",
+              "name": "Raspberry Strawberry"
+            },
+            "001": {
+              "code": "001",
+              "name": "Apple"
+            },
+            "035": {
+              "code": "035",
+              "name": "Orange Pineapple"
+            },
+            "026": {
+              "code": "026",
+              "name": "Fruit Punch"
+            },
+            "037": {
+              "code": "037",
+              "name": "Orange"
+            },
+            "028": {
+              "code": "028",
+              "name": "Grape"
+            },
+            "A2X": {
+              "code": "A2X",
+              "name": "Mango Peach"
+            },
+            "052": {
+              "code": "052",
+              "name": "Berry"
+            }
+          },
+          "code": "127",
+          "name": "Minute Maid Juice To Go"
+        },
+        "278": {
+          "flavor": {
+            "037": {
+              "code": "037",
+              "name": "Orange"
+            }
+          },
+          "code": "278",
+          "name": "Sunfill"
+        },
+        "321": {
+          "flavor": {
+            "268": {
+              "code": "268",
+              "name": "Mango Pineapple"
+            },
+            "291": {
+              "code": "291",
+              "name": "Coconut Pineapple"
+            },
+            "357": {
+              "code": "357",
+              "name": "Lemon Strawberry"
+            },
+            "591": {
+              "code": "591",
+              "name": "Apple Strawberry"
+            },
+            "773": {
+              "code": "773",
+              "name": "Mixed Berry"
+            },
+            "911": {
+              "code": "911",
+              "name": "Cherry Orange Pineapple"
+            },
+            "938": {
+              "code": "938",
+              "name": "Apple Grape Grapefruit"
+            },
+            "999": {
+              "code": "999",
+              "name": "Remaining Flavors"
+            },
+            "A03": {
+              "code": "A03",
+              "name": "Blackberry Grape Raspberry"
+            },
+            "052": {
+              "code": "052",
+              "name": "Berry"
+            },
+            "032": {
+              "code": "032",
+              "name": "Lemon (Lemonade)"
+            },
+            "036": {
+              "code": "036",
+              "name": "Mango"
+            },
+            "059": {
+              "code": "059",
+              "name": "Apple Grape"
+            },
+            "037": {
+              "code": "037",
+              "name": "Orange"
+            },
+            "038": {
+              "code": "038",
+              "name": "Peach"
+            },
+            "080": {
+              "code": "080",
+              "name": "Guava Orange Passionfruit"
+            },
+            "061": {
+              "code": "061",
+              "name": "Raspberry"
+            },
+            "040": {
+              "code": "040",
+              "name": "Pineapple"
+            },
+            "BMY": {
+              "code": "BMY",
+              "name": "Berry Watermelon"
+            },
+            "001": {
+              "code": "001",
+              "name": "Apple"
+            },
+            "045": {
+              "code": "045",
+              "name": "Strawberry"
+            },
+            "046": {
+              "code": "046",
+              "name": "Banana Strawberry"
+            },
+            "026": {
+              "code": "026",
+              "name": "Fruit Punch"
+            },
+            "029": {
+              "code": "029",
+              "name": "Grapefruit"
+            },
+            "A5Q": {
+              "code": "A5Q",
+              "name": "Blueberry Lemon"
+            }
+          },
+          "code": "321",
+          "name": "Minute Maid"
+        },
+        "505": {
+          "flavor": {
+            "045": {
+              "code": "045",
+              "name": "Strawberry"
+            }
+          },
+          "code": "505",
+          "name": "Master Chill"
+        },
+        "CEB": {
+          "flavor": {
+            "245": {
+              "code": "245",
+              "name": "Orange Water"
+            },
+            "BVE": {
+              "code": "BVE",
+              "name": "Blueberry Carrot Coconut Water"
+            },
+            "BX6": {
+              "code": "BX6",
+              "name": "Jalapeno Mango"
+            },
+            "046": {
+              "code": "046",
+              "name": "Banana Strawberry"
+            },
+            "A4E": {
+              "code": "A4E",
+              "name": "Coconut Water"
+            },
+            "016": {
+              "code": "016",
+              "name": "Coconut"
+            },
+            "BVA": {
+              "code": "BVA",
+              "name": "Apple Coconut Water Cucumber"
+            },
+            "040": {
+              "code": "040",
+              "name": "Pineapple"
+            },
+            "BVC": {
+              "code": "BVC",
+              "name": "Coconut Water Lemon Pineapple"
+            },
+            "BVB": {
+              "code": "BVB",
+              "name": "Celery Coconut Water Cucumber"
+            }
+          },
+          "code": "CEB",
+          "name": "Zico-KO"
+        },
+        "BBB": {
+          "flavor": {
+            "037": {
+              "code": "037",
+              "name": "Orange"
+            },
+            "049": {
+              "code": "049",
+              "name": "Tomato"
+            }
+          },
+          "code": "BBB",
+          "name": "Carlysle Farm-KO"
+        },
+        "B5X": {
+          "flavor": {
+            "268": {
+              "code": "268",
+              "name": "Mango Pineapple"
+            },
+            "984": {
+              "code": "984",
+              "name": "Blueberry Pomegranate"
+            },
+            "986": {
+              "code": "986",
+              "name": "Peach Mango"
+            },
+            "A01": {
+              "code": "A01",
+              "name": "Acai Berry"
+            },
+            "046": {
+              "code": "046",
+              "name": "Banana Strawberry"
+            },
+            "049": {
+              "code": "049",
+              "name": "Tomato"
+            },
+            "BBF": {
+              "code": "BBF",
+              "name": "Cranberry Blackberry"
+            },
+            "A8Q": {
+              "code": "A8Q",
+              "name": "Raspberry Tea"
+            },
+            "051": {
+              "code": "051",
+              "name": "Vegetable"
+            }
+          },
+          "code": "B5X",
+          "name": "Campbells-KO"
+        },
+        "BN9": {
+          "flavor": {
+            "267": {
+              "code": "267",
+              "name": "Mango Orange"
+            },
+            "001": {
+              "code": "001",
+              "name": "Apple"
+            },
+            "BO0": {
+              "code": "BO0",
+              "name": "Coconut Water Orange"
+            },
+            "035": {
+              "code": "035",
+              "name": "Orange Pineapple"
+            },
+            "037": {
+              "code": "037",
+              "name": "Orange"
+            },
+            "029": {
+              "code": "029",
+              "name": "Grapefruit"
+            },
+            "020": {
+              "code": "020",
+              "name": "Cranberry"
+            }
+          },
+          "code": "BN9",
+          "name": "Simply"
+        },
+        "042": {
+          "flavor": {
+            "364": {
+              "code": "364",
+              "name": "Grapefruit Orange"
+            },
+            "620": {
+              "code": "620",
+              "name": "Berry Citrus"
+            },
+            "663": {
+              "code": "663",
+              "name": "Citrus Mango"
+            },
+            "999": {
+              "code": "999",
+              "name": "Remaining Flavors"
+            },
+            "A5V": {
+              "code": "A5V",
+              "name": "Citrus Passionfruit Peach"
+            },
+            "037": {
+              "code": "037",
+              "name": "Orange"
+            },
+            "038": {
+              "code": "038",
+              "name": "Peach"
+            },
+            "040": {
+              "code": "040",
+              "name": "Pineapple"
+            }
+          },
+          "code": "042",
+          "name": "Five Alive"
+        },
+        "BC0": {
+          "flavor": {
+            "268": {
+              "code": "268",
+              "name": "Mango Pineapple"
+            },
+            "295": {
+              "code": "295",
+              "name": "Apple Grape Lemon Orange Peach"
+            },
+            "353": {
+              "code": "353",
+              "name": "Orange Peach"
+            },
+            "507": {
+              "code": "507",
+              "name": "Grape Strawberry"
+            },
+            "606": {
+              "code": "606",
+              "name": "Carrot"
+            },
+            "672": {
+              "code": "672",
+              "name": "Banana Peach"
+            },
+            "689": {
+              "code": "689",
+              "name": "Lime Mango"
+            },
+            "714": {
+              "code": "714",
+              "name": "Banana Orange"
+            },
+            "767": {
+              "code": "767",
+              "name": "Guava Orange"
+            },
+            "816": {
+              "code": "816",
+              "name": "Blackberry Cherry Strawberry"
+            },
+            "900": {
+              "code": "900",
+              "name": "Pomegranate"
+            },
+            "926": {
+              "code": "926",
+              "name": "Mango Passionfruit Pineapple"
+            },
+            "999": {
+              "code": "999",
+              "name": "Remaining Flavors"
+            },
+            "BI0": {
+              "code": "BI0",
+              "name": "Carrot Mango"
+            },
+            "BBH": {
+              "code": "BBH",
+              "name": "Mango Orange Peach Plum"
+            },
+            "BI2": {
+              "code": "BI2",
+              "name": "Carrot Ginger"
+            },
+            "BRZ": {
+              "code": "BRZ",
+              "name": "Apple Caramel"
+            },
+            "BI1": {
+              "code": "BI1",
+              "name": "Berry Carrot"
+            },
+            "052": {
+              "code": "052",
+              "name": "Berry"
+            },
+            "031": {
+              "code": "031",
+              "name": "Lemon Lime"
+            },
+            "053": {
+              "code": "053",
+              "name": "Orange Strawberry"
+            },
+            "075": {
+              "code": "075",
+              "name": "Tangerine"
+            },
+            "BE1": {
+              "code": "BE1",
+              "name": "Banana Blueberry Orange"
+            },
+            "032": {
+              "code": "032",
+              "name": "Lemon (Lemonade)"
+            },
+            "011": {
+              "code": "011",
+              "name": "Cherry"
+            },
+            "033": {
+              "code": "033",
+              "name": "Lime"
+            },
+            "036": {
+              "code": "036",
+              "name": "Mango"
+            },
+            "037": {
+              "code": "037",
+              "name": "Orange"
+            },
+            "BQF": {
+              "code": "BQF",
+              "name": "Apple Cucumber Tropical"
+            },
+            "BQE": {
+              "code": "BQE",
+              "name": "Apple Berry Cucumber"
+            },
+            "A2J": {
+              "code": "A2J",
+              "name": "Honey Mango Orange"
+            },
+            "A79": {
+              "code": "A79",
+              "name": "Apple Beet Strawberry"
+            },
+            "A2X": {
+              "code": "A2X",
+              "name": "Mango Peach"
+            },
+            "BGP": {
+              "code": "BGP",
+              "name": "Boysenberry Strawberry"
+            },
+            "BGQ": {
+              "code": "BGQ",
+              "name": "Pear Raspberry Strawberry"
+            },
+            "BAO": {
+              "code": "BAO",
+              "name": "Banana Cherry Plum"
+            },
+            "001": {
+              "code": "001",
+              "name": "Apple"
+            },
+            "045": {
+              "code": "045",
+              "name": "Strawberry"
+            },
+            "046": {
+              "code": "046",
+              "name": "Banana Strawberry"
+            },
+            "068": {
+              "code": "068",
+              "name": "Blueberry"
+            },
+            "029": {
+              "code": "029",
+              "name": "Grapefruit"
+            }
+          },
+          "code": "BC0",
+          "name": "Odwalla"
+        },
+        "CDR": {
+          "flavor": {
+            "268": {
+              "code": "268",
+              "name": "Mango Pineapple"
+            },
+            "902": {
+              "code": "902",
+              "name": "Berry Pomegranate"
+            },
+            "984": {
+              "code": "984",
+              "name": "Blueberry Pomegranate"
+            },
+            "037": {
+              "code": "037",
+              "name": "Orange"
+            },
+            "074": {
+              "code": "074",
+              "name": "Kiwi Strawberry"
+            }
+          },
+          "code": "CDR",
+          "name": "Minute Maid Enhanced"
+        },
+        "CC4": {
+          "flavor": {
+            "268": {
+              "code": "268",
+              "name": "Mango Pineapple"
+            },
+            "644": {
+              "code": "644",
+              "name": "Berry Cherry"
+            },
+            "902": {
+              "code": "902",
+              "name": "Berry Pomegranate"
+            },
+            "BBQ": {
+              "code": "BBQ",
+              "name": "Blackberry Blueberry Strawberry"
+            },
+            "046": {
+              "code": "046",
+              "name": "Banana Strawberry"
+            }
+          },
+          "code": "CC4",
+          "name": "McCafe"
+        },
+        "BAU": {
+          "flavor": {
+            "291": {
+              "code": "291",
+              "name": "Coconut Pineapple"
+            }
+          },
+          "code": "BAU",
+          "name": "Bacardi Premium Mixers"
+        },
+        "B8R": {
+          "flavor": {
+            "550": {
+              "code": "550",
+              "name": "Tropical Fruit Punch"
+            },
+            "999": {
+              "code": "999",
+              "name": "Remaining Flavors"
+            },
+            "011": {
+              "code": "011",
+              "name": "Cherry"
+            },
+            "001": {
+              "code": "001",
+              "name": "Apple"
+            },
+            "026": {
+              "code": "026",
+              "name": "Fruit Punch"
+            },
+            "028": {
+              "code": "028",
+              "name": "Grape"
+            },
+            "BCO": {
+              "code": "BCO",
+              "name": "Berry Lemonade"
+            }
+          },
+          "code": "B8R",
+          "name": "Honest-KO"
+        }
+      }
+    },
+    "11": {
+      "code": "11",
+      "name": "Other Nonalcoholic Beverages",
+      "brand": {
+        "116": {
+          "flavor": {
+            "999": {
+              "code": "999",
+              "name": "Remaining Flavors"
+            }
+          },
+          "code": "116",
+          "name": "Fanta Other"
+        },
+        "519": {
+          "flavor": {
+            "291": {
+              "code": "291",
+              "name": "Coconut Pineapple"
+            },
+            "028": {
+              "code": "028",
+              "name": "Grape"
+            },
+            "052": {
+              "code": "052",
+              "name": "Berry"
+            },
+            "074": {
+              "code": "074",
+              "name": "Kiwi Strawberry"
+            },
+            "032": {
+              "code": "032",
+              "name": "Lemon (Lemonade)"
+            }
+          },
+          "code": "519",
+          "name": "Dasani"
+        },
+        "632": {
+          "flavor": {
+            "067": {
+              "code": "067",
+              "name": "Sour"
+            }
+          },
+          "code": "632",
+          "name": "Master Pour"
+        },
+        "B09": {
+          "flavor": {
+            "999": {
+              "code": "999",
+              "name": "Remaining Flavors"
+            }
+          },
+          "code": "B09",
+          "name": "Unbranded"
+        },
+        "CBL": {
+          "flavor": {
+            "345": {
+              "code": "345",
+              "name": "Vanilla"
+            },
+            "999": {
+              "code": "999",
+              "name": "Remaining Flavors"
+            },
+            "011": {
+              "code": "011",
+              "name": "Cherry"
+            },
+            "033": {
+              "code": "033",
+              "name": "Lime"
+            },
+            "045": {
+              "code": "045",
+              "name": "Strawberry"
+            },
+            "026": {
+              "code": "026",
+              "name": "Fruit Punch"
+            },
+            "037": {
+              "code": "037",
+              "name": "Orange"
+            },
+            "038": {
+              "code": "038",
+              "name": "Peach"
+            },
+            "028": {
+              "code": "028",
+              "name": "Grape"
+            },
+            "061": {
+              "code": "061",
+              "name": "Raspberry"
+            },
+            "032": {
+              "code": "032",
+              "name": "Lemon (Lemonade)"
+            }
+          },
+          "code": "CBL",
+          "name": "Microdose Unbranded"
+        },
+        "BC0": {
+          "flavor": {
+            "793": {
+              "code": "793",
+              "name": "Berries"
+            },
+            "999": {
+              "code": "999",
+              "name": "Remaining Flavors"
+            },
+            "001": {
+              "code": "001",
+              "name": "Apple"
+            },
+            "045": {
+              "code": "045",
+              "name": "Strawberry"
+            },
+            "068": {
+              "code": "068",
+              "name": "Blueberry"
+            },
+            "015": {
+              "code": "015",
+              "name": "Chocolate"
+            },
+            "037": {
+              "code": "037",
+              "name": "Orange"
+            },
+            "005": {
+              "code": "005",
+              "name": "Banana"
+            },
+            "032": {
+              "code": "032",
+              "name": "Lemon (Lemonade)"
+            }
+          },
+          "code": "BC0",
+          "name": "Odwalla"
+        },
+        "BE4": {
+          "flavor": {
+            "058": {
+              "code": "058",
+              "name": "Water (Unflavored)"
+            }
+          },
+          "code": "BE4",
+          "name": "Aquapure"
+        },
+        "CC4": {
+          "flavor": {
+            "999": {
+              "code": "999",
+              "name": "Remaining Flavors"
+            }
+          },
+          "code": "CC4",
+          "name": "McCafe"
+        },
+        "BVM": {
+          "flavor": {
+            "789": {
+              "code": "789",
+              "name": "Chocolate Milk Vanilla"
+            }
+          },
+          "code": "BVM",
+          "name": "Godiva Belgian Blends"
+        },
+        "CC8": {
+          "flavor": {
+            "032": {
+              "code": "032",
+              "name": "Lemon (Lemonade)"
+            }
+          },
+          "code": "CC8",
+          "name": "Peace-KO"
+        },
+        "Z01": {
+          "flavor": {
+            "999": {
+              "code": "999",
+              "name": "Remaining Flavors"
+            }
+          },
+          "code": "Z01",
+          "name": "ANCILLARY ITEMS"
+        },
+        "A9S": {
+          "flavor": {
+            "999": {
+              "code": "999",
+              "name": "Remaining Flavors"
+            }
+          },
+          "code": "A9S",
+          "name": "ALL OTHER BUD I"
+        },
+        "ZZZ": {
+          "flavor": {
+            "999": {
+              "code": "999",
+              "name": "Remaining Flavors"
+            }
+          },
+          "code": "ZZZ",
+          "name": "Nonspecific Brand Costs"
+        },
+        "Z02": {
+          "flavor": {
+            "999": {
+              "code": "999",
+              "name": "Remaining Flavors"
+            }
+          },
+          "code": "Z02",
+          "name": "MIXED BRAND"
+        },
+        "Z04": {
+          "flavor": {
+            "999": {
+              "code": "999",
+              "name": "Remaining Flavors"
+            }
+          },
+          "code": "Z04",
+          "name": "UNASSIGNED BRAND"
+        }
+      }
+    },
+    "15": {
+      "code": "15",
+      "name": "Sports Drinks",
+      "brand": {
+        "CEB": {
+          "flavor": {
+            "902": {
+              "code": "902",
+              "name": "Berry Pomegranate"
+            },
+            "079": {
+              "code": "079",
+              "name": "Passionfruit"
+            },
+            "036": {
+              "code": "036",
+              "name": "Mango"
+            },
+            "015": {
+              "code": "015",
+              "name": "Chocolate"
+            },
+            "016": {
+              "code": "016",
+              "name": "Coconut"
+            },
+            "040": {
+              "code": "040",
+              "name": "Pineapple"
+            },
+            "031": {
+              "code": "031",
+              "name": "Lemon Lime"
+            }
+          },
+          "code": "CEB",
+          "name": "Zico-KO"
+        },
+        "047": {
+          "flavor": {
+            "357": {
+              "code": "357",
+              "name": "Lemon Strawberry"
+            },
+            "368": {
+              "code": "368",
+              "name": "Blackberry Raspberry"
+            },
+            "507": {
+              "code": "507",
+              "name": "Grape Strawberry"
+            },
+            "518": {
+              "code": "518",
+              "name": "Melon Pineapple"
+            },
+            "645": {
+              "code": "645",
+              "name": "Cherry Lime"
+            },
+            "722": {
+              "code": "722",
+              "name": "Melon Strawberry"
+            },
+            "773": {
+              "code": "773",
+              "name": "Mixed Berry"
+            },
+            "804": {
+              "code": "804",
+              "name": "Sour Melon"
+            },
+            "999": {
+              "code": "999",
+              "name": "Remaining Flavors"
+            },
+            "BS3": {
+              "code": "BS3",
+              "name": "Kiwi Pineapple"
+            },
+            "052": {
+              "code": "052",
+              "name": "Berry"
+            },
+            "031": {
+              "code": "031",
+              "name": "Lemon Lime"
+            },
+            "BNZ": {
+              "code": "BNZ",
+              "name": "Citrus Passionfruit"
+            },
+            "032": {
+              "code": "032",
+              "name": "Lemon (Lemonade)"
+            },
+            "011": {
+              "code": "011",
+              "name": "Cherry"
+            },
+            "013": {
+              "code": "013",
+              "name": "Citrus Blend"
+            },
+            "BBS": {
+              "code": "BBS",
+              "name": "Lime Watermelon"
+            },
+            "036": {
+              "code": "036",
+              "name": "Mango"
+            },
+            "BQD": {
+              "code": "BQD",
+              "name": "Blackberry Cherry"
+            },
+            "037": {
+              "code": "037",
+              "name": "Orange"
+            },
+            "BQK": {
+              "code": "BQK",
+              "name": "Pineapple Tangerine"
+            },
+            "BIH": {
+              "code": "BIH",
+              "name": "Cherry Raspberry"
+            },
+            "BKW": {
+              "code": "BKW",
+              "name": "Strawberry Watermelon"
+            },
+            "001": {
+              "code": "001",
+              "name": "Apple"
+            },
+            "045": {
+              "code": "045",
+              "name": "Strawberry"
+            },
+            "047": {
+              "code": "047",
+              "name": "Orange Tangerine"
+            },
+            "026": {
+              "code": "026",
+              "name": "Fruit Punch"
+            },
+            "028": {
+              "code": "028",
+              "name": "Grape"
+            }
+          },
+          "code": "047",
+          "name": "Powerade"
+        },
+        "A9K": {
+          "flavor": {
+            "773": {
+              "code": "773",
+              "name": "Mixed Berry"
+            },
+            "999": {
+              "code": "999",
+              "name": "Remaining Flavors"
+            },
+            "001": {
+              "code": "001",
+              "name": "Apple"
+            },
+            "045": {
+              "code": "045",
+              "name": "Strawberry"
+            },
+            "026": {
+              "code": "026",
+              "name": "Fruit Punch"
+            },
+            "037": {
+              "code": "037",
+              "name": "Orange"
+            },
+            "028": {
+              "code": "028",
+              "name": "Grape"
+            },
+            "008": {
+              "code": "008",
+              "name": "Black Cherry"
+            },
+            "052": {
+              "code": "052",
+              "name": "Berry"
+            },
+            "031": {
+              "code": "031",
+              "name": "Lemon Lime"
+            },
+            "032": {
+              "code": "032",
+              "name": "Lemon (Lemonade)"
+            }
+          },
+          "code": "A9K",
+          "name": "Powerade Light"
+        },
+        "CDE": {
+          "flavor": {
+            "773": {
+              "code": "773",
+              "name": "Mixed Berry"
+            },
+            "047": {
+              "code": "047",
+              "name": "Orange Tangerine"
+            },
+            "026": {
+              "code": "026",
+              "name": "Fruit Punch"
+            },
+            "028": {
+              "code": "028",
+              "name": "Grape"
+            }
+          },
+          "code": "CDE",
+          "name": "Powerade Play"
+        },
+        "B8R": {
+          "flavor": {
+            "037": {
+              "code": "037",
+              "name": "Orange"
+            },
+            "052": {
+              "code": "052",
+              "name": "Berry"
+            },
+            "032": {
+              "code": "032",
+              "name": "Lemon (Lemonade)"
+            }
+          },
+          "code": "B8R",
+          "name": "Honest-KO"
+        },
+        "B50": {
+          "flavor": {
+            "267": {
+              "code": "267",
+              "name": "Mango Orange"
+            },
+            "BUU": {
+              "code": "BUU",
+              "name": "Black Cherry Strawberry"
+            },
+            "031": {
+              "code": "031",
+              "name": "Lemon Lime"
+            }
+          },
+          "code": "B50",
+          "name": "Glaceau Vitaminwater"
+        }
+      }
+    },
+    "17": {
+      "code": "17",
+      "name": "Fruit/Vegetable Still Drinks",
+      "brand": {
+        "116": {
+          "flavor": {
+            "750": {
+              "code": "750",
+              "name": "Orange Vanilla"
+            },
+            "815": {
+              "code": "815",
+              "name": "Grape Raspberry"
+            },
+            "999": {
+              "code": "999",
+              "name": "Remaining Flavors"
+            },
+            "011": {
+              "code": "011",
+              "name": "Cherry"
+            },
+            "001": {
+              "code": "001",
+              "name": "Apple"
+            },
+            "026": {
+              "code": "026",
+              "name": "Fruit Punch"
+            },
+            "BHK": {
+              "code": "BHK",
+              "name": "Guava Peach Strawberry"
+            },
+            "061": {
+              "code": "061",
+              "name": "Raspberry"
+            },
+            "032": {
+              "code": "032",
+              "name": "Lemon (Lemonade)"
+            }
+          },
+          "code": "116",
+          "name": "Fanta Other"
+        },
+        "127": {
+          "flavor": {
+            "548": {
+              "code": "548",
+              "name": "Apple Cranberry Raspberry"
+            },
+            "001": {
+              "code": "001",
+              "name": "Apple"
+            },
+            "003": {
+              "code": "003",
+              "name": "Apple Cranberry"
+            },
+            "026": {
+              "code": "026",
+              "name": "Fruit Punch"
+            },
+            "037": {
+              "code": "037",
+              "name": "Orange"
+            },
+            "028": {
+              "code": "028",
+              "name": "Grape"
+            },
+            "029": {
+              "code": "029",
+              "name": "Grapefruit"
+            },
+            "020": {
+              "code": "020",
+              "name": "Cranberry"
+            }
+          },
+          "code": "127",
+          "name": "Minute Maid Juice To Go"
+        },
+        "152": {
+          "flavor": {
+            "349": {
+              "code": "349",
+              "name": "Passionfruit Strawberry"
+            },
+            "365": {
+              "code": "365",
+              "name": "Tropical Fruit Punch Lemon"
+            },
+            "526": {
+              "code": "526",
+              "name": "Kiwi Raspberry"
+            },
+            "674": {
+              "code": "674",
+              "name": "Blueberry Watermelon"
+            },
+            "026": {
+              "code": "026",
+              "name": "Fruit Punch"
+            },
+            "037": {
+              "code": "037",
+              "name": "Orange"
+            },
+            "038": {
+              "code": "038",
+              "name": "Peach"
+            },
+            "028": {
+              "code": "028",
+              "name": "Grape"
+            },
+            "072": {
+              "code": "072",
+              "name": "Lemon Raspberry"
+            },
+            "075": {
+              "code": "075",
+              "name": "Tangerine"
+            }
+          },
+          "code": "152",
+          "name": "Fruitopia"
+        },
+        "153": {
+          "flavor": {
+            "323": {
+              "code": "323",
+              "name": "Lemon (Sour)"
+            },
+            "037": {
+              "code": "037",
+              "name": "Orange"
+            },
+            "049": {
+              "code": "049",
+              "name": "Tomato"
+            }
+          },
+          "code": "153",
+          "name": "Southern Sun"
+        },
+        "319": {
+          "flavor": {
+            "359": {
+              "code": "359",
+              "name": "Apple Apricot Orange Passionfruit"
+            }
+          },
+          "code": "319",
+          "name": "Vegitabeta"
+        },
+        "321": {
+          "flavor": {
+            "267": {
+              "code": "267",
+              "name": "Mango Orange"
+            },
+            "268": {
+              "code": "268",
+              "name": "Mango Pineapple"
+            },
+            "271": {
+              "code": "271",
+              "name": "Citrus Pineapple"
+            },
+            "291": {
+              "code": "291",
+              "name": "Coconut Pineapple"
+            },
+            "328": {
+              "code": "328",
+              "name": "Mango Passionfruit"
+            },
+            "349": {
+              "code": "349",
+              "name": "Passionfruit Strawberry"
+            },
+            "367": {
+              "code": "367",
+              "name": "Banana Orange Strawberry"
+            },
+            "550": {
+              "code": "550",
+              "name": "Tropical Fruit Punch"
+            },
+            "588": {
+              "code": "588",
+              "name": "Cherry Vanilla"
+            },
+            "622": {
+              "code": "622",
+              "name": "Passionfruit Raspberry"
+            },
+            "623": {
+              "code": "623",
+              "name": "Citrus Guava"
+            },
+            "624": {
+              "code": "624",
+              "name": "Berry Kiwi"
+            },
+            "644": {
+              "code": "644",
+              "name": "Berry Cherry"
+            },
+            "645": {
+              "code": "645",
+              "name": "Cherry Lime"
+            },
+            "650": {
+              "code": "650",
+              "name": "Mango Orange Tutti Fruity"
+            },
+            "653": {
+              "code": "653",
+              "name": "Peach Watermelon"
+            },
+            "685": {
+              "code": "685",
+              "name": "Cinnamon Vanilla"
+            },
+            "750": {
+              "code": "750",
+              "name": "Orange Vanilla"
+            },
+            "773": {
+              "code": "773",
+              "name": "Mixed Berry"
+            },
+            "902": {
+              "code": "902",
+              "name": "Berry Pomegranate"
+            },
+            "928": {
+              "code": "928",
+              "name": "Lemon Pomegranate"
+            },
+            "978": {
+              "code": "978",
+              "name": "Blueberry Raspberry Strawberry"
+            },
+            "984": {
+              "code": "984",
+              "name": "Blueberry Pomegranate"
+            },
+            "BNW": {
+              "code": "BNW",
+              "name": "Blueberry Pomegranate Pineapple"
+            },
+            "072": {
+              "code": "072",
+              "name": "Lemon Raspberry"
+            },
+            "052": {
+              "code": "052",
+              "name": "Berry"
+            },
+            "074": {
+              "code": "074",
+              "name": "Kiwi Strawberry"
+            },
+            "032": {
+              "code": "032",
+              "name": "Lemon (Lemonade)"
+            },
+            "011": {
+              "code": "011",
+              "name": "Cherry"
+            },
+            "033": {
+              "code": "033",
+              "name": "Lime"
+            },
+            "078": {
+              "code": "078",
+              "name": "Watermelon"
+            },
+            "035": {
+              "code": "035",
+              "name": "Orange Pineapple"
+            },
+            "036": {
+              "code": "036",
+              "name": "Mango"
+            },
+            "037": {
+              "code": "037",
+              "name": "Orange"
+            },
+            "038": {
+              "code": "038",
+              "name": "Peach"
+            },
+            "080": {
+              "code": "080",
+              "name": "Guava Orange Passionfruit"
+            },
+            "061": {
+              "code": "061",
+              "name": "Raspberry"
+            },
+            "BL9": {
+              "code": "BL9",
+              "name": "Blueberry Chipotle Pineapple"
+            },
+            "020": {
+              "code": "020",
+              "name": "Cranberry"
+            },
+            "001": {
+              "code": "001",
+              "name": "Apple"
+            },
+            "A9I": {
+              "code": "A9I",
+              "name": "Carrot Mango Orange"
+            },
+            "045": {
+              "code": "045",
+              "name": "Strawberry"
+            },
+            "046": {
+              "code": "046",
+              "name": "Banana Strawberry"
+            },
+            "068": {
+              "code": "068",
+              "name": "Blueberry"
+            },
+            "026": {
+              "code": "026",
+              "name": "Fruit Punch"
+            },
+            "005": {
+              "code": "005",
+              "name": "Banana"
+            },
+            "028": {
+              "code": "028",
+              "name": "Grape"
+            },
+            "BTO": {
+              "code": "BTO",
+              "name": "Guava Mango Peach"
+            }
+          },
+          "code": "321",
+          "name": "Minute Maid"
+        },
+        "381": {
+          "flavor": {
+            "026": {
+              "code": "026",
+              "name": "Fruit Punch"
+            }
+          },
+          "code": "381",
+          "name": "Delaware Punch"
+        },
+        "519": {
+          "flavor": {
+            "332": {
+              "code": "332",
+              "name": "Orange Passionfruit"
+            },
+            "033": {
+              "code": "033",
+              "name": "Lime"
+            },
+            "078": {
+              "code": "078",
+              "name": "Watermelon"
+            },
+            "028": {
+              "code": "028",
+              "name": "Grape"
+            },
+            "BJN": {
+              "code": "BJN",
+              "name": "Lemonade Mango"
+            },
+            "BKQ": {
+              "code": "BKQ",
+              "name": "Acai Pear"
+            },
+            "BM3": {
+              "code": "BM3",
+              "name": "Basil Strawberry"
+            },
+            "BHP": {
+              "code": "BHP",
+              "name": "Cherry Pomegranate"
+            },
+            "052": {
+              "code": "052",
+              "name": "Berry"
+            },
+            "074": {
+              "code": "074",
+              "name": "Kiwi Strawberry"
+            },
+            "032": {
+              "code": "032",
+              "name": "Lemon (Lemonade)"
+            }
+          },
+          "code": "519",
+          "name": "Dasani"
+        },
+        "632": {
+          "flavor": {
+            "011": {
+              "code": "011",
+              "name": "Cherry"
+            },
+            "067": {
+              "code": "067",
+              "name": "Sour"
+            }
+          },
+          "code": "632",
+          "name": "Master Pour"
+        },
+        "CLJ": {
+          "flavor": {
+            "001": {
+              "code": "001",
+              "name": "Apple"
+            },
+            "068": {
+              "code": "068",
+              "name": "Blueberry"
+            },
+            "026": {
+              "code": "026",
+              "name": "Fruit Punch"
+            },
+            "037": {
+              "code": "037",
+              "name": "Orange"
+            },
+            "BK2": {
+              "code": "BK2",
+              "name": "Lemonade Strawberry"
+            },
+            "A1Y": {
+              "code": "A1Y",
+              "name": "Rageberry"
+            },
+            "052": {
+              "code": "052",
+              "name": "Berry"
+            },
+            "BKW": {
+              "code": "BKW",
+              "name": "Strawberry Watermelon"
+            }
+          },
+          "code": "CLJ",
+          "name": "TUM-E YUMMIES-KO"
+        },
+        "BFG": {
+          "flavor": {
+            "345": {
+              "code": "345",
+              "name": "Vanilla"
+            },
+            "011": {
+              "code": "011",
+              "name": "Cherry"
+            },
+            "033": {
+              "code": "033",
+              "name": "Lime"
+            },
+            "015": {
+              "code": "015",
+              "name": "Chocolate"
+            },
+            "061": {
+              "code": "061",
+              "name": "Raspberry"
+            }
+          },
+          "code": "BFG",
+          "name": "Flavor Rage"
+        },
+        "BBB": {
+          "flavor": {
+            "329": {
+              "code": "329",
+              "name": "Margarita"
+            },
+            "020": {
+              "code": "020",
+              "name": "Cranberry"
+            }
+          },
+          "code": "BBB",
+          "name": "Carlysle Farm-KO"
+        },
+        "B5X": {
+          "flavor": {
+            "550": {
+              "code": "550",
+              "name": "Tropical Fruit Punch"
+            },
+            "624": {
+              "code": "624",
+              "name": "Berry Kiwi"
+            },
+            "052": {
+              "code": "052",
+              "name": "Berry"
+            },
+            "BG1": {
+              "code": "BG1",
+              "name": "Fruit Medley"
+            }
+          },
+          "code": "B5X",
+          "name": "Campbells-KO"
+        },
+        "B09": {
+          "flavor": {
+            "038": {
+              "code": "038",
+              "name": "Peach"
+            },
+            "061": {
+              "code": "061",
+              "name": "Raspberry"
+            }
+          },
+          "code": "B09",
+          "name": "Unbranded"
+        },
+        "051": {
+          "flavor": {
+            "001": {
+              "code": "001",
+              "name": "Apple"
+            },
+            "037": {
+              "code": "037",
+              "name": "Orange"
+            },
+            "028": {
+              "code": "028",
+              "name": "Grape"
+            }
+          },
+          "code": "051",
+          "name": "Bright And Early"
+        },
+        "CE1": {
+          "flavor": {
+            "550": {
+              "code": "550",
+              "name": "Tropical Fruit Punch"
+            },
+            "037": {
+              "code": "037",
+              "name": "Orange"
+            },
+            "BMG": {
+              "code": "BMG",
+              "name": "Cherry Orange"
+            }
+          },
+          "code": "CE1",
+          "name": "Minute Maid Pulpy"
+        },
+        "BC0": {
+          "flavor": {
+            "264": {
+              "code": "264",
+              "name": "Honey Lemon"
+            },
+            "357": {
+              "code": "357",
+              "name": "Lemon Strawberry"
+            },
+            "927": {
+              "code": "927",
+              "name": "Lime Pomegranate"
+            },
+            "955": {
+              "code": "955",
+              "name": "Pumpkin Spice"
+            },
+            "033": {
+              "code": "033",
+              "name": "Lime"
+            },
+            "BTB": {
+              "code": "BTB",
+              "name": "Berry Jalapeno Pepper Watermelon"
+            },
+            "BRS": {
+              "code": "BRS",
+              "name": "Ginger Peach"
+            },
+            "BSU": {
+              "code": "BSU",
+              "name": "Honey Lemon Strawberry"
+            },
+            "032": {
+              "code": "032",
+              "name": "Lemon (Lemonade)"
+            }
+          },
+          "code": "BC0",
+          "name": "Odwalla"
+        },
+        "CDR": {
+          "flavor": {
+            "928": {
+              "code": "928",
+              "name": "Lemon Pomegranate"
+            }
+          },
+          "code": "CDR",
+          "name": "Minute Maid Enhanced"
+        },
+        "CC5": {
+          "flavor": {
+            "773": {
+              "code": "773",
+              "name": "Mixed Berry"
+            },
+            "026": {
+              "code": "026",
+              "name": "Fruit Punch"
+            },
+            "037": {
+              "code": "037",
+              "name": "Orange"
+            },
+            "032": {
+              "code": "032",
+              "name": "Lemon (Lemonade)"
+            }
+          },
+          "code": "CC5",
+          "name": "Glaceau Vitaminwater Zero"
+        },
+        "CC4": {
+          "flavor": {
+            "032": {
+              "code": "032",
+              "name": "Lemon (Lemonade)"
+            }
+          },
+          "code": "CC4",
+          "name": "McCafe"
+        },
+        "B8R": {
+          "flavor": {
+            "267": {
+              "code": "267",
+              "name": "Mango Orange"
+            },
+            "550": {
+              "code": "550",
+              "name": "Tropical Fruit Punch"
+            },
+            "905": {
+              "code": "905",
+              "name": "Lime Mint"
+            },
+            "984": {
+              "code": "984",
+              "name": "Blueberry Pomegranate"
+            },
+            "999": {
+              "code": "999",
+              "name": "Remaining Flavors"
+            },
+            "BJN": {
+              "code": "BJN",
+              "name": "Lemonade Mango"
+            },
+            "BLS": {
+              "code": "BLS",
+              "name": "Berry Hibiscus Lemonade"
+            },
+            "BO6": {
+              "code": "BO6",
+              "name": "Lemonade Watermelon"
+            },
+            "071": {
+              "code": "071",
+              "name": "Cranberry Lemon"
+            },
+            "032": {
+              "code": "032",
+              "name": "Lemon (Lemonade)"
+            },
+            "033": {
+              "code": "033",
+              "name": "Lime"
+            },
+            "026": {
+              "code": "026",
+              "name": "Fruit Punch"
+            },
+            "028": {
+              "code": "028",
+              "name": "Grape"
+            },
+            "A7O": {
+              "code": "A7O",
+              "name": "Strawberry Pear"
+            }
+          },
+          "code": "B8R",
+          "name": "Honest-KO"
+        },
+        "B6T": {
+          "flavor": {
+            "689": {
+              "code": "689",
+              "name": "Lime Mango"
+            },
+            "BU5": {
+              "code": "BU5",
+              "name": "Hibiscus Strawberry"
+            },
+            "BTY": {
+              "code": "BTY",
+              "name": "Cucumber Pear"
+            },
+            "040": {
+              "code": "040",
+              "name": "Pineapple"
+            }
+          },
+          "code": "B6T",
+          "name": "BARRILITOS-KO"
+        },
+        "CMM": {
+          "flavor": {
+            "345": {
+              "code": "345",
+              "name": "Vanilla"
+            },
+            "011": {
+              "code": "011",
+              "name": "Cherry"
+            },
+            "033": {
+              "code": "033",
+              "name": "Lime"
+            },
+            "061": {
+              "code": "061",
+              "name": "Raspberry"
+            }
+          },
+          "code": "CMM",
+          "name": "MASTER FLAVOR"
+        },
+        "A2Z": {
+          "flavor": {
+            "291": {
+              "code": "291",
+              "name": "Coconut Pineapple"
+            },
+            "329": {
+              "code": "329",
+              "name": "Margarita"
+            },
+            "045": {
+              "code": "045",
+              "name": "Strawberry"
+            }
+          },
+          "code": "A2Z",
+          "name": "Bacardi Mixers"
+        },
+        "B18": {
+          "flavor": {
+            "261": {
+              "code": "261",
+              "name": "Banana Vanilla"
+            },
+            "267": {
+              "code": "267",
+              "name": "Mango Orange"
+            },
+            "297": {
+              "code": "297",
+              "name": "Berry Fruit Punch"
+            },
+            "357": {
+              "code": "357",
+              "name": "Lemon Strawberry"
+            },
+            "550": {
+              "code": "550",
+              "name": "Tropical Fruit Punch"
+            },
+            "648": {
+              "code": "648",
+              "name": "Cranberry Raspberry"
+            },
+            "722": {
+              "code": "722",
+              "name": "Melon Strawberry"
+            },
+            "773": {
+              "code": "773",
+              "name": "Mixed Berry"
+            },
+            "782": {
+              "code": "782",
+              "name": "Banana Pineapple"
+            },
+            "866": {
+              "code": "866",
+              "name": "Blueberry Raspberry"
+            },
+            "986": {
+              "code": "986",
+              "name": "Peach Mango"
+            },
+            "999": {
+              "code": "999",
+              "name": "Remaining Flavors"
+            },
+            "A43": {
+              "code": "A43",
+              "name": "Acai Pomegranate"
+            },
+            "052": {
+              "code": "052",
+              "name": "Berry"
+            },
+            "075": {
+              "code": "075",
+              "name": "Tangerine"
+            },
+            "045": {
+              "code": "045",
+              "name": "Strawberry"
+            },
+            "046": {
+              "code": "046",
+              "name": "Banana Strawberry"
+            },
+            "BAR": {
+              "code": "BAR",
+              "name": "Goji Mixed Berry"
+            },
+            "026": {
+              "code": "026",
+              "name": "Fruit Punch"
+            },
+            "A91": {
+              "code": "A91",
+              "name": "Acai Blueberry Pomegranate"
+            }
+          },
+          "code": "B18",
+          "name": "Fuze-KO"
+        },
+        "BN9": {
+          "flavor": {
+            "268": {
+              "code": "268",
+              "name": "Mango Pineapple"
+            },
+            "795": {
+              "code": "795",
+              "name": "Lemon Mango"
+            },
+            "033": {
+              "code": "033",
+              "name": "Lime"
+            },
+            "026": {
+              "code": "026",
+              "name": "Fruit Punch"
+            },
+            "038": {
+              "code": "038",
+              "name": "Peach"
+            },
+            "072": {
+              "code": "072",
+              "name": "Lemon Raspberry"
+            },
+            "052": {
+              "code": "052",
+              "name": "Berry"
+            },
+            "A5Q": {
+              "code": "A5Q",
+              "name": "Blueberry Lemon"
+            },
+            "032": {
+              "code": "032",
+              "name": "Lemon (Lemonade)"
+            }
+          },
+          "code": "BN9",
+          "name": "Simply"
+        },
+        "042": {
+          "flavor": {
+            "013": {
+              "code": "013",
+              "name": "Citrus Blend"
+            }
+          },
+          "code": "042",
+          "name": "Five Alive"
+        },
+        "048": {
+          "flavor": {
+            "329": {
+              "code": "329",
+              "name": "Margarita"
+            },
+            "013": {
+              "code": "013",
+              "name": "Citrus Blend"
+            }
+          },
+          "code": "048",
+          "name": "Pepe Rico"
+        },
+        "BAU": {
+          "flavor": {
+            "329": {
+              "code": "329",
+              "name": "Margarita"
+            },
+            "045": {
+              "code": "045",
+              "name": "Strawberry"
+            },
+            "031": {
+              "code": "031",
+              "name": "Lemon Lime"
+            }
+          },
+          "code": "BAU",
+          "name": "Bacardi Premium Mixers"
+        },
+        "029": {
+          "flavor": {
+            "255": {
+              "code": "255",
+              "name": "Mandarin Orange"
+            },
+            "301": {
+              "code": "301",
+              "name": "Blackberry Blueberry"
+            },
+            "550": {
+              "code": "550",
+              "name": "Tropical Fruit Punch"
+            },
+            "999": {
+              "code": "999",
+              "name": "Remaining Flavors"
+            },
+            "033": {
+              "code": "033",
+              "name": "Lime"
+            },
+            "068": {
+              "code": "068",
+              "name": "Blueberry"
+            },
+            "026": {
+              "code": "026",
+              "name": "Fruit Punch"
+            },
+            "037": {
+              "code": "037",
+              "name": "Orange"
+            },
+            "028": {
+              "code": "028",
+              "name": "Grape"
+            },
+            "052": {
+              "code": "052",
+              "name": "Berry"
+            },
+            "074": {
+              "code": "074",
+              "name": "Kiwi Strawberry"
+            },
+            "032": {
+              "code": "032",
+              "name": "Lemon (Lemonade)"
+            }
+          },
+          "code": "029",
+          "name": "Hi-C"
+        },
+        "CLB": {
+          "flavor": {
+            "645": {
+              "code": "645",
+              "name": "Cherry Lime"
+            },
+            "999": {
+              "code": "999",
+              "name": "Remaining Flavors"
+            },
+            "BFG": {
+              "code": "BFG",
+              "name": "Lime Lemonade"
+            },
+            "A2U": {
+              "code": "A2U",
+              "name": "Ginger Pineapple"
+            },
+            "BMB": {
+              "code": "BMB",
+              "name": "Mango Lemonade"
+            },
+            "A8N": {
+              "code": "A8N",
+              "name": "Blackberry Lemonade"
+            },
+            "BK2": {
+              "code": "BK2",
+              "name": "Lemonade Strawberry"
+            },
+            "BO6": {
+              "code": "BO6",
+              "name": "Lemonade Watermelon"
+            },
+            "072": {
+              "code": "072",
+              "name": "Lemon Raspberry"
+            },
+            "BNH": {
+              "code": "BNH",
+              "name": "Lemonade Orange"
+            },
+            "032": {
+              "code": "032",
+              "name": "Lemon (Lemonade)"
+            },
+            "BNJ": {
+              "code": "BNJ",
+              "name": "Lemonade Peach"
+            }
+          },
+          "code": "CLB",
+          "name": "HUBERT'S-KO"
+        },
+        "009": {
+          "flavor": {
+            "038": {
+              "code": "038",
+              "name": "Peach"
+            }
+          },
+          "code": "009",
+          "name": "Bacardi"
+        },
+        "A61": {
+          "flavor": {
+            "642": {
+              "code": "642",
+              "name": "Kiwi Mango"
+            }
+          },
+          "code": "A61",
+          "name": "BIBO"
+        }
+      }
+    },
+    "18": {
+      "code": "18",
+      "name": "Tea",
+      "brand": {
+        "122": {
+          "flavor": {
+            "264": {
+              "code": "264",
+              "name": "Honey Lemon"
+            },
+            "268": {
+              "code": "268",
+              "name": "Mango Pineapple"
+            },
+            "527": {
+              "code": "527",
+              "name": "Blackcurrant"
+            },
+            "BEE": {
+              "code": "BEE",
+              "name": "Lemonade Tea"
+            },
+            "BNR": {
+              "code": "BNR",
+              "name": "Blueberry Mint"
+            },
+            "BDL": {
+              "code": "BDL",
+              "name": "Plum Tea"
+            },
+            "061": {
+              "code": "061",
+              "name": "Raspberry"
+            },
+            "BHT": {
+              "code": "BHT",
+              "name": "Ginseng Green Tea Honey"
+            },
+            "032": {
+              "code": "032",
+              "name": "Lemon (Lemonade)"
+            },
+            "013": {
+              "code": "013",
+              "name": "Citrus Blend"
+            },
+            "036": {
+              "code": "036",
+              "name": "Mango"
+            },
+            "048": {
+              "code": "048",
+              "name": "Tea (Unflavored)"
+            },
+            "BAT": {
+              "code": "BAT",
+              "name": "Lemon Lime Tea"
+            },
+            "038": {
+              "code": "038",
+              "name": "Peach"
+            },
+            "A6N": {
+              "code": "A6N",
+              "name": "Passionfruit Pomegranate Tea"
+            },
+            "BKD": {
+              "code": "BKD",
+              "name": "Apple Cinnamon Tea"
+            }
+          },
+          "code": "122",
+          "name": "Nestea"
+        },
+        "168": {
+          "flavor": {
+            "038": {
+              "code": "038",
+              "name": "Peach"
+            },
+            "061": {
+              "code": "061",
+              "name": "Raspberry"
+            },
+            "032": {
+              "code": "032",
+              "name": "Lemon (Lemonade)"
+            }
+          },
+          "code": "168",
+          "name": "Nestea Cool"
+        },
+        "A6V": {
+          "flavor": {
+            "BBU": {
+              "code": "BBU",
+              "name": "Ginseng Guava Oolong Tea"
+            },
+            "BBW": {
+              "code": "BBW",
+              "name": "Barley Green Tea"
+            },
+            "BBV": {
+              "code": "BBV",
+              "name": "Oolong Tea  Rose"
+            },
+            "BBY": {
+              "code": "BBY",
+              "name": "Chamomile Green Tea"
+            },
+            "BE0": {
+              "code": "BE0",
+              "name": "Aloe Ginger Jasmine Tea"
+            }
+          },
+          "code": "A6V",
+          "name": "Sokenbicha"
+        },
+        "A26": {
+          "flavor": {
+            "032": {
+              "code": "032",
+              "name": "Lemon (Lemonade)"
+            }
+          },
+          "code": "A26",
+          "name": "diet Nestea Cool"
+        },
+        "B18": {
+          "flavor": {
+            "355": {
+              "code": "355",
+              "name": "Mango Tea"
+            },
+            "511": {
+              "code": "511",
+              "name": "Green Tea"
+            },
+            "765": {
+              "code": "765",
+              "name": "Blueberry Tea"
+            },
+            "A4V": {
+              "code": "A4V",
+              "name": "Lemon Tea"
+            },
+            "BLP": {
+              "code": "BLP",
+              "name": "Mango Orange Tea"
+            },
+            "BHS": {
+              "code": "BHS",
+              "name": "Strawberry Tea"
+            },
+            "BHT": {
+              "code": "BHT",
+              "name": "Ginseng Green Tea Honey"
+            },
+            "BI8": {
+              "code": "BI8",
+              "name": "Kiwi Strawberry Tea"
+            },
+            "001": {
+              "code": "001",
+              "name": "Apple"
+            },
+            "078": {
+              "code": "078",
+              "name": "Watermelon"
+            },
+            "A4F": {
+              "code": "A4F",
+              "name": "Green Tea Mango"
+            },
+            "048": {
+              "code": "048",
+              "name": "Tea (Unflavored)"
+            },
+            "A8Q": {
+              "code": "A8Q",
+              "name": "Raspberry Tea"
+            },
+            "A42": {
+              "code": "A42",
+              "name": "Peach Tea"
+            }
+          },
+          "code": "B18",
+          "name": "Fuze-KO"
+        },
+        "B09": {
+          "flavor": {
+            "048": {
+              "code": "048",
+              "name": "Tea (Unflavored)"
+            },
+            "A8Q": {
+              "code": "A8Q",
+              "name": "Raspberry Tea"
+            }
+          },
+          "code": "B09",
+          "name": "Unbranded"
+        },
+        "BDO": {
+          "flavor": {
+            "048": {
+              "code": "048",
+              "name": "Tea (Unflavored)"
+            }
+          },
+          "code": "BDO",
+          "name": "Private Label-KO"
+        },
+        "BN8": {
+          "flavor": {
+            "511": {
+              "code": "511",
+              "name": "Green Tea"
+            },
+            "BIG": {
+              "code": "BIG",
+              "name": "Green Tea Papaya Peach"
+            },
+            "A4V": {
+              "code": "A4V",
+              "name": "Lemon Tea"
+            },
+            "032": {
+              "code": "032",
+              "name": "Lemon (Lemonade)"
+            },
+            "A7G": {
+              "code": "A7G",
+              "name": "Citrus Tea"
+            },
+            "BI7": {
+              "code": "BI7",
+              "name": "Lemonade Raspberry Tea"
+            },
+            "BPC": {
+              "code": "BPC",
+              "name": "Cinnamon Pear Tea"
+            },
+            "048": {
+              "code": "048",
+              "name": "Tea (Unflavored)"
+            },
+            "BAT": {
+              "code": "BAT",
+              "name": "Lemon Lime Tea"
+            },
+            "BAV": {
+              "code": "BAV",
+              "name": "Mango Passionfruit Tea"
+            },
+            "A1J": {
+              "code": "A1J",
+              "name": "Black Tea"
+            },
+            "BSL": {
+              "code": "BSL",
+              "name": "Chai Milk Tea"
+            },
+            "A8Q": {
+              "code": "A8Q",
+              "name": "Raspberry Tea"
+            },
+            "BSM": {
+              "code": "BSM",
+              "name": "Chai Vanilla Milk Tea"
+            },
+            "A42": {
+              "code": "A42",
+              "name": "Peach Tea"
+            }
+          },
+          "code": "BN8",
+          "name": "Gold Peak"
+        },
+        "056": {
+          "flavor": {
+            "751": {
+              "code": "751",
+              "name": "Green Tea Apple"
+            },
+            "013": {
+              "code": "013",
+              "name": "Citrus Blend"
+            },
+            "A2K": {
+              "code": "A2K",
+              "name": "Citrus Green Tea"
+            },
+            "032": {
+              "code": "032",
+              "name": "Lemon (Lemonade)"
+            }
+          },
+          "code": "056",
+          "name": "diet Nestea/Nestea Light"
+        },
+        "CLB": {
+          "flavor": {
+            "BPU": {
+              "code": "BPU",
+              "name": "Lemonade Green Tea"
+            },
+            "BPV": {
+              "code": "BPV",
+              "name": "Lemonade Peach Tea"
+            }
+          },
+          "code": "CLB",
+          "name": "HUBERT'S-KO"
+        },
+        "CC8": {
+          "flavor": {
+            "511": {
+              "code": "511",
+              "name": "Green Tea"
+            },
+            "BKI": {
+              "code": "BKI",
+              "name": "Snowberry"
+            },
+            "BBC": {
+              "code": "BBC",
+              "name": "Razzleberry"
+            },
+            "A4V": {
+              "code": "A4V",
+              "name": "Lemon Tea"
+            },
+            "BEE": {
+              "code": "BEE",
+              "name": "Lemonade Tea"
+            },
+            "036": {
+              "code": "036",
+              "name": "Mango"
+            },
+            "BG7": {
+              "code": "BG7",
+              "name": "Pink Lemonade"
+            },
+            "048": {
+              "code": "048",
+              "name": "Tea (Unflavored)"
+            },
+            "020": {
+              "code": "020",
+              "name": "Cranberry"
+            },
+            "A42": {
+              "code": "A42",
+              "name": "Peach Tea"
+            }
+          },
+          "code": "CC8",
+          "name": "Peace-KO"
+        },
+        "B8R": {
+          "flavor": {
+            "355": {
+              "code": "355",
+              "name": "Mango Tea"
+            },
+            "511": {
+              "code": "511",
+              "name": "Green Tea"
+            },
+            "512": {
+              "code": "512",
+              "name": "Oolong Tea"
+            },
+            "832": {
+              "code": "832",
+              "name": "Berry Tea"
+            },
+            "999": {
+              "code": "999",
+              "name": "Remaining Flavors"
+            },
+            "BNN": {
+              "code": "BNN",
+              "name": "Cinnamon Herbal Tea"
+            },
+            "A24": {
+              "code": "A24",
+              "name": "Pomegranate Tea"
+            },
+            "A1W": {
+              "code": "A1W",
+              "name": "Green Tea Mint"
+            },
+            "BLP": {
+              "code": "BLP",
+              "name": "Mango Orange Tea"
+            },
+            "A09": {
+              "code": "A09",
+              "name": "Green Tea Passionfruit"
+            },
+            "BLT": {
+              "code": "BLT",
+              "name": "Cranberry Lemon Tea"
+            },
+            "032": {
+              "code": "032",
+              "name": "Lemon (Lemonade)"
+            },
+            "A4F": {
+              "code": "A4F",
+              "name": "Green Tea Mango"
+            },
+            "A8Q": {
+              "code": "A8Q",
+              "name": "Raspberry Tea"
+            },
+            "A2N": {
+              "code": "A2N",
+              "name": "Black Tea Lemon"
+            },
+            "A33": {
+              "code": "A33",
+              "name": "Green Tea Jasmine"
+            },
+            "BT5": {
+              "code": "BT5",
+              "name": "Ginger Peach Tea"
+            },
+            "A34": {
+              "code": "A34",
+              "name": "Green Tea Honey"
+            },
+            "A4V": {
+              "code": "A4V",
+              "name": "Lemon Tea"
+            },
+            "BEE": {
+              "code": "BEE",
+              "name": "Lemonade Tea"
+            },
+            "BCE": {
+              "code": "BCE",
+              "name": "Herbal Lemon Tea"
+            },
+            "061": {
+              "code": "061",
+              "name": "Raspberry"
+            },
+            "048": {
+              "code": "048",
+              "name": "Tea (Unflavored)"
+            },
+            "A5I": {
+              "code": "A5I",
+              "name": "Acai Berry Tea"
+            },
+            "A5K": {
+              "code": "A5K",
+              "name": "Acai Pomegranate Tea"
+            },
+            "BCY": {
+              "code": "BCY",
+              "name": "Green Tea Maqui Berry"
+            },
+            "BW4": {
+              "code": "BW4",
+              "name": "Lemon Maple Tea"
+            },
+            "BW3": {
+              "code": "BW3",
+              "name": "Mango Mate Tea"
+            },
+            "A42": {
+              "code": "A42",
+              "name": "Peach Tea"
+            }
+          },
+          "code": "B8R",
+          "name": "Honest-KO"
+        },
+        "CHA": {
+          "flavor": {
+            "511": {
+              "code": "511",
+              "name": "Green Tea"
+            },
+            "BAQ": {
+              "code": "BAQ",
+              "name": "Goji Berry Tea"
+            },
+            "A4V": {
+              "code": "A4V",
+              "name": "Lemon Tea"
+            },
+            "048": {
+              "code": "048",
+              "name": "Tea (Unflavored)"
+            },
+            "A8Q": {
+              "code": "A8Q",
+              "name": "Raspberry Tea"
+            },
+            "A42": {
+              "code": "A42",
+              "name": "Peach Tea"
+            }
+          },
+          "code": "CHA",
+          "name": "Fuze Tea-KO"
+        },
+        "B8S": {
+          "flavor": {
+            "764": {
+              "code": "764",
+              "name": "Mint Tea"
+            },
+            "A34": {
+              "code": "A34",
+              "name": "Green Tea Honey"
+            },
+            "A4V": {
+              "code": "A4V",
+              "name": "Lemon Tea"
+            },
+            "A24": {
+              "code": "A24",
+              "name": "Pomegranate Tea"
+            },
+            "048": {
+              "code": "048",
+              "name": "Tea (Unflavored)"
+            }
+          },
+          "code": "B8S",
+          "name": "PVT LBL SAFEWAY-KO"
+        }
+      }
+    },
+    "21": {
+      "code": "21",
+      "name": "Dairy/Soy Beverages",
+      "brand": {
+        "321": {
+          "flavor": {
+            "345": {
+              "code": "345",
+              "name": "Vanilla"
+            }
+          },
+          "code": "321",
+          "name": "Minute Maid"
+        },
+        "CKX": {
+          "flavor": {
+            "306": {
+              "code": "306",
+              "name": "Chocolate Milk"
+            },
+            "330": {
+              "code": "330",
+              "name": "Milk"
+            },
+            "611": {
+              "code": "611",
+              "name": "Chocolate Soy Milk"
+            },
+            "740": {
+              "code": "740",
+              "name": "Vanilla Milk"
+            },
+            "757": {
+              "code": "757",
+              "name": "Strawberry Milk"
+            }
+          },
+          "code": "CKX",
+          "name": "YUP"
+        },
+        "CI0": {
+          "flavor": {
+            "220": {
+              "code": "220",
+              "name": "Honey"
+            },
+            "345": {
+              "code": "345",
+              "name": "Vanilla"
+            },
+            "046": {
+              "code": "046",
+              "name": "Banana Strawberry"
+            },
+            "015": {
+              "code": "015",
+              "name": "Chocolate"
+            },
+            "005": {
+              "code": "005",
+              "name": "Banana"
+            },
+            "017": {
+              "code": "017",
+              "name": "Coffee"
+            }
+          },
+          "code": "CI0",
+          "name": "CORE POWER"
+        },
+        "BN8": {
+          "flavor": {
+            "803": {
+              "code": "803",
+              "name": "Caramel Coffee"
+            },
+            "BSJ": {
+              "code": "BSJ",
+              "name": "Almond Coffee Toffee"
+            },
+            "BSL": {
+              "code": "BSL",
+              "name": "Chai Milk Tea"
+            },
+            "BSM": {
+              "code": "BSM",
+              "name": "Chai Vanilla Milk Tea"
+            }
+          },
+          "code": "BN8",
+          "name": "Gold Peak"
+        },
+        "BC0": {
+          "flavor": {
+            "212": {
+              "code": "212",
+              "name": "Chocolate Coffee"
+            },
+            "611": {
+              "code": "611",
+              "name": "Chocolate Soy Milk"
+            },
+            "685": {
+              "code": "685",
+              "name": "Cinnamon Vanilla"
+            },
+            "777": {
+              "code": "777",
+              "name": "Vanilla Soy Milk"
+            },
+            "954": {
+              "code": "954",
+              "name": "Spice Vanilla"
+            },
+            "015": {
+              "code": "015",
+              "name": "Chocolate"
+            },
+            "BCG": {
+              "code": "BCG",
+              "name": "Soy Milk Strawberry"
+            },
+            "A7N": {
+              "code": "A7N",
+              "name": "Chocolate Mint"
+            },
+            "BJV": {
+              "code": "BJV",
+              "name": "Blueberry Soy Milk"
+            }
+          },
+          "code": "BC0",
+          "name": "Odwalla"
+        }
+      }
+    },
+    "40": {
+      "code": "40",
+      "name": "Energy Drinks",
+      "brand": {
+        "B53": {
+          "flavor": {
+            "565": {
+              "code": "565",
+              "name": "Dragonfruit Water"
+            }
+          },
+          "code": "B53",
+          "name": "Glaceau Vitaminenergy"
+        },
+        "CJN": {
+          "flavor": {
+            "267": {
+              "code": "267",
+              "name": "Mango Orange"
+            },
+            "BCD": {
+              "code": "BCD",
+              "name": "Lime Strawberry"
+            },
+            "BL4": {
+              "code": "BL4",
+              "name": "Mango Strawberry"
+            },
+            "BBO": {
+              "code": "BBO",
+              "name": "Citrus Raspberry"
+            }
+          },
+          "code": "CJN",
+          "name": "Glaceau Vitaminwater Energy"
+        },
+        "CD8": {
+          "flavor": {
+            "BDN": {
+              "code": "BDN",
+              "name": "Citrus"
+            }
+          },
+          "code": "CD8",
+          "name": "Worx Energy-KO"
+        },
+        "BVJ": {
+          "flavor": {
+            "750": {
+              "code": "750",
+              "name": "Orange Vanilla"
+            }
+          },
+          "code": "BVJ",
+          "name": "Relentless"
+        },
+        "CMS": {
+          "flavor": {
+            "345": {
+              "code": "345",
+              "name": "Vanilla"
+            },
+            "829": {
+              "code": "829",
+              "name": "Mocha"
+            },
+            "BRX": {
+              "code": "BRX",
+              "name": "Caramel"
+            }
+          },
+          "code": "CMS",
+          "name": "CAFFE' MONSTER-KO"
+        },
+        "CMR": {
+          "flavor": {
+            "866": {
+              "code": "866",
+              "name": "Blueberry Raspberry"
+            },
+            "035": {
+              "code": "035",
+              "name": "Orange Pineapple"
+            },
+            "BBC": {
+              "code": "BBC",
+              "name": "Razzleberry"
+            },
+            "BUG": {
+              "code": "BUG",
+              "name": "Melon Citrus"
+            },
+            "028": {
+              "code": "028",
+              "name": "Grape"
+            },
+            "BKU": {
+              "code": "BKU",
+              "name": "Fruit Blends"
+            },
+            "031": {
+              "code": "031",
+              "name": "Lemon Lime"
+            }
+          },
+          "code": "CMR",
+          "name": "M HYDRO-KO"
+        },
+        "B90": {
+          "flavor": {
+            "220": {
+              "code": "220",
+              "name": "Honey"
+            },
+            "259": {
+              "code": "259",
+              "name": "Citrus Orange"
+            },
+            "275": {
+              "code": "275",
+              "name": "Citrus Lemon"
+            },
+            "323": {
+              "code": "323",
+              "name": "Lemon (Sour)"
+            },
+            "334": {
+              "code": "334",
+              "name": "Passionfruit Pineapple"
+            },
+            "345": {
+              "code": "345",
+              "name": "Vanilla"
+            },
+            "358": {
+              "code": "358",
+              "name": "Citrus Strawberry"
+            },
+            "511": {
+              "code": "511",
+              "name": "Green Tea"
+            },
+            "641": {
+              "code": "641",
+              "name": "Raspberry Strawberry"
+            },
+            "684": {
+              "code": "684",
+              "name": "Apple Peach Pear"
+            },
+            "920": {
+              "code": "920",
+              "name": "Citrus Grapefruit"
+            },
+            "999": {
+              "code": "999",
+              "name": "Remaining Flavors"
+            },
+            "BDN": {
+              "code": "BDN",
+              "name": "Citrus"
+            },
+            "BBO": {
+              "code": "BBO",
+              "name": "Citrus Raspberry"
+            },
+            "BDP": {
+              "code": "BDP",
+              "name": "Citrus Grape"
+            },
+            "033": {
+              "code": "033",
+              "name": "Lime"
+            },
+            "013": {
+              "code": "013",
+              "name": "Citrus Blend"
+            },
+            "BG7": {
+              "code": "BG7",
+              "name": "Pink Lemonade"
+            },
+            "059": {
+              "code": "059",
+              "name": "Apple Grape"
+            },
+            "015": {
+              "code": "015",
+              "name": "Chocolate"
+            },
+            "037": {
+              "code": "037",
+              "name": "Orange"
+            },
+            "017": {
+              "code": "017",
+              "name": "Coffee"
+            },
+            "A8Q": {
+              "code": "A8Q",
+              "name": "Raspberry Tea"
+            },
+            "BUR": {
+              "code": "BUR",
+              "name": "Fruit Punch Mango"
+            },
+            "BEE": {
+              "code": "BEE",
+              "name": "Lemonade Tea"
+            },
+            "BL1": {
+              "code": "BL1",
+              "name": "Punch"
+            },
+            "A9D": {
+              "code": "A9D",
+              "name": "Tropical"
+            },
+            "BGU": {
+              "code": "BGU",
+              "name": "Rojo Tea"
+            },
+            "045": {
+              "code": "045",
+              "name": "Strawberry"
+            },
+            "026": {
+              "code": "026",
+              "name": "Fruit Punch"
+            },
+            "005": {
+              "code": "005",
+              "name": "Banana"
+            },
+            "028": {
+              "code": "028",
+              "name": "Grape"
+            },
+            "008": {
+              "code": "008",
+              "name": "Black Cherry"
+            },
+            "BLB": {
+              "code": "BLB",
+              "name": "Peanut Butter"
+            },
+            "A9R": {
+              "code": "A9R",
+              "name": "Whiskey"
+            },
+            "BXT": {
+              "code": "BXT",
+              "name": "Citrus Lemon Lime"
+            },
+            "A42": {
+              "code": "A42",
+              "name": "Peach Tea"
+            }
+          },
+          "code": "B90",
+          "name": "Monster-KO"
+        },
+        "B91": {
+          "flavor": {
+            "802": {
+              "code": "802",
+              "name": "Coffee Vanilla"
+            },
+            "803": {
+              "code": "803",
+              "name": "Caramel Coffee"
+            },
+            "820": {
+              "code": "820",
+              "name": "Black Tea Grape"
+            },
+            "A7W": {
+              "code": "A7W",
+              "name": "Cinnamon Cloves Nutmeg"
+            },
+            "A7X": {
+              "code": "A7X",
+              "name": "Irish Cream"
+            },
+            "A7Y": {
+              "code": "A7Y",
+              "name": "Coffee Hazelnut"
+            },
+            "017": {
+              "code": "017",
+              "name": "Coffee"
+            },
+            "A4N": {
+              "code": "A4N",
+              "name": "Coffee Mocha"
+            }
+          },
+          "code": "B91",
+          "name": "Java Monster- KO"
+        },
+        "B1Y": {
+          "flavor": {
+            "BL1": {
+              "code": "BL1",
+              "name": "Punch"
+            },
+            "072": {
+              "code": "072",
+              "name": "Lemon Raspberry"
+            },
+            "BDN": {
+              "code": "BDN",
+              "name": "Citrus"
+            },
+            "BLV": {
+              "code": "BLV",
+              "name": "Mango Tropical"
+            },
+            "011": {
+              "code": "011",
+              "name": "Cherry"
+            },
+            "033": {
+              "code": "033",
+              "name": "Lime"
+            },
+            "013": {
+              "code": "013",
+              "name": "Citrus Blend"
+            },
+            "079": {
+              "code": "079",
+              "name": "Passionfruit"
+            },
+            "036": {
+              "code": "036",
+              "name": "Mango"
+            },
+            "026": {
+              "code": "026",
+              "name": "Fruit Punch"
+            },
+            "028": {
+              "code": "028",
+              "name": "Grape"
+            },
+            "A91": {
+              "code": "A91",
+              "name": "Acai Blueberry Pomegranate"
+            },
+            "A60": {
+              "code": "A60",
+              "name": "Acai Berry Grape"
+            }
+          },
+          "code": "B1Y",
+          "name": "Nos"
+        },
+        "BPI": {
+          "flavor": {
+            "999": {
+              "code": "999",
+              "name": "Remaining Flavors"
+            }
+          },
+          "code": "BPI",
+          "name": "ROCKSTAR-KO"
+        },
+        "BK3": {
+          "flavor": {
+            "332": {
+              "code": "332",
+              "name": "Orange Passionfruit"
+            },
+            "739": {
+              "code": "739",
+              "name": "Cream Soda"
+            },
+            "802": {
+              "code": "802",
+              "name": "Coffee Vanilla"
+            },
+            "803": {
+              "code": "803",
+              "name": "Caramel Coffee"
+            },
+            "950": {
+              "code": "950",
+              "name": "Agave Lime Tangerine"
+            },
+            "A01": {
+              "code": "A01",
+              "name": "Acai Berry"
+            },
+            "013": {
+              "code": "013",
+              "name": "Citrus Blend"
+            },
+            "037": {
+              "code": "037",
+              "name": "Orange"
+            },
+            "A15": {
+              "code": "A15",
+              "name": "Berry Grape"
+            },
+            "A9B": {
+              "code": "A9B",
+              "name": "Berry Cream Soda"
+            },
+            "A4N": {
+              "code": "A4N",
+              "name": "Coffee Mocha"
+            },
+            "A6S": {
+              "code": "A6S",
+              "name": "Agave"
+            }
+          },
+          "code": "BK3",
+          "name": "Full Throttle"
+        },
+        "CN7": {
+          "flavor": {
+            "278": {
+              "code": "278",
+              "name": "Coffee Milk"
+            },
+            "802": {
+              "code": "802",
+              "name": "Coffee Vanilla"
+            }
+          },
+          "code": "CN7",
+          "name": "ESPRESSO MONSTER-KO"
+        }
+      }
+    }
+  }
+}

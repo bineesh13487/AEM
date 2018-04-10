@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Dialog"
+    xtype="dialog">
+    <items
+        jcr:primaryType="cq:Widget"
+        xtype="tabpanel">
+        <items jcr:primaryType="cq:WidgetCollection">
+            <section
+                jcr:primaryType="cq:Panel"
+                title="What is this about Location?">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <locationText
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Location text to be displayed for location specific question. Default set to &lt;b>Is this regarding a specific location and/or visit?&lt;/b>"
+                        fieldLabel="Location Question Text"
+                        name="./locationText"
+                        xtype="textfield"/>
+                    <yesText
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Location yes text to be displayed for location specific question. Default set to &lt;b>Yes&lt;/b>"
+                        fieldLabel="Location Question Yes Text"
+                        name="./locationYesText"
+                        xtype="textfield"/>
+                    <noText
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Location yes text to be displayed for location specific question. Default set to &lt;b>No&lt;/b>"
+                        fieldLabel="Location Question No Text"
+                        name="./locationNoText"
+                        xtype="textfield"/>
+                    <searchText
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Text to be displayed for restaurant search. Default set to &lt;b>Search for a restaurant:&lt;/b>"
+                        fieldLabel="Restaurant Locator Search Text"
+                        name="./searchText"
+                        xtype="textfield"/>
+                    <buttonText
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Text to be displayed for restaurant locator button. &lt;b>Default set to Restaurant Locator&lt;/b>"
+                        fieldLabel="Restaurant Locator Button Text"
+                        name="./buttonText"
+                        xtype="textfield"/>
+                    <locationSearchText
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Text for restaurant location search. Default set to &lt;b>Can't find the location you're looking for?&lt;/b>"
+                        fieldLabel="Restaurant Locator Search Text"
+                        name="./locatorSearchText"
+                        xtype="textfield"/>
+                    <address
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Text for restaurant address field. Default set to &lt;b>Restaurant Address: *&lt;/b>"
+                        fieldLabel="Restaurant Address Text"
+                        name="./resAddress"
+                        xtype="textfield"/>
+                    <addressValidation
+                        jcr:primaryType="cq:Widget"
+                        defaultValue="yes"
+                        fieldDescription="Please select restaurant address is required or not. Default set to &lt;b>Yes&lt;/b>"
+                        fieldLabel="Restaurant Address Required"
+                        name="./resAddressReq"
+                        type="select"
+                        xtype="selection">
+                        <options jcr:primaryType="cq:WidgetCollection">
+                            <yes
+                                jcr:primaryType="nt:unstructured"
+                                text="Yes"
+                                value="yes"/>
+                            <no
+                                jcr:primaryType="nt:unstructured"
+                                text="No"
+                                value="no"/>
+                        </options>
+                    </addressValidation>
+                    <addressValidationMessage
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Validation message for restaurant address field. Default set to &lt;b>Please enter Restaurant Address&lt;/b>"
+                        fieldLabel="Restaurant Address Validation Message"
+                        name="./resAddressMessage"
+                        xtype="textfield"/>
+                    <city
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Text for city field. Default set to &lt;b>City *&lt;/b>"
+                        fieldLabel="City Text"
+                        name="./resCity"
+                        xtype="textfield"/>
+                    <cityValidation
+                        jcr:primaryType="cq:Widget"
+                        defaultValue="yes"
+                        fieldDescription="Please select restaurant city is required or not. Default set to &lt;b>Yes&lt;/b>"
+                        fieldLabel="Restaurant City Required"
+                        name="./resCityReq"
+                        type="select"
+                        xtype="selection">
+                        <options jcr:primaryType="cq:WidgetCollection">
+                            <yes
+                                jcr:primaryType="nt:unstructured"
+                                text="Yes"
+                                value="yes"/>
+                            <no
+                                jcr:primaryType="nt:unstructured"
+                                text="No"
+                                value="no"/>
+                        </options>
+                    </cityValidation>
+                    <cityValidationMessage
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Validation message for city field. Default set to &lt;b>Please enter Restaurant's City&lt;/b>"
+                        fieldLabel="City Validation Message"
+                        name="./resCityMessage"
+                        xtype="textfield"/>
+                    <stateText
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Text for city field. Default set to &lt;b>State *&lt;/b>"
+                        fieldLabel="State Text"
+                        name="./resStateText"
+                        xtype="textfield"/>
+                    <state
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Please provide state name by clicking + button."
+                        fieldLabel="State"
+                        name="./state"
+                        xtype="multifield">
+                        <fieldConfig
+                            jcr:primaryType="nt:unstructured"
+                            xtype="textfield"/>
+                    </state>
+                    <stateValidation
+                        jcr:primaryType="cq:Widget"
+                        defaultValue="yes"
+                        fieldDescription="Please select state is required or not. Default set to &lt;b>Yes&lt;/b>"
+                        fieldLabel="State Required"
+                        name="./resStateReq"
+                        type="select"
+                        xtype="selection">
+                        <options jcr:primaryType="cq:WidgetCollection">
+                            <yes
+                                jcr:primaryType="nt:unstructured"
+                                text="Yes"
+                                value="yes"/>
+                            <no
+                                jcr:primaryType="nt:unstructured"
+                                text="No"
+                                value="no"/>
+                        </options>
+                    </stateValidation>
+                    <stateValidationMessage
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Validation message for state field. Default set to &lt;b>Please select Restaurant's State&lt;/b>"
+                        fieldLabel="State Validation Message"
+                        name="./resStateMessage"
+                        xtype="textfield"/>
+                    <landmark
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Text for Landmark field. Default set to &lt;b>Landmark: (describe location) *&lt;/b>"
+                        fieldLabel="Landmark Text"
+                        name="./landmark"
+                        xtype="textfield"/>
+                    <landmarkValidation
+                        jcr:primaryType="cq:Widget"
+                        defaultValue="yes"
+                        fieldDescription="Please select landmark is required or not. Default set to &lt;b>Yes&lt;/b>"
+                        fieldLabel="Landmark Required"
+                        name="./landmarkReq"
+                        type="select"
+                        xtype="selection">
+                        <options jcr:primaryType="cq:WidgetCollection">
+                            <yes
+                                jcr:primaryType="nt:unstructured"
+                                text="Yes"
+                                value="yes"/>
+                            <no
+                                jcr:primaryType="nt:unstructured"
+                                text="No"
+                                value="no"/>
+                        </options>
+                    </landmarkValidation>
+                    <landmarkValidationMessage
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Validation Message for Landmark field. Default set to &lt;b>Please enter Restaurant's Landmark&lt;/b>"
+                        fieldLabel="Landmark Validation Message"
+                        name="./landmarkMessage"
+                        xtype="textfield"/>
+                    <landmarkPopoverTitle
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Title for Landmark popover."
+                        fieldLabel="Landmark Popover Title"
+                        name="./landmarkPopover"
+                        xtype="textfield"/>
+                    <landmarkPopoverContent
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Text for Landmark popover content."
+                        fieldLabel="Landmark Popover Content"
+                        name="./landmarkPopupContent"
+                        xtype="textfield"/>
+                    <date
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Text for date field.Default set to &lt;b>Date *&lt;/b>"
+                        fieldLabel="Date Text"
+                        name="./date"
+                        xtype="textfield"/>
+                    <timeOptions
+                        jcr:primaryType="cq:Widget"
+                        fieldDescrition="Please provide options for time."
+                        fieldLabel="Time Options"
+                        name="./timeOptions"
+                        xtype="multifield">
+                        <fieldConfig
+                            jcr:primaryType="nt:unstructured"
+                            xtype="textfield"/>
+                    </timeOptions>
+                    <ampmOptions
+                        jcr:primaryType="cq:Widget"
+                        fieldDescrition="Please provide options for AM/PM."
+                        fieldLabel="AM/PM Options"
+                        name="./ampmOptions"
+                        xtype="multifield">
+                        <fieldConfig
+                            jcr:primaryType="nt:unstructured"
+                            xtype="textfield"/>
+                    </ampmOptions>
+                    <dateValidation
+                        jcr:primaryType="cq:Widget"
+                        defaultValue="yes"
+                        fieldDescription="Please select date is required or not. Default set to &lt;b>Yes&lt;/b>"
+                        fieldLabel="Date Required"
+                        name="./resDateReq"
+                        type="select"
+                        xtype="selection">
+                        <options jcr:primaryType="cq:WidgetCollection">
+                            <yes
+                                jcr:primaryType="nt:unstructured"
+                                text="Yes"
+                                value="yes"/>
+                            <no
+                                jcr:primaryType="nt:unstructured"
+                                text="No"
+                                value="no"/>
+                        </options>
+                    </dateValidation>
+                    <dateValidationMessage
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Validation message for date field.Default set to &lt;b>Please select Date&lt;/b>"
+                        fieldLabel="Date Validation Message"
+                        name="./dateMessage"
+                        xtype="textfield"/>
+                    <drivethru
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Text for Drive-thru field.Default set to &lt;b>Drive-thru *&lt;/b>"
+                        fieldLabel="Drive-thru Text"
+                        name="./driveThru"
+                        xtype="textfield"/>
+                    <inStore
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Text for In-Store field.Default set to &lt;b>In-Store *&lt;/b>"
+                        fieldLabel="In-Store Text"
+                        name="./inStore"
+                        xtype="textfield"/>
+                    <visitTypeValidation
+                        jcr:primaryType="cq:Widget"
+                        defaultValue="yes"
+                        fieldDescription="Please select visit type is required or not. Default set to &lt;b>Yes&lt;/b>"
+                        fieldLabel="Visit Type Required"
+                        name="./visitTypeReq"
+                        type="select"
+                        xtype="selection">
+                        <options jcr:primaryType="cq:WidgetCollection">
+                            <yes
+                                jcr:primaryType="nt:unstructured"
+                                text="Yes"
+                                value="yes"/>
+                            <no
+                                jcr:primaryType="nt:unstructured"
+                                text="No"
+                                value="no"/>
+                        </options>
+                    </visitTypeValidation>
+                    <visittypeValidationMessage
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Validation message for visit type field.Default set to &lt;b>Please select Visit Type&lt;/b>"
+                        fieldLabel="Visittype Validation Message"
+                        name="./visitTypeValidationMessage"
+                        xtype="textfield"/>
+                </items>
+            </section>
+        </items>
+    </items>
+</jcr:root>

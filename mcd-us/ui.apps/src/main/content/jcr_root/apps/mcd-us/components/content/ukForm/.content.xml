@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:description="ukcontactactus_form"
+    jcr:primaryType="cq:Component"
+    jcr:title="ukcontactactus_form"
+    allowedChildren="[/apps/mcd-us/components/content/ukForm/comments,/apps/mcd-us/components/content/ukForm/ukContactactusRestaurantInformation,/apps/mcd-us/components/content/ukForm/ukContactuspersonalInformation]"
+    componentGroup=" GWS-Global"/>

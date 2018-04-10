@@ -1,0 +1,211 @@
+/*
+* Modals
+*/
+.modal {
+  text-align: center;
+  -webkit-overflow-scrolling: touch;
+  //padding: 0!important;
+
+  &:before{
+	  content: '';
+	  display: inline-block;
+	  height: 3%;
+	  vertical-align: middle;
+	  margin-left: -4px;
+  }
+
+  &.light-bg {
+    .modal-content {
+      background: $light-gray;
+    }
+
+    /*
+    .btn-back,
+    .btn-close {
+      background: $red;
+      .fa { color: $white; }
+    }
+    */
+  }
+}
+
+.modal-dialog {
+  -webkit-overflow-scrolling: touch;
+  display: inline-block;
+  text-align: right;
+  vertical-align: middle;
+
+  @media only screen and (min-width: 768px){
+	  margin-top: 0;
+	  margin-bottom: 0;
+  }
+}
+
+
+.modal-content {
+	border-radius: 0;
+	padding: 35px;
+
+
+
+  @include breakpoint(sm){
+    padding: 70px;
+  }
+
+	p{
+		margin-bottom: 20px;
+
+    @include breakpoint(sm){
+			margin-bottom: 30px;
+    }
+	}
+
+  .btn-back,
+  .btn-close,
+  button.btn-back,
+  button.btn-close {
+		color:$red;
+		position: absolute;
+		top: 20px;
+	    left: 20px;
+		font-size: 30px;
+		background-color: $light-gray;
+		border-radius: 50%;
+		width: 40px;
+		height: 40px;
+		line-height: 38px;
+		text-align: center;
+		cursor: pointer;
+
+    @media only screen and (max-width: 400px){
+      font-size: 30px !important;
+      line-height: 38px !important;
+      padding: 0 !important;
+    }
+  }
+
+  button{
+    &.btn-close{
+      padding: 0;
+      border: 0;
+
+      .fa{
+        position: relative;
+        //top: -1px;
+      }
+    }
+  }
+
+	.btn-close {
+		left: 20px;
+	}
+
+  .btn-back {
+		right: 20px;
+  }
+
+	.btn{
+		width: 100%;
+		margin-bottom: 20px;
+
+		@include breakpoint(sm){
+			margin-bottom: 0px;
+		}
+	}
+
+	.headline-text{
+		margin-bottom: 5px;
+		color: $black-text;
+		text-align: center;
+		@include fontSet(20px, 30px, 'Droid_Arabic_Kufi_Bold');
+
+		.large {
+			display: block;
+			@include fontSet(45px, 45px, 'Droid_Arabic_Kufi_Bold');
+			text-transform: uppercase;
+			letter-spacing: -0.005em;
+		}
+
+		.mid{
+			@include fontSet(50px, 50px, 'Droid_Arabic_Kufi_Bold');
+		}
+
+		.small {
+			display: block;
+			@include fontSet(16px, 28px, 'Droid_Arabic_Kufi_Regular');
+		}
+
+		@media only screen and (min-width: 320px){
+			@include fontSet(24px, 34px, 'Droid_Arabic_Kufi_Bold');
+			margin-bottom: 10px;
+
+			.large {
+				@include fontSet(70px, 70px, 'Droid_Arabic_Kufi_Bold');
+			}
+			.mid{
+				@include fontSet(40px, 40px, 'Droid_Arabic_Kufi_Bold');
+			}
+			.small {
+				@include fontSet(18px, 30px, 'Droid_Arabic_Kufi_Regular');
+			}
+		}
+		@media only screen and (min-width: 480px){
+			@include fontSet(34px, 44px, 'Droid_Arabic_Kufi_Bold');
+			margin-bottom: 20px;
+
+			.large {
+				@include fontSet(95px, 95px, 'Droid_Arabic_Kufi_Bold');
+			}
+			.mid{
+				@include fontSet(50px, 50px, 'Droid_Arabic_Kufi_Bold');
+			}
+			.small {
+				@include fontSet(20px, 32px, 'Droid_Arabic_Kufi_Regular');
+			}
+		}
+		@media only screen and (min-width: 768px){
+			@include fontSet(32px, 38px, 'Droid_Arabic_Kufi_Bold');
+			margin-bottom: 30px;
+
+			.large {
+				@include fontSet(90px, 90px, 'Droid_Arabic_Kufi_Bold');
+			}
+			.mid{
+				@include fontSet(50px, 50px, 'Droid_Arabic_Kufi_Bold');
+			}
+			.small {
+				@include fontSet(22px, 34px, 'Droid_Arabic_Kufi_Regular');
+			}
+		}
+		@media only screen and (min-width: 992px){
+			@include fontSet(34px, 42px, 'Droid_Arabic_Kufi_Bold');
+
+			.large {
+				@include fontSet(110px, 100px, 'Droid_Arabic_Kufi_Bold');
+			}
+			.mid{
+				@include fontSet(64px, 64px, 'Droid_Arabic_Kufi_Bold');
+			}
+			.small {
+				@include fontSet(24px, 36px, 'Droid_Arabic_Kufi_Regular');
+			}
+		}
+		@media only screen and (min-width: 1200px){
+			@include fontSet(34px, 42px, 'Droid_Arabic_Kufi_Bold');
+
+			.large {
+				@include fontSet(113px, 100px, 'Droid_Arabic_Kufi_Bold');
+			}
+			.mid{
+				@include fontSet(64px, 64px, 'Droid_Arabic_Kufi_Bold');
+			}
+			.small {
+				@include fontSet(24px, 36px, 'Droid_Arabic_Kufi_Regular');
+			}
+		}
+	}
+
+	h2{
+
+	}
+}

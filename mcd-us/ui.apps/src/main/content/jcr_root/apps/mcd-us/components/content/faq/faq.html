@@ -1,0 +1,37 @@
+<sly data-sly-use.faq="com.mcd.rwd.us.core.sightly.FAQHandler">
+  <div class="page-contact-us__content mcd-faq" data-sly-test="${(faq.title)}">
+    <div class="mcd-faq__popular-topics">
+      <h2 style="outline: none;" class="mcd-faq__popular-topics-title">${faq.title}</h2>
+      <div class="mcd-faq__popular-topics-desc">
+        ${faq.description}
+      </div>
+    </div>
+    <div id="accordion${faqMapList.count}" class="mcd-faq__accordion" data-sly-list.faqMap="${faq.faqDataMap}">
+      <div class="panel mcd-faq__category-panel" data-sly-list.topicName="${faq.faqDataMap[faqMap]}">
+        <div class="mcd-faq__panel-title-block">
+          <h4 class="mcd-faq__panel-title">
+            <a data-toggle="collapse" data-parent="#accordion${faqMapList.count}" href="#${faqMap}" class="collapsed mcd-faq__panel-title-link" aria-expanded="false" role="tab"
+              aria-selected="false" aria-controls="${faqMap}">${topicName}
+              <span class="mcd-faq__panel-title-icon icon-chevron-up-small" aria-hidden="true"></span>
+            </a>
+          </h4>
+        </div>
+        <div class="FaqQABox panel-collapse collapse mcd-faq__panel-content-block" id="${faqMap}">
+          <div class="q-a__question" id="Question${faqMapList.count}" data-sly-list.QnA="${faq.faqDataMap[faqMap][topicName]}">
+            <div class="panel mcd-faq__questions-panel">
+              <a data-toggle="collapse" data-parent="#Question${faqMapList.count}" class="mcd-faq__panel-questions-link" href="#answer_${faqMapList.count}_${QnAList.count}"
+                role="tab" aria-selected="false" aria-expanded="false" aria-controls="Question${faqMapList.count}">
+                ${QnA.question}
+              </a>
+              <div id="answer_${faqMapList.count}_${QnAList.count}" class="panel-collapse collapse q-a__answer" tabindex="0"> ${QnA.answer @context='html'} </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <sly data-sly-test="${(!faq.title) && (wcmmode.edit || wcmmode.design)}">
+    <h3>Please configure FAQ component</h3>
+  </sly>
+</sly>

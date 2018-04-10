@@ -1,0 +1,52 @@
+<!--/*
+    Search Header
+*/-->
+<sly data-sly-use.searchHeader="com.mcd.rwd.us.core.sightly.SearchHeader">
+    <sly data-sly-test="${searchHeader.enabled}">
+        <!--/*
+            mobile
+        */-->
+        <li class="visible-xs-block component-search menu-parent" aria-label="${searchHeader.placeHolder}" role="button">
+            <form action="${searchHeader.searchPagePath}" data-at="${searchHeader.pageName}:Form:SearchHeader" data-track="form">
+                <div class="input-group wrapper">
+                    <input type="text" class="form-control" name="q" autocomplete="off"
+                           placeholder="${searchHeader.placeHolder}">
+				<span class="input-group-btn">
+					<button class="btn btn-default" type="submit"><i class="fa fa-search fa-lg"></i><span class="visuallyhidden">${searchHeader.pageTitle}</span></button>
+				</span>
+                </div>
+            </form>
+        </li>
+        <!--/*
+            desktop
+        */-->
+        <li class="dropdown hidden-xs menu-parent" id="last-target-search">
+            <a href="#" class="dropdown-toggle keep-outline" data-toggle="dropdown"
+               aria-haspopup="true" aria-expanded="false" role="button"><i class="fa fa-search"></i> ${searchHeader.pageTitle}</a>
+            <ul class="dropdown-menu" role="menu" aria-expanded="false">
+                <li>
+                    <div class="container">
+                        <form action="${searchHeader.searchPagePath}" data-at="${searchHeader.pageName}:Form:SearchHeader" data-track="form">
+                            <div class="row no-gutter">
+                                <div class="col-xs-10 padleft">
+                                    <div class="form-group">
+                                        <input class="form-control" type="text" name="q" autocomplete="off"
+                                               placeholder="${searchHeader.placeHolder}">
+                                    </div>
+                                </div>
+                                <div class="col-xs-2 padleft padright">
+                                    <button type="submit" class="btn btn-red cont-100 last-target" data-last-target="#last-target-search">
+                                        ${searchHeader.searchButtonText}
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </li>
+                <li class="visuallyhidden">
+                  <a href="javaScript:void(0);" class="end-menu"></a>
+                </li>
+            </ul>
+        </li>
+    </sly>
+</sly>		

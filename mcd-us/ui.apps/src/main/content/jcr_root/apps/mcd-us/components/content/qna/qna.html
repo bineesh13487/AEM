@@ -1,0 +1,17 @@
+<!--/*
+    Q&A component html
+*/-->
+<sly data-sly-use.QandA="com.mcd.rwd.us.core.sightly.QuestionAnswer">
+  <div class="mcd-qna">
+    <h3 data-sly-test="${(!QandA.question) && (!QandA.answer) && (wcmmode.edit || wcmmode.design)}">Please configure Q&A.</h3>
+    <ul>
+      <li role="listitem" class="q-a">
+          <div class="q-a__question">
+              <a href="#answer_${currentNode.name}" role="button" aria-controls="answer_${currentNode.name}"
+                aria-expanded="false" data-toggle="collapse" data-parent="#contactUsFAQ">${ QandA.question }</a>
+          </div>
+          <div id="answer_${currentNode.name}" class="q-a__answer collapse">${QandA.answer @ context='html'}</div>
+      </li>
+    </ul>
+  </div>
+</sly>

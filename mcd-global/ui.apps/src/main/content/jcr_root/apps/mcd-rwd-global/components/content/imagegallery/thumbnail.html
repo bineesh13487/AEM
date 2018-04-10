@@ -1,0 +1,19 @@
+<sly data-sly-use.gallery="com.mcd.rwd.global.core.sightly.ImageGalleryHandler">
+    <!-- % Add Class 'thumbnailsPosition verticalAlignLeft' or 'thumbnailsPosition verticalAlignRight' Along with gallery in below div for
+     change the position of thumbnails-slider % -->
+    <div class="thumbnail-slider gallery ${gallery.thumbnailClassName}"
+         data-sly-attribute="${gallery.genericValues}" style="position : relative;">
+        <ul class="slides" style="height:auto !important;" data-sly-list.images="${gallery.galleryList}">
+            <li data-thumb="${images.thumbnailImage}">
+                <a class="${images.link.linkClass}" href="${images.link.href}">
+                    <img src="${images.mainImage}">
+                </a>
+
+                <div class="flex-caption ${images.hideDescripition == 'true'? 'flex-caption-mobile hidden-xs' : '' }"
+                     style="background-color : ${gallery.textBackgroundColor @ context='styleToken'}; color : ${gallery.textColor @ context='styleToken'};position :absolute;">
+                    ${images.imageTitle}<br>${images.imageDescription @context='html'}
+                </div>
+            </li>
+        </ul>
+    </div>
+</sly>

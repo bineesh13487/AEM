@@ -1,0 +1,133 @@
+.mcd-recent-trending-news {
+  height: auto;
+  margin: 0 to-rem(15) 0 0;
+
+  @include e('croppane') {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    scroll-snap-type: x mandatory;
+    align-items: stretch;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+  }
+
+  @include e('slides') {
+    list-style: none;
+    padding: 0 0 0 to-rem(15);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    transition: transform 1.5s;
+    @media screen and (min-width: $break-point) {
+      padding: 0;
+    }
+  }
+
+  @include e('slide') {
+    flex-grow: 1;
+    flex-shrink: 0;
+    scroll-snap-align: start;
+    scroll-snap-margin-left: to-rem(15);
+  }
+
+  @include e('title') {
+    @include make-h2();
+    text-align: center;
+    width: 100%;
+    padding: to-rem(54) to-rem(12) to-rem(34) to-rem(12);
+    @media screen and (min-width: $break-point) {
+      padding: to-rem(96) to-rem(199) to-rem(44) to-rem(196);
+    }
+  }
+
+  @include e('pagination' 'pagination-container') {
+    list-style: none;
+    padding: 0;
+    white-space: nowrap;
+    position: relative;
+    display: table;
+  }
+
+  @include e('pagination-container') {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    margin: to-rem(40) auto to-rem(50) auto;
+  }
+
+  @include e('pagination') {
+    margin: 0 to-rem(20);
+  }
+
+  @include e('page') {
+    margin: to-rem(10) to-rem(10);
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    vertical-align: middle;
+    display: inline-block;
+    width: to-rem(4);
+    height: to-rem(4);
+    background-color: $light-gray-3;
+    z-index: 2;
+    transition: width 0.3s, height 0.3s;
+    @include m('selected') {
+      width: to-rem(6);
+      height: to-rem(6);
+      background-color: $dark-gray-1;
+    }
+    &:before {
+      content: '';
+      display: inline-block;
+      width: to-rem(16);
+      height: to-rem(16);
+      background: transparent;
+      left: to-rem(-6);
+      top: to-rem(-6);
+      position: relative;
+    }
+    @media screen and (min-width: $break-point) {
+      &:nth-child(3n+2),
+      &:nth-child(3n+3) {
+        display: none;
+      }
+    }
+  }
+
+
+  @include e('nextprev-btn') {
+    display: none;
+    @include m('prev') {
+      margin-left: auto;
+    }
+    @include m('next') {
+      margin-right: auto;
+    }
+    .icon-chevron-left:before,
+    .icon-chevron-right:before {
+      color: $mcdonalds-red;
+    }
+    &[disabled] {
+      .icon-chevron-left:before,
+      .icon-chevron-right:before {
+        color: $light-gray-2;
+      }
+    }
+    @media screen and (min-width: $break-point) {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      height: to-rem(48);
+      width: to-rem(48);
+      border: to-rem(1) solid $light-gray-4;
+      box-shadow: 0 to-rem(1.5) to-rem(1.5) $dark-gray-2;
+      background-color: $white-1;
+    }
+  }
+
+  @media screen and (min-width: $break-point) {
+    @include make-container("", 0);
+  }
+}

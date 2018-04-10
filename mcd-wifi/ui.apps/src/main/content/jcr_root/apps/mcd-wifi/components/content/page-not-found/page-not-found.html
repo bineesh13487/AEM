@@ -1,0 +1,10 @@
+<sly data-sly-use.handler="com.mcd.rwd.wifi.core.sightly.ErrorPageHandler">
+	<div class="${wcmmode.edit ? 'cq-dd-image' : ''}">
+		<img src="${handler.bgImage}" class="pageNotFoundBG" alt="${handler.altText}" title="${handler.imgTitle}">
+		<section id="pageNotFound" style="color: ${handler.hexCode @ context='styleToken'};">
+			<h2 class="headLine">${handler.headline}</h2>
+			<h3 class="subHeadLine">${handler.subHeadline}</h3>
+			<h3 class="normal">${handler.message}</h3>
+		</section>
+	</div>
+</sly>

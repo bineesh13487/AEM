@@ -1,0 +1,46 @@
+<sly data-sly-use.tuaInfoMobile="com.mcd.rwd.us.core.sightly.forms.CommentsMobile">
+    <sly data-sly-test="${!tuaInfoMobile.deviceOptions && !tuaInfoMobile.deviceOptions && !wcmmode.disabled}">
+        <p>Please configure section mobile fields in dialog.</p>
+    </sly>
+    <sly data-sly-test="${tuaInfoMobile.deviceOptions && tuaInfoMobile.deviceOptions}">
+        <div class="col-xs-12 col-sm-4 form-group select-label"> ${tuaInfoMobile.deviceTypeText}* </div>
+        <div class="col-xs-12 col-sm-4 form-group">
+            <div id="mobileDevicedd" class="select select--@@modifiers deviceType">
+                <select id="deviceOptionsValue" aria-label="${tuaInfoMobile.mdtAriaLabel}" class="form-control">
+                    <option data-hidden="true" value="">Select</option>
+                    <sly data-sly-list="${tuaInfoMobile.deviceOptions}">
+                        <option value="${item}">${item}</option>
+                    </sly>
+                </select>
+                <input type="text" class="hidden" id="contactUs-mobileDeviceType-input" name="deviceType" maxlength="30">
+                <label id="deviceOptionsValue-label" class="error" for="contactUs-mobileDeviceType-input"></label>
+            </div>
+        </div>
+        <div class="clear">&nbsp;</div>
+        <div class="col-xs-12 col-sm-4 form-group select-label"> ${tuaInfoMobile.operatingSystemText}* </div>
+        <div class="col-xs-12 col-sm-4 form-group">
+            <div id="operatingSystemdd" class="select select--@@modifiers operatingSystemdd">
+                <select id="operatingSystemOptionsValue" aria-label="${tuaInfoMobile.mosAriaLabel}" class="form-control">
+                    <option data-hidden="true" value="">Select</option>
+                    <sly data-sly-list="${tuaInfoMobile.operatingSystemOptions}">
+                        <option value="${item}">${item}</option>
+                    </sly>
+                </select>
+                <input type="text" class="hidden" id="contactUs-operatingSystem-input" name="os" maxlength="30">
+                <label id="operatingSystemOptionsValue-label" class="error" for="contactUs-operatingSystem-input"></label>
+            </div>
+        </div>
+        <div class="clear">&nbsp;</div>
+        <div class="col-xs-12 col-sm-4 form-group select-label"> ${tuaInfoMobile.appVersionText}* </div>
+        <div class="col-xs-12 col-sm-4 form-group">
+            <input type="text" class="form-control placeholder yes" id="app-version" name="appVersion" placeholder="${tuaInfoMobile.appVersion}" aria-label="${tuaInfoMobile.appVersion}" aria-labelledby="app-version-error" maxlength="12">
+        </div>
+        <div class="clear">&nbsp;</div>
+
+        <div style="display:none;">
+            <div id="contactUs-deviceType-message">${tuaInfoMobile.deviceOptionsMessage}</div>
+            <div id="contactUs-operatingSystem-message">${tuaInfoMobile.operatingSystemMessage}</div>
+            <div id="contactUs-appVersion-message">${tuaInfoMobile.appVersionMessage}</div>
+        </div>
+    </sly>
+</sly>

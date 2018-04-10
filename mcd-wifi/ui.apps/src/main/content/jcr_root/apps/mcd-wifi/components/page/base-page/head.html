@@ -1,0 +1,85 @@
+<!--/*
+
+  ADOBE CONFIDENTIAL
+  __________________
+
+   Copyright 2014 Adobe Systems Incorporated
+   All Rights Reserved.
+
+  NOTICE:  All information contained herein is, and remains
+  the property of Adobe Systems Incorporated and its suppliers,
+  if any.  The intellectual and technical concepts contained
+  herein are proprietary to Adobe Systems Incorporated and its
+  suppliers and are protected by trade secret or copyright law.
+  Dissemination of this information or reproduction of this material
+  is strictly forbidden unless prior written permission is obtained
+  from Adobe Systems Incorporated.
+  
+  Renders the head markup of a sightly page
+*/-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta charset="UTF-8">
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"
+      data-sly-use.meta="com.mcd.rwd.global.core.sightly.page.PageMeta"
+      data-sly-use.headlibRenderer="headlibs.html"
+      data-sly-use.clientLib="${'/libs/granite/sightly/templates/clientlib.html'}">
+<meta name="keywords" content="${meta.keywords @ context = 'attribute'}">
+<meta name="description" content="${meta.desc @ context = 'attribute'}">
+<meta name="thumbnail" content="${meta.thumbnail @ context = 'attribute'}">
+<meta name="pageType" content="${meta.pageType}">
+
+<!--/* Meta Tags used by social sites to display appropriate information when sharing the page. */-->
+<meta property="og:type" content="${ meta.ogType }">
+<meta property="og:url" content="${ meta.ogUrl }">
+<meta property="og:title" content="${ meta.title }">
+<meta property="og:description" content="${ meta.desc }">
+<meta property="og:image" content="${ meta.ogImg }">
+<meta property="twitter:card" content="summary">
+<meta property="twitter:site" content="${ meta.twitterHandle }">
+
+<sly data-sly-use.page="com.mcd.rwd.global.core.sightly.page.HeadLibs"/>
+
+${page.getAnalytics @ context = 'unsafe'}
+
+<sly data-sly-call="${headlibRenderer.headlibs @ designPath = meta.designPath}"/>
+<sly data-sly-include="author.html"/>
+
+<!--/* Leaving it blank to add project specific libraries if required */-->
+<sly data-sly-include="customheaderlibs.html"/>
+
+<link data-sly-test="${meta.faviconPath}" rel="icon" type="image/vnd.microsoft.icon"
+      href="${meta.faviconPath}"/>
+<link data-sly-test="${meta.faviconPath}" rel="shortcut icon" type="image/vnd.microsoft.icon"
+      href="${meta.faviconPath}"/>
+<link rel="icon" type="image/vnd.microsoft.icon" href="/etc/clientlibs/mcd-wifi/images/favicon.ico">
+<title>${meta.title @ context = 'unsafe'}</title>
+<style>
+.no-js #loader {
+	display: none;
+}
+
+.js #loader {
+	display: block;
+	position: absolute;
+	left: 100px;
+	top: 0;
+}
+.se-pre-con {
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	z-index: 9999;
+	background: url(/etc/clientlibs/mcd-wifi/images/FryBoxLoader_cropped_OnWhite.gif) center
+		no-repeat #fff;
+	background-size: 10%;
+}
+@media ( max-width : 767px) {
+	.se-pre-con {
+		background-size: 30%;
+	}
+}
+</style>

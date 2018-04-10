@@ -1,0 +1,599 @@
+//COMPONENT: FEATURE CALLOUT Existing
+.component-feature-callout {
+    position: relative;
+
+	.border-wrapper {
+		margin: 10px;
+		border: 2px solid #4d4a4b;
+		border: 2px solid rgba(255, 255, 255, .25);
+	}
+	.absolute-content .absolute-content-wrapper {
+		color: $white;
+		vertical-align: top;
+		text-align: right;
+		&.text-center {
+			text-align: center;
+		}
+
+		&.text-left {
+			text-align: center;
+
+			@media only screen and (min-width: 768px){
+				text-align: right;
+			}
+
+			.btn-red {
+				margin-right: auto;
+
+				@media only screen and (min-width: 768px){
+					margin-right: 15px;
+				}
+			}
+		}
+
+		.text-wrapper {
+			padding: 15% 0 0 0;
+			text-align: center;
+
+			@media only screen and (min-width: 480px){
+				padding: 15%px 0 0 0;
+			}
+			@media only screen and (min-width: 768px){
+				padding: 25px 0 0 0;
+			}
+			@media only screen and (min-width: 992px){
+				padding: 35px 0 0 0;
+			}
+			@media only screen and (min-width: 1200px){
+				padding: 45px 0 0 0;
+			}
+		}
+
+		.simple-red {
+			margin-top: 10px;
+		}
+
+		.img-top,
+		.img-bottom {
+			margin: auto;
+		}
+
+		.cont-top-img {
+			position: absolute;
+			top: 5%;
+			width: 100%;
+			text-align: center;
+
+			@media only screen and (min-width: 480px){
+				top: 7%;
+			}
+			@media only screen and (min-width: 768px){
+				top: 7px;
+			}
+			@media only screen and (min-width: 992px){
+				top: 8px;
+			}
+			@media only screen and (min-width: 1200px){
+				top: 9px;
+			}
+
+			.img-top {
+				max-height: 23px;
+				font-size: 12px;
+                line-height: 14px;
+                border: none;
+
+				@media only screen and (min-width: 480px){
+					max-height: 29px;
+				}
+				@media only screen and (min-width: 768px){
+					max-height: 13px;
+				}
+				@media only screen and (min-width: 992px){
+					max-height: 20px;
+				}
+				@media only screen and (min-width: 1200px){
+					max-height: 29px;
+				}
+			}
+		}
+
+		.btn-red {
+			margin: 5px auto 0;
+
+			@media only screen and (min-width: 480px){
+				margin: 10px auto 0;
+			}
+			@media only screen and (min-width: 768px){
+				margin: 5px auto 0;
+			}
+			@media only screen and (min-width: 992px){
+				margin: 10px auto 0;
+			}
+		}
+
+		.bottom-text {
+			margin:0;
+			padding:0;
+			position: absolute;
+			bottom: 2px;
+			width: 100%;
+			text-align: center;
+			@include fontSet(20px, 30px, 'Droid_Arabic_Kufi_Regular');
+
+	        @media only screen and (min-width: 480px){
+	          @include fontSet(26px, 36px, 'Droid_Arabic_Kufi_Regular');
+	        }
+	        @media only screen and (min-width: 768px){
+	          @include fontSet(20px, 30px, 'Droid_Arabic_Kufi_Regular');
+	        }
+	        @media only screen and (min-width: 992px){
+	          @include fontSet(26px, 36px, 'Droid_Arabic_Kufi_Regular');
+	        }
+		}
+
+		.headline-text {
+			margin: 0;
+
+			.white {
+				color: $white;
+			}
+
+			.yellow {
+				color: $yellow;
+			}
+
+			p.top,
+			p.middle,
+			p.bottom {
+				margin:0;
+				padding:0;
+			}
+
+			p.top {
+				@include fontSet(21px, 21px, 'Droid_Arabic_Kufi_Bold');
+
+				@media only screen and (min-width: 480px) {
+					@include fontSet(35px, 35px, 'Droid_Arabic_Kufi_Bold');
+				}
+				@media only screen and (min-width: 768px) {
+					@include fontSet(16px, 16px, 'Droid_Arabic_Kufi_Bold');
+				}
+				@media only screen and (min-width: 992px) {
+					@include fontSet(20px, 20px, 'Droid_Arabic_Kufi_Bold');
+				}
+				@media only screen and (min-width: 1200px) {
+					@include fontSet(25px, 25px, 'Droid_Arabic_Kufi_Bold');
+				}
+			}
+
+			p.middle {
+				@include fontSet(100px, 90px, 'Droid_Arabic_Kufi_Bold');
+				text-transform: uppercase;
+				margin-top: 5px;
+
+				@media only screen and (min-width: 480px) {
+					@include fontSet(150px, 140px, 'Droid_Arabic_Kufi_Bold');
+				}
+				@media only screen and (min-width: 768px) {
+					@include fontSet(75px, 65px, 'Droid_Arabic_Kufi_Bold');
+				}
+				@media only screen and (min-width: 992px) {
+					@include fontSet(90px, 80px, 'Droid_Arabic_Kufi_Bold');
+				}
+				@media only screen and (min-width: 1200px) {
+					@include fontSet(125px, 115px, 'Droid_Arabic_Kufi_Bold');
+				}
+
+				sup {
+				    top: -0.25em;
+				}
+			}
+
+			p.bottom {
+				@include fontSet(17px, 23px, 'Droid_Arabic_Kufi_Bold');
+
+				@media only screen and (min-width: 480px) {
+					@include fontSet(25px, 31px, 'Droid_Arabic_Kufi_Bold');
+				}
+				@media only screen and (min-width: 768px) {
+					@include fontSet(14px, 20px, 'Droid_Arabic_Kufi_Bold');
+				}
+				@media only screen and (min-width: 992px) {
+					@include fontSet(17px, 23px, 'Droid_Arabic_Kufi_Bold');
+				}
+				@media only screen and (min-width: 1200px) {
+					@include fontSet(21px, 27px, 'Droid_Arabic_Kufi_Bold');
+				}
+			}
+		}
+	}
+
+	&.wide {
+		.absolute-content .absolute-content-wrapper {
+			.text-wrapper {
+				width: 100%;
+				text-align: center;
+				padding-right:15px;
+			}
+
+			.headline-text {
+				text-align: center;
+
+				p.bottom {
+					width: 50%;
+					margin: auto;
+				}
+			}
+
+			@media only screen and (min-width: 768px) {
+				.text-wrapper {
+					//width: 50%;
+					//text-align: right;
+					//padding-right: 15px;
+					//margin: 0;
+				}
+				.headline-text {
+					text-align: right;
+
+					p.bottom {
+						width: 100%;
+					}
+				}
+
+			}
+		}
+	}
+
+}
+
+.large .component-feature-callout {
+	.absolute-content .absolute-content-wrapper {
+		.headline-text{
+			p.top {
+				@media only screen and (min-width: 768px) {
+					@include fontSet(25px, 25px, 'Droid_Arabic_Kufi_Bold');
+				}
+				@media only screen and (min-width: 992px) {
+					@include fontSet(30px, 30px, 'Droid_Arabic_Kufi_Bold');
+				}
+				@media only screen and (min-width: 1200px) {
+					@include fontSet(35px, 35px, 'Droid_Arabic_Kufi_Bold');
+				}
+			}
+
+			p.middle {
+				@media only screen and (min-width: 768px) {
+					@include fontSet(90px, 80px, 'Droid_Arabic_Kufi_Bold');
+				}
+				@media only screen and (min-width: 992px) {
+					@include fontSet(125px, 115px, 'Droid_Arabic_Kufi_Bold');
+				}
+				@media only screen and (min-width: 1200px) {
+					@include fontSet(160px, 150px, 'Droid_Arabic_Kufi_Bold');
+				}
+			}
+
+			p.bottom {
+				width: 87%;
+				margin: auto;
+
+				@media only screen and (min-width: 768px) {
+					width: 80%;
+					@include fontSet(19px, 25px, 'Droid_Arabic_Kufi_Bold');
+				}
+				@media only screen and (min-width: 992px) {
+					width: 75%;
+					@include fontSet(24px, 30px, 'Droid_Arabic_Kufi_Bold');
+				}
+				@media only screen and (min-width: 1200px) {
+					@include fontSet(29px, 35px, 'Droid_Arabic_Kufi_Bold');
+				}
+			}
+		}
+	}
+
+}
+
+.large{
+	&.col-sm-6{
+		.component-feature-callout.wide{
+			.absolute-content .absolute-content-wrapper{
+				&.text-left{
+					@media only screen and (min-width: 768px) {
+						padding-right: 0;
+						padding-top: 0;
+						position: absolute;
+				    top: 50%;
+						-webkit-transform: translateY(-50%);
+						-moz-transform: translateY(-50%);
+						-ms-transform: translateY(-50%);
+						-o-transform: translateY(-50%);
+				    transform: translateY(-50%);
+
+						.cont-top-img{
+							padding-right: 15px;
+							top:4px;
+							position: static;
+					    margin-top: -12px;
+					    padding-bottom: 10px;
+
+
+							img{
+								margin: 0;
+							}
+						}
+
+						.text-wrapper{
+							@media only screen and (min-width: 768px) {
+								padding-top: 0;
+							}
+
+						}
+					}
+
+					@media only screen and (min-width: 992px) {
+						padding-right: 15px;
+					}
+				}
+
+				.headline-text{
+					p.bottom{
+						@media only screen and (min-width: 768px) {
+							margin: 0;
+							width: 100%;
+						}
+
+					}
+				}
+			}
+		}
+	}
+}
+
+
+.alt_style.component-feature-callout {
+	.border-wrapper {
+		border: 0;
+	}
+	.absolute-content .absolute-content-wrapper {
+		vertical-align: middle;
+
+		.text-wrapper {
+			padding: 0;
+			text-align: right;
+			margin: 0 15px 0 0;
+
+			@media only screen and (min-width: 768px) {
+				text-align: center;
+				margin: 0;
+			}
+		}
+
+		.headline-text{
+			text-align: center;
+
+			@media only screen and (min-width: 768px) {
+				text-align: center;
+			}
+
+			p.top {
+				text-transform: none;
+				@include fontSet(26px, 26px, 'Droid_Arabic_Kufi_Bold');
+
+				@media only screen and (min-width: 480px) {
+					@include fontSet(32px, 32px, 'Droid_Arabic_Kufi_Bold');
+				}
+				@media only screen and (min-width: 768px) {
+					@include fontSet(38px, 38px, 'Droid_Arabic_Kufi_Bold');
+				}
+			}
+
+			p {
+				text-transform: none;
+				@include fontSet(50px, 50px, 'Droid_Arabic_Kufi_Bold');
+
+				@media only screen and (min-width: 480px) {
+					@include fontSet(55px, 55px, 'Droid_Arabic_Kufi_Bold');
+				}
+				@media only screen and (min-width: 768px) {
+					@include fontSet(60px, 60px, 'Droid_Arabic_Kufi_Bold');
+				}
+			}
+
+			p.bottom {
+				text-transform: none;
+				@include fontSet(20px, 28px, 'Droid_Arabic_Kufi_Regular');
+				display: none;
+
+				@media only screen and (min-width: 480px) {
+					@include fontSet(22px, 30px, 'Droid_Arabic_Kufi_Regular');
+				}
+				@media only screen and (min-width: 768px) {
+					display: block;
+					@include fontSet(22px, 30px, 'Droid_Arabic_Kufi_Regular');
+					padding: 5px 15px 0px 15px;
+				}
+			}
+		}
+
+		.btn-red {
+			@include fontSet(20px, 20px, 'Droid_Arabic_Kufi_Bold');
+			padding: 0px 25px;
+			height: 30px;
+			line-height: 26px;
+
+			@media only screen and (min-width: 480px){
+				@include fontSet(22px, 22px, 'Droid_Arabic_Kufi_Bold');
+				line-height: 26px;
+			}
+			@media only screen and (min-width: 768px){
+				@include fontSet(20px, 20px, 'Droid_Arabic_Kufi_Bold');
+				line-height: 26px;
+			}
+			@media only screen and (min-width: 992px){
+				@include fontSet(22px, 22px, 'Droid_Arabic_Kufi_Bold');
+				line-height: 26px;
+			}
+		}
+	}
+}
+
+.component-feature-callout .absolute-content .absolute-content-wrapper.align-bottom {
+	@media only screen and (min-width: 768px){
+		vertical-align: bottom;
+		padding-bottom: 5%;
+	}
+}
+
+// COMPONENT: FEATURE CALLOUT Updated
+@media only screen and (min-width: 768px) {
+	.component-feature-callout {
+		.absolute-content.feature50 {
+			.absolute-content-wrapper.promoBox {
+				width: 100%;
+				.text-wrapper {
+					width: 50%;
+					margin: 0 auto;
+				}
+			}
+			.absolute-content-wrapper.promoBoxcenter {
+				width: 100%;
+				.text-wrapper {
+					width: 50%;
+					margin: 0 auto;
+				}
+			}
+			.absolute-content-wrapper.promoBoxright {
+				.text-wrapper {
+					width: 50%;
+					text-align: left;
+					float: left;
+
+					p.bottom {
+					    padding-left: 0px;
+					}
+				}
+			}
+			.absolute-content-wrapper.promoBoxleft {
+				.text-wrapper {
+					width: 50%;
+					text-align: right;
+					float: right;
+
+
+					p.bottom {
+					    padding-right: 0px;
+					}
+				}
+			}
+		}
+		.absolute-content {
+			.absolute-content-wrapper.promoBoxleft {
+				padding-right: 15px;
+				.cont-top-img {
+					text-align: right!important;
+					img {
+						float: right!important;
+					}
+				}
+				.headline-text {
+					text-align: right!important;
+				}
+				.text-wrapper {
+					text-align: right!important;
+
+					p.bottom {
+					    padding-right: 0px;
+					}
+				}
+			}
+			.absolute-content-wrapper.promoBoxright {
+				padding-left: 15px;
+				width: 100%;
+				.cont-top-img {
+					text-align: left!important;
+					img {
+						float: left!important;
+						padding-left: 15px;
+					}
+				}
+				.headline-text {
+					text-align: left!important;
+				}
+				.text-wrapper {
+					text-align: left!important;
+
+					p.bottom {
+					    padding-left: 0px;
+					}
+				}
+			}
+		}
+	}
+}
+
+//backlog update start (26-Dec-2016)
+
+/*
+.component-feature-callout   {
+	.border-wrapper { margin: 0;
+}
+}
+*/
+	.headline-text-large {
+		font-family: "Droid_Arabic_Kufi_Bold", sans-serif!important;
+		font-size: 3.2rem!important;
+		line-height: 3.2rem!important;
+		color: inherit;
+		margin: 1.5% !important;
+	}
+
+.headline-text-small {
+	font-family: "Droid_Arabic_Kufi_Bold", sans-serif!important;
+	font-size: 1.6rem!important;
+	line-height: 1.6rem!important;
+	color: inherit;
+	margin: 0!important;
+}
+//backlog update end (26-Dec-2016)
+	.marginmanagement{
+        padding: 15px 16% !important;   
+}
+.htmlupload.parbase {
+	.btn-app {
+		img {
+			width: auto;
+			padding: 5px 16px 5px 37px;
+			background: #000000;
+			border-radius: 5px;
+			-webkit-border-radius: 5px;
+			-khtml-border-radius: 5px;
+			-moz-border-radius: 5px;
+			-ms-border-radius: 5px;
+			-o-border-radius: 5px;
+			border: 1px solid #4d4a4b;
+			&:hover {
+				background: #333333;
+				-webkit-transition: all .2s ease-in-out 0;
+				-khtml-transition: all .2s ease-in-out 0;
+				-moz-transition: all .2s ease-in-out 0;
+				-ms-transition: all .2s ease-in-out 0;
+				-o-transition: all .2s ease-in-out 0;
+				transition: all .2s ease-in-out 0;
+				text-decoration: none;
+			}
+		}
+	}
+}
+//backlog update end (26-Dec-2016)
+@media (max-width: 767px){
+	.alt_style.component-feature-callout .absolute-content .absolute-content-wrapper.promoBoxleft .headline-text {
+    	text-align: right !important;
+	}
+	
+    .component-feature-callout .absolute-content .absolute-content-wrapper.align-bottom {
+	    vertical-align: bottom;
+	    padding-bottom: 5%;
+    }
+}

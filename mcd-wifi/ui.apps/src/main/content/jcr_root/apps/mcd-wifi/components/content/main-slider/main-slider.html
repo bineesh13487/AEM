@@ -1,0 +1,122 @@
+<sly data-sly-use.meta="com.mcd.rwd.global.core.sightly.page.PageMeta"/>
+<sly data-sly-use.handler="com.mcd.rwd.wifi.core.sightly.MainSliderHandler">
+	<sly data-sly-test="${handler.handlerLength == 0}">
+		<h2>${handler.configureMessage}</h2>
+    </sly>
+	<sly data-sly-test="${handler.handlerLength > 0}">
+		<section id="slider">			
+			<div class="container-fluid nopadding sliderHeight">
+				<section class="billboard">
+					<sly data-sly-list.slider="${handler.mainSliderList}">
+						<sly data-sly-test.bgimage="${slider.bgElement == 'image'}">
+							<div id="billboard_content${sliderList.count}" style="display: none;">
+								<img class="billboard-img img-responsive" src="${slider.bgImage}" alt="${slider.bgImageAltText}">
+								<div class="billboard-caption">
+									<h2 data-sly-test="${slider.title}">${slider.title}</h2>
+									<h2 data-sly-test="${slider.subTitle}">${slider.subTitle}</h2>
+								</div>
+							</div>
+						</sly>
+						<sly data-sly-test="${!bgimage}">
+							<div id="billboard_content${sliderList.count}" style="display: none;" data-show = "${slider.bgVideo}">
+								<video muted class="hidden-xs">
+									<source src="${slider.bgVideo}" type="video/mp4">
+								</video>
+							</div>
+						</sly>
+					</sly>		            			            
+				</section>
+			</div>
+			<div class="nopadding carousel-row">
+				<div class="carousel-row-inner">
+		            <div id="initial-main-gallery" class="main-gallery">
+						<sly data-sly-list.slider="${handler.mainSliderList}">
+							<div class="gallery-cell">
+								<sly data-sly-test.bgimage="${slider.bgElement == 'image'}">
+									<div class="tile tile-generic" id="tile${sliderList.count}" data-src='${slider.tilePopupUrl}' data-at="Carousal:${meta.title @ context = 'unsafe'}:${slider.tileImageAltText}:${sliderList.index}" data-track="carousal" data-link-target="${slider.target}">
+										<div class="tile-media">
+											<a href="#" title="${slider.tileImageAltText}">
+												<img class="tile-img" src="${slider.tileImage}" alt="${slider.tileImageAltText}" />
+												<span class="flickity-innertext ${slider.textAlign}" style="color:#${slider.colorPicker @ context='styleToken'};">
+													${slider.tileImageText}
+												</span>
+											</a>
+										</div>
+									</div>
+								</sly>
+								<sly data-sly-test="${!bgimage}">
+									<sly data-sly-test.videotype="${slider.videoType == 'standard'}">
+										<div class="tile tile-generic" id="tile${sliderList.count}" data-video-url='${slider.popupVideoPath}' data-source='standard' data-at="Carousal:${meta.title @ context = 'unsafe'}:${slider.tileImageAltText}:${sliderList.index}" data-track="carousal" data-link-target="${slider.target}" data-show = "${slider.popupVideoPath}">
+											<div class="tile-media">
+												<a href="#" title="${slider.tileImageAltText}" >
+													<img class="tile-img" src="${slider.tileImage}" alt="${slider.tileImageAltText}"  />
+													<span class="flickity-innertext ${slider.textAlign}" style="color:#${slider.colorPicker @ context='styleToken'};">
+														${slider.tileImageText}
+													</span>	
+												</a>
+											</div>
+										</div>
+									</sly>
+									<sly data-sly-test.videotypeisblank="${!videotype && slider.videoType == 'youtube'}">
+										<div class="tile tile-generic" id="tile${sliderList.count}" data-video-url='${slider.youtubeVideo}?autoplay=1' data-source="youtube" data-at="Carousal:${meta.title @ context = 'unsafe'}:${slider.tileImageAltText}:${sliderList.index}" data-track="carousal" data-link-target="${slider.target}" data-show = "${slider.youtubeVideo}">
+											<div class="tile-media">
+												<a href="#" title="${slider.tileImageAltText}" >
+													<img class="tile-img" src="${slider.tileImage}" alt="${slider.tileImageAltText}"  />
+													<span class="flickity-innertext ${slider.textAlign}" style="color:#${slider.colorPicker @ context='styleToken'};">
+														${slider.tileImageText}
+													</span>
+												</a>
+											</div>
+										</div>
+									</sly>
+									<sly data-sly-test="${!videotypeisblank && !videotype}">
+										<div class="tile tile-generic" id="tile${sliderList.count}" data-video-url='' data-source="" data-at="Carousal:${meta.title @ context = 'unsafe'}:${slider.tileImageAltText}:${sliderList.index}" data-track="carousal" data-link-target="${slider.target}">
+											<div class="tile-media">
+												<a href="#" title="${slider.tileImageAltText}" >
+													<img class="tile-img" src="${slider.tileImage}" alt="${slider.tileImageAltText}"  />
+													<span class="flickity-innertext ${slider.textAlign}" style="color:#${slider.colorPicker @ context='styleToken'};">
+														${slider.tileImageText}
+													</span>
+												</a>
+											</div>
+										</div>
+									</sly>	
+								</sly>								
+							</div>  
+						</sly>          
+		            </div>
+				</div>
+			</div>
+			<div class="clearfix"></div>
+			<div id="popup" class="modal fade" role="dialog" tabindex="-1">
+				<div class="modal-dialog">
+					<!-- Modal content-->
+					<div class="modal-content ">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" title="Close" aria-label="Close">&times;</button>
+							<h4 class="modal-title"></h4>
+						</div>
+						<div class="modal-body">
+						</div>
+						<div class="modal-footer"></div>
+					</div>
+				</div>
+			</div>
+			
+			<div id="videoPopup" class="modal fade" role="dialog" tabindex="-1">
+				<div class="modal-dialog">
+					<!-- Modal content-->
+					<div class="modal-content ">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" title="Close" aria-label="Close">&times;</button>
+							<h4 class="modal-title"></h4>
+						</div>
+						<div class="modal-body">
+						</div>
+						<div class="modal-footer"></div>
+					</div>
+				</div>
+			</div>			
+		</section>
+	</sly>
+</sly>

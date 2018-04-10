@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Dialog"
+    height="600"
+    title="Static Image Gallery"
+    width="1100"
+    xtype="dialog">
+    <items
+        jcr:primaryType="cq:Widget"
+        xtype="tabpanel">
+        <items jcr:primaryType="cq:WidgetCollection">
+            <Links
+                jcr:primaryType="cq:Panel"
+                cols="\{id:'image',header:'image',width:'170px',sortable:false,dataIndex:'image'},&#xa;{id:'thumbnail-image',header:'thumbnail',width:'170px',sortable:false,dataIndex:'thumbnail-image'},&#xa;{id:'title',name:'title',width:'100px',header:'title',mapping:'title'}"
+                custom-key-image="\{&#xa;  &quot;height&quot;: 200,&#xa;  &quot;border&quot;: false,&#xa;  &quot;xtype&quot;: &quot;panel&quot;,&#xa;  &quot;layout&quot;: {&#xa;    &quot;type&quot;: &quot;hbox&quot;,&#xa;    &quot;align&quot;: &quot;left&quot;&#xa;  },&#xa;  &quot;items&quot;: [&#xa;    {&#xa;      &quot;text&quot;: &quot;Image&quot;,&#xa;      &quot;width&quot;: 130,&#xa;      &quot;xtype&quot;: &quot;label&quot;&#xa;    },&#xa;    {&#xa;      &quot;name&quot;: &quot;image&quot;,&#xa;      &quot;ddGroups&quot;: &quot;media&quot;,&#xa;      &quot;fieldDescription&quot;: &quot;Drag the Image here&quot;,&#xa;      &quot;text&quot;: &quot;Thumbnail image&quot;,&#xa;      &quot;xtype&quot;: &quot;html5smartimage&quot;,&#xa;      &quot;uploadTextReference&quot;: &quot;Drop an image&quot;,&#xa;      &quot;fileNameParameter&quot;: &quot;./fileName&quot;,&#xa;      &quot;fileReferenceParameter&quot;: &quot;./fileReference&quot;,&#xa;      &quot;allowUpload&quot;: false,&#xa;      &quot;height&quot;: 150,&#xa;      &quot;width&quot;: 150,&#xa;      &quot;border&quot;: true,&#xa;      &quot;disableZoom&quot;: &quot;true&quot;,&#xa;      &quot;id&quot;: &quot;image&quot;,&#xa;      &quot;uploadUrl&quot;: &quot;/tmp/upload_test/*&quot;&#xa;    }&#xa;  ]&#xa;}"
+                custom-key-thumbnail-image="\{&#xa;  &quot;height&quot;: 200,&#xa;  &quot;border&quot;: false,&#xa;  &quot;xtype&quot;: &quot;panel&quot;,&#xa;  &quot;layout&quot;: {&#xa;    &quot;type&quot;: &quot;hbox&quot;,&#xa;    &quot;align&quot;: &quot;left&quot;&#xa;  },&#xa;  &quot;items&quot;: [&#xa;    {&#xa;      &quot;text&quot;: &quot;Thumbnail Image&quot;,&#xa;      &quot;width&quot;: 130,&#xa;      &quot;xtype&quot;: &quot;label&quot;&#xa;    },&#xa;    {&#xa;      &quot;name&quot;: &quot;thumbnail-image&quot;,&#xa;      &quot;ddGroups&quot;: &quot;media&quot;,&#xa;      &quot;fieldDescription&quot;: &quot;Drag the Image here&quot;,&#xa;      &quot;text&quot;: &quot;Thumbnail image&quot;,&#xa;      &quot;xtype&quot;: &quot;html5smartimage&quot;,&#xa;      &quot;uploadTextReference&quot;: &quot;Drop an image&quot;,&#xa;      &quot;fileNameParameter&quot;: &quot;./fileName&quot;,&#xa;      &quot;fileReferenceParameter&quot;: &quot;./fileReference&quot;,&#xa;      &quot;allowUpload&quot;: false,&#xa;      &quot;height&quot;: 150,&#xa;      &quot;width&quot;: 150,&#xa;      &quot;border&quot;: true,&#xa;      &quot;disableZoom&quot;: &quot;true&quot;,&#xa;      &quot;id&quot;: &quot;thumbnail-image&quot;,&#xa;      &quot;uploadUrl&quot;: &quot;/tmp/upload_test/*&quot;&#xa;    }&#xa;  ]&#xa;}"
+                custom-key-title="\{&#xa;  &quot;border&quot;: false,&#xa;  &quot;autoWidth&quot;: true,&#xa;  &quot;xtype&quot;: &quot;panel&quot;,&#xa;  &quot;layout&quot;: {&#xa;    &quot;type&quot;: &quot;form&quot;&#xa;  },&#xa;  &quot;items&quot;: {&#xa;    &quot;fieldLabel&quot;: &quot;Title&quot;,&#xa;    &quot;fieldDescription&quot;: &quot;Title for the Image&quot;,&#xa;    &quot;width&quot;: 155,&#xa;    &quot;name&quot;: &quot;title&quot;,&#xa;    &quot;id&quot;: &quot;title&quot;,&#xa;    &quot;xtype&quot;: &quot;textfield&quot;&#xa;  }&#xa;}&#xa;"
+                left="\{name: 'image',mapping: 'image'},&#xa;{name: 'thumbnail-image',mapping: 'thumbnail-image'},&#xa;{name: 'title',mapping: 'title'}"
+                store="\{&#xa;  &quot;data&quot;: [&#xa;    {&#xa;      &quot;id&quot;: &quot;mainImage&quot;&#xa;    },&#xa;&#x9; {&#xa;      &quot;id&quot;: &quot;thumbnail-image&quot;&#xa;    },&#xa;    {&#xa;      &quot;id&quot;: &quot;title&quot;&#xa;    }&#xa;  ]&#xa;}"
+                title="Image Details"
+                xtype="customwidget"/>
+            <advanced
+                jcr:primaryType="cq:Widget"
+                title="Advanced"
+                xtype="panel">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <multiRow
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Disable the zoom Effect"
+                        name="./enableMultiRow"
+                        type="checkbox"
+                        xtype="selection"/>
+                    <ComponentTitle
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Enter the form Title"
+                        fieldLabel="Title"
+                        name="./componentTitle"
+                        xtype="textfield"/>
+                    <countItem
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="&#x9;&#xa;Configure no: of items to be displayed on slider ."
+                        fieldLabel="No: of items"
+                        name="./itemCount"
+                        xtype="numberfield"/>
+                </items>
+            </advanced>
+        </items>
+    </items>
+    <listeners
+        jcr:primaryType="nt:unstructured"
+        beforesubmit="function(dialog) {&#xa;    var number = dialog.getField('./itemCount').getValue();&#xa;&#x9;if(number) {&#xa;&#x9;&#xa;&#x9;&#xa;&#x9;&#xa;    if (number > 7) {&#xa;        CQ.Ext.Msg.show({&#xa;            title: 'Realted Products Validation',&#xa;            msg: 'Value Greater than 7 is not allowed',&#xa;            icon: CQ.Ext.MessageBox.WARNING,&#xa;            buttons: CQ.Ext.Msg.OK&#xa;        });&#xa;        return false;&#xa;    }&#xa;    if (number &lt; 4) {&#xa;        CQ.Ext.Msg.show({&#xa;            title: 'Realted Products Validation',&#xa;            msg: 'Value Less than 4 is not allowed',&#xa;            icon: CQ.Ext.MessageBox.WARNING,&#xa;            buttons: CQ.Ext.Msg.OK&#xa;        });&#xa;        return false;&#xa;    }&#xa;&#x9;}&#xa;    return true;&#xa;}"/>
+</jcr:root>

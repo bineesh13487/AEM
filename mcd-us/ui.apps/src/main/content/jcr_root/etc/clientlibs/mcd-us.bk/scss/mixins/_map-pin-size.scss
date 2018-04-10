@@ -1,0 +1,6 @@
+@mixin map-pin-size($width){
+  width: $width;
+  height: $width * 1.3;
+  @include fontSet($width * .9, 1, $font-lovinsans-medium);
+  padding-top: $width * .3;
+}

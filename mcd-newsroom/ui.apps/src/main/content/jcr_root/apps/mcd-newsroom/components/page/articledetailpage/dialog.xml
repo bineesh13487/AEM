@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="cq:Dialog"
+    height="500"
+    stateful="false"
+    width="700"
+    xtype="dialog">
+    <items jcr:primaryType="cq:WidgetCollection">
+        <tabs jcr:primaryType="cq:TabPanel">
+            <items jcr:primaryType="cq:WidgetCollection">
+                <tab_basic
+                    jcr:primaryType="cq:Widget"
+                    path="/apps/mcd-rwd-global/components/page/base-page/dialog/items/tabs/items/tab_basic.infinity.json"
+                    xtype="cqinclude"/>
+                <tab_advanced
+                    jcr:primaryType="cq:Widget"
+                    path="/apps/mcd-rwd-global/components/page/base-page/dialog/items/tabs/items/tab_advanced.infinity.json"
+                    xtype="cqinclude"/>
+                <newsroom
+                    jcr:primaryType="cq:Widget"
+                    title="Article Listing Detail"
+                    xtype="panel">
+                    <items jcr:primaryType="cq:WidgetCollection">
+                        <newspath
+                            jcr:primaryType="cq:Widget"
+                            fieldLabel="News Folder Path"
+                            name="./newsFolderPath"
+                            xtype="pathfield"/>
+                    </items>
+                </newsroom>
+            </items>
+        </tabs>
+    </items>
+</jcr:root>

@@ -1,0 +1,53 @@
+.mcd-panel {
+  @include panel-variant($panel-default-border, $panel-default-text, $panel-default-heading-bg, $panel-default-border);
+
+  @extend .clearfix;
+
+  &__heading {
+    padding: 0;
+  }
+
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-align-last: left;
+  font-size: to-rem(24);
+  border-radius: 0;
+  border-top: lightgray;
+  border-left: none;
+  border-right: none;
+  transition: 0.4s;
+  padding: 0;
+
+  &__collapsible-href {
+    @include make-xs-column(12);
+
+    font-size: to-rem(24);
+    border-top: to-rem(1) solid lightgray;
+    padding-left: to-rem(20);
+    padding-right: to-rem(20);
+    line-height: to-rem(92);
+
+    &:focus {
+      outline: 0;
+    }
+  }
+
+  [class^="icon-"]:before,
+  [class*=" icon-"]:before {
+    color: $mcdonalds-red;
+    line-height: 4;
+    float: right;
+  }
+}
+
+.panel {
+  background-color: inherit;
+}
+
+.panel-group .panel + .panel {
+  margin-top: 0;
+}
+
+.panel-group {
+  margin: to-rem(40) 0;
+}

@@ -1,0 +1,17 @@
+<sly data-sly-use.featureCallout="com.mcd.rwd.us.core.sightly.callouts.FeatureCalloutHandler">
+    <div class="container">
+        <div class="row no-gutter">
+                <sly data-sly-test="${!featureCallout.isEmpty}">
+                    <sly data-sly-test="${featureCallout.calloutType == 'static'}">
+                        <sly data-sly-include="static.html"></sly>
+                    </sly>
+                    <sly data-sly-test="${featureCallout.calloutType != 'static'}">
+                        <sly data-sly-include="dynamic.html"></sly>
+                    </sly>
+                </sly>
+        </div>
+    </div>
+    <sly data-sly-test="${featureCallout.isEmpty && (wcmmode.edit || wcmmode.design)}">
+        <h3>Please configure the feature callout component.</h3>
+    </sly>
+</sly>

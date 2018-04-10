@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="sling:OsgiConfig"
+    oauth.access.token.persist="{Boolean}true"
+    oauth.client.id="0tRXXm5TbHjruwViwzChrQ"
+    oauth.client.secret="Syv8mYDcvhHyUjqh9RCi9CVKpjcCpNynMBPaJo8tGs"
+    oauth.config.id="c46b9025c822490e13063f0935d76182"
+    oauth.config.provider.id="soco-twitter"
+    oauth.create.users="false"
+    oauth.create.users.groups="[\0]"
+    oauth.encode.userids="false"/>

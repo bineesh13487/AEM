@@ -1,0 +1,142 @@
+.mcd-hero {
+
+  @include make-container("0 auto", 0);
+
+  @media screen and (min-width: $break-point) {
+    margin: 0 auto to-rem(50) auto;
+  }
+
+  @include e('section') {
+    height: 100%;
+  }
+
+  @include e('container') {
+    height: to-rem(510);
+    background-position: 50% 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    @media screen and (min-width: $break-point) {
+      height: to-rem(520);
+    }
+  }
+
+  @include e('content') {
+    padding: to-rem(0) to-rem(12);
+    text-align: center;
+    height: 100%;
+    &:before {
+      content: '';
+      display: inline-block;
+      height: 100%;
+      vertical-align: middle;
+      margin-right: -0.25em; /* Adjusts for spacing */
+    }
+    @include m('title-on-top') {
+      margin: to-rem(30) 0 to-rem(30) 0;
+      height: auto;
+      &:before {
+        display: none;
+      }
+    }
+  }
+
+  @include e('title') {
+    @include make-h1();
+    font-weight: 300;
+    margin-bottom: to-rem(11);
+    text-align: center;
+    vertical-align: middle;
+    display: inline-block;
+    @include m('dark') {
+      color: $white-1;
+    }
+    @include m('light') {
+      color: $dark-gray-2;
+    }
+    @media screen and (min-width: $break-point) {
+      max-width: to-rem(532);
+    }
+  }
+
+  @include e('content-wrapper') {
+    margin-bottom: to-rem(11);
+    margin-top: to-rem(66);
+    text-align: left;
+    vertical-align: middle;
+    display: inline-block;
+    width: 100%;
+    @include m('dark') {
+      color: $white-1;
+    }
+    @include m('light') {
+      color: $dark-gray-2;
+    }
+    @media screen and (min-width: $break-point) {
+      margin-top: 0;
+    }
+  }
+
+  @include e('sub-title') {
+    @include make-h2();
+    margin-bottom: to-rem(11);
+    text-align: center;
+    font-weight: 300;
+    @include m('dark') {
+      color: $white-1;
+    }
+    @include m('light') {
+      color: $dark-gray-2;
+    }
+    @media screen and (min-width: $break-point) {
+      text-align: left;
+      margin: 0 0 0 to-rem(45);
+      max-width: to-rem(532);
+    }
+  }
+
+  @include e('description') {
+    display: block;
+    margin-bottom: to-rem(26);
+    text-align: center;
+    font-size: 1rem;
+    @media screen and (min-width: $break-point) {
+      text-align: left;
+      padding-left: to-rem(45);
+      max-width: to-rem(431);
+    }
+    @include m('dark') {
+      color: $white-1;
+    }
+    @include m('light') {
+      color: $dark-gray-2;
+    }
+  }
+
+  @include e('cta-container') {
+    text-align: center;
+    @media screen and (min-width: $break-point) {
+      text-align: left;
+    }
+  }
+
+  @include e('cta') {
+    @include make-cta();
+    @media screen and (min-width: $break-point) {
+      margin: 0 0 0 to-rem(45);
+    }
+  }
+
+  @include e('cta-label') {
+    height: 100%;
+    width: 100%;
+    color: rgba(41,41,41,1);
+    font-size: 1rem;
+    line-height: to-rem(22);
+    text-align: center;
+    padding: to-rem(13) 0 to-rem(13) 0;
+    display: inline-block;
+    white-space: nowrap;
+  }
+}
+

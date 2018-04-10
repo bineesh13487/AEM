@@ -1,0 +1,194 @@
+<form name="{{formName}}" ng-submit="submitFn(session, ref)" novalidate>
+    <div class="sso-input-error" ng-show="errorMsg.is">{{errorMsg.msg}}</div>
+    <div ng-class="getClassName(field)" ng-repeat="field in inputs" ng-if="hideOnInit(field)">
+            <span ng-if="field.type === 'checkbox'">
+                <div tabindex="0" class="sso-checkbox-box-checked" role="checkbox" aria-checked="false" aria-label="{{field.label}}">
+                    <i class="fa fa-check"></i>
+                </div>
+            </span>
+        <label ng-if="field.label && field.type !== 'checkbox' && field.type !== 'radio' && field.type !== 'hidden' && field.type !== 'disclaimer'" for="{{field.name}}" class="sso-input-text-select">{{field.label}}</label>
+        <p class="sso-input-text-select" ng-if="field.type === 'disclaimer'">{{field.label}}</p>
+
+        <input ng-if="field.type !== 'select' && (field.type !== 'password' || field.pw1) && field.type!== 'radio' && field.type !== 'checkbox' && field.type !== 'hidden' && field.type !== 'disclaimer'"
+               name="{{field.name}}"
+               id="{{field.name}}"
+               type="{{field.type}}"
+               placeholder="{{field.placeholder}}"
+               ng-pattern="field.validation"
+               ng-required="field.required"
+               ng-model="session[field.name]"
+               aria-describedby="describedby-{{field.name}}"
+               ng-class="inputClass(field)"
+               ng-trim="true"
+               ng-disabled="isBlockingValidationPresent && blockingValidation(field)"/>
+
+        <input ng-if="field.type == 'hidden'"
+               name="{{field.name}}"
+               value="{{field.value}}"
+               ng-init="session[field.name] = field.value"
+               type="hidden"
+               ng-model="session[field.name]"/>
+
+        <input ng-if="field.type === 'checkbox'"
+               name="{{field.name}}"
+               id="{{field.name}}"
+               type="{{field.type}}"
+               ng-true-value="'{{field.value ? field.value : 'Y'}}'"
+               ng-false-value="'{{field.value ? '' : 'N'}}'"
+               ng-pattern="field.validation"
+               placeholder="{{field.placeholder}}"
+               ng-required="{{field.required}}"
+               ng-model="session[field.name]"
+               aria-describedby="describedby-{{field.name}}"
+               aria-checked="{{field.checkedByDefault}}"
+               ng-class="inputClass(field)"
+               aria-label="{{field.label}}"
+               ng-disabled="isBlockingValidationPresent && blockingValidation(field)"
+               aria-invalid="!{{formName}}['{{field.name}}'].$invalid && {{formName}}['{{field.name}}'].$pristine && !{{formName}}['{{field.name}}'].$touched"
+               onkeydown="toggleCheckbox(event)" onclick="toggleCheckbox(event)" onfocus="focusCheckbox(event)" onblur="blurCheckbox(event)"/>
+
+        <label ng-if="field.type === 'checkbox'" for="{{field.name}}" class="" ng-click="checkboxClick($event, field)">
+            <div class="sso-checkbox-box"></div>
+            <span ng-bind-html="trusted(field.label)"></span>
+        </label>
+        <input ng-if="field.type === 'password' && field.name === pw0.name"
+               dynamic-name="field.name"
+               id="{{field.name}}"
+               type="{{field.type}}"
+               placeholder="{{field.placeholder}}"
+               ng-required="field.required"
+               ng-pattern="field.validation"
+               ng-model="session[field.name]"
+               aria-describedby="describedby-{{field.name}}"
+               autocomplete="off"
+               ng-class="inputClass(field)"
+               ng-trim="true"
+               ng-disabled="isBlockingValidationPresent && blockingValidation(field)"/>
+        <input ng-if="field.type === 'password' && field.name === pw1.name"
+               dynamic-name="field.name"
+               id="{{field.name}}"
+               type="{{field.type}}"
+               placeholder="{{field.placeholder}}"
+               ng-required="field.required"
+               ng-pattern="field.validation"
+               ng-model="session[field.name]"
+               aria-describedby="describedby-{{field.name}}"
+               autocomplete="off"
+               ng-class="inputClass(field)"
+               ng-trim="true"
+               ng-disabled="isBlockingValidationPresent && blockingValidation(field)"/>
+        <input ng-if="field.type === 'password' && field.name !== pw1.name && field.name !== pw0.name"
+               dynamic-name="field.name"
+               id="{{field.name}}"
+               type="{{field.type}}"
+               placeholder="{{field.placeholder}}"
+               ng-required="field.required"
+               ng-model="session[field.name]"
+               aria-describedby="describedby-{{field.name}}"
+               autocomplete="off"
+               ng-class="inputClass(field)"
+               ng-trim="true"
+               ng-disabled="isBlockingValidationPresent && blockingValidation(field)"
+               ng-change="checkPassMatch(field)"/>
+        <span ng-if="field.type !== 'hidden'" class="asterisk" ng-class="field.required ? 'sso-required' : ''"></span>
+
+        <div ng-if="field.type === 'select'" class="sso-input-select-wrapper">
+            <span class="fa fa-caret-down fa-fallback" aria-hidden="true"></span>
+            <select ng-if="field.type === 'select'"
+                    dynamic-name="field.name"
+                    id="{{field.name}}"
+                    ng-required="field.required"
+                    ng-model="session[field.name]"
+                    class="sso-input-select"
+                    ng-disabled="isBlockingValidationPresent && blockingValidation(field)"
+                    ng-options="option.value as option.label for option in field.options">
+            </select>
+        </div>
+
+        <div ng-if="field.type === 'radio'" class="text-center">
+            <p class="sso-p">{{field.label}}</p>
+            <ul class="list-inline" role="radiogroup" aria-labelledby="gdesc1">
+                <li ng-repeat="option in field.options">
+                    <div class="sso-fac sso-fac-radio sso-fac-default ">
+                        <span>
+                            <div tabindex="0" class="sso-radio-box-checked" role="radio" aria-checked="false" aria-label="{{option.value}}">
+                                <i class="fa fa-circle-thin"></i>
+                            </div>
+                        </span>
+                        <input id="radio-{{field.name}}-{{option.value}}" class="sso-radio" type="radio" name="{{field.name}}" value="{{option.value}}"
+                               ng-model="session[field.name]"
+                               ng-required="field.required"
+                               ng-disabled="isBlockingValidationPresent && blockingValidation(field)"
+                               onkeydown="toggleRadio(event)" onclick="toggleRadio(event)" onfocus="focusRadio(event)" onblur="blurRadio(event)"
+                               aria-label="{{option.label}}" aria-checked="false">
+                        <label for="radio-{{field.name}}-{{option.value}}" class="sso-radio-short-label">
+                            <i class="sso-radio-box fa fa-dot-circle-o"></i>
+                            {{option.label}}</label></div>
+                </li>
+            </ul>
+        </div>
+        <div ng-if="field.note && field.type === 'select'" class="sso-tooltip-wrapper">
+            <a
+                    ng-if="field.note"
+                    href="javascript: void(0);"
+                    title="{{whyText}}"
+                    class="sso-input-tooltip sso-trigger-tooltip"
+                    ng-class="field.type === 'select' ? 'sso-input-tooltip-with-label' : ''"
+                    aria-expanded="false"
+                    id="note-{{field.name}}"
+                    ng-click="showNote($event, field)">{{whyText}}</a>
+        </div>
+        <a
+                ng-if="field.note && field.type !== 'select' && !vm[formName][field.name].$viewValue.length"
+                href="javascript: void(0);"
+                title="{{whyText}}"
+                class="sso-input-tooltip sso-trigger-tooltip"
+                ng-class="field.type === 'select' ? 'sso-input-tooltip-with-label' : ''"
+                aria-expanded="false"
+                id="note-{{field.name}}"
+                ng-click="showNote($event, field)">{{whyText}}</a>
+
+        <div ng-class="field.showNote ? 'sso-tooltip-active' : ''" class="field-note sso-tooltip-content" ng-if="field.note">{{field.note}}</div>
+        <small class="field-description sso-input-notice" ng-if="field.description">{{field.description}}</small>
+        <p class="field-return-error sso-input-error" ng-if="field.callbackMsg">{{field.callbackMsg}}</p>
+        <i
+                ng-if="field.type !== 'hidden'"
+                ng-show="((field.type === 'password' && (field.name === pw1.name || field.name === pw2.name))) && ((field.name === pw2.name && (field.doesNotMatch && !vm[formName][field.name].$error.required)) || (field.name !== pw2.name && vm[formName][field.name].$invalid && !vm[formName][field.name].$error.required && vm[formName][field.name].$touched && field.type !== 'select' && field.type !== 'radio' && field.type !== 'checkbox'))"
+
+                class="sso-input-tooltip-error fa fa-exclamation-circle fa-lg" aria-hidden="true">
+        </i>
+        <i
+                ng-if="field.type !== 'hidden'"
+                ng-show="((field.type === 'password' && (field.name === pw1.name || field.name === pw2.name))) && ((field.name === pw2.name && field.doesNotMatch === false) || (field.name !== pw2.name && !vm[formName][field.name].$invalid && !vm[formName][field.name].$pristine && vm[formName][field.name].$touched && field.type !== 'select' && field.type !== 'radio' && field.type !== 'checkbox'))"
+
+                class="sso-input-tooltip-success fa fa-check-circle fa-lg" aria-hidden="true"></i>
+        <small
+                id="describedby-{{field.name}}"
+                ng-if="field.type !== 'hidden' && (field.validation || field.name === pw2.name)"
+                ng-show="(field.doesNotMatch && !vm[formName][field.name].$error.required) || (vm[formName][field.name].$invalid && !vm[formName][field.name].$error.required && vm[formName][field.name].$touched)"
+                class="sso-input-error" class="sso-input-error">
+            {{field.errorMsg}}
+        </small>
+        <small
+                id="describedby-{{field.name}}"
+                ng-if="field.type !== 'hidden'"
+                ng-show="(vm[formName][field.name].$isEmpty(vm[formName][field.name].$$modelValue) &&
+                             vm[formName][field.name].$error.required &&
+                             vm[formName][field.name].$touched) ||
+                             (field.type == 'checkbox' &&
+                             vm[formName][field.name].$error.required &&
+                             vm[formName][field.name].$dirty)"
+                class="sso-input-error">
+            {{field.requireMsg}}
+        </small>
+    </div>
+    <div ng-if="requiredfieldstext" class="sso-require-explainer">{{requiredfieldstext}}</div>
+    <div class="sso-spacer-wrapper"></div>
+    <button class="sso-btn-red" type="submit" ng-if="noneRequired">{{submitbtntext}}</button>
+    <button class="sso-btn-red" type="submit" ng-if="!noneRequired" ng-disabled="
+        ((checkMatchForSubmit() && vm[formName].$invalid) ||
+        (checkMatchForSubmit() && vm[formName].$valid) ||
+        (!checkMatchForSubmit() && vm[formName].$invalid) ||
+        (notMatching || vm[formName].$pristine && !session.$dirty))">{{submitbtntext}}</button>
+
+</form>

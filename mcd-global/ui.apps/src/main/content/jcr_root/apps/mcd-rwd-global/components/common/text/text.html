@@ -1,0 +1,9 @@
+<sly data-sly-use.textObj="com.mcd.rwd.global.core.components.common.Text">
+    <sly data-sly-test.isConfigured = "${wcmmode.edit && !textObj.text }">
+        <h1>Click to Edit Text</h1>
+    </sly>
+
+    <sly data-sly-test = "${!isConfigured}">
+        <h1>${textObj.text @ context="html"}</h1>
+    </sly>
+</sly>

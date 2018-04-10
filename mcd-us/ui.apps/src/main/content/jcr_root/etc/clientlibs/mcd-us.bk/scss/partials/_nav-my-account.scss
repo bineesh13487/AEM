@@ -1,0 +1,299 @@
+.component-language-toggle {
+
+  @media only screen and (max-width: 480px){
+    padding: 36px 5px 0 15px;
+  }
+
+  @media only screen and (max-width: 767px){
+    width: 43%;
+  }
+
+  .dropdown-menu .form-inline .form-group.has-error {
+    .form-control {
+      background: $pink;
+    }
+  }
+
+  .btn-red {
+  	background: $red;
+  	color: $white !important;
+  	text-transform: uppercase;
+  	padding: 0px 30px 0px;
+  	opacity: 1;
+  	border: 3px solid $red;
+  	@include fontSet(22px, 0px, $font-lovinsans-medium);
+  	@include border-radius(35px);
+  	@include transition(scale, 0.1s, ease-out, 0s);
+  	position: relative;
+  	display: inline-block;
+    	transform: translateZ(0);
+  	-webkit-transform: translateZ(0);
+  	//-webkit-perspective: 1000;
+  	//-webkit-backface-visibility: hidden;
+    	height: 39px;
+      line-height: 35px;
+
+  	.fa {
+      @include transition(transform, 0.1s, ease-out, 0s);
+  		margin-left: 3px;
+  	}
+
+  	&.small {
+      @include fontSet(20px, 20px, $font-lovinsans-medium);
+  		padding: 0px 25px;
+  		height: 30px;
+  		line-height: 26px;
+
+  		@media only screen and (min-width: 480px){
+  			@include fontSet(22px, 22px, $font-lovinsans-medium);
+  			line-height: 26px;
+  		}
+  		@media only screen and (min-width: 768px){
+  			@include fontSet(20px, 20px, $font-lovinsans-medium);
+  			line-height: 26px;
+  		}
+  		@media only screen and (min-width: 992px){
+  			@include fontSet(22px, 22px, $font-lovinsans-medium);
+  			line-height: 26px;
+  		}
+  	}
+
+  	// Modifier
+  	&.btn--xsm {
+  		padding: 0px 25px;
+  		@include fontSet(16px, 16px, $font-lovinsans-bold);
+  		height: 29px;
+      	line-height: 25px;
+  	}
+
+  	&:before{
+  		content: "";
+  		position: absolute;
+  		z-index: -1;
+  		top: 0;
+  		left: 0;
+  		right: 0;
+  		bottom: 0;
+  		border: 0;
+  		background: $red-hover;
+  		@include border-radius(30px);
+  		-webkit-transform: scale(0);
+  		transform: scale(0);
+  		opacity: 0;
+  		-webkit-transform-origin: 50% 50%;
+  		transform-origin: 50% 50%;
+  		@include transition(transform, opacity, 0.2s, ease-out, 0s);
+  	}
+
+  	&:hover {
+  		color: $white;
+  		border-color: $red-hover;
+  		background: $red-hover;
+
+  		&:before{
+  			-webkit-transform: scale(1);
+      		transform: scale(1);
+  			opacity: 0.8;
+  		}
+  	}
+  	&:focus {
+  		color: $white;
+  	}
+
+  	@media only screen and (min-width: 320px){
+  		@include fontSet(22px, 0px, $font-lovinsans-medium);
+  		line-height: 35px;
+  	}
+  	@media only screen and (min-width: 480px){
+  		@include fontSet(24px, 0px, $font-lovinsans-medium);
+  		line-height: 35px;
+  	}
+  	@media only screen and (min-width: 768px){
+  		@include fontSet(22px, 0px, $font-lovinsans-medium);
+  		line-height: 35px;
+  	}
+  	@media only screen and (min-width: 992px){
+  		@include fontSet(24px, 0px, $font-lovinsans-medium);
+  		line-height: 35px;
+  	}
+  }
+
+
+}
+
+.component-language-toggle .dropdown-menu {
+  &.cont-my-account {
+    padding: 0px;
+
+    .cont-foot .btn-red {
+      line-height: 32px;
+
+      @media only screen and (min-width: 768px){
+        font-size: 13.75px;
+        line-height: 35px;
+      }
+    }
+
+    .dropdown-menu{
+      .form-inline{
+        padding: 0px 15px 15px 15px;
+
+      }
+    }
+  }
+
+  .checkbox label::before{
+    top: 0px;
+  }
+
+  .cont-welcome {
+    padding: 35px 15px 15px;
+
+    h3 {
+      margin: auto;
+      font-size: 18px;
+
+      @media only screen and (min-width: 768px){
+        font-family: $font-lovinsans-medium;
+        font-size: 26px;
+        line-height: 1em;
+      }
+
+    }
+  }
+
+  .account-link {
+    padding: 0px;
+    border-top: 1px solid $gray-border;
+
+    &:before {
+      content: "";
+      display: none;
+    }
+
+    a {
+      padding: 1em;
+      display:block;
+      @include fontSet(22px, 22px, $font-lovinsans-medium);
+      text-transform: uppercase;
+      color: $white;
+
+      &:hover,
+      &:focus,
+      &:active {
+        background: $black;
+      }
+    }
+  }
+
+  .cont-intro {
+    //background: url('../img/nav/my-account/bg.jpg') no-repeat;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+    padding: 40px 30px;
+    margin-top: 40px;
+
+    h3 {
+      @include fontSet(36px, 40px, $font-lovinsans-bold);
+      margin: auto;
+      color:#fff;
+    }
+
+    @media only screen and (min-width: 768px){
+      margin-top: 60px;
+    }
+  }
+
+  .cont-text {
+    h4 {
+      @include fontSet(30px, 34px, $font-lovinsans-bold);
+      margin: 15px auto 0px;
+      color:#fff;
+
+      @media only screen and (min-width: 768px){
+        @include fontSet(36px, 40px, $font-lovinsans-bold);
+      }
+    }
+  }
+
+  .btn-red {
+    display: block;
+  }
+
+  .forgot {
+    @include fontSet(16px, 16px, $font-lovinsans);
+    text-decoration: underline;
+    display: inline-block;
+    margin-top: 10px;
+  }
+
+  .cont-remember-me {
+    margin-bottom: 10px;
+
+    .checkbox label::before {
+      border-color: $white;
+    }
+    .checkbox label::after {
+      color: $white;
+    }
+  }
+
+  .cont-form {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .cont-foot {
+    padding: 20px 30px;
+    margin-top: 0px;
+    border-top: 2px solid #4d4a4b;
+
+    @media only screen and (min-width: 768px){
+      padding: 30px 15px;
+      margin-top: 10px;
+    }
+  }
+}
+
+
+.component-logo{
+  @media only screen and (max-width: 767px){
+    width: 14%;
+  }
+}
+
+
+.messageError{
+	text-align: left;
+    width: 100%;
+    float: left;
+    color: red;
+    margin-bottom: 5px;
+    font-size: 1.25rem;
+    font-family: "LovinSansWeb-Regular", sans-serif;
+}
+
+.deactivated {
+    background: #cccccc !important;
+    cursor: default!important;
+    border: 3px solid #ccc!important;
+    pointer-events: none;
+}
+
+.icon-spinner{
+    height: 32px;
+    width: 32px;
+    background: url(../images/loader.gif) no-repeat;
+    position: absolute;
+    right: 16px;
+    background-size: cover;
+    top: 1px;
+    display:none;
+}
+
+.signinSpinner{
+    right: 48%;
+    top: -8px;
+}
+

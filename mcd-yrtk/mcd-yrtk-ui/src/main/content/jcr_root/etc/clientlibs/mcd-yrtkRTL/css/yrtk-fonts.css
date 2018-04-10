@@ -1,0 +1,77 @@
+@charset "UTF-8";
+[class^="icon"] {
+  background: url("/etc/clientlibs/mcd-yrtk/images/sprite.png") no-repeat 0 0;
+  vertical-align: middle;
+  display: inline-block; }
+
+/**==================== LovinSans Condensed **/
+@font-face {
+  font-family: 'Conv_LovinSansCondensed-Regular';
+  src: url("/etc/clientlibs/mcd-yrtk/css/fonts/LovinSansCondensed-Regular.eot");
+  src: local("?"), url("/etc/clientlibs/mcd-yrtk/css/fonts/LovinSansCondensed-Regular.woff") format("woff"), url("/etc/clientlibs/mcd-yrtk/css/fonts/LovinSansCondensed-Regular.ttf") format("truetype"), url("/etc/clientlibs/mcd-yrtk/css/fonts/LovinSansCondensed-Regular.svg") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Conv_LovinSansCondensed-Light';
+  src: url("/etc/clientlibs/mcd-yrtk/css/fonts/LovinSansCondensed-Light.eot");
+  src: local("?"), url("/etc/clientlibs/mcd-yrtk/css/fonts/LovinSansCondensed-Light.woff") format("woff"), url("/etc/clientlibs/mcd-yrtk/css/fonts/LovinSansCondensed-Light.ttf") format("truetype"), url("/etc/clientlibs/mcd-yrtk/css/fonts/LovinSansCondensed-Light.svg") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Conv_LovinSansCondensed-Bold';
+  src: url("/etc/clientlibs/mcd-yrtk/css/fonts/LovinSansCondensed-Bold.eot");
+  src: local("?"), url("/etc/clientlibs/mcd-yrtk/css/fonts/LovinSansWeb-Bold.woff") format("woff"), url("/etc/clientlibs/mcd-yrtk/css/fonts/LovinSansCondensed-Bold.ttf") format("truetype"), url("/etc/clientlibs/mcd-yrtk/css/fonts/LovinSansCondensed-Bold.svg") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Conv_LovinSansCondensed-Black';
+  src: url("/etc/clientlibs/mcd-yrtk/css/fonts/LovinSansCondensed-Black.eot");
+  src: local("?"), url("/etc/clientlibs/mcd-yrtk/css/fonts/LovinSansWeb-Black.woff") format("woff"), url("/etc/clientlibs/mcd-yrtk/css/fonts/LovinSansCondensed-Black.ttf") format("truetype"), url("/etc/clientlibs/mcd-yrtk/css/fonts/LovinSansCondensed-Black.svg") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+/**==================== LovinSans **/
+@font-face {
+  font-family: 'Conv_LovinSansWeb-Black';
+  src: url("/etc/clientlibs/mcd-yrtk/css/fonts/LovinSansWeb-Black.eot");
+  src: local("?"), url("/etc/clientlibs/mcd-yrtk/css/fonts/LovinSansWeb-Black.woff") format("woff"), url("/etc/clientlibs/mcd-yrtk/css/fonts/LovinSansWeb-Black.ttf") format("truetype"), url("/etc/clientlibs/mcd-yrtk/css/fonts/LovinSansWeb-Black.svg") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Conv_LovinSansWeb-Bold';
+  src: url("/etc/clientlibs/mcd-yrtk/css/fonts/LovinSansWeb-Bold.eot");
+  src: local("?"), url("/etc/clientlibs/mcd-yrtk/css/fonts/LovinSansWeb-Bold.woff") format("woff"), url("/etc/clientlibs/mcd-yrtk/css/fonts/LovinSansWeb-Bold.ttf") format("truetype"), url("/etc/clientlibs/mcd-yrtk/css/fonts/LovinSansWeb-Bold.svg") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Conv_LovinSansWeb-Light';
+  src: url("/etc/clientlibs/mcd-yrtk/css/fonts/LovinSansWeb-Light.eot");
+  src: local("?"), url("/etc/clientlibs/mcd-yrtk/css/fonts/LovinSansWeb-Light.woff") format("woff"), url("/etc/clientlibs/mcd-yrtk/css/fonts/LovinSansWeb-Light.ttf") format("truetype"), url("/etc/clientlibs/mcd-yrtk/css/fonts/LovinSansWeb-Light.svg") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Conv_LovinSansWeb-Medium';
+  src: url("/etc/clientlibs/mcd-yrtk/css/fonts/LovinSansWeb-Medium.eot");
+  src: local("?"), url("/etc/clientlibs/mcd-yrtk/css/fonts/LovinSansWeb-Medium.woff") format("woff"), url("/etc/clientlibs/mcd-yrtk/css/fonts/LovinSansWeb-Medium.ttf") format("truetype"), url("/etc/clientlibs/mcd-yrtk/css/fonts/LovinSansWeb-Medium.svg") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Conv_LovinSansWeb-Regular';
+  src: url("/etc/clientlibs/mcd-yrtk/css/fonts/LovinSansWeb-Regular.eot");
+  src: local("?"), url("/etc/clientlibs/mcd-yrtk/css/fonts/LovinSansWeb-Regular.woff") format("woff"), url("/etc/clientlibs/mcd-yrtk/css/fonts/LovinSansWeb-Regular.ttf") format("truetype"), url("/etc/clientlibs/mcd-yrtk/css/fonts/LovinSansWeb-Regular.svg") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Conv_LovinSansWeb-Thin';
+  src: url("/etc/clientlibs/mcd-yrtk/css/fonts/LovinSansWeb-Thin.eot");
+  src: local("?"), url("/etc/clientlibs/mcd-yrtk/css/fonts/LovinSansWeb-Thin.woff") format("woff"), url("/etc/clientlibs/mcd-yrtk/css/fonts/LovinSansWeb-Thin.ttf") format("truetype"), url("/etc/clientlibs/mcd-yrtk/css/fonts/LovinSansWeb-Thin.svg") format("svg");
+  font-weight: normal;
+  font-style: normal; }

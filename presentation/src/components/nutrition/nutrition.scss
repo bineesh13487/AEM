@@ -1,0 +1,126 @@
+@import "../elements/panel/panel.scss";
+@import "../elements/accordion/accordion.scss";
+
+.mcd-nutrition {
+  @extend .clearfix;
+
+  &__container {
+    @include make-xs-column(12, 0);
+    @include make-md-column(8, 0);
+    @include make-md-column-offset(2);
+
+    text-align: center;
+    padding: to-rem(90) to-rem(30);
+
+    .icon-chevron-down.active:before {
+      transform: rotate(180deg);
+      transition: transform 0.5s linear;
+    }
+
+    .icon-chevron-down:before {
+      transform: rotate(0deg);
+      transition: transform 0.5s linear;
+    }
+
+    .nutrition__title {
+      font-family: "ArchSans";
+      font-size: to-rem(40);
+      line-height: to-rem(46);
+    }
+
+    .nutrition__text {
+      color: $dark-gray-1;
+      font-size: to-rem(16);
+      line-height: to-rem(22);
+    }
+
+    .nutrition__content {
+      margin-bottom: to-rem(20);
+
+      .item-container {
+        @include make-row(0);
+
+        margin: 0 auto;
+        text-align: center;
+        padding-left: 20%;
+      }
+
+      .item {
+        @include make-row(0);
+
+        display: inline-block;
+        width: 24%;
+
+        .value {
+          font-size: to-rem(40);
+        }
+
+        .metric {
+          font-size: to-rem(16);
+        }
+      }
+    }
+
+    .nutrition__labels {
+      @include make-row(0);
+
+      margin-top: to-rem(50);
+
+      .label-list {
+        display: inline-block;
+        width: 32%;
+
+        .label-item {
+          @extend .clearfix;
+
+          list-style: none;
+          border-bottom: to-rem(1) dotted black;
+          margin-top: to-rem(30);
+
+          .metric {
+            font-size: to-rem(16);
+            float: left;
+          }
+
+          .value {
+            font-size: to-rem(16);
+            float: right;
+          }
+        }
+      }
+    }
+
+    .nutrition__ingredients-content {
+      @include make-xs-column(12, 0);
+
+      .nutrition-column {
+        @include make-xs-column(12, 0);
+        @include make-row(0);
+
+        display: inline-block;
+        columns: 2;
+
+        .item-header {
+          color: #292929;
+          font-size: to-rem(16);
+        }
+
+        .column-item {
+          @include make-row(12);
+
+          -webkit-column-break-inside: avoid;
+          margin-bottom: to-rem(30);
+
+          .statement {
+            text-align: left;
+            font-size: to-rem(14);
+            font-size: 1rem;
+            color: $dark-gray-1;
+            font-weight: 300;
+            margin-top: to-rem(10);
+          }
+        }
+      }
+    }
+  }
+}

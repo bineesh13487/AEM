@@ -1,0 +1,249 @@
+/// @group pages
+$page-contact-us__subpage: ".page-contact-us__subpage";
+
+#{$page-contact-us__subpage} {
+  &__content {
+  overflow: hidden;
+  
+    @include headers {
+      @include fontSet(34px, 1em, $font-lovinsans-bold);
+
+      @include breakpoint(sm){ @include fontSet(40px, 1em, $font-lovinsans-bold); }
+    }
+
+    p {
+      @include fontSet(24px, 1.3em, $font-lovinsans);
+
+      @include breakpoint(sm){ @include fontSet(28px, 1.3em, $font-lovinsans); }
+    }
+
+    h3{
+        @include breakpoint(sm){ @include fontSet(46px, 1em, $font-lovinsans-bold); }
+        @include breakpoint(md){ @include fontSet(52px, 1em, $font-lovinsans-bold); }
+    }
+
+    a {
+      color: $red;
+    }
+
+    .restaurantLocatorOpenModalBtn {
+        margin-bottom: 15px;
+
+        .form-group {
+          margin-bottom: 5px;
+        }
+    }
+
+    section {
+      padding: 24px 0;
+
+      @include breakpoint(sm){
+        padding: 40px 0;
+      }
+
+      @include breakpoint(md){
+       padding: 48px 0;
+        h4{
+            margin-bottom: 15px;
+            @include fontSet(48px, 1em, $font-lovinsans-bold);
+        }
+      }
+    }
+    
+    h3,
+    h4{
+      +.sub{
+        margin-bottom: 20px;
+      }
+    }
+
+    sub,
+    .sub,
+    p.sub{
+        @include font-size(20px, 28px, $font-lovinsans);
+    }
+  }
+
+  &__how-can-we-help {
+    max-height: none;
+
+    @include breakpoint(sm) {
+      max-height: 300px;
+    }
+
+    .how-can-we-help-text {
+      h3 {
+        @include breakpoint(sm) { @include fontSet(52px, 1em, $font-lovinsans-bold); }
+        @include breakpoint(md) { @include fontSet(60px, 1em, $font-lovinsans-bold); }
+        @media (max-width: 500px) {
+          @include fontSet(80px, 1em, $font-lovinsans-bold);
+        }
+        @media (max-width: 767px) {
+          width: 95%;
+        }
+      }
+      p {
+        @include fontSet(28px, 1.2em, $font-lovinsans);
+        color: $gray;
+      }
+      a {
+        text-decoration: underline;
+      }
+    }
+
+    /// RECEIPT IMAGE ADDITION
+    .feedback-receipt {
+      left: 0;
+      bottom: 0;
+      z-index: -1;
+      position: relative;
+      overflow: hidden;
+
+      @media (max-width: 767px) {
+        top: 60px !important;
+      }
+      @media (max-width: 450px) {
+        top: 90px !important;
+        left: 55px;
+      }
+      @media (max-width: 400px) {
+        top: 110px !important;
+        left: 55px;
+      }
+    }
+  }
+
+  &__select-restaurant {
+      .radio{
+          display: inline-block;
+          margin-left: 15px;
+          margin-top: 10px;
+      }
+  }
+
+  &__tell-us{
+      @include fontSet(26px, 36px, $font-lovinsans);
+
+      h3{
+          margin-bottom: 10px;
+      }
+
+      .cont-sub {
+        float: left ;
+      }
+      sub{
+          @include font-size(20px, 0em, $font-lovinsans);
+      }
+
+      .select-label{
+          @include breakpoint(sm){
+              line-height: 41px;
+          }
+      }
+
+      .form-group{
+          margin-bottom: 5px;
+
+           @include breakpoint(sm){
+               margin-bottom: 25px;
+           }
+
+      }
+
+      .file-input-container{
+          .row{
+              margin-top: 15px;
+          }
+      }
+  }
+
+  .component-hero .absolute-content .absolute-content-wrapper h1{
+      margin-top: 0px;
+      margin-bottom: 0;
+  }
+  .component-hero .absolute-content .absolute-content-wrapper p{
+      @include breakpoint(xs){ margin-bottom: 20px; }
+  }
+}
+
+#{$page-contact-us},
+#{$page-contact-us__subpage} {
+  .cont-captcha{
+    margin-bottom: 15px;
+  }
+
+  div.disclaimer {
+    p{
+        font-size: .9em;
+    }
+
+  }
+
+  @include headers {
+    > sub {
+      font-size: .52em;
+      font-family: $font-lovinsans;
+
+      @include up-to-breakpoint(sm){
+        &:before {
+          content: ' ';
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+%hero-within-contact-us {
+  margin-bottom: 0px;
+
+  @include headers {
+    margin: 0;
+  }
+
+  >.background-container {
+    max-height: 658px;
+    overflow: hidden;
+  }
+
+  h1 {
+    font-family: $font-lovinsans-black;
+  }
+
+  .component-hero .absolute-content .absolute-content-wrapper h1{
+      margin-top: 5px;
+  }
+
+  .contact-us-link {
+    @include fontSet(24px, 1em, $font-lovinsans);
+    text-shadow: 1px 1px 3px rgba(black, .3);
+    @include position(absolute, 1em 0 0 0px); width: 100%;
+
+    a {
+      color: $white;
+      text-decoration: underline;
+    }
+  }
+}
+
+.row-title {
+  background-color: $light-gray;
+}
+
+.pl20{
+  padding-right:20px;
+}
+
+@include withinBlock($page-contact-us, $component-hero, true) { @extend %hero-within-contact-us; }
+@include withinBlock($page-contact-us__subpage, $component-hero, true) { @extend %hero-within-contact-us; }
+
+
+.page-contact-us-section-override{
+  section {
+      padding: 20px 0px !important;
+     }
+}
+
+.page-contact-us__subpage__content .cont-sub {
+      float: left !important;
+}

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="sling:OsgiConfig"
+    mcd.factoryConfig.country="us"
+    mcd.factoryConfig.country.language="en"
+    mcd.factoryConfig.dna.country="US"
+    mcd.factoryConfig.dna.country.language="en"
+    mcd.factoryConfig.language.notAvailable="{Boolean}false"
+    mcd.factoryConfig.product.shortUrl="{Boolean}false"
+    mcd.factoryConfig.productImages.iconicImages.path="/content/dam/usr/iconic"
+    mcd.factoryConfig.productImages.path="/content/dam/usr/product"
+    mcd.factoryConfig.productImages.productPage.path="/content/dam/usr/productPage"
+    mcd.factoryConfig.productPage.path="/content/us/en/product"
+    mcd.factoryConfig.social.share.locale="en_US"
+    mcd.factoryConfig.solrCollection="http://solr.staging.mcdonalds.com/solr/USMCD_RWD"
+    mcd.factoryConfig.itemAttr.nutrition_attribute_id_val= "0"
+	mcd.factoryConfig.itemAttr="17|18|20|21|33|34|58|439"
+    />

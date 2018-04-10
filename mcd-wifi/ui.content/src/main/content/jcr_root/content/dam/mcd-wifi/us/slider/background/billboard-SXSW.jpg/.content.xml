@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:tiff="http://ns.adobe.com/tiff/1.0/" xmlns:xmp="http://ns.adobe.com/xap/1.0/" xmlns:xmpMM="http://ns.adobe.com/xap/1.0/mm/" xmlns:stRef="http://ns.adobe.com/xap/1.0/sType/ResourceRef#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dam="http://www.day.com/dam/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:isCheckedOut="{Boolean}true"
+    jcr:mixinTypes="[mix:versionable]"
+    jcr:primaryType="dam:Asset"
+    jcr:uuid="bf3ed9ac-d3ae-4b4f-9170-95b4c9e680fd">
+    <jcr:content
+        cq:lastModified="{Date}2016-06-03T15:20:04.104+05:30"
+        cq:lastModifiedBy="admin"
+        cq:name="billboard-SXSW.jpg"
+        cq:parentPath="/content/dam/mcd-wifi/us/slider/background"
+        jcr:lastModified="{Date}2016-06-03T15:22:38.775+05:30"
+        jcr:lastModifiedBy="admin"
+        jcr:primaryType="dam:AssetContent">
+        <metadata
+            dam:Bitsperpixel="{Long}24"
+            dam:extracted="{Date}2016-06-03T15:22:37.675+05:30"
+            dam:Fileformat="JPEG"
+            dam:MIMEtype="image/jpeg"
+            dam:Numberofimages="{Long}1"
+            dam:Numberoftextualcomments="{Long}0"
+            dam:Physicalheightindpi="{Long}-1"
+            dam:Physicalheightininches="{Decimal}-1.0"
+            dam:Physicalwidthindpi="{Long}-1"
+            dam:Physicalwidthininches="{Decimal}-1.0"
+            dam:Progressive="no"
+            dam:sha1="2f6d8bf8ef88385a296aeddb944044d87dad7739"
+            dam:size="{Long}471188"
+            dc:format="image/jpeg"
+            dc:modified="{Date}2016-05-26T12:04:17.300+05:30"
+            jcr:lastModified="{Date}2016-06-03T15:20:08.013+05:30"
+            jcr:lastModifiedBy="admin"
+            jcr:mixinTypes="[cq:Taggable]"
+            jcr:primaryType="nt:unstructured"
+            tiff:ImageLength="{Long}1200"
+            tiff:ImageWidth="{Long}2040"
+            xmp:CreatorTool="Adobe Photoshop CC 2014 (Macintosh)"
+            xmpMM:DocumentID="xmp.did:15710708DFE211E5BC24EB118AC1F944"
+            xmpMM:InstanceID="xmp.iid:15710707DFE211E5BC24EB118AC1F944"
+            xmpMM:OriginalDocumentID="xmp.did:cc10b780-3fd5-43e7-bb3f-980e3542f139">
+            <xmpMM:DerivedFrom
+                jcr:primaryType="nt:unstructured"
+                stRef:documentID="xmp.did:0FF26B4ADBC811E59744A2200FBE797B"
+                stRef:instanceID="xmp.iid:0FF26B49DBC811E59744A2200FBE797B"
+                xmpNodeType="xmpStruct"/>
+        </metadata>
+        <related jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>

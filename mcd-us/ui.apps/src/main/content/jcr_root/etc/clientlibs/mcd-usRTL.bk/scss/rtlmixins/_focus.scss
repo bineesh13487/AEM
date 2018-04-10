@@ -1,0 +1,6 @@
+/// Targets `:focus` and `:hover` of block.
+@mixin focus {
+  &:focus, &:hover {
+    @content;
+  }
+}

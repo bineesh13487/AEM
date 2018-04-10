@@ -1,0 +1,4 @@
+#base=js
+jquery.min.js
+angular.js
+angular-sanitize.min.js

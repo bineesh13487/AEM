@@ -1,0 +1,17 @@
+<!--/* 
+    Legal Disclaimer
+*/-->
+<div data-component="legalDisclaimer" class="mcd-legal-disclaimer" data-sly-use.legal="com.mcd.rwd.us.core.sightly.LegalFooterHandler">
+    <div class="mcd-legal-disclaimer__container">
+        <div class="content">
+            <span class="heading">${legal.legalTextHeading @ context='html'}</span>
+            ${legal.legalText @ context='html'}
+        </div>
+        <div class="read-more">
+            <a href="#" title="Read More" class="link">Read More<br><i class="icon-chevron-down"></i></a>
+        </div>
+    </div>
+</div>
+<sly data-sly-test="${(legal.legalText == null) && (wcmmode.edit || wcmmode.design)}">
+    <h3>Please Configure the Legal Footer Component From Site Config</h3>
+</sly>

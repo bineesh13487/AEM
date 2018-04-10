@@ -1,0 +1,35 @@
+<!--/* 
+    Menu list Flyout
+*/-->
+<sly data-sly-use.info="com.mcd.rwd.us.core.sightly.MenuListFlyOut">
+	<sly data-sly-test="${wcmmode.edit && info.link==null}">
+		<h3>Please click to configure the Menu List Flyout component</h3>
+	</sly>
+	<div data-sly-test="${info.link}" class="flyout-menu__container">
+		<ul class="menu-items clearfix">
+			<sly data-sly-test="${info.firstList}">
+				<sly data-sly-list.firstList="${info.firstList}">
+					<li class="menu-item">
+						<a href="${firstList.path}" data-at="TopNav:${info.pageTitle}:${firstList.title}" class="link" data-track="topNav" title="${firstList.title}">
+							<img src="/content/dam/usa/navigation/menu-item.jpg.thumb.100.140.png" alt="${firstList.title}" />
+							${firstList.title}
+						</a>
+					</li>
+				</sly>
+			</sly>
+			<sly data-sly-test="${info.secondList}">
+				<sly data-sly-list.secondList="${info.secondList}">
+					<li class="menu-item">
+						<a href="${secondList.path}" data-at="TopNav:${info.pageTitle}:${secondList.title}" class="link" data-track="topNav" title="${secondList.title}">
+							<img src="/content/dam/usa/navigation/menu-item.jpg.thumb.100.140.png" alt="${secondList.title}" />
+							${secondList.title}
+						</a>
+					</li>
+				</sly>
+			</sly>
+		</ul>
+		<div data-sly-test="${info.title}" class="view-full-menu">
+			<a href="${info.link}" class="button" data-at="TopNav:${info.pageTitle}:${info.title}" data-track="topNav" title="${info.title}">${info.title}</a>
+		</div>
+	</div>
+</sly>

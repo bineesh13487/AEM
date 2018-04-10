@@ -1,0 +1,26 @@
+/* config */
+@import "./functions.scss";
+@import "./config/variables.scss";
+@import "./config/colors.scss";
+@import "./config/fonts.scss";
+
+/* typography */
+@import "./typography.scss";
+@import "./accessibility.scss";
+
+
+#maincontent {
+  margin-top: 0 !important;
+}
+
+[ng\:cloak],
+[ng-cloak],
+[data-ng-cloak],
+[x-ng-cloak],
+.ng-cloak,
+.x-ng-cloak {
+  display: none !important;
+}
+.ng-cloak-hide {
+  display: none !important;
+}

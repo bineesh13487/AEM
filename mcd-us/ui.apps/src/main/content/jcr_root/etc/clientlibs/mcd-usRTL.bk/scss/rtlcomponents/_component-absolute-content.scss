@@ -1,0 +1,26 @@
+.absolute-content  {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	font: 0/0 a; /* remove the gap between inline(-block) elements */
+
+	&:before {
+		content: ' ';
+		display: inline-block;
+		height: 100%;
+		vertical-align: middle;
+	}
+
+	.absolute-content-wrapper {
+		display: inline-block;
+		vertical-align: middle;
+		text-align: center;
+		color: $white;
+		width: 100%;
+		padding: 1% 0;
+	}
+
+	@include headline-text();
+}

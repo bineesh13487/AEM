@@ -1,0 +1,12 @@
+<!--/*
+    Custom Footer Libs
+*/-->
+<sly data-sly-use.clientLib="${'/libs/granite/sightly/templates/clientlib.html'}">
+    <sly data-sly-call="${clientLib.js @ categories='mcd-wifi.commons-sxsw'}"></sly>
+</sly>
+<script>
+	$(window).load(function() {
+		$(".se-pre-con").fadeOut(2000);
+	});
+</script>
+<script src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>

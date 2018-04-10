@@ -1,0 +1,9 @@
+<sly data-sly-use.linkObj="com.mcd.rwd.global.core.components.common.Link">
+    <sly data-sly-test.isConfigured = "${wcmmode.edit && (!linkObj.linkText || !linkObj.linkUrl)}">
+        <h1>Click to Edit Link Component</h1>
+    </sly>
+    <sly data-sly-test = "${!isConfigured}">
+        <a data-sly-test="${linkObj.linkText && linkObj.linkUrl}" href="${linkObj.linkUrl}"
+           target="${linkObj.targetText}">${linkObj.linkText}</a>
+    </sly>
+</sly>

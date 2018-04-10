@@ -1,0 +1,35 @@
+
+<!DOCTYPE HTML>
+<html ng-app="usr">
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"
+      data-sly-use.headlibRenderer="headlibs.html"
+      data-sly-use.clientLib="${'/libs/granite/sightly/templates/clientlib.html'}">
+<sly data-sly-call="${headlibRenderer.headlibs @ designPath = meta.designPath}"/>
+<sly data-sly-include="author.html"/>
+
+<!--/* Leaving it blank to add project specific libraries if required */-->
+<sly data-sly-include="customheaderlibs.html"/>
+<title>Deals</title>
+    <body>
+<sly>
+      <main id="maincontent" tabindex="0" class="main" role="main" ng-style="{'margin-top': marginTop}">
+      <div class="page-redirect-template" data-sly-use.redirect="com.mcd.rwd.us.core.sightly.RedirectHandler" data-ng-controller="redirectController"
+                    data-ng-init="init([${redirect.tagSet}],'${redirect.dealsPageUrl}','${redirect.coopInUrl}','${redirect.coopOutUrl}','${properties.evaluate}')" data-mode="authorMode_${wcmmode.edit || wcmmode.design}">
+      </div>
+      </main>
+<footer class="footer">
+</footer>
+<sly data-sly-use.clientLib="${'/libs/granite/sightly/templates/clientlib.html'}">
+    <js data-sly-call="${clientLib.js @ categories='mcd.us,mcd.yrtk'}"></js>
+</sly>
+</sly>
+
+    </body>
+
+
+
+</html>

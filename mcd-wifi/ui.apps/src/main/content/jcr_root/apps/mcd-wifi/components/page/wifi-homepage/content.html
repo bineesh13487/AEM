@@ -1,0 +1,20 @@
+<!--/*
+    Content Section
+*/-->
+<span id="lat"></span> <span id="lon"></span>
+<sly data-sly-use.page="com.mcd.rwd.wifi.core.sightly.page.Page"/>
+<span class="dataforheader" data-dpmorning="${page.getDayPartMorning}" data-dpafternoon="${page.getDayPartAfternoon}" data-dpevening="${page.getDayPartEvening}" data-cookiegreetings="${page.getCookieGreetings}" data-defaultgreeting="${page.getDefaultGreeting}"></span>
+<div class="middle-box" data-sly-resource="${'par' @ resourceType='wcm/foundation/components/parsys'}"></div>
+
+<section id="social">
+    <div class="bottom-half">
+        <div class="row nopadding">
+            <section class="grid-wrapper">
+                <div class="row grid">
+                    <div data-sly-resource="${'bottom-par' @ resourceType='wcm/foundation/components/parsys'}"></div>
+                </div>
+            </section>
+        </div>
+    </div>
+</section>
+

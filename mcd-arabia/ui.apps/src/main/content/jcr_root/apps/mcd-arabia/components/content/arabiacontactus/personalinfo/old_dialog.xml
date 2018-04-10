@@ -1,0 +1,710 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Dialog"
+    xtype="dialog">
+    <items
+        jcr:primaryType="cq:Widget"
+        xtype="tabpanel">
+        <items jcr:primaryType="cq:WidgetCollection">
+            <fieldslist
+                jcr:primaryType="cq:Panel"
+                title="Fields List">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <checkboxlist
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="&lt;b>Note: First Name,Last Name and Email Address is Mandatory(*) field.&lt;/b>"
+                        fieldLabel="FieldList"
+                        name="./fieldsList"
+                        type="checkbox"
+                        xtype="selection">
+                        <options jcr:primaryType="cq:WidgetCollection">
+                            <title
+                                jcr:primaryType="nt:unstructured"
+                                text="User Title"
+                                value="ctitle"/>
+                            <firstname
+                                jcr:primaryType="nt:unstructured"
+                                itemId="fnamecheckbox"
+                                text="First Name *"
+                                value="fname"/>
+                            <middlename
+                                jcr:primaryType="nt:unstructured"
+                                text="Middle Name"
+                                value="mname"/>
+                            <lastname
+                                jcr:primaryType="nt:unstructured"
+                                text="Last Name *"
+                                value="lname"/>
+                            <email
+                                jcr:primaryType="nt:unstructured"
+                                text="Email Address *"
+                                value="cemail"/>
+                            <countrycode
+                                jcr:primaryType="nt:unstructured"
+                                text="Mobile Phone Country Code"
+                                value="ccntrycode"/>
+                            <areacode
+                                jcr:primaryType="nt:unstructured"
+                                text="Mobile Phone Service Provider Code"
+                                value="careacode"/>
+                            <number
+                                jcr:primaryType="nt:unstructured"
+                                text="Mobile Phone Number"
+                                value="cnumber"/>
+                            <gender
+                                jcr:primaryType="nt:unstructured"
+                                text="Gender"
+                                value="cgender"/>
+                            <nationality
+                                jcr:primaryType="nt:unstructured"
+                                text="Nationality"
+                                value="cnationality"/>
+                            <maritalstatus
+                                jcr:primaryType="nt:unstructured"
+                                text="Marital Status"
+                                value="cmarstatus"/>
+                            <prefcontact
+                                jcr:primaryType="nt:unstructured"
+                                text="Preferred Method of Contact"
+                                value="cprefcontact"/>
+                            <hearfromus
+                                jcr:primaryType="nt:unstructured"
+                                text="Hear About Us"
+                                value="chearus"/>
+                            <dob
+                                jcr:primaryType="nt:unstructured"
+                                text="Date of Birth"
+                                value="cdob"/>
+                        </options>
+                        <listeners
+                            jcr:primaryType="nt:unstructured"
+                            selectionchanged="function( field,value, isChecked ){  &#xa;var dlg = field.findParentByType('dialog');&#xa;var comp=dlg.find(&quot;itemId&quot;,value)[0];&#xa;if(isChecked){&#xa;comp.show();&#xa;}else{&#xa;comp.hide();&#xa;}&#xa;&#xa;}"/>
+                    </checkboxlist>
+                </items>
+            </fieldslist>
+            <fieldsdesc
+                jcr:primaryType="cq:Panel"
+                title="Fields Text">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <titledesc
+                        jcr:primaryType="cq:Widget"
+                        collapsed="{Boolean}true"
+                        collapsible="{Boolean}true"
+                        itemId="ctitle"
+                        title="User Title"
+                        xtype="dialogfieldset">
+                        <items jcr:primaryType="cq:WidgetCollection">
+                            <titleText
+                                jcr:primaryType="cq:Widget"
+                                fieldDescription="Text for title field. Default set to &lt;b>Title&lt;/b>."
+                                fieldLabel="Title Text"
+                                name="./titleText"
+                                xtype="textfield"/>
+                            <title
+                                jcr:primaryType="cq:Widget"
+                                fieldDescription="Please provide title by clicking + button. First provided value will be considered as a Representative Value"
+                                fieldLabel="Title"
+                                name="./title"
+                                xtype="multifield">
+                                <fieldConfig
+                                    jcr:primaryType="nt:unstructured"
+                                    xtype="textfield"/>
+                            </title>
+                            <titleValidation
+                                jcr:primaryType="cq:Widget"
+                                defaultValue="no"
+                                fieldDescription="Please select title is required or not. Default set to &lt;b>no&lt;/b>"
+                                fieldLabel="Title Required"
+                                name="./titleReq"
+                                type="select"
+                                xtype="selection">
+                                <options jcr:primaryType="cq:WidgetCollection">
+                                    <yes
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Yes"
+                                        value="yes"/>
+                                    <no
+                                        jcr:primaryType="nt:unstructured"
+                                        text="No"
+                                        value="no"/>
+                                </options>
+                            </titleValidation>
+                            <titleValidationMessage
+                                jcr:primaryType="cq:Widget"
+                                fieldDescription="Validation message for Title field. Default set to &lt;b>Please select Title&lt;/b>"
+                                fieldLabel="Title Validation Message"
+                                name="./titleMessage"
+                                xtype="textfield"/>
+                        </items>
+                    </titledesc>
+                    <firstnamedesc
+                        jcr:primaryType="cq:Widget"
+                        collapsed="{Boolean}true"
+                        collapsible="{Boolean}true"
+                        itemId="fname"
+                        title="First Name *"
+                        xtype="dialogfieldset">
+                        <items jcr:primaryType="cq:WidgetCollection">
+                            <firstNameText
+                                jcr:primaryType="cq:Widget"
+                                defaultValue="First Name "
+                                fieldDescription="Text for First Name field. Default set to &lt;b>First Name &lt;/b>"
+                                fieldLabel="First name Text"
+                                name="./firstName"
+                                xtype="textfield"/>
+                            <firstNameValidationMessage
+                                jcr:primaryType="cq:Widget"
+                                fieldDescription="Validation message for First Name field. Default set to &lt;b>Please enter First Name &lt;/b>"
+                                fieldLabel="First Name Validation Message"
+                                name="./firstNameValidationMessage"
+                                xtype="textfield"/>
+                        </items>
+                    </firstnamedesc>
+                    <middlenamedesc
+                        jcr:primaryType="cq:Widget"
+                        collapsed="{Boolean}true"
+                        collapsible="{Boolean}true"
+                        itemId="mname"
+                        title="Middle Name"
+                        xtype="dialogfieldset">
+                        <items jcr:primaryType="cq:WidgetCollection">
+                            <middleNameText
+                                jcr:primaryType="cq:Widget"
+                                fieldDescription="Text for Middle Name field. Default set to &lt;b>Middle Name&lt;/b>."
+                                fieldLabel="Middle Name Text"
+                                name="./middleName"
+                                xtype="textfield"/>
+                            <middleNameValidation
+                                jcr:primaryType="cq:Widget"
+                                defaultValue="no"
+                                fieldDescription="Please select Middle Name is required or not. Default set to &lt;b>No&lt;/b>"
+                                fieldLabel="Middle Name Required"
+                                name="./middleNameReq"
+                                type="select"
+                                xtype="selection">
+                                <options jcr:primaryType="cq:WidgetCollection">
+                                    <yes
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Yes"
+                                        value="yes"/>
+                                    <no
+                                        jcr:primaryType="nt:unstructured"
+                                        text="No"
+                                        value="no"/>
+                                </options>
+                            </middleNameValidation>
+                            <middleNameValidationMessage
+                                jcr:primaryType="cq:Widget"
+                                fieldDescription="Validation message for Middle Name field. Default set to &lt;b>Please enter Middle Name. &lt;/b>"
+                                fieldLabel="Middle Name Validation Message"
+                                name="./middleNameMessage"
+                                xtype="textfield"/>
+                        </items>
+                    </middlenamedesc>
+                    <lastnamedesc
+                        jcr:primaryType="cq:Widget"
+                        collapsed="{Boolean}true"
+                        collapsible="{Boolean}true"
+                        itemId="lname"
+                        title="Last Name *"
+                        xtype="dialogfieldset">
+                        <items jcr:primaryType="cq:WidgetCollection">
+                            <lastNameText
+                                jcr:primaryType="cq:Widget"
+                                defaultValue="Last Name "
+                                fieldDescription="Text for last name field. Default set to &lt;b>Last Name &lt;/b>"
+                                fieldLabel="Last name Text"
+                                name="./lastName"
+                                xtype="textfield"/>
+                            <lastNameValidationMessage
+                                jcr:primaryType="cq:Widget"
+                                fieldDescription="Validation message for Last Name field. Default set to &lt;b>Please enter Last Name&lt;/b>"
+                                fieldLabel="Last Name Validation Message"
+                                name="./lastNameMessage"
+                                xtype="textfield"/>
+                        </items>
+                    </lastnamedesc>
+                    <emaildesc
+                        jcr:primaryType="cq:Widget"
+                        collapsed="{Boolean}true"
+                        collapsible="{Boolean}true"
+                        itemId="cemail"
+                        title="Email Address *"
+                        xtype="dialogfieldset">
+                        <items jcr:primaryType="cq:WidgetCollection">
+                            <emailText
+                                jcr:primaryType="cq:Widget"
+                                defaultValue="Email "
+                                fieldDescription="Text for email field. Default set to &lt;b>Email &lt;/b>"
+                                fieldLabel="Email Text"
+                                name="./email"
+                                xtype="textfield"/>
+                            <emailValidationMessage
+                                jcr:primaryType="cq:Widget"
+                                fieldDescription="Validation message for email field. Default set to &lt;b>Please enter Email &lt;/b>"
+                                fieldLabel="Email Validation Message"
+                                name="./emailMessage"
+                                xtype="textfield"/>
+                        </items>
+                    </emaildesc>
+                    <countrycodedesc
+                        jcr:primaryType="cq:Widget"
+                        collapsed="{Boolean}true"
+                        collapsible="{Boolean}true"
+                        itemId="ccntrycode"
+                        title="Mobile Phone Country Code"
+                        xtype="dialogfieldset">
+                        <items jcr:primaryType="cq:WidgetCollection">
+                            <countrycodeText
+                                jcr:primaryType="cq:Widget"
+                                fieldDescription="&#xa;Text for Country Code field. Default set to &lt;b>Country Code&lt;/b>."
+                                fieldLabel="Country Code Text"
+                                name="./countryCode"
+                                xtype="textfield"/>
+                            <countrycodeValidation
+                                jcr:primaryType="cq:Widget"
+                                defaultValue="no"
+                                fieldDescription="Please select Country Code is required or not. Default set to &lt;b>No&lt;/b>"
+                                fieldLabel="Country Code Required"
+                                name="./countryCodeReq"
+                                type="select"
+                                xtype="selection">
+                                <options jcr:primaryType="cq:WidgetCollection">
+                                    <yes
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Yes"
+                                        value="yes"/>
+                                    <no
+                                        jcr:primaryType="nt:unstructured"
+                                        text="No"
+                                        value="no"/>
+                                </options>
+                            </countrycodeValidation>
+                            <countrycodeValidationMessage
+                                jcr:primaryType="cq:Widget"
+                                fieldDescription="Validation message for Country Code field. Default set to &lt;b>Please enter Country Code &lt;/b>"
+                                fieldLabel="Country Code Validation Message"
+                                name="./countryCodeMessage"
+                                xtype="textfield"/>
+                        </items>
+                    </countrycodedesc>
+                    <areacodedesc
+                        jcr:primaryType="cq:Widget"
+                        collapsed="{Boolean}true"
+                        collapsible="{Boolean}true"
+                        itemId="careacode"
+                        title="Mobile Phone Service  Provider Code"
+                        xtype="dialogfieldset">
+                        <items jcr:primaryType="cq:WidgetCollection">
+                            <areacodeText
+                                jcr:primaryType="cq:Widget"
+                                fieldDescription="Text for Area Code field. Default set to &lt;b>Area Code&lt;/b>."
+                                fieldLabel="Area Code Text"
+                                name="./areaCode"
+                                xtype="textfield"/>
+                            <areacodeValidation
+                                jcr:primaryType="cq:Widget"
+                                defaultValue="no"
+                                fieldDescription="Please select Area Code is required or not. Default set to &lt;b>No&lt;/b>"
+                                fieldLabel="Area Code Required"
+                                name="./areaCodeReq"
+                                type="select"
+                                xtype="selection">
+                                <options jcr:primaryType="cq:WidgetCollection">
+                                    <yes
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Yes"
+                                        value="yes"/>
+                                    <no
+                                        jcr:primaryType="nt:unstructured"
+                                        text="No"
+                                        value="no"/>
+                                </options>
+                            </areacodeValidation>
+                            <areacodeValidationMessage
+                                jcr:primaryType="cq:Widget"
+                                fieldDescription="Validation message for Area Code field. Default set to &lt;b>Please enter Area Code &lt;/b>"
+                                fieldLabel="Area Code Validation Message"
+                                name="./areaCodeMessage"
+                                xtype="textfield"/>
+                        </items>
+                    </areacodedesc>
+                    <numberdesc
+                        jcr:primaryType="cq:Widget"
+                        collapsed="{Boolean}true"
+                        collapsible="{Boolean}true"
+                        itemId="cnumber"
+                        title="Mobile Phone Number"
+                        xtype="dialogfieldset">
+                        <items jcr:primaryType="cq:WidgetCollection">
+                            <numberText
+                                jcr:primaryType="cq:Widget"
+                                fieldDescription="Text for Mobile Number field. Default set to &lt;b>Number&lt;/b>."
+                                fieldLabel="Number Text"
+                                name="./number"
+                                xtype="textfield"/>
+                            <numberValidation
+                                jcr:primaryType="cq:Widget"
+                                defaultValue="no"
+                                fieldDescription="Please select Number is required or not. Default set to &lt;b>No&lt;/b>"
+                                fieldLabel="Number Required"
+                                name="./numberReq"
+                                type="select"
+                                xtype="selection">
+                                <options jcr:primaryType="cq:WidgetCollection">
+                                    <yes
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Yes"
+                                        value="yes"/>
+                                    <no
+                                        jcr:primaryType="nt:unstructured"
+                                        text="No"
+                                        value="no"/>
+                                </options>
+                            </numberValidation>
+                            <numberValidationMessage
+                                jcr:primaryType="cq:Widget"
+                                fieldDescription="Validation message for Number field. Default set to &lt;b>Please enter Number &lt;/b>"
+                                fieldLabel="Number Validation Message"
+                                name="./numberMessage"
+                                xtype="textfield"/>
+                        </items>
+                    </numberdesc>
+                    <genderdesc
+                        jcr:primaryType="cq:Widget"
+                        collapsed="{Boolean}true"
+                        collapsible="{Boolean}true"
+                        itemId="cgender"
+                        title="Gender"
+                        xtype="dialogfieldset">
+                        <items jcr:primaryType="cq:WidgetCollection">
+                            <genderText
+                                jcr:primaryType="cq:Widget"
+                                fieldDescription="Text for Gender field. Default set to &lt;b>Gender&lt;/b>."
+                                fieldLabel="Gender Text"
+                                name="./genderText"
+                                xtype="textfield"/>
+                            <gender
+                                jcr:primaryType="cq:Widget"
+                                fieldDescription="Please provide Gender by clicking + button. First provided value will be considered as a Representative Value"
+                                fieldLabel="Gender"
+                                name="./gender"
+                                xtype="multifield">
+                                <fieldConfig
+                                    jcr:primaryType="nt:unstructured"
+                                    xtype="textfield"/>
+                            </gender>
+                            <genderValidation
+                                jcr:primaryType="cq:Widget"
+                                defaultValue="no"
+                                fieldDescription="Please select Gender is required or not. Default set to &lt;b>No&lt;/b>"
+                                fieldLabel="Gender Required"
+                                name="./genderReq"
+                                type="select"
+                                xtype="selection">
+                                <options jcr:primaryType="cq:WidgetCollection">
+                                    <yes
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Yes"
+                                        value="yes"/>
+                                    <no
+                                        jcr:primaryType="nt:unstructured"
+                                        text="No"
+                                        value="no"/>
+                                </options>
+                            </genderValidation>
+                            <genderValidationMessage
+                                jcr:primaryType="cq:Widget"
+                                fieldDescription="Validation message for Gender field. Default set to &lt;b>Please select Gender&lt;/b>"
+                                fieldLabel="Gender Validation Message"
+                                name="./genderMessage"
+                                xtype="textfield"/>
+                        </items>
+                    </genderdesc>
+                    <nationalitydesc
+                        jcr:primaryType="cq:Widget"
+                        collapsed="{Boolean}true"
+                        collapsible="{Boolean}true"
+                        itemId="cnationality"
+                        title="Nationality"
+                        xtype="dialogfieldset">
+                        <items jcr:primaryType="cq:WidgetCollection">
+                            <nationalityText
+                                jcr:primaryType="cq:Widget"
+                                fieldDescription="&#xa;Text for Nationality field. Default set to &lt;b>Nationality&lt;/b>."
+                                fieldLabel="Nationality Text"
+                                name="./nationalityText"
+                                xtype="textfield"/>
+                            <nationality
+                                jcr:primaryType="cq:Widget"
+                                fieldDescription="Please provide Nationality by clicking + button. First provided value will be considered as a Representative Value"
+                                fieldLabel="Nationality"
+                                name="./nationality"
+                                xtype="multifield">
+                                <fieldConfig
+                                    jcr:primaryType="nt:unstructured"
+                                    xtype="textfield"/>
+                            </nationality>
+                            <nationalityValidation
+                                jcr:primaryType="cq:Widget"
+                                defaultValue="no"
+                                fieldDescription="Please select Nationality is required or not. Default set to &lt;b>No&lt;/b>"
+                                fieldLabel="Nationality Required"
+                                name="./nationalityReq"
+                                type="select"
+                                xtype="selection">
+                                <options jcr:primaryType="cq:WidgetCollection">
+                                    <yes
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Yes"
+                                        value="yes"/>
+                                    <no
+                                        jcr:primaryType="nt:unstructured"
+                                        text="No"
+                                        value="no"/>
+                                </options>
+                            </nationalityValidation>
+                            <nationalityValidationMessage
+                                jcr:primaryType="cq:Widget"
+                                fieldDescription="Validation message for Nationality field. Default set to &lt;b>Please select Nationality&lt;/b>"
+                                fieldLabel="Nationality Validation Message"
+                                name="./nationalityMessage"
+                                xtype="textfield"/>
+                        </items>
+                    </nationalitydesc>
+                    <maritalstatusdesc
+                        jcr:primaryType="cq:Widget"
+                        collapsed="{Boolean}true"
+                        collapsible="{Boolean}true"
+                        itemId="cmarstatus"
+                        title="Marital Status"
+                        xtype="dialogfieldset">
+                        <items jcr:primaryType="cq:WidgetCollection">
+                            <maritalStatusText
+                                jcr:primaryType="cq:Widget"
+                                fieldDescription="Text for Marital Status field. Default set to &lt;b>Marital Status&lt;/b>."
+                                fieldLabel="MaritalStatus Text"
+                                name="./maritalText"
+                                xtype="textfield"/>
+                            <maritalStatus
+                                jcr:primaryType="cq:Widget"
+                                fieldDescription="Please provide Marital Status by clicking + button. First provided value will be considered as a Representative Value"
+                                fieldLabel="Marital Status"
+                                name="./maritalStat"
+                                xtype="multifield">
+                                <fieldConfig
+                                    jcr:primaryType="nt:unstructured"
+                                    xtype="textfield"/>
+                            </maritalStatus>
+                            <maritalStatusValidation
+                                jcr:primaryType="cq:Widget"
+                                defaultValue="no"
+                                fieldDescription="Please select Marital Status is required or not. Default set to &lt;b>No&lt;/b>"
+                                fieldLabel="Marital Status Required"
+                                name="./maritalstatusReq"
+                                type="select"
+                                xtype="selection">
+                                <options jcr:primaryType="cq:WidgetCollection">
+                                    <yes
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Yes"
+                                        value="yes"/>
+                                    <no
+                                        jcr:primaryType="nt:unstructured"
+                                        text="No"
+                                        value="no"/>
+                                </options>
+                            </maritalStatusValidation>
+                            <maritalValidationMessage
+                                jcr:primaryType="cq:Widget"
+                                fieldDescription="Validation message for Marital Status field. Default set to &lt;b>Please select Marital Status&lt;/b>"
+                                fieldLabel="Marital Status Validation Message"
+                                name="./maritalMessage"
+                                xtype="textfield"/>
+                        </items>
+                    </maritalstatusdesc>
+                    <prefcontactdesc
+                        jcr:primaryType="cq:Widget"
+                        collapsed="{Boolean}true"
+                        collapsible="{Boolean}true"
+                        itemId="cprefcontact"
+                        title="Preferred Method Of Contact"
+                        xtype="dialogfieldset">
+                        <items jcr:primaryType="cq:WidgetCollection">
+                            <prefContactText
+                                jcr:primaryType="cq:Widget"
+                                fieldDescription="Text for Preferred Contact  field. Default set to &lt;b>Preferred Contact&lt;/b>."
+                                fieldLabel="Preferred Contact Text"
+                                name="./prefContactText"
+                                xtype="textfield"/>
+                            <prefContact
+                                jcr:primaryType="cq:Widget"
+                                fieldDescription="Please provide Preferred Contact by clicking + button. First provided value will be considered as a Representative Value"
+                                fieldLabel="Preferred Contact"
+                                name="./preferredCont"
+                                xtype="multifield">
+                                <fieldConfig
+                                    jcr:primaryType="nt:unstructured"
+                                    xtype="textfield"/>
+                            </prefContact>
+                            <prefContactValidation
+                                jcr:primaryType="cq:Widget"
+                                defaultValue="no"
+                                fieldDescription="Please select Preferred Contact is required or not. Default set to &lt;b>No&lt;/b>"
+                                fieldLabel="Preferred Contact Required"
+                                name="./preferredContReq"
+                                type="select"
+                                xtype="selection">
+                                <options jcr:primaryType="cq:WidgetCollection">
+                                    <yes
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Yes"
+                                        value="yes"/>
+                                    <no
+                                        jcr:primaryType="nt:unstructured"
+                                        text="No"
+                                        value="no"/>
+                                </options>
+                            </prefContactValidation>
+                            <prefContactValidationMessage
+                                jcr:primaryType="cq:Widget"
+                                fieldDescription="Validation message for Preferred Contact field. Default set to &lt;b>Please select Preferred Contact&lt;/b>"
+                                fieldLabel="Preferred Contact Validation Message"
+                                name="./prefContMessage"
+                                xtype="textfield"/>
+                        </items>
+                    </prefcontactdesc>
+                    <hearabtusdesc
+                        jcr:primaryType="cq:Widget"
+                        collapsed="{Boolean}true"
+                        collapsible="{Boolean}true"
+                        itemId="chearus"
+                        title="Hear About Us"
+                        xtype="dialogfieldset">
+                        <items jcr:primaryType="cq:WidgetCollection">
+                            <hearAboutUsText
+                                jcr:primaryType="cq:Widget"
+                                fieldDescription="Text for Hear about us field. Default set to &lt;b>Hear About Us&lt;/b>."
+                                fieldLabel="Hear About Us Text"
+                                name="./hearAboutText"
+                                xtype="textfield"/>
+                            <heearAboutUs
+                                jcr:primaryType="cq:Widget"
+                                fieldDescription="Please provide Hear about Us by clicking + button. First provided value will be considered as a Representative Value"
+                                fieldLabel="Hear About Us "
+                                name="./hearAbout"
+                                xtype="multifield">
+                                <fieldConfig
+                                    jcr:primaryType="nt:unstructured"
+                                    xtype="textfield"/>
+                            </heearAboutUs>
+                            <hearAboutUsValidation
+                                jcr:primaryType="cq:Widget"
+                                defaultValue="no"
+                                fieldDescription="Please select Hear About Us is required or not. Default set to &lt;b>No&lt;/b>"
+                                fieldLabel="Hear About Us Required"
+                                name="./hearAboutReq"
+                                type="select"
+                                xtype="selection">
+                                <options jcr:primaryType="cq:WidgetCollection">
+                                    <yes
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Yes"
+                                        value="yes"/>
+                                    <no
+                                        jcr:primaryType="nt:unstructured"
+                                        text="No"
+                                        value="no"/>
+                                </options>
+                            </hearAboutUsValidation>
+                            <hearAboutUsValidationMessage
+                                jcr:primaryType="cq:Widget"
+                                fieldDescription="Validation message for Hear About Us field. Default set to &lt;b>Please select How You Hear About Us&lt;/b>"
+                                fieldLabel="Hear About Us Validation Message"
+                                name="./hearAboutMessage"
+                                xtype="textfield"/>
+                        </items>
+                    </hearabtusdesc>
+                    <dobdesc
+                        jcr:primaryType="cq:Widget"
+                        collapsed="{Boolean}true"
+                        collapsible="{Boolean}true"
+                        itemId="cdob"
+                        title="Date of Birth"
+                        xtype="dialogfieldset">
+                        <items jcr:primaryType="cq:WidgetCollection">
+                            <dobText
+                                jcr:primaryType="cq:Widget"
+                                fieldDescription="&#xa;Text for Date of Birth field. Default set to &lt;b>Date of Birth&lt;/b>."
+                                fieldLabel="Date of Birth Text"
+                                name="./dob"
+                                xtype="textfield"/>
+                            <dobValidation
+                                jcr:primaryType="cq:Widget"
+                                defaultValue="no"
+                                fieldDescription="Please select Date of Birth is required or not. Default set to &lt;b>No&lt;/b>"
+                                fieldLabel="Date Of Birth Required"
+                                name="./dobReq"
+                                type="select"
+                                xtype="selection">
+                                <options jcr:primaryType="cq:WidgetCollection">
+                                    <yes
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Yes"
+                                        value="yes"/>
+                                    <no
+                                        jcr:primaryType="nt:unstructured"
+                                        text="No"
+                                        value="no"/>
+                                </options>
+                            </dobValidation>
+                            <dateText
+                                jcr:primaryType="cq:Widget"
+                                fieldDescription="Text for Date  field. Default set to &lt;b>Date&lt;/b>.This value will be considered as a Representative value of DropDown."
+                                fieldLabel="Date Text"
+                                name="./dateText"
+                                xtype="textfield"/>
+                            <monthText
+                                jcr:primaryType="cq:Widget"
+                                fieldDescription="Text for Month field. Default set to &lt;b>Month&lt;/b>.This value will be considered as a Representative value of DropDown."
+                                fieldLabel="Month Text"
+                                name="./monthText"
+                                xtype="textfield"/>
+                            <month
+                                jcr:primaryType="cq:Widget"
+                                fieldDescription="Please provide Month by clicking + button.First provided value will be first Month of Year"
+                                fieldLabel="Month"
+                                name="./month"
+                                xtype="multifield">
+                                <fieldConfig
+                                    jcr:primaryType="nt:unstructured"
+                                    xtype="textfield"/>
+                            </month>
+                            <yearText
+                                jcr:primaryType="cq:Widget"
+                                fieldDescription="Text for Year  field. Default set to &lt;b>Year&lt;/b>.This value will be considered as a Representative value of DropDown."
+                                fieldLabel="Year Text"
+                                name="./yearText"
+                                xtype="textfield"/>
+                            <yearRange
+                                jcr:primaryType="cq:Widget"
+                                fieldDescription="Provide Year Range. Drop down values would contain years from provided year in the field to current year."
+                                fieldLabel="Year Range"
+                                name="./yearRange"
+                                xtype="textfield"/>
+                            <dateOfBirthValidationMessage
+                                jcr:primaryType="cq:Widget"
+                                fieldDescription="Validation message for Date Of Birth field. Default set to &lt;b>Please select an appropriate Date of Birth &lt;/b>"
+                                fieldLabel="Date of Birth Validation Message"
+                                name="./dobMessage"
+                                xtype="textfield"/>
+                        </items>
+                    </dobdesc>
+                </items>
+            </fieldsdesc>
+        </items>
+    </items>
+    <listeners
+            jcr:primaryType="nt:unstructured"
+            beforerender="  function(){                 &#xa;this.find(&quot;itemId&quot;,&quot;ctitle&quot;)[0].hide();    &#xa;this.find(&quot;itemId&quot;,&quot;mname&quot;)[0].hide();    &#xa;this.find(&quot;itemId&quot;,&quot;ccntrycode&quot;)[0].hide();  &#xa;this.find(&quot;itemId&quot;,&quot;careacode&quot;)[0].hide();  &#xa;this.find(&quot;itemId&quot;,&quot;cnumber&quot;)[0].hide();  &#xa;this.find(&quot;itemId&quot;,&quot;cgender&quot;)[0].hide();  &#xa;this.find(&quot;itemId&quot;,&quot;cnationality&quot;)[0].hide();  &#xa;this.find(&quot;itemId&quot;,&quot;cmarstatus&quot;)[0].hide();  &#xa;this.find(&quot;itemId&quot;,&quot;cprefcontact&quot;)[0].hide();  &#xa;this.find(&quot;itemId&quot;,&quot;chearus&quot;)[0].hide();  &#xa;this.find(&quot;itemId&quot;,&quot;cdob&quot;)[0].hide();  &#xa;&#xa; }"/>
+</jcr:root>

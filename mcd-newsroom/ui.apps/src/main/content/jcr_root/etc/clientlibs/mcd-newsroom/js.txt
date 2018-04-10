@@ -1,0 +1,10 @@
+#base=js
+
+
+controller/ArticleListingController.js
+controller/RecentTrendingController.js
+filters/CharEllipsisFilter.js
+
+
+#base=js
+mcd-newsroom.js

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="cq:Dialog"
+    height="500"
+    stateful="false"
+    width="700"
+    xtype="dialog">
+    <items jcr:primaryType="cq:WidgetCollection">
+        <tabs jcr:primaryType="cq:TabPanel">
+            <items jcr:primaryType="cq:WidgetCollection">
+                <tab_basic
+                    jcr:primaryType="cq:Widget"
+                    path="/apps/mcd-rwd-global/components/page/base-page/dialog/items/tabs/items/tab_basic.infinity.json"
+                    xtype="cqinclude"/>
+                <tab_advanced
+                    jcr:primaryType="cq:Widget"
+                    path="/apps/mcd-rwd-global/components/page/base-page/dialog/items/tabs/items/tab_advanced.infinity.json"
+                    xtype="cqinclude"/>
+                <redirectconfig
+                    jcr:primaryType="cq:Widget"
+                    title="Redirect Config"
+                    xtype="panel">
+                    <items jcr:primaryType="cq:WidgetCollection">
+                        <coops
+                            jcr:primaryType="cq:Widget"
+                            fieldLabel="Co-ops"
+                            name="./coops"
+                            namespaces="[mcd-us]"
+                            xtype="tags"/>
+                        <coopInURL
+                            jcr:primaryType="cq:Widget"
+                            allowBlank="{Boolean}false"
+                            editable="{Boolean}false"
+                            fieldDescription="Url of dummy offers page to redirect when lies in coop."
+                            fieldLabel=" Coop In URL"
+                            name="./coopInUrl"
+                            xtype="pathfield"/>
+                        <coopOutURL
+                            jcr:primaryType="cq:Widget"
+                            allowBlank="{Boolean}false"
+                            editable="{Boolean}false"
+                            fieldDescription="Url of dummy offer Page to redirect when not lies  in coop."
+                            fieldLabel=" Coop Out URL"
+                            name="./coopOutUrl"
+                            xtype="pathfield"/>
+                        <dealspageURL
+                            jcr:primaryType="cq:Widget"
+                            allowBlank="{Boolean}false"
+                            editable="{Boolean}true"
+                            fieldDescription="Url of Deals Page."
+                            fieldLabel="Deals Page URL"
+                            name="./dealPageUrl"
+                            xtype="pathfield"/>
+					 <isEvaluate
+                            jcr:primaryType="cq:Widget"
+                            fieldDescription="Dont Check Coop"
+                            fieldLabel="Disable Coop Redirection"
+                            name="./evaluate"
+                            type="checkbox"
+                            xtype="selection"/>
+                    </items>
+                </redirectconfig>
+            </items>
+        </tabs>
+    </items>
+</jcr:root>

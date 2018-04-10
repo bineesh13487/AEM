@@ -1,0 +1,799 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Dialog"
+    height="500"
+    stateful="false"
+    width="700"
+    xtype="dialog">
+    <items jcr:primaryType="cq:WidgetCollection">
+        <tabs jcr:primaryType="cq:TabPanel">
+            <items jcr:primaryType="cq:WidgetCollection">
+                <tab_basic
+                    jcr:primaryType="cq:Widget"
+                    path="/apps/mcd-rwd-global/components/page/base-page/dialog/items/tabs/items/tab_basic.infinity.json"
+                    xtype="cqinclude"/>
+                <tab_advanced
+                    jcr:primaryType="cq:Widget"
+                    path="/apps/mcd-rwd-global/components/page/base-page/dialog/items/tabs/items/tab_advanced.infinity.json"
+                    xtype="cqinclude"/>
+                <productdetail
+                    jcr:primaryType="cq:Widget"
+                    title="Product Nutrition Detail"
+                    xtype="panel">
+                    <items jcr:primaryType="cq:WidgetCollection">
+                    	<tab1Text
+                            jcr:primaryType="cq:Widget"
+                            fieldLabel="Tab1 Text"
+                            name="./tab1Text"
+                            xtype="textfield"/>
+                        <tab2Text
+                            jcr:primaryType="cq:Widget"
+                            fieldLabel="Tab2 Text"
+                            name="./tab2Text"
+                            xtype="textfield"/>
+                        <serveText
+                            jcr:primaryType="cq:Widget"
+                            fieldLabel="'Serving Size' Text"
+                            name="./serveText"
+                            xtype="textfield"/>
+                        <servesText
+                            jcr:primaryType="cq:Widget"
+                            fieldLabel="'Serves:' Text"
+                            name="./servesText"
+                            xtype="textfield"/>
+                        <allergenText
+                            jcr:primaryType="cq:Widget"
+                            fieldLabel="Allergen 'Contains' Text"
+                            name="./allergenText"
+                            xtype="textfield"/>
+                       	<otherAllergenText
+                            jcr:primaryType="cq:Widget"
+                            fieldLabel="Allergen 'May Contains' Text"
+                            name="./otherAllergenText"
+                            xtype="textfield"/>
+                        <legalText
+                            jcr:primaryType="cq:Widget"
+                            fieldLabel="Legal Text"
+                            name="./legalText"
+                            xtype="textfield"/>
+                        <nutritionText
+                            jcr:primaryType="cq:Widget"
+                            fieldLabel="Nutrition Calculator Link Text"
+                            name="./linkText"
+                            xtype="textfield"/>
+                        <customizeText
+                            jcr:primaryType="cq:Widget"
+                            fieldLabel="'Customize your' text"
+                            name="./customizeText"
+                            xtype="textfield"/>
+                          <DvText
+                            jcr:primaryType="cq:Widget"
+                            fieldLabel="'DV' text"
+                            name="./DvText"
+                            xtype="textfield"/>
+                        <nutritionURL
+                            jcr:primaryType="cq:Widget"
+                            editable="{Boolean}false"
+                            fieldLabel="Nutrition Calculator URL"
+                            name="./nutritionCalcUrl"
+                            xtype="pathfield"/>
+                  	<nutritionView
+                        jcr:primaryType="cq:Widget"
+                        defaultValue="tableView"
+                        value="tableView"
+                        fieldLabel="Please select the view type"
+                        name="./viewTypeSelection"
+                        type="radio"
+                        xtype="selection">
+                        <options jcr:primaryType="cq:WidgetCollection">
+                            <Tabular_View
+                                jcr:primaryType="nt:unstructured"
+                                text="Tabular View [Nutrition Table will appear in Table View]"
+                                value="tableView"/>
+                            <Column_View
+                                jcr:primaryType="nt:unstructured"
+                                text="Column View [Nutrition Table will appear in Column View]"
+                                value="columnView"/>
+                        </options>
+              		</nutritionView>
+              		<Nutrition_Column_Heading
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Enter the Heading for Nutritions Name Column"
+                        name="./nutritionColumnHeading"
+                        fieldDescription="Default value is 'Nutritional Information'"
+                        xtype="textfield"/>
+                	<Measurement_Column_Heading
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Enter the Heading for Measurement Unit Column"
+                        name="./measurementUnitColumnHeading"
+                        fieldDescription="Default value is 'Per PTN'"
+                        xtype="textfield"/>
+                    <Percentage_Column_Heading
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Enter the Heading for %DV Column"
+                        name="./percentageUnitColumnHeading"
+                        fieldDescription="Default value is '% RI (Adult)'"
+                        xtype="textfield"/>
+                   	<goeswell
+                        jcr:primaryType="cq:Widget"
+                        defaultValue="True"
+                        fieldLabel="Show Goes Well with Section ?"
+                        name="./showGoesWell"
+                        type="radio"
+                        xtype="selection">
+                        <options jcr:primaryType="cq:WidgetCollection">
+                            <True
+                                jcr:primaryType="nt:unstructured"
+                                text="True"
+                                value="True"/>
+                            <False
+                                jcr:primaryType="nt:unstructured"
+                                text="False"
+                                value="False"/>
+                        </options>
+                    </goeswell>
+                    <moreitems
+                        jcr:primaryType="cq:Widget"
+                        defaultValue="True"
+                        fieldLabel="Show 'More Items' Section ?"
+                        name="./showMoreItems"
+                        type="radio"
+                        xtype="selection">
+                        <options jcr:primaryType="cq:WidgetCollection">
+                            <True
+                                jcr:primaryType="nt:unstructured"
+                                text="True"
+                                value="True"/>
+                            <False
+                                jcr:primaryType="nt:unstructured"
+                                text="False"
+                                value="False"/>
+                        </options>
+                    </moreitems>
+                     <ingredientSection
+                        jcr:primaryType="cq:Widget"
+                        defaultValue="True"
+                        fieldLabel="Show 'Ingredient Images' Section ?"
+                        name="./showIngredients"
+                        type="radio"
+                        xtype="selection">
+                        <options jcr:primaryType="cq:WidgetCollection">
+                            <True
+                                jcr:primaryType="nt:unstructured"
+                                text="True"
+                                value="True"/>
+                            <False
+                                jcr:primaryType="nt:unstructured"
+                                text="False"
+                                value="False"/>
+                        </options>
+                    </ingredientSection>
+                    <nutritionTabs
+                        jcr:primaryType="cq:Widget"
+                        defaultValue="True"
+                        fieldLabel="Show 'Nutrition Tabs' Section ?"
+                        name="./showNutritionTabs"
+                        type="radio"
+                        xtype="selection">
+                        <options jcr:primaryType="cq:WidgetCollection">
+                            <True
+                                jcr:primaryType="nt:unstructured"
+                                text="True"
+                                value="True"/>
+                            <False
+                                jcr:primaryType="nt:unstructured"
+                                text="False"
+                                value="False"/>
+                        </options>
+                    </nutritionTabs>
+                        <nutrient
+                        jcr:primaryType="cq:Widget"
+                        collapsed="{Boolean}true"
+                        collapsible="{Boolean}true"
+                        itemId="nutrient"
+                        title="Primary Nutrient"
+                        xtype="dialogfieldset">
+                        <items jcr:primaryType="cq:WidgetCollection">
+                            <multi
+                                jcr:primaryType="cq:Widget"
+                                fieldDescription="Choose the nutrients..."
+                                fieldLabel=" Primary Nutrient name"
+                                name="./nutrientList"
+                                xtype="multifield">
+                                <fieldConfig
+                                    jcr:primaryType="nt:unstructured"
+                                    width="400"
+                                    xtype="multifieldpanel">
+                                    <items
+                                        jcr:primaryType="cq:WidgetCollection"
+                                        width="300">
+                                        <Category
+                                            jcr:primaryType="cq:Widget"
+                                            fieldLabel="Primary Nutrient"
+                                            allowBlank="false"
+                                            key="nutrientList"
+                                            options="$PATH.nutrientsList.json?comp=nutrition-calculator"
+                                            type="select"
+                                            boxMinWidth="80"
+                                            xtype="selection"/>
+                                        <filterMarketingName
+                                            jcr:primaryType="cq:Widget"
+                                            fieldLabel="Display Name"
+                                            key="nutrientMarketingName"
+                                            width="125"
+                                            xtype="textfield"/>
+                                        <percentageCheckBox
+					                        jcr:primaryType="cq:Widget"
+					                        fieldLabel="Please check the check-box to hide Adult DV Unit"
+					                        key="percentageUnitFlag"
+					                        type="checkbox"
+					                        defaultValue="true"
+					                        value="true"
+					                        xtype="selection"/>
+                                    </items>
+                                </fieldConfig>
+                            </multi>
+                        </items>
+                    </nutrient>
+                    <healthURL
+                          jcr:primaryType="cq:Widget"
+                          fieldLabel="Please provide more information for nutrition table"
+                          name="./healthHyperlink"
+                          xtype="richtext">
+                          <rtePlugins jcr:primaryType="nt:unstructured">
+                                <edit
+                                    jcr:primaryType="nt:unstructured"
+                                    features="*"/>
+                                <findreplace
+                                    jcr:primaryType="nt:unstructured"
+                                    features="*"/>
+                                <format
+                                    jcr:primaryType="nt:unstructured"
+                                    features="*"/>
+                                <justify
+                                    jcr:primaryType="nt:unstructured"
+                                    features="*"/>
+                                <links
+                                    jcr:primaryType="nt:unstructured"
+                                    features="*"/>
+                                <lists
+                                    jcr:primaryType="nt:unstructured"
+                                    features="*"/>
+                                <misctools
+                                    jcr:primaryType="nt:unstructured"
+                                    features="*"/>
+                                <paraformat
+                                    jcr:primaryType="nt:unstructured"
+                                    features="*"/>
+                                <styles
+                                    jcr:primaryType="nt:unstructured"
+                                    features="*"/>
+                                <subsuperscript
+                                    jcr:primaryType="nt:unstructured"
+                                    features="*"/>
+                                <table
+                                    jcr:primaryType="nt:unstructured"
+                                    features="*"/>
+                                <insertgatitle
+                                    jcr:primaryType="nt:unstructured"
+                                    features="*"/>
+                                <image
+                                    jcr:primaryType="nt:unstructured"
+                                    features="*"/>
+                            </rtePlugins>
+                          </healthURL>
+                    <metatitle
+                          jcr:primaryType="cq:Widget"
+                          fieldLabel="MetaTitle Text"
+                          name="./metaTitle"
+                          xtype="textfield"/>
+                        <orderNowTitle
+                                jcr:primaryType="cq:Widget"
+                                fieldLabel="Order Now Button Text"
+                                name="./orderNow"
+                                fieldDescription= "Provide Text for 'Order now Button'.Default value is 'Order Now'. "
+                                xtype="textfield"/>
+                        <orderNowURL
+                                jcr:primaryType="cq:Widget"
+                                fieldLabel="Order Now Button URL"
+                                name="./orderNowURL"
+                                fieldDescription= "Provide URL of 'Order now' page. "
+                                xtype="pathfield"/>
+                        <showordernow
+                                jcr:primaryType="cq:Widget"
+                                defaultValue="{Boolean}false"
+                                fieldDescription="Please check the checkbox to enable 'OrderNow Button'."
+                                fieldLabel="Show 'Order now'"
+                                name="./showordernow"
+                                xtype="selection"
+                                type="checkbox"/>
+                    </items>
+                </productdetail>
+                <secondaryNutrientsDesktop
+                jcr:primaryType="cq:Widget"
+                title="Secondary Nutrients for Desktop"
+                xtype="panel">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <radiob
+                        jcr:primaryType="cq:Widget"
+                        defaultValue="three"
+                        fieldLabel="Select number of columns for desktop secondary nutrients. Default value is 3"
+                        name="./secondaryColCount"
+                        type="radio"
+                        xtype="selection">
+                        <options jcr:primaryType="cq:WidgetCollection">
+                            <one
+                                jcr:primaryType="nt:unstructured"
+                                text="one"
+                                value="one"/>
+                            <two
+                                jcr:primaryType="nt:unstructured"
+                                text="two"
+                                value="two"/>
+                            <three
+                                jcr:primaryType="nt:unstructured"
+                                text="three"
+                                value="three"/>
+                        </options>
+                        <listeners jcr:primaryType="nt:unstructured" 
+						selectionchanged="function( field,value, isChecked ){ 
+							console.log('changed');
+							if (field !=null){ 
+							console.log(value);
+							 var panel = field.findParentByType('panel');
+ 							var col1 = panel.getComponent('secondaryNutrient1');
+ 							var col2 = panel.getComponent('secondaryNutrient2');
+ 							var col3 = panel.getComponent('secondaryNutrient3');
+ 							console.log(value);
+							if (value == 'one'){ 
+							console.log('one');
+								col2.hide();
+								col3.hide();
+								col1.show();
+							}else if (value=='two'){ 
+								col3.hide();
+								col2.show();
+								col1.show(); 
+							}else if (value=='three') {
+								col2.show();
+								col3.show();
+								col1.show();
+							}
+							else {
+								col2.hide();
+								col3.hide();
+								col1.show();
+							}
+							} 
+							}"
+						loadcontent="function( ){ 
+							
+							var panel = this.findParentByType('panel');
+ 							var col1 = panel.getComponent('secondaryNutrient1');
+ 							var col2 = panel.getComponent('secondaryNutrient2');
+ 							var col3 = panel.getComponent('secondaryNutrient3');
+ 							col2.show();
+							col3.show();
+							col1.show();
+							}"/> 
+                    </radiob>
+                    <secondary-nutrient1
+                        jcr:primaryType="cq:Widget"
+                        collapsed="{Boolean}true"
+                        collapsible="{Boolean}true"
+                        itemId="secondaryNutrient1"
+                        title="Secondary Nutrient Col1"
+                        xtype="dialogfieldset">
+                        <items jcr:primaryType="cq:WidgetCollection">
+                            <multi
+                                jcr:primaryType="cq:Widget"
+                                fieldDescription="Choose the secondary nutrients..."
+                                fieldLabel="Secondary Nutrient name"
+                                name="./secondaryNutrientList"
+                                xtype="multifield">
+                                <fieldConfig
+                                    jcr:primaryType="nt:unstructured"
+                                    width="400"
+                                    xtype="multifieldpanel">
+                                    <items
+                                        jcr:primaryType="cq:WidgetCollection"
+                                        width="300">
+                                        <Category
+                                            jcr:primaryType="cq:Widget"
+                                            fieldLabel="Secondary Nutrient"
+                                            key="secondaryNutrientList"
+                                            allowBlank="false"
+                                            options="$PATH.nutrientsList.json?comp=nutrition-calculator"
+                                            type="select"
+                                            boxMinWidth="80"
+                                            xtype="selection"/>
+                                        <filterMarketingName
+                                            jcr:primaryType="cq:Widget"
+                                            fieldLabel="Display Name"
+                                            key="secondaryNutrientMarketingName"
+                                            width="125"
+                                            xtype="textfield"/>
+                                      	<Measurement_Unit_To_Display
+					                        jcr:primaryType="cq:Widget"
+					                        fieldLabel="Please select the measurement unit ot be displayed"
+					                        key="unitFlag"
+					                        type="select"
+					                        value="bothUnit"
+					                        xtype="selection"
+					                        fieldDescription="Default selected value is Both Units">
+					                        <options jcr:primaryType="cq:WidgetCollection">
+					                            <Both_Units
+					                                jcr:primaryType="nt:unstructured"
+					                                text="Value and Adult DV Unit"
+					                                value="bothUnit"/>
+					                            <Measurement_Unit
+					                                jcr:primaryType="nt:unstructured"
+					                                text="Value Unit"
+					                                value="measurementUnit"/>
+					                            <Percentage_Unit
+					                                jcr:primaryType="nt:unstructured"
+					                                text="Adult DV Unit"
+					                                value="percentageUnit"/>
+					                        </options>
+					                  	</Measurement_Unit_To_Display>
+                                    </items>
+                                </fieldConfig>
+                            </multi>
+                        </items>
+                    </secondary-nutrient1>
+                    <secondary-nutrient2
+                        jcr:primaryType="cq:Widget"
+                        collapsed="{Boolean}true"
+                        collapsible="{Boolean}true"
+                        itemId="secondaryNutrient2"
+                        title="Secondary Nutrient Col2"
+                        xtype="dialogfieldset">
+                        <items jcr:primaryType="cq:WidgetCollection">
+                            <multi
+                                jcr:primaryType="cq:Widget"
+                                fieldDescription="Choose the secondary nutrients..."
+                                fieldLabel="Secondary Nutrient name"
+                                name="./secondaryNutrientList2"
+                                xtype="multifield">
+                                <fieldConfig
+                                    jcr:primaryType="nt:unstructured"
+                                    width="400"
+                                    xtype="multifieldpanel">
+                                    <items
+                                        jcr:primaryType="cq:WidgetCollection"
+                                        width="300">
+                                        <Category
+                                            jcr:primaryType="cq:Widget"
+                                            fieldLabel="Secondary Nutrient"
+                                            key="secondaryNutrientList"
+                                            allowBlank="false"
+                                            options="$PATH.nutrientsList.json?comp=nutrition-calculator"
+                                            type="select"
+                                            boxMinWidth="80"
+                                            xtype="selection"/>
+                                        <filterMarketingName
+                                            jcr:primaryType="cq:Widget"
+                                            fieldLabel="Display Name"
+                                            key="secondaryNutrientMarketingName"
+                                            width="125"
+                                            xtype="textfield"/>
+                                      	<Measurement_Unit_To_Display
+					                        jcr:primaryType="cq:Widget"
+					                        fieldLabel="Please select the measurement unit ot be displayed"
+					                        key="unitFlag"
+					                        type="select"
+					                        value="bothUnit"
+					                        xtype="selection"
+					                        fieldDescription="Default selected value is Both Units">
+					                        <options jcr:primaryType="cq:WidgetCollection">
+					                            <Both_Units
+					                                jcr:primaryType="nt:unstructured"
+					                                text="Value and Adult DV Unit"
+					                                value="bothUnit"/>
+					                            <Measurement_Unit
+					                                jcr:primaryType="nt:unstructured"
+					                                text="Value Unit"
+					                                value="measurementUnit"/>
+					                            <Percentage_Unit
+					                                jcr:primaryType="nt:unstructured"
+					                                text="Adult DV Unit"
+					                                value="percentageUnit"/>
+					                        </options>
+					                  	</Measurement_Unit_To_Display>
+                                    </items>
+                                </fieldConfig>
+                            </multi>
+                        </items>
+                    </secondary-nutrient2>
+                    <secondary-nutrient3
+                        jcr:primaryType="cq:Widget"
+                        collapsed="{Boolean}true"
+                        collapsible="{Boolean}true"
+                        itemId="secondaryNutrient3"
+                        title="Secondary Nutrient Col3"
+                        xtype="dialogfieldset">
+                        <items jcr:primaryType="cq:WidgetCollection">
+                            <multi
+                                jcr:primaryType="cq:Widget"
+                                fieldDescription="Choose the secondary nutrients..."
+                                fieldLabel="Secondary Nutrient name"
+                                name="./secondaryNutrientList3"
+                                xtype="multifield">
+                                <fieldConfig
+                                    jcr:primaryType="nt:unstructured"
+                                    width="400"
+                                    xtype="multifieldpanel">
+                                    <items
+                                        jcr:primaryType="cq:WidgetCollection"
+                                        width="300">
+                                        <Category
+                                            jcr:primaryType="cq:Widget"
+                                            fieldLabel="Secondary Nutrient"
+                                            key="secondaryNutrientList"
+                                            allowBlank="false"
+                                            options="$PATH.nutrientsList.json?comp=nutrition-calculator"
+                                            type="select"
+                                            boxMinWidth="80"
+                                            xtype="selection"/>
+                                        <filterMarketingName
+                                            jcr:primaryType="cq:Widget"
+                                            fieldLabel="Display Name"
+                                            key="secondaryNutrientMarketingName"
+                                            width="125"
+                                            xtype="textfield"/>
+                                     	<Measurement_Unit_To_Display
+					                        jcr:primaryType="cq:Widget"
+					                        fieldLabel="Please select the measurement unit ot be displayed"
+					                        key="unitFlag"
+					                        type="select"
+					                        value="bothUnit"
+					                        xtype="selection"
+					                        fieldDescription="Default selected value is Both Units">
+					                        <options jcr:primaryType="cq:WidgetCollection">
+					                            <Both_Units
+					                                jcr:primaryType="nt:unstructured"
+					                                text="Value and Adult DV Unit"
+					                                value="bothUnit"/>
+					                            <Measurement_Unit
+					                                jcr:primaryType="nt:unstructured"
+					                                text="Value Unit"
+					                                value="measurementUnit"/>
+					                            <Percentage_Unit
+					                                jcr:primaryType="nt:unstructured"
+					                                text="Adult DV Unit"
+					                                value="percentageUnit"/>
+					                        </options>
+					                  	</Measurement_Unit_To_Display>
+                                    </items>
+                                </fieldConfig>
+                            </multi>
+                        </items>
+                    </secondary-nutrient3>
+                </items>
+            </secondaryNutrientsDesktop>
+            <secondaryNutrientsMobile
+                jcr:primaryType="cq:Widget"
+                title="Secondary Nutrients for Mobile"
+                xtype="panel">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <radiob
+                        jcr:primaryType="cq:Widget"
+                        defaultValue="two"
+                        fieldLabel="Select number of columns for mobile secondary nutrients. Default value is 2"
+                        name="./secondaryColCountMobile"
+                        type="radio"
+                        xtype="selection">
+                        <options jcr:primaryType="cq:WidgetCollection">
+                            <one
+                                jcr:primaryType="nt:unstructured"
+                                text="one"
+                                value="one"/>
+                            <two
+                                jcr:primaryType="nt:unstructured"
+                                text="two"
+                                value="two"/>
+                        </options>
+                        <listeners jcr:primaryType="nt:unstructured" 
+						selectionchanged="function( field,value, isChecked ){ 
+							console.log('changed');
+							if (field !=null){ 
+							console.log(value);
+							 var panel = field.findParentByType('panel');
+ 							var col1 = panel.getComponent('secondaryNutrientMobile1');
+ 							var col2 = panel.getComponent('secondaryNutrientMobile2');
+ 							console.log(value);
+							if (value == 'one'){ 
+							console.log('one');
+								col2.hide();
+								col1.show();
+							}else if (value=='two'){ 
+								col2.show();
+								col1.show(); 
+							}
+							else {
+								col2.show();
+								col1.show();
+							}
+							} 
+							}"
+						loadcontent="function( ){ 
+							
+							var panel = this.findParentByType('panel');
+ 							var col1 = panel.getComponent('secondaryNutrientMobile1');
+ 							var col2 = panel.getComponent('secondaryNutrientMobile2');
+ 							col2.show();
+							col1.show();
+							
+							}"/> 
+							
+							
+					
+                    </radiob>
+                    <secondary-nutrient1
+                        jcr:primaryType="cq:Widget"
+                        collapsed="{Boolean}true"
+                        collapsible="{Boolean}true"
+                        itemId="secondaryNutrientMobile1"
+                        title="Secondary Nutrient Col1"
+                        xtype="dialogfieldset">
+                        <items jcr:primaryType="cq:WidgetCollection">
+                            <multi
+                                jcr:primaryType="cq:Widget"
+                                fieldDescription="Choose the secondary nutrients..."
+                                fieldLabel="Secondary Nutrient name"
+                                name="./secondaryNutrientListMobile"
+                                xtype="multifield">
+                                <fieldConfig
+                                    jcr:primaryType="nt:unstructured"
+                                    width="400"
+                                    xtype="multifieldpanel">
+                                    <items
+                                        jcr:primaryType="cq:WidgetCollection"
+                                        width="300">
+                                        <Category
+                                            jcr:primaryType="cq:Widget"
+                                            fieldLabel="Secondary Nutrient"
+                                            key="secondaryNutrientList"
+                                            allowBlank="false"
+                                            options="$PATH.nutrientsList.json?comp=nutrition-calculator"
+                                            type="select"
+                                            boxMinWidth="80"
+                                            xtype="selection"/>
+                                        <filterMarketingName
+                                            jcr:primaryType="cq:Widget"
+                                            fieldLabel="Display Name"
+                                            key="secondaryNutrientMarketingName"
+                                            width="125"
+                                            xtype="textfield"/>
+                                   		<Measurement_Unit_To_Display
+					                        jcr:primaryType="cq:Widget"
+					                        fieldLabel="Please select the measurement unit ot be displayed"
+					                        key="unitFlag"
+					                        type="select"
+					                        value="bothUnit"
+					                        xtype="selection"
+					                        fieldDescription="Default selected value is Both Units">
+					                        <options jcr:primaryType="cq:WidgetCollection">
+					                            <Both_Units
+					                                jcr:primaryType="nt:unstructured"
+					                                text="Value and Adult DV Unit"
+					                                value="bothUnit"/>
+					                            <Measurement_Unit
+					                                jcr:primaryType="nt:unstructured"
+					                                text="Value Unit"
+					                                value="measurementUnit"/>
+					                            <Percentage_Unit
+					                                jcr:primaryType="nt:unstructured"
+					                                text="Adult DV Unit"
+					                                value="percentageUnit"/>
+					                        </options>
+					                  	</Measurement_Unit_To_Display>
+                                    </items>
+                                </fieldConfig>
+                            </multi>
+                        </items>
+                    </secondary-nutrient1>
+                    <secondary-nutrient2
+                        jcr:primaryType="cq:Widget"
+                        collapsed="{Boolean}true"
+                        collapsible="{Boolean}true"
+                        itemId="secondaryNutrientMobile2"
+                        title="Secondary Nutrient Col2"
+                        xtype="dialogfieldset">
+                        <items jcr:primaryType="cq:WidgetCollection">
+                            <multi
+                                jcr:primaryType="cq:Widget"
+                                fieldDescription="Choose the secondary nutrients..."
+                                fieldLabel="Secondary Nutrient name"
+                                name="./secondaryNutrientListMobile2"
+                                xtype="multifield">
+                                <fieldConfig
+                                    jcr:primaryType="nt:unstructured"
+                                    width="400"
+                                    xtype="multifieldpanel">
+                                    <items
+                                        jcr:primaryType="cq:WidgetCollection"
+                                        width="300">
+                                        <Category
+                                            jcr:primaryType="cq:Widget"
+                                            fieldLabel="Secondary Nutrient"
+                                            key="secondaryNutrientList"
+                                            allowBlank="false"
+                                            options="$PATH.nutrientsList.json?comp=nutrition-calculator"
+                                            type="select"
+                                            boxMinWidth="80"
+                                            xtype="selection"/>
+                                        <filterMarketingName
+                                            jcr:primaryType="cq:Widget"
+                                            fieldLabel="Display Name"
+                                            key="secondaryNutrientMarketingName"
+                                            width="125"
+                                            xtype="textfield"/>
+                                    	<Measurement_Unit_To_Display
+					                        jcr:primaryType="cq:Widget"
+					                        fieldLabel="Please select the measurement unit ot be displayed"
+					                        key="unitFlag"
+					                        type="select"
+					                        value="bothUnit"
+					                        xtype="selection"
+					                        fieldDescription="Default selected value is Both Units">
+					                        <options jcr:primaryType="cq:WidgetCollection">
+					                            <Both_Units
+					                                jcr:primaryType="nt:unstructured"
+					                                text="Value and Adult DV Unit"
+					                                value="bothUnit"/>
+					                            <Measurement_Unit
+					                                jcr:primaryType="nt:unstructured"
+					                                text="Value Unit"
+					                                value="measurementUnit"/>
+					                            <Percentage_Unit
+					                                jcr:primaryType="nt:unstructured"
+					                                text="Adult DV Unit"
+					                                value="percentageUnit"/>
+					                        </options>
+					                  	</Measurement_Unit_To_Display>
+                                    </items>
+                                </fieldConfig>
+                            </multi>
+                        </items>
+                    </secondary-nutrient2>
+                </items>
+            </secondaryNutrientsMobile>
+                <imagefoldertab
+                    jcr:primaryType="cq:Panel"
+                    title="Product Images Folder ">
+                    <items jcr:primaryType="cq:WidgetCollection">
+                        <desktopIconic
+                            jcr:primaryType="cq:Widget"
+                            allowBlank="{Boolean}false"
+                            fieldLabel="Product Desktop Image Folder"
+                            name="./productPageDesktopFolder"
+                            rootPath="/content/dam"
+                            xtype="pathfield"/>
+                        <mobileIconic
+                            jcr:primaryType="cq:Widget"
+                            allowBlank="{Boolean}false"
+                            fieldLabel="Product Mobile Image Folder"
+                            name="./productPageMobileFolder"
+                            rootPath="/content/dam"
+                            xtype="pathfield"/>
+                        <componnetImage
+                            jcr:primaryType="cq:Widget"
+                            allowBlank="{Boolean}false"
+                            fieldLabel="Product Components Image Folder"
+                            name="./productComponentsFolder"
+                            rootPath="/content/dam"
+                            xtype="pathfield"/>
+                        <producrsearchImage
+                            jcr:primaryType="cq:Widget"
+                            allowBlank="{Boolean}false"
+                            fieldLabel="Product Search Image Folder"
+                            name="./productSearchImageFolder"
+                            rootPath="/content/dam"
+                            xtype="pathfield"/>
+                    </items>
+                </imagefoldertab>
+            </items>
+        </tabs>
+    </items>
+</jcr:root>

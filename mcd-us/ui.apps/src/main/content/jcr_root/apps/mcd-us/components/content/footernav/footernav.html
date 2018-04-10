@@ -1,0 +1,35 @@
+<!--/*
+    <div class="cont-links hidden-xs">
+        <div class="container">
+            <div class="row" data-sly-use.handler="${'com.mcd.rwd.us.core.sightly.FooterNavigationHandler' @ isMobile=false}">
+                <div class="col-xs-${handler.numberOfCols} ${handler.navListSize == 5 && mainList.count == 1 ? 'col-xs-offset-1' : ''}"  data-sly-repeat.main="${handler.navList}">
+                    <h2 id="foot-head${handler.numberOfCols}" class="headline" > <a class="footerhead" href="${main.path}" data-at="Footer:${main.title}" data-track="footerLinks">${main.title} </a> </h2>
+                    
+                    <ul aria-labelledby="foot-head${handler.numberOfCols}" role="list" class="list-unstyled">
+                        <li class="active" data-sly-repeat.sub="${main.navList}"><a href="${sub.path}" data-at="Footer:${sub.title}" data-track="footerLinks">${sub.title}</a></li>
+                    </ul>
+                </div>   
+            </div>
+        </div>
+    </div>
+*/-->
+
+<nav data-component="footer" class="mcd-footer-nav" aria-label="site links" role="navigation">
+    <div class="footer-nav__container" data-sly-use.handler="${'com.mcd.rwd.us.core.sightly.FooterNavigationHandler'}">
+        <div data-sly-repeat.main="${handler.navList}">
+            <ul aria-labelledby="foot-head${handler.numberOfCols}" role="list" class="list-unstyled links">
+                <li class="links__item links--title">
+                    <a href="${main.path}" class="link is-desktop" title="${main.title}">${main.title}</a>
+                    <span class="link is-mobile">${main.title}<i class="icon-plus"></i><i class="icon-minus"></i></a></span>
+                </li>
+                <li class="links__item is-mobile">
+                    <a href="${main.path}" class="link" title="${main.title} Page">${main.title} Page</a>
+                </li>
+                <li class="active links__item" data-sly-repeat.sub="${main.navList}">
+                    <a href="${sub.path}" class="link" data-at="Footer:${sub.title}" data-track="footerLinks" title="${sub.title}">${sub.title}</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+      

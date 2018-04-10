@@ -1,0 +1,731 @@
+/// Contact Us block
+/// @group pages
+/// @example
+///   $my-block: ".my-block";
+///   // Styling on it's own
+///   #{$my-block} {
+///     ...
+///   }
+///   // Styling within the Contact Us template/component
+///   @include withinBlock($page-contact-us, $my-block) {
+///     ...
+///   }
+$page-contact-us: ".page-contact-us";
+#{$page-contact-us} {
+	background-color: $light-gray;
+	padding-bottom: 64px;
+	
+	
+	
+	
+	
+
+
+	@include hrColor(#bebeba);
+
+	.template-hero-bg {
+		min-height: 350px;
+
+		@include breakpoint(sm) {
+			min-height: 400px;
+		}
+
+		.absolute-content .absolute-content-wrapper {
+			text-align: center;
+		}
+	}
+
+	h2,
+	h3 {
+		margin-bottom: .25em;
+	}
+
+	p {
+		@include font-size(24px, 1.4em, $font-lovinsans);
+		@include breakpoint(sm){ @include font-size(20px, 1.3em, $font-lovinsans); }
+		@include breakpoint(md){ @include font-size(24px, 1.3em, $font-lovinsans); }
+		@include breakpoint(lg){ @include font-size(28px, 1.3em, $font-lovinsans); }
+	}
+
+	a {
+		color: $red;
+	}
+
+	&__content {
+		padding-top: 10px;
+
+		h2 { @include fontSet(36px, 1.2em, $font-lovinsans-medium); }
+		h3 { @include fontSet(24px, 1.2em, $font-lovinsans-medium); }
+		h4 { @include fontSet(30px, 1.2em, $font-lovinsans-medium); }
+
+		@include breakpoint(xs){
+			padding-top: 10px;
+			h2 { @include fontSet(36px, 1.2em, $font-lovinsans-medium); }
+			h3 { @include fontSet(28px, 1.2em, $font-lovinsans-medium); }
+		}
+
+		@include breakpoint(sm){
+			padding-top: 30px;
+			h2 { @include fontSet(40px, 1.2em, $font-lovinsans-medium); }
+			h3 { @include fontSet(28px, 1.2em, $font-lovinsans-medium); }
+		}
+
+		@include breakpoint(md){
+			padding-top: 50px;
+			h2 { @include fontSet(50px, 1.2em, $font-lovinsans-medium); }
+			h3 { @include fontSet(38px, 1.2em, $font-lovinsans-medium); }
+		}
+	}
+
+	&__popular-questions {
+		position: relative;
+	}
+
+	&__food-and-nutrition {
+		@include up-to-breakpoint(sm){
+			h3 { @include fontSet(36px, 1.2em, $font-lovinsans-medium); }
+		}
+	}
+
+	&__ask-your-question {
+		padding-bottom: 20px;
+	}
+
+	&__callouts {
+		text-align: center;
+
+		@include up-to-breakpoint(sm){
+			h3 { 
+				text-align: right;
+				margin-bottom: 15px;
+    			padding-right: 15px;
+    			padding-left: 15px;
+				@include fontSet(36px, 1.2em, $font-lovinsans-medium); 
+			}
+		}
+
+		.row {
+			background-color: $white;
+
+			@include breakpoint(sm){
+				margin-bottom: 2em;
+				padding-bottom: 12px;
+			}
+		}
+
+		.row-title {
+			background-color: $light-gray;
+			margin-bottom: 0;
+		}
+
+		.item {
+			>.inner-content {
+				padding: .5em 1em .25em 1em;
+				padding-bottom: 2em;
+
+
+				@include breakpoint(sm){
+					padding: .5em 1em .1em 1em;
+				}
+			}
+
+
+			.title {
+				@include fontSet(28px, 1.2em, $font-lovinsans-bold);
+
+				@include breakpoint(sm){
+					@include fontSet(18px, 1.2em, $font-lovinsans-bold);
+					margin-top: .5em;
+					margin-bottom: .15em;
+				}
+
+				@include breakpoint(md){
+					@include fontSet(22px, 1.2em, $font-lovinsans-bold);
+				}
+			}
+
+			p,
+			.excerpt {
+				@include fontSet(24px, 1.2em, $font-lovinsans, true);
+				margin-bottom: .5em;
+
+				@include breakpoint(sm){
+					margin-bottom: 0;
+					padding-bottom: 0;
+					@include fontSet(15px, 1.2em, $font-lovinsans, true);
+				}
+
+				@include breakpoint(md){
+					@include fontSet(18px, 1.2em, $font-lovinsans, true);
+				}
+			}
+
+			a {
+				@include fontSet(24px, 1em, $font-lovinsans-bold);
+				margin-bottom: 0;
+
+				@include breakpoint(sm){
+					@include fontSet(14px, 1em, $font-lovinsans-bold);
+				}
+
+				@include breakpoint(md){
+					@include fontSet(18px, 1em, $font-lovinsans-bold);
+				}
+			}
+		}
+	}
+
+	// Customer Service
+	&__customer-service {
+		a {
+			font-family: $font-lovinsans-medium;
+		}
+		.item {
+			.title {
+				@include fontSet(28px, 1.1em, $font-lovinsans-bold);
+				margin-bottom: .2em;
+			}
+
+			p {
+				@include fontSet(28px, 1.2em, $font-lovinsans, true);
+			}
+
+			@include breakpoint(sm){
+				.title { @include font-size(22px, 1em); }
+
+				p { @include font-size(22px, 1.2em, true); }
+			}
+
+			@include breakpoint(md){
+				.title { @include font-size(24px, 1em); }
+			}
+		}
+	}
+}
+
+// Hero component
+@include withinBlock($page-contact-us, $component-hero) {
+
+
+	.hero-content {
+		h1 {
+			@include font-size(90px, 1em, true);
+			margin-bottom: 0;
+		}
+
+		p { }
+
+		@include breakpoint(xs){
+			h1 { @include font-size(110px, 1em, true); }
+		}
+
+		@include breakpoint(sm){
+			h1 { @include font-size(140px, 1em, true); }
+			p { }
+		}
+
+		@include breakpoint(md){
+			h1 { @include font-size(140px, 1em, true); }
+			p { }
+		}
+	}
+}
+
+@include up-to-breakpoint(sm){
+    .stateclass .stateList button{
+        font-size:1.625rem !important;
+        color: #000000;
+    }
+}
+
+/// Questions and Answers list block
+/// @group components
+$component-questions-answers-list: '.q-a-list';
+#{$component-questions-answers-list} {
+	margin-bottom: 64px;
+}
+
+//for state list
+
+
+
+/// Questions and Answer block
+/// @group components
+$component-question-answer: '.q-a';
+#{$component-question-answer} {
+	&__question {
+		@include fontSet(24px, 1.2em, $font-lovinsans-medium);
+		margin-bottom: .25em;
+
+		a {
+			color: $red;
+		}
+	}
+
+	&__answer {
+		@include fontSet(24px, 1.3em, $font-lovinsans);
+		color: $black-text;
+	}
+
+	@include breakpoint(xs){
+		&__question { @include fontSet(24px, 1.2em, $font-lovinsans-medium); }
+		&__answer { @include fontSet(24px, 1.3em, $font-lovinsans); }
+
+	}
+
+	@include breakpoint(sm){
+		&__question { @include fontSet(24px, 1.2em, $font-lovinsans-medium); }
+		&__answer { @include fontSet(24px, 1.3em, $font-lovinsans); }
+	}
+
+	@include breakpoint(md){
+		&__question { @include fontSet(28px, 1.2em, $font-lovinsans-medium); }
+		&__answer { @include fontSet(28px, 1.3em, $font-lovinsans); }
+	}
+}
+
+// Q-A within list
+@include withinBlock($component-questions-answers-list, $component-question-answer, true) {
+	margin-bottom: 1.5em;
+}
+
+.popularFAQBox {
+	>div {
+		li {
+			margin-bottom: 15px;
+			div {
+				width: 49%;
+				display: inline-block !important;
+				vertical-align: top;
+			}
+		}
+	}
+	.q-a__question {
+		a {
+			cursor: default;
+			&:focus {
+				color: #bf0c0c;
+				text-decoration: none;
+			}
+			&:hover {
+				color: #bf0c0c;
+				text-decoration: none;
+			}
+		}
+	}
+}
+
+.popular-faqComponent{
+        background-color: #f1f1eb;
+        }
+
+.q-a-list {
+        .q-a {margin-bottom: 1.5em; }
+        }
+
+//faq mobile view padding fixes
+@media only screen and (max-width: 767px) {
+    .faq{
+      padding-right: 15px;
+      padding-left: 15px;
+    }
+}
+
+//bug fixed for hero section on contact us page
+.page-contact-us__subpage{
+	 .component-hero {
+	  position: relative;
+	  min-height: 400px;
+	  z-index: 1;
+
+	  @include headers {
+		font-family: $font-lovinsans-bold;
+	  }
+
+	  @include breakpoint(sm) {
+		min-height: initial;
+		margin-bottom: 0px;
+	  }
+
+	  .hero-content-parent {
+		padding-top: $exact-mobile-nav-space;
+
+		@include breakpoint(sm) {
+		  padding-top: $exact-nav-space;
+		}
+	  }
+
+	  .absolute-content.hero-content-parent {
+		padding-top: 0;
+		top: $exact-mobile-nav-space;
+		z-index: 1;
+		@include breakpoint(sm) {
+		  padding-top: 0;
+		  top: $exact-nav-space;
+		}
+	  }
+
+	  .absolute-content .absolute-content-wrapper {
+			display: block;
+			vertical-align: top;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+			width: 100%;
+
+			.text-wrapper {
+				h1 {
+				  @include fontSet(50px, 50px, 'Droid_Arabic_Kufi_Bold');
+				  color: $white;
+				  margin-top: 24px;
+				  margin-bottom: 15px;
+				  text-transform: uppercase;
+
+				  @include breakpoint(xxs) {
+					@include font-size(73px, 73px);
+				  }
+
+				  @include breakpoint(xs) {
+					@include font-size(85px, 85px);
+				  }
+
+				  @include breakpoint(sm) {
+					@include font-size(100px, 100px);
+					margin-top: 0px;
+				  }
+
+				  @include breakpoint(md) {
+					@include font-size(125px, 125px);
+				  }
+				}
+
+
+				h2 {
+					margin-top: 0;
+					margin-bottom: 5px;
+					@include fontSet(30px, 30px, $font-lovinsans-medium);
+					color: $white;
+
+					@include breakpoint(xxs) {
+						@include fontSet(35px, 35px);
+					}
+					@include breakpoint(xs) {
+						@include fontSet(40px, 40px);
+					}
+					@include breakpoint(sm) {
+						@include fontSet(36px, 36px);
+					}
+					@include breakpoint(md) {
+						@include fontSet(50px, 50px);
+					}
+				}
+
+				p {
+				  @include fontSet(20px, 30px, $font-lovinsans);
+				  color: $white;
+				  margin-bottom: 25px;
+
+				  @include breakpoint(xxs) {
+					@include fontSet(22px, 32px);
+				  }
+
+				  @include breakpoint(xs) {
+					@include fontSet(24px, 34px);
+				  }
+
+				  @include breakpoint(sm) {
+					@include fontSet(26px, 36px);
+				  }
+
+				  @include breakpoint(md) {
+					@include fontSet(26px, 36px);
+				  }
+				}
+			}
+	  }
+	  .template-hero{
+		min-height:400px
+	  }
+	}
+	
+	
+
+
+} 
+///Faq toggle US-Backlog update 28/12/2016
+.contactUsFaqBox {
+	height: 460px;
+    overflow-y: auto;
+  .panel {
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    border-radius: 0;
+  }
+  .FaqTitle {
+    h4 {
+      margin: 0 0 20px 0;
+      font-size: 20px;
+      font-size: 2.0rem;
+      line-height: 2.0rem;
+      padding-right: 20px;
+      position: relative;
+    }
+    a {
+      text-decoration: none;
+      color: #b11902;
+      &:hover {
+        text-decoration: none;
+      }
+    }
+    .collapsed .facaret:before {
+      content: "\f0da";
+    }
+    .facaret {
+      &:before {
+        content: "\f0d7";
+      }
+      color: #000000;
+      width: 20px;
+      height: 20px;
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+  }
+  .FaqQABox {
+    padding: 0 20px;
+    .q-a__question a {
+      color: #d12510;
+    }
+    .FAQSubTitle {
+      margin-bottom: 10px;
+      text-decoration: none;
+      display: block;
+    }
+  }
+}
+
+.caption-disclaimer-text {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
+  color: #ffffff;
+  width: 100%;
+  padding: 10px 16%;
+  p {
+    font-size: 10px;
+    font-size: 1rem !important;
+    line-height: 1em !important;
+    margin: 0;
+  }
+}
+
+.caption-logo-box {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  img {
+    height: 70px;
+    width: auto;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .contactUsFaqBox {
+    height: auto;
+    .FaqTitle h4 {
+      font-size: 18px;
+      font-size: 1.8rem;
+      line-height: 1.8em;
+    }
+  }
+  .caption-logo-box {
+    position: absolute;
+    bottom: 30px;
+    left: 10px;
+  }
+}
+/* Backlog Update*/
+
+.component-hero.component-hero-half{    
+    min-height: 250px;    
+}
+
+@media only screen and (max-width: 767px) {
+    .component-hero.component-hero-half{    
+    	min-height: 400px;    
+	}
+}
+
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px){
+	.component-hero.component-hero-half{    
+    	min-height: 400px;    
+	}
+}
+
+.component-hero.component-hero-half .template-hero {
+    overflow: hidden;
+    position: relative;
+    min-height: 250px;
+    
+}
+@media only screen and (min-width: 480px) {
+    .component-hero.component-hero-half .template-hero {               
+        padding-bottom: 80%;
+    }
+}
+@media only screen and (min-width: 580px) {
+    .component-hero.component-hero-half .template-hero {        
+        padding-bottom: 50%;
+    }
+}
+@media only screen and (min-width: 680px) {
+    .component-hero.component-hero-half .template-hero { 
+        padding-bottom: 50%;
+    }
+}
+@media only screen and (min-width: 768px) {
+    .component-hero.component-hero-half .template-hero {        
+        min-height: 400px;
+        padding-bottom: 30%;
+    }
+}
+@media only screen and (min-width: 992px) {
+    .component-hero.component-hero-half .template-hero {
+        min-height: 400px;
+        padding-bottom: 30%;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .component-hero.component-hero-half .template-hero {
+        min-height: 400px;
+        padding-bottom: 30%;
+    }
+}
+@media only screen and (min-width: 1460px) {
+    .component-hero.component-hero-half .template-hero {
+        min-height: 400px;
+        padding-bottom: 0;
+    }
+}
+
+.paddTop0{
+	padding-top:0!important;
+}
+
+#contactUs .hero-content .text-wrapper h1, #contactUs .hero-content .text-wrapper {
+	text-align:center;
+} 
+  @media only screen and (max-width: 768px){
+     .comments .checkbox label::after{
+         right: 1px;
+        top: -2px !important;
+       }
+       .modal:before {
+         height: auto !important;
+     }
+     
+      }
+    .arContactUs .browsefocus input:focus + label{
+         border: none !important;
+    }
+    
+   .arContactUs .hero-content .bootstrap-select.btn-group .dropdown-toggle .filter-option{
+     line-height: 1.5 !important;
+   }
+   @media only screen and (max-width: 1024px){
+   .arContactUs .background-container img{
+       display: none!important;
+     }
+    }
+      #contactusArabiaform .restaurantLocatorForm .resstateclass.error .form-control, .form-group.error .btn.dropdown-toggle
+    {
+            box-shadow: 0px 0px 20px #bf0c0c !important;
+    }
+    
+    .arContactUs .checkbox label::after{
+         right: 0px;
+
+       }
+
+       .arModelWindow  .modal-content .btn-close{
+            left: 20px !important;
+         right: auto !important;
+       }
+         .whiteBg{
+       background: white !important;
+   }
+     .error {
+          font-size: 16px !important;
+      }
+      @media only screen and (max-width: 768px){
+     .arabiacontactus .arModelWindow .modal-dialog{
+              margin-top: 26%;     
+       }
+       .arabiacontactus .gray-border-on-white label {
+            font-size: 16px !important;
+        }
+      }
+       .careersform #enter-coverLetterArabia{
+       border-radius: 15px !important;
+       }
+       .floatRght{
+             float:left;
+            }
+        .commentfloatRght{
+         float:right;
+          span {
+           float:right;
+          }
+        }
+
+        .arabiacontactus .comments textarea {
+                 border-radius: 15px !important;
+             }
+       .arContactUs textarea.form-control{
+                   margin-bottom: 1%;
+             }
+        .arabiacontactus .col-sm-6,.arabiacontactus .col-md-6 ,.arabiacontactus .col-sm-4,.arabiacontactus .col-sm-3 {
+             margin-bottom: 1%;
+         }
+         @media only screen and (max-width: 768px) {
+          .arabiacontactus .col-sm-6,.arabiacontactus .col-md-6,.arabiacontactus .col-sm-4,.arabiacontactus .col-sm-3 {
+                   margin-bottom: 2%;
+               }
+            .arContactUs textarea.form-control{
+                         margin-bottom: 2%;
+              }
+           }
+       .arabiacontactus #restaurantLocatorForm .resStateList .btn-group {
+           margin-bottom: 3px !important;
+       }
+       #contactusArabiaform .restaurantLocatorForm .resstateclass.error .form-control, .form-group.error .btn.dropdown-toggle {
+           box-shadow: 0px 0px 20px 4px #bf0c0c !important;}
+
+
+.select-border{
+    box-shadow: 0px 0px 8px #bf0c0c;
+}
+
+.pl15{
+	padding-right: 15px;
+}
+
+  @media only screen and (max-width: 520px){
+    .arabiacontactus .component-hero .absolute-content .absolute-content-wrapper .text-wrapper h1 {
+        font-size: 42px;
+    }
+    }
+
+      @media only screen and (max-width: 667px){
+   .arabiacontactus  .margin-bottom2{
+         margin-bottom: 2%;
+        }}

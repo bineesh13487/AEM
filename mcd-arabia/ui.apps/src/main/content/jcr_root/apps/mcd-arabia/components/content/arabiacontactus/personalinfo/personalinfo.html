@@ -1,0 +1,297 @@
+
+
+<sly data-sly-use.personalInfo="com.mcd.rwd.arabia.core.sightly.PersonalInfoHandler">
+    <section class="row-title page-contact-us__subpage__about-yourself @@modifiers">
+        <div class="container">
+            <div action="google.com">
+                <sly data-sly-test="${personalInfo.showTitle}">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-3 ">
+                            <div class="form-group">
+                                <label class="control-label" for="">${personalInfo.titleText}
+                                    <sup class="asteriskAr" data-sly-test="${personalInfo.titleReq=='yes'}">*</sup>
+                                </label>
+                                <div class="select select--state dropDownHeight stateList ${personalInfo.titleReq}" id="contactUs-title-select" name="contactUs-title-select" aria-labelledby="contactUs-title-select-error">
+                                    <select id="titleValue" class="form-control" name="select-title" title="">
+                                        <sly data-sly-list="${personalInfo.titleOptions}">
+                                            <option value="${item}">${item}</option>
+                                        </sly>
+                                    </select>
+                                    <input type="text" class="hidden" id="contactUs-title-input" name="Title">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </sly>
+                <sly data-sly-test="${personalInfo.showMiddleName}">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-4 ">
+                            <div class="form-group">
+                                <label class="control-label" for="">${personalInfo.firstName}
+                                    <sup class="asteriskAr">*</sup>
+                                </label>
+                                </label>
+                                <input type="text" class="form-control placeholder ${personalInfo.firstNameReq}" id="contactUs-firstName" name="fname"  aria-labelledby="contactUs-firstName-error" maxlength="40">
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-4 ">
+                            <div class="form-group">
+                                <label class="control-label" for="">${personalInfo.middleName}
+                                    <sup  class="asteriskAr" data-sly-test="${personalInfo.middleNameReq=='yes'}">*</sup>
+                                </label>
+                                </label>
+                                <input type="text" class="form-control placeholder ${personalInfo.middleNameReq}" id="contactUs-middleName" name="Mname" aria-labelledby="contactUs-middleName-error" maxlength="40">
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-4 ">
+                            <div class="form-group">
+                                <label class="control-label" for="">${personalInfo.lastName}
+                                    <sup class="asteriskAr">*</sup>
+                                </label>
+                                <input type="text" class="form-control placeholder ${personalInfo.lastNameReq}" id="contactUs-lastName" name="lname" aria-labelledby="contactUs-lastName-error" maxlength="40">
+                            </div>
+                        </div>
+                    </div>
+                </sly>
+                <sly data-sly-test="${!personalInfo.showMiddleName}">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-6 ">
+                            <div class="form-group">
+                                <label class="control-label" for="">${personalInfo.firstName}
+                                    <sup class="asteriskAr">*</sup>
+                                </label>
+                                <input type="text" class="form-control placeholder ${personalInfo.firstNameReq}" id="contactUs-firstName" name="fname"  aria-labelledby="contactUs-firstName-error" maxlength="40">
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 ">
+                            <div class="form-group">
+                                <label class="control-label" for="">${personalInfo.lastName}
+                                    <sup class="asteriskAr">*</sup>
+                                </label>
+                                <input type="text" class="form-control placeholder ${personalInfo.lastNameReq}" id="contactUs-lastName" name="lname"  aria-labelledby="contactUs-lastName-error" maxlength="40">
+                            </div>
+                        </div>
+                    </div>
+                </sly>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 ">
+                        <div class="form-group">
+                            <label class="control-label" for="">${personalInfo.email}
+                                <sup class="asteriskAr">*</sup>
+                            </label>
+                            <input type="text" class="form-control placeholder ${personalInfo.emailReq}" id="contactUs-email" name="email"  aria-labelledby="contactUs-email-error" maxlength="40">
+                        </div>
+                    </div>
+                    <sly data-sly-test="${personalInfo.showGender}">
+                        <div class="col-xs-12 col-sm-6
+                        ">
+                            <div class="form-group">
+                                <div class="select dropDownHeight ${personalInfo.genderReq}" id="contactUs-gender-select" name="contactUs-gender-select" aria-labelledby="contactUs-gender-select-error">
+                                    <label class="control-label" for="">${personalInfo.gender}
+                                        <sup class="asteriskAr" data-sly-test="${personalInfo.genderReq=='yes'}">*</sup>
+                                    </label>
+                                    <select id="genderValue" class="form-control" name="select-gender" title="">
+                                        <sly data-sly-list="${personalInfo.genderOptions}">
+                                            <option value="${item}">${item}</option>
+                                        </sly>
+                                    </select>
+                                    <input type="text" class="hidden" id="contactUs-gender-input" name="Gender">
+                                </div>
+                            </div>
+                        </div>
+                    </sly>
+                </div>
+                <div class="row">
+                    <sly data-sly-test="${personalInfo.showCountryCode}">
+                        <div class="col-xs-12 col-sm-6 col-md-2">
+                            <div class="form-group">
+                                <label class="control-label" for="">${personalInfo.countryCode}
+                                    <sup class="asteriskAr" data-sly-test="${personalInfo.countryCodeReq=='yes'}">*</sup>
+                                </label>
+                                <input type="text" class="form-control placeholder ${personalInfo.countryCodeReq}" id="contactUs-countryCode" name="countryCode" aria-labelledby="contactUs-countryCode-error" maxlength="3" minlength="3">
+                            </div>
+                        </div>
+                    </sly>
+                    <sly data-sly-test="${personalInfo.showAreaCode}">
+                        <div class="col-xs-12 col-sm-6 col-md-4">
+                            <div class="form-group">
+                                <label class="control-label" for="">${personalInfo.areaCode}
+                                    <sup class="asteriskAr" data-sly-test="${personalInfo.areaCodeReq=='yes'}">*</sup> </label>
+                                <input type="text" class="form-control placeholder ${personalInfo.areaCodeReq}" id="contactUs-areaCode" name="areaCode"  aria-labelledby="contactUs-areaCode-error" maxlength="5">
+                            </div>
+                        </div>
+                    </sly>
+                    <sly data-sly-test="${personalInfo.showNumber}">
+                        <div class="col-xs-12 col-sm-6 col-md-4">
+                            <div class="form-group">
+                                <label class="control-label" for="">${personalInfo.number}
+                                    <sup class="asteriskAr" data-sly-test="${personalInfo.numberReq=='yes'}">*</sup> </label>
+                                <input type="text" class="form-control placeholder ${personalInfo.numberReq}" id="contactUs-mobNum" name="number"  aria-labelledby="contactUs-mobNum-error" maxlength="9" minlength="9">
+                            </div>
+                        </div>
+                    </sly>
+                </div>
+                <div class="row">
+                    <sly data-sly-test="${personalInfo.showNationality}">
+                        <div class="col-xs-12 col-sm-6">
+                            <div class="form-group">
+                                <div class="select dropDownHeight ${personalInfo.nationalityReq}" id="contactUs-nationality-select" name="contactUs-nationality-select" aria-labelledby="contactUs-nationality-select-error">
+                                    <label class="control-label" for="">${personalInfo.nationality}
+                                        <sup class="asteriskAr" data-sly-test="${personalInfo.nationalityReq=='yes'}">*</sup>
+                                    </label>
+                                    <select id="nationalityValue" class="form-control" name="select-nationality" title="" >
+
+                                        <sly data-sly-list="${personalInfo.nationalityOptions}">
+                                            <option value="${item}">${item}</option>
+                                        </sly>
+                                    </select>
+                                    <input type="text" class="hidden" id="contactUs-nationality-input" name="Nationality" >
+                                </div>
+                            </div>
+                        </div>
+                    </sly>
+                </div>
+                <div class="row">
+                    <sly data-sly-test="${personalInfo.showDOB}">
+                        <div class="col-xs-12 col-sm-12 col-md-6">
+                            <div class="form-group">
+                            <div class="row">
+                                <fieldset>
+                                    <div class="col-xs-12">
+                                        <legend>${personalInfo.dob}
+                                        <sup class="asteriskAr" data-sly-test="${personalInfo.dobReq =='yes'}">*</sup></legend>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-4">
+                                        <div class="form-group">
+                                        <div class="select dropDownHeight ${personalInfo.dobReq}" id="contactUs-day-select" name="contactUs-day-select">
+                                            <label for="" id="title-select-day-label" class="visuallyhidden" aria-hidden="true">Day</label>
+                                            <select class="form-control" id="arabia-day-select" title="Day">
+                                                <option value="day">${personalInfo.date}</option>
+                                                <sly data-sly-list="${personalInfo.dateOptions}">
+                                                    <option value="${item}">${item}</option>
+                                                </sly>
+
+                                            </select>
+                                        </div>
+                                        <input type="hidden" class="" id="contactUs-day-input" name="dayInput" maxlength="6" autocomplete="off">
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-4">
+                                        <div class="form-group">
+                                        <div class="select  dropDownHeight ${personalInfo.dobReq}" id="contactUs-month-select" name="contactUs-month-select">
+                                            <label for="" id="title-select-month-label" class="visuallyhidden" aria-hidden="true">Month</label>
+                                            <select class="form-control" id="arabia-month-select" title="Month">
+                                                <option value="month">${personalInfo.month}</option>
+                                                <sly data-sly-list="${personalInfo.monthOptions}">
+                                                    <option value="${item}">${personalInfo.monthOptions[item]}</option>
+                                                </sly>
+                                            </select>
+                                        </div>
+                                        <input type="hidden" class="" id="contactUs-month-input" name="monthInput" maxlength="6" autocomplete="off">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xs-12 col-sm-4">
+                                        <div class="form-group">
+                                        <div class="select  dropDownHeight ${personalInfo.dobReq}" id="contactUs-year-select" name="contactUs-year-select">
+                                            <label for="" id="title-select-year-label" class="visuallyhidden" aria-hidden="true">Year</label>
+                                            <select class="form-control" id="arabia-year-select" title="Year">
+                                                <option value="year">${personalInfo.year}</option>
+                                                <sly data-sly-list="${personalInfo.yearOptions}">
+                                                    <option value="${item}">${item}</option>
+                                                </sly>
+                                            </select>
+                                        </div>
+                                        <input type="hidden" class="" id="contactUs-year-input" name="yearInput" maxlength="6" autocomplete="off">
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                </div>
+                                <input type="hidden" name="dob" id="dob" class="form-control placeholder ${personalInfo.dobReq}" aria-label="Date and Time of Visit *" maxlength="30" autocomplete="off">
+                                <label for="resDate" generate="true" class="error pl15" style="display: none;"></label>
+
+                            </div>
+                        </div>
+                    </sly>
+                </div>
+                <div class="row">
+
+                    <sly data-sly-test="${personalInfo.showMaritalStatus}">
+                        <div class="col-xs-12 col-sm-6 ">
+                            <div class="form-group">
+                                <div class="select dropDownHeight ${personalInfo.maritalstatusReq}" id="contactUs-maritalstatus-select" name="contactUs-maritalstatus-select" aria-labelledby="contactUs-maritalstatus-select-error">
+                                    <label class="control-label" for="">${personalInfo.maritalstatus}
+                                        <sup class="asteriskAr" data-sly-test="${personalInfo.maritalstatusReq=='yes'}">*</sup>
+                                    </label>
+                                    <select id="maritalValue" class="form-control" name="select-maritalStatus" title="" >
+
+                                        <sly data-sly-list="${personalInfo.maritalstatusOptions}">
+                                            <option value="${item}">${item}</option>
+                                        </sly>
+                                    </select>
+                                    <input type="text" class="hidden" id="contactUs-maritalstatus-input" name="Marital_Status" >
+                                </div>
+                            </div>
+                        </div>
+                    </sly>
+                    <sly data-sly-test="${personalInfo.showPrefContact}">
+                        <div class="col-xs-12 col-sm-6 ">
+                            <div class="form-group">
+                                <div class="select dropDownHeight ${personalInfo.prefContactReq}" id="contactUs-prefcontact-select" name="contactUs-prefcontact-select" aria-labelledby="contactUs-prefcontact-select-error">
+                                    <label class="control-label" for="">${personalInfo.prefContact}
+                                        <sup class="asteriskAr" data-sly-test="${personalInfo.prefContactReq=='yes'}">*</sup>
+                                    </label>
+                                    <select id="prefcontactValue" class="form-control" name="select-prefcontact" title="" >
+
+                                        <sly data-sly-list="${personalInfo.prefContactOptions}">
+                                            <option value="${item}">${item}</option>
+                                        </sly>
+                                    </select>
+                                    <input type="text" class="hidden" id="contactUs-prefcontact-input" name="Pref_Contact">
+                                </div>
+                            </div>
+                        </div>
+                    </sly>
+                </div>
+                <div class="row">
+                    <sly data-sly-test="${personalInfo.showHearFromUs}">
+                        <div class="col-xs-12 col-sm-6">
+                            <div class="form-group">
+                                <div class="select dropDownHeight ${personalInfo.hearFromUsReq}" id="contactUs-hearfromus-select" name="contactUs-hearfromus-select" aria-labelledby="contactUs-hearfromus-select-error">
+                                    <label class="control-label" for="">${personalInfo.hearFromUs}
+                                        <sup class="asteriskAr" data-sly-test="${personalInfo.hearFromUsReq=='yes'}">*</sup>
+                                    </label>
+                                    <select id="hearfromusValue" class="form-control" name="select-hearfromus" title="">
+
+                                        <sly data-sly-list="${personalInfo.hearFromUsOptions}">
+                                            <option value="${item}">${item}</option>
+                                        </sly>
+                                    </select>
+                                    <input type="text" class="hidden" id="contactUs-hearfromus-input" name="Hear_abt_us">
+                                </div>
+                            </div>
+                        </div>
+                    </sly>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div style="display:none;">
+        <div id="contactUs-title-message">${personalInfo.titleMessage}</div>
+        <div id="contactUs-first-name-message">${personalInfo.firstNameMessage}</div>
+        <div id="contactUs-middle-name-message">${personalInfo.middleNameMessage}</div>
+        <div id="contactUs-lastName-message">${personalInfo.lastNameMessage}</div>
+        <div id="contactUs-email-message">${personalInfo.emailMessage}</div>
+        <div id="contactUs-gender-message">${personalInfo.genderMessage}</div>
+        <div id="contactUs-nationality-message">${personalInfo.nationalityMessage}</div>
+        <div id="contactUs-dob-message">${personalInfo.dobMessage}</div>
+        <div id="contactUs-prefcontact-message">${personalInfo.prefContactMessage}</div>
+        <div id="contactUs-hearfromus-message">${personalInfo.hearFromUsMessage}</div>
+        <div id="contactUs-maritalstatus-message">${personalInfo.maritalstatusMessage}</div>
+        <div id="contactUs-country-code-message">${personalInfo.countryCodeMessage}</div>
+        <div id="contactUs-area-code-message">${personalInfo.areaCodeMessage}</div>
+        <div id="contactUs-mob-number-message">${personalInfo.numberMessage}</div>
+        <input type="hidden" name="personalInfoFieldList" id="personalInfoFieldList" value="${personalInfo.formFieldList}">
+    </div>
+
+</sly>

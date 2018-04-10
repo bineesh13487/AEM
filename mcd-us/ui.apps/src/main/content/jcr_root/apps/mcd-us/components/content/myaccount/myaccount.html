@@ -1,0 +1,97 @@
+
+<div data-sly-use.myaccount="com.mcd.rwd.us.core.sightly.MyAccountHandler" ng-controller="myAccountController" ng-cloak data-ng-init="init('${myaccount.cookieDomainName @context='scriptString'}','myaccount','')">
+    <div id="cookieDomainName" data-domain="${myaccount.cookieDomainName}"></div>
+    <div id="termsAndConditionsPagePath" data-domain="${myaccount.termsAndConditionsPagePath}"></div>
+    <div class="storeidstored" val=""></div>
+    <div id="updateTermsLink" data-domain="${myaccount.updateTermsLink}"></div>
+    <div id="updateStoreLink" data-domain="${myaccount.updateStoreId}"></div>
+    <div id="responseTermLink" data-domain="${myaccount.responseTermLink}"></div>
+    <div class="myAccountEpsilonURL" data-epsilon-url="${myaccount.epsilonURL}"></div>
+    <div id="sign-inlink" data-domain="${myaccount.signInLink}"></div>
+    <div id="mydealsLink" data-domain="${myaccount.mydealsLink}"></div>
+    <div class="myAccountEpsilonURL" data-epsilon-url="${myaccount.epsilonURL}"></div>
+    <div class="signInRedirectLink" data-sign-redirectLink="${myaccount.signInRedirectLink}"></div>
+    <div class="myAccountSigninURL" data-sign-url="${myaccount.signInURL}"></div>
+    <div class="myAccountForgotpassURL" data-forgotpass-url="${myaccount.forgotPassURL}"></div>
+    <div class="myAccountUpdateprofileURL" data-update-url="${myaccount.updateProfileUrl}"></div>
+    <div class="myAccountRegisterURL" data-registration-url="${myaccount.registerUrl}"></div>
+    <div class="myAccountLogoutURL" data-logout-url="${myaccount.logoutUrl}"></div>
+    <div class="myAccountResetPasswordURL" data-resetpassword-url="${myaccount.resetPassWordLink}"></div>
+    <div class="myAccountChangePasswordURL" data-changepassword-url="${myaccount.changePassWordLink}"></div>
+
+
+    <div class="logged-Out" ng-hide="isLoggedIn">
+        <button class="close dropdown-close no-ring" data-toggle="dropdown" aria-label="close"><i class="fa fa-times click-before-outline" aria-hidden="true" style="outline: none;"></i></button>
+        <div class="cont-intro" style="background-image: url('${myaccount.myaccountImagePath @context='uri'}');">
+            <h3>${myaccount.myAccountInfo}</h3>
+        </div>
+        <div class="cont-text">
+            <h4>${myaccount.signInTitle}</h4>
+        </div>
+        <div class="cont-form">
+            <form class="form-inline container-fluid" name="myAccountForm">
+                <div class="form-group row" ng-class="myAccountForm.myaccountEmail.$touched && myAccountForm.myaccountEmail.$error.required || myAccountForm.myaccountEmail.$touched && myAccountForm.myaccountEmail.$error.email ? 'has-error' :'' ">
+                    <div class="col-xs-12">
+                        <label for="${myaccount.uuid}" class="hasErrors">
+                            <span class="messageError myaccountErrWrong" style="display:none;"><i class="fa fa-exclamation-triangle"><span class="visuallyhidden">error</span></i>${myaccount.netErrorText}</span>
+                            <span class="messageError myaccountErrLogin" style="display:none;"><i class="fa fa-exclamation-triangle"><span class="visuallyhidden">error</span></i>${myaccount.loginFailedMsg}</span>
+                            <span class="messageError myaccountErrActivation" style="display:none;"><i class="fa fa-exclamation-triangle"><span class="visuallyhidden">error</span></i>${myaccount.activationErrorMsg}</span>
+                            <span class="messageError" ng-show="myAccountForm.myaccountEmail.$touched && myAccountForm.myaccountEmail.$error.required"><i class="fa fa-exclamation-triangle"><span class="visuallyhidden">error</span></i>${myaccount.emailReqMsg}</span>
+                            <span class="messageError" ng-show="myAccountForm.myaccountEmail.$touched && (myAccountForm.myaccountEmail.$error.email || myAccountForm.myaccountEmail.$error.pattern)"><i class="fa fa-exclamation-triangle"><span class="visuallyhidden">error</span></i>${myaccount.emailInvalidText}</span>
+                            <span class="messageError ecpccpsyncerror" style="display:none;"><i class="fa fa-exclamation-triangle"><span class="visuallyhidden">error</span></i>${myaccount.ecpccpsyncerror}</span></label>
+
+
+                        <input type="email" id="${myaccount.uuid}" ng-keydown="clearErrorMessages()" name="myaccountEmail" autocomplete="off" ng-model="myaccountEmail" ng-pattern="${myaccount.regexPattern}" title="${myaccount.emailPlaceholderText}" class="form-control emailId" placeholder="${myaccount.emailPlaceholderText}" required> </div>
+                </div>
+                <div class="form-group row" ng-class="myAccountForm.myaccountPassword.$touched && myAccountForm.myaccountPassword.$error.required ? 'has-error' :'' ">
+                    <div class="col-xs-12">
+                        <!--  <span class="messageError myaccountErrPassword">${myaccount.passReqMsg}</span>-->
+                        <label for="${myaccount.uuid}-p">
+                            <span class="messageError" ng-show="myAccountForm.myaccountPassword.$touched && myAccountForm.myaccountPassword.$error.required"><i class="fa fa-exclamation-triangle"><span class="visuallyhidden">error</span></i>${myaccount.passReqMsg}</span></label>
+                        <input type="password" id="${myaccount.uuid}-p" ng-keydown="clearErrorMessages()" name="myaccountPassword" autocomplete="off" ng-model="myaccountPassword" class="form-control passwdId" placeholder="${myaccount.passwordPlaceholderText}" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="form-group cont-remember-me">
+                            <div class="checkbox gwcremembermelabel"> <input type="checkbox" name="remember-me" class="myaccremember gwcrememberme mobileClickRmArrow" role="checkbox" aria-checked="false" aria-labelledby="remember-me" tabindex="0"> <label for="remember-me">
+                                ${myaccount.rememberMeText}
+                            </label> </div>
+                        </div>
+                        <a ng-if="myAccountForm.$invalid" href="#" ng-disabled="myAccountForm.$invalid" ng-class="myAccountForm.$invalid? 'deactivated' :'' " ng-click="submitForm('sign','myaccount',$event)" class="btn btn-red" title="SignIn Disabled">${myaccount.signInButtonText}<span class="icon-spinner"></span></a>
+                        <a ng-if="!myAccountForm.$invalid" href="#" ng-disabled="myAccountForm.$invalid" ng-class="myAccountForm.$invalid? 'deactivated' :'' " ng-click="submitForm('sign','myaccount',$event)" class="btn btn-red" title="SignIn Enabled">${myaccount.signInButtonText}<span class="icon-spinner"></span></a>
+                        <a href="#" class="forgot" title="${myaccount.forgotPasswordText}" ng-click="submitForm('forgotpassword','myaccount',$event)">${myaccount.forgotPasswordText}</a> </div>
+                </div>
+            </form>
+        </div>
+        <div class="cont-foot">
+            <a href="#" class="btn btn-red" onfocusout="$('.close').focus();" ng-click="submitForm('register','myaccount',$event)">${myaccount.registerText}</a>
+        </div>
+    </div>
+    <div class="logged-In" ng-show="isLoggedIn">
+        <li>
+            <button class="close dropdown-close no-ring" data-toggle="dropdown" aria-label="close"><i class="fa fa-times click-before-outline" aria-hidden="true" style="outline: none;"></i></button>
+            <div class="cont-landscape-scroll">
+                <div class="cont-welcome">
+                    <h3>${myaccount.welcomeText}, {{UserName}} </h3>
+                </div>
+            </div>
+        </li>
+        <li class="account-link"> <a href="#" data-at="Account:${myaccount.pageNameForAnalytics}:${myaccount.updateProfileText}" data-track="accLink" ng-click="submitForm('updateProfile','myaccount',$event)">${myaccount.updateProfileText}</a> </li>
+        <sly data-sly-list.mapValue="${myaccount.additionalLinks}">
+            <li class="account-link"> <a href="${mapValue['path']}" data-at="Account:${myaccount.pageNameForAnalytics}:${mapValue['title']}" data-track="accLink">${mapValue['title']}</a> </li>
+        </sly>
+        <li class="account-link"> <a href="#" data-at="Account:${myaccount.pageNameForAnalytics}:${myaccount.logoutText}" data-track="accLink" onfocusout="$('.close').focus();" ng-click="submitForm('logout','myaccount',$event)">${myaccount.logoutText}</a> </li>
+    </div>
+</div>
+<style>
+    @media only screen and (max-width:676px) {
+    .mobileClickRmArrow{
+    left: 36% !important;
+    }
+    .gwcremembermelabel label::after
+    {
+    top: -2px;
+    }
+    }
+</style>

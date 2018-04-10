@@ -1,0 +1,42 @@
+<sly data-sly-use.staticCallout="com.mcd.rwd.us.core.sightly.callouts.StaticCalloutHandler"
+     data-sly-list.callout="${staticCallout.callouts}">
+    <div class="promo col-xs-12 col-sm-${callout.width}" id="callout${callouts.count}">
+        <div class="component-feature-callout zoom-anim-parent wide">
+            <img alt="" src="${callout.imagePath}"
+                 class="img-responsive hidden-xs cont-100 zoom-anim-target" aria-hidden="true">
+            <img alt="" src="${callout.mobileImagePath}"
+                 class="img-responsive visible-xs-block cont-100 zoom-anim-target">
+
+            <sly data-sly-test.calloutFlag="${callout.width == '6'}"/>
+            <div class="absolute-content border-wrapper ${calloutFlag ? 'feature50' : ''}">
+                <div class="absolute-content-wrapper promoBox${callout.alignment} ${callout.bottomAligned ? 'align-bottom' : '' }">
+                    <div class="cont-top-img">
+                        <img src="${callout.mcdlogo}" class=" img-responsive img-top"
+                             alt="" aria-hidden="true">
+                    </div>
+                    <div class="text-wrapper">
+                        <div class="headline-text" style="color:#${callout.titleColor @ context='styleToken'};">
+	                       <p class="${callout.eyetitleFontStyle == 'small' ? 'headline-text-small' : 'headline-text-large'} text-transform-none">${callout.eyetitle @ context='html'}</p>
+                        <p class="${callout.titleFontStyle == 'small' ? 'headline-text-small' : 'headline-text-large'} text-transform-none">${callout.title @ context='html'}</p>
+                        <p class="${callout.subtitleFontStyle == 'small' ? 'headline-text-small' : 'headline-text-large'} text-transform-none">${callout.subtitle @ context='html'}</p>
+                        <p class="${callout.descriptionFontStyle == 'small' ? 'headline-text-small' : 'headline-text-large'} text-transform-none">${callout.description @ context='html'}</p>   
+                        </div>
+                        <a title="${callout.ctaAlt @ context='unsafe'}"
+                           class="zoom-anim btn btn-red btn--xsm ${callout.link.linkClass} text-transform-none"
+                           aria-label= "${callout.ariaLabel}" 
+                           target="${callout.link.target}" href="${callout.link.href}"
+                           data-at="${callout.analytics}" data-track="promotion">
+                            ${callout.link.text @ context='html'}
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div data-sly-test="${callout.cornerlogo}" class="caption-logo-box">
+				<img src="${callout.cornerlogo}" alt="" aria-hidden="true">
+			</div>
+			<div data-sly-test="${callout.disclaimer}" class="caption-disclaimer-text marginmanagement text-transform-none">
+				<p data-sly-test="${callout.disclaimer}">${callout.disclaimer @ context='html'}</p>
+			</div>
+        </div>
+    </div>
+</sly>

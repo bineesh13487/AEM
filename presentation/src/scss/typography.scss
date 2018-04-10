@@ -1,0 +1,101 @@
+/* typography styles for reuse */
+
+@mixin make-h1($color: $dark-gray-2) {
+  font-size: to-rem(40);
+  color: $color;
+  @media screen and (min-width: $break-point) {
+    font-size: to-rem(60);
+  }
+}
+
+@mixin make-h2($color: $dark-gray-2) {
+  font-size: to-rem(26);
+  line-height: to-rem(30);
+  color: $color;
+  @media screen and (min-width: $break-point) {
+    font-size: to-rem(40);
+    line-height: to-rem(46);
+  }
+}
+
+@mixin make-small-text($color: $compliment-dark-red) {
+  font-size: to-rem(11);
+  line-height: to-rem(14);
+  color: $color;
+  font-weight: bold;
+}
+
+@mixin make-paragraph($color: $dark-gray-1) {
+  font-size: to-rem(16);
+  line-height: to-rem(22);
+  color: $color;
+  font-weight: 300;
+}
+
+@mixin make-item-cta($color: $call-to-action-blue) {
+  font-size: to-rem(16);
+  line-height: to-rem(22);
+  color: $color;
+  font-weight: normal;
+}
+
+
+@mixin make-link-title($color: $dark-gray-2) {
+  font-size: to-rem(18);
+  line-height: to-rem(22);
+  color: $color;
+  @media screen and (min-width: $break-point) {
+    font-size: to-rem(22);
+    line-height: to-rem(25);
+  }
+}
+
+@mixin make-link-small() {
+  font-size: to-rem(14);
+  line-height: to-rem(16);
+  color: $dark-gray-2;
+  @media screen and (min-width: $break-point) {
+    font-size: to-rem(60);
+  }
+}
+
+@mixin make-cta() {
+  height: to-rem(48);
+  width: auto;
+  max-width: 90%;
+  min-width: 20%;
+  border-radius: to-rem(4);
+  margin: 0 auto;
+  display: inline-block;
+  padding: 0 to-rem(16);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  @include m('yellow' 'light') {
+    background: linear-gradient(0deg, $yellow-1 0%, $yellow-2 100%);
+  }
+  @include m('white') {
+    background-color: $white-1;
+  }
+  @media screen and (min-width: $break-point) {
+    margin: 0 0 0 to-rem(45);
+  }
+}
+
+@mixin make-cta-label() {
+  height: to-rem(48);
+  width: auto;
+  max-width: 90%;
+  min-width: 20%;
+  border-radius: to-rem(4);
+  margin: 0 auto;
+  display: inline-block;
+  padding: 0 to-rem(16);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  @include m('light') {
+    background: linear-gradient(0deg, $yellow-1 0%, $yellow-2 100%);
+  }
+  @media screen and (min-width: $break-point) {
+    margin: 0 0 0 to-rem(45);
+  }
+}

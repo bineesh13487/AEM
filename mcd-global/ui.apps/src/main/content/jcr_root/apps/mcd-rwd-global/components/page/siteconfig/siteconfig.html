@@ -1,0 +1,293 @@
+<!--/*
+Overrides body of wcm/foundation/components/page to provide scaffolding like form for site configuration.
+*/-->
+
+<!DOCTYPE>
+<html data-sly-use.config="com.mcd.rwd.global.core.sightly.page.SiteConfig">
+<head>
+    <title>AEM Design | ${ config.title @ context='html'}</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script src="/libs/cq/ui/resources/cq-ui.js" type="text/javascript"></script>
+    <sly data-sly-use.clientLib="${'/libs/granite/sightly/templates/clientlib.html'}">
+        <sly data-sly-call="${clientLib.all @ categories='cq.foundation-main,cq.tagging,apps.mcd.global'}" />
+    </sly>
+</head>
+<body>
+<br>
+<h1>${ config.title @ context='html'} Design & Configurations</h1>
+<br>
+
+<div id="CQ">
+    <!--/* Dialog is rendered to this */-->
+    <div id="dlg"></div>
+</div>
+
+<script type="text/javascript">
+
+    // undo/redo is not allowed when in scaffolding mode (but undo history is active, as
+    // we're recording the update)
+    if (CQ.undo.UndoManager.isEnabled()) {
+        CQ.undo.UndoManager.getHistory().block();
+    }
+
+    document.title = "${ config.title @ context='scriptString'}";
+
+    var parentPath = "${config.formURL @ context='scriptString'}";
+    var browseRoot = parentPath;
+
+    var myForm;
+
+    function changeParentPath() {
+        var browseDialog = new CQ.BrowseDialog({
+            treeRoot: {
+                name: browseRoot.substring(1),
+                text: browseRoot
+            },
+            treeLoader: {
+                dataUrl: CQ.shared.HTTP.getXhrHookedURL(CQ.Util.externalize("/bin/tree/ext.json")),
+                baseParams: {
+                    "_charset_": "utf-8"
+                },
+                createNode: function(attr) {
+                    attr.text = attr.name;   // use plain node name for tree nodes
+                    return CQ.Ext.tree.TreeLoader.prototype.createNode.call(this, attr);
+                }
+            },
+            path: parentPath,
+            ok: function() {
+                parentPath = browseDialog.getSelectedPath();
+                browseDialog.hide();
+                myForm.getForm().url = CQ.HTTP.externalize(parentPath + "/*");
+                document.getElementById("parentpath").innerHTML = CQ.shared.XSS.getXSSValue(parentPath);
+            }
+        });
+        browseDialog.show();
+    }
+
+    CQ.Ext.onReady(function() {
+        /**
+         * An array containing the xtype of widgets that need to call
+         * their processRecord function even when creating a new page
+         */
+        var forcedFields = ["html5smartfile", "html5smartimage"];
+
+        myForm = new CQ.Ext.form.FormPanel({
+            //standardSubmit: false,
+            url: CQ.HTTP.externalize(parentPath),
+            buttonAlign: "left",
+            border:false,
+            processExternalDialog: function(data) {
+                if (data && data.items) {
+                    if (data.items instanceof Array) {
+                        for (var i = 0; i < data.items.length; i++) {
+                            this.processExternalItem(data.items[i]);
+                        }
+                    } else {
+                        this.processExternalItem(data.items);
+                    }
+                }
+            },
+
+            processExternalItem: function(tab) {
+                if (tab["xtype"] == "tabpanel") {
+                    this.processExternalDialog(tab);
+                } else {
+                    if (tab instanceof Array) {
+                        for (var i=0; i<tab.length; i++) {
+                            this.processExternalItem(tab[i]);
+                        }
+                    } else {
+                        var include = tab;
+                        if (tab["xtype"] == "panel") {
+                            include = CQ.Util.applyDefaults(include, {
+                                layout: "form",
+                                autoScroll: true,
+                                border: true,
+                                bodyStyle: CQ.themes.Dialog.TAB_BODY_STYLE,
+                                labelWidth: CQ.themes.Dialog.LABEL_WIDTH,
+                                defaultType: "textfield",
+                                "stateful": false,
+                                defaults: {
+                                    msgTarget: CQ.themes.Dialog.MSG_TARGET,
+                                    anchor: CQ.themes.Dialog.ANCHOR,
+                                    "stateful": false
+                                }
+                            });
+                        }
+                        include.header = true;
+                        include.border = true;
+                        include.headerAsText = true;
+                        if (!include.title) {
+                            include.title = "untitled";
+                        }
+                        this.add(include);
+                    }
+                }
+            },
+
+            /**
+             * Loads the content from the given data store or path.
+             * @param {Store/String} content The data store or path
+             */
+            loadContent: function(content) {
+                var store;
+                if (typeof(content) == "string") {
+                    this.path = content;
+                    var url = CQ.HTTP.externalize(this.path);
+                    store = new CQ.data.SlingStore({"url": url + ".infinity.json"});
+                } else if (content instanceof CQ.Ext.data.Store) {
+                    store = content;
+                }
+
+                if (store) {
+                    store.load({
+                        callback: this.processRecords,
+                        scope: this
+                    });
+                }
+            },
+
+            /**
+             * Processes the given records. This method should only be used as
+             * a callback by the component's store when loading content.
+             * @param {CQ.Ext.data.Record[]} recs The records
+             * @param {Object} opts The options such as the scope (optional)
+             * @param {Boolean} success <code>true</code> if retrieval of records was
+             *        successful, <code>false</code> otherwise
+             * @private
+             */
+            processRecords: function(recs, opts, success) {
+                var rec;
+                if (success) {
+                    rec = recs[0];
+                } else {
+                    CQ.Log.warn("scaffolding processRecords: retrieval of records unsuccessful");
+                    rec = new CQ.data.SlingRecord();
+                    rec.data = {};
+                }
+                rec.data.allowUpload = true;
+                CQ.Log.debug("scaffolding processRecords: processing records for fields");
+                var scope = opts.scope ? opts.scope : this;
+                var fields = CQ.Util.findFormFields(this);
+                for (var name in fields) {
+                    for (var i = 0; i < fields[name].length; i++) {
+                        try {
+                            if (fields[name][i].processPath) {
+                                CQ.Log.debug("scaffolding processRecords: calling processPath of field '{0}'", [name]);
+                                fields[name][i].processPath(this.path);
+                            }
+                            if (true || ($CQ && $CQ.inArray(fields[name][i].xtype, forcedFields) !== -1)) {
+                                if (!fields[name][i].initialConfig.ignoreData) {
+                                    CQ.Log.debug("scaffolding processRecords: calling processRecord of field '{0}'", [name]);
+                                    fields[name][i].processRecord(rec, this.path);
+                                }
+                            }
+                        }
+                        catch (e) {
+                            CQ.Log.debug("scaffolding processRecords: {0}", e.message);
+                        }
+                    }
+                }
+                //this.fireEvent("loadContent", this);
+
+                // prepare creating an undo step from the update operation
+                if (CQ.undo.UndoManager.isEnabled()) {
+                    CQ.undo.util.UndoUtils.addUndoMarker(this);
+                    CQ.undo.UndoManager.getHistory().prepareUndo(
+                            new CQ.undo.util.OriginalData(this.path, rec, this, true));
+                }
+            },
+
+
+            /**
+             * Processes the given records. This method should only be used as
+             * a callback by the component's store when loading content.
+             */
+            processPath: function(path) {
+                var fields = CQ.Util.findFormFields(this);
+                for (var name in fields) {
+                    for (var i = 0; i < fields[name].length; i++) {
+                        try {
+                            if (fields[name][i].processPath) {
+                                fields[name][i].processPath(path);
+                            }
+                        }
+                        catch (e) {
+                            CQ.Log.debug("scaffolding processPath: {0}", e.message);
+                        }
+                    }
+                }
+            },
+
+            getActiveTab: function() {
+                return this;
+            }
+        });
+        myForm.addButton({
+            text: "Save",
+            handler: function() {
+                var frm = myForm.getForm();
+                var title;
+                var params = {
+                    "_charset_": "utf-8"
+                };
+
+
+                title = frm.findField("./jcr:title");
+
+                if (title) {
+                    var hint = title.getValue();
+                    if (hint) {
+                        params[":nameHint"] = hint;
+                    }
+                }
+
+                var multiFieldPanels = myForm.findByType("multifieldpanel");
+
+                CQ.Ext.each(multiFieldPanels, function() {
+					var value = this.getValue();
+                	if (value){
+                    	this.panelValue.setValue(value);
+                	}
+                });
+
+                var action = new CQ.form.SlingSubmitAction(frm, {
+                    params: params,
+                    success: function(frm, resp) {
+                        var contentPath = "${ currentPage.path @ context='scriptString'}";
+
+                        var url = CQ.HTTP.externalize(contentPath);
+
+                        url += ".html";
+
+                        //if (isUpdate) {
+                            //CQ.Ext.Msg.alert("Success", "Updated " + contentPath);
+                            CQ.Util.reload(CQ.WCM.getContentWindow(), url);
+                        //}
+                    }
+                });
+                frm.doAction(action);
+            }
+        });
+
+        var url = CQ.HTTP.externalize("${config.dialogPath @ context='scriptString'}.infinity.json");
+        var data = CQ.HTTP.eval(url);
+
+        if (data) {
+            var ct = CQ.utils.Util.formatData(data);
+            myForm.processExternalDialog(ct);
+        }
+
+        myForm.render("dlg");
+        myForm.loadContent(parentPath);
+
+        // hack: register ourselves as dialog, so that the DD from the contentfinder works
+        CQ.WCM.registerDialog("${config.dialogPath @ context='scriptString'}", myForm);
+
+        myForm.fireEvent("activate", myForm);
+        myForm.getForm().findField(0).focus();
+        window.scrollTo(0,0);
+    });
+</script>
+</body>
+</html>

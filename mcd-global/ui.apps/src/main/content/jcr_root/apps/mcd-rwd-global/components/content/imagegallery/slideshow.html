@@ -1,0 +1,59 @@
+<sly data-sly-use.gallery="com.mcd.rwd.global.core.sightly.ImageGalleryHandler">
+    <section class="col-xs-12">
+        <!-- PROMO SLIDER -->
+        <div class="promo-slider flexslider slideShowSlider" data-sly-attribute="${gallery.genericValues}">
+            <ul class="slides" data-sly-list.images="${gallery.galleryList}">
+                <li class="item variant2  entity entity-pane pane-promo"
+                    data-thumb="${images.backGroundImage}" data-bg-color="dark"
+                    style="background-image: url('${images.backGroundImage @context='styleString'}');">
+                    <a class="${images.link.linkClass}" href="${images.link.href}"
+                       data-sly-unwrap="${images.ctaImage}">
+                        <div class="item-content row">
+                            <!--/* promo-title */-->
+                            <div class="promo-title col-xs-6 col-sm-6 col-md-12 ${images.titleImageAlign}"
+                                 style="float : ${images.titleImageAlign @ context='styleToken'};">
+                                <img class="promo-title-desktop" src="${images.titleImage}" alt=""
+                                     title="" data-sly-test="${images.titleImage}">
+                                <img class="promo-title-mobile" src="${images.titleImage}" alt=""
+                                     title="" data-sly-test="${images.titleImage}">
+                            </div>
+                            <!--/* promo-main-image */-->
+                            <div class="promo-image col-xs-12 col-sm-6 col-md-12 ${images.mainImageAlign}" >
+                                <img class="promo-image-desktop" src="${images.mainImage}" alt=""
+                                     title="" data-sly-test="${images.mainImage}">
+                                <img class="promo-image-mobile" src="${images.mainImage}" alt="" title="" data-sly-test="${images.mainImage}">
+                            </div>
+
+                            <!--/* promo-cta */-->
+							<div  class="promo-cta col-xs-12 col-sm-6 col-md-6 ${ images.link.linkClass }">
+                            <a data-sly-test="${images.ctaImage}" target="${images.link.target}"
+                               href="${images.link.href}"
+                              >
+                                <img src="${images.ctaImage}" alt="" title=""
+                                     class="${images.ctaImageAlign}">
+                            </a>
+							</div>
+
+                            <!--/* promo-blurb */-->
+                            <div data-sly-test="${images.imageDescription}"
+                                 class="promo-cta description-text-color col-xs-12 col-sm-6 col-md-6 ${images.hideDescripition?'hidden-xs':''}"
+                                 style="color : ${gallery.textColor @ context='styleToken'}; background-color : ${gallery.textBackgroundColor @ context='styleToken'}; ">
+                                <p class="${images.ctaImageAlign}"><span>${images.imageDescription @context='html'}</span>
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+            <!-- Controls -->
+            <div class="flex-container">
+                <a class="left carousel-control hidden-xs" href="#promo-slider" data-slide="prev">
+                    <i class="icon icon-icon-angle-left"></i>
+                </a>
+                <a class="right carousel-control hidden-xs" href="#promo-slider" data-slide="next">
+                    <i class="icon icon-icon-angle-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+</sly>

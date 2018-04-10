@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Dialog"
+    height="400"
+    title="Promo Ribbon: Edit Component"
+    width="700"
+    xtype="dialog">
+    <items
+        jcr:primaryType="cq:Widget"
+        title="Promo Ribbon"
+        xtype="tabpanel">
+        <items jcr:primaryType="cq:WidgetCollection">
+            <general
+                jcr:primaryType="cq:Panel"
+                title="General Settings">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <promoSize
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Please select promo size ratio"
+                        fieldLabel="Promo Size Ratio"
+                        name="./promoSize"
+                        type="select"
+                        xtype="selection">
+                        <options jcr:primaryType="cq:WidgetCollection">
+                            <firstOption
+                                jcr:primaryType="nt:unstructured"
+                                text="50:25:25"
+                                value="50:25:25"/>
+                            <secondOption
+                                jcr:primaryType="nt:unstructured"
+                                text="25:25:50"
+                                value="25:25:50"/>
+                           	<thirdOption
+                                jcr:primaryType="nt:unstructured"
+                                text="33:33:33"
+                                value="33:33:33"/>
+                        </options>
+                       </promoSize>
+                       <gutterSpace
+		                    jcr:primaryType="cq:Widget"
+		                    fieldDescription="Check this to disable gutter space of 20px between promo images"
+		                    fieldLabel="No Gutter Space"
+		                    name="./gutter"
+		                    type="checkbox"
+		                    xtype="selection">
+		                </gutterSpace>
+		                <textColor
+		                	jcr:primaryType="cq:Widget"
+	                        fieldDescription="Choose the text color for header, description and legal disclaimer text. Default color is 000000"
+	                        fieldLabel="Text Color"
+	                        name="./textcolor"
+	                        showHexValue="{Boolean}true"
+	                        xtype="colorfield">
+		                </textColor>
+		                <backgroundColor
+		                	jcr:primaryType="cq:Widget"
+	                        fieldDescription="Choose the background color. Default color is F1F1E1"
+	                        fieldLabel="Promo Background Color"
+	                        name="./backgroundcolor"
+	                        showHexValue="{Boolean}true"
+	                        xtype="colorfield">
+		                </backgroundColor>
+		                <buttonColor
+		                	jcr:primaryType="cq:Widget"
+	                        fieldDescription="Choose the button color. Default color is BF0C0C"
+	                        fieldLabel="CTA Button Color"
+	                        name="./buttoncolor"
+	                        showHexValue="{Boolean}true"
+	                        xtype="colorfield">
+		                </buttonColor>		                
+                </items>
+            </general>
+            <PromoPageLink
+                jcr:primaryType="cq:Panel"
+                title="Promo Path">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <firstPromoLink
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}false"
+                        fieldDescription="Please choose or enter first promo URL"
+                        rootPath="/content"
+                        fieldLabel="First Promo Link"
+                        name="./link1"
+                        xtype="pathfield"/>
+                   <secondPromoLink
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}false"
+                        fieldDescription="Please choose or enter second promo URL"
+                        rootPath="/content"
+                        fieldLabel="Second Promo Link"
+                        name="./link2"
+                        xtype="pathfield"/>
+                   <thirdPromoLink
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}false"
+                        fieldDescription="Please choose or enter third promo URL"
+                        rootPath="/content"
+                        fieldLabel="Third Promo Link"
+                        name="./link3"
+                        xtype="pathfield"/>
+                	<note
+                        jcr:primaryType="cq:Widget"
+                        name="Note : "
+                        html="Note : The fields incorporates from promo are desktop image, mobile image, title,
+                              description, CTA button, alignment and legal disclaimer text.
+                              Upload desktop image(551*266 px) for section 50%, 
+							  mobile image(265*265 px) for section 25%, 
+							  desktop image(360*265 px) for section 33% "
+                        xtype="label"/>
+                </items>
+            </PromoPageLink>                          
+        </items>
+    </items>
+</jcr:root>

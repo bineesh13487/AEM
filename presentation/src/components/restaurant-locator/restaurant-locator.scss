@@ -1,0 +1,195 @@
+.mcd-rlwidget {
+  margin: to-rem(38) auto to-rem(45) auto;
+  padding: 0;
+  max-width: to-rem(1170);
+  &__container {
+    @include make-row(0);
+  }
+  &__search-input {
+    @include make-xs-column(10, 0);
+    @include make-sm-column(10, 0);
+    @include make-row(0);
+    & .border-nofocus {
+      background-color: #cecece;
+    }
+    & .border-focus {
+      background-color: #292929;
+    }
+  }
+  &__locate-button {
+    @include make-xs-column(2, 0);
+    @include make-sm-column(2, 0);
+    text-align: right;
+    margin-top: to-rem(10);
+    & button {
+      border: to-rem(1) solid #adadad;
+      padding: to-rem(12) to-rem(30);
+    }
+  }
+  &__search-cancel {
+    @include make-xs-column(1, 0);
+    @include make-sm-column(1, 0);
+    text-align: right;
+    margin-top: to-rem(25);
+    display: none;
+    & button {
+      color: #007aca;
+      background: transparent;
+      border: 0;
+    }
+  }
+  &__input {
+    @include make-xs-column(10, 0);
+    @include make-sm-column(11, 0);
+    position: relative;
+    font-family: 'ArchSans-Light';
+    &--background {
+      position: absolute;
+      color: #999;
+      width: 100%;
+      border: none;
+      outline: none;
+      background-color: $background-color;
+      font-size: 3.125rem;
+      font-weight: 300;
+    }
+    &--main {
+      border: none;
+      width: 100%;
+      font-size: to-rem(50);
+      font-weight: 300;
+      outline: none;
+      position: relative;
+      background: transparent;
+      color: rgba(41, 41, 41, 1);
+    }
+    &--close-btn {
+      position: absolute;
+      right: to-rem(5);
+      top: to-rem(16);
+      cursor: pointer;
+      color: #999;
+    }
+  }
+  &__button {
+    @include make-xs-column(2, 0);
+    @include make-sm-column(1, 0);
+    text-align: right;
+    background: $background-color;
+    margin-top: to-rem(10);
+  }
+  &__border {
+    height: 0.1rem;
+    margin-top: to-rem(10);
+    transform: scaleY(-1);
+  }
+  &__no-item {
+    font-size: to-rem(18);
+    line-height: to-rem(22);
+    text-align: center;
+    color: rgba(31, 31, 31, 1);
+    margin: to-rem(14) to-rem(53) to-rem(53) to-rem(53);
+  }
+  &__suggestion {
+    position: absolute;
+    z-index: 1;
+    &--predicted-text {
+      cursor: pointer;
+      line-height: to-rem(46);
+      &:hover {
+        color: rgba(38, 142, 200, 1);
+      }
+      &.selected {
+        color: rgba(38, 142, 200, 1);
+      }
+    }
+    &--section {
+      color: rgba(77, 78, 73, 1);
+      font-size: 1.125rem;
+      line-height: 2.75rem;
+      list-style: none;
+      padding-left: 0;
+    }
+  }
+}
+
+.mcd-rlresults {
+  padding: 0;
+  &__filters {
+    padding: 0;
+    & > div {
+      @include make-row(0);
+    }
+    &__heading {
+      font-size: to-rem(22);
+      @include make-xs-column(10, 0);
+      @include make-sm-column(10, 0);
+    }
+    &__filter-toggle {
+      @include make-xs-column(2, 0);
+      @include make-sm-column(2, 0);
+      text-align: right;
+      color: #60605b;
+      & button {
+        border: 0;
+        font-size: to-rem(16);
+        background: transparent;
+      }
+    }
+  }
+  &__filter-items {
+    padding: to-rem(40) 0;
+    .filter-item {
+      display: inline-block;
+      position: relative;
+      padding-left: to-rem(35);
+      margin-bottom: to-rem(12);
+      cursor: pointer;
+      font-size: to-rem(16);
+      color: #60605b;
+      margin-right: to-rem(25);
+      font-weight: 100;
+      font-family: 'ArchSans-Light';
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+      }
+      input:checked ~ .checkmark {
+        background-color: transparent;
+      }
+      input:checked ~ .checkmark:after {
+        display: block;
+      }
+      .checkmark:after {
+        left: to-rem(7);
+        top: to-rem(3);
+        width: to-rem(5);
+        height: to-rem(10);
+        border: solid #00a9e7;
+        border-width: 0 to-rem(2) to-rem(2) 0;
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+      }
+    }
+    .checkmark {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: to-rem(20);
+      border-radius: to-rem(2);
+      width: to-rem(20);
+      border: to-rem(1) solid #adadad;
+    }
+    .checkmark:after {
+      content: "";
+      position: absolute;
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,14 @@
+.page-join {
+  .cont-legal a {
+    color: $red;
+  }
+  .cont-copy {
+    padding-top: 50px;
+    padding-bottom: 100px;
+  }
+
+  &.template .template-hero-bg .text-wrapper,
+  &.template-b .template-hero-bg .text-wrapper {
+    text-align: center;
+  }
+}

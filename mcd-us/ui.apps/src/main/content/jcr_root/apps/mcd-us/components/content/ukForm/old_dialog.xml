@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Dialog"
+    xtype="dialog">
+    <items
+        jcr:primaryType="cq:Widget"
+        xtype="tabpanel">
+        <items jcr:primaryType="cq:WidgetCollection">
+            <contactus
+                jcr:primaryType="cq:Panel"
+                title="Contact Us Main Form Tab">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <formAction
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Form action url where user response will be submitted."
+                        fieldLabel="Form Action *"
+                        name="./formAction"
+                        xtype="textfield"/>
+                    <formName
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Form name to save into DB. Leave empty to use page title."
+                        fieldLabel="Form Name"
+                        name="./formName"
+                        xtype="textfield"/>
+                    <yesButton
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Radio button 'Yes' Text  &lt;b>Yes&lt;/b>"
+                        fieldLabel="Radio Button text for 'Yes' option"
+                        name="./yesButtonText"
+                        xtype="textfield"/>
+                    <noButton
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Radio button 'No' Text  &lt;b>No&lt;/b>"
+                        fieldLabel="Radio Button text for 'No' option"
+                        name="./noButtonText"
+                        xtype="textfield"/>
+                    <thankYouPage
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Please navigate through path of the page where user should be redirected after submitting the form."
+                        fieldLabel="Thank You Page"
+                        name="./thankYouPage"
+                        xtype="pathfield"/>
+                    <failurePage
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Please navigate through path of the page where user should be redirected in case of error in form submission."
+                        fieldLabel="Error Page"
+                        name="./errorPage"
+                        xtype="pathfield"/>
+                    <indicateAgeText
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Default value is: 'Please indicate if you are 16 years old or older.'"
+                        fieldLabel="Please provide text for Age Indicator"
+                        name="./indicateAge"
+                        xtype="richtext"/>
+                     <indicateAgeAriaLabel
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Default value is: '* required.'"
+                        fieldLabel="Please provide aria label for Age Indicator"
+                        name="./ageAriaLabel"
+                        xtype="textfield"/>
+                    <ageLimitText
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Default value is: 'We are unable to deal with your query or complaint online.'"
+                        fieldLabel="Please provide text for Age Limit Message"
+                        name="./ageLimitText"
+                        xtype="richtext"/>
+                   	<sectionContentText
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Provided Text will appear on top of form. Please put '##' placeholder for 'click here' text. Default value is: &lt;b>We’re here to help you.&lt;b>."
+                        fieldLabel="Section Content"
+                        hideLabel="{Boolean}false"
+                        name="./sectionContent"
+                        xtype="richTextField">
+                        <cssStyles
+                            jcr:primaryType="nt:unstructured"
+                            listHeading="List Heading (1.1em, bold)"
+                            paraHeading="Paragraph Heading (2.2em, bold)"
+                            paraSubHeading="Paragraph Sub-Heading (1.8em, bold)"/>
+                        <externalStyleSheets
+                            jcr:primaryType="nt:unstructured"
+                            sheet1="/etc/clientlibs/mcd/rwd-commons/css/rtStyle.css"/>
+                        <rtePlugins jcr:primaryType="nt:unstructured">
+                            <edit
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <findreplace
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <format
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <justify
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <links
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <lists
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <misctools
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <paraformat
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <styles
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <subsuperscript
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <table
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <insertgatitle
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <image
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                        </rtePlugins>
+                        <linkbrowseConfig
+                            jcr:primaryType="nt:unstructured"
+                            protocols="[http://,https://,ftp://,mailto:]"/>
+                    </sectionContentText>
+                     <clickHere
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="'click here' text"
+                        name="./clickHere"
+                        xtype="textfield"/>
+                      <clickHereLink
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Link for Click here Link"
+                        name="./clickHereLink"
+                        xtype="textfield"/>   
+                     <clickHereDescribe
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel=" Click here Descriptive Text"
+                        name="./clickHereText"
+                        xtype="textfield"/> 
+                </items>
+            </contactus>
+            <restaurantsearch
+                jcr:primaryType="cq:Panel"
+                title="Restaurant Search Pop-up Tab">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <topHeading
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Text to be displayed as heading on restaurant search popup window. Default set to &lt;b>Enter your location:&lt;/b>"
+                        fieldLabel="Heading"
+                        name="./resSearchHeading"
+                        xtype="textfield"/>
+                    <searchPlaceholder
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Text to be displayed as placeholder for restaurant search text box. Default set to &lt;b>Zip, City, State&lt;/b>"
+                        fieldLabel="Search Placeholder Text"
+                        name="./resSearchPlaceholder"
+                        xtype="textfield"/>
+                    <searchButtonText
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Text to be displayed for restaurant search button. Default set to &lt;b>GO&lt;/b>"
+                        fieldLabel="Search Button Text"
+                        name="./resSearchButtonText"
+                        xtype="textfield"/>
+                    <resSelectButtonText
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Text to be displayed for restaurant result select button. Default set to &lt;b>Select Location&lt;/b>"
+                        fieldLabel="Restaurant Result Select Button"
+                        name="./resSelectButtonText"
+                        xtype="textfield"/>
+                  	<noTextErrorMessage
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Text to be displayed when no location is searched. Default set to &lt;b>Please provide search location&lt;/b>"
+                        fieldLabel="Restaurant Result Select Button"
+                        name="./noTextErrorMessage"
+                        xtype="textfield"/>
+                <searchResultText
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Text to be displayed with number of results found. Default set to &lt;b>results found&lt;/b>"
+                        fieldLabel="Text for number of results found."
+                        name="./searchResultText"
+                        xtype="textfield"/>
+                   <restaurantNumnerTextDesktop
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Restaurant Number text for Desktop Default set to &lt;b>Restaurant Number&lt;/b>"
+                        fieldLabel="Restaurant Number text for Desktop"
+                        name="./restaurantNumnerTextDesktop"
+                        xtype="textfield"/>
+                    <restaurantNumnerTextMobile
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Restaurant Number text for Mobile. Default set to &lt;b>number&lt;/b>"
+                        fieldLabel="Restaurant Number text for Mobile"
+                        name="./restaurantNumnerTextMobile"
+                        xtype="textfield"/>
+                </items>
+            </restaurantsearch>
+        </items>
+    </items>
+    <listeners
+        jcr:primaryType="nt:unstructured"
+        beforeSubmit="function(dialog) {&#xa; if (dialog.getField('./formAction').getValue().trim() == '') {&#xa; CQ.Ext.Msg.show({&#xa; 'title': CQ.I18n.getMessage('ContactUs Dialog Validation'),&#xa; 'msg': CQ.I18n.getMessage('Please provide form action url.'),&#xa; 'buttons': CQ.Ext.Msg.OK,&#xa; 'icon': CQ.Ext.MessageBox.INFO,&#xa; 'scope': this&#xa; });&#xa;return false;&#xa;}&#xa;}"/>
+</jcr:root>

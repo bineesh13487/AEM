@@ -1,0 +1,47 @@
+<!--/*  Top Navigation */-->
+
+<sly data-sly-use.info="com.mcd.rwd.us.core.sightly.OffersFlyOut">
+<sly data-sly-use.appInfo="com.mcd.rwd.global.core.sightly.AppBadgeHandler">
+	<sly data-sly-test="${wcmmode.edit && info.title == null}">
+		<h3>Please click to configure the Offers Flyout component</h3>
+	</sly>
+<ul class="list-media list-inline justified-list offers-list">
+	<li>
+		<div class="hidden-xs relative">
+			<sly data-sly-test="${wcmmode.edit}">
+				<sly data-sly-resource="${'image' @ resourceType='mcd-rwd-global/components/common/image'}"></sly>
+			</sly>
+			<sly data-sly-test="${!wcmmode.edit}">
+				<img src="${info.imageHref}" alt="" class="img-responsive">
+			</sly>
+			<p class="img-caption">${info.description}</p>
+			<div class="cont-offers offers">
+				<div class="cont-app">
+				${info.title @context='html'}
+				</div>
+				<div class="cont-btn">
+					<a href="${appInfo.android.link.href}" title="${appInfo.android.link.text}" class="${appInfo.android.link.linkClass!=null ? appInfo.android.link.linkClass : ''} btn-app" target="_blank" data-at="TopNav:${info.pageTitle}:${appInfo.android.link.text}" data-track="topNav">
+						<img src="${appInfo.android.image}" alt="">
+					</a> <a href="${appInfo.ios.link.href}" title="${appInfo.ios.link.text}" class="${appInfo.ios.link.linkClass!=null ? appInfo.ios.link.linkClass : ''} btn-app" target="_blank" data-at="TopNav:${info.pageTitle}:${appInfo.ios.link.text}" data-track="topNav">
+						<img src="${appInfo.ios.image}" alt="">
+					</a>
+				</div>
+			</div>
+		</div>
+		<div class="offers visible-xs-block">
+			<div class="cont-app">
+				${info.title @context='html'}
+			</div>
+			<div class="cont-btn text-center">
+				<a href="${appInfo.android.link.href}" title="${appInfo.android.link.text}" class="${appInfo.android.link.linkClass!=null ? appInfo.android.link.linkClass : ''} btn-app" target="_blank" data-at="TopNav:${info.pageTitle}:${appInfo.android.link.text}" data-track="topNav">
+					<img src="${appInfo.android.image}" alt="">
+				</a> <a href="${appInfo.ios.link.href}" title="${appInfo.ios.link.text}" class="${appInfo.ios.link.linkClass!=null ? appInfo.ios.link.linkClass : ''} btn-app" target="_blank" data-at="TopNav:${info.pageTitle}:${appInfo.ios.link.text}" data-track="topNav">
+					<img src="${appInfo.ios.image}" alt="">
+				</a>
+			</div>
+		</div>
+	</li>
+
+</ul>
+</sly>
+</sly>

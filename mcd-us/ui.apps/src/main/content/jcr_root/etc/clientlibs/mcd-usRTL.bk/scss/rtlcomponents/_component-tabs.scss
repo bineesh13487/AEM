@@ -1,0 +1,120 @@
+// TABS
+.tab-box{
+    position: relative;
+    bottom: 0px;
+    z-index:1;
+    .tab-content{
+    	margin-top: 43px;
+    }
+}
+
+.tabs-container {
+	position: relative;
+	bottom: 43px;
+	overflow: hidden;
+	z-index: 1;
+
+	@include breakpoint(sm) {
+		//bottom: 43px;
+	}
+
+	.tabs {
+		border-style: none;
+		@include fontSet(26px, 63px, 'Droid_Arabic_Kufi_Bold');
+		text-align: center;
+		cursor: pointer;
+
+		> li {
+			padding-left: 3px;
+			padding-right: 0px;
+			height: 44px;
+			margin-bottom: 0;
+
+			&:last-child {
+				padding-left: 0px;
+			}
+
+			> a {
+				background: $light-gray;
+				color: $red;
+				margin-left: 0px;
+				border-color: $light-gray;
+				padding-left: 5px;
+				padding-right: 5px;
+				padding-top: 5px;
+    			padding-bottom: 5px;
+    			max-width: 100%;
+			    overflow: hidden;
+			    height: 100%;
+				display: block;
+				width: 100%;
+				@include fontSet(16px, 22px, 'Droid_Arabic_Kufi_Bold');
+
+				@media only screen and (min-width: 480px){
+				    padding-top: 10px;
+    				padding-bottom: 10px;
+    				@include fontSet(20px, 22px, 'Droid_Arabic_Kufi_Bold');
+				}
+
+				@include breakpoint(sm) {
+					@include fontSet(26px, 38px, 'Droid_Arabic_Kufi_Bold');
+				}
+
+				.table-wrapper {
+					height: 100%;
+					width: 100%;
+					display: table;
+				}
+
+				span.table-cell-wrapper {
+					display: table-cell;
+					vertical-align: middle;
+					text-transform: uppercase;
+				}
+			}
+
+			&.active {
+				a {
+					color: $gray;
+					background: $white;
+					border-color: $white;
+					text-decoration: underline;
+				}
+			}
+
+
+		}
+	}
+
+	.tabs.tab-3 {
+		> li > a {
+			@include fontSet(19px, 24px, 'Droid_Arabic_Kufi_Bold');
+
+			@media only screen and (min-width: 480px){
+			    padding-top: 10px;
+				padding-bottom: 10px;
+				@include fontSet(24px, 28px, 'Droid_Arabic_Kufi_Bold');
+			}
+
+			@include breakpoint(sm) {
+				@include fontSet(26px, 38px, 'Droid_Arabic_Kufi_Bold');
+			}
+		}
+	}
+
+	.tabs.tab-2 {
+		> li > a {
+			@include fontSet(20px, 24px, 'Droid_Arabic_Kufi_Bold');
+
+			@media only screen and (min-width: 480px){
+			    padding-top: 10px;
+				padding-bottom: 10px;
+				@include fontSet(24px, 28px, 'Droid_Arabic_Kufi_Bold');
+			}
+
+			@include breakpoint(sm) {
+				@include fontSet(26px, 38px, 'Droid_Arabic_Kufi_Bold');
+			}
+		}
+	}
+}

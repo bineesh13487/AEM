@@ -1,0 +1,94 @@
+.ingredients-wrapper {
+  #productDetailCarouselComponent {
+    height: 14rem;
+    margin-bottom: 0;
+    position: relative;
+  }
+  .ingredients-flex-container {
+    position: relative;
+  }
+  .ingredients-header {
+    color: #292929;
+    font-size: to-rem(26);
+    font-weight: 300;
+    line-height: to-rem(46);
+    text-align: center;
+  }
+  .flex-control-nav li a {
+    background: #bbb;
+    width: to-rem(5);
+    height: to-rem(5);
+    border: none;
+    cursor: pointer;
+    &:hover {
+      background: #717171;
+    }
+    &.flex-active {
+      background: #717171;
+    }
+  }
+  .flex-nav-prev {
+    position: absolute;
+    right: 52.5%;
+    top: 87.5%;
+    & a {
+      &:hover {
+        text-decoration: none;
+      }
+      &:focus {
+        text-decoration: none;
+      }
+    }
+  }
+  .flex-nav-next {
+    position: absolute;
+    right: 44.2%;
+    top: 87.5%;
+    & a {
+      &:hover {
+        text-decoration: none;
+      }
+      &:focus {
+        text-decoration: none;
+      }
+    }
+  }
+  .ingredient-caption {
+    text-align: center;
+    .caption-wrapper {
+      margin: 0 auto;
+      padding-top: to-rem(10);
+      color: #4d4e49;
+      font-size: to-rem(16);
+      font-weight: 300;
+    }
+  }
+  .icon-chevron-left-small,
+  .icon-chevron-right-small {
+    position: absolute;
+    right: to-rem(10);
+    font-size: to-rem(27);
+    top: to-rem(10);
+    font-weight: bold;
+    &:before {
+      color: #bd0017;
+    }
+  }
+  .slidesDesktop {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 48rem) {
+  .ingredients-wrapper {
+    #productDetailCarouselComponent {
+      height: 18rem;
+    }
+    .ingredients-header {
+      font-size: to-rem(40);
+    }
+    .slidesDesktop {
+      display: inline-block;
+    }
+  }
+}

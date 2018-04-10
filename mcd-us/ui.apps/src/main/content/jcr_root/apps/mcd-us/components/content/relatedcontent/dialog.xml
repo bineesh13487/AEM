@@ -1,0 +1,486 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Dialog"
+    height="500"
+    title="Related Content : Edit Component"
+    width="900"
+    xtype="dialog">
+    <items
+        jcr:primaryType="cq:Widget"
+        xtype="tabpanel">
+        <items jcr:primaryType="cq:WidgetCollection">
+            <generalsetting
+                jcr:primaryType="cq:Widget"
+                title="General Settings"
+                xtype="panel">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <title
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Enter text for the related content title"
+                        fieldLabel="Title"
+                        name="./relatedtitle"
+                        validateOnBlur="true"
+                        xtype="textfield"/>
+                    <titlecolor
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Choose the title color. Default color is black(000000)"
+                        fieldLabel="Title Color"
+                        name="./titlecolor"
+                        showHexValue="{Boolean}true"
+                        xtype="colorfield"/>
+                    <titlealignment
+                        jcr:primaryType="cq:Widget"
+                        defaultValue="left"
+                        fieldLabel="Title Alignment"
+                        name="./titleAlign"
+                        type="radio"
+                        xtype="selection">
+                        <options jcr:primaryType="cq:WidgetCollection">
+                            <Left
+                                jcr:primaryType="nt:unstructured"
+                                text="Left"
+                                value="left"/>
+                            <Center
+                                jcr:primaryType="nt:unstructured"
+                                text="Center"
+                                value="center"/>
+                            <Right
+                                jcr:primaryType="nt:unstructured"
+                                text="Right"
+                                value="right"/>
+                        </options>
+                    </titlealignment>
+                    <textalignment
+                        jcr:primaryType="cq:Widget"
+                        defaultValue="left"
+                        fieldLabel="Text Alignment"
+                        fieldDescription="This will align Header, Description, Legal text and CTA button"
+                        name="./textalign"
+                        type="radio"
+                        xtype="selection">
+                        <options jcr:primaryType="cq:WidgetCollection">
+                            <Left
+                                jcr:primaryType="nt:unstructured"
+                                text="Left"
+                                value="left"/>
+                            <Center
+                                jcr:primaryType="nt:unstructured"
+                                text="Center"
+                                value="center"/>
+                            <Right
+                                jcr:primaryType="nt:unstructured"
+                                text="Right"
+                                value="right"/>
+                        </options>
+                    </textalignment>
+                    <backgrdcolor
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Choose the background color for related content. Default value is light gray(F1F1EB)"
+                        fieldLabel="Background Color"
+                        name="./backgroundcolor"
+                        showHexValue="{Boolean}true"
+                        xtype="colorfield"/>
+                    <ctabuttoncolor
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Choose the CTA button color for both related content. Default value is red(BF0C0C)"
+                        fieldLabel="CTA Button Color"
+                        name="./ctabuttoncolor"
+                        xtype="colorfield"/>
+                    <gutterspace
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Check to hide the gutter space"
+                        fieldLabel="No Gutter Space"
+                        name="./gutterspace"
+                        type="checkbox"
+                        xtype="selection"/>
+                </items>
+            </generalsetting>
+            <firstsection
+                jcr:primaryType="cq:Widget"
+                anchor="100%"
+                title="First Section Detail"
+                xtype="panel">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <hideflag
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Check to hide the first section"
+                        fieldLabel="Hide"
+                        name="./hideflag"
+                        type="checkbox"
+                        xtype="selection"/>
+                    <firstimage
+                        jcr:primaryType="cq:Widget"
+                        cropParameter="./firstimage/imageCrop"
+                        ddGroups="[media]"
+                        fieldLabel="First image field"
+                        fileNameParameter="./firstimage/fileName"
+                        fileReferenceParameter="./firstimage/fileReference"
+                        height="{Long}200"
+                        name="./firstimage/file"
+                        rotateParameter="./firstimage/imageRotate"
+                        title="Upload image dimension 544x272 px"
+                        width="{Long}200"
+                        mapParameter="./firstimage/imageMap"
+                        xtype="html5smartimage"/>
+                     <imageariaLabel
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Aria Label for image"
+                        fieldLabel="Image Aria Label"
+                        name="./imageariaCta"
+                        xtype="textfield"/>
+                    <header
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Enter heading for first section. Preferred max character limit is 100"
+                        fieldLabel="Heading"
+                        name="./heading"
+                        xtype="textfield"/>
+                    <description
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Description"
+                        fieldDescription="Preferred max character limit is 142"
+                        hideLabel="{Boolean}false"
+                        name="./description"
+                        xtype="richTextField">
+                        <cssStyles
+                            jcr:primaryType="nt:unstructured"
+                            disclaimer-text="Disclaimer text (16px)"
+                            listHeading="List Heading (1.1em, bold)"
+                            paraHeading="Paragraph Heading (2.2em, bold)"
+                            paraSubHeading="Paragraph Sub-Heading (1.8em, bold)"
+                            quote-text="Quote text (36px)"
+                            template-disclaimer-text="Template Disclaimer Text"
+                            template-disclaimer-text-lg="Template Disclamer Text (Large)"/>
+                        <externalStyleSheets
+                            jcr:primaryType="nt:unstructured"
+                            sheet1="/etc/clientlibs/mcd-us/css/rtStyle.css"/>
+                        <rtePlugins jcr:primaryType="nt:unstructured">
+                            <edit
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <findreplace
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <format
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <justify
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <links
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <lists
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <misctools
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <paraformat
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <styles
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <subsuperscript
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <table
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <insertgatitle
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <image
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                        </rtePlugins>
+                        <linkbrowseConfig
+                            jcr:primaryType="nt:unstructured"
+                            protocols="[http://,https://,ftp://,mailto:]"/>
+                    </description>
+                    <legaltext
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Legal Text"
+                        hideLabel="{Boolean}false"
+                        fieldDescription="Preferred max character limit is 245"
+                        name="./legaltext"
+                        xtype="richTextField">
+                        <cssStyles
+                            jcr:primaryType="nt:unstructured"
+                            disclaimer-text="Disclaimer text (16px)"
+                            listHeading="List Heading (1.1em, bold)"
+                            paraHeading="Paragraph Heading (2.2em, bold)"
+                            paraSubHeading="Paragraph Sub-Heading (1.8em, bold)"
+                            quote-text="Quote text (36px)"
+                            template-disclaimer-text="Template Disclaimer Text"
+                            template-disclaimer-text-lg="Template Disclamer Text (Large)"/>
+                        <externalStyleSheets
+                            jcr:primaryType="nt:unstructured"
+                            sheet1="/etc/clientlibs/mcd-us/css/rtStyle.css"/>
+                        <rtePlugins jcr:primaryType="nt:unstructured">
+                            <edit
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <findreplace
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <format
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <justify
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <links
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <lists
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <misctools
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <paraformat
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <styles
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <subsuperscript
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <table
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <insertgatitle
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <image
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                        </rtePlugins>
+                        <linkbrowseConfig
+                            jcr:primaryType="nt:unstructured"
+                            protocols="[http://,https://,ftp://,mailto:]"/>
+                    </legaltext>
+                    <cta
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Button Text"
+                        fieldDescription="Preferred max character limit is 30."
+                        name="./ctaText"
+                        xtype="textfield"/>
+                    <ctalink
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Link for CTA Button"
+                        name="./ctaLink"
+                        xtype="pathfield"/>
+                   <linktarget
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Check to open CTA link on new tab. Default it will open in same tab"
+                        fieldLabel="Open link(New Tab)"
+                        name="./linkTarget"
+                        type="checkbox"
+                        xtype="selection"/>
+                    <ariaLabel
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Aria Label for CTA Button"
+                        fieldLabel="Aria Label"
+                        name="./ariaCta"
+                        xtype="textfield"/>
+                </items>
+            </firstsection>
+            <secondsection
+                jcr:primaryType="cq:Widget"
+                anchor="100%"
+                title="Second Section Detail"
+                xtype="panel">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <hideflag
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Check to hide the second section"
+                        fieldLabel="Hide"
+                        name="./sechideflag"
+                        type="checkbox"
+                        xtype="selection"/>
+                   <secondimage
+                        jcr:primaryType="cq:Widget"
+                        cropParameter="./secondimage/imageCrop"
+                        ddGroups="[media]"
+                        fieldLabel="Second image field"
+                        fileNameParameter="./secondimage/fileName"
+                        fileReferenceParameter="./secondimage/fileReference"
+                        height="{Long}200"
+                        name="./secondimage/file"
+                        rotateParameter="./secondimage/imageRotate"
+                        title="Upload image dimension 544x272 px"
+                        width="{Long}200"
+                        mapParameter="./secondimage/imageMap"
+                        xtype="html5smartimage"/>
+                     <imageariaLabel
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Aria Label for image"
+                        fieldLabel="Image Aria Label"
+                        name="./secimageariaCta"
+                        xtype="textfield"/>
+                    <header
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Enter heading for second section. Preferred max character limit is 100"
+                        fieldLabel="Heading"
+                        name="./secheading"
+                        xtype="textfield"/>
+                    <description
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Description"
+                        hideLabel="{Boolean}false"
+                        fieldDescription="Preferred max character limit is 142"
+                        name="./secdescription"
+                        xtype="richTextField">
+                        <cssStyles
+                            jcr:primaryType="nt:unstructured"
+                            disclaimer-text="Disclaimer text (16px)"
+                            listHeading="List Heading (1.1em, bold)"
+                            paraHeading="Paragraph Heading (2.2em, bold)"
+                            paraSubHeading="Paragraph Sub-Heading (1.8em, bold)"
+                            quote-text="Quote text (36px)"
+                            template-disclaimer-text="Template Disclaimer Text"
+                            template-disclaimer-text-lg="Template Disclamer Text (Large)"/>
+                        <externalStyleSheets
+                            jcr:primaryType="nt:unstructured"
+                            sheet1="/etc/clientlibs/mcd-us/css/rtStyle.css"/>
+                        <rtePlugins jcr:primaryType="nt:unstructured">
+                            <edit
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <findreplace
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <format
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <justify
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <links
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <lists
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <misctools
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <paraformat
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <styles
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <subsuperscript
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <table
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <insertgatitle
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <image
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                        </rtePlugins>
+                        <linkbrowseConfig
+                            jcr:primaryType="nt:unstructured"
+                            protocols="[http://,https://,ftp://,mailto:]"/>
+                    </description>
+                    <legaltext
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Legal Text"
+                        hideLabel="{Boolean}false"
+                        fieldDescription="Preferred max character limit is 245"
+                        name="./seclegaltext"
+                        xtype="richTextField">
+                        <cssStyles
+                            jcr:primaryType="nt:unstructured"
+                            disclaimer-text="Disclaimer text (16px)"
+                            listHeading="List Heading (1.1em, bold)"
+                            paraHeading="Paragraph Heading (2.2em, bold)"
+                            paraSubHeading="Paragraph Sub-Heading (1.8em, bold)"
+                            quote-text="Quote text (36px)"
+                            template-disclaimer-text="Template Disclaimer Text"
+                            template-disclaimer-text-lg="Template Disclamer Text (Large)"/>
+                        <externalStyleSheets
+                            jcr:primaryType="nt:unstructured"
+                            sheet1="/etc/clientlibs/mcd-us/css/rtStyle.css"/>
+                        <rtePlugins jcr:primaryType="nt:unstructured">
+                            <edit
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <findreplace
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <format
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <justify
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <links
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <lists
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <misctools
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <paraformat
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <styles
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <subsuperscript
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <table
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <insertgatitle
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <image
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                        </rtePlugins>
+                        <linkbrowseConfig
+                            jcr:primaryType="nt:unstructured"
+                            protocols="[http://,https://,ftp://,mailto:]"/>
+                    </legaltext>
+                    <cta
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Button Text"
+                        fieldDescription="Preferred max character limit is 30"
+                        name="./secctaText"
+                        xtype="textfield"/>
+                    <ctalink
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Link for CTA Button"
+                        name="./secctaLink"
+                        xtype="pathfield"/>
+                    <linktarget
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Check to open CTA link on new tab. Default it will open in same tab"
+                        fieldLabel="Open link(New Tab)"
+                        name="./seclinkTarget"
+                        type="checkbox"
+                        xtype="selection"/>
+                    <ariaLabel
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Aria Label for CTA Button"
+                        fieldLabel="Aria Label"
+                        name="./secariaCta"
+                        xtype="textfield"/>
+                </items>
+            </secondsection>
+        </items>
+    </items>
+</jcr:root>

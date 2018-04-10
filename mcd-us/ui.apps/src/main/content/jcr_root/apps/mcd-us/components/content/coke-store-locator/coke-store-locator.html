@@ -1,0 +1,110 @@
+<sly data-sly-use.cokeStoreHandler="com.mcd.rwd.us.core.sightly.CokeStoreHandler">
+<script type="text/javascript">
+var radiusList = [${cokeStoreHandler.radius @ context='scriptString'}];
+var cokeStoreJSON = "${cokeStoreHandler.cokeStoreJSONString @ context='scriptString'}";
+</script>
+<div data-ng-controller="CokeStoreLocatorController" class="ng-scope">
+  <div class="restaurantLocator">
+    <div class="inner-content">
+      <!--Start of Widget content-->
+      <div class="restaurantLocator_menu gray-border-on-white">
+        <form class="component-locate">
+          <div class="container">
+            <div class="row text-center">
+              <div class="col-xs-12">
+                <p class="cokelocate-header">${cokeStoreHandler.storeLocatorHeading}</p>
+                <div class="row no-gutter">
+                  <div class="col-sm-6 col-md-7">
+                    <p class="heading enter-locate">${cokeStoreHandler.searchFieldHeading}</p>
+                    <div class="input-group select-radius">
+                      <input ng-cloak name="searchText" ng-model="searchText" type="text" class="form-control" placeholder="${cokeStoreHandler.searchBoxDefaultText}">
+                      <div class="select input-group-btn" name="cslRadius" ng-cloak>
+                        <select aria-label="${cokeStoreHandler.radiusAriaLabel}" class="form-control" >  
+                          <option data-sly-test="${cokeStoreHandler.distanceUnit == 'km'}" ng-repeat="radius in radiusList" value="{{radius}}">{{radius}} ${cokeStoreHandler.kilometerText}</option> <!-- /* TODO: handle unit dynamically */ -->
+						  <option data-sly-test="${cokeStoreHandler.distanceUnit == 'mi'}" ng-repeat="radius in radiusList" value="{{radius}}">{{radius}} ${cokeStoreHandler.milesText}</option> <!-- /* TODO: handle unit dynamically */ -->
+						</select>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!--Start of category and flavor select-->
+                  <div class="col-sm-6 col-md-5" data-sly-test="${!properties.hideFilterSection}">
+                    <div class="cont-btns cat-flavselect">
+                      <div class="wrapper">
+                        <p class="heading">${cokeStoreHandler.categoryFieldText}</p>
+                        <div class="select" name="cslCategory">
+                          <select  aria-label="${cokeStoreHandler.categoryFieldText}" class="form-control" ng-model="catOption" ng-options="option.categoryText for option in filteredData" ng-change="getFlavours()" ng-cloak>
+									<option ng-click='catOption=false' value="">${cokeStoreHandler.allCategoriesText}</option>
+						 </select>   
+                        </div>
+                      </div>
+                      <div class="wrapper">
+                        <p class="heading">${cokeStoreHandler.flavorFieldText}</p>
+                        <div class="select flavors-shop" name="cslFlavors">
+                          <select aria-label="${cokeStoreHandler.flavorFieldText}" ng-disabled="!catOption"  ng-model="flavOptions" class="form-control coke-flavor-select" ng-options="flavVal for (index,flavVal) in newflavOptions" ng-change="setFlavors()" ng-cloak>
+									<option value="">${cokeStoreHandler.allFlavorsText}</option>
+						  </select>
+						   
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!--End of category and flavor select-->
+
+                  	<!--Search and locate me container Hidden when category and flavors hidden-->
+					<div class="row cont-filters text-center" ng-cloak>
+					  <div class="col-sm-6 col-md-5 search-locate">
+					    <div class="cont-btns ">
+					      <div class="wrapper">
+					        <button ng-click="searchCokeLocator(searchText)" ng-cloak type="submit" class="btn btn-red">${cokeStoreHandler.searchBoxSubmit}</button>
+					      </div>
+						  <div class="wrapper middle" data-sly-test="${!properties.hideLocateMe}" > <span class="text-or" ng-cloak>OR</span></div>
+					      <div class="wrapper" data-sly-test="${!properties.hideLocateMe}"> 
+					        <button type="button" class="btn btn-border" ng-click="showStoresForCurrentLocation()" ng-cloak><i class="fa fa-map-marker fa-lg"></i> ${cokeStoreHandler.locateMe}</button>
+					      </div>
+					    </div>
+					  </div>
+					</div>
+					<!--End of Search and locate me container-->
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <!--Include coke store results section-->
+      <section data-sly-include="coke-store-results.html"></section>
+    </div>
+	
+	<!--Start of Dis-ambiguity Modal-->
+	 <div class="modal fade" id="restaurantLocatorDisambiguityModal" tabindex="-1" role="dialog"
+             aria-labelledby="cokeLocatorDisambiguityModal">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="container-fluid">
+                        <div class="row no-gutter">
+                            <div class="col-xs-12 cont-select">
+                                <div class="heading">Please select a location below:</div>
+                            </div>
+                        </div>
+                        <div class="row no-gutter">
+                            <div class="col-xs-12 location-list">
+                                <div  ng-repeat="location in multipleLocations" 
+										ng-click="showCokestoreForMulti($event,location)" ng-modal=""
+                                     class="location"><a data-value="location.formattedAddress" href="">{{location.address}}</a>
+                                </div> 
+								 
+                            </div>
+                        </div>
+						
+                    </div> 
+                    <div class="btn-close" data-dismiss="modal"><i class="fa fa-times"></i></div>
+                </div> 
+            </div>
+        </div>
+	<!--End of Dis-ambiguity Modal-->
+		
+  </div>
+</div>
+</sly>

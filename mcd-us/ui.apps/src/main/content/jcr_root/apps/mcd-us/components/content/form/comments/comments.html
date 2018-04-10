@@ -1,0 +1,22 @@
+<sly data-sly-use.tuaInfo="com.mcd.rwd.us.core.sightly.forms.Comments">
+    <section class="page-contact-us__subpage__tell-us gray-border-on-white paddTop0" style="background:${tuaInfo.sectionBackgroundColor @ context='styleToken'};">
+        <div class="container">
+            <h3 style="outline: none;">${tuaInfo.sectionTopHeading} </h3>
+            <p class="sub" data-sly-test="${tuaInfo.sectionSubHeading}">${tuaInfo.sectionSubHeading}</p>
+            <div class="row">
+                <div data-sly-test="${tuaInfo.showMobileFields}" data-sly-resource="${@path='tellUsAboutItMobile', resourceType='mcd-us/components/content/form/comments/mobile'}" data-sly-unwrap></div>
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        <label for="enter-comments-header" data-sly-test="${tuaInfo.mobileAppComment}">${tuaInfo.mobileAppComment}</label>
+                        <div class="cont-sub"> <sub><span id="characterCount">${tuaInfo.commentCount}</span>/${tuaInfo.commentCount} ${tuaInfo.mobileAppCommentValidation}</sub></div>
+                        <textarea name="comments" id="enter-comments" rows="5" maxlength="${tuaInfo.commentCount}" class="form-control ${tuaInfo.mobileAppCommentReq}" aria-labelledby="enter-comments-error"  aria-label="${tuaInfo.mobileAppComment}"></textarea>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+            </div> 
+        </div>
+    </section>
+	<div style="display:none">
+		<div id="enter-comments-message">${tuaInfo.mobAppCommentMessage}</div>                            
+	</div>                            
+</sly> 

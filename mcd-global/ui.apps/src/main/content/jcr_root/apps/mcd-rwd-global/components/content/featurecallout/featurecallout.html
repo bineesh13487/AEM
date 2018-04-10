@@ -1,0 +1,18 @@
+<div id="promoBox">
+    <div class="promo-content row">
+        <sly data-sly-use.featureCallout="com.mcd.rwd.global.core.sightly.callouts.FeatureCalloutHandler">
+            <sly data-sly-test="${!featureCallout.isEmpty}">
+                <sly data-sly-test="${featureCallout.calloutType == 'static'}">
+                    <sly data-sly-include="static.html" data-sly-unwrap></sly>
+                </sly>
+                <sly data-sly-test="${featureCallout.calloutType != 'static'}">
+                    <sly data-sly-include="dynamic.html" data-sly-unwrap></sly>
+                </sly>
+            </sly>
+            <sly data-sly-test="${featureCallout.isEmpty && (wcmmode.edit || wcmmode.design)}">
+                <h2 class="featureCalloutConfigureMessage">Please configure the feature callout
+                    component.</h2>
+            </sly>
+        </sly>
+    </div>
+</div>

@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Dialog"
+    xtype="dialog">
+    <items
+        jcr:primaryType="cq:Widget"
+        xtype="tabpanel">
+        <items jcr:primaryType="cq:WidgetCollection">
+            <contactus
+                jcr:primaryType="cq:Panel"
+                title="Contact Us Form Options">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <defaultTextForformConfiguration
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Default Text for form categories field. Default set to &lt;b>Pick a different topic&lt;/b> Value will be considered as a Representative Value for field"
+                        fieldLabel="Default Text for form categories"
+                        name="./defaultTextForformConfiguration"
+                        xtype="textfield"/>
+                    <formConfiguration
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Please enter form categories for different user feedback with their url."
+                        fieldLabel="Form Categories"
+                        name="./formConfiguration"
+                        xtype="multifield">
+                        <fieldConfig
+                            jcr:primaryType="nt:unstructured"
+                            xtype="formlinks"/>
+                    </formConfiguration>
+                    <formAction
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Form action url where user response will be submitted."
+                        fieldLabel="Form Action *"
+                        name="./formAction"
+                        xtype="textfield"/>
+                    <formName
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Form name to save into DB. Leave empty to use page title."
+                        fieldLabel="Form Name"
+                        name="./formName"
+                        xtype="textfield"/>
+                    <formAriaLabel
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Aria Label for the Form dropdown. Default set to &lt;b>Select a page to navigate&lt;/b>"
+                        fieldLabel="Aria Label"
+                        name="./formAriaLabel"
+                        xtype="textfield"/>
+                    <serviceEmail
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Email ids where user response has to send on form submission. &lt;b>Multiple Email Ids should be comma separated.&lt;/b>"
+                        fieldLabel="Customer Service Email *"
+                        name="./custServiceEmail"
+                        xtype="textfield"/>
+                    <firstLiine
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Text to be displayed on Continue button dialog. Default set to &lt;b>Are you sure you want to&lt;/b>"
+                        fieldLabel="First Line Text"
+                        name="./firstLine"
+                        xtype="textfield"/>
+                    <secLine
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Text to be displayed on Continue button dialog. Default set to &lt;b>SUBMIT&lt;/b>"
+                        fieldLabel="Second Line Text"
+                        name="./secLine"
+                        xtype="textfield"/>
+                    <thirdLine
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Text to be displayed on Continue button dialog. Default set to &lt;b>this form?&lt;/b>"
+                        fieldLabel="Third Line Text"
+                        name="./thirdLine"
+                        xtype="textfield"/>
+                    <informationText
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Information text to be displayed on Continue button dialog. Default set to &lt;b>Click 'Cancel' to continue editing, or click 'Submit' to continue.&lt;/b>"
+                        fieldLabel="Information Text"
+                        name="./informationText"
+                        xtype="textfield"/>
+                    <cancel
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Text to be displayed on Continue button dialog for cancel button. Default set to &lt;b>CANCEL&lt;/b>"
+                        fieldLabel="Cancel Button Text"
+                        name="./cancelText"
+                        xtype="textfield"/>
+                    <submit
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Text to be displayed on Continue button dialog for submit button. Default set to &lt;b>SUBMIT&lt;/b>"
+                        fieldLabel="Submit Button Text"
+                        name="./submitText"
+                        xtype="textfield"/>
+                    <thankYouPage
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Please provide path of the page where user should be redirected after submitting the form."
+                        fieldLabel="Thank You Page"
+                        name="./thankYouPage"
+                        xtype="pathfield"/>
+                    <failurePage
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Please provide path of the page where user should be redirected in case of error in form submission."
+                        fieldLabel="Error Page"
+                        name="./errorPage"
+                        xtype="pathfield"/>
+                    <hideSectionContent
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="This will hide section content completely from the page."
+                        fieldLabel="Hide Section Content"
+                        inputValue="true"
+                        name="./hideSectionContent"
+                        type="checkbox"
+                        xtype="selection"/>
+                    <imgtype
+                        jcr:primaryType="cq:Widget"
+                        ignoreData="true"
+                        name="./hero/sling:resourceType"
+                        value="foundation/components/image"
+                        xtype="hidden"/>
+                    <mobileImgType
+                        jcr:primaryType="cq:Widget"
+                        ignoreData="true"
+                        name="./mobile/sling:resourceType"
+                        value="foundation/components/image"
+                        xtype="hidden"/>
+                    <sectionDesktopImageType
+                        jcr:primaryType="cq:Widget"
+                        ignoreData="true"
+                        name="./sectiondesktopimage/sling:resourceType"
+                        value="foundation/components/image"
+                        xtype="hidden"/>
+                    <sectionMobileImageType
+                        jcr:primaryType="cq:Widget"
+                        ignoreData="true"
+                        name="./sectionmobileimage/sling:resourceType"
+                        value="foundation/components/image"
+                        xtype="hidden"/>
+                    <cornerlogoType
+                        jcr:primaryType="cq:Widget"
+                        ignoreData="true"
+                        name="./cornerlogo/sling:resourceType"
+                        value="foundation/components/image"
+                        xtype="hidden"/>
+                    <disclaimer
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Please provide the legal disclaimer text."
+                        fieldLabel="Legal Disclaimer Text"
+                        id="disclaimer"
+                        name="./disclaimer"
+                        removeSingleParagraphContainer="{Boolean}true"
+                        xtype="textfield"/>
+                    <!-- <cornerLogoAlt
+jcr:primaryType="cq:Widget"
+fieldDescription="Please provide alternate text for Corner logo."
+fieldLabel="Corner Logo Alt Text"
+id="cornerLogoAlt"
+name="./cornerLogoAlt"
+removeSingleParagraphContainer="{Boolean}true"
+                        xtype="textfield"/> -->
+                </items>
+            </contactus>
+            <sectioncontent
+                jcr:primaryType="cq:Panel"
+                title="Section Content">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <richFlag
+                        jcr:primaryType="cq:Widget"
+                        ignoreData="{Boolean}true"
+                        name="./textIsRich"
+                        value="true"
+                        xtype="hidden"/>
+                    <imagetext
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Text to be displayed on top of background image of the page."
+                        fieldLabel="Image Text"
+                        hideLabel="{Boolean}false"
+                        name="./imageText"
+                        xtype="richTextField">
+                        <cssStyles
+                            jcr:primaryType="nt:unstructured"
+                            listHeading="List Heading (1.1em, bold)"
+                            paraHeading="Paragraph Heading (2.2em, bold)"
+                            paraSubHeading="Paragraph Sub-Heading (1.8em, bold)"/>
+                        <externalStyleSheets
+                            jcr:primaryType="nt:unstructured"
+                            sheet1="/etc/clientlibs/mcd/rwd-commons/css/rtStyle.css"/>
+                        <rtePlugins jcr:primaryType="nt:unstructured">
+                            <edit
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <findreplace
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <format
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <justify
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <links
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <lists
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <misctools
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <paraformat
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <styles
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <subsuperscript
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <table
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <insertgatitle
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <image
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                        </rtePlugins>
+                        <linkbrowseConfig
+                            jcr:primaryType="nt:unstructured"
+                            protocols="[http://,https://,ftp://,mailto:]"/>
+                    </imagetext>
+                    <flag
+                        jcr:primaryType="cq:Widget"
+                        defaultValue="1"
+                        name="./flag"
+                        xtype="hidden"/>
+                    <sectiontitledesc
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Text to be displayed above the form."
+                        fieldLabel="Section Content"
+                        hideLabel="{Boolean}false"
+                        name="./sectionContent"
+                        xtype="richTextField">
+                        <cssStyles
+                            jcr:primaryType="nt:unstructured"
+                            listHeading="List Heading (1.1em, bold)"
+                            paraHeading="Paragraph Heading (2.2em, bold)"
+                            paraSubHeading="Paragraph Sub-Heading (1.8em, bold)"/>
+                        <externalStyleSheets
+                            jcr:primaryType="nt:unstructured"
+                            sheet1="/etc/clientlibs/mcd/rwd-commons/css/rtStyle.css"/>
+                        <rtePlugins jcr:primaryType="nt:unstructured">
+                            <edit
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <findreplace
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <format
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <justify
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <links
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <lists
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <misctools
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <paraformat
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <styles
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <subsuperscript
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <table
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <insertgatitle
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <image
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                        </rtePlugins>
+                        <linkbrowseConfig
+                            jcr:primaryType="nt:unstructured"
+                            protocols="[http://,https://,ftp://,mailto:]"/>
+                    </sectiontitledesc>
+                </items>
+            </sectioncontent>
+            <hero
+                jcr:primaryType="cq:Widget"
+                cropParameter="./hero/imageCrop"
+                ddGroups="[media]"
+                fileNameParameter="./hero/fileName"
+                fileReferenceParameter="./hero/fileReference"
+                mapParameter="./hero/imageMap"
+                name="./hero/file"
+                rotateParameter="./hero/imageRotate"
+                title="Desktop Background Image"
+                xtype="html5smartimage"/>
+            <mobileImg
+                jcr:primaryType="cq:Widget"
+                cropParameter="./mobile/imageCrop"
+                ddGroups="[media]"
+                fileNameParameter="./mobile/fileName"
+                fileReferenceParameter="./mobile/fileReference"
+                mapParameter="./mobile/imageMap"
+                name="./mobile/file"
+                rotateParameter="./mobile/imageRotate"
+                title="Mobile Background Image"
+                xtype="html5smartimage"/>
+            <sectiondesktopimage
+                jcr:primaryType="cq:Widget"
+                cropParameter="./sectiondesktopimage/imageCrop"
+                ddGroups="[media]"
+                fileNameParameter="./sectiondesktopimage/fileName"
+                fileReferenceParameter="./sectiondesktopimage/fileReference"
+                mapParameter="./sectiondesktopimage/imageMap"
+                name="./sectiondesktopimage/file"
+                rotateParameter="./sectiondesktopimage/imageRotate"
+                title="Section Content Desktop Image"
+                xtype="html5smartimage"/>
+            <sectionmobileimage
+                jcr:primaryType="cq:Widget"
+                cropParameter="./sectionmobileimage/imageCrop"
+                ddGroups="[media]"
+                fileNameParameter="./sectionmobileimage/fileName"
+                fileReferenceParameter="./sectionmobileimage/fileReference"
+                mapParameter="./sectionmobileimage/imageMap"
+                name="./sectionmobileimage/file"
+                rotateParameter="./sectionmobileimage/imageRotate"
+                title="Section Content Mobile Image"
+                xtype="html5smartimage"/>
+            <restaurantsearch
+                jcr:primaryType="cq:Panel"
+                title="Restaurant Search Popup">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <topHeading
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Text to be displayed as heading on restaurant search popup window. Default set to &lt;b>Enter your location:&lt;/b>"
+                        fieldLabel="Heading"
+                        name="./resSearchHeading"
+                        xtype="textfield"/>
+                    <searchPlaceholder
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Text to be displayed as placeholder for restaurant search text box. Default set to &lt;b>Zip, City, State&lt;/b>"
+                        fieldLabel="Search Placeholder Text"
+                        name="./resSearchPlaceholder"
+                        xtype="textfield"/>
+                    <noLocationText
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Text to be displayed for not finding restaurant location. Default set to &lt;b>Can't find the location you're looking for?&lt;/b>"
+                        fieldLabel="Location Not Find Text"
+                        name="./resNoLocation"
+                        xtype="textfield"/>
+                    <searchButtonText
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Text to be displayed for restaurant search button. Default set to &lt;b>GO&lt;/b>"
+                        fieldLabel="Search Button Text"
+                        name="./resSearchButtonText"
+                        xtype="textfield"/>
+                    <resSelectButtonText
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Text to be displayed for restaurant result select button. Default set to &lt;b>Select Location&lt;/b>"
+                        fieldLabel="Restaurant Result Select Button"
+                        name="./resSelectButtonText"
+                        xtype="textfield"/>
+                </items>
+            </restaurantsearch>
+            <cornerlogo
+                jcr:primaryType="cq:Widget"
+                cropParameter="./cornerlogo/imageCrop"
+                ddGroups="[media]"
+                fileNameParameter="./cornerlogo/fileName"
+                fileReferenceParameter="./cornerlogo/fileReference"
+                mapParameter="./cornerlogo/imageMap"
+                name="./cornerlogo/file"
+                rotateParameter="./cornerlogo/imageRotate"
+                title="Corner Logo Image"
+                xtype="html5smartimage"/>
+        </items>
+    </items>
+    <listeners
+        jcr:primaryType="nt:unstructured"
+        beforeSubmit="function(dialog) {&#xa;    if (dialog.getField('./formAction').getValue().trim() == '') {&#xa;        CQ.Ext.Msg.show({&#xa;            'title': CQ.I18n.getMessage('ContactUs Dialog Validation'),&#xa;            'msg': CQ.I18n.getMessage('Please provide form action url.'),&#xa;            'buttons': CQ.Ext.Msg.OK,&#xa;            'icon': CQ.Ext.MessageBox.INFO,&#xa;            'scope': this&#xa;        });&#xa;        return false;&#xa;    }&#xa;    if (dialog.getField('./custServiceEmail').getValue().trim() == '') {&#xa;        CQ.Ext.Msg.show({&#xa;            'title': CQ.I18n.getMessage('ContactUs Dialog Validation'),&#xa;            'msg': CQ.I18n.getMessage('Please provide customer service email.'),&#xa;            'buttons': CQ.Ext.Msg.OK,&#xa;            'icon': CQ.Ext.MessageBox.INFO,&#xa;            'scope': this&#xa;        });&#xa;        return false;&#xa;    }&#xa;}"/>
+</jcr:root>

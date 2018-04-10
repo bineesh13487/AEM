@@ -1,0 +1,9 @@
+
+<div data-sly-use.imageComp="com.mcd.rwd.global.core.components.common.Image" class="cq-dd-image">
+    <sly data-sly-test.isConfigured="${wcmmode.edit && !imageComp.imagePath}">
+        Configure Image Component
+    </sly>
+    <sly data-sly-test="${!isConfigured}">
+        <img title="${imageComp.imgTitle}" alt="${imageComp.altText}" src="${imageComp.imagePath}">
+    </sly>
+</div>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Panel"
+    title="Akamai">
+    <items jcr:primaryType="cq:WidgetCollection">
+        <domain
+            jcr:primaryType="cq:Widget"
+            defaultValue="production"
+            fieldLabel="Domain"
+            name="./akamaiDomain"
+            type="select"
+            xtype="selection">
+            <options jcr:primaryType="cq:WidgetCollection">
+                <production
+                    jcr:primaryType="nt:unstructured"
+                    text="production"
+                    value="production"/>
+                <staging
+                    jcr:primaryType="nt:unstructured"
+                    text="staging"
+                    value="staging"/>
+            </options>
+        </domain>
+        <action
+            jcr:primaryType="cq:Widget"
+            defaultValue="remove"
+            fieldLabel="Action"
+            fieldDescription="&quot;Delete&quot; deletes the content from Edge server caches. The next time an Edge server receives a request for the content, it will retrieve the current version from the origin server. &quot;Invalidate&quot; marks the cached content as invalid. The next time a server receives a request for the content, it sends an HTTP conditional GET (If-Modified-Since) request to the origin. If the content has changed, the origin server returns a full fresh copy. Otherwise, the origin normally responds that the content has not changed, and the Edge server can serve the already-cached content."
+            name="./akamaiAction"
+            type="select"
+            xtype="selection">
+            <options jcr:primaryType="cq:WidgetCollection">
+                <delete
+                    jcr:primaryType="nt:unstructured"
+                    text="delete"
+                    value="delete"/>
+                <invalidate
+                    jcr:primaryType="nt:unstructured"
+                    text="invalidate"
+                    value="invalidate"/>
+            </options>
+        </action>
+    </items>
+</jcr:root>

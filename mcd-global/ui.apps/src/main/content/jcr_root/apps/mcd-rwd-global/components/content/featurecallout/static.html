@@ -1,0 +1,11 @@
+<sly data-sly-use.staticCallout="com.mcd.rwd.global.core.sightly.callouts.StaticCalloutHandler">
+    <sly data-sly-list.callout="${staticCallout.calloutList}">
+        <div class="promo col-xs-12 col-sm-${staticCallout.gridIdentifier}" id="callout${calloutList.count}">
+            <img src="${callout.imagePath}" title="${callout.getImageAlt}" alt="${callout.getImageAlt}">
+            <a class="${callout.link.linkClass}" target="${callout.link.target}" href="${callout.link.href}">
+                <h4 style="text-align:${callout.overlayPosition @ context='styleToken'}; color:#${callout.overlayColor @ context='styleToken'};">
+                    ${callout.link.text}</h4>
+            </a>
+        </div>
+    </sly>
+</sly>

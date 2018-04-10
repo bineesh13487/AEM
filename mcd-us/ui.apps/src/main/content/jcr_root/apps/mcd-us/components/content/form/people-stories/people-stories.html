@@ -1,0 +1,321 @@
+<sly data-sly-use.peopleStoriesFormHandler="com.mcd.rwd.us.core.sightly.forms.PeopleStoriesFormHandler">
+  <div id="people-stories-form" class="ng-scope people-stories-container" data-ng-controller="PeopleStoriesFormController">
+    <form name="peopleStoriesForm" id="people-stories-input-form" ng-submit="peopleStoryFormSubmit(e,peopleStoriesForm.$valid);" enctype="multipart/form-data" novalidate>
+      <div class="subpage-content">
+        <!--Subpage content section -->
+        <section>
+          <div class="container">
+            <div class="row">
+              <div class="subpage-description">
+                <p>${peopleStoriesFormHandler.formDescription @context='html'}</p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!--End:Subpage content section -->
+      </div>
+      <hr>
+      <section class="gray-border-on-white scrollOnError">
+        <div class="container">
+          <div class="form-header">
+            <h4>${peopleStoriesFormHandler.globalErrorMessage}</h4>
+          </div>
+          <div class="form-error" ng-show="globalErrorMessage" ng-cloak>
+            <label>${peopleStoriesFormHandler.formInfo}</label>
+          </div>
+          <!--About Employee details section-->
+          <div class="row">
+            <div class="col-xs-12 col-sm-6">
+              <div class="form-group" ng-class="{'error':peopleStoriesForm.firstName.$invalid && submitted}">
+                <label class="control-label" for="employee-first-name">${peopleStoriesFormHandler.firstName}<span
+								ng-show="${peopleStoriesFormHandler.firstNameReq}"
+								class="optional-label">${peopleStoriesFormHandler.optionalText}</span>
+							</label>
+                <input name="firstName" placeholder="${peopleStoriesFormHandler.firstName}" ng-required="${peopleStoriesFormHandler.firstNameReq}" type="text" class="form-control" />
+              </div>
+              <div class="form-group" ng-class="{'error':peopleStoriesForm.lastName.$invalid && submitted}">
+                <label class="control-label" for="employee-last-name">${peopleStoriesFormHandler.lastName}
+								<span ng-show="${peopleStoriesFormHandler.lastNameReq}"
+								class="optional-label">${peopleStoriesFormHandler.optionalText}</span>
+							</label>
+                <input name="lastName" placeholder="${peopleStoriesFormHandler.lastName}" ng-required="${peopleStoriesFormHandler.lastNameReq}" type="text" class="form-control">
+              </div>
+              <div class="form-group" ng-class="{'error':peopleStoriesForm.emailAddress.$invalid && submitted}">
+                <label class="control-label" for="employee-email-address">${peopleStoriesFormHandler.email}
+								<span ng-show="${peopleStoriesFormHandler.emailReq}"
+								class="optional-label">${peopleStoriesFormHandler.optionalText}</span>
+							</label>
+                <input name="emailAddress" placeholder="${peopleStoriesFormHandler.email}" type="text" ng-required="${peopleStoriesFormHandler.emailReq}" class="form-control" />
+              </div>
+              <div class="form-group" ng-class="{'error':peopleStoriesForm.phoneNumber.$invalid && submitted}">
+                <label class="control-label" for="employee-phone-number">${peopleStoriesFormHandler.phone}
+								<span ng-show="${peopleStoriesFormHandler.phoneReq}"
+								class="optional-label">${peopleStoriesFormHandler.optionalText}</span>
+							</label>
+                <input name="phoneNumber" placeholder="${peopleStoriesFormHandler.phone}" ng-required="${peopleStoriesFormHandler.phoneReq}" type="text" class="form-control" />
+              </div>
+              <div class="form-group" ng-class="{'error':peopleStoriesForm.cityName.$invalid && submitted}">
+                <label class="control-label" for="employee-city">${peopleStoriesFormHandler.city}
+								<span ng-show="${peopleStoriesFormHandler.cityReq}"
+								class="optional-label">${peopleStoriesFormHandler.optionalText}</span>
+							</label>
+                <input name="cityName" placeholder="${peopleStoriesFormHandler.city}" type="text" ng-required="${peopleStoriesFormHandler.cityReq}" class="form-control" />
+              </div>
+              <div class="form-group" ng-class="{'error':peopleStoriesForm.employeeState.$invalid && submitted}">
+                <label for="employee-state-select">${peopleStoriesFormHandler.statesLabel}
+								<span ng-show="${peopleStoriesFormHandler.stateReq}"
+								class="optional-label">${peopleStoriesFormHandler.optionalText}</span>
+							</label>
+                <div class="select">
+                  <select class="form-control" id="employee-state-select" ng-model="statesoption" name="employeeState" data-sly-list="${peopleStoriesFormHandler.states}">
+                		<option data-hidden="true" value="">${peopleStoriesFormHandler.statesLabel}</option>
+                   		<option value=${peopleStoriesFormHandler.states[item]}>${item}</option>
+                	</select>
+                </div>
+              </div>
+              <div class="form-group" ng-class="{'error':peopleStoriesForm.employeePosition.$invalid && submitted}">
+                <label for="employee-position-select">${peopleStoriesFormHandler.positionLabel}
+								<span ng-show="${peopleStoriesFormHandler.positionReq}"
+								class="optional-label">${peopleStoriesFormHandler.optionalText}</span>
+							</label>
+                <div class="select">
+                  <select class="form-control" id="employee-position-select" ng-model="positionoption" name="employeePosition" data-sly-list="${peopleStoriesFormHandler.positions}">
+                		<option data-hidden="true" value="">${peopleStoriesFormHandler.positionLabel}</option>
+                   		<option value=${peopleStoriesFormHandler.positions[item]}>${item}</option>
+                	</select>
+                </div>
+              </div>
+              <div class="form-group" ng-class="{'error':peopleStoriesForm.employeeFirstJob.$invalid && submitted}">
+                <label class="control-label">${peopleStoriesFormHandler.employeeFirstJob} <span ng-show="${peopleStoriesFormHandler.firstJobReq}"
+								class="optional-label">${peopleStoriesFormHandler.optionalText}</span>	
+							</label>
+                <div class="clear"></div>
+                <div class="radio inline">
+                  <input type="radio" name="employeeFirstJob" value="${peopleStoriesFormHandler.firstJobYes}" aria-labelledby="employee-firs-job-yes" /> <label for="employee-firs-job-yes" id="employee-firs-job-yes" aria-hidden="true">${peopleStoriesFormHandler.firstJobYes}<span class="visuallyhidden">${peopleStoriesFormHandler.firstJobYes}</span></label>
+                </div>
+                <div class="radio inline">
+                  <input type="radio" name="employeeFirstJob" value="${peopleStoriesFormHandler.firstJobNo}" aria-labelledby="employee-firs-job-no" /> <label for="employee-firs-job-no" id="employee-firs-job-no" aria-hidden="true">${peopleStoriesFormHandler.firstJobNo}<span class="visuallyhidden">${peopleStoriesFormHandler.firstJobNo}</span></label>
+                </div>
+              </div>
+              <div class="form-group archways-radio" ng-class="{'error':peopleStoriesForm.archwaysOpportunity.$invalid && submitted}">
+                <label class="control-label">${peopleStoriesFormHandler.archewayOpportunityProgram}
+								<span ng-show="${peopleStoriesFormHandler.archewayReq}"
+								class="optional-label">${peopleStoriesFormHandler.optionalText}</span>
+							</label>
+                <div class="clear"></div>
+                <div class="radio inline">
+                  <input type="radio" name="archwaysOpportunity" value="${peopleStoriesFormHandler.archewayYes}" aria-labelledby="opportunity-progream-yes" /> <label for="opportunity-progream-yes" id="opportunity-progream-yes" aria-hidden="true">${peopleStoriesFormHandler.archewayYes}<span
+									class="visuallyhidden">${peopleStoriesFormHandler.archewayYes} <!-- TODO Add additional label if required -->></span></label>
+                </div>
+                <div class="radio inline">
+                  <input type="radio" name="archwaysOpportunity" value="${peopleStoriesFormHandler.archewayNo}" aria-labelledby="opportunity-progream-no" /> <label for="opportunity-progream-no" id="opportunity-progream-no" aria-hidden="true">${peopleStoriesFormHandler.archewayNo}<span
+									class="visuallyhidden">${peopleStoriesFormHandler.archewayNo}</span></label>
+                </div>
+                <div class="radio inline">
+                  <input type="radio" name="archwaysOpportunity" value="${peopleStoriesFormHandler.archewayNotSure}" aria-labelledby="opportunity-progream-not-sure" /> <label for="opportunity-progream-not-sure" id="opportunity-progream-not-sure" aria-hidden="true">${peopleStoriesFormHandler.archewayNotSure}<span
+									class="visuallyhidden">${peopleStoriesFormHandler.archewayNotSure}</span></label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--END:About Employee details section-->
+          <!--About Employee Archways program section-->
+          <div class="row archways-section">
+            <div class="col-xs-12 col-sm-6">
+              <div class="form-group">
+                <div class="checkbox" ng-class="{'error':peopleStoriesForm.advisingServiceSelect.$invalid && submitted}">
+                  <input type="checkbox" name="advisingservices" id="advising-Services" value="${peopleStoriesFormHandler.advisingServices}" aria-checked="false" />
+                  <label for="advising-Services" class="keep-outline" aria-hidden="true">${peopleStoriesFormHandler.advisingServices}</label>
+                </div>
+                <div class="radio">
+                  <input type="radio" name="advisingServiceSelect" value="${peopleStoriesFormHandler.currentText}" aria-labelledby="advisingselect-current" />
+                  <label for="advisingselect-current" id="advisingselect-current" aria-hidden="true">${peopleStoriesFormHandler.currentText}<span class="visuallyhidden">${peopleStoriesFormHandler.currentText}</span></label>
+                </div>
+                <div class="radio">
+                  <input type="radio" name="advisingServiceSelect" value="${peopleStoriesFormHandler.pastText}" aria-labelledby="advisingselect-past" />
+                  <label for="advisingselect-past" id="advisingselect-past" aria-hidden="true">${peopleStoriesFormHandler.pastText}<span class="visuallyhidden">${peopleStoriesFormHandler.pastText}</span></label>
+                </div>
+				<div class="outer-container" ng-class="{'error':peopleStoriesForm.englishUnderArchesSelect.$invalid && submitted}">
+                <div class="checkbox">
+                  <input type="checkbox" name="englishUnderArches" id="english-under-arches" value="${peopleStoriesFormHandler.englishUnderArches}" aria-checked="false" />
+                  <label for="english-under-arches" class="keep-outline" aria-hidden="true">${peopleStoriesFormHandler.englishUnderArches}</label>
+                </div>
+                <div class="radio">
+                  <input type="radio" name="englishUnderArchesSelect" value="${peopleStoriesFormHandler.enrolledText}" aria-labelledby="english-underarches-enrolled" />
+                  <label for="english-underarches-enrolled" id="english-underarches-enrolled" aria-hidden="true">${peopleStoriesFormHandler.enrolledText}<span class="visuallyhidden">${peopleStoriesFormHandler.enrolledText}</span></label>
+                </div>
+                <div class="radio">
+                  <input type="radio" name="englishUnderArchesSelect" value="${peopleStoriesFormHandler.graduateText}" aria-labelledby="english-underarches-graduate" />
+                  <label for="english-underarches-graduate" id="english-underarches-graduate" aria-hidden="true">${peopleStoriesFormHandler.graduateText}<span class="visuallyhidden">${peopleStoriesFormHandler.graduateText}</span></label>
+                </div>
+				</div>
+				<div class="outer-container" ng-class="{'error':peopleStoriesForm.careerOnlineSelect.$invalid && submitted}">
+                <div class="checkbox">
+                  <input type="checkbox" name="careerOnline" id="career-online" value="${peopleStoriesFormHandler.careerOnline}" aria-checked="false" aria-labelledby="career-online" />
+                  <label for="career-online" class="keep-outline" aria-hidden="true">${peopleStoriesFormHandler.careerOnline}</label>
+                </div>
+                <div class="radio">
+                  <input type="radio" name="careerOnlineSelect" value="${peopleStoriesFormHandler.enrolledOnlineText}" aria-labelledby="career-online-enrolled" />
+                  <label for="career-online-enrolled" id="career-online-enrolled" aria-hidden="true">${peopleStoriesFormHandler.enrolledOnlineText}
+				  <span class="visuallyhidden">${peopleStoriesFormHandler.enrolledOnlineText}</span></label>
+                </div>
+                <div class="radio">
+                  <input type="radio" name="careerOnlineSelect" value="${peopleStoriesFormHandler.graduateOnlineText}" aria-labelledby="career-online-graduate" />
+                  <label for="career-online-graduate" aria-hidden="true">${peopleStoriesFormHandler.graduateOnlineText}<span class="visuallyhidden">${peopleStoriesFormHandler.graduateOnlineText}</span></label>
+                </div>
+				</div>
+				<div class="outer-container" ng-class="{'error':peopleStoriesForm.collegeTutionAssistSelect.$invalid && submitted}">
+                <div class="checkbox">
+                  <input type="checkbox" name="collegeTutionAssist" id="college-tution-assist" value="${peopleStoriesFormHandler.collegeTuition}" aria-checked="false" aria-labelledby="college-tution-assist" />
+                  <label for="college-tution-assist" class="keep-outline" aria-hidden="true">${peopleStoriesFormHandler.collegeTuition}</label>
+                </div>
+                <div class="radio">
+                  <input type="radio" name="collegeTutionAssistSelect" value="${peopleStoriesFormHandler.enrolledTuition}" aria-labelledby="enrolled-college-tution-assist" />
+                  <label for="enrolled-college-tution-assist" id="enrolled-college-tution-assist" aria-hidden="true">${peopleStoriesFormHandler.enrolledTuition}<span class="visuallyhidden">${peopleStoriesFormHandler.enrolledTuition}</span></label>
+                </div>
+                <div class="radio">
+                  <input type="radio" name="collegeTutionAssistSelect" value="${peopleStoriesFormHandler.graduateTuitionText}" aria-labelledby="graduate-college-tution-assist" />
+                  <label for="Graduate" id="graduate-college-tution-assist" aria-hidden="true">${peopleStoriesFormHandler.graduateTuitionText}<span class="visuallyhidden">${peopleStoriesFormHandler.graduateTuitionText}</span></label>
+                </div>
+				</div>
+                <div class="form-group" ng-class="{'error':peopleStoriesForm.additionalComments.$invalid && submitted}">
+                  <label class="control-label">${peopleStoriesFormHandler.additionalComment}<span ng-show="${peopleStoriesFormHandler.additionalCommentReq}" class="optional-label">${peopleStoriesFormHandler.optionalText}</span></label>
+                  <textarea name="additionalComments" rows="5" class="form-control" aria-label="${peopleStoriesFormHandler.additionalComment}"></textarea>
+                </div>
+                <div class="clear"></div>
+              </div>
+            </div>
+          </div>
+          <div class="clear"></div>
+          <!--END: Employee Archways program section-->
+          <!-- Employee Skills and other details section-->
+          <div class="row">
+            <div class="col-xs-12 col-sm-6">
+              <div class="form-group" ng-class="{'error':peopleStoriesForm.whatMakesGreatplacetoWork.$invalid && submitted}">
+                <label class="control-label" for="what-makes-great-place-toWork">${peopleStoriesFormHandler.isMcdGreatPlace}
+                <span ng-show="${peopleStoriesFormHandler.isMcdGreatPlaceReq}" class="optional-label">${peopleStoriesFormHandler.optionalText}</span>
+                </label>
+                <textarea name="whatMakesGreatplacetoWork" id="what-makes-great-place-toWork" rows="5" class="form-control"></textarea>
+                <div class="clear"></div>
+              </div>
+              <div class="form-group" ng-class="{'error':peopleStoriesForm.whatsSpecificSkills.$invalid && submitted}">
+                <label class="control-label" for="what-makes-specific-skills">${peopleStoriesFormHandler.specificSkillInfo}
+                <span ng-show="${peopleStoriesFormHandler.specificSkillInfoReq}" class="optional-label">${peopleStoriesFormHandler.optionalText}</span>
+				</label>
+                <textarea name="whatsSpecificSkills" id="what-makes-specific-skills" rows="5" class="form-control"></textarea>
+                <div class="clear"></div>
+              </div>
+              <div class="form-group explore-future" ng-class="{'error':peopleStoriesForm.intendToExplore.$invalid && submitted}">
+                <label class="control-label" for="what-intended-to-expole">${peopleStoriesFormHandler.futureIntent}
+                <span class="control-label">${peopleStoriesFormHandler.futureIntentValidation}</span>
+                <span ng-show="${peopleStoriesFormHandler.futureIntentReq}" class="optional-label">${peopleStoriesFormHandler.optionalText}</span> 
+                </label>
+                <textarea name="intendToExplore" id="what-intended-to-expole" rows="5" class="form-control"></textarea>
+                <div class="clear"></div>
+              </div>
+              <div class="form-group" ng-class="{'error':peopleStoriesForm.employeeSelectGender.$invalid && submitted}">
+                <label for="employee-gender-value">${peopleStoriesFormHandler.genderLabel}
+                <span ng-show="${peopleStoriesFormHandler.genderReq}" class="optional-label">${peopleStoriesFormHandler.optionalText}</span>
+				</label>
+                <div class="select" name="employee-gender-select">
+                  <select class="form-control" id="employee-gender-value" ng-model="employeeGender" name="employee-select-gender" data-sly-list="${peopleStoriesFormHandler.genders}">
+                		<option data-hidden="true" value="">${peopleStoriesFormHandler.genderLabel}</option>
+                   		<option value=${peopleStoriesFormHandler.genders[item]}>${item}</option>
+                	</select>
+                </div>
+              </div>
+              <div class="form-group ethnicity-fields" ng-class="{'error':peopleStoriesForm.ethnicity.$invalid && submitted}">
+                <label for="employee-ethinicity-header">${peopleStoriesFormHandler.etnicity}<span
+								ng-show="${peopleStoriesFormHandler.ethnicityReq}"
+								class="optional-label">${peopleStoriesFormHandler.optionalText}</span>
+							</label>
+                <div class="clear"></div>
+                <div class="radio">
+                  <input type="radio" name="ethnicity" value="${peopleStoriesFormHandler.asian}" aria-labelledby="ethnicity-asian" />
+                  <label for="ethnicity-asian" id="ethnicity-asian" aria-hidden="true">${peopleStoriesFormHandler.asian}</label>
+                </div>
+                <div class="radio">
+                  <input type="radio" name="ethnicity" value="${peopleStoriesFormHandler.blackAfricanAmerican}" aria-labelledby="ethnicity-american" />
+                  <label for="ethnicity-american" id="ethnicity-american" aria-hidden="true">${peopleStoriesFormHandler.blackAfricanAmerican}</label>
+                </div>
+                <div class="radio">
+                  <input type="radio" name="ethnicity" value="${peopleStoriesFormHandler.hawaiianPacificIslander}" aria-labelledby="ethnicity-islander">
+                  <label for="ethnicity-islander" id="ethnicity-islander" aria-hidden="true">${peopleStoriesFormHandler.hawaiianPacificIslander}</label>
+                </div>
+                <div class="radio">
+                  <input type="radio" name="ethnicity" value="${peopleStoriesFormHandler.americanAlaskan}" aria-labelledby="ethnicity-indoamrican" />
+                  <label for="ethnicity-indoamrican" id="ethnicity-indoamrican" aria-hidden="true">${peopleStoriesFormHandler.americanAlaskan}</label>
+                </div>
+                <div class="radio">
+                  <input type="radio" name="ethnicity" value="${peopleStoriesFormHandler.whiteCaucasian}" aria-labelledby="ethnicity-Caucasian" />
+                  <label for="ethnicity-Caucasian" id="ethnicity-Caucasian" aria-hidden="true">${peopleStoriesFormHandler.whiteCaucasian}</label>
+                </div>
+                <div class="radio">
+                  <div class="ethnicity-left-container">
+                    <input type="radio" name="ethnicity" value="${peopleStoriesFormHandler.otherEthnicity}" aria-labelledby="ethnicity-someother" />
+                    <label for="ethnicity-someother" id="ethnicity-someother" aria-hidden="true">${peopleStoriesFormHandler.otherEthnicity}
+						<span class="fill-in-blank">Please fill in blank:</span></label>
+                  </div>
+                  <div class="col-xs-12 col-sm-6">
+                    <input name="fillethnicity" type="text" class="form-control fillethnicity" aria-label="fill the other ethniicity" />
+                  </div>
+                </div>
+                <div class="clear"></div>
+              </div>
+              <div class="form-group">
+                <label for="upload-photo">${peopleStoriesFormHandler.uploadPhoto}<span ng-show="${peopleStoriesFormHandler.photoReq}" class="optional-label">${peopleStoriesFormHandler.optionalText}</span></label>
+                <div class="clear"></div>
+                <input type="file" name="uploadPhotoName" id="upload-photo" maxlength="200" />
+                <label id="label-upload-photo" for="upload-photo">${peopleStoriesFormHandler.browseBtn}</label>
+                <label for="upload-photo">${peopleStoriesFormHandler.photoValidationMessage}</label>
+              </div>
+              <div class="form-group">
+                <label class="control-label" for="video-link">${peopleStoriesFormHandler.videoLink}<span ng-show="${peopleStoriesFormHandler.videoLinkReq}" class="optional-label">${peopleStoriesFormHandler.optionalText}</span></label>
+                <input name="Videolink" type="text" id="video-link" class="form-control" />
+              </div>
+              <!-- Details About the employee story submitter-->
+              <div class="form-group your-details">
+                <label class="control-label" for="enter-your-contactinfo">${peopleStoriesFormHandler.nonEmployee}</label>
+              </div>
+              <div class="form-group">
+                <label class="control-label" for="your-first-name">${peopleStoriesFormHandler.nonEmpFirstName}<span ng-show="${peopleStoriesFormHandler.nonEmpFirstNameReq}" class="optional-label">${peopleStoriesFormHandler.optionalText}</span></label>
+                <input name="submitterFirstname" placeholder="${peopleStoriesFormHandler.nonEmpFirstName}" ng-required="${peopleStoriesFormHandler.nonEmpFirstNameReq}" type="text" class="form-control" />
+              </div>
+              <div class="form-group">
+                <label class="control-label" for="your-last-name">${peopleStoriesFormHandler.nonEmpLastName}<span ng-show="${peopleStoriesFormHandler.nonEmpLastNameReq}" class="optional-label">${peopleStoriesFormHandler.optionalText}</span></label>
+                <input name="submitterLastName" placeholder="${peopleStoriesFormHandler.nonEmpLastName}" ng-required="${peopleStoriesFormHandler.nonEmpLastNameReq}" type="text" class="form-control" />
+              </div>
+              <div class="form-group">
+                <label class="control-label" for="your-email-address">${peopleStoriesFormHandler.nonEmpEmail}<span ng-show="${peopleStoriesFormHandler.nonEmpEmailReq}" class="optional-label">${peopleStoriesFormHandler.optionalText}</span></label>
+                <input name="submitterEmail" type="text" placeholder="${peopleStoriesFormHandler.nonEmpEmail}" ng-required="${peopleStoriesFormHandler.nonEmpEmailReq}" class="form-control" />
+              </div>
+              <div class="clear"></div>
+              <!-- END:Details About the employee story submitter-->
+            </div>
+          </div>
+        </div>
+        <!-- END:Employee Skills and other details section-->
+        <div class="clear"></div>
+        <hr>
+        <!-- Form Submit section-->
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-12 col-sm-6">
+              <div class="form-group" ng-class="{'error':peopleStoriesForm.additionaComments.$invalid && submitted}">
+                <label class="control-label" for="additional-comments">${peopleStoriesFormHandler.nonEmpAddComments}<span ng-show="${peopleStoriesFormHandler.nonEmpAddCommentsReq}" class="optional-label">${peopleStoriesFormHandler.optionalText}</span></label>
+                <textarea name="additionaComments" id="additional-comments" rows="5" class="form-control"></textarea>
+                <div class="clear"></div>
+              </div>
+              <div class="form-group">
+                <button ng-click="peopleStoryFormSubmit();" class="btn btn-red">${peopleStoriesFormHandler.submitBtn}</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End:Form Submit section-->
+      </section>
+      <!-- End:Form section ends here-->
+    </form>
+    <!--End of People stories Form -->
+  </div>
+</sly>

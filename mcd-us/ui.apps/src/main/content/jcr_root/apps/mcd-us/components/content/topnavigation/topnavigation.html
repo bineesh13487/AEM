@@ -1,0 +1,51 @@
+<!--/* 
+    Top Navigation
+*/-->
+<sly data-sly-use.info="com.mcd.rwd.us.core.sightly.TopNavigationHandler">
+    <sly data-sly-list.navList="${info.navList}">
+
+        <sly data-sly-test="${navListList.index == 0}">
+
+            <!-- mobile -->
+            <li class="links__item mobile-home-link"><a href="/" class="main-link" title="Home">Home</a></li> <!-- home is not a link in AEM, but needs to be added  -->
+            <li class="links__item mobile-menu-link">
+                <a href="#" class="main-link" title="${navList.title}">${navList.title}<i class="icon-plus"></i></a>
+                <div class="mobile-flyout-menu" role="menu" aria-expanded="false">
+                    <div class="" data-sly-resource="${navList.path @wcmmode='disabled'}"></div>
+                </div>
+            </li>
+
+            <!-- desktop -->
+            <li class="links__item desktop-menu-link" tabindex="-1" aria-haspopup="true" data-sly-test="${navList.title}">
+                <a href="#" class="toggle-desktop-menu main-link" data-toggle="dropdown" aria-expanded="false" role="button" data-at="TopNav:${navList.title}" data-track="topNav">${navList.title} <span class="icon-chevron-down"></span></a>
+                <div class="flyout-menu" role="menu" aria-expanded="false">
+                    <div class="" data-sly-resource="${navList.path @wcmmode='disabled'}"></div>
+                </div>
+            </li>
+        </sly>
+        <sly data-sly-test="${navListList.index != 0}">
+
+            <!-- desktop and mobile -->
+
+            <!-- the links that are not the Menu item need to be linked out to their respective pages. This will require a BE change. Here is the dynamic code -->
+            <!--/*  
+                <li class="links__item" tabindex="-1" aria-haspopup="false" data-sly-test="${navList.title}">
+                    <a href="${navList.URL}" class="main-link" data-at="TopNav:${navList.title}" data-track="topNav" title="${navList.title}">${navList.title}</a>
+                </li>
+            */-->
+
+        </sly>
+
+    </sly>
+
+    <!-- here is the hard coded links -->
+    <li class="links__item" tabindex="-1" aria-haspopup="false">
+        <a href="/content/us/en-us/about-our-food/nutrition-calculator.html" class="main-link" data-at="TopNav:Nutrition" data-track="topNav" title="Nutrition">Nutrition</a>
+    </li>
+    <li class="links__item" tabindex="-1" aria-haspopup="false">
+        <a href="/content/us/en-us/deals.html" class="main-link" data-at="TopNav:Deals" data-track="topNav" title="Deals">Deals</a>
+    </li>
+    <li class="links__item" tabindex="-1" aria-haspopup="false">
+        <a href="/content/us/en-us/whats-hot.html" class="main-link" data-at="TopNav:Trending" data-track="topNav" title="Trending">Trending</a>
+    </li>
+</sly>

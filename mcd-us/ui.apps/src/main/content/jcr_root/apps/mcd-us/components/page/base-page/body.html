@@ -1,0 +1,42 @@
+<!--/*
+
+  Includes the header content and footer.
+
+*/-->
+<sly data-sly-use.body="com.mcd.rwd.global.core.sightly.page.Body">
+    <sly data-sly-test="${body.analyticsStart}">${body.analyticsStart @ context='unsafe'}</sly>
+    <script data-sly-use.config="com.mcd.rwd.us.core.sightly.page.Config">
+        var config = (function() {
+            var settings = {
+                "country": "${config.country @ context='scriptString'}",
+                "lang": "${config.language @ context='scriptString'}",
+                "analyticsPageName": "${config.analyticsPageName @ context='scriptString'}"
+            };
+
+            return {
+                get: function(key) {
+                    if(settings && key && settings[key]) {
+                        return settings[key];
+                    }
+                    return '';
+                }
+            };
+        })();
+    </script>
+    <sly data-sly-include="header.html"></sly>	
+    <style>
+        #maincontent {
+        ${ body.margin.getMarginTop @ context='styleString'}
+        }
+
+        @media only screen and (min-width: 0px) and (max-width: 767px) {
+        #maincontent {
+        ${ body.mobileMargin.getMarginTop @ context='styleString'}
+        }
+        }
+    </style>
+    <main style="${body.background @ context='unsafe'};color:#${body.textColor @ context='styleToken'};background:#f9f9f9" id="maincontent" tabindex="0" class="main" role="main"
+          data-sly-include="content.html" ng-style="{'margin-top': marginTop}"></main>
+    <sly data-sly-include="footer.html"></sly>
+    <sly data-sly-test="${body.analyticsEnd}">${body.analyticsEnd @ context='unsafe'}</sly>
+</sly>

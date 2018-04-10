@@ -1,0 +1,49 @@
+$base : #ffffff;
+$darken : darken(#ffffff , 10%);
+$back: darken(#ffffff, 20%);
+
+$white: #ffffff;
+$black: #000000;
+$red: #bd0017;
+$yellow: #ffc836;
+$grey: #999999;
+$red-hover: #d53c42;
+$grey-border: #cccccc;
+
+$grey-darker: #666666;
+$green: #00b125;
+$grey-light: #eaeaea;
+
+$color-input-bg: #f9f9f9;
+$color-input-border: #dbdbdb;
+
+$color-notification-bg: #333333;
+
+$color-list-border: #c8c7cc;
+
+/// Base sans font
+/// @group typography
+$font-lovinsans: 'Droid_Arabic_Kufi_Regular';
+
+
+/// Black (heavy bold) sans font
+/// @group typography
+$font-lovinsans-black:  'Droid_Arabic_Kufi_Bold';
+
+/// Bold sans font
+/// @group typography
+$font-lovinsans-bold:  'Droid_Arabic_Kufi_Bold';
+
+/// Medium (between regular and bold) sans font
+/// @group typography
+$font-lovinsans-medium: 'Droid_Arabic_Kufi_Bold';
+
+/// Light (between regular and thin) sans font
+/// @group typography
+$font-lovinsans-light: 'Droid_Arabic_Kufi_Regular';
+
+
+/// Thin sans font
+/// @group typography
+$font-lovinsans-thin:  'Droid_Arabic_Kufi_Regular';
+

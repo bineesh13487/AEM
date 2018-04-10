@@ -1,0 +1,462 @@
+/// Base color
+/// @group colors
+$base : #ffffff;
+
+/// Base color, darkened by 10%
+/// @group colors
+$darken : darken(#ffffff , 10%);
+
+/// Base color darkened by 20%
+/// @group colors
+$back: darken(#ffffff, 20%);
+
+/// White
+/// @group colors
+$white: #ffffff;
+
+$white-off: #f0f0eb;
+
+/// Black
+/// @group colors
+$black: #000000;
+
+/// Black text
+/// @group colors
+$black-text: #272727;
+
+/// Red
+/// @group colors
+$red: #bf0c0c;
+$pink: #fedcdb;
+
+/// Red hover
+/// @group colors
+$red-hover: #d53c42;
+
+/// Brown
+/// @group colors
+$brown: #472a12;
+
+/// Gray
+/// @group colors
+$gray: #333333;
+$gray-border-2: #d9d9d9;
+
+/// Yellow
+/// @group colors
+$yellow: #fcc64d;
+
+/// Light gray
+/// @group colors
+$light-gray: #f1f1eb;
+$green: #87bd53;
+
+/// Gray color for seperators
+/// @group colors
+$gray-separator: #cccccc;
+
+/// White color for social elements
+/// @group colors
+$social-border: #e2e2e2;
+
+/// Gray border color
+/// @group colors
+$gray-border: #4d4a4b;
+
+/// Gray border color alt
+/// @group colors
+$gray-666: #666666;
+
+/// Gray footer
+/// @group colors
+$gray-footer: #424242;
+
+/// Gray background
+/// @group colors
+$gray-background: #1f1f1f;
+$gray-hover: #d5d5d0;
+
+/// Gray background for footer
+/// @group colors
+$gray-footer: #424242;
+
+$color-facebook: #4e69a2;
+$color-instagram: #2a5d83;
+$color-youtube: #e82216;
+$color-twitter: #55abee;
+$color-spotify: #8dc100;
+$color-tumblr: #2f4f6c;
+$color-social-text-default: #1c77cd;
+
+/// Base sans font
+/// @group typography
+$font-lovinsans:'Droid_Arabic_Kufi_Regular';
+
+
+
+/// Black (heavy bold) sans font
+/// @group typography
+$font-lovinsans-black:  'Droid_Arabic_Kufi_Bold';
+
+/// Bold sans font
+/// @group typography
+$font-lovinsans-bold:  'Droid_Arabic_Kufi_Bold';
+
+/// Medium (between regular and bold) sans font
+/// @group typography
+$font-lovinsans-medium:  'Droid_Arabic_Kufi_Bold';
+
+/// Light (between regular and thin) sans font
+/// @group typography
+$font-lovinsans-light: 'Droid_Arabic_Kufi_Regular';
+
+
+/// Thin sans font
+/// @group typography
+$font-lovinsans-thin: 'Droid_Arabic_Kufi_Regular';
+
+
+/// Exact height of navigation
+/// @group Nav
+$exact-nav-space: 110px;
+
+/// Exact height of navigation on mobile
+/// @group Nav
+$exact-mobile-nav-space: 86px;
+
+// Spacing content under nav.
+/// @group Nav
+$post-nav-space: 115px;
+
+// Spacing content under nav on mobile
+/// @group Nav
+$mobile-post-nav-space: 100px;
+
+/// ???
+/// @group Nav
+$detail-nav-space: 70px;
+
+/// Base font size
+/// @group Typography
+$base-font-size: 16px;
+
+/// Base line-height
+/// @group Typography
+$base-line-height: 1.3;
+
+//Nutrition Calculator Row Height
+$nutrition-calc-row: 60px;
+
+
+/// Calculates rem value based on 16px, then multplied by 1rem;
+/// @group typography
+/// @param {*} $size
+/// @returns {rem}
+@function calculateRem($size) {
+	$remSize: $size / $base-font-size;
+	@return $remSize * 1rem;
+}
+
+/// Sets font attributes
+/// @group typography
+/// @param {number} $size in "px"
+/// @param {number} $lineheight in px, em, number
+/// @param {boolean} $important [false] whether to append '!important'
+/// @example
+///    // Calculates line height
+///    @include fontSet(22px, 1, $font-lovinsans);
+///    // Sets line height and includes '!important'
+///    @include fontSet(22px, 1em, 'LovinSansWeb-Medium', true);
+@mixin font-size($size, $lineheight: $base-line-height, $important:false) {
+  $important: if($important, !important, null);
+
+	font-size: $size $important;
+	font-size: calculateRem($size) $important;
+
+	@if $lineheight == 'auto' {
+        line-height: auto $important;
+    } @else if(unitless($lineheight)) {
+		$lineheight: $size * $lineheight;
+		line-height: $lineheight $important;
+		line-height: calculateRem($lineheight) $important;
+	} @else if(unit($lineheight) == "em") {
+		line-height: $lineheight $important;
+	} @else {
+		line-height: $lineheight $important;
+		line-height: calculateRem($lineheight) $important;
+	}
+}
+
+/// Sets font attributes
+/// @group typography
+/// @param {number} $fontsize in "px"
+/// @param {number} $lineheight in "px"
+/// @param {string} $fontfamily [$font-lovinsans] Font family
+/// @param {boolean} $important [false] whether to append `!important`
+@mixin fontSet($fontsize, $lineheight: $base-line-height, $fontfamily: $font-lovinsans, $important:false){
+  $important: if($important, !important, null);
+
+	@include font-size($fontsize, $lineheight, $important);
+  font-family: $fontfamily $important;
+}
+
+/// Manually adds css prefixes to $property
+/// @param {string} $property
+/// @param {*} $value
+@mixin css3-prefix($property, $value) {
+	-webkit-#{$property}: #{$value};
+	-khtml-#{$property}: #{$value};
+	-moz-#{$property}: #{$value};
+	-ms-#{$property}: #{$value};
+	-o-#{$property}: #{$value};
+	#{$property}: #{$value};
+}
+
+/// Simple border radius for all sides
+/// @group borders
+/// @param {pixels|em|percentage} $radius [5px]
+@mixin border-radius($radius: 5px) {
+	@include css3-prefix('border-radius', $radius);
+}
+
+/// Makes round borders via CSS hack.
+/// @group borders
+/// @example
+///    @include roundEdges();
+@mixin roundEdges(){
+	border-radius: 9999px;
+}
+
+/// Rounds left borders via CSS hack.
+/// @group borders
+/// @example
+///    @include roundLeft();
+@mixin roundLeft(){
+	border-top-left-radius: 9999px;
+	border-bottom-left-radius: 9999px;
+}
+
+/// Rounds right borders via CSS hack.
+/// @group borders
+/// @example
+///    @include roundRight();
+@mixin roundRight(){
+	border-top-right-radius: 9999px;
+	border-bottom-right-radius: 9999px;
+}
+
+/// Flattens left borders.
+/// @group borders
+/// @example
+///    @extend .btn-red;
+///    @include flatLeft();
+@mixin flatLeft(){
+	border-top-left-radius: 0px;
+	border-bottom-left-radius: 0px;
+}
+
+/// Flattens right borders.
+/// @group borders
+/// @example
+///    @extend .btn-red;
+///    @include flatRight();
+@mixin flatRight(){
+	border-top-right-radius: 0px;
+	border-bottom-right-radius: 0px;
+}
+
+/// Border radius per top left, top right, bottom right, bottom left
+/// @group borders
+/// @param {pixels|em|percentage} $$topLeftRadius [5px]
+/// @param {pixels|em|percentage} $topRightRadius [5px]
+/// @param {pixels|em|percentage} $bottomRightRadius [5px]
+/// @param {pixels|em|percentage} $bottomLeftRadius [5px]
+@mixin border-radius-separate($topLeftRadius: 5px, $topRightRadius: 5px, $bottomRightRadius: 5px, $bottomLeftRadius: 5px) {
+	-webkit-border-top-left-radius:     $topLeftRadius;
+	-webkit-border-top-right-radius:    $topRightRadius;
+	-webkit-border-bottom-right-radius: $bottomRightRadius;
+	-webkit-border-bottom-left-radius:  $bottomLeftRadius;
+
+	-moz-border-radius-topleft:     $topLeftRadius;
+	-moz-border-radius-topright:    $topRightRadius;
+	-moz-border-radius-bottomright: $bottomRightRadius;
+	-moz-border-radius-bottomleft:  $bottomLeftRadius;
+
+	border-top-left-radius:     $topLeftRadius;
+	border-top-right-radius:    $topRightRadius;
+	border-bottom-right-radius: $bottomRightRadius;
+	border-bottom-left-radius:  $bottomLeftRadius;
+}
+
+/// Box shadow
+/// @param {pixels} $x [2px]
+/// @param {pixels} $y [2px]
+/// @param {pixels} $blur [2px]
+/// @param {color} $color [2px]
+/// @param {pixels} $inset [""]
+@mixin box-shadow($x: 2px, $y: 2px, $blur: 5px, $color: rgba(0,0,0,.4), $inset: "") {
+	@if ($inset != "") {
+		@include css3-prefix('box-shadow', $inset $x $y $blur $color);
+	} @else {
+		@include css3-prefix('box-shadow', $x $y $blur $color);
+	}
+}
+
+/// Sets transition per argument. Allows transitioning individual properties.
+/// @group animation
+/// @param {*} $properties - Pass in as many properties as you'd like.
+@mixin transition($properties...) {
+
+	@if length($properties) >= 1 {
+		@include css3-prefix('transition', $properties);
+	}
+
+	@else {
+		@include css3-prefix('transition',  "all 0.2s ease-in-out 0s");
+	}
+}
+
+/// Zoom animation
+/// @group animation
+@mixin zoom-animation(){
+	@include transition(transform 1s cubic-bezier(0.190, 1, 0.220, 1) 0s);
+	-webkit-transform: scale(1.01);
+	-moz-animationtransform: scale(1.01);
+	-o-animationtransform: scale(1.01);
+	transform: scale(1.01);
+
+	&.bglarge {
+		-webkit-transform: scale(1.06);
+		-moz-animationtransform: scale(1.06);
+		-o-animationtransform: scale(1.06);
+		transform: scale(1.06);
+	}
+}
+
+/// Allows multiple transforms per argument.
+/// @group utils
+@mixin transform($properties...) {
+
+  @if length($properties) >= 1 {
+    @include css3-prefix('transform', $properties);
+  }
+
+}
+
+/// Sets width and/or margin based on screen size.
+/// @group layout
+@mixin flex-viewport-scale(){
+	.flex-viewport{
+		width: initial;
+		margin:0px 15px;
+		@include transition(none);
+
+		@media only screen and (min-width: 320px){
+			margin:0px 15px;
+		}
+		@media only screen and (min-width: 480px){
+			margin:0px 30px;
+		}
+		@media only screen and (min-width: 768px){
+			width: 640px;
+			margin: auto;
+		}
+		@media only screen and (min-width: 900px){
+			width: 790px;
+			margin: auto;
+		}
+		@media only screen and (min-width: 992px){
+			width: 850px;
+			margin: auto;
+		}
+		@media only screen and (min-width: 1112px){
+			width: 1010px;
+			margin: auto;
+		}
+		@media only screen and (min-width: 1200px){
+			width: 1080px;
+			margin: auto;
+		}
+		@media only screen and (min-width: 1313px){
+			width: 1210px;
+			margin: auto;
+		}
+	}
+}
+
+/// Sets padding based on screen size for related items flex slider.
+/// @group layout
+@mixin flex-related-scale(){
+	padding: 26px 15px 0 15px;
+	@include transition(none);
+
+	@media only screen and (min-width: 320px){
+
+	}
+	@media only screen and (min-width: 480px){
+
+	}
+	@media only screen and (min-width: 768px){
+		padding: 10px 80px;
+	}
+	@media only screen and (min-width: 900px){
+		padding: 10px 15px;
+	}
+	@media only screen and (min-width: 992px){
+		padding: 10px 80px;
+	}
+	@media only screen and (min-width: 1112px){
+		padding: 10px 15px;
+	}
+	@media only screen and (min-width: 1200px){
+		padding: 10px 80px;
+	}
+	@media only screen and (min-width: 1313px){
+		padding: 10px 15px;
+	}
+}
+
+// Simple class for light gray bg
+.bg-light-gray {
+	background-color: $light-gray;
+}
+
+/// Easy get to for .checkbox label
+@mixin checkBoxLabel (){
+	.checkbox > label {
+		@content;
+	}
+}
+
+/// removes padding for child elements
+/// @group layout
+.no-gutter,
+div[class*="row"].no-gutter,
+div[class*="col-"].no-gutter {
+	padding-left: 0;
+	padding-right: 0;
+}
+
+/// removes padding for child elements for only mobile
+/// @group layout
+.no-gutter-xs,
+div[class*="row"].no-gutter-xs,
+div[class*="col-xs-"].no-gutter-xs {
+	@include up-to-breakpoint(sm){
+		padding-left: 0;
+		padding-right: 0;
+	}
+}
+
+/*--- Only IE9 ---*/
+@mixin only_ie9($selector, $map, $breakpoint){
+	@include breakpoint($breakpoint) {
+		#{$selector}{
+			@each $property, $value in ($map) {
+				#{$property}: $value+#{\9\0};
+			}
+		}
+	}
+
+}
+

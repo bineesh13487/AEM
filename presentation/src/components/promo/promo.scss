@@ -1,0 +1,37 @@
+.promo-card {
+  background-color: $background-color;
+
+  @include e('promo__btn') {
+    color: $dark-gray-1;
+
+    &:hover {
+      color: $dark-gray-1;
+    }
+  }
+
+  @include e('text') {
+    @include make-box-shadow();
+
+    text-align: center;
+    background-color: $white-1;
+
+    @include m('heading') {
+      padding-top: to-rem(15);
+      font-size: to-rem(22);
+      color: $dark-gray-2;
+    }
+
+    @include m('footer-text') {
+      padding: to-rem(10) to-rem(50) to-rem(25);
+      font-size: to-rem(16);
+      color: $dark-gray-1;
+    }
+  }
+
+  &__image {
+    img {
+      height: 100%;
+      width: 100%;
+    }
+  }
+}

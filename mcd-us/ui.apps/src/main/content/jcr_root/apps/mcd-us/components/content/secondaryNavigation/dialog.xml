@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Dialog"
+    title="Micro Site Navigation"
+    height="500"
+    width="900"
+    xtype="dialog">
+    <items
+        jcr:primaryType="cq:Widget"
+        xtype="tabpanel">
+        <items jcr:primaryType="cq:WidgetCollection">
+            <tab1
+                jcr:primaryType="cq:Panel"
+                title="Micro Site Navigation">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <title
+                        jcr:primaryType="nt:unstructured"
+                        fieldDescription="Please enter the title for the microsite"
+                        fieldLabel="Microsite Title"
+                        name="./title"
+                        xtype="textfield"/>                    
+                    <titleColor
+                    	jcr:primaryType="nt:unstructured"
+                        fieldDescription="Select color for microsite title. Default value is white(FFFFFF)"
+                        fieldLabel="MicroSite Title Hex color code"
+                        name="./titleHexcolor"
+                        showHexValue="{Boolean}true"
+                        xtype="colorfield"/>
+                    <logo
+                        jcr:primaryType="nt:unstructured"
+                        fieldDescription="Please choose or enter path for the microsite logo"
+                        fieldLabel="Microsite Logo"
+                        name="./logo"
+                        width="100%"
+                        xtype="pathfield"/>
+                  	<logoAlt
+                        jcr:primaryType="nt:unstructured"
+                        fieldDescription="Please enter the alternate text for microsite logo image"
+                        fieldLabel="Alt Text"
+                        name="./logoAltText"
+                        xtype="textfield"/>  
+                    <titleBgUrl
+                        jcr:primaryType="nt:unstructured"
+                        fieldDescription="Please choose or enter background image path for the microSite"
+                        fieldLabel="Background Image"
+                        name="./titleBg"
+                        width="100%"
+                        xtype="pathfield"/>
+                    <bannerArealabel
+                        jcr:primaryType="nt:unstructured"
+                        fieldDescription="Please enter aria label for micorsite banner"
+                        fieldLabel="Banner Aria Label"
+                        name="./bannerArealabel"
+                        xtype="textfield"/>
+                    <navigationlinks
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Navigation links"
+                        name="./navLinks"
+                        xtype="multifield">
+                        <fieldConfig
+                            jcr:primaryType="cq:Widget"
+                            xtype="multifieldpanel">
+                            <items jcr:primaryType="cq:WidgetCollection">
+                                <titleLink
+                                    jcr:primaryType="cq:Widget"
+                                    fieldDescription="Please enter name of the link"
+                                    fieldLabel="Navigation link Name"
+                                    key="navTitle"
+                                    xtype="textfield"/>
+                                <titleLinkUrl
+                                    jcr:primaryType="cq:Widget"
+                                    fieldDescription="please choose or enter path for link"
+                                    fieldLabel="Navigation link url"
+                                    key="navUrlLink"
+                                    width="100%"
+                                    xtype="pathfield"/>
+                                <urlOpenTarget
+                                	jcr:primaryType="cq:Widget"
+				                    defaultValue="{Boolean}true"
+				                    fieldDescription="link will open in new tab"
+				                    fieldLabel="Open in new tab"
+				                    itemId="linkTabEnable"
+				                    key="target"
+				                    type="checkbox"
+				                    xtype="selection"/>                                
+                            </items>
+                        </fieldConfig>
+                    </navigationlinks>
+                    <linkArealabel
+                        jcr:primaryType="nt:unstructured"
+                        fieldDescription="Please enter aria label for microsite secondary navigation's links"
+                        fieldLabel="Link Aria Label"
+                        name="./linkArealabel"
+                        xtype="textfield"/>
+                </items>
+            </tab1>
+            <Language
+             		jcr:primaryType="cq:Panel"
+                	title="Language Toggle">
+                	
+                   	<items jcr:primaryType="cq:WidgetCollection">
+                		<enabledToggle
+			                    jcr:primaryType="cq:Widget"
+			                    fieldDescription="Check this to enable language toggle in microsite's sticky navigation."
+			                    fieldLabel="Enable language toggle"
+			                    itemId="languageToggleEnable"
+			                    name="./enabled"
+			                    type="checkbox"
+			                    xtype="selection">
+			           	</enabledToggle>
+			           	<globalLanguageCode
+	                       		jcr:primaryType="cq:Widget"
+		                        fieldDescription="Please choose or enter global site language node path e.g. /content/us/en-us"
+		                        rootPath="/content"
+		                        fieldLabel="Global Site Language Node Path"
+		                        name="./globalSiteUrl"
+		                        width="100%"
+		                        xtype="pathfield"/>	                                                        
+			                          
+	                   	<multisiteLanguage
+								jcr:primaryType="cq:Widget"
+								fieldDescription="Enter multisite language details. Add and remove any number of columns using '+' and '-' button respectively"
+								fieldLabel="Multisite Language Details *"
+								name="./multiSitelanguage"
+								xtype="multifield">
+								<fieldConfig
+									jcr:primaryType="nt:unstructured"
+									xtype="multifieldpanel">
+									<items jcr:primaryType="cq:WidgetCollection">
+										<langName
+											jcr:primaryType="cq:Widget"
+											allowBlank="{Boolean}false"
+											fieldDescription="Please enter multisite language name e.g. English"
+											fieldLabel="Language Name"
+											key="langName"
+											width="100%"
+											xtype="textfield"/> 
+										<langCode
+											jcr:primaryType="cq:Widget"
+											allowBlank="{Boolean}false"
+											fieldDescription="please enter multisite language code e.g. en"
+											fieldLabel="Language Code"
+											key="langCode"
+											width="100%"
+											xtype="textfield"/>
+										<basepath
+					                        jcr:primaryType="cq:Widget"
+					                        allowBlank="{Boolean}false"
+					                        fieldDescription="Please choose or enter multisite language node path e.g. /content/us/en-us/multisite"
+					                        rootPath="/content"
+					                        fieldLabel="Language Node Path"
+					                        key="multisiteLangNode"
+					                        width="100%"
+					                        xtype="pathfield"/>
+					                  	<arealabel
+					                        jcr:primaryType="nt:unstructured"
+					                        fieldDescription="Please enter aria label for this language"
+					                        fieldLabel="Aria Label"
+					                        key="ariaLabel"
+					                        xtype="textfield"/>                                                    
+									</items>
+								</fieldConfig>
+						</multisiteLanguage>			                        
+					</items>
+                </Language>
+        </items>
+    </items>
+</jcr:root>

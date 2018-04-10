@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Dialog"
+    title="Country Selector"
+    xtype="dialog">
+    <listeners
+        jcr:primaryType="nt:unstructured"
+        beforesubmit="function(dlg) {&#xa;&#xa;    var columns = dlg.getField('./links').getValue();&#xa;&#xa;    var count = 0;&#xa;&#xa;    for(var i = 0; i &lt; columns.length; i++) {&#xa;        count += parseInt(columns[i]);&#xa;&#x9;&#x9;if(columns[i] == '') {&#xa;&#x9;&#x9;&#x9;CQ.Ext.Msg.alert('Sorry!', 'Cannot leave blank column width.');&#xa;&#x9;&#x9;&#x9;return false;&#xa;&#x9;&#x9;}&#xa;    }&#xa;&#xa;    if(count > 12) {&#xa;        CQ.Ext.Msg.alert('Sorry!', 'Cannot add columns with width more than 100%.');&#xa;        return false;&#xa;    }&#xa;}"/>
+    <items jcr:primaryType="cq:WidgetCollection">
+        <countryselector
+            jcr:primaryType="cq:Panel"
+            title="countryselector">
+            <items jcr:primaryType="cq:WidgetCollection">
+                <links
+                    jcr:primaryType="cq:Widget"
+                    fieldLabel="Country Selector"
+                    name="./links"
+                    xtype="multifield">
+                    <fieldConfig
+                        jcr:primaryType="cq:Widget"
+                        xtype="multifieldpanel">
+                        <items jcr:primaryType="cq:WidgetCollection">
+                            <region
+                                jcr:primaryType="cq:Widget"
+                                fieldDescription="Please provide Country Region by clicking + button."
+                                fieldLabel="Country Region"
+                                key="region"
+                                width="400"
+                                xtype="textfield"/>
+                            <otherFeatures
+                                jcr:primaryType="cq:Widget"
+                                fieldLabel="Country Information"
+                                key="otherFeatures"
+                                xtype="multifield">
+                                <fieldConfig
+                                    jcr:primaryType="cq:Widget"
+                                    xtype="multifieldpanel">
+                                    <items jcr:primaryType="cq:WidgetCollection">
+                                        <logoimagepath
+                                            jcr:primaryType="cq:Widget"
+                                            fieldDescription="Please provide Image Path."
+                                            fieldLabel="Logo Image Path"
+                                            key="logopath"
+                                            width="300"
+                                            xtype="pathfield"/>
+                                        <contrylanguage
+                                            jcr:primaryType="cq:Widget"
+                                            fieldDescription="Please provide Country Language."
+                                            fieldLabel="Country Language"
+                                            key="countrylanguage"
+                                            width="300"
+                                            xtype="textfield"/>
+                                        <countryname
+                                            jcr:primaryType="cq:Widget"
+                                            defaultValue="cannada"
+                                            fieldDescription="Please provide Country Name."
+                                            fieldLabel="Country Name"
+                                            key="countryname"
+                                            width="300"
+                                            xtype="textfield"/>
+                                        <countryurl
+                                            jcr:primaryType="cq:Widget"
+                                            fieldDescription="Please provide URL for entered Country market"
+                                            fieldLabel="Country URL"
+                                            key="countryurl"
+                                            width="300"
+                                            xtype="pathfield"/>
+                                    </items>
+                                </fieldConfig>
+                            </otherFeatures>
+                        </items>
+                    </fieldConfig>
+                </links>
+            </items>
+        </countryselector>
+    </items>
+</jcr:root>

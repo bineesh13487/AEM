@@ -1,0 +1,113 @@
+.header {
+  
+}
+.logo {
+  margin: -24px 0 0 -130px;
+  @include position(absolute, 50% 0 0 50%);
+  img {
+
+  }
+}
+
+
+.cookie-message{
+  display:none;
+  width: 100%;
+  z-index: 5;
+  padding: 8px 0 12px 0;
+  text-align: center;
+  overflow: hidden;
+
+  @media only screen and (min-width: 768px) {
+    padding: 10px 0;
+  }
+
+  p{
+    display: inline-block;
+    font-family: $font-lovinsans-medium;
+    font-size: 12px;
+    line-height: 1.4em;
+    margin-bottom: 0;
+    height: auto;
+    vertical-align: middle;
+
+    @media only screen and (min-width: 768px) {
+      font-size: 14px;
+      line-height: 2.3em;
+      height: auto;
+    }
+  }
+
+  a{
+    display: inline-block;
+    color: $black;
+    text-decoration: underline;
+    @media only screen and (min-width: 768px) {
+
+    }
+  }
+
+ .cookie-message-close{
+    margin: 8px 0 0 0;
+    border: 0;
+    display: inline-block;
+    vertical-align: middle;
+    font-family: $font-lovinsans-medium;
+    padding: 7px 20px 5px 20px;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-decoration: none;
+    line-height: 1;
+
+    .fa{
+      display: block;
+      position: relative;
+      margin-top: -3px;
+    }
+
+    @media only screen and (min-width: 768px) {
+      font-size: 12px;
+      padding: 11px 20px 9px 20px;
+      margin:0 0 0 20px;
+    }
+  }
+  
+  button{
+    margin: 0 0 5px 0;
+    padding: 0;
+    background: transparent;
+    border: 0;
+    font-size: 2em;
+    line-height: 1em;
+    height: 32px;
+    display: inline-block;
+    vertical-align: middle;
+
+    .fa{
+      display: block;
+      position: relative;
+      margin-top: -3px;
+    }
+
+    @media only screen and (min-width: 768px) {
+      margin: 0 10px 0 0;
+    }
+  }
+}
+
+.ui-menu {
+    list-style: none;
+    margin: 0px;
+    padding: 15px;
+    background: #fff;
+    border: 2px solid #ccc;
+    width: 50% !important;
+    border-radius: 20px;
+}
+.page-contact-us__subpage__how-can-we-help {
+   height: auto !important;
+   max-height: none !important;
+  }
+  .ui-helper-hidden-accessible {
+    display: none;
+} 

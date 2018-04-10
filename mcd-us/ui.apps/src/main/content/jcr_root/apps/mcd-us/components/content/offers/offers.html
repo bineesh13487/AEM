@@ -1,0 +1,126 @@
+<!--/*
+    Offers Component
+*/-->
+<div class="page-offers" data-sly-use.handler="com.mcd.rwd.us.core.sightly.OffersHandler"
+     data-ng-controller="OffersController" data-ng-init="init({&#34;limit&#34;: ${handler.limit},
+        &#34;size&#34;: &#34;${ handler.offers.size }&#34;,
+        &#34;locations&#34;: &#34;${ handler.getLocationArray }&#34;,
+        &#34;resource&#34;: &#34;${ resource.path }&#34;,
+        &#34;id&#34;: &#34;#${ handler.id }&#34;,
+        &#34;pos&#34;: &#34;${handler.offers.size}&#34;})">
+    <div class="template">
+        <sly data-sly-call="${hero @ handler = handler, isMobile = true}"></sly>
+        <sly data-sly-call="${hero @ handler = handler, isMobile = false}"></sly>
+    </div>
+    <div id="${ handler.id }" class="container-fluid cta-offers"
+         data-sly-test.hasOffers="${ handler.offers }">
+        <div class="row no-gutter">
+            <div class="col-sm-4 large" data-sly-repeat="${ handler.offers }">
+                <div class="component-feature-callout zoom-anim-parent">
+                    <img alt="" src="${item.imagePath}"
+                         class="img-responsive hidden-xs cont-100 zoom-anim-target" aria-hidden="true">
+                    <img alt="" src="${item.mobileImagePath}"
+                         class="img-responsive visible-xs-block cont-100 zoom-anim-target" aria-hidden="true">
+                    <div class="absolute-content border-wrapper">
+                        <div class="absolute-content-wrapper">
+                            <div class="cont-top-img">
+                                <img src="${item.mcdlogo}" class="hidden img-responsive img-top"
+                                     alt="">
+                            </div>
+                            <div class="text-wrapper">
+                                <div class="headline-text"
+                                     style="color:#${item.titleColor @ context='styleToken'};">
+                                    <p class="top">${item.eyetitle}</p>
+                                    <p class="middle">${item.title}</p>
+                                    <p class="bottom">${item.description}</p>
+                                </div>
+                                <a href="${item.link.href}" title="${item.ctaAlt}" data-track="OfferBlock"
+                                   class="zoom-anim btn btn-red btn--xsm" data-at="${item.analytics}">${item.link.text}</a>
+                                <div class="bottom-text"> ${item.validity}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4 large" data-ng-repeat="item in offers" style="display: none;">
+                <div class="component-feature-callout zoom-anim-parent">
+                    <img alt="" ng-src="{{item.imagePath}}"
+                         class="img-responsive hidden-xs cont-100 zoom-anim-target">
+                    <img alt="" ng-src="{{item.mobileImagePath}}"
+                         class="img-responsive visible-xs-block cont-100 zoom-anim-target">
+                    <div class="absolute-content border-wrapper">
+                        <div class="absolute-content-wrapper">
+                            <div class="cont-top-img">
+                                <img ng-src="{{item.mcdlogo}}" class="hidden img-responsive img-top"
+                                     alt="">
+                            </div>
+                            <div class="text-wrapper">
+                                <div class="headline-text" ng-style="{'color': '#' + item.titleColor}">
+                                    <p class="top">{{item.eyetitle}}</p>
+                                    <p class="middle">{{item.title}}</p>
+                                    <p class="bottom">{{item.description}}</p>
+                                </div>
+                                <a ng-href="{{item.link.href}}" data-track="OfferBlock" title="{{item.ctaAlt}}"
+                                   data-at="{{item.analytics}}" class="zoom-anim btn btn-red btn--xsm">{{item.text}}</a>
+                                <div class="bottom-text"> {{item.validity}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix load-more-row ng-cloak" data-sly-test="${hasOffers}" ng-show="hasMoreOffers"
+         ng-click="loadMore(${handler.limit})">
+        <button type="button" class="load-more-btn" aria-label="${ handler.btnText || 'Load More'}">
+            ${ handler.btnText || 'Load More' }<br><span class="fa-stack fa-lg">
+			<i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-chevron-down fa-stack-1x"></i></span>
+        </button>
+    </div>
+</div>
+<sly data-sly-template.hero="${@ handler, isMobile }">
+    <div class="${ isMobile ? 'visible-xs-block' : 'hidden-xs' } template-hero-bg"
+         style="background: url('${isMobile ? handler.mobileBg : handler.bg @context='uri'}'); background-size: cover; background-position: 50% 0%;">
+        <div class="absolute-content">
+            <div class="absolute-content-wrapper fadein fadeinnow">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="text-wrapper">
+                                <h1>${ handler.title @ context='html'}</h1>
+                                <div class="row">
+                                    <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+                                        <p>${handler.description @ context='html'}</p>
+                                    </div>
+                                    <div class="col-xs-6 col-xs-offset-3 col-md-4 col-md-offset-4 cont-btns"
+                                         data-sly-test="${handler.showBadge}">
+                                        <div class="row"
+                                             data-sly-use.badge="com.mcd.rwd.global.core.sightly.AppBadgeHandler">
+                                            <div class="col-xs-6" data-sly-test="${badge.ios}">
+                                                <a href="${badge.ios.link.href}"
+                                                   title="${badge.ios.link.text}"
+                                                   class="btn-app ${badge.ios.link.linkClass}">
+                                                    <img src="${badge.ios.image}"
+                                                         class="img-responsive" alt=""/>
+                                                </a>
+                                            </div>
+                                            <div class="col-xs-6" data-sly-test="${badge.android}">
+                                                <a href="${badge.android.link.href}"
+                                                   title="${badge.android.link.text}"
+                                                   class="btn-app ${badge.android.link.linkClass}">
+                                                    <img src="${badge.android.image}"
+                                                         class="img-responsive"
+                                                         alt=""/>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</sly>

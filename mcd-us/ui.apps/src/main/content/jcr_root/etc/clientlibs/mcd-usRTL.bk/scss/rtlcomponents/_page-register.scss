@@ -1,0 +1,62 @@
+.page-register {
+  .checkbox a {
+    color: $red;
+  }
+  .cont-copy {
+    padding-top: 50px;
+    padding-bottom: 100px;
+  }
+
+  &.template .template-hero-bg .text-wrapper,
+  &.template-b .template-hero-bg .text-wrapper {
+    text-align: center;
+  }
+
+  .link-red {
+    display: block;
+    color: $red;
+    margin-top:15px;
+    @include fontSet(20px, 26px, $font-lovinsans-medium);
+  }
+
+  .btn-red {
+    margin-top: 50px;
+  }
+
+  .modal {
+    .btn-red {
+      margin-top: 15px;
+      display: block;
+      width: auto;
+      @media only screen and (min-width: 768px){
+        display: inline-block;
+        margin-right: auto;
+        margin-left: auto;
+      }
+    }
+  }
+
+  .cont-legal {
+    a {
+      color: $red;
+      font-family: $font-lovinsans-medium;
+    }
+  }
+
+  p.tip{
+    padding-top: 5px;
+    margin-bottom: 10px;
+    @include fontSet(20px, 20px, $font-lovinsans);
+  }
+
+  .error .tip {
+    color: $red;
+  }
+
+  .gray-border-on-white label{
+    @media only screen and (max-width: 767px){
+      font-family: $font-lovinsans-medium;
+      font-size: 1.1em;
+    }
+  }
+}

@@ -1,0 +1,16 @@
+
+<div data-sly-resource="${'headipar' @ resourceType='wcm/foundation/components/iparsys'}"></div>
+<sly data-sly-use.articleDetail="com.mcd.rwd.newsroom.core.sightly.ArticleDetailPageHandler">
+<sly data-sly-test="${articleDetail.detailBean.isResourceExists}">
+<sly data-sly-resource="${articleDetail.detailBean.articleComponentPath}"></sly>
+</sly>
+<section class="mcd-news-content">
+  <h1>${articleDetail.detailBean.articleTitle}</h1>
+  <div class="mcd-news-content--date">${articleDetail.detailBean.publishDate}</div>
+  <sly data-sly-test="${articleDetail.detailBean.isArticlePar}">
+    <div class="mcd-news-content--description">
+      <sly data-sly-resource="${articleDetail.detailBean.articleParPath}"></sly>
+    </div>
+  </sly>
+</section>
+</sly>

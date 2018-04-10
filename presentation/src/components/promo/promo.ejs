@@ -1,0 +1,14 @@
+<div class="promo" data-component="promo">
+  <div class="promo__carousel-container"></div>
+  <h2 class="promo__header">
+    Lorem Ipsum Dolor
+  </h2>
+  <div class="promo__card-container">
+    <%inputData=[{'image':'src/assets/images/big_mac_bun.png','heading':'Small Fry','calories':'100kCal',
+    stacked:'true'} %>
+    <%for(var i = 0; i< inputData.length; i++) {%>
+      <%data=inputData[i]%>
+      <% include ./../../components/elements/cards/card%>
+  <%}%>
+  </div>
+</div>

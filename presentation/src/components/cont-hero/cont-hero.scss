@@ -1,0 +1,74 @@
+/*
+this component is part of PDP page.
+its the first part of the PDP that shows the Hero image.
+*/
+.mcd-cont-hero {
+  height: to-rem(450);
+  margin-bottom: to-rem(30);
+  padding-top: to-rem(30) 0;
+  position: relative;
+  text-align: center;
+
+  .heading {
+    font-size: to-rem(50);
+    line-height: to-rem(57);
+    color: $dark-gray-2;
+  }
+
+  .details {
+    font-size: to-rem(22);
+    line-height: to-rem(25);
+    color: $dark-gray-1;
+  }
+
+  .copy {
+    font-size: to-rem(16);
+    line-height: to-rem(22);
+    color: $dark-gray-1;
+  }
+
+  .order-now {
+    margin-top: to-rem(30);
+  }
+
+  .mobile-only {
+    display: block;
+  }
+
+  .desktop-only {
+    display: none;
+  }
+
+  @media screen and (min-width: $break-point) {
+    height: to-rem(750);
+    padding-top: 0;
+    padding-bottom: to-rem(60);
+    text-align: left;
+
+    .mcd-cont-hero__img-container {
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 100%;
+    }
+
+    .mcd-cont-hero__txt-container {
+      @include make-xs-column(3,0);
+      @include make-md-column-offset(7);
+
+      position: absolute;
+      font-family: 'ArchSans';
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .mobile-only {
+      display: none;
+    }
+
+    .desktop-only {
+      display: block;
+    }
+  }
+}

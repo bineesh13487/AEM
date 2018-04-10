@@ -1,0 +1,27 @@
+<div class="container">
+	<div class="row">
+		<div data-sly-use.handler="com.mcd.rwd.us.core.sightly.PrefilteredRestaurantHandler">
+			<sly data-sly-test="${wcmmode.edit && handler.restaurantpagepath==null}">
+				<h3>Please click to configure the Pre Filtered Restaurant component</h3>
+			</sly>
+			<div class="col-xs-12" style='text-align:${handler.linkorButtonAllign @ context="styleString"}'>
+				<sly data-sly-test="${!handler.linkOrButton}">
+					<a style="color:#${handler.buttonTextColor @ context='styleToken'} !important;background-color:#${handler.btnbgcolor @ context='styleToken'};border: 3px solid #${handler.btnbgcolor @ context='styleToken'};" data-sly-unwrap="${!handler.restaurantPagePath.href}"
+						href="${handler.restaurantLink}"
+						title="${handler.restaurantPagePath.text}"
+						class="zoom-anim btn btn-configurable btn--xsm"
+						target="${handler.restaurantPagePath.target}" data-at="" data-track="">
+						${handler.serviceButtonName} </a>
+				</sly>
+				<sly data-sly-test="${handler.linkOrButton}">
+					<a style="color:#${handler.buttonTextColor @ context='styleToken'};text-decoration: underline;" data-sly-unwrap="${!handler.restaurantPagePath.href}"
+						href="${handler.restaurantLink}"
+						title="${handler.restaurantPagePath.text}"
+						class="zoom-anim text-transform-none"
+						target="${handler.restaurantPagePath.target}" data-at="" data-track="">
+						${handler.serviceButtonName} </a>
+				</sly>
+			</div>
+		</div>
+	</div>
+</div>

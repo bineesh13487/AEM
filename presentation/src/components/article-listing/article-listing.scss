@@ -1,0 +1,36 @@
+.mcd-article-listing {
+
+  @include make-container(12, 0);
+  background-color: $white-1;
+
+  @media screen and (min-width: $break-point) {
+    margin: to-rem(30) 0;
+  }
+
+  @include e('title') {
+    @include make-h1();
+  }
+
+  @include e('news') {
+    list-style: none;
+    padding: 0;
+  }
+
+  @include e('footer') {
+    @include make-row();
+    margin: to-rem(40) auto;
+  }
+
+  @include e('load-more' 'no-results') {
+    @include make-xs-column(12);
+    text-align: center;
+  }
+
+  @include e('load-more-btn') {
+    @include make-cta();
+  }
+
+  @include e('load-more-btn') {
+    @include make-cta-label();
+  }
+}

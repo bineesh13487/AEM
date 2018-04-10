@@ -1,0 +1,60 @@
+<sly data-sly-use.item="com.mcd.rwd.us.core.sightly.RelatedProductsHandler">
+  <div class="showLiveData" data-showlive-value="${item.showLiveDataValue}"></div>
+  <div class="mcd-related-items component-related-items" data-ng-controller="relatedProductsController" data-ng-init="init(${item.getRelatedProducts.getCategoryID},${item.getProductID})">
+    <div class="container wrapper">
+      <div class="row" data-sly-test="${item.getRelatedProducts.getCategoryID !=0}">
+        <h2>${item.getRelatedProducts.getSectionTitle}
+          <sly data-sly-test="${item.getRelatedProducts.getCategoryName != null}">${item.getRelatedProducts.getCategoryName}</sly>
+          <sly data-sly-test="${item.getRelatedProducts.getCategoryName == null}">{{title}}</sly>
+          <sly data-sly-test="${item.getRelatedProducts.getLinkTitle !=null}">
+            <a class="view-all hidden-xs" href="${item.getRelatedProducts.getLinkUrl}" title="${item.getRelatedProducts.getCategoryName}">
+              ${item.getRelatedProducts.getLinkTitle}<i class="fa fa-chevron-right"></i>
+            </a>
+          </sly>
+        </h2>
+        <div class="loadingDiv_${item.getRelatedProducts.getCategoryID}" style="text-align:center;">
+          <img src="/etc/clientlibs/mcd-us/images/spinner.gif" alt="loading" />
+        </div>
+        <div class="related-flex-container">
+          <div class="related-flexslider flexslider no-init" data-count="${item.getRelatedProducts.getItemsCount}" data-id="${item.uuid}">
+            <ol class="slides" role="group" tabindex="0" aria-label="${item.getRelatedProducts.ariaSlider}">
+              <li ng-repeat="data in items" fx-slider-directive class="related-items-card">
+                <a ng-href={{data.path}}>
+                  <span aria-hidden="true">
+                    <img class="img-responsive" alt="{{data.name}}" src="/content/dam/usa/nutrition/items/slider/{{data.imagePath}}" />
+                    <div class="caption-wrapper">
+                      <p class="related-item-name">{{data.name}}</p>
+                      <h5 class="related-item-cal">90kCal</h5>
+                    </div>
+                  </span>
+                </a>
+              </li>
+            </ol>
+          </div>
+          <div class="flex-nav-cust flex-nav-prev slidesDesktop">
+            <a class="flex-prev" role="button">
+              <span class="icon-radio-deactivated" data-icon="&#xe927" style="font-size: 48px; position:relative">
+                <span class="icon-arrow-left icon-chevron-left-small" data-icon="&#xe906"></span>
+              </span>
+            </a>
+          </div>
+          <div class="flex-nav-cust flex-nav-next slidesDesktop">
+            <a class="flex-next" role="button">
+              <span class="icon-radio-deactivated" data-icon="&#xe927" style="font-size: 48px; position:relative">
+                <span class="icon-arrow-right icon-chevron-right-small" data-icon="&#xe908"></span>
+              </span>
+            </a>
+          </div>
+        </div>
+        <!-- <sly data-sly-test="${item.getRelatedProducts.getLinkTitle !=null}">
+                    <a class="view-all visible-xs" href="${item.getRelatedProducts.getLinkUrl}" title="${item.getRelatedProducts.getCategoryName}">${item.getRelatedProducts.getLinkTitle}
+                        <i class="fa fa-chevron-right"></i>
+                    </a>
+                </sly> -->
+      </div>
+    </div>
+  </div>
+  <sly data-sly-test="${(item.getRelatedProducts.getCategoryID == 0) && (wcmmode.edit || wcmmode.design)}">
+    <h3>Please Configure the Component - No Category/Product Selected.</h3>
+  </sly>
+</sly>

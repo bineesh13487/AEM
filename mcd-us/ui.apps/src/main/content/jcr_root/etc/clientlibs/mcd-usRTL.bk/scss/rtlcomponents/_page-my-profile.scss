@@ -1,0 +1,123 @@
+.page-my-profile {
+
+	&.page-my-profile{
+		.survey{
+			margin-bottom: 0;
+		}
+	}
+
+	.cont-unsubscribe {
+		a {
+			color: $red;
+			@include fontSet(20px, 26px, $font-lovinsans-medium);
+		}
+	}
+
+	.template-hero-bg {
+		@media only screen and (max-width: 479px){
+			min-height: 300px;
+		}
+	}
+
+	.cont-account-links {
+		.cont-box {
+			position: relative;
+			margin-bottom: 30px;
+		}
+
+		.cont-bg img {
+			width: 100%;
+		}
+
+		.cont-title {
+			@include fontSet(36px, 36px, $font-lovinsans-bold);
+			text-align: center;
+			margin-top: 50px;
+			margin-bottom: 30px;
+		}
+
+		.cont-text {
+			position: absolute;
+			width: 100%;
+			top: 0;
+			right: 0;
+		}
+
+		.text {
+			color: $white;
+			@include fontSet(24px, 24px, $font-lovinsans-bold);
+			padding: 30px 15px;
+
+			@media only screen and (min-width: 480px){
+				padding: 60px 30px 0px;
+				@include fontSet(44px, 44px, $font-lovinsans-bold);
+			}
+
+			@media only screen and (min-width: 768px){
+				padding: 45px 15px 0px;
+				@include fontSet(30px, 30px, $font-lovinsans-bold);
+			}
+			@media only screen and (min-width: 992px){
+				padding: 60px 30px 0px;
+				@include fontSet(44px, 44px, $font-lovinsans-bold);
+			}
+
+			.btn {
+				margin-top: 10px;
+			}
+		}
+	}
+
+	/*
+	.cont-survey-intro {
+
+		> .survey{
+			position: relative;
+		}
+
+		.survey .survey-intro {
+			//position: relative;
+			&.for-modal{
+				position: static;
+				padding-top: 30px;
+			}
+
+		}
+		.survey .survey-wrapper .legal {
+			margin-top: 20px;
+			@media only screen and (min-width: 768px){
+				margin-top: 30px;
+			}
+		}
+
+		.survey .survey-wrapper button {
+			@media only screen and (max-width: 400px){
+				padding: 0px 15px;
+				@include fontSet(18px, 18px, $font-lovinsans-medium);
+			}
+		}
+	}
+
+	.modal {
+		.survey .survey-wrapper {
+			background: $white;
+			padding: 0px;
+			margin: 0px auto;
+		}
+	}
+
+	.modal-content .btn-close {
+		z-index: 1;
+	}
+	*/
+
+	p.tip{
+    padding-top: 5px;
+    margin-bottom: 10px;
+    @include fontSet(20px, 20px, $font-lovinsans);
+  }
+
+	.error .tip {
+		color: $red;
+	}
+}

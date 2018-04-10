@@ -1,0 +1,1548 @@
+html{
+  direction:rtl
+}
+
+/* @import url(https://fonts.googleapis.com/css?family=Lato:400,300,700);*/
+* {
+  box-sizing: border-box;
+  font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-size: 18px;
+  line-height: 26px;
+  font-family: 'Droid_Arabic_Kufi_Regular';
+  font-style: normal;
+  font-weight: 400;
+  color: #000000;
+}
+
+@media (min-width: 768px) {
+  html {
+    position: relative;
+    min-height: 100%;
+  }
+}
+
+body {
+  min-height: 100%;
+  margin-bottom: 0px !important;
+}
+@media only screen and (min-width: 768px) {
+  body {
+    margin-bottom: 0px !important;
+  }
+}
+
+.sso-no-gutter {
+  margin-right: 0;
+  margin-left: 0;
+}
+.sso-no-gutter > [class*='col-'] {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.sso-full-width {
+  padding: 0;
+  overflow: hidden;
+}
+
+.sso-absolute-content {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  font: 0/0 a;
+  /* remove the gap between inline(-block) elements */
+}
+.sso-absolute-content:before {
+  content: ' ';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
+.sso-absolute-content .sso-absolute-content-wrapper {
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
+  width: 100%;
+  padding: 1% 0;
+}
+
+.sso-icon-large {
+  color: #bd0017;
+  margin-bottom: 10px;
+}
+
+.sso-no-ring:focus {
+  outline: 0 !important;
+}
+
+@media only screen and (min-width: 768px) {
+  .modal-content {
+    padding: 15px;
+  }
+}
+
+.sso-btn-red {
+  background: #bd0017;
+  color: #ffffff;
+  width: 80%;
+  text-transform: uppercase;
+  margin: 0 auto 20px auto;
+  padding: 0px 30px 0px;
+  opacity: 1;
+  border: 0px solid #bd0017;
+  font-family: "LovinSansWeb-Medium", sans-serif;
+  font-size: 14px;
+  line-height: 0px;
+  -webkit-border-radius: 35px;
+  -moz-border-radius: 35px;
+  border-radius: 35px;
+  background-clip: padding-box;
+  /* stops bg color from leaking outside the border: */
+  -webkit-transform: translateZ(0);
+  -khtml-transform: translateZ(0);
+  -moz-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  -o-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-transform: scale(1);
+  -khtml-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
+  transform: scale(1);
+  -webkit-transition: transform 0.1s ease-out 0s;
+  -khtml-transition: transform 0.1s ease-out 0s;
+  -moz-transition: transform 0.1s ease-out 0s;
+  -ms-transition: transform 0.1s ease-out 0s;
+  -o-transition: transform 0.1s ease-out 0s;
+  transition: transform 0.1s ease-out 0s;
+  position: relative;
+  display: block;
+  clear: both;
+  text-align: center;
+  height: 39px;
+  line-height: 39px;
+}
+@media (min-width: 768px) {
+  .sso-btn-red {
+    width: 50%;
+  }
+}
+@media (min-width: 480px) and (max-width: 768px) {
+  .sso-btn-red {
+    width: 65%;
+  }
+}
+.sso-btn-red:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 0;
+  background: #d53c42;
+  opacity: 1;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  border-radius: 30px;
+  background-clip: padding-box;
+  /* stops bg color from leaking outside the border: */
+  -webkit-transform: scale(0);
+  -khtml-transform: scale(0);
+  -moz-transform: scale(0);
+  -ms-transform: scale(0);
+  -o-transform: scale(0);
+  transform: scale(0);
+  -webkit-transform-origin: 50% 50%;
+  -khtml-transform-origin: 50% 50%;
+  -moz-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  -o-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+  -webkit-transition: opacity 0.1s ease-out 0s, transform 0.1s ease-out 0s;
+  -khtml-transition: opacity 0.1s ease-out 0s, transform 0.1s ease-out 0s;
+  -moz-transition: opacity 0.1s ease-out 0s, transform 0.1s ease-out 0s;
+  -ms-transition: opacity 0.1s ease-out 0s, transform 0.1s ease-out 0s;
+  -o-transition: opacity 0.1s ease-out 0s, transform 0.1s ease-out 0s;
+  transition: opacity 0.1s ease-out 0s, transform 0.1s ease-out 0s;
+}
+
+.no-touch .sso-btn-red:hover,
+.sso-btn-red:hover,
+.sso-btn-red:focus,
+.sso-btn-red:active {
+  color: #ffffff;
+  border-color: #d53c42;
+  background: #d53c42;
+  text-decoration: none;
+  -webkit-transition: all 0.1s ease-in-out 0s;
+  -khtml-transition: all 0.1s ease-in-out 0s;
+  -moz-transition: all 0.1s ease-in-out 0s;
+  -ms-transition: all 0.1s ease-in-out 0s;
+  -o-transition: all 0.1s ease-in-out 0s;
+  transition: all 0.1s ease-in-out 0s;
+}
+.no-touch .sso-btn-red:hover:before,
+.sso-btn-red:hover:before,
+.sso-btn-red:focus:before,
+.sso-btn-red:active:before {
+  opacity: 0.8;
+  -webkit-transform: scale(1);
+  -khtml-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
+  transform: scale(1);
+}
+
+.sso-btn-red-small {
+  background: #bd0017;
+  color: #ffffff;
+  font-family: 'Lato', Arial, sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 34px;
+  display: inline-block;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  background-clip: padding-box;
+  /* stops bg color from leaking outside the border: */
+  border: 0;
+  height: 34px;
+  padding: 0px 10px;
+  margin: 0 0 0px;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+@media (min-width: 768px) {
+  .sso-btn-red-small {
+    font-size: 18px;
+    line-height: 40px;
+    height: 40px;
+  }
+}
+
+.no-touch .sso-btn-red-small:hover,
+.sso-btn-red-small:focus,
+.sso-btn-red-small:active {
+  color: #ffffff;
+  background: #ffc836;
+  text-decoration: none;
+}
+
+.sso-cta-link {
+  color: #bd0017;
+  font-family: 'Lato', Arial, sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 18px;
+  text-align: center;
+  text-decoration: underline;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.sso-cta-link.back i {
+  margin-right: 5px;
+  line-height: inherit;
+  font-size: 0.9em;
+}
+
+.no-touch .sso-cta-link:hover,
+.sso-cta-link:focus,
+.sso-cta-link:active {
+  color: #ffc836;
+  text-decoration: underline;
+}
+
+.sso-cta-link-small-wrapper {
+  margin: 25px 0px;
+}
+
+.sso-cta-link-small {
+  color: #bd0017;
+  font-family: 'Lato', Arial, sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 15px;
+  text-align: left;
+  text-decoration: underline;
+  display: inline-block;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.no-touch .sso-cta-link-small:hover,
+.sso-cta-link-small:focus,
+.sso-cta-link-small:active {
+  color: #ffc836;
+  text-decoration: underline;
+}
+
+.sso-btn-red.disabled,
+fieldset[disabled] .sso-btn-red {
+  pointer-events: none;
+}
+
+.sso-btn-red.disabled,
+.sso-btn-red[disabled],
+fieldset[disabled] .sso-btn-red {
+  cursor: not-allowed;
+  filter: alpha(opacity=65);
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  background: #eaeaea !important;
+}
+
+.sso-full-height {
+  position: relative;
+  min-height: 100vh;
+  padding-bottom: 100px;
+}
+@media (min-width: 768px) {
+  .sso-full-height {
+    min-height: auto;
+  }
+}
+
+@media (min-width: 768px) {
+  .sso-btn-bottom-wrapper {
+    margin-top: 50px;
+  }
+}
+.sso-btn-bottom-wrapper .sso-btn-red {
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+  background-clip: padding-box;
+  /* stops bg color from leaking outside the border: */
+  width: 100%;
+  margin-bottom: 0;
+}
+@media (min-width: 768px) {
+  .sso-btn-bottom-wrapper .sso-btn-red {
+    width: 40%;
+    -webkit-border-radius: 35px;
+    -moz-border-radius: 35px;
+    border-radius: 35px;
+    background-clip: padding-box;
+    /* stops bg color from leaking outside the border: */
+  }
+}
+
+.sso-input-wrapper {
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.sso-input-wrapper-padding {
+  /*margin-bottom: 20px;*/
+}
+
+.sso-spacer-wrapper {
+  margin-top: 35px;
+}
+
+.sso-input {
+  background: #ffffff;
+  border: 2px solid #cccccc;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  border-radius: 30px;
+  background-clip: padding-box;
+  /* stops bg color from leaking outside the border: */
+  font-family: "LovinSansWeb-Regular", sans-serif;
+  font-size: 16px;
+  line-height: 16px;
+  height: 40px;
+  padding: 0px 18px;
+  width: 100%;
+}
+
+.error .sso-input {
+  padding: 0px 50px 0px 18px;
+}
+
+.sso-input-with-tooltip {
+  background: #ffffff;
+  border: 2px solid #cccccc;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  border-radius: 30px;
+  background-clip: padding-box;
+  /* stops bg color from leaking outside the border: */
+  font-family: "LovinSansWeb-Regular", sans-serif;
+  font-size: 16px;
+  line-height: 16px;
+  height: 40px;
+  padding: 0px 65px 0px 18px;
+  width: 100%;
+}
+
+.sso-input-tooltip {
+  font-family: 'Lato', Arial, sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 39px;
+  color: #bd0017;
+  text-decoration: underline;
+  position: absolute;
+  right: 18px;
+  top: 0px;
+  -webkit-transition: all 0.4s ease;
+  -moz-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+
+.sso-input-tooltip-with-label {
+  top: 31px;
+}
+
+.no-touch .sso-input-tooltip:hover,
+.sso-input-tooltip:focus,
+.sso-input-tooltip:active {
+  color: #ffc836;
+  text-decoration: underline;
+}
+
+.sso-tooltip-content {
+  opacity: 0;
+  max-height: 0;
+  -webkit-transition: all 0.4s ease;
+  -moz-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+  font-family: 'Lato', Arial, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 18px;
+  color: #999999;
+}
+.sso-tooltip-content.sso-tooltip-active {
+  max-height: 300px;
+  opacity: 1;
+  padding-top: 5px;
+  padding-bottom: 10px;
+}
+
+.sso-input-tooltip-error {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  color: #bd0017;
+}
+
+.sso-input-tooltip-success {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  color: #00b125;
+}
+
+.sso-input-haslabel .sso-input-tooltip-error, .sso-input-haslabel .sso-input-tooltip-success {
+  top: 40px;
+}
+
+.sso-input-notice {
+  margin-top: 10px;
+  color: #666666;
+  font-family: "LovinSansWeb-Regular", sans-serif;
+  font-size: 12px;
+  line-height: 15px;
+  display: block;
+}
+.sso-input-notice.sso-input-notice-absolute {
+  position: absolute;
+  bottom: -30px;
+  max-width: 60%;
+}
+
+.error .sso-input-notice,
+.error .sso-input-error,
+.sso-input-error {
+  margin-top: 10px;
+  color: #bd0017;
+  font-family: "LovinSansWeb-Regular", sans-serif;
+  font-size: 12px;
+  line-height: 15px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.sso-input-select-wrapper {
+  display: block;
+  width: 100%;
+  background: #ffffff;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  border-radius: 30px;
+  background-clip: padding-box;
+  /* stops bg color from leaking outside the border: */
+  font-family: "LovinSansWeb-Regular", sans-serif;
+  font-size: 16px;
+  line-height: 36px;
+  height: 40px;
+  padding: 0px 0px;
+  position: relative;
+}
+.sso-input-select-wrapper .fa {
+  font-size: 17px;
+  z-index: 0;
+  position: absolute;
+  right: 18px;
+  top: 10px;
+  color: #666666;
+}
+.sso-input-select-wrapper .fa:before {
+  content: "\f078";
+}
+
+.sso-input-select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  display: block;
+  width: 100%;
+  background: transparent;
+  border: 2px solid #cccccc;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  border-radius: 30px;
+  background-clip: padding-box;
+  /* stops bg color from leaking outside the border: */
+  font-family: "LovinSansWeb-Regular", sans-serif;
+  font-size: 16px;
+  line-height: 16px;
+  height: 40px;
+  padding: 0px 18px;
+  position: relative;
+  z-index: 1;
+}
+
+.sso-input-select::-ms-expand {
+  display: none;
+}
+
+.sso-tooltip-wrapper {
+  position: relative;
+  min-height: 12px;
+}
+.sso-tooltip-wrapper .sso-input-tooltip {
+  top: -10px;
+  right: 4px;
+}
+
+/*!
+* Font Awesome Controls
+* fac.css
+* Copyright Maxwel D'souza
+* MIT Licence
+*/
+.sso-fac {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  position: relative;
+  display: block;
+  vertical-align: middle;
+  margin-bottom: 25px;
+  top: 10px;
+}
+
+.sso-fac-short {
+  margin-top: 2px;
+}
+
+.sso-fac label {
+  margin: 0em 1em 0em 0em;
+  padding-left: 35px;
+  cursor: pointer;
+  font-size: 15px;
+  line-height: 18px;
+  font-family: 'Lato', Arial, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  color: #000000;
+  vertical-align: top;
+}
+.sso-fac label.sso-checkbox-short-label {
+  line-height: 25px;
+  font-size: 14px;
+  line-height: 18px;
+  margin-top: 4px;
+}
+@media (min-width: 480px) {
+  .sso-fac label.sso-checkbox-short-label {
+    font-size: 15px;
+    line-height: 18px;
+  }
+}
+.sso-fac label.sso-radio-short-label {
+  padding-left: 25px;
+}
+
+.sso-fac > input[type=checkbox] + label > .sso-checkbox-box,
+.sso-fac > span > .sso-checkbox-box-checked,
+.sso-fac > input[type=radio] + label > .sso-radio-box,
+.sso-fac > span > .sso-radio-box-checked {
+  font-family: FontAwesome;
+  position: absolute;
+  left: 0;
+}
+
+.sso-fac > input[type=checkbox] + label > .sso-checkbox-box,
+.sso-fac > input[type=radio] + label > .sso-radio-box {
+  -webkit-transition: opacity 0.3s ease-in-out;
+  -o-transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
+}
+
+input[type=checkbox].sso-checkbox,
+input[type=radio].sso-radio {
+  opacity: 0;
+  position: absolute;
+  display: none;
+}
+
+.sso-required + .asterisk, .sso-required.asterisk {
+  font-size: 20px;
+  line-height: 20px;
+  display: inline-block;
+  position: absolute;
+  right: -4px;
+  top: -4px;
+}
+.sso-required + .asterisk:after, .sso-required.asterisk:after {
+  content: '*';
+  color: #bd0017;
+}
+
+.sso-require-explainer {
+  color: #bd0017;
+  font-size: 12px;
+  line-height: 12px;
+}
+.sso-require-explainer:before {
+  font-size: 18px;
+  line-height: 12px;
+  content: '* ';
+  position: relative;
+  top: 7px;
+}
+
+/********* Behavior ***********/
+.sso-fac-checkbox > input[type=checkbox] + label > .sso-checkbox-box,
+.sso-fac-checkbox-round > input[type=checkbox] + label > .sso-checkbox-box {
+  opacity: 1;
+}
+
+.sso-fac-checkbox > input[type=checkbox]:checked + label > .sso-checkbox-box,
+.sso-fac > input[type=checkbox]:checked + label > .sso-checkbox-box {
+  opacity: 0;
+}
+
+.sso-fac-radio > input[type=radio]:checked + label > .sso-radio-box,
+.sso-fac > input[type=radio]:checked + label > .sso-radio-box {
+  opacity: 0;
+}
+
+.sso-fac-radio > input[type=radio] + label > .sso-radio-box,
+.sso-fac-checkbox-o > input[type=checkbox] + label > .sso-checkbox-box,
+.sso-fac-checkbox-round-o > input[type=checkbox] + label > .sso-checkbox-box {
+  opacity: 0;
+}
+
+.sso-fac-radio > input[type=radio]:checked + label > .sso-radio-box,
+.sso-fac-checkbox-o > input[type=checkbox]:checked + label > .sso-checkbox-box,
+.sso-fac-checkbox-round-o > input[type=checkbox]:checked + label > .sso-checkbox-box {
+  opacity: 1;
+}
+
+/********* Sizes ***********/
+.sso-fac-2x {
+  font-size: 2em;
+}
+
+/********* Colors ***********/
+.sso-fac-default > input[type=checkbox] + label > .sso-checkbox-box,
+.sso-fac-default > span > .sso-checkbox-box-checked {
+  color: #000000;
+}
+
+/********* Controls ***********/
+.sso-fac-checkbox > span > .sso-checkbox-box-checked {
+  content: "\f00c";
+  width: 25px;
+  height: 25px;
+  border: 2px solid #dbdbdb;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  background-clip: padding-box;
+  /* stops bg color from leaking outside the border: */
+  background: #ffffff;
+  position: absolute;
+  top: 0px;
+}
+.sso-fac-checkbox > span > .sso-checkbox-box-checked .fa {
+  top: -3px;
+  position: relative;
+}
+
+.sso-fac-checkbox > input[type=checkbox] + label > .sso-checkbox-box {
+  content: "";
+  width: 25px;
+  height: 25px;
+  border: 2px solid #dbdbdb;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  background-clip: padding-box;
+  /* stops bg color from leaking outside the border: */
+  background: #ffffff;
+  position: absolute;
+  top: 0px;
+}
+
+.sso-fac-radio > span > .sso-radio-box-checked {
+  color: #999999;
+  position: absolute;
+  top: -3px;
+  font-size: 20px;
+}
+
+.sso-fac-radio > input[type=radio] + label > .sso-radio-box {
+  color: #999999;
+  position: absolute;
+  top: 0px;
+  font-size: 20px;
+}
+
+.sso-fac-checkbox-round > span > .sso-checkbox-box-checked {
+  content: "\f058";
+}
+
+.sso-fac-checkbox-round > input[type=checkbox] + label > .sso-checkbox-box {
+  content: "\f111";
+}
+
+.sso-fac-checkbox-o > span > .sso-checkbox-box-checked {
+  content: "\f096";
+}
+
+.sso-fac-checkbox-o > input[type=checkbox] + label > .sso-checkbox-box {
+  content: "\f046";
+}
+
+.sso-fac-checkbox-round-o > span > .sso-checkbox-box-checked {
+  content: "\f10c";
+}
+
+.sso-fac-checkbox-round-o > input[type=checkbox] + label > .sso-checkbox-box {
+  content: "\f05d";
+}
+
+.sso-fac-radio > span > .sso-radio-box-checked {
+  content: "\f10c";
+}
+
+.sso-fac-radio > input[type=radio] + label > .sso-radio-box {
+  content: "\f192";
+}
+
+label.sso-ios {
+  display: inline-block;
+  width: 100%;
+  background: #ffffff;
+  padding: 0px;
+  margin: 0px;
+  border: 0;
+  font-family: "LovinSansWeb-Bold", sans-serif;
+}
+label.sso-ios > input {
+  display: none;
+}
+label.sso-ios i {
+  display: inline-block;
+  float: right;
+  padding: 2px;
+  width: 40px;
+  height: 20px;
+  border-radius: 13px;
+  vertical-align: middle;
+  transition: .25s .09s;
+  position: relative;
+  background: #d8d9db;
+  box-sizing: initial;
+  top: 16px;
+}
+label.sso-ios i:after {
+  content: " ";
+  display: block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #ffffff;
+  position: absolute;
+  left: 2px;
+  transition: .25s;
+}
+label.sso-ios > input:checked + i {
+  background: #4bd865;
+}
+label.sso-ios > input:checked + i:after {
+  transform: translateX(20px);
+}
+label.sso-ios:hover {
+  cursor: pointer;
+}
+
+.sso-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.sso-list > li {
+  padding: 0px 15px;
+  border-top: 1px solid #c8c7cc;
+  font-family: 'Lato', Arial, sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 55px;
+}
+.sso-list > li:last-child {
+  border-bottom: 1px solid #c8c7cc;
+}
+.sso-list > li.sso-li-text {
+  padding: 15px 30px;
+}
+.sso-list .sso-badge {
+  float: right;
+  color: #bd0017;
+}
+.sso-list .sso-badge .fa {
+  background: #eaeaea;
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  text-align: center;
+  vertical-align: middle;
+}
+.sso-list .sso-badge .fa:before {
+  margin-top: 8px;
+  display: block;
+  margin-left: 1px;
+}
+.sso-list .sso-badge-notice {
+  color: #bd0017;
+  float: right;
+}
+.sso-list .sso-badge-notice .fa {
+  margin-right: 15px;
+}
+.sso-list a {
+  text-decoration: none;
+  display: block;
+  color: #000000;
+  font-family: 'Lato', Arial, sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 55px;
+}
+
+@font-face {
+  font-family: LovinSansWeb-Black;
+  src: url("fonts/LovinSansWeb/black/LovinSansWeb-Black.eot");
+  src: url("fonts/LovinSansWeb/black/LovinSansWeb-Black.eot?#iefix") format("embedded-opentype"), url("fonts/LovinSansWeb/black/LovinSansWeb-Black.woff") format("woff"), url("fonts/LovinSansWeb/black/LovinSansWeb-Black.ttf") format("truetype"), url("fonts/LovinSansWeb/black/LovinSansWeb-Black.svg#LovinSansWeb-Black") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  @font-face {
+    font-family: LovinSansWeb-Black;
+    src: url("fonts/LovinSansWeb/black/LovinSansWeb-Black.svg#LovinSansWeb-Black") format("svg");
+  }
+}
+@font-face {
+  font-family: LovinSansWeb-Bold;
+  src: url("fonts/LovinSansWeb/bold/LovinSansWeb-Bold.eot");
+  src: url("fonts/LovinSansWeb/bold/LovinSansWeb-Bold.eot?#iefix") format("embedded-opentype"), url("fonts/LovinSansWeb/bold/LovinSansWeb-Bold.woff") format("woff"), url("fonts/LovinSansWeb/bold/LovinSansWeb-Bold.ttf") format("truetype"), url("fonts/LovinSansWeb/bold/LovinSansWeb-Bold.svg#LovinSansWeb-Bold") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  @font-face {
+    font-family: LovinSansWeb-Bold;
+    src: url("fonts/LovinSansWeb/bold/LovinSansWeb-Bold.svg#LovinSansWeb-Bold") format("svg");
+  }
+}
+@font-face {
+  font-family: LovinSansWeb-Medium;
+  src: url("fonts/LovinSansWeb/medium/LovinSansWeb-Medium.eot");
+  src: url("fonts/LovinSansWeb/medium/LovinSansWeb-Medium.eot?#iefix") format("embedded-opentype"), url("fonts/LovinSansWeb/medium/LovinSansWeb-Medium.woff") format("woff"), url("fonts/LovinSansWeb/medium/LovinSansWeb-Medium.ttf") format("truetype"), url("fonts/LovinSansWeb/medium/LovinSansWeb-Medium.svg#LovinSansWeb-Medium") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  @font-face {
+    font-family: LovinSansWeb-Medium;
+    src: url("fonts/LovinSansWeb/medium/LovinSansWeb-Medium.svg#LovinSansWeb-Medium") format("svg");
+  }
+}
+@font-face {
+  font-family: LovinSansWeb-Regular;
+  src: url("fonts/LovinSansWeb/regular/LovinSansWeb-Regular.eot");
+  src: url("fonts/LovinSansWeb/regular/LovinSansWeb-Regular.eot?#iefix") format("embedded-opentype"), url("fonts/LovinSansWeb/regular/LovinSansWeb-Regular.woff") format("woff"), url("fonts/LovinSansWeb/regular/LovinSansWeb-Regular.ttf") format("truetype"), url("fonts/LovinSansWeb/regular/LovinSansWeb-Regular.svg#LovinSansWeb-Regular") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  @font-face {
+    font-family: LovinSansWeb-Regular;
+    src: url("fonts/LovinSansWeb/regular/LovinSansWeb-Regular.svg#LovinSansWeb-Regular") format("svg");
+  }
+}
+@font-face {
+  font-family: LovinSansWeb-Light;
+  src: url("fonts/LovinSansWeb/light/LovinSansWeb-Light.eot");
+  src: url("fonts/LovinSansWeb/light/LovinSansWeb-Light.eot?#iefix") format("embedded-opentype"), url("fonts/LovinSansWeb/light/LovinSansWeb-Light.woff") format("woff"), url("fonts/LovinSansWeb/light/LovinSansWeb-Light.ttf") format("truetype"), url("fonts/LovinSansWeb/light/LovinSansWeb-Light.svg#LovinSansWeb-Light") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  @font-face {
+    font-family: LovinSansWeb-Light;
+    src: url("fonts/LovinSansWeb/light/LovinSansWeb-Light.svg#LovinSansWeb-Light") format("svg");
+  }
+}
+@font-face {
+  font-family: LovinSansWeb-Thin;
+  src: url("fonts/LovinSansWeb/thin/LovinSansWeb-Thin.eot");
+  src: url("fonts/LovinSansWeb/thin/LovinSansWeb-Thin.eot?#iefix") format("embedded-opentype"), url("fonts/LovinSansWeb/thin/LovinSansWeb-Thin.woff") format("woff"), url("fonts/LovinSansWeb/thin/LovinSansWeb-Thin.ttf") format("truetype"), url("fonts/LovinSansWeb/thin/LovinSansWeb-Thin.svg#LovinSansWeb-Thin") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  @font-face {
+    font-family: LovinSansWeb-Thin;
+    src: url("fonts/LovinSansWeb/thin/LovinSansWeb-Thin.svg#LovinSansWeb-Thin") format("svg");
+  }
+}
+.sso-h1 {
+  font-family: "LovinSansWeb-Medium", sans-serif;
+  text-transform: uppercase;
+  font-size: 24px;
+  line-height: 24px;
+  text-align: center;
+  margin-bottom: 25px;
+  margin-top: 30px;
+}
+@media (min-width: 768px) {
+  .sso-h1 {
+    font-size: 26px;
+    line-height: 26px;
+  }
+}
+
+.sso-h2 {
+  font-family: 'Lato', Arial, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 18px;
+  text-align: center;
+  margin-bottom: 25px;
+  margin-top: -10px;
+}
+@media (min-width: 768px) {
+  .sso-h2 {
+    font-size: 20px;
+    line-height: 23px;
+  }
+}
+
+.sso-li-text p, .sso-p {
+  font-family: 'Lato', Arial, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 18px;
+}
+.sso-li-text p a, .sso-p a {
+  color: #bd0017;
+  text-decoration: underline;
+  font-family: 'Lato', Arial, sans-serif;
+  font-style: normal;
+  font-weight: 700;
+}
+.sso-li-text p strong, .sso-p strong {
+  font-family: 'Lato', Arial, sans-serif;
+  font-style: normal;
+  font-weight: 700;
+}
+
+.sso-li-text p a {
+  display: inline;
+}
+
+.sso-p-error {
+  color: #bd0017;
+  font-family: 'Lato', Arial, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 18px;
+}
+.sso-p-error a {
+  color: #bd0017;
+  text-decoration: underline;
+  font-family: 'Lato', Arial, sans-serif;
+  font-style: normal;
+  font-weight: 700;
+}
+.sso-p-error strong {
+  font-family: 'Lato', Arial, sans-serif;
+  font-style: normal;
+  font-weight: 700;
+}
+
+.sso-p-btn {
+  font-family: 'Lato', Arial, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 18px;
+  text-align: center;
+  width: 100%;
+  margin: 20px 0px;
+  display: block;
+}
+
+.sso-disclaimer a {
+  color: #bd0017;
+  text-decoration: underline;
+}
+
+::selection {
+  background: #333;
+  color: #fff;
+  text-shadow: none;
+}
+
+::-moz-selection {
+  background: #333;
+  color: #fff;
+  text-shadow: none;
+}
+
+::-webkit-selection {
+  background: #333;
+  color: #fff;
+  text-shadow: none;
+}
+
+.sso-notification {
+  background: #333333;
+  color: #ffffff;
+  position: absolute;
+  top: 90px;
+  width: 100%;
+  z-index: 89;
+}
+@media (min-width: 768px) {
+  .sso-notification {
+    top: 110px;
+  }
+}
+.sso-notification.sso-notification-floating {
+  position: absolute;
+  top: 90px;
+  width: 100%;
+  z-index: 89;
+}
+@media (min-width: 768px) {
+  .sso-notification.sso-notification-floating {
+    top: 110px;
+  }
+}
+.sso-notification .sso-notification-wrapper {
+  padding: 20px 20px 30px 20px;
+  text-align: left;
+  position: relative;
+}
+@media (min-width: 768px) {
+  .sso-notification .sso-notification-wrapper {
+    text-align: center;
+  }
+}
+.sso-notification .sso-notification-title {
+  font-family: 'Lato', Arial, sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 24px;
+  margin: 0;
+  text-transform: uppercase;
+}
+.sso-notification .sso-notification-text {
+  font-family: 'Lato', Arial, sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 24px;
+  margin: 0;
+}
+.sso-notification .sso-notification-close {
+  cursor: pointer;
+  position: absolute;
+  right: 45%;
+  bottom: -15px;
+  display: block;
+  color: #bd0017;
+  font-family: 'Lato', Arial, sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 35px;
+  line-height: 35px;
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: 20px;
+  -ms-transform-origin: 50% 0;
+  /* IE 9 */
+  -webkit-transform-origin: 50% 0;
+  /* Chrome, Safari, Opera */
+  transform-origin: 50% 0;
+  z-index: 60;
+}
+@media (min-width: 768px) {
+  .sso-notification .sso-notification-close {
+    right: 49%;
+  }
+}
+.sso-notification .sso-notification-close > .fa {
+  background: #ffffff;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  background-clip: padding-box;
+  /* stops bg color from leaking outside the border: */
+  height: 29px;
+}
+.sso-notification .sso-notification-close > .fa:before {
+  display: block;
+  margin-top: -3px;
+  margin-right: -1px;
+}
+
+.sso-hero {
+  position: relative;
+  margin-top: -91px;
+}
+@media (min-width: 768px) {
+  .sso-hero {
+    margin-top: -110px;
+  }
+}
+.sso-hero .sso-hero-content {
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding-top: 91px;
+}
+@media (min-width: 768px) {
+  .sso-hero .sso-hero-content {
+    padding-top: 110px;
+  }
+}
+.sso-hero .sso-hero-wrapper {
+  color: #ffffff;
+  padding: 15px 20px;
+}
+@media (min-width: 768px) {
+  .sso-hero .sso-hero-wrapper {
+    padding: 40px;
+  }
+}
+.sso-hero .sso-hero-title {
+  font-family: 'Lato', Arial, sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 30px;
+  line-height: 30px;
+}
+@media (min-width: 768px) {
+  .sso-hero .sso-hero-title {
+    font-size: 50px;
+    line-height: 50px;
+  }
+}
+.sso-hero .sso-hero-text {
+  font-family: 'Lato', Arial, sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 18px;
+  max-width: 85%;
+}
+@media (min-width: 768px) {
+  .sso-hero .sso-hero-text {
+    max-width: 55%;
+    font-size: 20px;
+    line-height: 23px;
+  }
+}
+.sso-hero .sso-img-full {
+  width: 100%;
+}
+
+.sso-slider {
+  height: auto !important;
+  max-height: 480px;
+  margin-top: -91px;
+}
+@media (min-width: 768px) {
+  .sso-slider {
+    margin-top: -110px;
+  }
+}
+.sso-slider .flex-viewport {
+  height: auto !important;
+  max-height: 480px;
+}
+.sso-slider .flex-viewport .slides[style] {
+  height: auto !important;
+  max-height: 480px;
+}
+.sso-slider .flex-control-paging li {
+  width: 16px;
+  height: 16px;
+}
+.sso-slider .flex-control-paging li a {
+  width: 12px !important;
+  height: 12px !important;
+}
+.sso-slider .flex-control-paging li a.flex-active {
+  width: 16px !important;
+  height: 16px !important;
+}
+.sso-slider .slides > li {
+  position: relative;
+}
+.sso-slider .flex-control-paging {
+  bottom: 10px;
+}
+.sso-slider .sso-absolute-content {
+  max-height: 480px;
+}
+.sso-slider .sso-absolute-content .sso-absolute-content-wrapper {
+  padding-top: 60px;
+}
+.sso-slider .sso-absolute-content .sso-absolute-content-wrapper .sso-slider-wrapper {
+  padding: 0px 15px;
+  margin: auto;
+  opacity: 0;
+  -webkit-transition: all 0.4s ease;
+  -moz-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+.sso-slider .sso-absolute-content .sso-absolute-content-wrapper .sso-slider-text {
+  margin: 0;
+  padding: 0;
+  color: #000000;
+  font-family: "LovinSansWeb-Bold", sans-serif;
+  text-transform: uppercase;
+  font-size: 22px;
+  line-height: 22px;
+}
+@media (min-width: 321px) {
+  .sso-slider .sso-absolute-content .sso-absolute-content-wrapper .sso-slider-text {
+    font-size: 26px;
+    line-height: 26px;
+  }
+}
+@media (min-width: 768px) {
+  .sso-slider .sso-absolute-content .sso-absolute-content-wrapper .sso-slider-text {
+    font-size: 52px;
+    line-height: 52px;
+  }
+}
+@media (min-width: 992px) {
+  .sso-slider .sso-absolute-content .sso-absolute-content-wrapper .sso-slider-text {
+    font-size: 60px;
+    line-height: 60px;
+  }
+}
+.sso-slider .flex-active-slide .sso-absolute-content .sso-absolute-content-wrapper .sso-slider-wrapper {
+  opacity: 1;
+}
+
+#ssoMainContent {
+  margin-top: 170px;
+  outline: none;
+}
+#ssoMainContent .row {
+  max-width: initial;
+  margin-left: -15px;
+  margin-right: -15px;
+  width: auto;
+}
+
+.valid-form ul {
+  padding: 0;
+}
+.valid-form li {
+  list-style: none;
+}
+
+[ng\:cloak],
+[ng-cloak],
+[data-ng-cloak],
+[x-ng-cloak],
+.ng-cloak,
+.x-ng-cloak {
+  display: none !important;
+}
+
+.sso-fac-checkbox > label > .sso-checkbox-box {
+  width: 25px;
+  height: 25px;
+  border: 1px solid #dbdbdb;
+  border-radius: 2px;
+  background-clip: padding-box;
+  background: #f9f9f9;
+  position: absolute;
+  top: 0;
+}
+
+.sso-fac-checkbox > label > .sso-checkbox-box {
+  content: "";
+}
+
+.fa-fallback {
+  font-size: 15px;
+  z-index: 0;
+  position: absolute;
+  right: 18px;
+  top: 15px;
+}
+
+.sso-input-wrapper-label {
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.sso-input-wrapper-label .sso-input-tooltip {
+  top: 30px;
+}
+
+.sso-input-wrapper-label .sso-required.asterisk {
+  top: 25px;
+}
+
+#js-sso-config {
+  display: inline;
+}
+
+#js-sso-config .loginstatus, #js-sso-config .userLoggedIn, #js-sso-config .userLoggedOut {
+  display: inline;
+}
+
+.sso-fac.sso-fac-checkbox label {
+  margin-top: 4px;
+}
+.sso-fac.sso-fac-checkbox label a {
+  color: #bd0017;
+  text-decoration: underline;
+}
+
+.loginforgotpasswordmessage p {
+  font-size: 15px;
+  line-height: 18px;
+}
+
+.registration .sso-p {
+  margin: 0;
+}
+
+.login .sso-fac, .newslettersubscription .sso-fac {
+  top: 0;
+}
+
+.label-with-checkbox .asterisk {
+  right: 11px;
+  margin-top: 23px;
+  top: auto;
+}
+.label-with-checkbox .sso-tooltip-wrapper {
+  margin-bottom: 10px;
+}
+
+.field-without-whytext {
+  margin-bottom: 10px;
+}
+
+.sso-fac-checkbox > span > .sso-checkbox-box-checked {
+  font-size: 22px;
+}
+
+.sso-notification .sso-notification-close {
+  font-size: 37px;
+}
+.sso-notification .sso-notification-close > .fa {
+  width: 25px;
+  height: 25px;
+}
+.sso-notification .sso-notification-close .fa:before {
+  margin-top: -4px;
+  margin-left: -2px;
+  margin-right: auto;
+}
+
+.sso-btn-red.resendVerificationButton {
+  width: auto;
+}
+
+@media (min-width: 768px) {
+  .sso-btn-red {
+    width: 50%;
+    min-width: 230px !important;
+  }
+}
+
+.sso-paragragh p {
+  font-family: Lato,Arial,sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 18px;
+}
+.sso-paragragh a {
+  color: #bd0017;
+}
+
+.sso-preloader {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  background: url(/etc/clientlibs/mcd-us/images/preloader_ver8.gif) center no-repeat rgba(255, 255, 255, 0.7);
+}
+
+.sso-cmpt-registration .sso-form-input-password, .sso-cmpt-resetpassword .sso-form-input-password {
+  margin-top: 35px;
+}
+.sso-cmpt-registration .sso-form-input-password + .sso-form-input-password, .sso-cmpt-resetpassword .sso-form-input-password + .sso-form-input-password {
+  margin-top: 0;
+}
+
+.sso-form-input-select {
+  margin-top: 35px;
+  margin-bottom: 35px;
+}
+
+.sso-form-input-select + .sso-form-input-select {
+  margin-top: -25px;
+}
+
+.sso-cta-link-spacer-align {
+  margin-top: 25px;
+  text-align: center;
+}
+
+.sso-input::-ms-clear, .sso-input-with-tooltip::-ms-clear {
+  width: 0;
+  height: 0;
+}
+
+/*# sourceMappingURL=sso.css.map */
+
+
+/*Changes for the RTL */
+ #homeCarouselComponent .custom-direction-nav a.flex-prev:before{
+    margin-right: 15px;
+ }
+.flex-nav-cust a.flex-prev:before{
+    margin-right: 20px;
+}
+  
+
+@media only screen and (min-width: 768px){
+ .navbar .component-navigation .nav-justified-spacing > ul > li .col-xs-12.menu-style a{
+float: right;
+ } 
+}
+
+.nutrition-calculator-alter .nutrition-meal-details .meal-list .meal-item label.item-activate div {
+    top: 46px;
+    left: 80%;
+    bottom: 0 !important; 
+    right: 0 !important;
+}
+
+
+@media only screen and (min-width: 768px){
+.cont-play-pause-buttons{
+      left: 20px !important;
+      right: auto !important;
+}
+}
+
+@media only screen and (min-width: 1200px)
+{
+.page-happy-meal .cont-logo .text.wide ,.page-happy-meal .cont-logo .text{
+     font-size: 13px;
+    line-height: 1.6;
+}
+}
+@media only screen and (min-width: 768px){
+ .component-related-items h2{
+  text-align: right !important;
+ } 
+}
+
+@media (min-width: 350px) and (max-width: 768px) {
+.nutrition-calculator-alter .nutrition-meal-details .meal-list .meal-item label.item-activate div{
+     top: 28px;
+ } 
+}
+
+.bold600{
+      font-weight: 600; 
+}
+.page-contact-us__subpage__content .cont-sub {
+    float: left !important;
+}
+.top-components .component-nearest-location span {
+    float: right;
+}
+.search-result-item .search-text a{
+  float: right !important;
+}

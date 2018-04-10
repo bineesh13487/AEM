@@ -1,0 +1,200 @@
+<sly data-sly-use.restInfo="com.mcd.rwd.us.core.sightly.forms.UKcontactus_restaurantInfo">
+   <section class="page-contact-us__subpage__what-is-it-about">
+      <div class="container restInfo">
+         <div id="restaurant-feedback-form-container" class="row">
+            <div class="col-xs-12 col-sm-6">
+               <div class="form-group menu-item-height">
+               		<label for="menuitem-select" id="menuitem-select-label" class="pl20" aria-hidden="true">${restInfo.menuItem}<sup data-sly-test="${restInfo.menuItemReq=='yes'}">*</sup></label> 
+        			<input type="text" class="form-control placeholder ${restInfo.menuItemReq}" id="contactUs-menuItem" name="menuItem" aria-label="${restInfo.menuItem}" placeholder="${restInfo.menuItemPlaceholder}" maxlength="50" autocomplete="off">
+        			<label for="contactUs-menuItem" generated="true" class="error pl20"></label>
+               	</div>
+				<div id="search-result-menu-item" class="menu-item-drop margin-without-error" style="display:none;">
+					<ul class="tt-menu">
+						<li class="tt-suggestion main-line hide"><a href="#" class="item-name"></a></li>
+					</ul>
+				</div>
+            </div>
+            <div class="col-xs-12 step-cont">
+               <div id="restaurantLocatorFormContainer">
+                  <div class="restaurantLocatorOpenModalBtn collapsein">
+                  <div class="form-group radios yes" id="restaurantVisitRadio">
+					   <fieldset>
+					      <legend>
+					         <p>${restInfo.restaurantVisitText}<sup>*<span class="visuallyhidden"> required</span></sup></p>
+					      </legend>
+					      <div class="radio radio-group radio-inline contact-radio-control"> 
+					         <div class="radio"><input type="radio" aria-label="${restInfo.buttonTextYes} ${restInfo.restaurantVisitText}" name="restaurantVisit" id="contactUs-restaurantvisitYes" value="yes" class="radio-button-check"> 
+					         <label for="contactUs-restaurantvisitYes" aria-hidden="true">
+					         ${restInfo.buttonTextYes}</label></div>
+					         <div class="radio"><input type="radio" aria-label="${restInfo.buttonTextNo} ${restInfo.restaurantVisitText}" name="restaurantVisit" id="contactUs-restaurantvisitNo" value="no" class="radio-button-check"> 
+					         <label for="contactUs-restaurantvisitNo" aria-hidden="true">
+					         ${restInfo.buttonTextNo}
+					         </label></div>
+					      </div><br/>
+					      <label for="restaurantVisit" generated="true" class="error error-font-family"></label>
+					   </fieldset>
+					</div>
+                  	<div class="form-group-uk" id="form-group-uk" style="display:none">
+                        <div class="cont-btns">
+                        	<label for="">${restInfo.restaurantButtonLabelSection}<sup>*<span class="visuallyhidden"> required</span></sup></label><br/>
+                           <div class="wrapper"> 
+                              <button type="button" class="btn btn-red" data-toggle="modal" data-target="#restaurantLocatorMapModal">${restInfo.restaurantButtonText}</button>
+                           </div>
+                           <div class="wrapper middle"> <span class="text-or">or</span> </div>
+                           <div class="wrapper bottom" data-ng-controller="restaurantLocatorController">
+                              <button type="button" class="btn btn-border no-ring click-before-outline" data-toggle="modal" ng-click="searchRestaurantForLocateMe()" style="outline: none;">
+                              <i class="fa fa-map-marker fa-lg fa-margin"></i>${restInfo.getLocateMeButtonText}
+                              </button> 
+                           </div>
+                        </div>
+                        <input type="hidden" id="clickButtonCheck" name="clickButton" value="">
+                        <!--/#restaurantLocatorOpenModalBtn--> 
+                        <div id="restaurantLocatorForm" class="restaurantLocatorForm collapse">
+                           <div class="container-fluid no-gutter">
+                                 <div class="col-xs-12 col-sm-6 col-sm-push-6">
+                                    <div class="form-group">
+                                       <label class="control-label" for="">&nbsp;</label>
+                                       <div class="clear"></div>
+                                    </div>
+                                 </div>
+                                 <input type="hidden" name="resNtlStrNumber" id="resNtlStrNumber" maxlength="40">
+                                 <input type="hidden" name="restaurantId" id="restId" maxlength="40">
+                                 <input type="hidden" name="restaurantname" id="restaurantNameId" maxlength="40">
+                                <div class="row rest-selection">
+								   <div class="col-xs-12"> ${restInfo.restaurantName} <span id="restAddress"></span> </div>
+								</div>
+								<div class="row">
+								   <div class="col-xs-12">
+								      <div class="form-group radio-group ${restInfo.visitTypeReq}" id="contactUs-visitType" style="display:none">
+								         <fieldset>
+								            <legend>${restInfo.productPurchaseText} <sup data-sly-test="${restInfo.visitTypeReq=='yes'}">*<span class="visuallyhidden"> required</span></sup></legend>
+								            <div class="radio" id="contactUs-driveThru"> <input type="radio" name="contactUsSelectRestaurantType" value="Drive-thru" id="contactUs-driveThru-radio" aria-labelledby="contactUs-driveThru-label" > <label id="contactUs-driveThru-label" for="contactUs-driveThru-radio" aria-hidden="true">
+								               ${restInfo.driveThru}
+								               </label> 
+								            </div>
+								            <div class="radio" id="contactUs-frontCounter"> <input type="radio" name="contactUsSelectRestaurantType" value="FrontCounter" id="contactUs-frontCounter-radio" aria-labelledby="contactUs-inStore-label"> <label id="contactUs-inStore-label" for="contactUs-frontCounter-radio" aria-hidden="true">
+								               ${restInfo.frontCounter}
+								               </label> 
+								            </div>
+								            <div class="radio" id="contactUs-kioskOrdering"> <input type="radio" name="contactUsSelectRestaurantType" value="KioskOrdering" id="contactUs-kiosk-radio" aria-labelledby="contactUs-kiosk-label"> <label id="contactUs-kiosk-label" for="contactUs-kiosk-radio" aria-hidden="true">
+								               ${restInfo.kioskOrdering}
+								               </label> 
+								            </div>
+								            <div class="radio" id="contactUs-mobileOrdering"> <input type="radio" name="contactUsSelectRestaurantType" value="MobileOrdering" id="contactUs-mobileApp-radio" aria-labelledby="contactUs-mobileApp-label"> <label id="contactUs-mobileApp-label" for="contactUs-mobileApp-radio" aria-hidden="true">
+								               ${restInfo.mobileOrdering}
+								               </label> 
+								            </div>
+								            <label for="contactUsSelectRestaurantType" generated="true" class="error error-font-family"></label>
+								         </fieldset>
+								      </div>
+								   </div>
+								</div>
+								<div class="row">
+								   <div class="col-xs-12">
+								      <div class="form-group radio-group ${restInfo.tableServiceTypeReq}" id="contactUs-tableServiceType" style="display:none">
+								      	<fieldset>
+								         <legend>${restInfo.tableServiceText} <sup data-sly-test="${restInfo.tableServiceTypeReq=='yes'}">*<span class="visuallyhidden"> required</span></sup></legend>
+								         <div class="radio"> <input type="radio" name="tableServiceType" id="contactUs-tableServiceYes" value="Yes" aria-label="${restInfo.buttonTextYes}"> <label for="contactUs-tableServiceYes">
+								            ${restInfo.buttonTextYes}
+								            </label>
+								         </div>
+								         <div class="radio"> <input type="radio" name="tableServiceType" id="contactUs-tableServiceNO" value="No" aria-label="${restInfo.buttonTextNo}"> <label for="contactUs-tableServiceNO">
+								            ${restInfo.buttonTextNo}
+								            </label>
+								         </div>
+								         <label for="tableServiceType" generated="true" class="error error-font-family"></label>
+								         </fieldset>
+								      </div>
+								   </div>
+								</div>
+								<div class="row">
+								   <fieldset>
+								      <legend>${restInfo.dateOfVisit} <sup data-sly-test="${restInfo.dateOfVisitReq=='yes'}">*<span class="visuallyhidden"> required</span></sup></legend>
+								      <div class="col-xs-12 col-sm-2">
+								         <div class="form-group">
+								            <div class="select ${restInfo.dateOfVisitReq}" id="contactUs-day-select-uk">
+								               <label for="title-select-day" id="title-select-day-label" class="visuallyhidden" aria-hidden="true">Day</label> 
+								               <select class="form-control" id="day-select-uk" title="Day" data-sly-list="${restInfo.dayOptions}">
+								                  	<option value="${item}">${item}</option>
+								               </select>
+								            </div>
+								            <input type="hidden" class="" id="contactUs-day-input-uk" name="dayInput" value="" maxlength="10">
+								         </div>
+								      </div>
+								      <div class="col-xs-12 col-sm-2">
+								         <div class="form-group">
+								            <div class="select ${restInfo.dateOfVisitReq}" id="contactUs-month-select-uk">
+								               <label for="title-select-month" id="title-select-month-label" class="visuallyhidden" aria-hidden="true">Month</label> 
+								               <select class="form-control" id="month-select-uk" title="Month" data-sly-list="${restInfo.monthOptions}">
+								                  	<option value="${item}">${item}</option>
+								               </select>
+								            </div>
+								            <input type="hidden" class="" id="contactUs-month-input-uk" name="monthInput" value="" maxlength="10">
+								         </div>
+								      </div>
+								      <div class="col-xs-12 col-sm-2">
+								         <div class="form-group">
+								            <div class="select ${restInfo.dateOfVisitReq}" id="contactUs-year-select-uk">
+								               <label for="title-select-year" id="title-select-year-label" class="visuallyhidden" aria-hidden="true">Year</label>
+								               <select class="form-control" id="year-select-uk" title="Year" data-sly-list="${restInfo.yearOptions}">
+								                  	<option value="${item}">${item}</option>
+								               </select>
+								            </div>
+								            <input type="hidden" class="" id="contactUs-year-input-uk" name="yearInput" value="" maxlength="10">
+								         </div>
+								      </div>
+								   </fieldset>
+								   <input type="hidden" name="dateValidation" class="${restInfo.dateOfVisitReq}" id="visit-date-check-uk" maxlength="30">
+								   <label for="visit-date-check-uk" generated="true" class="pl20 pb20 error"></label>
+								</div>
+								<div class="row">
+								   <fieldset>
+								      <legend>${restInfo.timeOfVisit} <sup data-sly-test="${restInfo.timeOfVisitReq=='yes'}">*<span class="visuallyhidden"> required</span></sup></legend>
+								      <div class="col-xs-12 col-sm-3">
+								         <div class="form-group">
+								            <div class="select ${restInfo.timeOfVisitReq}" id="contactUs-hour-select-uk">
+								               <label for="title-select-hours" id="title-select-hours-label" class="visuallyhidden" aria-hidden="true">Hour</label> 
+								               <select class="form-control" id="hour-select-uk" title="Hour" data-sly-list="${restInfo.hourOptions}">
+								                  	<option value="${item}">${item}</option>
+								               </select>
+								            </div>
+								            <input type="hidden" class="" id="contactUs-hour-input-uk" name="hourInput" value="" maxlength="10">
+								         </div>
+								      </div>
+								      <div class="col-xs-12 col-sm-3">
+								         <div class="form-group">
+								            <div class="select ${restInfo.timeOfVisitReq}" id="contactUs-minute-select-uk">
+								               <label for="title-select-minute" id="title-select-minute-label" class="visuallyhidden" aria-hidden="true">Minute</label> 
+								               <select class="form-control" id="minute-select-uk" title="Minute" data-sly-list="${restInfo.minuteOptions}">
+								                  	<option value="${item}">${item}</option>
+								               </select>
+								            </div>
+								            <input type="hidden" class="" id="contactUs-minute-input-uk" name="minuteInput" value="" maxlength="10">
+								         </div>
+								      </div>
+								   </fieldset>
+								   <input type="hidden" name="visitTime" class="${restInfo.timeOfVisitReq}" id="visit-time-check-uk" maxlength="30">
+								   <label for="visit-time-check-uk" generated="true" class="pl20 error"></label>
+								</div>
+                              </div>
+                           </div>
+                        </div>
+                        <!--/#restaurantLocatorForm-->
+                     </div>
+                     <!--/#restaurantLocatorFormContainer-->
+                  </div>
+               </div>
+            </div>
+         </div>
+   </section>
+   <div style="display:none;">
+      <div id="contactus-menuItem-message">${restInfo.menuItemMessage}</div>
+      <div id="contactus-date-validation-message">${restInfo.dateValidationMessage}</div>
+      <div id="contactus-drop-down-validation-message">${restInfo.dropDownValidationMessage}</div>
+      <div id="contactus-radio-validation-message">${restInfo.radioValidationMessage}</div>
+      <div id="restaurant-selection-way">${restInfo.restaurantSelectionWay}</div>
+      <div id="visit-date-validation-message">${restInfo.dateOfVisitValidationMessage}</div>
+      <div id="visit-time-validation-message">${restInfo.timeOfVisitValidationMessage}</div>
+   </div>
+   <input type="hidden" id="month-numeric-value-uk" name="monthNumericInput" value="" maxlength="10">
+</sly>

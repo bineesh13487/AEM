@@ -1,0 +1,44 @@
+<!--/*
+   Tabs Component for Responsive Pages
+*/-->
+<div data-sly-use.handler="com.mcd.rwd.global.core.sightly.TabsHandler"
+     data-sly-test="${!handler.tabsList && !wcmmode.disabled}">
+    <img src="/libs/cq/ui/resources/0.gif" class="cq-text-placeholder cq-dd-image" alt="">
+	<h3>Please Configure the Tab Component - No Tabs Selected.</h3>
+</div>
+<div class="tab-box" style="bottom: ${handler.enableSpace ? '43' : '0' @ context='styleToken'}px;"
+	     data-sly-test="${handler.tabsList}">
+	<!--/* tab names */-->
+	<section title="tabs">
+	    <div class="container tabs-container tall">
+	        <div class="row no-gutter">
+	            <ul class="nav nav-tabs tabs ${handler.noOfTabs}" role="tablist"
+	                data-sly-list="${handler.tabsList}">
+	                <li role="presentation" class="${handler.className} ${itemList.first ? 'active' : '' }"
+	                    data-start="${item.startTime}" data-end="${item.endTime}">
+	                    <a href="#happy-meal-${itemList.index}" id="tab-${itemList.index}" aria-expanded="${itemList.first ? 'true' : 'false' }" aria-controls="happy-meal-${itemList.index}" data-target="#happy-meal-${itemList.index}"
+	                       data-toggle="tab" role="tab">
+	                        <div class="table-wrapper"><span class="table-cell-wrapper">${item.title}</span></div>
+	                    </a>
+	                </li>
+	            </ul>
+	        </div>
+	    </div>
+	</section>
+	<!-- tab content -->
+     <section title="tab content">
+	    <div class="tab-content container" data-sly-list="${handler.tabsList}">
+	        <div class="tab-pane fade ${itemList.first ? 'in active' : '' }" role="tabpanel" id="happy-meal-${itemList.index}" aria-labelledby="tab-${itemList.index}"
+	             data-editable-path="${ !(wcmmode.disabled || wcmmode.preview) ? '{0}/par-{1}' : '' @ format=[resource.path, itemList.index]}">
+	            <!-- <div class="container cont-slides component-related-items">
+	                 <div class="cont-items">
+	                    <div class="row no-gutter"> -->
+	                        <sly data-sly-resource="${'par-{0}'  @ resourceType='wcm/foundation/components/parsys' , format=itemList.index}"></sly>
+	                    </div>
+	                <!-- </div>
+	            </div>
+	        </div> -->
+	    </div>
+	</section>
+</div>
+

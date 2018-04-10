@@ -1,0 +1,13 @@
+/// @group pages
+$page-contact-us__general-inquiry: ".page-contact-us__general-inquiry";
+
+@include withinBlock($page-contact-us__general-inquiry, $page-contact-us__subpage){
+  &__what-about,
+  &__about-yourself {
+    background: $light-gray;
+  }
+}
+
+@include withinBlock($page-contact-us__general-inquiry, $component-hero, true){
+
+}

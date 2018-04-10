@@ -1,0 +1,6 @@
+{
+  "sources": [
+    "src/components/**/*.scss",
+    "src/templates/**/*.scss"
+  ]
+}

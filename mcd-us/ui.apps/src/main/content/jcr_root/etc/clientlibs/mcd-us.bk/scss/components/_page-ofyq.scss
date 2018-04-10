@@ -1,0 +1,73 @@
+.page-ofyq {
+	.dropdown-menu li .active {
+		background: $gray-hover;
+	}
+
+	.ofyq-header {
+		background: $black;
+
+		.cont-name {
+			color: $white;
+			padding: 20px 0px;
+			@include fontSet(32px, 36px, $font-lovinsans-medium);
+
+			@media only screen and (min-width:480px){
+				@include fontSet(36px, 36px, $font-lovinsans-medium);
+			}
+			@media only screen and (min-width:768px){
+				@include fontSet(32px, 36px, $font-lovinsans-medium);
+			}
+			@media only screen and (min-width:992px){
+				@include fontSet(36px, 36px, $font-lovinsans-medium);
+			}
+			@media only screen and (min-width:1200px){
+				@include fontSet(38px, 36px, $font-lovinsans-medium);
+			}
+		}
+	}
+
+	.ofyq-content {
+		padding: 50px 0px;
+
+		.tab-content {
+			padding: 0;
+		}
+
+		.template-heading {
+			@include fontSet(32px, 34px, $font-lovinsans-medium);
+			margin-bottom: 30px;
+		}
+
+		p[data-toggle="collapse"] {
+			cursor: pointer;
+		}
+
+		.template-body-copy-heading {
+			color: $red;
+			display: block;
+			margin: 20px 0px;
+			@include fontSet(28px, 28px, $font-lovinsans-medium);
+		}
+
+		.template-body-copy {
+			margin: 0;
+			@include fontSet(24px, 34px, $font-lovinsans);
+
+			a{
+				color: $red;
+			}
+
+			strong {
+				font-family: $font-lovinsans-medium;
+			}
+		}
+
+		.padbottom {
+			margin-bottom: 15px;
+		}
+
+		.automargin {
+			margin: auto;
+		}
+	}
+}

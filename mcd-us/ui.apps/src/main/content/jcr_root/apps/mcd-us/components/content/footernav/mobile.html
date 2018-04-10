@@ -1,0 +1,9 @@
+<!--/*
+
+    Footer Navigation Mobile
+
+*/-->
+<ul class="list-unstyled site-map-1"
+    data-sly-use.handler="${'com.mcd.rwd.us.core.sightly.FooterNavigationHandler' @ isMobile=true}">
+    <li data-sly-repeat="${handler.navList}"><a href="${item.path}" title="${item.title}">${item.title}</a></li>
+</ul>

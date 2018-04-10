@@ -1,0 +1,291 @@
+$icon-padding: 10;
+$hr-margin: 30;
+$box-shadow: 0 to-rem(1) to-rem(8) 0 rgba(0, 0, 0, 0.04),
+  0 to-rem(1) to-rem(5) 0 rgba(0, 0, 0, 0.04);
+.mcd-global-nav {
+  background-color: white;
+  font-family: "ArchSans";
+  margin-bottom: 0;
+  z-index: 99;
+  overflow: visible;
+  @extend .clearfix;
+  .mobile-nav {
+    @extend .clearfix;
+    &__nav-logo {
+      @include make-xs-column(1.75, 0);
+      img {
+        max-width: to-rem(55);
+      }
+    }
+    &__menu-icons {
+      @include make-xs-column(10.25, 0);
+      margin-top: to-rem(7);
+      @extend .clearfix;
+      .menu-icon,
+      .close-icon {
+        padding-top: to-rem($icon-padding);
+        padding-left: to-rem($icon-padding);
+        font-size: to-rem(24);
+        cursor: pointer;
+      }
+      .close-icon {
+        display: none;
+        padding-left: 0;
+        padding-right: to-rem($icon-padding);
+        text-align: right;
+      }
+    }
+    &__links-panel {
+      display: none;
+      height: 100vh;
+      margin-top: to-rem(80);
+      padding-left: to-rem(50);
+      hr {
+        margin-top: to-rem($hr-margin);
+        margin-bottom: to-rem($hr-margin);
+      }
+    }
+    .links {
+      &--inner {
+        margin-bottom: to-rem(50);
+      }
+      &__item {
+        display: block;
+        margin: to-rem(20) 0;
+        padding-right: to-rem(5);
+        &:last-of-type {
+          padding-right: to-rem(5);
+        }
+        .link {
+          font-size: to-rem(18);
+          line-height: to-rem(22);
+          i {
+            @extend .pull-right;
+            cursor: pointer;
+            font-size: to-rem(24);
+          }
+        }
+        .main-link {
+          font-size: to-rem(22);
+          line-height: to-rem(26);
+          i {
+            @extend .pull-right;
+            font-size: to-rem(24);
+          }
+        }
+      }
+    }
+    &.open {
+      .menu-icon {
+        display: none;
+      }
+      .close-icon {
+        display: block;
+      }
+      .mobile-nav__links-panel {
+        display: block;
+      }
+    }
+    .mobile-flyout-menu {
+      display: none;
+      &.open {
+        display: block;
+      }
+      .flyout-menu__container {
+        //@extend .container;
+        .menu-items {
+          margin: 0;
+          padding: 0;
+          .menu-item {
+            list-style: none;
+          }
+        }
+      }
+    }
+    .desktop-menu-link {
+      display: none;
+    }
+    .view-full-menu {
+      display: block;
+      margin: to-rem(20) 0;
+    }
+  }
+  &__container {
+    margin: 0 auto;
+    max-width: to-rem(1170);
+    padding: 0;
+    @extend .clearfix;
+  }
+  .nav__logo {
+    @include make-lg-column(1.75, 0);
+    h1 {
+      margin-top: 0;
+    }
+  }
+  .secondary__links {
+    @include make-lg-column(10.25, 0);
+    .left__rail,
+    .right__rail {
+      @include make-lg-column(6, 0);
+      padding-top: to-rem(15);
+    }
+    .right__rail {
+      text-align: right;
+    }
+  }
+  .primary__links {
+    @include make-lg-column(10.25, 0);
+    margin-top: to-rem(30);
+  }
+  .links {
+    margin: 0;
+    padding: 0;
+    &__item {
+      display: inline-block;
+      list-style: none;
+      padding-right: 3.125rem;
+      position: static;
+      &:last-of-type {
+        padding-right: 0;
+      }
+      .link {
+        color: $dark-gray-1;
+        font-size: to-rem(14);
+        line-height: to-rem(16);
+        text-decoration: none;
+        display: block;
+      }
+      .main-link {
+        color: $dark-gray-2;
+        font-size: to-rem(18);
+        line-height: to-rem(22);
+        text-decoration: none;
+        display: block;
+        &.active {
+          border-bottom: to-rem(5) solid $mcdonalds-red;
+          font-family: 'ArchSans-Bold';
+        }
+      }
+    }
+  }
+  .desktop-nav {
+    box-shadow: $box-shadow;
+    display: none;
+    .nav__logo {
+      background-color: $mcdonalds-red;
+      width: to-rem(108);
+      height: to-rem(108);
+      position: relative;
+      overflow: hidden;
+      margin-right: to-rem(30);
+      img {
+        position: absolute;
+        width: to-rem(108);
+        height: to-rem(108);
+        left: to-rem(0);
+        top: to-rem(0);
+      }
+    }
+    .secondary__links {
+      .right__rail {
+        .links {
+          &__item {
+            .link {
+              [class^="icon-"],
+              [class*=" icon-"] {
+                &:before {
+                  font-size: to-rem(18);
+                  display: inline-block;
+                  vertical-align: middle;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .toggle-desktop-menu {
+      padding-bottom: to-rem(18);
+      .icon-chevron-down:before {
+        display: inline-block;
+        vertical-align: middle;
+      }
+    }
+    .flyout-menu {
+      @include make-lg-column(12, 0);
+      background-color: white;
+      box-shadow: $box-shadow;
+      display: none;
+      margin: 0;
+      padding: 0;
+      position: absolute;
+      z-index: 98;
+      &.open {
+        display: block;
+      }
+      &__container {
+        //@extend .container;
+        ul {
+          margin: 0;
+          padding: 0;
+          .menu-item {
+            list-style: none;
+          }
+        }
+      }
+    }
+  }
+
+  .desktop-menu-link {
+    display: none;
+  }
+
+  .icon-locator-pin:before {
+    color: $mcdonalds-red;
+  }
+
+  @media screen and (min-width: $break-point) {
+    margin-bottom: 0.1875rem;
+    .mobile-nav,
+    .mobile-menu-link,
+    .mobile-home-link {
+      display: none;
+    }
+    .desktop-nav {
+      display: block;
+      .flyout-menu {
+        padding: to-rem(20);
+        .menulist-flyout {
+          .menu-items {
+            margin: to-rem(20) 0;
+            padding: 0;
+            .menu-item {
+              @include make-lg-column(4, 0);
+              padding: to-rem(5) 0;
+              .link {
+                color: $dark-gray-2;
+                font-size: to-rem(18);
+                line-height: to-rem(22);
+              }
+            }
+          }
+          .view-full-menu {
+            text-align: center;
+          }
+        }
+      }
+    }
+    .desktop-menu-link {
+      display: inline-block;
+    }
+    &:after {
+      display: block;
+      width: 100%;
+      content: '';
+      background-color: $interface-fill-1;
+      height: to-rem(38);
+      position: absolute;
+    }
+  }
+}

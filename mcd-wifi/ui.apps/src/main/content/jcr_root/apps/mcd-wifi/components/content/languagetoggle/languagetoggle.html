@@ -1,0 +1,10 @@
+<!--/*
+    Langugage Toggler
+*/-->
+<sly data-sly-use.handler="com.mcd.rwd.wifi.core.sightly.page.LanguageToggleHandler">
+	<label for="languageToggler" class="screen-reader-text"><span class="hidden-xs">Language:</span></label>
+    <a href="#" title="language" class="languageLink"></a>
+    <ul class="languageFlyout">
+    	<li  data-sly-repeat="${handler.pages}"><a href="${item}.html" class="${handler.isSelected[item] ? '' : 'active'}">${handler.pages[item]}</a></li>
+    </ul>
+</sly>

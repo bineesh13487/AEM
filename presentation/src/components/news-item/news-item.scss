@@ -1,0 +1,86 @@
+.mcd-news-item {
+  border: to-rem(1) solid #d6d6d6;
+  border-radius: to-rem(4);
+  box-shadow: 0 to-rem(1.5) to-rem(1.5) 0 rgba(0,0,0,0.08);
+
+  @include e('article') {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  @include e('thumbnail') {
+    min-height: to-rem(160);
+    max-height: to-rem(160);
+    width: auto;
+    border: 0;
+    margin: 0 0 to-rem(25) 0;
+    @include m('listing') {
+      @include make-xs-column(12);
+      @include make-md-column(4);
+      height: 100%;
+      min-height: to-rem(160);
+    }
+  }
+
+  @include e('info') {
+    @include m('listing') {
+      @include make-xs-column(12);
+      @include make-md-column(8);
+    }
+  }
+
+  @include e('date') {
+    @include make-small-text();
+    margin: 0 to-rem(26) to-rem(19) to-rem(26);
+  }
+
+  @include e('title') {
+    @include make-link-title();
+    max-height: to-rem(50);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: to-rem(19) to-rem(34) to-rem(14) to-rem(26);
+  }
+
+
+  @include e('preview-text') {
+    @include make-paragraph();
+    margin: to-rem(14) to-rem(26) to-rem(5) to-rem(26);
+    height: to-rem(90);
+    max-height: to-rem(315);
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  @include e('cta') {
+    @include make-item-cta();
+    margin: to-rem(5) to-rem(26) to-rem(29) to-rem(26);
+  }
+
+  @include m('slide') {
+    height: auto;
+    width: 80%;
+    margin: to-rem(12) to-rem(15) to-rem(12) 0;
+    &:first-child {
+      margin-right: to-rem(15);
+    }
+    @media screen and (min-width: $break-point) {
+      height: auto;
+      width: to-rem(376);
+      &:first-child {
+        margin-left: 0;
+      }
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
+  @include m('listing') {
+    height: auto;
+    width: auto;
+    @include make-row();
+    margin: to-rem(15) to-rem(15);
+  }
+}

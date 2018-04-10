@@ -1,0 +1,36 @@
+.page-sign-in-offers,
+.cont-sign-in-offers {
+  .cont-copy {
+    padding-top: 50px;
+    padding-bottom: 100px;
+  }
+
+  &.template .template-hero-bg .text-wrapper,
+  &.template-b .template-hero-bg .text-wrapper {
+    text-align: center;
+  }
+
+  .link-red {
+    display: block;
+    color: $red;
+    margin-top:15px;
+    @include fontSet(20px, 26px, $font-lovinsans-medium);
+  }
+
+  .btn-border {
+    background: $white;
+    color: $black;
+    border: 2px solid #cccccc;
+
+    &:focus {
+      color: $black;
+    }
+     
+  }
+
+  .btn-red {
+    margin-top: 30px;
+    margin-bottom: 15px;
+  }
+
+}

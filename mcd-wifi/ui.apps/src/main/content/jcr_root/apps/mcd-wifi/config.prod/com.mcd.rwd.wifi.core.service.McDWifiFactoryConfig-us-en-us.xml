@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="sling:OsgiConfig"
+    mcd-wifi.factoryConfig.country="us"
+    mcd-wifi.factoryConfig.country.language="en-us"
+    mcd-wifi.factoryConfig.restaurantLocatorRadius="2"
+    mcd-wifi.factoryConfig.restaurantLocatorResultsSize="1"
+    mcd-wifi.factoryConfig.restaurantLocatorUrl="https://apidev-mcd.cloudhub.io/v3/restaurant/location"
+    restaurantLocatorApiKey="GtZFXGWxxz2BPpbTytmOeagquGQQrvEd"
+    restaurantLocatorCountry="us"
+    restaurantLocatorLanguage="en"
+    restaurantLocatorMarketId="USPRODGLS"/>

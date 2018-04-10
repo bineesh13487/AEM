@@ -1,0 +1,43 @@
+<sly data-sly-use.info="com.mcd.rwd.us.core.sightly.ExtraValueMeal">
+    <h3 data-sly-test="${wcmmode.edit && !info.link && !info.evmList}">Please click to configure the Extra Value Meal component</h3>
+    <div class="template page-extravalue" ng-controller="evmController" ng-cloak>
+    <div class="tab-menu">
+    <div class="cont-items">
+    <sly data-sly-list.evmList="${info.evmList}">
+        <sly data-sly-test="${evmListList.odd}"><div class="row no-gutter"></sly>
+        <div class="${evmList.coopIds !='' && evmList.coopIds !=' ' && evmList.coopIds !=null ? 'evmcoop' : '' }"  data-coopid="${evmList.coopIds}">
+        <div class="col-sm-6 zoom-anim-parent ${evmListList.last && evmListList.odd ? 'col-sm-offset-6 col-centered evm-last' : ''} ">
+            <div class="hidden-overflow">
+                <img src="${evmList.imageUrl}" alt="" aria-hidden="true" class="zoom-anim-target img-responsive cont-100"/>
+            </div>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-xs-12 col-md-10 col-md-offset-1 col-lg-10">
+                        <div class="text-wrapper">
+                            <h3 class="title">${evmList.title @context='html'}</h3>
+                            
+                            <p class="excerpt hidden-xs"> ${evmList.description @context='html'}
+								<a href="${info.link}" class="simple-red" ng-click="addToNc('${evmList.itemIds}')"> 
+									<span aria-hidden="true">${info.title}</span>
+									<span class="visuallyhidden">${info.title} about ${evmList.title}</span>
+								</a>
+                            </p>
+						
+                            <p class="excerpt-short visible-xs">${evmList.description @context='html'}
+								<a href="${info.link}" class="simple-red" ng-click="addToNc('${evmList.itemIds}')">
+									<span aria-hidden="true">${info.title}</span>
+									<span class="visuallyhidden">${info.title} about ${evmList.title}</span>
+								</a>                                
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        <sly data-sly-test="${evmListList.even || evmListList.last}">${'</div>' @ context='unsafe'}</sly>
+    </sly>
+    </div>
+    </div>
+    </div>
+</sly>

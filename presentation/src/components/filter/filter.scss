@@ -1,0 +1,62 @@
+.mcd-filter {
+  margin-top: 1.3125rem;
+
+  &__container {
+    white-space: nowrap;
+    overflow-x: scroll;
+    overflow-y: hidden;
+  }
+
+  &__carousel {
+    @include make-row(0);
+
+    position: relative;
+    margin: 0.1rem auto;
+    vertical-align: middle;
+    z-index: 1;
+    padding: 0 0 1rem 0;
+    list-style: none;
+
+    &__item {
+      @include make-grid-columns;
+
+      min-width: to-rem(104);
+      font-size: to-rem(18);
+      white-space: normal;
+      text-align: center;
+      color: $light-gray-2;
+      display: inline-block;
+
+      &--selected {
+        color: $dark-gray-2;
+        transition: color 0.5s;
+      }
+    }
+  }
+
+  &__horizontal-line {
+    width: 100%;
+    background-color: rgba(206,206,206,1);
+    height: 0.05rem;
+    position: relative;
+    bottom: 0.2rem;
+
+    &--selected {
+      border: to-rem(0.5) solid $dark-gray-2;
+      width: 6rem;
+      transition: transform 0.5s;
+    }
+  }
+}
+
+@media screen and (min-width: 48rem) {
+  .mcd-filter {
+    &__horizontal-line {
+      display: none;
+    }
+    &__result-heading {
+      @include make-xs-column(1, 0);
+      margin-top: to-rem(5);
+    }
+  }
+}

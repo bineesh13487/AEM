@@ -1,0 +1,33 @@
+<sly data-sly-use.gallery="com.mcd.rwd.global.core.sightly.ImageGalleryHandler">
+    <div id="${gallery.uniqueID}" class="gallery2 showcaseSlider"
+         data-sly-attribute="${gallery.genericValues}">
+        <ul class="slides" style="height:auto !important;" data-sly-list.images="${gallery.galleryList}">
+            <li class="item">
+                <div class="row entity entity-pane pane-image">
+                    <a class="anchor"></a>
+
+                    <div class="single"><a class="${images.link.linkClass}" href="${images.link.href}">
+                        <img src="${images.mainImage}"></a></div>
+                    <div class="captionfirst copy">
+                        <a class="${images.link.linkClass}" href="${images.link.href}"
+                           data-sly-unwrap="${!images.link.href}"><h5>
+                            ${images.imageTitle}</h5></a></div>
+                    <div class="${images.hideDescripition == 'true'? 'flex-caption-mobile hidden-xs' : ''}">
+                             <span class="copy" style="color : ${gallery.textColor @ context='styleToken'};"><p>
+                                 <span>${images.imageDescription @context='html'}</span></p>
+                            </span>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <!-- Controls -->
+        <div class="flex-container">
+            <a class="left carousel-control hidden-xs" href="#promo-slider" data-slide="prev">
+                <i class="icon icon-icon-angle-left"></i>
+            </a>
+            <a class="right carousel-control hidden-xs" href="#promo-slider" data-slide="next">
+                <i class="icon icon-icon-angle-right"></i>
+            </a>
+        </div>
+    </div>
+</sly>

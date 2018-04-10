@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Dialog"
+    xtype="dialog">
+    <items
+        jcr:primaryType="cq:Widget"
+        xtype="tabpanel">
+        <items jcr:primaryType="cq:WidgetCollection">
+            <signin
+                jcr:primaryType="cq:Panel"
+                title="Sign In">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <redirectpath
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}false"
+                        fieldDescription="Please provide the redirect page path for signin."
+                        fieldLabel="Redirect Page"
+                        name="./redirectPath"
+                        xtype="pathfield"/>
+                    <signinpopup
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Check this to open in popup."
+                        fieldLabel="Popup"
+                        name="./signinPopup"
+                        type="checkbox"
+                        xtype="selection">
+                        <listeners
+                            jcr:primaryType="nt:unstructured"
+                            selectionchanged="function(comp, val, isChecked) { &#xa;&#x9;var dlg = comp.findParentByType('dialog');&#xa;&#x9;var promo = dlg.getField('./promoPath');&#xa;&#x9;&#xa;&#x9;if (!isChecked) {&#xa;&#x9;&#x9;promo.disable();&#x9;&#x9;&#xa;&#x9;}&#xa;&#x9;else{&#xa;&#x9;&#x9;promo.enable();&#x9;&#xa;&#x9;}&#xa;}"/>
+                    </signinpopup>
+                    <promopath
+                        jcr:primaryType="cq:Widget"
+                        disabled="{Boolean}true"
+                        fieldDescription="Please provide the path of a promo page to be shown in background when Sigin in component is configured as Pop Up."
+                        fieldLabel="Promo Page"
+                        name="./promoPath"
+                        xtype="pathfield"/>
+                </items>
+            </signin>
+        </items>
+    </items>
+    <listeners
+        jcr:primaryType="nt:unstructured"
+        beforesubmit="function(dlg){&#xa;&#x9;var isPopup = dlg.getField('./signinPopup').getValue();&#xa;    var promo = dlg.getField('./promoPath').getValue();&#xa;&#x9;var submit = true;&#x9;&#xa;&#x9;&#xa;&#x9;if(isEmpty(isPopup)){&#xa;&#x9;&#x9;if(promo.trim() === ''){&#xa;&#x9;&#x9;&#x9;CQ.Ext.Msg.alert('Mandatory Field', 'Promo Path should not be blank.');&#xa;&#x9;&#x9;&#x9;submit = false;&#xa;&#x9;&#x9;}&#x9;&#x9;&#xa;&#x9;}&#xa;&#x9;&#x9;&#xa;&#x9;return submit;&#xa;}&#xa;&#xa;function isEmpty(val){&#xa;    return (val === undefined || val == null || val.length &lt;= 0) ? false : true;&#xa;}"/>
+</jcr:root>

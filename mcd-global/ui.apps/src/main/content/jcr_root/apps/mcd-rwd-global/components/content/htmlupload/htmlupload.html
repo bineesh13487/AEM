@@ -1,0 +1,9 @@
+<!--/*
+	HTML Upload Component.
+*/-->
+<sly data-sly-use.handler="com.mcd.rwd.global.core.sightly.HtmlUploadHandler">
+	<div data-sly-test.hasContent="${handler.source}">${handler.source @ context='unsafe'}</div>
+	<h3 data-sly-test="${ !hasContent && (wcmmode.edit || wcmmode.design)}">
+		Please add HTML to the component.
+	</h3>
+</sly>

@@ -1,0 +1,29 @@
+<!--/*
+    Column Control Component for Responsive Pages
+*/-->
+<sly data-sly-use.col="com.mcd.rwd.global.core.models.ColumnControl" data-sly-test.isConfigured="${col.classes}">
+    <div class="${col.enableMargin ? 'container' : 'container-fluid'} ${col.enableGutters ? 'gutter' : '' }">
+    <div class="row ${col.enableGutters ? '': 'no-gutter'}" data-sly-list="${col.classes}">
+    
+       	<sly data-sly-test="${col.gutterSpaceValue != 'px'}"> 
+	   	   <div class="${item}" style="padding: 0px ${col.gutterSpaceValue @ context='unsafe'} 0px ${col.gutterSpaceValue @ context='unsafe'};">
+	   	      	<sly data-sly-resource="${'col-par-{0}' @ resourceType='wcm/foundation/components/parsys', format=[itemList.index]}" />
+	        </div>
+	   	</sly>
+	   		 
+	   	<sly data-sly-test="${col.gutterSpaceValue == 'px'}"> 
+	   	    <div class="${item}">
+	   	    	<sly data-sly-resource="${'col-par-{0}' @ resourceType='wcm/foundation/components/parsys', format=[itemList.index]}" />
+	        </div>
+	   	</sly>
+    </div>
+    </div>
+</sly>
+<h3 data-sly-test="${ !isConfigured && (wcmmode.edit || wcmmode.design) }">
+    Please configure the number of columns required.
+</h3>
+<div class="clearfix"></div>
+
+
+
+	

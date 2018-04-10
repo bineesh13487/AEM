@@ -1,0 +1,25 @@
+<sly data-sly-use.tuaInfo="com.mcd.rwd.us.core.sightly.forms.UKcomments">
+	<section class="page-contact-us__subpage__tell-us paddTop20">
+		<div class="container"> 
+		<label id="contactUs-message-label" class="control-label" for="contactUs-message" aria-hidden="true">${tuaInfo.commentMessage}</label>
+			<div class="cont-sub"> <sub><span id="characterCount">${tuaInfo.commentCount}</span>/${tuaInfo.commentCount} ${tuaInfo.charactersText}</sub> </div>
+			<div class="form-group"> 
+				<textarea aria-labelledby="contactUs-message-label" name="comments" id="enter-commentsuk" maxlength="${tuaInfo.commentCount}" rows="5" class="form-control  ${tuaInfo.commentReq}" aria-label="${tuaInfo.commentMessage}"></textarea> 
+			</div>
+			<div id="roboUserCheck" class="form-group" style="display:none;">
+			<input type="text" class="form-control placeholder yes" id="confirm_email_hidn_norealuser" name="confirm_email_hidn_norealuser" value="">
+			</div>
+			<p class="legal">${tuaInfo.legalText  @ context='html'}</p>
+			<div class="contact-submit-btns-uk"> 
+			<button  onclick="javascript:validateUKForm();" data-toggle="modal" title="Submit" id="contactFormSubmituk" class="btn btn-red @@modifiers">
+				${tuaInfo.submitButtonText}
+			</button> 
+			<button type="button" class="btn btn-red-inverse" onclick="window.location.reload()" id="contactFormResetuk" >
+				${tuaInfo.resetButtonText}
+			</button> </div>
+		</div>
+	</section>
+	<div style="display:none">
+		<div id="enter-comments-message">${tuaInfo.commentValidationMessage}</div>
+	</div>
+</sly>

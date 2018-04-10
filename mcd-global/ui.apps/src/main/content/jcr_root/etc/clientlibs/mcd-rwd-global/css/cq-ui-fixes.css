@@ -1,0 +1,13 @@
+#CQ fieldset {
+    min-width: min-content !important;
+}
+
+#CQ legend {
+	margin-bottom: 5px;
+    border-bottom: none;
+    width: auto;
+}
+
+.ext-strict #CQ .x-form-text {
+    height: 22px !important;
+}

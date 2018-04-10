@@ -1,0 +1,55 @@
+.sso-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  > li {
+    padding: 0px 15px;
+    border-top: 1px solid $color-list-border;
+    @include fontBold();
+    @include fontSet(15px, 55px);
+
+    &:last-child {
+      border-bottom: 1px solid $color-list-border;
+    }
+
+    &.sso-li-text {
+      //text-align: center;
+      padding: 15px 30px;
+    }
+  }
+  .sso-badge {
+    float: right;
+    color: $red;
+
+    .fa {
+      background: $grey-light;
+      border-radius: 50%;
+      height: 30px;
+      width: 30px;
+      text-align: center;
+      vertical-align: middle;
+
+      &:before {
+        margin-top: 8px;
+        display: block;
+        margin-left: 1px;
+      }
+    }
+  }
+  .sso-badge-notice {
+    color: $red;
+    float: right;
+
+    .fa {
+      margin-right: 15px;
+    }
+  }
+  a {
+    text-decoration: none;
+    display: block;
+    color: $black;
+    @include fontBold();
+    @include fontSet(15px, 55px);
+  }
+}

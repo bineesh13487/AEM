@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Dialog"
+    xtype="dialog">
+    <items
+        jcr:primaryType="cq:Widget"
+        xtype="tabpanel">
+        <items jcr:primaryType="cq:WidgetCollection">
+            <section
+                jcr:primaryType="cq:Panel"
+                title="What is this about?">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <topHeading
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Heading to be displayed on top of section."
+                        fieldLabel="Section Top Heading"
+                        name="./sectionTopHeadingTrademark"
+                        xtype="textfield"/>
+                    <subHeading
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Sub heading to be displayed on top of section."
+                        fieldLabel="Section Sub Heading"
+                        name="./sectionSubHeadingTrademark"
+                        xtype="textfield"/>
+                    <wta
+                        jcr:primaryType="cq:Widget"
+                        fieldDescrition="Please provide options for what is this about dropdown."
+                        fieldLabel="Dropdown Options *"
+                        name="./whatIsThisAboutTrademark"
+                        xtype="multifield">
+                        <fieldConfig
+                            jcr:primaryType="nt:unstructured"
+                            xtype="textfield"/>
+                    </wta>
+                    <wtaAriaLabel
+                        jcr:primaryType="cq:Widget"                        
+                        fieldLabel="Aria Label"
+                        fieldDescription="Aria Label for What is this about. Default set to &lt;b>Trademark Permission&lt;/b>."
+                        name="./wtaAriaLabel"
+                        xtype="textfield"/> 
+                    <bgcolor
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="This will change the background color of section on selection of this category."
+                        fieldLabel="Background Color"
+                        name="./sectionBGColorTrademark"
+                        showHexValue="{Boolean}true"
+                        xtype="colorfield"/>
+                </items>
+            </section>
+        </items>
+    </items>
+</jcr:root>

@@ -1,0 +1,9 @@
+<!--/*
+    Promo Callout Component.
+*/-->
+<sly data-sly-use.handler="com.mcd.rwd.us.core.sightly.PromoCalloutHandler">
+    <sly data-sly-resource="${handler.resourcePath}" data-sly-test.configured="${handler.resourcePath}"></sly>
+    <sly data-sly-test="${!configured && (wcmmode.edit || wcmmode.design)}">
+        <h3>Please configure the promo component</h3>
+    </sly>
+</sly>

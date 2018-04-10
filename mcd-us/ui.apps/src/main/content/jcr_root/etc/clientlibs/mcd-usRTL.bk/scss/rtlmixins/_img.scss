@@ -1,0 +1,27 @@
+/// Returns the path to an image, without worrying about which/where the parent
+/// image folder is located.
+/// @group images
+/// @param {string} $img The image you'd like to use, __excluding__ the image parent folder.
+/// @example
+///    .myBlock {
+///       background-image: mcd-img('path/to/img.jpg');
+///    }
+///    .responsiveBlock {
+///       $mobileBG: mcd-img('path/to/img-xs.jpg');
+///       $tabletBG: mcd-img('path/to/img-sm.jpg');
+///       $desktopBG: mcd-img('path/to/img-md.jpg');
+///
+///       background: url($mobileBG) no-repeat;
+///       background-size: cover;
+///
+///       @include breakpoint(sm){
+///         background-image: url($tabletBG);
+///       }
+///
+///       @include breakpoint(md){
+///         background-image: url($desktopBG);
+///       }
+///    }
+@function mcd-img($img){
+  @return "../img/#{$img}";
+}

@@ -1,0 +1,130 @@
+.disclaimer-text {
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 20px;
+  line-height: 1.25rem;
+  font-family: "LovinSansWeb-Regular";
+  margin: 0;
+  display: inline-block !important;
+}
+.quote-text {
+  font-size: 36px;
+  font-size: 2.25rem;
+  line-height: 46px;
+  line-height: 2.875rem;
+  font-family: "LovinSansWeb-Regular", sans-serif;
+  text-align: center;
+  font-style: italic;
+  letter-spacing: 0.01em;
+}
+
+.EverythingParagraphTitle {
+  font-weight: 500;
+  font-size: 2rem;
+  line-height: 2rem;
+  word-wrap: break-word;
+}
+
+.template-disclaimer-text {
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 20px;
+  line-height: 1.25rem;
+  font-family: "LovinSansWeb-Regular";
+  margin: 0;
+}
+.template-disclaimer-text a {
+  color: #bf0c0c;
+}
+.template-disclaimer-text a:hover {
+  color: #d53c42;
+  text-decoration: underline;
+}
+
+.template-disclaimer-text-lg {
+  font-size: 18px;
+  font-size: 1.125rem;
+  line-height: 24px;
+  line-height: 1.5rem;
+  font-family: "LovinSansWeb-Regular";
+  margin: 0;
+}
+.template-disclaimer-text-lg a {
+  color: #bf0c0c;
+}
+.template-disclaimer-text-lg a:hover {
+  color: #d53c42;
+  text-decoration: underline;
+}
+
+
+h1, h2, h3 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+h1 {
+  font-size: 40px;
+  font-size: 2.5rem;
+  line-height: 38px;
+  line-height: 2.375rem;
+  font-family: "LovinSansWeb-Bold", sans-serif;
+}
+
+h2 {
+  font-size: 36px;
+  font-size: 2.25rem;
+  line-height: 34px;
+  line-height: 2.125rem;
+  font-family: "LovinSansWeb-Bold", sans-serif;
+}
+
+h3 {
+  font-size: 34px;
+  font-size: 2.125rem;
+  line-height: 32px;
+  line-height: 2rem;
+  font-family: "LovinSansWeb-Bold", sans-serif;
+}
+
+p {
+  font-size: 26px;
+  font-size: 1.625rem;
+  line-height: 36px;
+  line-height: 2.25rem;
+  font-family: "LovinSansWeb-Regular", sans-serif;
+  margin-bottom: 25px;
+  letter-spacing: 0.01em;
+}
+
+ul li, ol li {
+  font-size: 26px;
+  font-size: 1.625rem;
+  line-height: 36px;
+  line-height: 2.25rem;
+  font-family: "LovinSansWeb-Regular", sans-serif;
+  padding-bottom: 5px;
+}
+
+.template-icon {
+  height: 20px;
+  margin-right: 15px;
+  display: inline-block;
+  margin-top: -3px;
+}
+
+.template-body-copy-subheading {
+  font-size: 26px;
+  font-size: 1.625rem;
+  line-height: 36px;
+  line-height: 2.25rem;
+  font-family: "LovinSansWeb-Medium";
+}
+
+img {
+  max-width: 100%;
+}
+
+#CQrte ul li, #CQrte ol li {
+  list-style-position: inside;
+}

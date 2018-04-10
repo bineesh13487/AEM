@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+          jcr:primaryType="nt:unstructured"
+          jcr:title="Page"
+          sling:resourceType="cq/gui/components/authoring/dialog"
+          extraClientlibs="[cq.common.wcm,cq.siteadmin.admin.properties]"
+          mode="edit">
+    <content
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/foundation/container"
+            class="cq-dialog-content-page">
+        <items jcr:primaryType="nt:unstructured">
+            <tabs
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/foundation/container"
+                    rel="cq-siteadmin-admin-properties-tabs">
+                <layout
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/foundation/layouts/tabs"
+                        type="nav"/>
+                <items jcr:primaryType="nt:unstructured">
+                    <basic
+                            cq:hideOnEdit="{Boolean}false"
+                            cq:showOnCreate="{Boolean}true"
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Basic"
+                            sling:resourceType="granite/ui/components/foundation/section">
+                        <layout
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"
+                                margin="{Boolean}false"/>
+                        <items jcr:primaryType="nt:unstructured">
+                            <column
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/foundation/container">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <title
+                                            jcr:primaryType="nt:unstructured"
+                                            jcr:title="Title and Tags"
+                                            sling:resourceType="granite/ui/components/foundation/form/fieldset">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <pagename
+                                                    cq:hideOnEdit="{Boolean}true"
+                                                    cq:showOnCreate="{Boolean}true"
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                    fieldLabel="Name"
+                                                    name="pageName"
+                                                    validation="admin.pagename"/>
+                                            <title
+                                                    cq:hideOnEdit="{Boolean}false"
+                                                    cq:showOnCreate="{Boolean}true"
+                                                    jcr:primaryType="nt:unstructured"
+                                                    required="{Boolean}true"
+                                                    sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                    fieldLabel="Title"
+                                                    name="./jcr:title"/>
+                                            <navtitle
+                                                    cq:hideOnEdit="{Boolean}false"
+                                                    cq:showOnCreate="{Boolean}true"
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                    fieldLabel="Navigation Title"
+                                                    name="./navTitle"/>
+                                            <description
+                                                    cq:hideOnEdit="{Boolean}false"
+                                                    cq:showOnCreate="{Boolean}false"
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/form/textarea"
+                                                    fieldLabel="Description"
+                                                    name="./jcr:description"/>
+                                            <tags
+                                                    cq:hideOnEdit="{Boolean}false"
+                                                    cq:showOnCreate="{Boolean}false"
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="cq/gui/components/common/tagspicker"
+                                                    cq-msm-lockable="cq:tags"
+                                                    fieldLabel="Tags/Keywords"
+                                                    name="./cq:tags"/>
+                                            <hideinnav
+                                                    cq:hideOnEdit="{Boolean}false"
+                                                    cq:showOnCreate="{Boolean}false"
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/form/checkbox"
+                                                    text="Hide in Navigation"
+                                                    value="true"
+                                                    cq-msm-lockable="hideInNav"
+                                                    name="./hideInNav"/>
+                                            <charset
+                                                    cq:hideOnEdit="{Boolean}false"
+                                                    cq:showOnCreate="{Boolean}true"
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/form/hidden"
+                                                    allowBulkEdit="{Boolean}true"
+                                                    ignoreData="{Boolean}true"
+                                                    name="_charset_"
+                                                    value="utf-8"/>
+                                        </items>
+                                    </title>
+                                    <moretitles
+                                            jcr:primaryType="nt:unstructured">
+                                            <items
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:hideChildren="[navigationtitle,description]"/>
+                                    </moretitles>
+                                    <meta
+                                            jcr:primaryType="nt:unstructured"
+                                            cq:hideOnEdit="{Boolean}false"
+                                            cq:showOnCreate="{Boolean}false"
+                                            jcr:title="Page Meta"
+                                            sling:orderBefore="moretitles"
+                                            sling:resourceType="granite/ui/components/foundation/form/fieldset">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <ogtype
+                                                    cq:hideOnEdit="{Boolean}false"
+                                                    cq:showOnCreate="{Boolean}false"
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/form/select"
+                                                    fieldLabel="Type"
+                                                    name="./ogType">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <website
+                                                            jcr:primaryType="nt:unstructured"
+                                                            text="Website"
+                                                            value="website"/>
+                                                    <article
+                                                            jcr:primaryType="nt:unstructured"
+                                                            text="Article"
+                                                            value="article"/>
+                                                    <video
+                                                            jcr:primaryType="nt:unstructured"
+                                                            text="Video"
+                                                            value="video"/>
+                                                    <profile
+                                                            jcr:primaryType="nt:unstructured"
+                                                            text="Profile"
+                                                            value="profile"/>
+                                                </items>
+                                            </ogtype>
+                                            <ogImg
+                                                    cq:hideOnEdit="{Boolean}false"
+                                                    cq:showOnCreate="{Boolean}false"
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                                    fieldLabel="Image URL"
+                                                    name="./ogImg"
+                                                    rootPath="/content/dam"/>
+                                            <ogUrl
+                                                    cq:hideOnEdit="{Boolean}false"
+                                                    cq:showOnCreate="{Boolean}false"
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                                    fieldDescription="Url to be used for canonical URL"
+                                                    fieldLabel="Canonical URL"
+                                                    name="./ogUrl"/>
+                                        </items>
+                                    </meta>
+                                </items>
+                            </column>
+                        </items>
+                    </basic>
+                    <advanced
+                            cq:hideOnEdit="{Boolean}false"
+                            cq:showOnCreate="{Boolean}true"
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Advanced"
+                            sling:resourceType="granite/ui/components/foundation/section">
+                        <layout
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"
+                                margin="{Boolean}false"/>
+                        <items jcr:primaryType="nt:unstructured">
+                            <column
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/foundation/container">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <section1
+                                            jcr:primaryType="nt:unstructured"
+                                            jcr:title="Settings"
+                                            sling:resourceType="granite/ui/components/foundation/form/fieldset">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <redirect
+                                                    cq:hideOnEdit="{Boolean}false"
+                                                    cq:showOnCreate="{Boolean}false"
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                                    fieldLabel="Redirect"
+                                                    name="./redirectTarget"/>
+                                            <designs
+                                                    cq:hideOnEdit="{Boolean}false"
+                                                    cq:showOnCreate="{Boolean}false"
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                                    fieldLabel="Design"
+                                                    name="./cq:designPath"
+                                                    rootPath="/etc/designs"/>
+                                            <contentmargin
+                                                    cq:hideOnEdit="{Boolean}false"
+                                                    cq:showOnCreate="{Boolean}false"
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/form/numberfield"
+                                                    defaultValue="{Long}0"
+                                                    fieldDescription="The margin in pixels from the top of the page."
+                                                    fieldLabel="Content Margin"
+                                                    name="./margin"/>
+                                            <bgColor
+                                                    cq:hideOnEdit="{Boolean}false"
+                                                    cq:showOnCreate="{Boolean}false"
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="mcd-rwd-global/components/dialog/colorpicker"
+                                                    fieldDescription="Please choose the background color for the page."
+                                                    fieldLabel="Background Color"
+                                                    name="./bgColor"
+                                                    showHexValue="{Boolean}true"/>
+                                            <bgRepeat
+                                                    cq:hideOnEdit="{Boolean}false"
+                                                    cq:showOnCreate="{Boolean}false"
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/form/select"
+                                                    defaultValue="no-repeat"
+                                                    fieldDescription="Please choose the repeat type for the background image. Default is No Repeat."
+                                                    fieldLabel="Background Repeat"
+                                                    name="./bgRepeat">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <norepeat
+                                                            jcr:primaryType="nt:unstructured"
+                                                            text="No Repeat"
+                                                            value="no-repeat"/>
+                                                    <repeat
+                                                            jcr:primaryType="nt:unstructured"
+                                                            text="Repeat"
+                                                            value="repeat"/>
+                                                    <repeatx
+                                                            jcr:primaryType="nt:unstructured"
+                                                            text="Repeat Horizontally"
+                                                            value="repeat-x"/>
+                                                    <repeaty
+                                                            jcr:primaryType="nt:unstructured"
+                                                            text="Repeat Vertically"
+                                                            value="repeat-y"/>
+                                                </items>
+                                            </bgRepeat>
+                                            <type
+                                                    cq:hideOnEdit="{Boolean}false"
+                                                    cq:showOnCreate="{Boolean}false"
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/form/select"
+                                                    fieldLabel="Page Type"
+                                                    name="./type">
+                                                <datasource
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="mcd-rwd-global/datasource/base-page"/>
+                                            </type>
+                                            <onofftime
+                                                    cq:hideOnEdit="{Boolean}false"
+                                                    cq:showOnCreate="{Boolean}false"
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/fieldset"
+                                                    jcr:title="On/Off Time">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <ondate
+                                                            cq:hideOnEdit="{Boolean}false"
+                                                            cq:showOnCreate="{Boolean}false"
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/form/datepicker"
+                                                            type="datetime"
+                                                            displayTimezoneMessage="{Boolean}true"
+                                                            displayedFormat="MMMM DD, YYYY hh:mm a"
+                                                            fieldLabel="On Time"
+                                                            name="./onTime"/>
+                                                    <offdate
+                                                            cq:hideOnEdit="{Boolean}false"
+                                                            cq:showOnCreate="{Boolean}false"
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/form/datepicker"
+                                                            type="datetime"
+                                                            displayTimezoneMessage="{Boolean}true"
+                                                            displayedFormat="MMMM DD, YYYY hh:mm a"
+                                                            fieldLabel="Off Time"
+                                                            name="./offTime"/>
+                                                </items>
+                                            </onofftime>
+                                            <!--<ontime
+                                                    jcr:primaryType="cq:Widget"
+                                                    ctCls="cq-propsdialog-ontime"
+                                                    fieldLabel="On Time"
+                                                    name="./onTime"
+                                                    xtype="datetime"/>
+                                            <offtime
+                                                    jcr:primaryType="cq:Widget"
+                                                    ctCls="cq-propsdialog-offtime"
+                                                    fieldLabel="Off Time"
+                                                    name="./offTime"
+                                                    xtype="datetime"/>
+                                            <onTimeHint
+                                                    jcr:primaryType="cq:Widget"
+                                                    ignoreData="{Boolean}true"
+                                                    name="./onTime@TypeHint"
+                                                    value="Date"
+                                                    xtype="hidden"/>
+                                            <offTimeHint
+                                                    jcr:primaryType="cq:Widget"
+                                                    ignoreData="{Boolean}true"
+                                                    name="./offTime@TypeHint"
+                                                    value="Date"
+                                                    xtype="hidden"/>
+                                            <imageType
+                                                    jcr:primaryType="cq:Widget"
+                                                    ignoreData="{Boolean}true"
+                                                    name="./image/sling:resourceType"
+                                                    value="foundation/components/image"
+                                                    xtype="hidden"/>
+                                            <thumbnailImageType
+                                                    jcr:primaryType="cq:Widget"
+                                                    ignoreData="{Boolean}true"
+                                                    name="./thumbnail/sling:resourceType"
+                                                    value="foundation/components/image"
+                                                    xtype="hidden"/>-->
+                                            <textcolor
+                                                    cq:hideOnEdit="{Boolean}false"
+                                                    cq:showOnCreate="{Boolean}false"
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="mcd-rwd-global/components/dialog/colorpicker"
+                                                    fieldDescription="Choose the text color."
+                                                    fieldLabel="Text Color"
+                                                    name="./textColor"
+                                                    showHexValue="{Boolean}true"/>
+                                            <errorpages
+                                                    cq:hideOnEdit="{Boolean}false"
+                                                    cq:showOnCreate="{Boolean}false"
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                                    fieldDescription="Error pages for this content tree"
+                                                    fieldLabel="Error Pages"
+                                                    name="./errorPages"/>
+                                            <faqTopicId
+                                                    cq:hideOnEdit="{Boolean}false"
+                                                    cq:showOnCreate="{Boolean}false"
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                    fieldDescription="Please provide the faq page name"
+                                                    fieldLabel="Faq Topic Id"
+                                                    name="./faqTopicId"/>
+                                        </items>
+                                    </section1>
+                                </items>
+                            </column>
+                        </items>
+                    </advanced>
+            </items>
+            </tabs>
+        </items>
+    </content>
+</jcr:root>

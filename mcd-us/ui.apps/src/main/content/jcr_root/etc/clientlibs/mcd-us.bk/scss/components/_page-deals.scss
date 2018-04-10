@@ -1,0 +1,194 @@
+.page-deals {
+  .cont-app-break {
+    background: '#f0f0eb';
+    text-align: center;
+    @include fontSet(26px, 26px, $font-lovinsans-medium);
+
+    @media only screen and (min-width: 768px){
+      @include fontSet(30px, 30px, $font-lovinsans-medium);
+    }
+    @media only screen and (min-width: 992px){
+      @include fontSet(40px, 40px, $font-lovinsans-medium);
+    }
+
+    .list-inline {
+      margin: 15px auto;
+
+      > li {
+        display: block;
+        margin-bottom: 10px;
+        @media only screen and (min-width: 768px){
+          display: inline-block;
+          margin-bottom: 0px;
+        }
+      }
+    }
+
+    a{
+      padding-left: 5px;
+      max-width: 100%;
+    }
+
+    .space-right {
+      padding-right: 5px;
+      padding-left: 0;
+    }
+
+    .link-app {
+      display: inline-block;
+      max-width: 49%;
+
+      img{
+        max-width: 100%;
+      }
+    }
+  }
+
+  .large .component-feature-callout .absolute-content .absolute-content-wrapper .headline-text p.middle {
+    @include fontSet(56px, 56px, $font-lovinsans-black);
+  }
+  .component-feature-callout .absolute-content .absolute-content-wrapper {
+    vertical-align: bottom;
+  }
+  .component-feature-callout .absolute-content .absolute-content-wrapper .btn-red {
+    margin-bottom: 15px;
+  }
+
+  .modal-content{
+    padding-left: 25px;
+    padding-right: 25px;
+
+    .headline-text {
+      @include fontSet(36px, 36px, $font-lovinsans-black);
+      margin-top: 30px;
+      margin-bottom: 20px;
+
+      @media only screen and (min-width: 768px){
+        @include fontSet(56px, 56px, $font-lovinsans-black);
+        margin: 0.67em 0;
+      }
+    }
+  }
+
+  .component-hero{
+    .template-hero{
+
+
+      .absolute-content .absolute-content-wrapper {
+        h2,
+        .h2 {
+          text-transform: uppercase;
+    			margin-top: 0;
+    			margin-bottom: 5px;
+    			@include fontSet(50px, 50px, $font-lovinsans-bold);
+    			color: $white;
+        }
+        h1,
+        .h1 {
+          text-transform: none;
+          @include fontSet(26px, 1.4em, $font-lovinsans-medium);
+          margin-top: 0;
+          margin-bottom: 5px;
+        }
+
+
+        @media only screen and (min-width: 320px) {
+          h2,
+          .h2{
+            @include fontSet(50px, 50px, $font-lovinsans-bold);
+          }
+          h1,
+          .h1{
+            @include fontSet(26px, 1.4em, $font-lovinsans-medium);
+          }
+  			}
+        @media only screen and (min-width: 375px) {
+          h2,
+          .h2{
+            @include fontSet(56px, 56px, $font-lovinsans-bold);
+          }
+  			}
+  			@media only screen and (min-width: 480px) {
+          h2,
+          .h2{
+            @include fontSet(70px, 70px, $font-lovinsans-bold);
+          }
+  			}
+
+        @media only screen and (min-width: 768px){
+          h2,
+          .h2{
+            @include fontSet(100px, 1em, $font-lovinsans-bold);
+          }
+          h1,
+          .h1{
+            @include fontSet(36px, 1.2em, $font-lovinsans-medium);
+          }
+        }
+
+        @media only screen and (min-width: 992px){
+          h2,
+          .h2{
+            @include fontSet(125px, 125px, $font-lovinsans-bold);
+          }
+          h1,
+          .h1{
+            @include fontSet(50px, 1.2em, $font-lovinsans-medium);
+          }
+        }
+
+        @media only screen and (min-width: 1200px){
+          h2,
+          .h2{
+            @include fontSet(125px, 125px, $font-lovinsans-bold);
+          }
+          h1,
+          .h1{
+            @include fontSet(46px, 1.2em, $font-lovinsans-medium);
+          }
+        }
+      }
+
+      .text-wrapper{
+
+        &.heroTextLeft, &.heroTextRight{
+          @media only screen and (min-width: 768px) and (max-width: 991px){
+
+
+            h1,
+            .h1{
+              @include fontSet(33px, 1.2em, $font-lovinsans-medium);
+            }
+
+            h2,
+            .h2{
+              @include fontSet(80px, 1em, $font-lovinsans-bold);
+            }
+          }
+
+          @media only screen and (min-width: 992px) and (max-width: 1199px){
+
+            h1,
+            .h1{
+              @include fontSet(40px, 1.2em, $font-lovinsans-medium);
+            }
+
+            h2,
+            .h2{
+              @include fontSet(80px, 1em, $font-lovinsans-bold);
+            }
+          }
+
+        }
+
+
+      }
+
+
+    }
+
+
+  }
+
+
+}

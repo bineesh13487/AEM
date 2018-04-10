@@ -1,0 +1,111 @@
+<div class="component-category-details" data-sly-use.cat="com.mcd.rwd.us.core.sightly.CategoryDetailHandler" data-ng-controller="categoryController" data-ng-init="init(${cat.getCategory.getCategoryId})">
+    <div class="iconicDesktopFolder" data-folder-id="${cat.iconicDesktopFolderPath}"></div>
+	<div class="iconicLargeRendition" data-folder-id="${cat.getDynamicMediaLargeParameter @context='uri'}"></div>
+	<div class="iconicMediumRendition" data-folder-id="${cat.getDynamicMediaMediumParameter @context='uri'}"></div>
+	<div class="iconicSmallRendition" data-folder-id="${cat.getDynamicMediaSmallParameter @context='uri'}"></div>
+	<div class="iconicXsmallRendition" data-folder-id="${cat.getDynamicMediaXSmallParameter @context='uri'}"></div>
+	<div class="iconicDynamicServerUrl" data-folder-id="${cat.getDynamicMediaServerContextURL @context='uri'}"></div>
+	<div class="iconicbuttonText" data-folder-id="${cat.productButtonText}"></div>
+    <div class="showLiveData" data-showlive-value="${cat.showLiveDataValue}"></div>
+    <section title="banner">
+	    <div class="cont-hero">
+	        <div class="cont-img"
+	             style="background: url('${cat.getCategory.getCategoryMobileImagePath @context='uri'}') no-repeat; background-size: cover; background-position: 50% 0%;">
+	            <img alt="" src="${cat.getCategory.getCategoryHeroImagePath}"
+	                 class="hidden-xs img-responsive cont-100"> <img alt=""
+	                                                                 src="${cat.getCategory.getCategoryMobileImagePath}"
+	                                                                 class="visible-xs-block img-responsive cont-100">
+	        </div>
+	        <div class="absolute-content border-wrapper">
+	            <div class="absolute-content-wrapper offer">
+	                <div class="text-wrapper">
+	                    <div class="cont-title">
+	                        <div class="container">
+	                            <div class="row">
+	                                <div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2 title">
+	                                	<h1 class="headline-text" style="text-align:${cat.categoryTextAlign @ context='styleToken'};">
+	                                		${cat.getCategory.getCategoryShortDescription}
+	                                		<span class="large">${cat.getCategory.getCategoryMarketingName}</span><span class="small">${cat.getCategory.getCategoryDescription @ context='html'}</span>
+										
+										</h1>
+	                                </div>
+	                            </div>
+	                        </div>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	    
+	        <div data-sly-test="${cat.cornerlogoImagePath}" class="caption-logo">
+				<img src="${cat.cornerlogoImagePath}" alt="">
+			</div>
+			<div data-sly-test="${cat.disclaimerText}" class="caption-note text-transform-none">
+				<p data-sly-test="${cat.disclaimerText}">${cat.disclaimerText @ context='html'}</p>
+			</div>
+    	</div>
+    </section>
+    <sly data-sly-test="${(cat.getCurrentPageCategoryId !=0)}">
+        <div class="loadingDiv" style="text-align:center;"><img src="/etc/clientlibs/mcd-us/images/spinner.gif" alt=""/></div></sly>
+    <div class="iconic_count_div cont-featured" style="display: none;">
+        <div class="container-fluid">
+            <div class="row no-gutter">
+                <sly data-sly-list.iconicItem="${cat.getIconicProductsList}">
+                    <div class="iconic_count col-sm-6 zoom-anim-parent ${iconicItem.getWrapperClass}"  id="${iconicItem.getDisplayOrder}">
+                     <a href="${iconicItem.getCategoryItemFullUrl}" class="zoom-anim" title="${cat.productButtonText} about ${iconicItem.getItemMarketingName}">
+                     <picture>
+							<source srcset="${cat.getDynamicMediaServerContextURL @context='uri'}${iconicItem.itemIconicDesktopImagePath}${cat.getDynamicMediaXSmallParameter @context='uri'}" media="(max-width: 432px)" >
+							<source srcset="${cat.getDynamicMediaServerContextURL @context='uri'}${iconicItem.itemIconicDesktopImagePath}${cat.getDynamicMediaSmallParameter @context='uri'}" media="(max-width: 767px)" >
+							<source srcset="${cat.getDynamicMediaServerContextURL @context='uri'}${iconicItem.itemIconicDesktopImagePath}${cat.getDynamicMediaMediumParameter @context='uri'}" media="(max-width: 1024px)" >
+							<source srcset="${iconicItem.itemIconicDesktopImagePath @context='uri'}" media="(max-width: 1920px)">
+							<img class="zoom-anim-target img-responsive" srcset="${iconicItem.itemIconicDesktopImagePath}" aria-hidden="true" alt=" "/>
+						</picture>
+                        <div class="absolute-content" aria-hidden="true">
+                            <div class="absolute-content-wrapper">
+                                <div class="text-wrapper">
+                                    <h4 class='making-iconic-header'>${iconicItem.getItemMarketingName}</h4>
+                                    <div class="btn btn-red small">${cat.productButtonText}</div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tag-text-wrapper-top" aria-hidden="true" ng-if="specialIzationTextCheck(${iconicItem.SpecializationText1})">
+		                    <table class="table">
+		                      <tr>
+		                        <td class="tag-border-left">
+		                          <div class="border"></div>
+		                        </td>
+		                        <td class="tag-text">${iconicItem.SpecializationText1}</td>
+		                        <td class="tag-border-right">
+		                          <div class="border"></div>
+		                        </td>
+		                      </tr>
+		                    </table>
+		                  </div>
+		                  <div class="tag-text-wrapper-bottom" ng-if="specialIzationTextCheck(${iconicItem.SpecializationText2})">
+		                    <table class="table">
+		                      <tr>
+		                        <td class="tag-border-left">
+		                          <div class="border"></div>
+		                        </td>
+		                        <td class="tag-text">${iconicItem.SpecializationText2}</td>
+		                        <td class="tag-border-right">
+		                          <div class="border"></div>
+		                        </td>
+		                      </tr>
+		                    </table>
+		                  </div>
+		               </a>
+                    </div>
+                </sly>
+				<sly data-sly-list.promoItem="${cat.promoResourceList}">
+                     <div class="col-sm-6 large" id="promo_${promoItemList.count}" style="display: none;">
+                <sly data-sly-resource="${promoItem}"></sly>
+                    </div>
+                </sly>
+            </div>
+        </div>
+    </div>
+</div>
+<sly data-sly-test="${(cat.getCurrentPageCategoryId==0) && (wcmmode.edit || wcmmode.design)}">
+    <h3>Please Configure the Category Component - No Category Selected.</h3>
+</sly>

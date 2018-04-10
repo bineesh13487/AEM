@@ -1,0 +1,38 @@
+<sly data-sly-use.wtaInfo="com.mcd.rwd.us.core.sightly.forms.IssueType">
+    <sly data-sly-test="${!wtaInfo.aboutOptions && !wcmmode.disabled}">
+        <p>Please configure form subsection in dialog.</p>
+    </sly>
+    <sly data-sly-test="${wtaInfo.aboutOptions}">
+        <section class="page-contact-us__subpage__what-about" style="background:${wtaInfo.sectionBackgroundColor @ context='styleToken'};">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6">
+						<div class="form-group">
+							<h2>${wtaInfo.sectionTopHeading}</h2>
+							<p style="outline: none;" data-sly-test="${wtaInfo.sectionSubHeading}">${wtaInfo.sectionSubHeading}</p>
+							<div id="aboutOptionsValueSelection" class="select select--@@modifiers ${wtaInfo.wtaRequired}">					
+								<label for="aboutOptionsValue" id="aboutOptionsValue-label" class="visuallyhidden" aria-hidden="true">${wtaInfo.wtaLabel}</label>			
+								<select id="aboutOptionsValue" name="@@id" class="form-control" aria-labelledby="aboutOptionsValue-label" title="${wtaInfo.wtaTitle}">
+									<option data-hidden="true" value="">${wtaInfo.wtaDropdownDefaultValue}</option>
+									<sly data-sly-list="${wtaInfo.aboutOptions}">
+										<option value="${item.value}">${item.name}</option>
+									</sly>
+								</select>
+								<input type="text" class="hidden" id="contactUs-topic-input" name="topic" maxlength="30">
+								<label id="contactUs-topic-input-error" class="error click-before-outline" for="contactUs-topic-input" style="outline: none;" aria-hidden="true" tabindex="0"></label>
+							</div>	
+							<p>&nbsp;</p>
+						</div>
+                    </div>
+                </div>
+                <div data-sly-test="${wtaInfo.showLocation}" data-sly-resource="${@path='whatIsThisAboutLocation', resourceType='mcd-us/components/content/form/issuetype/location'}" data-sly-unwrap></div>
+            </div>
+            <div class="clear"></div>
+        </section>
+        <div class="clear"></div>
+        <div style="display:none;">
+            <div id="contactUs-topic-message">${wtaInfo.wtaRequiredMessage}</div>
+            <div id="contactUs-topic-label">${wtaInfo.wtaLabel}</div>
+        </div>
+    </sly>
+</sly>

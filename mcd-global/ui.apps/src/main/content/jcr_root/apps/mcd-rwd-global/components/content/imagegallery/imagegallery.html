@@ -1,0 +1,15 @@
+<div data-sly-use.imageGallery="com.mcd.rwd.global.core.sightly.ImageGalleryHandler" >
+	<div data-sly-test="${imageGallery.imageGalleryType == 'select' || wcmmode.edit}">
+        <h1 style="color:#000;font-size:16px;font-weight:bold;">Please configure the dialog to render Image Gallery on page</h1></div>
+     <sly data-sly-test="${imageGallery.imageGalleryType != 'select'}">
+          <sly data-sly-test="${imageGallery.imageGalleryType == 'slideshow'}" >
+                <sly data-sly-include="slideshow.html"></sly>
+            </sly>
+            <sly data-sly-test="${imageGallery.imageGalleryType == 'thumbnail'}" >
+                <sly data-sly-include="thumbnail.html"></sly>
+            </sly>
+            <sly data-sly-test="${imageGallery.imageGalleryType == 'showcase'}" >
+                <sly data-sly-include="showcase.html" ></sly>
+          </sly>
+     </sly>
+</div>

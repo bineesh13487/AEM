@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Dialog"
+    height="500"
+    stateful="false"
+    width="700"
+    xtype="dialog">
+    <items jcr:primaryType="cq:WidgetCollection">
+        <tabs jcr:primaryType="cq:TabPanel">
+            <items jcr:primaryType="cq:WidgetCollection">
+                <tab_basic
+                    jcr:primaryType="cq:Panel"
+                    title="Basic">
+                    <items jcr:primaryType="cq:WidgetCollection">
+                        <basic
+                            jcr:primaryType="cq:Widget"
+                            collapsed="{Boolean}false"
+                            collapsible="{Boolean}false"
+                            xtype="dialogfieldset">
+                            <items jcr:primaryType="cq:WidgetCollection">
+                                <title
+                                    jcr:primaryType="cq:Widget"
+                                    fieldLabel="Title"
+                                    name="./jcr:title"
+                                    xtype="textfield"/>
+                                <navtitle
+                                    jcr:primaryType="cq:Widget"
+                                    fieldLabel="Navigation Title"
+                                    name="./navTitle"
+                                    xtype="textfield"/>
+                                <description
+                                    jcr:primaryType="cq:Widget"
+                                    fieldLabel="Description"
+                                    name="./jcr:description"
+                                    xtype="textarea"/>
+                                <tags
+                                    jcr:primaryType="cq:Widget"
+                                    cls="cq-propsdialog-tags"
+                                    fieldLabel="Tags/Keywords"
+                                    name="./cq:tags"
+                                    xtype="tags"/>
+                                <hideinnav
+                                    jcr:primaryType="cq:Widget"
+                                    fieldLabel="Hide in Navigation"
+                                    inputValue="true"
+                                    name="./hideInNav"
+                                    type="checkbox"
+                                    xtype="selection"/>
+                            </items>
+                        </basic>
+                        <meta
+                            jcr:primaryType="cq:Widget"
+                            collapsed="true"
+                            collapsible="true"
+                            title="Page Meta"
+                            xtype="dialogfieldset">
+                            <items jcr:primaryType="cq:WidgetCollection">
+                                <ogtype
+                                    jcr:primaryType="cq:Widget"
+                                    fieldLabel="Type"
+                                    name="./ogType"
+                                    type="select"
+                                    xtype="selection">
+                                    <options jcr:primaryType="cq:WidgetCollection">
+                                        <website
+                                            jcr:primaryType="nt:unstructured"
+                                            text="Website"
+                                            value="website"/>
+                                        <article
+                                            jcr:primaryType="nt:unstructured"
+                                            text="Article"
+                                            value="article"/>
+                                        <video
+                                            jcr:primaryType="nt:unstructured"
+                                            text="Video"
+                                            value="video"/>
+                                        <profile
+                                            jcr:primaryType="nt:unstructured"
+                                            text="Profile"
+                                            value="profile"/>
+                                    </options>
+                                </ogtype>
+                                <ogImg
+                                    jcr:primaryType="cq:Widget"
+                                    fieldLabel="Image URL"
+                                    name="./ogImg"
+                                    rootPath="/content/dam"
+                                    xtype="pathfield"/>
+                                <ogUrl
+                                    jcr:primaryType="cq:Widget"
+                                    fieldLabel="Canonical URL"
+                                    fieldDescription="Url to be used for canonical URL"
+                                    name="./ogUrl"
+                                    xtype="pathfield"/>
+                            </items>
+                        </meta>
+                    </items>
+                </tab_basic>
+                <tab_advanced
+                    jcr:primaryType="cq:Panel"
+                    title="Advanced">
+                    <items jcr:primaryType="cq:WidgetCollection">
+                        <redirect
+                            jcr:primaryType="cq:Widget"
+                            fieldLabel="Redirect"
+                            name="./redirectTarget"
+                            xtype="pathfield"/>
+                        <designpath
+                            jcr:primaryType="cq:Widget"
+                            fieldLabel="Design"
+                            name="./cq:designPath"
+                            predicate="hierarchyNotFile"
+                            rootPath="/etc/designs"
+                            xtype="pathfield"/>
+                        <contentmargin
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="{Long}0"
+                            fieldDescription="The margin in pixels from the top of the page."
+                            fieldLabel="Content Margin"
+                            name="./margin"
+                            xtype="numberfield"/>
+                        <bgColor
+                                jcr:primaryType="cq:Widget"
+                                fieldDescription="Please choose the background color for the page."
+                                fieldLabel="Background Color"
+                                name="./bgColor"
+                                showHexValue="{Boolean}true"
+                                xtype="colorfield"/>
+                        <bgRepeat
+                                jcr:primaryType="cq:Widget"
+                                defaultValue="no-repeat"
+                                fieldDescription="Please choose the repeat type for the background image. Default is No Repeat."
+                                fieldLabel="Background Repeat"
+                                name="./bgRepeat"
+                                type="select"
+                                xtype="selection">
+                            <options jcr:primaryType="cq:WidgetCollection">
+                                <norepeat
+                                        jcr:primaryType="nt:unstructured"
+                                        text="No Repeat"
+                                        value="no-repeat"/>
+                                <repeat
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Repeat"
+                                        value="repeat"/>
+                                <repeatx
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Repeat Horizontally"
+                                        value="repeat-x"/>
+                                <repeaty
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Repeat Vertically"
+                                        value="repeat-y"/>
+                            </options>
+                        </bgRepeat>
+                        <type
+                                jcr:primaryType="cq:Widget"
+                                fieldLabel="Page Type"
+                                name="./type"
+                                options="$PATH.pagetype.json"
+                                type="select"
+                                xtype="selection"/>
+                        <ontime
+                            jcr:primaryType="cq:Widget"
+                            ctCls="cq-propsdialog-ontime"
+                            fieldLabel="On Time"
+                            name="./onTime"
+                            xtype="datetime"/>
+                        <offtime
+                            jcr:primaryType="cq:Widget"
+                            ctCls="cq-propsdialog-offtime"
+                            fieldLabel="Off Time"
+                            name="./offTime"
+                            xtype="datetime"/>
+                        <onTimeHint
+                            jcr:primaryType="cq:Widget"
+                            ignoreData="{Boolean}true"
+                            name="./onTime@TypeHint"
+                            value="Date"
+                            xtype="hidden"/>
+                        <offTimeHint
+                            jcr:primaryType="cq:Widget"
+                            ignoreData="{Boolean}true"
+                            name="./offTime@TypeHint"
+                            value="Date"
+                            xtype="hidden"/>
+                        <imageType
+                            jcr:primaryType="cq:Widget"
+                            ignoreData="{Boolean}true"
+                            name="./image/sling:resourceType"
+                            value="foundation/components/image"
+                            xtype="hidden"/>
+                        <thumbnailImageType
+                            jcr:primaryType="cq:Widget"
+                            ignoreData="{Boolean}true"
+                            name="./thumbnail/sling:resourceType"
+                            value="foundation/components/image"
+                            xtype="hidden"/>
+                         <bgColor
+                            jcr:primaryType="cq:Widget"
+                            fieldDescription="Please choose the background color for the page."
+                            fieldLabel="Background Color"
+                            name="./bgColor"
+                            showHexValue="{Boolean}true"
+                            xtype="colorfield"/>
+                        <bgRepeat
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="no-repeat"
+                            fieldDescription="Please choose the repeat type for the background image. Default is No Repeat."
+                            fieldLabel="Background Repeat"
+                            name="./bgRepeat"
+                            type="select"
+                            xtype="selection">
+                            <options jcr:primaryType="cq:WidgetCollection">
+                                <norepeat
+                                    jcr:primaryType="nt:unstructured"
+                                    text="No Repeat"
+                                    value="no-repeat"/>
+                                <repeat
+                                    jcr:primaryType="nt:unstructured"
+                                    text="Repeat"
+                                    value="repeat"/>
+                                <repeatx
+                                    jcr:primaryType="nt:unstructured"
+                                    text="Repeat Horizontally"
+                                    value="repeat-x"/>
+                                <repeaty
+                                    jcr:primaryType="nt:unstructured"
+                                    text="Repeat Vertically"
+                                    value="repeat-y"/>
+                            </options>
+                        </bgRepeat>
+                          <textcolor
+                            jcr:primaryType="cq:Widget"
+                            fieldDescription="Choose the text color."
+                            fieldLabel="Text Color"
+                            name="./textColor"
+                            showHexValue="{Boolean}true"
+                            xtype="colorfield"/>
+					    <errorpages
+							jcr:primaryType="cq:Widget"
+							fieldLabel="Error Pages"
+							fieldDescription="Error pages for this content tree"
+							name="./errorPages"
+							xtype="pathfield"/>
+												
+<faqTopicId
+                            jcr:primaryType="cq:Widget"
+                            fieldDescription="Please provide the faq page name"
+                            fieldLabel="Faq Topic Id"
+                            name="./faqTopicId"
+                            xtype="textfield"/>	
+                    </items>
+                </tab_advanced>
+                <image
+                    jcr:primaryType="cq:Widget"
+                    cropParameter="./image/imageCrop"
+                    ddGroups="[media]"
+                    fileNameParameter="./image/fileName"
+                    fileReferenceParameter="./image/fileReference"
+                    mapParameter="./image/imageMap"
+                    name="./image/file"
+                    renditionSuffix="/_jcr_content/renditions/original"
+                    requestSuffix=".img.png"
+                    rotateParameter="./image/imageRotate"
+                    title="Background Image"
+                    xtype="html5smartimage"/>
+                <thumbnail
+                    jcr:primaryType="cq:Widget"
+                    cropParameter="./thumbnail/imageCrop"
+                    ddGroups="[media]"
+                    fileNameParameter="./thumbnail/fileName"
+                    fileReferenceParameter="./thumbnail/fileReference"
+                    mapParameter="./thumbnail/imageMap"
+                    name="./thumbnail/file"
+                    renditionSuffix="/_jcr_content/renditions/original"
+                    requestSuffix="/thumbnail.img.png"
+                    rotateParameter="./thumbnail/imageRotate"
+                    title="Thumbnail Image"
+                    xtype="html5smartimage"/>
+                <tab_cloudservices
+                    jcr:primaryType="cq:Panel"
+                    cls="cq-propsdialog-cloudservices"
+                    title="Cloud Services"
+                    xtype="cloudservicepanel">
+                    <items jcr:primaryType="cq:WidgetCollection">
+                        <cloudservices
+                            jcr:primaryType="cq:Widget"
+                            path="/libs/foundation/components/page/tab_cloudservices.infinity.json"
+                            xtype="cqinclude"/>
+                    </items>
+                </tab_cloudservices>
+            </items>
+        </tabs>
+    </items>
+</jcr:root>

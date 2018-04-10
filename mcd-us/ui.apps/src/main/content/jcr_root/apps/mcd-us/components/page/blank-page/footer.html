@@ -1,0 +1,41 @@
+<!--/*
+
+  ADOBE CONFIDENTIAL
+  __________________
+
+   Copyright 2014 Adobe Systems Incorporated
+   All Rights Reserved.
+
+  NOTICE:  All information contained herein is, and remains
+  the property of Adobe Systems Incorporated and its suppliers,
+  if any.  The intellectual and technical concepts contained
+  herein are proprietary to Adobe Systems Incorporated and its
+  suppliers and are protected by trade secret or copyright law.
+  Dissemination of this information or reproduction of this material
+  is strictly forbidden unless prior written permission is obtained
+  from Adobe Systems Incorporated.
+
+  Include custom libraries in page's footer
+*/-->
+
+<footer class="footer" style="${body.background @ context='unsafe'};color:#${body.textColor @ context='styleToken'};">
+    <div data-sly-use.handler="com.mcd.rwd.global.core.sightly.page.BumperHandler" class="modal fade"
+         data-sly-test="${ handler.bumper.enabled }" id="leavingMcD" tabindex="-1" role="dialog"
+         aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content leaving-site-content">
+                <div class="btn-close" data-dismiss="modal"><i class="fa fa-times"></i></div>
+                <h1 class="headline-text"><span class="large-modal-text">${ handler.bumper.title @ context='unsafe' }</span>
+                </h1>
+                <p class="body-copy" data-sly-test="${handler.bumper.text}">${ handler.bumper.text @ context='unsafe'}</p>
+                <ul class="list-inline">
+                    <li><a href="#" id="bumper-continue" title="${ handler.bumper.btnOk }"
+                           class="btn btn-red">${ handler.bumper.btnOk @ context='unsafe' }</a></li>
+                    <li><a href="#" data-dismiss="modal" title="${ handler.bumper.btnCancel }"
+                           class="btn btn-red">${ handler.bumper.btnCancel @ context='unsafe' }</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+<sly data-sly-include="customfooterlibs.html"></sly>

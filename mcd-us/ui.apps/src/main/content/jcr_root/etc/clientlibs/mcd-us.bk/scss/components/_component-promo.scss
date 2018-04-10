@@ -1,0 +1,95 @@
+// COMPONENT: DEAL
+.component-promo {
+	text-align: center;
+	color: $black-text;
+	position: relative;
+
+	.cont-btn {
+		margin-bottom: 0;
+	}
+
+	.absolute-content .headline-text {
+		margin-bottom: 5px;
+
+		@media only screen and (min-width: 320px) {
+			.large {
+				@include fontSet(60px, 60px, 'LovinSansWeb-Bold');
+			}
+		}
+		@media only screen and (min-width: 480px) {
+			margin-bottom: 15px;
+
+			.large {
+				@include fontSet(100px, 100px, 'LovinSansWeb-Bold');
+			}
+		}
+		@media only screen and (min-width: 768px) {
+			margin-bottom: 5px;
+
+			.large {
+				@include fontSet(60px, 60px, 'LovinSansWeb-Bold');
+			}
+		}
+		@media only screen and (min-width: 992px) {
+			margin-bottom: 15px;
+
+			.large {
+				@include fontSet(100px, 100px, 'LovinSansWeb-Bold');
+			}
+		}
+		@media only screen and (min-width: 1200px) {
+			margin-bottom: 30px;
+
+			.large {
+				@include fontSet(125px, 125px, 'LovinSansWeb-Bold');
+			}
+		}
+	}
+}
+
+//updated promo
+
+@media only screen and (max-width: 767px) {
+    .promo-component {
+        .cont-top-img .img-top{
+        	  margin-left : 15px;
+        }
+    }
+}
+
+@media only screen and (min-width: 768px) {
+.promo-component .alt_style .absolute-content {
+        .promoBoxleft {
+            text-align: left;
+            padding-left:15px;
+            .cont-top-img img {
+                display: inline-block;
+            }
+            .text-wrapper {
+                text-align: left;
+                .headline-text{
+                    text-align: left;
+                }
+            }
+        }
+        .promoBoxright {
+            text-align: right;
+            padding-right: 15px;
+            .cont-top-img img {
+                display: inline-block;
+            }
+            .text-wrapper {
+                text-align: right;
+                .headline-text{
+                    text-align: right;
+                }
+            }
+        }
+        .promoBox .cont-top-img img {
+            display: inline-block;
+        }
+        .promoBoxcenter .cont-top-img img {
+            display: inline-block;
+        }
+    }
+}

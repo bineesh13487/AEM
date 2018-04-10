@@ -1,0 +1,8 @@
+/// Changes color of hr element, specifically it's border-top-color value.
+/// @group colors
+/// @param {*} $color
+@mixin hrColor($color){
+  hr {
+    border-top-color: $color;
+  }
+}

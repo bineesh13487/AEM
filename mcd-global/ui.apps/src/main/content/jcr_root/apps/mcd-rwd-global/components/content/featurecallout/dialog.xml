@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Dialog"
+    height="600"
+    width="800"
+    xtype="dialog">
+    <items
+        jcr:primaryType="cq:Widget"
+        hideAllTabs="function(){&#xa;&#x9;var tabs=['callout1','callout2','callout3','callout4','static1','static2','static3','static4'];&#xa;&#x9;for(var i=0;i&lt;tabs.length;i++){&#xa;&#x9;&#x9;this.hideTabStripItem(i+1);&#xa;&#x9;}&#xa;}"
+        manageTabs="function(tab,noSwitch){&#xa;&#x9;var tabs=['callout1','callout2','callout3','callout4','static1','static2','static3','static4'];&#xa;&#x9;for(var j=0; j&lt;tab.length; j++) {&#xa;&#x9;&#x9;var index=tabs.indexOf(tab[j]);&#xa;&#x9;&#x9;if(index==-1) return;&#xa;&#x9;&#x9;for(var i=0;i&lt;tabs.length;i++){&#xa;&#x9;&#x9;&#x9;if(index==i){&#xa;&#x9;&#x9;&#x9;&#x9;this.unhideTabStripItem(i+1);&#xa;&#x9;&#x9;&#x9;}&#xa;&#x9;&#x9;}&#xa;&#x9;}&#xa;&#x9;this.doLayout();&#xa;&#x9;if(!noSwitch)this.activate(index);&#xa;}"
+        showFields="function(tab,show){&#xa;&#x9;var tabs=['callout1','callout2','callout3','callout4','static1','static2','static3','static4'];&#xa;&#x9;for(var j=0; j&lt;tab.length; j++) {&#xa;&#x9;&#x9;var index=tabs.indexOf(tab[j]);&#xa;&#x9;&#x9;if(index==-1) return;&#xa;&#x9;&#x9;for(var i=0;i&lt;tabs.length;i++){&#xa;&#x9;&#x9;&#x9;if(index==i){&#xa;&#x9;&#x9;&#x9;&#x9;var panel = this.getComponent(i+1);&#xa;&#x9;&#x9;&#x9;&#x9;if(show)&#xa;&#x9;&#x9;&#x9;&#x9;&#x9;panel.showTimeFields();&#xa;&#x9;&#x9;&#x9;&#x9;else&#xa;&#x9;&#x9;&#x9;&#x9;&#x9;panel.hideTimeFields();&#xa;&#x9;&#x9;&#x9;}&#xa;&#x9;&#x9;}&#xa;&#x9;}&#xa;}"
+        xtype="tabpanel">
+        <items jcr:primaryType="cq:WidgetCollection">
+            <general
+                jcr:primaryType="cq:Panel"
+                title="General Settings">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <number
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Number of Callouts to be displayed on the page."
+                        fieldLabel="No. of Callouts"
+                        name="./number"
+                        type="select"
+                        xtype="selection">
+                        <options jcr:primaryType="cq:WidgetCollection">
+                            <three
+                                jcr:primaryType="nt:unstructured"
+                                text="3"
+                                value="3"/>
+                            <four
+                                jcr:primaryType="nt:unstructured"
+                                text="4"
+                                value="4"/>
+                        </options>
+                        <listeners
+                            jcr:primaryType="nt:unstructured"
+                            selectionchanged="function(box, value) {&#xa;&#x9;var tabPanel = box.findParentByType('tabpanel');&#xa;&#x9;var dialog = box.findParentByType('dialog');&#xa;&#x9;var type = dialog.getField('./type').getValue();&#xa;&#x9;tabPanel.hideAllTabs();&#xa;&#x9;var tabType = 'static';&#xa;&#x9;if(type!='static') {&#xa;&#x9;&#x9;tabType = 'callout';&#xa;&#x9;}&#xa;&#x9;var tabs = [];&#xa;&#x9;for(var i=1; i&lt;=value; i++) {&#xa;&#x9;&#x9;tabs.push(tabType+i);&#xa;&#x9;}&#xa;&#x9;tabPanel.manageTabs(tabs,true);&#xa;&#x9;if(type=='time') {&#xa;&#x9;&#x9;tabPanel.showFields(tabs,true);&#xa;&#x9;} else if(type == 'random') {&#xa;&#x9;&#x9;tabPanel.showFields(tabs,false);&#xa;&#x9;}&#xa;}"/>
+                    </number>
+                    <type
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="&lt;b>Static&lt;/b> - Only one Callout can be configured for a particular place.&lt;/br>&#xa;&lt;b>Multiple (Random)&lt;/b> - Multiple Callout can be configured which will be displayed randomly within each callout area.&lt;/br>&#xa;&lt;b>Multiple (Time Sensitive) &lt;/b>- Multiple Callout can be configured for different time slots."
+                        fieldLabel="Type"
+                        name="./type"
+                        type="select"
+                        xtype="selection">
+                        <options jcr:primaryType="cq:WidgetCollection">
+                            <static
+                                jcr:primaryType="nt:unstructured"
+                                text="Static"
+                                value="static"/>
+                            <random
+                                jcr:primaryType="nt:unstructured"
+                                text="Multiple (Random)"
+                                value="random"/>
+                            <timeBased
+                                jcr:primaryType="nt:unstructured"
+                                text="Multiple (Time Sensitive)"
+                                value="time"/>
+                        </options>
+                        <listeners
+                            jcr:primaryType="nt:unstructured"
+                            loadcontent="function(){&#xa;&#x9;var type = this.getValue();&#xa;&#x9;var tabPanel = this.findParentByType('tabpanel');&#xa;&#x9;var dialog = this.findParentByType('dialog');&#xa;&#x9;var number = dialog.getField('./number').getValue();&#xa;&#x9;tabPanel.hideAllTabs();&#xa;&#x9;var tabType = 'static';&#xa;&#x9;if(type!='static') {&#xa;&#x9;&#x9;tabType = 'callout';&#xa;&#x9;}&#xa;&#x9;var tabs = [];&#xa;&#x9;for(var i=1; i&lt;=number; i++) {&#xa;&#x9;&#x9;tabs.push(tabType+i);&#xa;&#x9;}&#xa;&#x9;tabPanel.manageTabs(tabs,true);&#xa;&#x9;if(type=='time') {&#xa;&#x9;&#x9;tabPanel.showFields(tabs,true);&#xa;&#x9;} else if(type == 'random') {&#xa;&#x9;&#x9;tabPanel.showFields(tabs,false);&#xa;&#x9;}&#xa;}"
+                            selectionchanged="function(box,value){&#xa;&#x9;var tabPanel = box.findParentByType('tabpanel');&#xa;&#x9;var dialog = box.findParentByType('dialog');&#xa;&#x9;var number = dialog.getField('./number').getValue();&#xa;&#x9;tabPanel.hideAllTabs();&#xa;&#x9;var tabType = 'static';&#xa;&#x9;if(value!='static') {&#xa;&#x9;&#x9;tabType = 'callout';&#xa;&#x9;}&#xa;&#x9;var tabs = [];&#xa;&#x9;for(var i=1; i&lt;=number; i++) {&#xa;&#x9;&#x9;tabs.push(tabType+i);&#xa;&#x9;}&#xa;&#x9;tabPanel.manageTabs(tabs,true);&#xa;&#x9;if(value=='time') {&#xa;&#x9;&#x9;tabPanel.showFields(tabs,true);&#xa;&#x9;} else if(value == 'random') {&#xa;&#x9;&#x9;tabPanel.showFields(tabs,false);&#xa;&#x9;}&#xa;}"/>
+                    </type>
+                </items>
+            </general>
+            <callout1
+                jcr:primaryType="cq:Panel"
+                displayTime="{Boolean}true"
+                nodePath="/callout1"
+                title="Callout 1"
+                xtype="calloutpanel">
+                <listeners
+                    jcr:primaryType="nt:unstructured"
+                    render="function() { this.findParentByType('tabpanel').hideTabStripItem(1); }"/>
+            </callout1>
+            <callout2
+                jcr:primaryType="cq:Panel"
+                displayTime="{Boolean}true"
+                nodePath="/callout2"
+                title="Callout 2"
+                xtype="calloutpanel">
+                <listeners
+                    jcr:primaryType="nt:unstructured"
+                    render="function() { this.findParentByType('tabpanel').hideTabStripItem(2); }"/>
+            </callout2>
+            <callout3
+                jcr:primaryType="cq:Panel"
+                displayTime="{Boolean}true"
+                nodePath="/callout3"
+                title="Callout 3"
+                xtype="calloutpanel">
+                <listeners
+                    jcr:primaryType="nt:unstructured"
+                    render="function() { this.findParentByType('tabpanel').hideTabStripItem(3); }"/>
+            </callout3>
+            <callout4
+                jcr:primaryType="cq:Panel"
+                displayTime="{Boolean}true"
+                nodePath="/callout4"
+                title="Callout 4"
+                xtype="calloutpanel">
+                <listeners
+                    jcr:primaryType="nt:unstructured"
+                    render="function() { this.findParentByType('tabpanel').hideTabStripItem(4); }"/>
+            </callout4>
+            <static1
+                jcr:primaryType="cq:Panel"
+                title="Callout 1">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <image
+                        jcr:primaryType="cq:Widget"
+                        border="true"
+                        ddGroups="[media]"
+                        disableZoom="true"
+                        fieldLabel="Image"
+                        fileNameParameter="./static1/fileName"
+                        fileReferenceParameter="./static1/fileReference"
+                        height="300"
+                        name="./static1/file"
+                        requestSuffix="/static1.img.png"
+                        sizeLimit="100"
+                        width="500"
+                        xtype="html5smartimage"/>
+                    <link
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Please choose or enter any URL for the callout."
+                        fieldLabel="Link*"
+                        name="./static1/link"
+                        xtype="pathfield"/>
+                    <text
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Please provide the text to be displayed over the callout image."
+                        fieldLabel="Text"
+                        name="./static1/text"
+                        xtype="textfield"/>
+                    <position
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Please choose the horizontal alignment of text over image."
+                        fieldLabel="Text Position"
+                        name="./static1/position"
+                        xtype="selection">
+                        <options jcr:primaryType="cq:WidgetCollection">
+                            <left
+                                jcr:primaryType="nt:unstructured"
+                                text="Left"
+                                value="left"/>
+                            <center
+                                jcr:primaryType="nt:unstructured"
+                                text="Center"
+                                value="center"/>
+                            <right
+                                jcr:primaryType="nt:unstructured"
+                                text="Right"
+                                value="right"/>
+                        </options>
+                    </position>
+                    <color
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Default Value: White"
+                        fieldLabel="Text Color"
+                        name="./static1/overlayColor"
+                        xtype="colorfield"/>
+                    <altText
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Alt Text"
+                        name="./static1/altText"
+                        xtype="textfield"/>
+                    <resType
+                        jcr:primaryType="cq:Widget"
+                        ignoreData="{Boolean}true"
+                        name="./static1/sling:resourceType"
+                        value="foundation/components/image"
+                        xtype="hidden"/>
+                </items>
+                <listeners
+                    jcr:primaryType="nt:unstructured"
+                    render="function() { this.findParentByType('tabpanel').hideTabStripItem(5); }"/>
+            </static1>
+            <static2
+                jcr:primaryType="cq:Panel"
+                title="Callout 2">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <image
+                        jcr:primaryType="cq:Widget"
+                        border="true"
+                        ddGroups="[media]"
+                        disableZoom="true"
+                        fieldLabel="Image"
+                        fileNameParameter="./static2/fileName"
+                        fileReferenceParameter="./static2/fileReference"
+                        height="300"
+                        name="./static2/file"
+                        requestSuffix="/static2.img.png"
+                        sizeLimit="100"
+                        width="500"
+                        xtype="html5smartimage"/>
+                    <link
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Link*"
+                        name="./static2/link"
+                        xtype="pathfield"/>
+                    <text
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Text"
+                        name="./static2/text"
+                        xtype="textfield"/>
+                    <position
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Text Position"
+                        name="./static2/position"
+                        xtype="selection">
+                        <options jcr:primaryType="cq:WidgetCollection">
+                            <left
+                                jcr:primaryType="nt:unstructured"
+                                text="Left"
+                                value="left"/>
+                            <center
+                                jcr:primaryType="nt:unstructured"
+                                text="Center"
+                                value="center"/>
+                            <right
+                                jcr:primaryType="nt:unstructured"
+                                text="Right"
+                                value="right"/>
+                        </options>
+                    </position>
+                    <color
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Default Value: White"
+                        fieldLabel="Text Color"
+                        name="./static2/overlayColor"
+                        xtype="colorfield"/>
+                    <altText
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Alt Text"
+                        name="./static2/altText"
+                        xtype="textfield"/>
+                    <resType
+                        jcr:primaryType="cq:Widget"
+                        ignoreData="{Boolean}true"
+                        name="./static2/sling:resourceType"
+                        value="foundation/components/image"
+                        xtype="hidden"/>
+                </items>
+                <listeners
+                    jcr:primaryType="nt:unstructured"
+                    render="function() { this.findParentByType('tabpanel').hideTabStripItem(6); }"/>
+            </static2>
+            <static3
+                jcr:primaryType="cq:Panel"
+                title="Callout 3">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <image
+                        jcr:primaryType="cq:Widget"
+                        border="true"
+                        ddGroups="[media]"
+                        disableZoom="true"
+                        fieldLabel="Image"
+                        fileNameParameter="./static3/fileName"
+                        fileReferenceParameter="./static3/fileReference"
+                        height="300"
+                        name="./static3/file"
+                        requestSuffix="/static3.img.png"
+                        sizeLimit="100"
+                        width="500"
+                        xtype="html5smartimage"/>
+                    <link
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Link*"
+                        name="./static3/link"
+                        xtype="pathfield"/>
+                    <text
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Text"
+                        name="./static3/text"
+                        xtype="textfield"/>
+                    <position
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Text Position"
+                        name="./static3/position"
+                        xtype="selection">
+                        <options jcr:primaryType="cq:WidgetCollection">
+                            <left
+                                jcr:primaryType="nt:unstructured"
+                                text="Left"
+                                value="left"/>
+                            <center
+                                jcr:primaryType="nt:unstructured"
+                                text="Center"
+                                value="center"/>
+                            <right
+                                jcr:primaryType="nt:unstructured"
+                                text="Right"
+                                value="right"/>
+                        </options>
+                    </position>
+                    <color
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Default Value: White"
+                        fieldLabel="Text Color"
+                        name="./static3/overlayColor"
+                        xtype="colorfield"/>
+                    <altText
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Alt Text"
+                        name="./static3/altText"
+                        xtype="textfield"/>
+                    <resType
+                        jcr:primaryType="cq:Widget"
+                        ignoreData="{Boolean}true"
+                        name="./static3/sling:resourceType"
+                        value="foundation/components/image"
+                        xtype="hidden"/>
+                </items>
+                <listeners
+                    jcr:primaryType="nt:unstructured"
+                    render="function() { this.findParentByType('tabpanel').hideTabStripItem(7); }"/>
+            </static3>
+            <static4
+                jcr:primaryType="cq:Panel"
+                title="Callout 4">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <image
+                        jcr:primaryType="cq:Widget"
+                        border="true"
+                        ddGroups="[media]"
+                        disableZoom="true"
+                        fieldLabel="Image"
+                        fileNameParameter="./static4/fileName"
+                        fileReferenceParameter="./static4/fileReference"
+                        height="300"
+                        name="./static4/file"
+                        requestSuffix="/static4.img.png"
+                        sizeLimit="100"
+                        width="500"
+                        xtype="html5smartimage"/>
+                    <link
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Link*"
+                        name="./static4/link"
+                        xtype="pathfield"/>
+                    <text
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Text"
+                        name="./static4/text"
+                        xtype="textfield"/>
+                    <position
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Text Position"
+                        name="./static4/position"
+                        xtype="selection">
+                        <options jcr:primaryType="cq:WidgetCollection">
+                            <left
+                                jcr:primaryType="nt:unstructured"
+                                text="Left"
+                                value="left"/>
+                            <center
+                                jcr:primaryType="nt:unstructured"
+                                text="Center"
+                                value="center"/>
+                            <right
+                                jcr:primaryType="nt:unstructured"
+                                text="Right"
+                                value="right"/>
+                        </options>
+                    </position>
+                    <color
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Default Value: White"
+                        fieldLabel="Text Color"
+                        name="./static4/overlayColor"
+                        xtype="colorfield"/>
+                    <altText
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Alt Text"
+                        name="./static4/altText"
+                        xtype="textfield"/>
+                    <resType
+                        jcr:primaryType="cq:Widget"
+                        ignoreData="{Boolean}true"
+                        name="./static4/sling:resourceType"
+                        value="foundation/components/image"
+                        xtype="hidden"/>
+                </items>
+                <listeners
+                    jcr:primaryType="nt:unstructured"
+                    render="function() { this.findParentByType('tabpanel').hideTabStripItem(8); }"/>
+            </static4>
+        </items>
+    </items>
+    <listeners
+        jcr:primaryType="nt:unstructured"
+        beforesubmit="function(dialog){&#xa;&#x9;var number = dialog.getField('./number').getValue();&#xa;&#x9;var type = dialog.getField('./type').getValue();&#xa;&#x9;for(var i=1; i&lt;=number; i++) {&#xa;&#x9;&#x9;if(type=='static'){&#xa;&#x9;&#x9;&#x9;var fieldValue = dialog.getField('./static'+i+'/link').getValue();&#xa;&#x9;&#x9;&#x9;if( fieldValue==''){&#xa;&#x9;&#x9;&#x9;&#x9;CQ.Ext.Msg.show({title: 'Callout Validation',  msg: 'Please provide the mandatory configurations for Callout '+i+'.',icon:CQ.Ext.MessageBox.WARNING,buttons: CQ.Ext.Msg.OK});&#xa;&#x9;&#x9;&#x9;&#x9;return false;&#xa;&#x9;&#x9;&#x9;}&#xa;&#x9;&#x9;}&#xa;&#x9;}&#xa;&#x9;return true;&#xa;}"/>
+</jcr:root>

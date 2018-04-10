@@ -1,0 +1,9 @@
+
+.mcd-search-results {
+  margin-top: to-rem(21);
+
+  &__cards-container {
+    @include make-xs-column(12);
+  }
+}
+

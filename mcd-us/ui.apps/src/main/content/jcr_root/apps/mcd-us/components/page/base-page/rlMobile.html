@@ -1,0 +1,80 @@
+<li ng-show="{{!fullRlData.isRlPage}}">
+	<button type="button" class="close dropdown-close" aria-label="close">
+		<i class="fa fa-times" aria-hidden="true"></i>
+	</button>
+	<div class="cont-landscape-scroll">
+		<form class="component-locate" data-at="{{fullRlData.page_name}}:Form:RestaurantLocator" data-track="form" action="{{fullRlData.restLocPath}}" name="restaurantNavigationForm" method="get" ng-submit="submit()">
+			<div class="row text-center">
+				<div class="col-xs-12">
+					<p class="heading">{{fullRlData.searchFieldHeading}}</p>
+					<div class="row no-gutter">
+						<div class="col-sm-6 col-md-7">
+							<div class="input-group">
+								<input type="text" class="form-control" ng-model="restaurantSearchText" placeholder="{{fullRlData.searchBoxDefaultText}}">
+								<div class="input-group-btn">
+									<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+										{{fullRlData.radius[0]}} {{fullRlData.distanceUnitLocal}}
+										<i class="fa fa-chevron-down"></i>
+									</button>
+									<ul aria-label="{{fullRlData.arialabelforradius}}" class="dropdown-menu dropdown-menu-right">
+										<li ng-repeat="radius in fullRlData.radius"><a href="#">{{radius}} {{fullRlData.distanceUnitLocal}}</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-6 col-md-5">
+							<div class="cont-btns">
+								<div class="wrapper">
+									<button type="submit" class="btn btn-red" ng-click="searchRestaurantsHeader(restaurantSearchText,$event)">{{fullRlData.searchBoxSubmit}}</button>
+								</div>
+								<div class="wrapper middle">
+									<span class="text-or">{{fullRlData.ortext}}</span>
+								</div>
+								<div class="wrapper">
+									<button type="submit" class="btn btn-border" aria-label="{{fullRlData.locateMe}}" ng-click="showRestaurantsForCurrentLocationHeader($event)">
+										<i class="fa fa-map-marker fa-lg"></i>
+										{{fullRlData.locateMe}}
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row cont-filters">
+				<div class="col-sm-10">
+					<ul class="list-inline clearfix">
+						<li ng-repeat="filter in restaurantFilters" ng-if="$index < 4">
+							<div class="checkbox">
+								<input type="checkbox" id="checkbox{{$index+11}}_mobile" role="checkbox" name="checkbox_{{filter.filterValue}}" aria-checked="false" value="{{filter.filterValue}}" ng-click="filterRestaurants(filter.filterValue)"> 
+								<label for="checkbox{{$index+11}}_mobile" aria-label="{{filter.filterName}}" id="checkbox{{$index+11}}_label_mobile" aria-hidden="true" tabindex="-1" ng-cloak>{{filter.filterName}}</label>
+							</div>
+						</li>
+						<div class="cont-toggle"> 
+                            	<a role="button" ng-show="!noShowMore" tabindex="0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="locate-filters-show" 
+                            	data-more="{{fullRlData.showMore}} <i class='fa fa-chevron-down'></i>" 
+                            	data-less="{{fullRlData.showLess}} <i class='fa fa-chevron-up'></i>">
+                            	{{fullRlData.showMore}} <i class="fa fa-chevron-down"></i>
+                            	</a>                                        
+                            </div>
+						<li ng-repeat="filter in restaurantFilters" ng-if="$index == 4" class="afterfold first-focus hidden">
+							<div class="checkbox">
+								<input type="checkbox" id="checkbox{{$index+11}}_mobile" role="checkbox" name="checkbox_{{filter.filterValue}}" aria-checked="false" value="{{filter.filterValue}}" ng-click="filterRestaurants(filter.filterValue)"> 
+								<label for="checkbox{{$index+11}}_mobile" aria-label="{{filter.filterName}}" id="checkbox{{$index+11}}_label_mobile" aria-hidden="true" tabindex="-1" ng-cloak>{{filter.filterName}}</label>
+							</div>
+						</li>
+						<li ng-repeat="filter in restaurantFilters" ng-if="$index >= 5" class="afterfold hidden">
+							<div class="checkbox">
+								<input type="checkbox" id="checkbox{{$index+11}}_mobile" role="checkbox" name="checkbox_{{filter.filterValue}}" aria-checked="false" value="{{filter.filterValue}}" ng-click="filterRestaurants(filter.filterValue)"> 
+								<label for="checkbox{{$index+11}}_mobile" aria-label="{{filter.filterName}}" id="checkbox{{$index+11}}_label_mobile" aria-hidden="true" tabindex="-1" ng-cloak>{{filter.filterName}}</label>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</form>
+	</div>
+</li>
+<li class="visuallyhidden">
+  <a href="javaScript:void(0);" class="end-menu"></a>
+</li>

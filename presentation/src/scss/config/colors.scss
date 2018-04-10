@@ -1,0 +1,61 @@
+/* brand pallette */
+$mcdonalds-yellow:                   #fec747;
+$mcdonalds-red:                      #bb071f;
+
+/* primary controls */
+$call-to-action-yellow:              #f8b42a;
+$call-to-action-disabled-yellow:     #fce09d;
+$call-to-action-toggle-red:          #cc0926;
+$call-to-action-toggle-disabled-red: #ed9aa7;
+$call-to-action-blue:                #007aca;
+
+/* secondary controls */
+$control-gray:                       #dfdfdf;
+$control-green:                      #31bc6c;
+$control-blue:                       #1aa2e4;
+
+/* complimentary */
+$compliment-yellow:                  #fdc531;
+$compliment-orange:                  #fc823f;
+$compliment-red:                     #ea3d2f;
+$compliment-dark-red:                #bd0017;
+$compliment-purple:                  #7c5ea5;
+$compliment-blue:                    #3bc1de;
+$compliment-green:                   #9dc746;
+
+/* grays */
+$dark-gray-2:                        #292929;
+$dark-gray-1:                        #60605b;
+$light-gray-2:                       #a9a9a9;
+$light-gray-1:                       #d6d6d6;
+$light-gray-3:                       #cecece;
+$light-gray-4:                       #adadad;
+$rules-strokes:                      #d6d6d6;
+$interface-fill-2:                   #f1f1f1;
+$interface-fill-1:                   #f9f9f9;
+$background:                         #fff;
+
+/* yellows */
+$yellow-1:                           #f8af00;
+$yellow-2:                           #ffc400;
+
+/* whites */
+$white-1:                            #fff;
+
+/* TODO: to be discussed */
+$brand-primary: #de1818;
+$background-color: #f9f9f9;
+
+
+/* overriding bootstrap colors */
+//** Background color for `<body>`.
+$body-bg:               $white-1;
+//** Global text color on `<body>`.
+$text-color:            $dark-gray-2;
+
+//** Global textual link color.
+$link-color:            $brand-primary;
+//** Link hover color set via `darken()` function.
+$link-hover-color:      darken($link-color, 15%);
+//** Link hover decoration.
+$link-hover-decoration: underline;

@@ -1,0 +1,278 @@
+//Publication scss
+.publication {
+	.mainTitle {
+		word-wrap: break-word;
+		text-transform: uppercase;
+		margin-top: 0;
+		margin-bottom: 15px;
+		padding: 0 15px;
+		@include fontSet(50px, 50px, $font-lovinsans-bold);
+		color: $white;
+
+		@media only screen and (min-width: 320px) {
+			@include fontSet(75px, 75px, $font-lovinsans-bold);
+		}
+		@media only screen and (min-width: 480px) {
+			@include fontSet(100px, 100px, $font-lovinsans-bold);
+		}
+		@media only screen and (min-width: 768px) {
+			@include fontSet(100px, 100px, $font-lovinsans-bold);
+		}
+		@media only screen and (min-width: 992px) {
+			@include fontSet(125px, 125px, $font-lovinsans-bold);
+		}
+    }
+    .sectionTitle {
+			word-wrap: break-word;
+		    margin-top: 0;
+			margin-bottom: 5px;
+			padding: 0 15px;
+			@include fontSet(30px, 30px, $font-lovinsans-medium);
+			color: $white;
+
+			@media only screen and (min-width: 320px) {
+				@include fontSet(35px, 35px, $font-lovinsans-medium);
+			}
+			@media only screen and (min-width: 480px) {
+				@include fontSet(40px, 40px, $font-lovinsans-medium);
+			}
+			@media only screen and (min-width: 768px) {
+				@include fontSet(36px, 36px, $font-lovinsans-medium);
+			}
+			@media only screen and (min-width: 992px) {
+				@include fontSet(50px, 50px, $font-lovinsans-medium);
+			}
+    }
+    .sectionSubTitle {
+			word-wrap: break-word;
+		    @include fontSet(20px, 30px, $font-lovinsans);
+			color: $white;
+			margin-bottom: 25px;
+			padding: 0 15px;
+
+			@media only screen and (min-width: 320px) {
+				@include fontSet(22px, 32px, $font-lovinsans);
+			}
+			@media only screen and (min-width: 480px) {
+				@include fontSet(24px, 34px, $font-lovinsans);
+			}
+			@media only screen and (min-width: 992px) {
+				@include fontSet(26px, 36px, $font-lovinsans);
+			}
+    }
+	.paragraphTitle{
+		    word-wrap: break-word;
+		    @include fontSet(20px, 30px, $font-lovinsans-bold);
+			margin-bottom: 15px;
+			padding: 0 15px;
+
+			@media only screen and (min-width: 320px) {
+				@include fontSet(22px, 32px, $font-lovinsans-bold);
+			}
+			@media only screen and (min-width: 480px) {
+				@include fontSet(24px, 34px, $font-lovinsans-bold);
+			}
+			@media only screen and (min-width: 992px) {
+				@include fontSet(26px, 36px, $font-lovinsans-bold);
+			}
+	}
+
+	.siteTitle{
+		    word-wrap: break-word;
+		    @include fontSet(24px, 26px, $font-lovinsans-bold);
+			margin-bottom: 10px;
+			padding: 0 15px;
+
+			@media only screen and (min-width: 320px) {
+				@include fontSet(18px, 20px, $font-lovinsans-bold);
+			}
+			@media only screen and (min-width: 480px) {
+				@include fontSet(18px, 20px, $font-lovinsans-bold);
+			}
+			@media only screen and (min-width: 992px) {
+				@include fontSet(24px, 26px, $font-lovinsans-bold);
+			}
+	}
+	.disclaimer-text {
+		@include fontSet(16px, 20px, 'LovinSansWeb-Regular');
+		margin: 0;
+	    display: inline-block!important;
+	}
+
+	.quote-text {
+		@include fontSet(36px, 46px, $font-lovinsans);
+		text-align: center;
+		font-style: italic;
+		letter-spacing: 0.01em;
+	}
+
+	.EverythingParagraphTitle {
+		font-weight: 500;
+		font-size: 2rem;
+		line-height: 2rem;
+		word-wrap: break-word;
+	}
+
+	h1, h2 , h3 {
+		margin-top:20px; 
+		margin-bottom:10px;
+	}
+
+	h1 {
+		@include fontSet(40px, 38px, $font-lovinsans-bold);
+	}
+	h2 {
+		@include fontSet(36px, 34px, $font-lovinsans-bold);
+	}
+	h3 {
+		@include fontSet(34px, 32px, $font-lovinsans-bold);
+	}
+	p {
+		@include fontSet(26px, 36px, $font-lovinsans);
+		margin-bottom: 10px;
+		letter-spacing: 0.01em;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+	}
+
+	ul, ol{
+		li {
+			@include fontSet(26px, 36px, $font-lovinsans);
+			padding-bottom: 5px;
+			list-style-position: inside;
+		}
+	}
+
+	.template-icon {
+		height: 20px;
+		margin-right: 15px;
+		display: inline-block;
+		margin-top: -3px;
+	}
+
+	img {
+		max-width:100%;
+	}
+	
+	.mainTitle, .sectionTitle, .sectionSubTitle, .paragraphTitle, .siteTitle, .h1title, .h2title, .h3title, .everythingText {
+		padding: 0 15px;
+	}
+	
+	.pText-heading{
+    	font-size: 40px;
+	    font-size: 2.5rem;
+	    line-height: 40px;
+	    line-height: 2.5rem;
+	    font-family: LovinSansWeb-Bold;
+	    font-weight: normal;
+    }
+    
+    .pText-paragraph {
+	    font-size: 22px;
+	    font-size: 1.375rem;
+	    line-height: 30px;
+	    line-height: 1.875rem;
+	    font-family: LovinSansWeb-Regular;
+	    margin-bottom: 10px;
+    }
+
+/*	
+    @media only screen and (min-width: 768px){
+        .EverythingComponenttextandImage.leftImage {
+            .image-wrapper-box {
+                padding-right: 15px;
+            }
+        }
+        .EverythingComponenttextandImage.rightImage {
+            .image-wrapper-box {
+                padding-left: 15px;
+            }
+        }
+    }
+*/
+}
+
+.columncontrol {
+    .container, .container-fluid {
+        &.gutter {
+            padding-left: 0px;
+            padding-right: 0px;
+			overflow: hidden;
+        }
+    }
+}
+
+
+	
+    
+.event-component {
+  margin: 0; 
+  .row{
+  	margin-right: -5px;
+    margin-left: -5px;
+  }  
+  
+  .event-comp{
+  
+	  .groupTitle {
+	    margin: 0;
+	    font-family: "LovinSansWeb-Bold";
+	    font-size: 2.5rem;
+	    line-height: 2.5rem;
+	    margin-bottom: 20px;
+	  }
+	  
+    a span.event-text{
+		margin: 0 0 30px -15px;
+		padding: 10px 10px 10px 0;
+	    display: block;
+	    color: #b74232;
+	    font-family: LovinSansWeb-Regular;
+	    font-size: 1.6rem;
+	    line-height: 1.6rem;
+	    font-weight: bold;
+	    clear: both;
+	}
+
+	
+    
+    
+    span.event-text a{
+		margin: 0 0 30px -15px;
+		padding: 10px 10px 10px 0;
+	    display: block;
+	    color: #b74232;
+	    font-family: LovinSansWeb-Regular;
+	    font-size: 1.6rem;
+	    line-height: 1.6rem;
+	    font-weight: bold;
+	    clear: both;
+	}
+
+	a:hover, a:focus, a:active, a:visited {
+	      text-decoration: none!important;
+	 }
+	  
+  }
+}
+
+
+ 
+@media (max-width: 767px) {
+  .event-component {
+    margin: 0 15px;
+    .event-comp {
+      img {
+        width: 100%;
+      }
+      a span.event-text {
+        margin-bottom: 20px;
+      }
+      span.event-text a {
+        margin-bottom: 20px;
+      }
+    }
+  }
+}

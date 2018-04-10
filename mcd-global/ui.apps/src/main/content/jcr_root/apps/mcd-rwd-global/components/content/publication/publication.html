@@ -1,0 +1,206 @@
+<sly data-sly-use.info="com.mcd.rwd.global.core.sightly.PublicationHandler" data-sly-use.imageMaps="publication.js">
+    <sly data-sly-template.displayTextCta="${@ handler}">
+        <div id="text" class="everythingText" style="${handler.textColor @ context='styleString'}">
+            ${handler.text @ context='html'}
+            <a class="zoom-anim learn-more-btn btn btn-red btn--xsm ${handler.ctaLink.linkClass}" href="${handler.ctaLink.href}"
+               aria-label= "${handler.ariaLabel}" title="${handler.ctaLink.text}" data-sly-test="${handler.ctaLink.text}">${handler.ctaLink.text}</a>
+        </div>
+    </sly>
+    <div id="everythingcontainer" class="${info.titleType=='groupTitle' ? 'event-comp':''}">
+        <div class="everythingmain" id="everythingmain"
+             style="${info.imagePath ? 'overflow:hidden;': '' @ context='styleString'} ${info.backgroundStyle @ context='styleString'} border:${info.border @ context='styleString'}">
+
+            <div data-sly-test="${info.paragraphTitle}" class="EverythingParagraphTitle"
+                 style="background-color: #${info.borderColor @ context='styleToken'}; border-bottom:${info.border @ context='styleString'} ${info.borderTitle @ context='styleString'}">
+                ${info.paragraphTitle}
+            </div>            
+             <div data-sly-test="${info.titleType == 'groupTitle'}" class="group-title-box"
+                 style="background-color: #${info.borderColor @ context='styleToken'}; border-bottom:${info.border @ context='styleString'} ${info.borderTitle @ context='styleString'}">
+                <h3 class="${info.titleType}">${info.mainTitle}</h3>
+            </div>
+            
+            <a data-sly-test="${info.anchor}" name="${info.anchor}" title="${info.anchor}">&nbsp;
+                <div class="hidden">${info.anchor}</div>
+            </a>
+
+            <div data-sly-test="${info.mainTitle}" class="${info.titleType}"
+                 style="${info.titleStyle @ context='styleString'}">
+                <h1 data-sly-test="${info.titleType == 'h1title'}">${info.mainTitle}</h1>
+                <h2 data-sly-test="${info.titleType == 'h2title'}">${info.mainTitle}</h2>
+                <h3 data-sly-test="${info.titleType == 'h3title'}">${info.mainTitle}</h3>
+                <div data-sly-test="${info.titleType !='groupTitle' && info.titleType != 'h1title' && info.titleType != 'h2title' && info.titleType != 'h3title'}">${info.mainTitle}</div>
+            </div>
+
+            <div data-sly-test="${info.separatorColor}" class="template-separator"
+                 style="background-color:#${info.separatorColor @ context='styleToken'}; ${info.verticalPadding @ context='styleString'}"></div>
+
+            <sly data-sly-test="${wcmmode.edit || wcmmode.design}">
+                <img src="/libs/cq/ui/resources/0.gif" class="cq-text-placeholder" alt="Placeholder">
+            </sly>
+
+            <div class="everythingdiv ${ info.imagePath ? 'zoom-anim-parent' : '' }">
+                <!--<div>-->
+                <!--/*If image is bottom Aligned */-->
+                <div data-sly-test="${info.text && info.bottomShow}">
+                    <div data-sly-test="${info.imageAlignment == 'top'}">
+                        <div class="EverythingComponenttext"
+                             style="${info.textColor @ context='styleString'} ${info.textAlign @ context='styleString'} ${info.padding.toString @ context='styleString' } ${info.margin.toString @ context='styleString'}">
+                            <sly data-sly-call="${displayTextCta @ handler = info}"></sly>
+                        </div>
+                    </div>
+                    <div id="text" data-sly-test="${info.imageAlignment =='left' || info.imageAlignment =='right'}"
+                         class="everythingText" style="${info.textColor @ context='styleString'} ${info.textAlign @ context='styleString'} ${info.padding.toString @ context='styleString' } ${info.margin.toString @ context='styleString'}">
+                        ${info.text @ context='html'}
+                        <a href="${info.ctaLink.href}" title="${info.ctaLink.text}" data-sly-test="${info.ctaLink.text}"
+                           class="zoom-anim learn-more-btn btn btn-red btn--xsm event-comp ${info.ctaLink.linkClass}">${info.ctaLink.text}</a>
+                    </div>
+                    <div data-sly-test="${info.imageAlignment !='left' && info.imageAlignment !='right' && info.imageAlignment !='top'}"
+                         class="EverythingComponenttext"
+                         style="${info.textColor @ context='styleString'} ${info.textAlign @ context='styleString'} ${info.padding.toString @ context='styleString' } ${info.margin.toString @ context='styleString'}">
+                        <sly data-sly-call="${displayTextCta @ handler = info}"></sly>
+                    </div>
+                </div>
+
+                <!--/* Code for Image */-->
+                <!--/* <div data-sly-test="${info.img}">*/-->
+                <div class="publication-component-image">
+                    <div data-sly-test="${info.imageAlignment =='bottom'}" class="${info.enableZoom ? 'zoomImage' : ''}"  style="float:${info.imagePosition @ context='styleToken'};text-align:${info.imagePosition @ context='styleToken'};width:100%;">
+                        <div align="${info.imagePosition}" class="publicationImage${info.imagePosition} pubImage">
+                            <div style="${info.imgWidth @ context='styleString'}">
+                                <a data-sly-test="${info.createThumbnail && !info.imageLink && !info.fileReference}" href="#"
+                                   onClick="window.open('${info.imagePath @ context='uri'}', 'imagepopwin','height=300,width=600,scrollbars=yes,status=yes,toolbar=no,menubar=no,location=no,resizable=yes');return false">
+                                    <sly data-sly-call="${drawImage @ handler = info, imageMaps = imageMaps}"></sly>
+                                </a>
+
+                                <a data-sly-test="${info.imageLink && !info.createThumbnail && !info.fileReference}"
+                                   class="${info.anchorClass}" href="${info.imageLink @ context='uri'}">
+                                    <sly data-sly-call="${drawImage @ handler = info, imageMaps = imageMaps}"></sly>
+                                </a>
+
+                                <a data-sly-test="${info.fileReference && !info.imageLink && !info.createThumbnail}"
+                                   href="${info.fileReference @ context='uri'}" download="${info.fileName}"
+                                   title="${info.fileName}">
+                                    <sly data-sly-call="${drawImage @ handler = info, imageMaps = imageMaps}"></sly>
+                                </a>
+
+                                <sly data-sly-call="${drawImageWithMap @ handler = info, imageMaps = imageMaps}"></sly>
+
+                            </div>
+                        </div>
+                        <div style="${info.captionAlignment @ context='styleString'} clear:both;" class="imagecaption" >
+                            ${info.caption}
+                        </div>
+                    </div>
+
+                    <div data-sly-test="${info.imageAlignment =='left' || info.imageAlignment =='right'}"
+                         class="EverythingComponenttextandImage ${info.imageAlignment}Image" style="${info.imgWidth @ context='styleString'} float:${info.imageAlignment @ context='styleToken'};"
+                    >
+                        <div id="${info.cssClass}" class="${info.cssClass} ${info.enableZoom ? 'zoomImage' : ''}"
+                        >
+                            <div style="float:${info.imageAlignment @ context='styleToken'};" class="image-wrapper-box">
+                                <a data-sly-test="${info.createThumbnail && !info.imageLink && !info.fileReference}"
+                                   href="#"
+                                   onClick="window.open('${info.imagePath @ context='uri'}', 'imagepopwin','height=300,width=600,scrollbars=yes,status=yes,toolbar=no,menubar=no,location=no,resizable=yes');return false">
+                                    <sly data-sly-call="${drawImage @ handler = info, imageMaps = imageMaps}"></sly>
+                                </a>
+
+                                <a data-sly-test="${info.imageLink && !info.createThumbnail && !info.fileReference}"
+                                   class="${info.anchorClass}" href="${info.imageLink @ context='uri'}">
+                                    <sly data-sly-call="${drawImage @ handler = info, imageMaps = imageMaps}"></sly>
+                                </a>
+
+                                <a data-sly-test="${info.fileReference && !info.imageLink && !info.createThumbnail}"
+                                   href="${info.fileReference @ context='uri'}" download="${info.fileName}"
+                                   title="${info.fileName}">
+                                    <sly data-sly-call="${drawImage @ handler = info, imageMaps = imageMaps}"></sly>
+                                </a>
+
+                                <sly data-sly-call="${drawImageWithMap @ handler = info, imageMaps = imageMaps}"></sly>
+                            </div>
+                            <div style="${info.captionAlignment @ context='styleString'} clear:both;" class="imagecaption" >
+                                ${info.caption}
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div data-sly-test="${info.imageAlignment !='left' && info.imageAlignment !='right' && info.imageAlignment !='bottom'}"
+                         style="float:${info.imagePosition @ context='styleToken'};text-align:${info.imagePosition @ context='styleToken'}; width:100%;">
+                        <div align="${info.imagePosition}" class="publicationImage${info.imagePosition} pubImage">
+                            <div id="${info.cssClass}" class="${info.cssClass} ${info.enableZoom ? 'zoomImage' : ''}">
+                                <div style="${info.imgWidth @ context='styleString'}">
+                                    <a data-sly-test="${info.createThumbnail && !info.imageLink && !info.fileReference}"
+                                       href="#"
+                                       onClick="window.open('${info.imagePath @ context='uri'}', 'imagepopwin','height=300,width=600,scrollbars=yes,status=yes,toolbar=no,menubar=no,location=no,resizable=yes');return false">
+                                        <sly data-sly-call="${drawImage @ handler = info, imageMaps = imageMaps}"></sly>
+                                    </a>
+
+                                    <a data-sly-test="${info.imageLink && !info.createThumbnail && !info.fileReference}"
+                                       class="${info.anchorClass}" href="${info.imageLink @ context='uri'}">
+                                        <sly data-sly-call="${drawImage @ handler = info, imageMaps = imageMaps}"></sly>
+                                    </a>
+
+                                    <a data-sly-test="${info.fileReference && !info.imageLink && !info.createThumbnail}"
+                                       href="${info.fileReference @ context='uri'}" download="${info.fileName}"
+                                       title="${info.fileName}">
+                                        <sly data-sly-call="${drawImage @ handler = info, imageMaps = imageMaps}"></sly>
+                                    </a>
+
+                                    <sly data-sly-call="${drawImageWithMap @ handler = info, imageMaps = imageMaps}"></sly>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div style="${info.captionAlignment @ context='styleString'} clear:both;" class="imagecaption" >
+                            ${info.caption}
+                        </div>
+                    </div>
+
+                    <!--/* If image is not bottom Aligned */-->
+                    <div data-sly-test="${info.text && !info.bottomShow}">
+                        <div data-sly-test="${info.imageAlignment =='top'}">
+                            <div class="EverythingComponenttext"
+                                 style="${info.textColor @ context='styleString'} ${info.textAlign @ context='styleString'} ${info.padding.toString @ context='styleString' } ${info.margin.toString @ context='styleString'}">
+                                <sly data-sly-call="${displayTextCta @ handler = info}"></sly>
+                            </div>
+                        </div>
+                        <div data-sly-test="${info.imageAlignment =='left' || info.imageAlignment =='right'}" id="text"
+                             class="everythingText" style="${info.textColor @ context='styleString'} ${info.textAlign @ context='styleString'} ${info.padding.toString @ context='styleString' } ${info.margin.toString @ context='styleString'}">${info.text @
+                            context='html'}
+                            <a href="${info.ctaLink.href}" title="${info.ctaLink.text}" data-sly-test="${info.ctaLink.text}"
+                               aria-label="${info.ariaLabel}" class="zoom-anim learn-more-btn btn btn-red btn--xsm ${info.ctaLink.linkClass}">${info.ctaLink.text}</a>
+                        </div>
+                        <div data-sly-test="${info.imageAlignment !='left' && info.imageAlignment !='right' && info.imageAlignment !='top'}"
+                             class="EverythingComponenttext" style="${info.textColor @ context='styleString'} ${info.textAlign @ context='styleString'} ${info.padding.toString @ context='styleString' } ${info.margin.toString @ context='styleString'}">
+                            <sly data-sly-call="${displayTextCta @ handler = info}"></sly>
+                        </div>
+                    </div>
+                </div>
+                <!--</div>-->
+            </div>
+        </div>
+    </div>
+</sly>
+
+<sly data-sly-template.drawImage="${@ handler, imageMaps}">
+    <img class="zoom-anim-target" data-sly-test="${handler.externalImagePath && !handler.imageHref}"
+         src="${handler.externalImagePath}" title="${handler.imageAlt}" alt="${handler.imageAlt}"
+         style="${ handler.imagePadding.toString @ context='styleString' }"/>
+    <img class="zoom-anim-target" data-sly-test="${!handler.externalImagePath && handler.imageHref}"
+         data-emptytext="Image" usemap="${imageMaps.hash}" src="${handler.imageHref}"
+         title="${handler.imageAlt}" alt="${handler.imageAlt}"
+         style="${ handler.imagePadding.toString @ context='styleString' }"/>
+</sly>
+<sly data-sly-template.drawImageWithMap="${@ handler, imageMaps}">
+    <img class="zoom-anim-target" data-sly-test="${handler.externalImagePath && !handler.imageHref && !handler.imageLink && !handler.createThumbnail && !handler.fileReference}"
+         src="${handler.externalImagePath}" title="${handler.imageAlt}" alt="${handler.imageAlt}"
+         style="${ handler.imagePadding.toString @ context='styleString' }"/>
+    <img class="zoom-anim-target" data-sly-test="${!handler.externalImagePath && handler.imageHref && !handler.imageLink && !handler.createThumbnail && !handler.fileReference}"
+         data-emptytext="Image" usemap="${imageMaps.hash}" src="${handler.imageHref}"
+         title="${handler.imageAlt}" alt="${handler.imageAlt}"
+         style="${ handler.imagePadding.toString @ context='styleString' }"/>
+    <map data-sly-test="${handler.imageHref}" data-sly-list="${imageMaps.maps}" name="${imageMaps.name}">
+        <area shape="${item.type}" coords="${item.coords}" href="${item.href}"
+              target="${item.target}" alt="${item.text}" title="${item.text}"/>
+    </map>
+</sly>

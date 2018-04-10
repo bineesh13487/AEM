@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Dialog"
+    height="{Long}300"
+    xtype="dialog">
+    <items
+        jcr:primaryType="cq:Widget"
+        xtype="tabpanel">
+        <items jcr:primaryType="cq:WidgetCollection">
+            <offers
+                jcr:primaryType="cq:Widget"
+                title="Add Offer"
+                xtype="panel">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <title
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}false"
+                        fieldDescription="Please provide OfferName"
+                        fieldLabel="OfferName"
+                        name="./offerName"
+                        xtype="textfield"/>
+                    <type
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}false"
+                        fieldLabel="Offer Category"
+                        name="./offerCategory"
+                        type="select"
+                        xtype="selection">
+                        <options jcr:primaryType="cq:WidgetCollection">
+                            <viewonly
+                                jcr:primaryType="nt:unstructured"
+                                text="View Only"
+                                value="view only"/>
+                            <donotshow
+                                jcr:primaryType="nt:unstructured"
+                                text="Do not Show"
+                                value="do not show"/>
+                        </options>
+                    </type>
+                    <expirydate
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}false"
+                        fieldDescription="Please provide Expiry Date"
+                        fieldLabel="ExpiryDate"
+                        format="m/d/Y"
+                        name="./offerExpiryDate"
+                        xtype="datefield"/>
+                </items>
+            </offers>
+        </items>
+    </items>
+</jcr:root>

@@ -1,0 +1,126 @@
+.mcd-card {
+  @include make-xs-column(12);
+  @include make-sm-column(6);
+
+  border: 0.0625rem solid $light-gray-1;
+  background-color: $background;
+  box-shadow: 0 0.09375rem 0.09375rem 0 rgba(0, 0, 0, 0.08);
+  margin-top: to-rem(22);
+
+  &--result {
+    &__without-image {
+      margin-top: to-rem(22);
+      border-bottom: to-rem(1) solid #cecece;
+      padding-bottom: to-rem(20);
+    }
+  }
+
+  &__image {
+    @include make-xs-column(12);
+
+    &--size {
+      max-width: to-rem(200);
+    }
+
+    &--small {
+      width: 40%;
+    }
+
+    &--large {
+      width: 60%;
+    }
+  }
+
+  &__text {
+    @include make-xs-column(12);
+
+    &--small {
+      width: 40%;
+    }
+
+    &--large {
+      width: 60%;
+      float: left;
+    }
+
+    &--heading {
+      font-size: to-rem(18);
+      color: rgba(41,41,41,1);
+    }
+
+    &--title {
+      font-size: to-rem(16);
+      color: rgba(96,96,91,1);
+      font-weight: 300;
+    }
+
+    &--footer-text {
+      color: rgba(0,122,202,1);
+      font-size: to-rem(16);
+    }
+
+    &--calories {
+      color: #60605b;
+      font-size: to-rem(16);
+      line-height: to-rem(20);
+    }
+  }
+
+  &__vertical {
+    @include make-xs-column(6);
+    @include make-sm-column(3);
+
+    max-width: 49% !important;
+    text-align: center;
+    padding-bottom: to-rem(30);
+
+    img {
+      max-width: 100% !important;
+      max-height: to-rem(100);
+    }
+
+    &--image {
+      padding: to-rem(40);
+    }
+
+    &:nth-child(odd) {
+      float: right;
+    }
+  }
+
+  &__horizontal {
+    overflow: hidden;
+    padding: 1.3125rem 0 1.4375rem 1.1875rem;
+
+    &--image {
+      position: relative;
+      border-left: 0;
+    }
+
+    &--border {
+      width: to-rem(10);
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      &--green {
+        border: to-rem(5) solid $compliment-green;
+      }
+
+      &--purple {
+        border: to-rem(5) solid $compliment-purple;
+      }
+    }
+
+    &--circle {
+      position: absolute;
+      width: 0.9375rem;
+      height: 0.9375rem;
+      background-color: $interface-fill-1;
+      border-radius: 3.125rem;
+      top: 45%;
+      left: -0.5rem;
+    }
+  }
+}

@@ -1,0 +1,29 @@
+<!--/*
+    Cookie Banner
+*/-->
+<!-- <sly data-sly-use.handler="com.mcd.rwd.us.core.sightly.CookieBannerHandler">
+	<div class="cookieDisclaimerExpiryInDays" style="display:none">${handler.cookieDisclaimerExpiryInDays}</div>
+	<div class="cookie-message" id="cookieMessage" data-ng-controller="cookieDisclaimerController" data-ng-init="init()" data-sly-test="${ handler.enableCookieMsg && (handler.cookieMsg!='') }" style="${ handler.cookieBgColor ? 'background-color:#{0};' : '' @ context='styleString', format=[handler.cookieBgColor]};">
+		<div class="container">
+			<div class="row">
+			    <div class="col-xs-12 cookieMessageDiv" style="${ handler.cookieFontColor ? 'color:#{0};' : '' @ context='styleString', format=[handler.cookieFontColor]};">${ handler.cookieMsg @ context='unsafe'}
+			        <a href="javaScript:void(0);" tabindex="0" role="button" data-ng-click="setCookieBannercookie($event)" class="cookie-message-close" style="${ handler.buttonColor ? 'background-color:#{0};' : '' @ context='styleString', format=[handler.buttonColor]}; ${ handler.buttonTextFontColor ? 'color:#{0};' : '' @ context='styleString', format=[handler.buttonTextFontColor]};">${ handler.cookieButtonText }</a>
+				</div>
+			</div>
+		</div>
+	</div>   
+</sly> -->
+
+<sly data-sly-use.handler="com.mcd.rwd.us.core.sightly.CookieBannerHandler">
+	<div class="cookieDisclaimerExpiryInDays" style="display:none">${handler.cookieDisclaimerExpiryInDays}</div>
+	<div class="cookie-message" id="cookieMessage" data-ng-controller="cookieDisclaimerController" data-ng-init="init()" data-sly-test="${ handler.enableCookieMsg && (handler.cookieMsg!='') }">
+		<div class="cookie-policy" data-component="cookiePolicy">
+			<div class="cookie-policy-container">
+				<div class="cookie-policy-container__message">${ handler.cookieMsg @ context='unsafe'}</div>
+				<div class="cookie-policy-container__action">
+					<a href="javaScript:void(0);" tabindex="0" role="button" data-ng-click="setCookieBannercookie($event)" class="button cookie-message-close">${ handler.cookieButtonText }</a>
+				</div>
+			</div>
+		</div>
+	</div>   
+</sly>

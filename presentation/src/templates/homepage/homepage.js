@@ -1,0 +1,32 @@
+import '../../main';
+import GlobalNavigation from '../../components/global-navigation/global-navigation';
+import MicrositeNavigation from '../../components/microsite-navigation/microsite-navigation';
+import LanguageToggle from '../../components/language-toggle/language-toggle';
+import Search from './../../components/search/search';
+import Filter from './../../components/filter/filter';
+// import ContHero from './../../components/cont-hero/cont-hero';
+import FooterNav from './../../components/footer-navigation/mcd-footer-navigation';
+import Nutrition from '../../components/nutrition/nutrition';
+import Promo from '../../components/promo/promo';
+import LegalDisclaimer from '../../components/legal-disclaimer/legal-disclaimer';
+import Carousel from '../../components/carousel/carousel';
+import LegalBumper from '../../components/legal-bumper/legal-bumper';
+import GenericPopup from '../../components/generic-popup/generic-popup';
+import CountrySwitcher from '../../components/country-switcher/country-switcher';
+
+document.addEventListener('DOMContentLoaded', () => {
+  GlobalNavigation.bootstrap();
+  MicrositeNavigation.bootstrap();
+  LanguageToggle.bootstrap();
+  Search.bootstrap();
+  Filter.bootstrap();
+  FooterNav.bootstrap();
+  // ContHero.bootstrap();
+  Nutrition.bootstrap();
+  Promo.bootstrap();
+  LegalDisclaimer.bootstrap();
+  Carousel.bootstrap();
+  LegalBumper.bootstrap();
+  GenericPopup.bootstrap();
+  CountrySwitcher.bootstrap();
+}, false);

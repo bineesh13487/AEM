@@ -1,0 +1,23 @@
+.component-newsroom-layout{
+      background: #dcdbdb;
+      padding: 4% 0;
+      @media only screen and (max-width: 767px) {
+        padding: 4% 0 0 0;
+      }
+
+  .container{
+        padding-right: 3%;
+        padding-left: 3%;
+      }
+@media only screen and (max-width: 767px) {
+	     .container{
+                      padding-left:0%;
+                      padding-right:0%;
+                    }
+      	    .component-news-detail{
+      	        margin-left: 10% !important;
+                  width: 80%;
+      		  }
+      }
+   
+}

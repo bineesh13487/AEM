@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Dialog"
+    title="Video"
+    xtype="dialog">
+    <items
+        jcr:primaryType="cq:Widget"
+        xtype="tabpanel">
+        <items jcr:primaryType="cq:WidgetCollection">
+            <tab1
+                jcr:primaryType="cq:Panel"
+                title="Generic"
+                xtype="panel">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <type
+                        jcr:primaryType="cq:Widget"
+                        defaultValue="normal"
+                        fieldDescription="Please select the video type."
+                        fieldLabel="Video Type"
+                        name="./type"
+                        type="select"
+                        xtype="selection">
+                        <options jcr:primaryType="cq:WidgetCollection">
+                            <normal
+                                jcr:primaryType="nt:unstructured"
+                                text="Embedded Video"
+                                value="normal"/>
+                            <background
+                                jcr:primaryType="nt:unstructured"
+                                text="Background Video"
+                                value="background"/>
+                            <thumbnail
+                                jcr:primaryType="nt:unstructured"
+                                text="Lightbox Video"
+                                value="thumbnail"/>
+                        </options>
+                        <listeners
+                            jcr:primaryType="nt:unstructured"
+                            selectionchanged="function(box, value) {&#xa;    var dlg = box.findParentByType('dialog');&#xa;    var srcField = dlg.getField('./src');&#xa;&#x9;var autoPlayField = dlg.getField('./autoplay');&#xa;&#x9;var loopField = dlg.getField('./loop');&#xa;&#x9;var tabpanel = box.findParentByType('tabpanel');&#xa;&#x9;if(value == 'background') {&#xa;        srcField.setValue(false);&#xa;        srcField.disable();&#xa;&#x9;&#x9;autoPlayField.setValue(false);&#xa;        autoPlayField.disable();&#xa;&#x9;&#x9;loopField.setValue(false);&#xa;        loopField.disable();&#xa;&#x9;&#x9;dlg.getField('./pullRight').setValue(false);&#xa;&#x9;&#x9;dlg.getField('./pullRight').disable();&#xa;&#x9;&#x9;dlg.getField('./align').disable();&#xa;&#x9;&#x9;dlg.getField('./share').disable();&#xa;&#x9;&#x9;tabpanel.hideTabStripItem('fallback-image-tab');&#xa;&#x9;} else if (value == 'thumbnail') {&#xa;        srcField.setValue(dlg.previousState);&#xa;        srcField.enable();&#xa;&#x9;&#x9;autoPlayField.setValue(false);&#xa;        autoPlayField.disable();&#xa;&#x9;&#x9;loopField.setValue(false);&#xa;        loopField.disable();&#xa;&#x9;&#x9;if(dlg.getField('./align').getValue() == 'h') {&#xa;&#x9;&#x9;&#x9;dlg.getField('./pullRight').setValue(dlg.previousMove);&#xa;&#x9;&#x9;&#x9;dlg.getField('./pullRight').enable();&#xa;&#x9;&#x9;}&#xa;&#x9;&#x9;dlg.getField('./align').enable();&#xa;&#x9;&#x9;dlg.getField('./share').enable();&#xa;&#x9;&#x9;tabpanel.unhideTabStripItem('fallback-image-tab');&#xa;&#x9;} else {&#xa;        srcField.setValue(dlg.previousState);&#xa;        srcField.enable();&#xa;&#x9;&#x9;autoPlayField.setValue(dlg.previousAutoPlayState);&#xa;        autoPlayField.enable();&#xa;&#x9;&#x9;loopField.setValue(dlg.previousLoopState);&#xa;        loopField.enable();&#xa;&#x9;&#x9;dlg.getField('./pullRight').setValue(false);&#xa;&#x9;&#x9;dlg.getField('./pullRight').disable();&#xa;&#x9;&#x9;dlg.getField('./align').disable();&#xa;&#x9;&#x9;dlg.getField('./share').enable();&#xa;&#x9;&#x9;if(srcField.getValue().length > 0) {&#xa;&#x9;&#x9;&#x9;tabpanel.hideTabStripItem('fallback-image-tab');&#xa;&#x9;&#x9;}else {&#xa;&#x9;&#x9;&#x9;tabpanel.unhideTabStripItem('fallback-image-tab');&#xa;&#x9;&#x9;}&#xa;&#x9;}&#xa;}"/>
+                    </type>
+                    <align
+                        jcr:primaryType="cq:Widget"
+                        defaultValue="h"
+                        fieldLabel="Align"
+                        name="./align"
+                        type="select"
+                        xtype="selection">
+                        <options jcr:primaryType="cq:WidgetCollection">
+                            <h
+                                jcr:primaryType="nt:unstructured"
+                                text="Horizontal"
+                                value="h"/>
+                            <v
+                                jcr:primaryType="nt:unstructured"
+                                text="Vertical"
+                                value="v"/>
+                        </options>
+                        <listeners
+                            jcr:primaryType="nt:unstructured"
+                            selectionchanged="function(box, value) {&#xa;    var dlg = box.findParentByType('dialog');&#xa;    if(value == 'v') {&#xa;        dlg.getField('./pullRight').setValue(false);&#xa;&#x9;&#x9;dlg.getField('./pullRight').disable();&#xa;&#x9;} else {&#xa;        dlg.getField('./pullRight').setValue(dlg.previousMove);&#xa;&#x9;&#x9;dlg.getField('./pullRight').enable();&#xa;&#x9;}&#xa;}"/>
+                    </align>
+                    <move
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Move video in right side"
+                        name="./pullRight"
+                        type="checkbox"
+                        xtype="selection"/>
+                    <source
+                        jcr:primaryType="cq:Widget"
+                        defaultValue="{Boolean}false"
+                        fieldLabel="Is the Video Source from YouTube?"
+                        name="./src"
+                        type="checkbox"
+                        xtype="selection">
+                        <listeners
+                            jcr:primaryType="nt:unstructured"
+                            selectionchanged="function(comp, val, isChecked) {&#xa;    var tabpanel = comp.findParentByType('tabpanel');&#xa;    var dlg = comp.findParentByType('dialog');&#xa;&#xa;    if(dlg.getField('./type').getValue() != 'background') {&#xa;        dlg.previousState = isChecked;&#xa;    }&#xa;    &#xa;    if(isChecked) {&#xa;        tabpanel.hideTabStripItem('video-upload-tab');&#xa;        tabpanel.unhideTabStripItem('youtube-tab');&#xa;&#x9;&#x9;tabpanel.hideTabStripItem('fallback-image-tab');&#xa;    } else {&#xa;        tabpanel.hideTabStripItem('youtube-tab');&#xa;        tabpanel.unhideTabStripItem('video-upload-tab');&#xa;&#x9;&#x9;tabpanel.unhideTabStripItem('fallback-image-tab');&#xa;    }&#xa;&#x9;&#xa;&#x9;if(dlg.getField('./type').getValue() == 'thumbnail') {&#xa;        tabpanel.unhideTabStripItem('fallback-image-tab');&#xa;    }&#xa;}"/>
+                    </source>
+                    <all-videos
+                        jcr:primaryType="cq:Widget"
+                        collapsed="false"
+                        collapsible="true"
+                        title="Video Settings for all videos"
+                        xtype="dialogfieldset">
+                        <items jcr:primaryType="cq:WidgetCollection">
+                            <autoplay
+                                jcr:primaryType="cq:Widget"
+                                fieldLabel="Autoplay"
+                                name="./autoplay"
+                                type="checkbox"
+                                xtype="selection"/>
+                            <loop
+                                jcr:primaryType="cq:Widget"
+                                fieldLabel="Loop"
+                                name="./loop"
+                                type="checkbox"
+                                xtype="selection"/>
+                        </items>
+                    </all-videos>
+                </items>
+            </tab1>
+            <tab2
+                jcr:primaryType="cq:Panel"
+                id="video-upload-tab"
+                title="Upload"
+                xtype="panel">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <mp4
+                        jcr:primaryType="cq:Widget"
+                        ddAccept="[video/mp4]"
+                        ddGroups="[media]"
+                        fieldLabel="MP4 Video*"
+                        fileNameParameter="./mp4/fileName"
+                        fileReferenceParameter="./mp4/fileReference"
+                        mimeTypes="*.mp4"
+                        mimeTypesDescription="MP4 Files"
+                        name="./mp4/file"
+                        sizeLimit="100"
+                        xtype="html5smartfile"/>
+                    <optional-formats
+                        jcr:primaryType="cq:Widget"
+                        collapsed="true"
+                        collapsible="true"
+                        title="Optional Formats"
+                        xtype="dialogfieldset">
+                        <items jcr:primaryType="cq:WidgetCollection">
+                            <webm
+                                jcr:primaryType="cq:Widget"
+                                ddAccept="[video/webm]"
+                                ddGroups="[media]"
+                                fieldLabel="Webm Video"
+                                fileNameParameter="./webm/fileName"
+                                fileReferenceParameter="./webm/fileReference"
+                                mimeTypes="*.webm"
+                                mimeTypesDescription="WEBM Files"
+                                name="./webm/file"
+                                sizeLimit="100"
+                                xtype="html5smartfile"/>
+                            <ogg
+                                jcr:primaryType="cq:Widget"
+                                ddAccept="[video/ogg]"
+                                ddGroups="[media]"
+                                fieldLabel="OGG Video"
+                                fileNameParameter="./ogg/fileName"
+                                fileReferenceParameter="./ogg/fileReference"
+                                mimeTypes="*.ogv"
+                                mimeTypesDescription="OGV Files"
+                                name="./ogg/file"
+                                sizeLimit="100"
+                                xtype="html5smartfile"/>
+                        </items>
+                    </optional-formats>
+                    <video-settings
+                        jcr:primaryType="cq:Widget"
+                        autoWidth="{Boolean}true"
+                        collapsed="false"
+                        collapsible="true"
+                        title="Additional Video Settings"
+                        xtype="dialogfieldset">
+                        <items jcr:primaryType="cq:WidgetCollection">
+                            <preload
+                                jcr:primaryType="cq:Widget"
+                                fieldLabel="Pre-load"
+                                name="./preload"
+                                type="checkbox"
+                                xtype="selection"/>
+                            <mute
+                                jcr:primaryType="cq:Widget"
+                                fieldDescription="Background videos are muted by default. Applicable only for normal and lightbox videos."
+                                fieldLabel="Mute"
+                                name="./muted"
+                                type="checkbox"
+                                xtype="selection"/>
+                            <share
+                                jcr:primaryType="cq:Widget"
+                                fieldDescription="Please select any social share option - Facebook, Twitter and Google +"
+                                fieldLabel="Social Share"
+                                name="./share"
+                                xtype="multifield">
+                                <fieldConfig
+                                    jcr:primaryType="nt:unstructured"
+                                    type="select"
+                                    xtype="selection">
+                                    <options jcr:primaryType="cq:WidgetCollection">
+                                        <normal
+                                            jcr:primaryType="nt:unstructured"
+                                            text="Facebook"
+                                            value="fb=https://www.facebook.com/sharer.php?u"/>
+                                        <background
+                                            jcr:primaryType="nt:unstructured"
+                                            text="Twitter"
+                                            value="twt=https://twitter.com/intent/tweet?url"/>
+                                        <thumbnail
+                                            jcr:primaryType="nt:unstructured"
+                                            text="Google+"
+                                            value="gplus=https://plus.google.com/share?url"/>
+                                    </options>
+                                </fieldConfig>
+                            </share>
+                        </items>
+                    </video-settings>
+                </items>
+            </tab2>
+            <tab3
+                jcr:primaryType="cq:Panel"
+                id="youtube-tab"
+                title="YouTube"
+                xtype="panel">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <youtube
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="YouTube Source*"
+                        name="./ytsrc"
+                        xtype="textfield"/>
+                    <youtube-video
+                        jcr:primaryType="cq:Widget"
+                        collapsed="false"
+                        collapsible="true"
+                        id="ytFieldSet"
+                        title="Additional YouTube Video settings"
+                        xtype="dialogfieldset">
+                        <items jcr:primaryType="cq:WidgetCollection">
+                            <controls
+                                jcr:primaryType="cq:Widget"
+                                defaultValue="true"
+                                fieldLabel="Show Controls"
+                                name="./controls"
+                                type="checkbox"
+                                xtype="selection"/>
+                            <fullscreen
+                                jcr:primaryType="cq:Widget"
+                                defaultValue="true"
+                                fieldLabel="Allow Fullscreen"
+                                name="./fs"
+                                type="checkbox"
+                                xtype="selection"/>
+                            <vq
+                                jcr:primaryType="cq:Widget"
+                                fieldDescription="In an attempt to provide the best video experience we can buffer the video so that it remains at youtube's highest video ratio."
+                                fieldLabel="Buffered Video Quality"
+                                name="./hd"
+                                type="select"
+                                xtype="selection">
+                                <options jcr:primaryType="cq:WidgetCollection">
+                                    <small
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Small (240p)"
+                                        value="small"/>
+                                    <medium
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Medium (360p)"
+                                        value="medium"/>
+                                    <large
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Large (480p)"
+                                        value="large"/>
+                                    <hd720
+                                        jcr:primaryType="nt:unstructured"
+                                        text="HD (720p)"
+                                        value="hd720"/>
+                                </options>
+                            </vq>
+                            <showrelated
+                                jcr:primaryType="cq:Widget"
+                                fieldLabel="Show Related Videos"
+                                name="./related"
+                                type="checkbox"
+                                xtype="selection"/>
+                        </items>
+                    </youtube-video>
+                </items>
+            </tab3>
+            <tab4
+                jcr:primaryType="cq:Panel"
+                title="Title"
+                xtype="panel">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <title
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Title"
+                        name="./title"
+                        xtype="textfield"/>
+                    <desc
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Description"
+                        name="./description"
+                        xtype="textarea"/>
+                    <calltoaction
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Call to Action Text"
+                        name="./cta"
+                        xtype="textfield"/>
+                    <target
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Call to action Link"
+                        name="./ctaTarget"
+                        xtype="pathfield"/>
+                    <ctaTitle
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="CTA Title Text"
+                        name="./ctaTitle"
+                        xtype="textfield"/>
+                    <fallbacktype
+                        jcr:primaryType="cq:Widget"
+                        ignoreData="{Boolean}true"
+                        name="./image/sling:resourceType"
+                        value="foundation/components/image"
+                        xtype="hidden"/>
+                    <color
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Text Color"
+                        name="./color"
+                        showHexValue="{Boolean}true"
+                        xtype="colorfield"/>
+                    <lightboxveticalspace
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Please enter value for margin between image and text for Light box vertical videos.Default Value is 15"
+                        fieldLabel="Configure vertical spacing for text"
+                        name="./verticalspace"
+                        xtype="textfield"/>
+                    <lightboxbottomtextalign
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Please enter value for margin between text and bottom for Light box vertical videos.Default Value is 15"
+                        fieldLabel="Configure vertical spacing for text and bottom"
+                        name="./textbottompace"
+                        xtype="textfield"/>
+                    <textalign
+                        jcr:primaryType="cq:Widget"
+                        defaultValue="center"
+                        fieldDescription="Choose how the Title,Description and CTA button should be aligned"
+                        fieldLabel="Text Alignment"
+                        name="./textAlign"
+                        type="radio"
+                        xtype="selection">
+                        <options jcr:primaryType="cq:WidgetCollection">
+                            <Left
+                                jcr:primaryType="nt:unstructured"
+                                text="Left"
+                                value="left"/>
+                            <Center
+                                jcr:primaryType="nt:unstructured"
+                                text="Center"
+                                value="center"/>
+                            <Right
+                                jcr:primaryType="nt:unstructured"
+                                text="Right"
+                                value="right"/>
+                        </options>
+                    </textalign>
+                    <maintainalign
+                        jcr:primaryType="cq:Widget"
+                        defaultValue="{Boolean}false"
+                        fieldLabel="Enable Align Text"
+                        fieldDescription="This will align the text in both Desktop and mobile. Default behaviour is Center align"
+                        name="./maintainAlign"
+                        type="checkbox"
+                        xtype="selection"/>
+                    <arialabel
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Title"
+                        fieldDescription="Aria label for play button."
+                        name="./ariaLabel"
+                        xtype="textfield"/>
+                </items>
+            </tab4>
+            <tab5
+                jcr:primaryType="cq:Panel"
+                id="fallback-image-tab"
+                title="Fallback Image"
+                xtype="panel">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <image
+                        jcr:primaryType="cq:Widget"
+                        border="true"
+                        cropParameter="./image/imageCrop"
+                        ddGroups="[media]"
+                        fieldLabel="Image*"
+                        fileNameParameter="./image/fileName"
+                        fileReferenceParameter="./image/fileReference"
+                        height="300"
+                        mapParameter="./image/imageMap"
+                        name="./image/file"
+                        requestSuffix="/image.img.png"
+                        rotateParameter="./image/imageRotate"
+                        sizeLimit="5"
+                        xtype="html5smartimage"/>
+                    <imageAlt
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Image Alt Text"
+                        name="./imageAlt"
+                        xtype="textfield"/>
+                </items>
+            </tab5>
+        </items>
+    </items>
+    <listeners
+        jcr:primaryType="nt:unstructured"
+        beforesubmit="function(dlg) {&#xa;    var type = dlg.getField('./type').getValue();&#xa;    var src = dlg.getField('./src').getValue();&#xa;&#x9;&#xa;    if ((type == 'thumbnail' || type == 'normal') &amp;&amp; src.length > 0) {&#xa;&#xa;        if(!dlg.getField('./ytsrc').getValue()) {&#xa;            CQ.Ext.Msg.alert(&quot;Sorry!!&quot;, &quot;YouTube source is mandatory&quot;);&#xa;            return false;&#xa;        } else if(!(dlg.getField('./image/file').hasReferencedData() || dlg.getField('./image/file').hasUploadedData()) &amp;&amp; type == 'thumbnail') {&#xa;&#x9;&#x9;&#x9;CQ.Ext.Msg.alert(&quot;Sorry!!&quot;, &quot;Fallback image is mandatory for lightbox video&quot;);&#xa;&#x9;&#x9;&#x9;return false;&#xa;&#x9;&#x9;}&#xa;    } else if (!(dlg.getField('./mp4/file').hasReferencedData() || dlg.getField('./mp4/file').hasUploadedData())) {&#xa;        CQ.Ext.Msg.alert(&quot;Sorry!!&quot;, &quot;MP4 video is mandatory&quot;);&#xa;        return false;&#xa;    } else if(!(dlg.getField('./image/file').hasReferencedData() || dlg.getField('./image/file').hasUploadedData()) &amp;&amp; src.length == 0 &amp;&amp; type != 'background') {&#xa;&#x9;&#x9;CQ.Ext.Msg.alert(&quot;Sorry!!&quot;, &quot;Fallback image is mandatory&quot;);&#xa;&#x9;&#x9;return false;&#xa;&#x9;}&#xa;}"
+        loadcontent="function(dlg, recs) {&#xa;&#x9;var tabpanel = dlg.findByType('tabpanel');&#xa;&#x9;dlg.getField('./pullRight').setValue(false);&#xa;&#x9;dlg.getField('./pullRight').disable();&#xa;&#x9;dlg.getField('./align').disable();&#xa;&#x9;dlg.getField('./share').enable();&#xa;&#x9;if(dlg.getField('./src').getValue().length > 0) {&#xa;&#x9;&#x9;tabpanel[0].unhideTabStripItem('youtube-tab');&#xa;&#x9;}else {&#xa;&#x9;&#x9;tabpanel[0].hideTabStripItem('youtube-tab');&#xa;&#x9;}&#xa;&#x9;if(recs[0].data.type) {&#xa;        dlg.previousState = recs[0].data.src;&#xa;&#x9;&#x9;dlg.previousMove = recs[0].data.pullRight;&#xa;&#x9;&#x9;dlg.previousAutoPlayState = recs[0].data.autoplay;&#xa;&#x9;&#x9;dlg.previousLoopState = recs[0].data.loop;&#xa;&#x9;&#x9;if(recs[0].data.type == 'background') {&#xa;            dlg.getField('./src').setValue(false);&#xa;            dlg.getField('./src').disable();&#xa;&#x9;&#x9;&#x9;dlg.getField('./autoplay').setValue(false);&#xa;            dlg.getField('./autoplay').disable();&#xa;&#x9;&#x9;&#x9;dlg.getField('./loop').setValue(false);&#xa;            dlg.getField('./loop').disable();&#xa;&#x9;&#x9;&#x9;dlg.getField('./share').disable();&#xa;&#x9;&#x9;&#x9;tabpanel[0].hideTabStripItem('fallback-image-tab');&#xa;        } else if (recs[0].data.type == 'thumbnail') {&#xa;&#x9;&#x9;&#x9;if(dlg.getField('./align').getValue() == 'h') {&#xa;&#x9;&#x9;&#x9;&#x9;dlg.getField('./pullRight').setValue(dlg.previousMove);&#xa;&#x9;&#x9;&#x9;&#x9;dlg.getField('./pullRight').enable();&#xa;&#x9;&#x9;&#x9;}&#xa;&#x9;&#x9;&#x9;dlg.getField('./align').enable();&#xa;&#x9;&#x9;&#x9;dlg.getField('./share').enable();&#xa;&#x9;&#x9;&#x9;dlg.getField('./autoplay').setValue(false);&#xa;            dlg.getField('./autoplay').disable();&#xa;&#x9;&#x9;&#x9;dlg.getField('./loop').setValue(false);&#xa;            dlg.getField('./loop').disable();&#xa;&#x9;&#x9;&#x9;tabpanel[0].unhideTabStripItem('fallback-image-tab');&#xa;&#x9;&#x9;}&#xa;&#xa;&#x9;&#x9;&#xa;    }&#xa;}"/>
+</jcr:root>

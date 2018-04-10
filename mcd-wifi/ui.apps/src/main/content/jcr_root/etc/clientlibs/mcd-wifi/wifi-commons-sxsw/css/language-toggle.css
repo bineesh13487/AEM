@@ -1,0 +1,89 @@
+/*!
+*Filename: language-toggle.css       
+*Author: MCD-WiFi
+*Description: This is for language selector.
+*/
+
+.languageTogglerBox {
+	font-size: 14px;
+	position: absolute;
+	right: 40px;
+	z-index: 999;
+}
+
+.languageTogglerBox .languageLink {
+	display: block;
+	padding: 3px 26px;
+	color: #fff;
+	text-decoration: underline;
+	font-size: inherit;
+	width: auto;
+}
+
+.languageTogglerBox .languageLink span {
+	padding: 0;
+}
+
+.languageTogglerBox .languageLink i {
+	padding: 0 0 0 4px;
+}
+
+.languageFlyout {
+	position: absolute;
+	top: 100%;
+	right: 0px;
+	z-index: 9999;
+	display: none;
+	float: left;
+	width: auto;
+	padding: 5px 0;
+	margin: 2px 0 0;
+	font-size: 14px;
+	text-align: left;
+	list-style: none;
+	background-color: rgba(0, 0, 0, 0.3);
+	-webkit-background-clip: padding-box;
+	background-clip: padding-box;
+	border: 1px solid #ccc;
+	border: 1px solid rgba(0, 0, 0, .15);
+	border-radius: 4px;
+	-webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+	box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+}
+
+.languageFlyout li a {
+	display: block;
+	padding: 3px 20px;
+	clear: both;
+	font-weight: 400;
+	line-height: 1.42857143;
+	color: #fff;
+	white-space: nowrap;
+}
+
+.languageFlyout li a:hover {
+	color: #262626;
+	text-decoration: none;
+	background-color: #f5f5f5;
+}
+
+.languageFlyout li a.active {
+	pointer-events: none;
+	font-weight: bold;
+}
+
+@media ( max-width : 767px) {
+	.languageTogglerBox .languageLink {
+        padding: 3px 15px;
+	}
+	.languageTogglerBox {
+		right: 14px;
+	}
+	
+	.languageFlyout {
+		right: 0px;
+	}
+	.languageFlyout li a{
+	    padding: 3px 10px;
+	}
+}

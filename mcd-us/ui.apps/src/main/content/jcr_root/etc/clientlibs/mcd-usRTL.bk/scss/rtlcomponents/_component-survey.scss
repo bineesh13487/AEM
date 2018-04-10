@@ -1,0 +1,336 @@
+// SURVEY
+.survey {
+	position: relative;
+
+	.survey-intro {
+		text-align: center;
+		position: absolute;
+		z-index: 2;
+		opacity: 1;
+		width: 100%;
+	}
+
+	.survey-outro {
+		text-align: center;
+		position: relative;
+		opacity: 0;
+		width: 100%;
+		top: 0;
+		display: none;
+	}
+
+	.cont-survey {
+		position: relative;
+		margin-top: -25px;
+	}
+
+	.survey-title {
+		opacity: 0;
+	}
+
+	@include up-to-breakpoint(sm){
+		.survey-start {
+			padding: 0px 25px;
+			@include fontSet(16px, 1, $font-lovinsans-bold);
+	    height: 29px;
+	    line-height: 25px;
+		}
+	}
+
+	.survey-wrapper{
+		background-color: $light-gray;
+		padding: 20px 30px;
+		margin-top: 15px;
+		margin-bottom: 15px;
+		@include fontSet(22px, 1.2, $font-lovinsans);
+
+		.modal-content{
+			@media only screen and (max-width: 767px) {
+				padding: 35px 25px 25px 25px;
+			}
+		}
+
+		h2,
+		.h2 {
+			margin-top: 0;
+			margin-bottom: 25px;
+			padding: 0px 0px;
+			@include fontSet(76px, 1, $font-lovinsans-bold);
+		  @include breakpoint(sm){ padding: 0px 50px; @include fontSet(76px, 1, $font-lovinsans-bold); }
+		  @include breakpoint(md){ @include fontSet(86px, 1, $font-lovinsans-bold); }
+		  @include breakpoint(lg){ @include fontSet(106px, 1, $font-lovinsans-bold); }
+		}
+
+		h3{
+			margin-top: 0;
+			@include fontSet(30px, 1.2, $font-lovinsans-medium);
+		  @include breakpoint(sm){ @include fontSet(36px, 1.2, $font-lovinsans-medium); }
+		  @include breakpoint(md){ @include fontSet(36px, 1.2, $font-lovinsans-medium); }
+		  @include breakpoint(lg){ @include fontSet(36px, 1.2, $font-lovinsans-medium); }
+		}
+
+		a, button{
+			color: $red;
+			@include fontSet(22px, 1.2, $font-lovinsans-medium);
+		}
+
+		.legal{
+			border-top: 1px solid $gray-separator;
+			padding-top: 10px;
+			@include fontSet(14px, 1.2, $font-lovinsans);
+			a{
+				color: $black;
+				@include fontSet(14px, 1.2, $font-lovinsans);
+				text-decoration: underline;
+			}
+		}
+
+		.close-survey{
+			background: transparent;
+			border: 0px;
+			cursor: pointer;
+			float: left;
+			padding-top: 10px;
+			padding-left: 5px;
+			opacity: 0;
+
+			@media only screen and (max-width: 767px) {
+				@include fontSet(30px, 1.2, $font-lovinsans);
+			}
+
+			&:focus{
+				box-shadow: 0;
+				outline: 0;
+			}
+		}
+
+		.finish-survey{
+			border: 0;
+			background: transparent;
+			float: left;
+        }
+
+		.survey-flexslider{
+			padding-top: 20px;
+			margin-top: 10px;
+			border-top: 1px solid $gray-separator;
+			opacity: 0;
+
+			@media only screen and (max-width: 767px) {
+				margin-top: 50px;
+				padding-top: 10px;
+			}
+
+			.flex-direction-nav{
+				display: none !important;
+			}
+
+			.flex-control-paging,
+			.custom-paging{
+				position: absolute;
+				top: 25px;
+				left: 10px;
+				text-align: left;
+				width: auto;
+				height: 20px;
+				opacity: 0;
+				z-index: 10;
+
+				&:before{
+					content: 'Step';
+					font-family: $font-lovinsans-medium;
+					margin-right: -5px;
+				}
+
+				li{
+					margin-right: 7px;
+					margin-left: 0px;
+					display: inline-block;
+
+					a{
+						background: transparent;
+						border: 0;
+						box-shadow: none;
+						@include fontSet(20px, 1.2, $font-lovinsans);
+						color: $black;
+
+						&.flex-active{
+							@include fontSet(20px, 1.2, $font-lovinsans-medium);
+						}
+					}
+
+				}
+
+				@media only screen and (max-width: 767px) {
+					left: auto;
+					padding-right: 0;
+    			top: -40px;
+
+					li{
+						a{
+							@include fontSet(22px, 1.2, $font-lovinsans);
+
+							&.flex-active{
+								@include fontSet(22px, 1.2, $font-lovinsans-medium);
+							}
+						}
+					}
+				}
+			}
+
+			.slides{
+				&:before{
+					display: table;
+					content: "";
+				}
+				&:after{
+					display: table;
+					content: "";
+					clear: both;
+				}
+				li,
+				section{
+					&:before{
+						display: table;
+						content: "";
+					}
+					h4,
+					.h4{
+						@include fontSet(22px, 1.2, $font-lovinsans-medium);
+						padding-left: 3px;
+						padding-right: 3px;
+					}
+
+					p{
+						@include fontSet(22px, 1.4, $font-lovinsans);
+						padding-left: 3px;
+						padding-right: 5px;
+					}
+
+					.form-group{
+						padding-left: 3px;
+						padding-right: 3px;
+					}
+
+					.row{
+						padding-left: 3px;
+						padding-right: 3px;
+					}
+				}
+
+				.form-group{
+					margin: 20px 0;
+					padding: 0;
+				}
+
+				.checkbox,
+				.radio {
+					padding-right: 18px;
+					margin: 0 0 3px 0;
+
+					input{
+						margin: 2px 0 0;
+					}
+					label{
+						@include fontSet(22px, 1.5, $font-lovinsans);
+						color: $black;
+						padding-right: 0;
+
+						&:before{
+							background: transparent;
+							width: 13px;
+							height: 13px;
+							margin-right: -18px;
+							top: 2px;
+							right: 1px;
+							z-index: 6;
+						}
+
+						&:after{
+							font-size: 10px;
+							right: 3px;
+    						top: -1px;
+    						width: 10px;
+    						height: 10px;
+						}
+					}
+				}
+
+				.radio label {
+					&:after {
+						right: 4px;
+						top: 4px;
+						width: 9px;
+						height: 9px;
+						border: 2px solid #ffffff;
+						z-index: 5;
+					}
+				}
+
+				.checkbox{
+					margin-right: 20px;
+
+					label{
+						&:after{
+							right: -19px;
+							top: -2px;
+						}
+						&:before{
+							right: 1px;
+						}
+					}
+				}
+
+				.finish-survey,
+				.next-question,
+				.prev-question,
+				.submit {
+					display: block;
+					@include fontSet(22px, 1.2, $font-lovinsans-medium);
+					cursor: pointer;
+					margin: 10px 0;
+				}
+			}
+		}
+	}
+}
+.cont-survey-intro {
+
+	> .survey{
+		position: relative;
+	}
+
+	.survey .survey-intro {
+		//position: relative;
+		&.for-modal{
+			position: static;
+			padding-top: 30px;
+		}
+
+	}
+	.survey .survey-wrapper .legal {
+		margin-top: 20px;
+		@media only screen and (min-width: 768px){
+			margin-top: 30px;
+		}
+	}
+
+	.survey .survey-wrapper button {
+		@media only screen and (max-width: 400px){
+			padding: 0px 15px;
+			@include fontSet(18px, 18px, $font-lovinsans-medium);
+		}
+	}
+
+	.modal {
+		.survey .survey-wrapper {
+			background: $white;
+			padding: 0px;
+			margin: 0px auto;
+		}
+	}
+
+	.modal-content .btn-close {
+		z-index: 1;
+	}
+}

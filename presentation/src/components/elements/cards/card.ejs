@@ -1,0 +1,38 @@
+<div data-component="card-component" class="mcd-card column <% if (data.stacked === 'false' && data.image !== 'false') {%> mcd-card__horizontal mcd-card__horizontal--image<%} else if (data.image === 'false') {%> mcd-card__horizontal<%} else if (data.stacked === 'true') {%>mcd-card__vertical<%}%>">
+        <% if (data.imageAlignment === 'right') {%>
+            <% if (data.image !== 'false') {%>
+                <div class="mcd-card__vertical--image">
+                    <img src="<%=data.image%>">
+                </div>
+            <% } %>
+            <div class="mcd-card__text">
+                <h4>
+                    <%=data.heading%>
+                </h4>
+                <div class="mcd-card__text--calories">
+                    <%=data.calories%>
+                </div>
+            </div>
+        <%} else {%>
+            <% if (data.image !== 'false') {%>
+                <div class="mcd-card__horizontal--border <% if (data.borderColor === 'green') {%>mcd-card__horizontal--border--green<%} else {%>mcd-card__horizontal--border--purple<%}%> "></div>
+                <div class="mcd-card__horizontal--circle"></div>
+            <% } %>
+            <div class="<% if (data.image !== 'false') {%> mcd-card__text--large <%}%>">
+                <div class="mcd-card__text--heading">
+                    <%=data.heading%>
+                </div>
+                <div class="mcd-card__text--title">
+                    <%=data.title%>
+                </div>
+                <div class="mcd-card__text--footer-text">
+                    <%=data.footerText%>
+                </div>
+            </div>
+            <% if (data.image !== 'false') {%>
+                <div class="mcd-card__image mcd-card__image--small">
+                    <img class="mcd-card__image--size" src="<%=data.image%>">
+                </div>
+            <% } %>
+    <% } %>
+</div>

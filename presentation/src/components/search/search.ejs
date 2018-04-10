@@ -1,0 +1,18 @@
+<section data-component="search-component" class="mcd-search">
+  <div class="mcd-search__container">
+    <div class="mcd-search__input">
+      <input class="mcd-search__input--background" aria-disabled="true" tabindex="-1" type="text" />
+      <input class="mcd-search__input--main" type="search" role="search" placeholder="How can we help you?" />
+      <span class="mcd-search__input--close-btn hide icon-caret" data-icon="&#xe900" aria-hidden="true"></span>
+    </div>
+    <div class="mcd-search__button">
+      <% subclass='button--yellow button--sm button--yellow-border', icon='search'%>
+        <% include ./../../components/elements/button/button %>
+    </div>
+  </div>
+  <div class="mcd-search__border"></div>
+  <div class="mcd-search__no-item hide">Sorry, we couldn’t find what you’re looking for.</div>
+  <div class="mcd-search__suggestion hide">
+    <ul class="mcd-search__suggestion--section" aria-expanded="true"></ul>
+  </div>
+</section>

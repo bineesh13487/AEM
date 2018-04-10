@@ -1,0 +1,505 @@
+<sly data-sly-use.info="com.mcd.rwd.us.core.sightly.NutritionCalculator">
+	<sly data-sly-test="${wcmmode.edit && !info.title}">
+		<h2>Please configure the title, categories, primary nutrients and secondary nutrients</h2>
+	</sly>
+	<sly data-sly-test="${wcmmode.edit && info.categoryDetailList[0].id == null}">
+		<h2>Please select one or more categories</h2>
+	</sly>
+	<sly data-sly-test="${info.categoryDetailList[0].id !=null}">
+		<div data-ng-controller="nutritionCalculatorController" class="mcd-nutrition-calculator" data-component="nutritionCalculator" data-ng-cloak>
+			<div class="nutrition-calculator-alter">
+				<section class="cont-hero">
+					<div class="mcd-nutrition-calculator__totals"
+						<header>
+							<h2 class="h1">${info.title}</h2>
+							<div class="legalca"><span> ${info.dvDisclaimer}</span><span> ${info.hyperlink @ context='html'}</span> </div>
+						</header>
+						<div class="${info.secondaryNutrientsViewType == 'tableView' ? 'my-meal' : 'my-meal nutrition-uk'}">
+							<ul tabindex="1" role="tab" class="totals nc-summary animated">
+								<sly data-sly-list="${info.nutrientsList}">
+									<li aria-label="{{isUndefined(allNutritionValues[${item.id}].value) ? '00' : allNutritionValues[${item.id}].value}} {{allNutritionValues[${item.id}].uomDescription}} ${item.marketingName} {{allNutritionValues[${item.id}].adult_dv}}" class="total-item">
+										<span aria-hidden="true" class="total-item-value">{{isUndefined(allNutritionValues[${item.id}].value) ? "00" : allNutritionValues[${item.id}].value}}<span class="small">{{allNutritionValues[${item.id}].uom}}</span></span><span class="visuallyhidden">{{isUndefined(allNutritionValues[${item.id}].value) ? "00" : allNutritionValues[${item.id}].value}} {{allNutritionValues[${item.id}].uomDescription}}</span>
+												<small>${item.marketingName}</small><small ng-show="((!isEmpty(allNutritionValues[${item.id}].adult_dv)) && ${item.percentageUnitFlag})"> {{allNutritionValues[${item.id}].adult_dv}}</small>
+									</li>
+								</sly>
+							</ul>
+							<div class="fixed-totals" aria-hidden="true">
+								<div class="container">
+									<div class="col-sm-12 col-md-10 col-md-offset-1">
+										<div class="totals animated">
+											<sly data-sly-list="${info.nutrientsList}">
+												<div class="item desktop" aria-label="{{isUndefined(allNutritionValues[${item.id}].value) ? '00' : allNutritionValues[${item.id}].value}} {{allNutritionValues[${item.id}].uomDescription}} ${item.marketingName} {{allNutritionValues[${item.id}].adult_dv}}">
+													<span aria-hidden="true">{{isUndefined(allNutritionValues[${item.id}].value) ? "00" : allNutritionValues[${item.id}].value}}<span class="small">{{allNutritionValues[${item.id}].uom}}</span></span><span class="visuallyhidden">{{isUndefined(allNutritionValues[${item.id}].value) ? "00" : allNutritionValues[${item.id}].value}} {{allNutritionValues[${item.id}].uomDescription}}</span>
+														<small>${item.marketingName}</small><small ng-show="((!isEmpty(allNutritionValues[${item.id}].adult_dv)) && ${item.percentageUnitFlag})">: {{allNutritionValues[${item.id}].adult_dv}}</small>
+												</div>
+											</sly>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="detailed row init-hide" aria-hidden="true" data-sly-test="${info.secondaryNutrientsViewType == 'tableView'}">
+								<sly data-sly-test="${info.secondaryColCount == 'one'}">
+									<div class="row column-wrapper hidden-xs nc-col-12">
+										<ul class="col-sm-12">
+											<sly data-sly-list="${info.secondaryNutrientsList}">
+												<li>
+													<span>${item.marketingName}:</span> <span class="visuallyhidden">{{isUndefined(allNutritionValues[${item.id}].value) ? "00" : allNutritionValues[${item.id}].value}} {{allNutritionValues[${item.id}].uomDescription}}</span><span ng-if="${item.measurementUnitFlag}"><span class="ncUnit" aria-hidden="true">{{isUndefined(allNutritionValues[${item.id}].value) ? "00" : allNutritionValues[${item.id}].value}}</span><span class="ncUnit" aria-hidden="true" aria-label="{{allNutritionValues[${item.id}].uomDescription}}">{{allNutritionValues[${item.id}].uom}}</span></span> <span class="ncUnit" ng-if="${item.percentageUnitFlag}">{{allNutritionValues[${item.id}].adult_dv}}</span>
+												</li>
+											</sly>
+										</ul>
+									</div>
+								</sly>
+								<sly data-sly-test="${info.secondaryColCount == 'two'}">
+									<div class="row column-wrapper hidden-xs nc-col-6">
+										<ul class="col-sm-6">
+											<sly data-sly-list="${info.secondaryNutrientsList}">
+												<li>
+													<span>${item.marketingName}:</span> <span class="visuallyhidden">{{isUndefined(allNutritionValues[${item.id}].value) ? "00" : allNutritionValues[${item.id}].value}} {{allNutritionValues[${item.id}].uomDescription}}</span><span ng-if="${item.measurementUnitFlag}"><span class="ncUnit" aria-hidden="true">{{isUndefined(allNutritionValues[${item.id}].value) ? "00" : allNutritionValues[${item.id}].value}}</span><span class="ncUnit" aria-hidden="true" aria-label="{{allNutritionValues[${item.id}].uomDescription}}">{{allNutritionValues[${item.id}].uom}}</span></span> <span class="ncUnit" ng-if="${item.percentageUnitFlag}"> {{allNutritionValues[${item.id}].adult_dv}}</span>
+												</li>
+											</sly>
+										</ul>
+										<ul class="col-sm-6">
+											<sly data-sly-list="${info.secondaryNutrientsList2}">
+												<li>
+													<span>${item.marketingName}:</span> <span class="visuallyhidden">{{isUndefined(allNutritionValues[${item.id}].value) ? "00" : allNutritionValues[${item.id}].value}} {{allNutritionValues[${item.id}].uomDescription}}</span><span ng-if="${item.measurementUnitFlag}"><span class="ncUnit" aria-hidden="true">{{isUndefined(allNutritionValues[${item.id}].value) ? "00" : allNutritionValues[${item.id}].value}}</span><span class="ncUnit" aria-hidden="true" aria-label="{{allNutritionValues[${item.id}].uomDescription}}">{{allNutritionValues[${item.id}].uom}}</span></span> <span class="ncUnit" ng-if="${item.percentageUnitFlag}"> {{allNutritionValues[${item.id}].adult_dv}}</span>
+												</li>
+											</sly>
+										</ul>
+									</div>
+								</sly>
+								<sly data-sly-test="${info.secondaryColCount == 'three'}">
+									<div class="row column-wrapper hidden-xs nc-col-4">
+										<ul class="col-sm-4">
+											<sly data-sly-list="${info.secondaryNutrientsList}">
+												<li>
+													<span>${item.marketingName}:</span> <span class="visuallyhidden">{{isUndefined(allNutritionValues[${item.id}].value) ? "00" : allNutritionValues[${item.id}].value}} {{allNutritionValues[${item.id}].uomDescription}}</span><span ng-if="${item.measurementUnitFlag}"><span class="ncUnit" aria-hidden="true">{{isUndefined(allNutritionValues[${item.id}].value) ? "00" : allNutritionValues[${item.id}].value}}</span><span class="ncUnit" aria-hidden="true" aria-label="{{allNutritionValues[${item.id}].uomDescription}}">{{allNutritionValues[${item.id}].uom}}</span></span> <span class="ncUnit" ng-if="${item.percentageUnitFlag}"> {{allNutritionValues[${item.id}].adult_dv}}</span>
+												</li>
+											</sly>
+										</ul>
+										<ul class="col-sm-4">
+											Nutrients List 2: ${info.secondaryNutrientsList2}
+											<sly data-sly-list="${info.secondaryNutrientsList2}">
+												<li>
+													<span>${item.marketingName}:</span> <span class="visuallyhidden">{{isUndefined(allNutritionValues[${item.id}].value) ? "00" : allNutritionValues[${item.id}].value}} {{allNutritionValues[${item.id}].uomDescription}}</span><span ng-if="${item.measurementUnitFlag}"><span class="ncUnit" aria-hidden="true">{{isUndefined(allNutritionValues[${item.id}].value) ? "00" : allNutritionValues[${item.id}].value}}</span><span class="ncUnit" aria-hidden="true" aria-label="{{allNutritionValues[${item.id}].uomDescription}}">{{allNutritionValues[${item.id}].uom}}</span></span> <span class="ncUnit" ng-if="${item.percentageUnitFlag}"> {{allNutritionValues[${item.id}].adult_dv}}</span>
+												</li>
+											</sly>
+										</ul>
+										<ul class="col-sm-4">
+											Nutrients List 3: ${info.secondaryNutrientsList3}
+											<sly data-sly-list="${info.secondaryNutrientsList3}">
+												<li>
+													<span>${item.marketingName}:</span> <span class="visuallyhidden">{{isUndefined(allNutritionValues[${item.id}].value) ? "00" : allNutritionValues[${item.id}].value}} {{allNutritionValues[${item.id}].uomDescription}}</span><span ng-if="${item.measurementUnitFlag}"><span class="ncUnit" aria-hidden="true">{{isUndefined(allNutritionValues[${item.id}].value) ? "00" : allNutritionValues[${item.id}].value}}</span><span class="ncUnit" aria-hidden="true" aria-label="{{allNutritionValues[${item.id}].uomDescription}}">{{allNutritionValues[${item.id}].uom}}</span></span> <span class="ncUnit" ng-if="${item.percentageUnitFlag}"> {{allNutritionValues[${item.id}].adult_dv}}</span>
+												</li>
+											</sly>
+										</ul>
+									</div>
+								</sly>
+								<sly data-sly-test="${info.secondaryColCountMobile == 'one'}">
+									<div class="row column-wrapper visible-xs nc-col-12">
+										<ul class="col-xs-12">
+											<sly data-sly-list="${info.secondaryNutrientsListMobile}">
+												<li>
+													<span>${item.marketingName}:</span> <span class="visuallyhidden">{{isUndefined(allNutritionValues[${item.id}].value) ? "00" : allNutritionValues[${item.id}].value}} {{allNutritionValues[${item.id}].uomDescription}}</span><span ng-if="${item.measurementUnitFlag}"><span class="ncUnit" aria-hidden="true">{{isUndefined(allNutritionValues[${item.id}].value) ? "00" : allNutritionValues[${item.id}].value}}</span><span class="ncUnit" aria-hidden="true" aria-label="{{allNutritionValues[${item.id}].uomDescription}}">{{allNutritionValues[${item.id}].uom}}</span></span> <span class="ncUnit" ng-if="${item.percentageUnitFlag}"> {{allNutritionValues[${item.id}].adult_dv}}</span>
+												</li>
+											</sly>
+										</ul>
+									</div>
+								</sly>
+								<sly data-sly-test="${info.secondaryColCountMobile == 'two'}">
+									<div class="row column-wrapper visible-xs  nc-col-6">
+										<ul class="col-xs-6">
+											<sly data-sly-list="${info.secondaryNutrientsListMobile}">
+												<li>
+													<span>${item.marketingName}:</span> <span class="visuallyhidden">{{isUndefined(allNutritionValues[${item.id}].value) ? "00" : allNutritionValues[${item.id}].value}} {{allNutritionValues[${item.id}].uomDescription}}</span><span ng-if="${item.measurementUnitFlag}"><span class="ncUnit" aria-hidden="true">{{isUndefined(allNutritionValues[${item.id}].value) ? "00" : allNutritionValues[${item.id}].value}}</span><span class="ncUnit" aria-hidden="true" aria-label="{{allNutritionValues[${item.id}].uomDescription}}">{{allNutritionValues[${item.id}].uom}}</span></span> <span class="ncUnit" ng-if="${item.percentageUnitFlag}"> {{allNutritionValues[${item.id}].adult_dv}}</span>
+												</li>
+											</sly>
+										</ul>
+										<ul class="col-xs-6">
+											<sly data-sly-list="${info.secondaryNutrientsListMobile2}">
+												<li>
+													<span>${item.marketingName}:</span> <span class="visuallyhidden">{{isUndefined(allNutritionValues[${item.id}].value) ? "00" : allNutritionValues[${item.id}].value}} {{allNutritionValues[${item.id}].uomDescription}}</span><span ng-if="${item.measurementUnitFlag}"><span class="ncUnit" aria-hidden="true">{{isUndefined(allNutritionValues[${item.id}].value) ? "00" : allNutritionValues[${item.id}].value}}</span><span class="ncUnit" aria-hidden="true" aria-label="{{allNutritionValues[${item.id}].uomDescription}}">{{allNutritionValues[${item.id}].uom}}</span></span> <span class="ncUnit" ng-if="${item.percentageUnitFlag}"> {{allNutritionValues[${item.id}].adult_dv}}</span>
+												</li>
+											</sly>
+										</ul>
+									</div>
+								</sly>
+							</div>
+							<div class="row detailed uk init-hide" data-sly-test="${info.secondaryNutrientsViewType == 'columnView'}">
+							<table class="column-wrapper hidden-xs width-manager">
+								<tr>
+								<th class="col-xs-4" scope="col">${info.nutritionColumnHeading}</th>
+								<th class="col-xs-3" scope="col">${info.measurementUnitColumnHeading}</th>
+								<th class="col-xs-3" scope="col">${info.percentageUnitColumnHeading}</th>
+								</tr>
+								<sly data-sly-list="${info.secondaryNutrientsListContainer}">
+								<tr>
+								<td class="col-xs-4">${item.marketingName} <span class="label" aria-hidden="true">{{addBrakets(allNutritionValues[${item.id}].uom)}}</span><span class="visuallyhidden">{{allNutritionValues[${item.id}].uomDescription}}</span></td>
+								<td class="col-xs-3"><span ng-if="${item.measurementUnitFlag}"></span>{{isUndefined(allNutritionValues[${item.id}].value) ? "00" : allNutritionValues[${item.id}].value}}</td>
+								<td class="col-xs-3"><span ng-if="${item.percentageUnitFlag}"></span> {{removeBrakets(allNutritionValues[${item.id}].adult_dv)}}</td>
+								</tr>
+								</sly>
+							</table>
+							<table class="column-wrapper visible-xs width-manager">
+								<tr>
+								<th class="col-xs-4" scope="col">${info.nutritionColumnHeading}</th>
+								<th class="col-xs-3" scope="col">${info.measurementUnitColumnHeading}</th>
+								<th class="col-xs-3" scope="col">${info.percentageUnitColumnHeading}</th>
+								</tr>
+								<sly data-sly-list="${info.secondaryNutrientsListMobileContainer}">
+								<tr>
+								<td class="col-xs-4">${item.marketingName} <span class="label" aria-hidden="true">{{addBrakets(allNutritionValues[${item.id}].uom)}}</span><span class="visuallyhidden">{{allNutritionValues[${item.id}].uomDescription}}</span></td>
+								<td class="col-xs-3"><span ng-if="${item.measurementUnitFlag}"></span>{{isUndefined(allNutritionValues[${item.id}].value) ? "00" : allNutritionValues[${item.id}].value}}</td>
+								<td class="col-xs-3"><span ng-if="${item.percentageUnitFlag}"></span> {{removeBrakets(allNutritionValues[${item.id}].adult_dv)}}</td>
+								</tr>
+								</sly>
+							</table>
+							</div>
+						</div>
+						<div class="row basket init-hide" aria-hidden="true">
+							<div class="col-xs-6">
+								<div>${info.myMeal}</div>
+								<div class="status">{{myMealCounter}} ${info.itemIn}</div>
+							</div>
+							<div class="col-xs-6 view-basket">
+								<a data-ng-show="itemsJsonResponse.length > 0" href="javaScript:void(0);" class="btn btn-red view-btn view-meal">${info.viewButton}</a>
+								<a href="javaScript:void(0);" class="button button--yellow view-btn add-meal init-hide">${info.addButton}</a>
+							</div>
+						</div>
+						
+								
+					</div>
+				</section>
+				<div id="level-all" class="nutrition-nav-contain" tabindex="-1" title="${info.adaCategoryTitle}">
+					<div class="container nutrition-menu">
+						<h3 class="h2 remove-p" tabindex="0">${info.selectCategoryText @ context='html'}
+							<a data-sly-test="${info.clickHere !=''}" href="#videoModal" class="trigger-carousel-video trigger-carousel-video-nc" role="button" aria-label="${info.clickHere}">${info.clickHere @ context='html'}	</a> ${info.selectCategoryText1 @ context='html'}
+						</h3>
+						<div class="row">
+							<sly data-sly-list="${info.categoryDetailList}">
+								<div class="menu-item col-xs-6 col-sm-3" data-ng-click="catName='${item.marketingName}';catId='${item.Id}';getCatDetails()">
+									<button href="#" class="btn-category-nav" role="button" aria-label="${info.adaSelect} ${item.marketingName}">
+										<div class="name">${item.marketingName}</div>
+										<img src="${item.imagePath}" alt="" />
+									</button>
+								</div>
+							</sly>
+						</div>
+					</div>
+				</div>
+				<div id="level-category" class="nutrition-nav-contain init-hide" tabindex="-1" title="${info.adaItemTitle}">
+					<div class="container nutrition-menu category">
+						<button class="btn-back" href="#" role="button" aria-label="${info.backButton}">
+							<i class="fa fa-chevron-circle-left fa-3x" aria-hidden="true"></i>
+							<div>${info.backButton}</div>
+						</button>
+						<h3 role="tab" class="h2 nc-catname" tabindex="0">{{catName}}</h3>
+						<h4 class="h3">${info.selectItem}</h4>
+						<div class="row items" id="select-group" role="group">
+							<div data-ng-repeat="x in catItems" on-finish-render-category="ngRepeatFinishedCategory">
+							<div ng-if="x.type=='normal'" class="nc menu-item col-xs-6 col-sm-3">
+								<input type="radio" role="button" data-ng-click="addItem(x.id,false,$event)" data-nc-analytics-add="{{x.id}}" class="activate-item nc" value="None" id="{{x.id}}" name="{{x.id}}" tabindex="0" aria-label="${info.adaSelect} {{x.name}}" ng-init = "selected=isItemAdded(x.id)" data-ng-checked="selected"/>
+								<label for="{{x.id}}" tabindex="-1" aria-label="${info.adaSelect} {{x.name}}">
+									<img data-ng-src="${info.itemImageFolderPath}/{{x.transImgName}}" alt="" aria-hidden="true"/>
+									<div class="name" aria-hidden="true">{{x.name}}</div>
+									<div class="controls">
+										<div class="status" aria-hidden="true">
+								${info.addCalculator}
+										</div>
+										<div class="buttons">
+											<button data-ng-click="addItem(x.id,true,$event)" href="#" role="button" aria-label="${info.addMore} {{x.name}}">
+												<i class="fa fa-plus" aria-hidden="true"></i>${info.addMore}
+											</button>
+										</div>
+									</div>
+								</label>
+							</div>
+							<div ng-if="x.type=='dummy'" class="menu-item col-xs-6 col-sm-3 nc-dummy-item">
+								<input type="radio" class="activate-item"/>
+								<label>
+								</label>
+							</div>
+							</div>
+						</div>
+						<div ng-show="categoryLoading" style="text-align:center;">
+							<img src="/etc/clientlibs/mcd-us/images/spinner.gif" alt="">
+						</div>
+					</div>
+				</div>
+				<div id="level-details" class="nutrition-nav-contain init-hide" tabindex="-1" title="${info.adaMealTitle}">
+					<div class="container nutrition-meal-details">
+						<div class="row">
+							<div class="col-sm-12 col-md-10 col-md-offset-1">
+								<div class="triangle-down"></div>
+								<div class="meal-list">
+									<div ng-show="mealLoading" style="text-align:center;">
+										<img src="/etc/clientlibs/mcd-us/images/spinner.gif" alt="">
+									</div>
+									<div class="visuallyhidden customize-start" tabindex="0">Customize Meal</div>
+									<div class="meal-item" tabindex="0" data-ng-repeat="z in itemsJsonResponse" ng-init="itemIndex=z.time" on-finish-render-nc="ngRepeatFinishedNc" aria-label="{{z.itemName}} ${info.adaItem}">
+										<div class="row meal-row" id = "{{z.time}}" data-itemid="{{z.id}}" ng-init="itemid=z.id">
+											<input data-ng-click="updateNutritionValues()" type="checkbox" value="None" class="activate-check checked" data-aria-label="{{z.itemName}}" id="item3-{{$index}}-{{z.id}}" ng-init = "selected=true" name="check" data-ng-checked="selected" />
+											<label aria-label="${info.hideText} {{z.itemName}}" class="item-activate" for="item3-{{$index}}-{{z.id}}" tabindex="-1"  aria-hidden="true">
+												<div class="open">${info.hideText} <span class="visuallyhidden">{{z.itemName}}</span></div>
+												<div class="closed">${info.showText} <span class="visuallyhidden">{{z.itemName}}</span></div>
+											</label>
+											<div class="item-content" data-ng-init="name=z.itemName">
+												<button class="btn-close" href="#" data-toggle="modal" data-target="#deleteModal" role="button" data-ng-click="setDeleteVal(name,z.id,z.time)" aria-label="${info.deleteButton} {{name}}" >
+													<div>${info.deleteButton}</div>
+													<i class="fa fa-times-circle fa-3x" aria-hidden="true"></i>
+												</button>
+												<div class="prod-image">
+													<img data-ng-src="${info.itemImageFolderPath}/{{z.transpImgName}}" alt="" aria-hidden="true"/>
+												</div>
+												<h3 class="h2">{{name}}</h3>
+
+												<div class="itemid hidden">{{itemid}}</div>
+											</div>
+											<div class="controls" data-ng-init="serveSize = z.serveSize">
+
+											<div class="select">
+												<div class="btn-group bootstrap-select form-control nc-select" data-ng-init="serveSize = z.serveSize"  data-ng-if="serveSize.length>0">
+													<button type="button" class="btn dropdown-toggle select-dropdown keep-outline" data-toggle="dropdown" title="{{serveSize.first}}" aria-label="${info.adaServingSize} {{z.itemName}}" aria-expanded="true">
+													<span class="filter-option pull-left">{{serveSize.first}}</span>&nbsp;<span class="bs-caret"><span class="caret"></span></span>
+													</button>
+													<div class="dropdown-menu open" style="max-height: 204px; overflow: hidden; min-height: 134px;" aria-expanded="true">
+														<ul class="dropdown-menu inner" role="menu" style="max-height: 192px; overflow-y: auto; min-height: 122px;">
+															<li class="ncselect" data-ng-repeat="r in serveSize" data-original-index="{{$index}}" data-ng-click="$parent.$parent.itemid=r.id;serveSize.first=r.label;updateItems(r.id,z.time,$event)"><a tabindex="0" class="" style="" data-tokens="null" aria-disabled="false" role="option"><span class="text">{{r.label}}</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li>
+														</ul>
+													</div>
+												</div>
+											</div>
+											<sly data-sly-test="${info.isNutritionInfoAtProductLevel}">
+												<button class="btn btn-red collapsed" type="button" data-toggle="collapse" data-target="#item3-ingredients-{{$index}}-{{z.id}}" aria-label="${info.adaCustomizeIngredients} {{z.itemName}}"  aria-expanded="false" aria-controls="item3-ingredients-{{$index}}-{{z.id}}">
+													<div class="open">
+															{{openButtonheading(z.has_components,'${info.isNutritionInfoAtProductLevel}')}}
+														<i class="fa fa-chevron-up" aria-hidden="true"></i>
+													</div>
+													<div class="closed">
+															{{closeButtonheading(z.has_components,'${info.isNutritionInfoAtProductLevel}')}}
+														<i class="fa fa-chevron-down" aria-hidden="true"></i>
+													</div>
+												</button>
+											</sly>
+											<sly data-sly-test="${!info.isNutritionInfoAtProductLevel}">
+												<button ng-show="!isEmpty(z.itemStatements)" class="btn btn-red collapsed" type="button" data-toggle="collapse" data-target="#item3-ingredients-{{$index}}-{{z.id}}" aria-label="${info.adaCustomizeIngredients} {{z.itemName}}"  aria-expanded="false" aria-controls="item3-ingredients-{{$index}}-{{z.id}}">
+													<div class="open">
+															{{openButtonheading('no')}}
+														<i class="fa fa-chevron-up" aria-hidden="true"></i>
+													</div>
+													<div class="closed">
+															{{closeButtonheading('no')}}
+														<i class="fa fa-chevron-down" aria-hidden="true"></i>
+													</div>
+												</button>
+											</sly>
+											</div>
+											<div class="ingredients collapse" id="item3-ingredients-{{$index}}-{{z.id}}">
+											<sly data-sly-test="${info.isNutritionInfoAtProductLevel}">
+												<div ng-if="z.has_components=='Yes'" data-ng-repeat="k in z.products" ng-init="productsIndex=$index" class="row hasComponents" on-finish-render-nc-products="ngRepeatFinishedNcProducts">
+													<div data-ng-if="k.type=='component'" data-ng-init="selected=isComponentChecked(k.id) ? true:false" >
+														<input data-ng-click="updateNutritionValues()" data-productid="{{k.id}}" type="checkbox" value="None" class="activate-check checked" id="item-{{itemIndex}}-{{z.id}}-ingr{{k.id}}" name="check" data-ng-checked="selected" data-aria-label="{{isEmpty(k.product_marketing_name) ? k.product_name : k.product_marketing_name}}"/>
+														<label class="item-activate" for="item-{{itemIndex}}-{{z.id}}-ingr{{k.id}}" aria-label="${info.hideText} {{isEmpty(k.product_marketing_name) ? k.product_name : k.product_marketing_name}}" aria-hidden="true">
+															<div class="open visuallyhidden">${info.hideText} {{isEmpty(k.product_marketing_name) ? k.product_name : k.product_marketing_name}}</div>
+															<div class="closed visuallyhidden">${info.showText} {{isEmpty(k.product_marketing_name) ? k.product_name : k.product_marketing_name}}</div>
+														</label>
+														<div class="item-content">
+															<h4 class="h3">{{isEmpty(k.product_marketing_name) ? k.product_name : k.product_marketing_name}}</h4>
+															<p ng-bind-html="sanitizeElement(k.ingredient_statement)" data-ng-if="sanitizeElement(k.ingredient_statement)!=''"></p>
+															<p ng-bind-html="'${info.allergen}' +' '+ sanitizeElement(k.product_allergen)" data-ng-if="sanitizeElement(k.product_allergen)!=''" class="allergens"></p>
+															<p ng-bind-html="sanitizeElement(k.product_additional_text_ingredient_statement)" data-ng-if="sanitizeElement(k.product_additional_text_ingredient_statement)!=''"></p>
+															<p ng-bind-html="'${info.allergenMayText}' +' '+ sanitizeElement(k.product_additional_allergen)" data-ng-if="sanitizeElement(k.product_additional_allergen)!=''" class="allergens"></p>
+														</div>
+														<div class=form-separator></div>
+													</div>
+													<div data-ng-if="k.type=='optional-component'" data-ng-init="selected=isComponentChecked(k.id) ? true:false" >
+														<input data-ng-click="updateNutritionValues()" data-productid="{{k.id}}" type="checkbox" value="None" class="activate-check" id="item-{{itemIndex}}-{{z.id}}-ingr{{k.id}}" name="check" data-ng-checked="selected" data-aria-label="{{isEmpty(k.item_marketing_name) ? k.item_name : k.item_marketing_name}}"/>
+														<label class="item-activate" for="item-{{itemIndex}}-{{z.id}}-ingr{{k.id}}" aria-label="${info.hideText} {{isEmpty(k.item_marketing_name) ? k.item_name : k.item_marketing_name}}" aria-hidden="true">
+															<div class="open visuallyhidden">${info.hideText} {{isEmpty(k.item_marketing_name) ? k.item_name : k.item_marketing_name}}</div>
+															<div class="closed visuallyhidden">${info.showText} {{isEmpty(k.item_marketing_name) ? k.item_name : k.item_marketing_name}}</div>
+														</label>
+														<div class="item-content">
+															<h4 class="h3">{{isEmpty(k.item_marketing_name) ? k.item_name : k.item_marketing_name}}</h4>
+															<p ng-bind-html="sanitizeElement(k.item_ingredient_statement)" data-ng-if="sanitizeElement(k.item_ingredient_statement)!=''"></p>
+															<p ng-bind-html="'${info.allergen}' +' '+ sanitizeElement(k.item_allergen)" data-ng-if="sanitizeElement(k.item_allergen)!=''" class="allergens"></p>
+															<p ng-bind-html="sanitizeElement(k.item_additional_text_ingredient_statement)" data-ng-if="sanitizeElement(k.item_additional_text_ingredient_statement)!=''"></p>
+															<p ng-bind-html="'${info.allergenMayText}' +' '+ sanitizeElement(k.item_additional_allergen)" data-ng-if="sanitizeElement(k.product_additional_allergen)!=''" class="allergens"></p>
+														</div>
+														<div class=form-separator></div>
+													</div>
+													<div data-ng-if="k.type=='mutex'">
+														<div data-ng-repeat="km in k.constituents" ng-init="constituentIndex=$index">
+														<div data-ng-if="isItem(km.id)">
+															<input data-ng-click="updateNutritionValues()" data-productid="{{km.id}}" type="radio" value="None" class="activate-check" id="item-{{itemIndex}}{{productsIndex}}-{{z.id}}-ingr{{k.id}}-{{km.id}}" name="check-{{itemIndex}}{{productsIndex}}-item{{z.id}}-ingr{{k.id}}" data-ng-checked="isDefaultCheck(km.is_default)" data-aria-label="{{isEmpty(km.item_marketing_name) ? km.item_name : km.item_marketing_name}}"/>
+															<label class="item-activate" for="item-{{itemIndex}}{{productsIndex}}-{{z.id}}-ingr{{k.id}}-{{km.id}}" aria-label="${info.hideText} {{isEmpty(km.item_marketing_name) ? km.item_name : km.item_marketing_name}}" aria-hidden="true">
+																<div class="open visuallyhidden">${info.hideText} {{isEmpty(km.item_marketing_name) ? km.item_name : km.item_marketing_name}}</div>
+																<div class="closed visuallyhidden">${info.showText} {{isEmpty(km.item_marketing_name) ? km.item_name : km.item_marketing_name}}</div>
+															</label>
+															<div class="item-content">
+																<h4 class="h3">{{isEmpty(km.item_marketing_name) ? km.item_name : km.item_marketing_name}}</h4>
+																<p ng-bind-html="sanitizeElement(km.item_ingredient_statement)" data-ng-if="sanitizeElement(km.item_ingredient_statement)!=''"></p>
+																<p ng-bind-html="'${info.allergen}' +' '+ sanitizeElement(km.item_allergen)" data-ng-if="sanitizeElement(km.item_allergen)!=''" class="allergens"></p>
+																<p ng-bind-html="sanitizeElement(km.item_additional_text_ingredient_statement)" data-ng-if="sanitizeElement(km.item_additional_text_ingredient_statement)!=''"></p>
+																<p ng-bind-html="'${info.allergenMayText}' +' '+ sanitizeElement(km.item_additional_allergen)" data-ng-if="sanitizeElement(km.item_additional_allergen)!=''" class="allergens"></p>
+															</div>
+														</div>
+														<div data-ng-if="!isItem(km.id)">
+															<input data-ng-click="updateNutritionValues()" data-productid="{{km.id}}" type="radio" value="None" class="activate-check" id="item-{{itemIndex}}{{productsIndex}}-{{z.id}}-ingr{{k.id}}-{{km.id}}" name="check-{{itemIndex}}{{productsIndex}}-item{{z.id}}-ingr{{k.id}}" data-ng-checked="isDefaultCheck(km.is_default)" data-aria-label="{{isEmpty(km.product_marketing_name) ? km.product_name : km.product_marketing_name}}"/>
+															<label class="item-activate" for="item-{{itemIndex}}{{productsIndex}}-{{z.id}}-ingr{{k.id}}-{{km.id}}" aria-label="${info.hideText} {{isEmpty(km.product_marketing_name) ? km.product_name : km.product_marketing_name}}" aria-hidden="true">
+																<div class="open visuallyhidden">${info.hideText} {{isEmpty(km.product_marketing_name) ? km.product_name : km.product_marketing_name}}</div>
+																<div class="closed visuallyhidden">${info.showText} {{isEmpty(km.product_marketing_name) ? km.product_name : km.product_marketing_name}}</div>
+															</label>
+															<div class="item-content">
+																<h4 class="h3">{{isEmpty(km.product_marketing_name) ? km.product_name : km.product_marketing_name}}</h4>
+																<p ng-bind-html="sanitizeElement(km.ingredient_statement)" data-ng-if="sanitizeElement(km.ingredient_statement)!=''"></p>
+																<p ng-bind-html="'${info.allergen}' +' '+ sanitizeElement(km.product_allergen)" data-ng-if="sanitizeElement(km.product_allergen)!=''" class="allergens"></p>
+																<p ng-bind-html="sanitizeElement(km.product_additional_text_ingredient_statement)" data-ng-if="sanitizeElement(km.product_additional_text_ingredient_statement)!=''"></p>
+																<p ng-bind-html="'${info.allergenMayText}' +' '+ sanitizeElement(km.product_additional_allergen)" data-ng-if="sanitizeElement(km.product_additional_allergen)!=''"></p>
+															</div>
+														</div>
+														</div>
+														<div class=form-separator></div>
+													</div>
+												</div>
+												<div ng-if="z.has_components=='No'" ng-init="k = z.itemStatements" class="row">
+													<div>
+														<input disabled="true" data-productid="{{z.id}}" type="checkbox" value="None" class="activate-check checked" id="item-{{itemIndex}}-{{z.id}}-ingr{{z.id}}" name="check" data-ng-checked="selected" aria-label="{{z.itemName}}"/>
+														<div class="item-content">
+															<p ng-bind-html="sanitizeElement(k.item_ingredient_statement)" data-ng-if="sanitizeElement(k.item_ingredient_statement)!=''"></p>
+															<p ng-bind-html="'${info.allergen}' +' '+ sanitizeElement(k.allergen)" data-ng-if="sanitizeElement(k.allergen)!=''" class="allergens"></p>
+															<p ng-bind-html="sanitizeElement(k.additionalStatement)" data-ng-if="sanitizeElement(k.additionalStatement)!=''"></p>
+															<p ng-bind-html="'${info.allergenMayText}' +' '+ sanitizeElement(k.additionalAllergen)" data-ng-if="sanitizeElement(k.additionalAllergen)!=''" class="allergens"></p>
+														</div>
+													</div>
+												</div>
+												</sly>
+												<sly data-sly-test="${!info.isNutritionInfoAtProductLevel}">
+													<div ng-init="k = z.itemStatements" class="row">
+													<div>
+														<input disabled="true" data-productid="{{z.id}}" type="checkbox" value="None" class="activate-check checked" id="item-{{itemIndex}}-{{z.id}}-ingr{{z.id}}" name="check" data-ng-checked="selected" aria-label="{{z.itemName}}"/>
+														<div class="item-content">
+															<p ng-bind-html="sanitizeElement(k.item_ingredient_statement)" data-ng-if="sanitizeElement(k.item_ingredient_statement)!=''"></p>
+															<p ng-bind-html="'${info.allergen}' +' '+ sanitizeElement(k.allergen)" data-ng-if="sanitizeElement(k.allergen)!=''" class="allergens"></p>
+															<p ng-bind-html="sanitizeElement(k.additionalStatement)" data-ng-if="sanitizeElement(k.additionalStatement)!=''"></p>
+															<p ng-bind-html="'${info.allergenMayText}' +' '+ sanitizeElement(k.additionalAllergen)" data-ng-if="sanitizeElement(k.additionalAllergen)!=''" class="allergens"></p>
+														</div>
+													</div>
+													</div>
+												</sly>
+											</div>
+										</div>
+									</div>
+
+									<div class="row more-actions">
+										<a href="#" class="button button--yellow view-btn add-meal">${info.addButton}</a>
+										<a ng-show="itemsJsonResponse.length > 0" href="#" class="text-link" data-toggle="modal" data-target="#deleteAllModal">${info.deleteAllButton}</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<section title="legal" title="${info.adaLegalTitle}">
+				<div class="container cont-legal" data-sly-use.legal="com.mcd.rwd.us.core.sightly.LegalFooterHandler">
+					<h3>${legal.legalTextHeading @ context='html'}</h3>
+					${legal.legalText @ context='html'}
+				</div>
+				</section>
+				<div class="wrapper-legal-toggle">
+					<div class="bg-fade"></div>
+					<div class="btn-wrapper"> <a role="buton" class="btn-legal-display-toggle" data-status="short" data-more="<span>${info.legalMore}</span><i class='fa fa-chevron-down'></i>" data-less="<span>${info.legalLess}</span><i class='fa fa-chevron-up'></i>"><span>${info.legalMore}</span><i class="fa fa-chevron-down"></i></a></div>
+				</div>
+			</div>
+			<div class="nutritionData hidden" data-nclimit="${info.maxCount}" data-dvtext="${info.dvText}"></div>
+			<div class="selectedView hidden" data-view-type=${properties.viewTypeSelection}></div>
+			<div class="buttonText hidden" data-close-item=${info.closeItemDetails} data-explore-item=${info.exploreItemDetails} data-close-ingredients=${info.closeIngredients} data-customize-ingredients=${info.customizeIngredients}></div>
+			<div class="nutritionDnaUrl hidden" data-catdetails="${info.dnaCategoryDetailsUrl @ context='unsafe'}" data-itemdetails="${info.dnaItemDetailsUrl @ context='unsafe'}" data-itemlist="${info.dnaItemListUrl @ context='unsafe'}"></div>
+
+			<div class="modal fade nutrition-delete" id="deleteModal" tabindex="0">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<h2 role="tab" tabindex="1" class="headline-text remove-p">${info.deleteDialog @ context="html"} <b>{{deleteName}}?</b>
+						</h2>
+						<div class="row">
+							<div class="col-sm-6">
+								<button tabindex="1" data-ng-click="removeItem(deleteId,deleteTime,$event)" data-nc-analytics-delete="{{deleteId}}" class="btn btn-red btn-yes nc-delete-analytics" data-dismiss="modal">${info.yesButton}</button>
+							</div>
+							<div class="col-sm-6">
+								<button tabindex="1" class="btn btn-red-inverse" data-dismiss="modal">${info.noButton}</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal fade nutrition-delete" id="deleteAllModal" tabindex="0">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<h2 role="tab" tabindex="1" class="headline-text remove-p">${info.deleteAllDialog @ context="html"}</h2>
+						<div class="row">
+							<div class="col-sm-6">
+								<button tabindex="1" data-ng-click="removeAllItems()" data-allitems-nc-analytics="{{allIds}}" class="btn btn-red btn-yes nc-delete-all-analytics" data-dismiss="modal">${info.yesButton}</button>
+							</div>
+							<div class="col-sm-6">
+								<button tabindex="1" class="btn btn-red-inverse" data-dismiss="modal">${info.noButton}</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div data-sly-test="${info.videoId !=''}" id="videoModal" class="component-video" tabindex="-1" role="dialog">
+				<div class="container">
+					<div class="row no-gutter">
+						<div class="col-sm-12">
+							<div class="embed-responsive embed-responsive-16by9">
+								<div class="data-videos-id-nc" id="data-videos" data-videos="${info.videoId}"></div>
+								<div class="data-videos-nc" id="player"></div>
+							</div>
+							<div class="cont-playlist" style="overflow-y:hidden;">
+								<ul class="list-unstyled">
+									<li class="active">
+									<div class="media">
+										<div class="media-left media-middle">
+										</div>
+										<div class="media-body media-middle">
+										</div>
+									</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal fade nutrition-delete" id="ncExitModal" tabindex="0">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<h2 role="tab" tabindex="1" class="headline-text remove-p">${info.exitDialog @ context="html"}</h2>
+						<div class="row">
+							<div class="col-sm-6 nc-exit-yes">
+								<a class="nxExitClick" tabindex="1" href="#">
+									<button tabindex="-1" class="btn btn-red btn-yes nc-exit-button" data-dismiss="modal">
+										${info.yesButton}
+									</button>
+								</a>
+							</div>
+							<div class="col-sm-6">
+								<button tabindex="1" class="btn btn-red-inverse" data-dismiss="modal">${info.noButton}</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal fade nutrition-delete" id="ncLimitModal" tabindex="0">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<h2 role="tab" tabindex="1" class="headline-text remove-p">${info.limitDialog @ context="html"}</h2>
+						<div class="row">
+							<div class="col-sm-12 nc-exit-yes">
+								<button tabindex="1" class="btn btn-red btn-yes" data-dismiss="modal">${info.okButton}</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</sly>
+</sly>

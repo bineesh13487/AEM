@@ -1,0 +1,178 @@
+.template-b {
+	@extend .template;
+
+	.template-hero {
+		margin-bottom: 0;
+
+		/*h1, h2 {
+			margin-bottom: 0;
+		}
+
+		h2{
+			margin-top: 0;
+		}*/
+
+		.absolute-content .absolute-content-wrapper {
+			@include up-to-breakpoint(sm) {
+				/*h1 {
+					@include fontSet(60px, 1em, $font-lovinsans-black);
+					//margin-bottom: -1em;
+				}
+				h2 {
+					@include fontSet(30px, 1.4em, $font-lovinsans-medium);
+				}
+
+				p {
+					@include fontSet(24px, 1.4em, $font-lovinsans);
+				}*/
+				.btn {
+					transform: scale(1);
+				}
+			}
+
+			@include breakpoint(sm) {
+				/*h1 {
+					@include fontSet(100px, 1em, $font-lovinsans-black);
+					margin-bottom: -.02em;
+				}
+				h2 {
+					@include fontSet(36px, 1em, $font-lovinsans-medium);
+				}
+				p {
+					@include fontSet(22px, 1.2em, $font-lovinsans);
+					margin-bottom: .25em;
+				}*/
+				.btn {
+					transform: scale(.8);
+				}
+			}
+
+			@include breakpoint(md) {
+				/*h1 {
+					@include fontSet(125px, 1em, $font-lovinsans-black);
+					//margin-bottom: -.02em;
+				}
+				h2 {
+					@include fontSet(50px, 1em, $font-lovinsans-medium);
+				}
+				p {
+					@include fontSet(30px, 1.2em, $font-lovinsans);
+					margin-bottom: 1em;
+				}*/
+			}
+
+			@include breakpoint(lg) {
+				/*h1 {
+					@include fontSet(125px, 1em, $font-lovinsans-black);
+					margin-bottom: -.02em;
+				}
+				h2 {
+					@include fontSet(50px, 1em, $font-lovinsans-medium);
+				}
+				p {
+				}*/
+			}
+		}
+	}
+
+	.template-service {
+		position: relative;
+
+		.container-fluid {
+			background: $base;
+			position: relative;
+		}
+
+		.text-wrapper {
+			text-align: center;
+
+			@include up-to-breakpoint(md) {
+				padding: {
+					top: 0px;
+					bottom: 40px;
+				}
+			}
+
+			@include breakpoint(md) {
+				padding: {
+					top: 0px;
+					bottom: 38px;
+				}
+			}
+
+			@include breakpoint(lg) {
+				padding: {
+					top: 12px;
+					bottom: 54px;
+				}
+			}
+		}
+
+		.title,
+		.excerpt,
+		.excerpt-short {
+			color: $black-text;
+		}
+
+		.title {
+			margin-bottom: 8px;
+		}
+
+		.excerpt,
+		.excerpt-short {
+			line-height: 1.3em;
+		}
+
+		.excerpt,
+		.excerpt-short {
+			@include fontSet(24px, 1.2em, $font-lovinsans);
+		}
+
+		@include breakpoint(xxs) {
+			.title {
+				@include font-size(40px, 1.1em);
+			}
+			.excerpt-short {
+				@include font-size(24px, 1.4em);
+			}
+			.learn-more-btn {
+
+			}
+		}
+
+		@include breakpoint(sm) {
+			.title {
+
+			}
+			.excerpt {
+
+			}
+			.learn-more-btn {
+
+			}
+		}
+
+		@include breakpoint(md) {
+			.title {
+
+			}
+			.excerpt {
+
+			}
+			.learn-more-btn {
+
+			}
+		}
+
+		@include breakpoint(lg) {
+			.title {
+			}
+			.excerpt {
+				@include font-size(24px, 1.4em);
+			}
+			.learn-more-btn {
+
+			}
+		}
+	}
+}

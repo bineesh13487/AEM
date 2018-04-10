@@ -1,0 +1,21 @@
+<sly data-sly-use.headerConfig="com.mcd.rwd.wifi.core.sightly.page.SiteconfigHandler"/>
+<header>
+	<a href="#slider" tabindex="0" class="nav-skip-to-content" title="Skip to Content">Skip to Content</a>
+	<div class="nav row">
+		<div class="col-md-12 col-sm-12 col-xs-12">
+			<div class="languageTogglerBox">
+				<sly data-sly-resource="${'languagetoggle' @ resourceType='mcd-wifi/components/content/languagetoggle'}"></sly>
+			</div>
+		</div>
+	
+		<div class="mcd-logo col-md-2 col-sm-2 col-xs-4">
+			<sly data-sly-resource="${'logo' @ resourceType='mcd-rwd-global/components/content/logo'}"></sly>
+            <h1 class="wifiText">${headerConfig.logoText}</h1>
+		</div>
+		
+		<div class="col-md-10 col-sm-10 col-xs-8">
+			<h2 id='location'>&nbsp;</h2>
+		</div>
+		<div class="clearfix"></div>
+	</div>
+</header>

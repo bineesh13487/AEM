@@ -1,0 +1,160 @@
+.page-careers {
+
+    // CAREER HERO - FOR HEADER POSITIONED CENTER TOP
+    .career-hero {
+        margin-bottom: 0px !important;
+        .template-hero-bg {
+            @include breakpoint(sm) {
+                height: 700px;
+            }
+            .img-hero {
+                display: none;
+                @media only screen and (min-width: 480px) {
+                    display: block;
+                }
+            }
+            .absolute-content .absolute-content-wrapper {
+                vertical-align: top;
+                h1 {
+                    text-transform: uppercase;
+                    color: $white;
+                    margin: 0;
+                    @include fontSet(50px, 50px, $font-lovinsans-black);
+                    @media only screen and (min-width: 320px) {
+                        @include fontSet(75px, 75px, $font-lovinsans-black);
+                    }
+                    @media only screen and (min-width: 480px) {
+                        @include fontSet(100px, 100px, $font-lovinsans-black);
+                    }
+                    @media only screen and (min-width: 768px) {
+                        @include fontSet(125px, 125px, $font-lovinsans-black);
+                    }
+                    @media only screen and (min-width: 992px) {
+                        @include fontSet(150px, 150px, $font-lovinsans-black);
+                    }
+                }
+                h2 {
+                    margin-top: 0;
+                    margin-bottom: 5px;
+                    @include fontSet(30px, 30px, $font-lovinsans-medium);
+                    color: $white;
+                    @media only screen and (min-width: 320px) {
+                        margin-top: 5px;
+                        @include fontSet(35px, 35px, $font-lovinsans-medium);
+                    }
+                    @media only screen and (min-width: 480px) {
+                        margin-top: 30px;
+                        @include fontSet(40px, 40px, $font-lovinsans-medium);
+                    }
+                }
+                p {
+                    @include fontSet(22px, 32px, $font-lovinsans);
+                    color: $white;
+                    margin-bottom: 55px;
+                    @media only screen and (min-width: 480px) {
+                        margin-bottom: 70px;
+                        @include fontSet(24px, 34px, $font-lovinsans);
+                    }
+                }
+            }
+        }
+        .text-wrapper {
+            position: relative;
+            text-align: center;
+        }
+    }
+    // VIDEO SECTION
+    .template-service-container {
+        .text-wrapper {
+            @include breakpoint(sm) {
+                @include fontSet(25px, 30px, $font-lovinsans);
+            }
+            @include breakpoint(xs) {
+                @include fontSet(22px, 30px, $font-lovinsans);
+            }
+            color: $black-text;
+            .title {
+                margin-bottom: 6px;
+                @include breakpoint(sm) {
+                    @include fontSet(60px, 60px, $font-lovinsans-bold);
+                }
+                @include breakpoint(sm) {
+                    @include fontSet(45px, 50px, $font-lovinsans-bold);
+                }
+            }
+        }
+        @include breakpoint(sm) {
+            .text-wrapper {
+                width: 90%;
+                margin: 0 auto;
+                position: relative;
+                top: 0px;
+
+                .text-center {
+                    text-align: center;
+                    word-wrap: break-word;
+                }
+            }
+        }
+
+        @include breakpoint(md) {
+            .text-wrapper {
+                top:30px;
+            }
+        }
+
+        @include breakpoint(lg) {
+            .text-wrapper {
+                top:80px;
+            }
+        }
+        @media (max-width: 767px) {
+            .text-wrapper {
+                margin: 5%;
+            }
+        }
+        .play-btn {
+            position: absolute;
+            width: 20%;
+            display: block;
+            left: 0;
+            right: 0;
+            top: 33%;
+            margin: auto;
+            z-index: 5;
+            &:hover {
+                opacity: 0.8;
+            }
+        }
+    }
+    // PREVENTS IMAGES FROM EXPANDING PAST THEIR WRAPPER
+    .hidden-overflow {
+        overflow: hidden;
+        position: relative;
+    }
+    // CAREER CTA
+    .career-category-wrapper {
+        margin-bottom: -2px;
+        .text-wrapper {
+            @media (max-width: 767px) {
+                text-align: left;
+                margin-left: 25px;
+            }
+        }
+        h4 {
+            color: $white;
+            @include fontSet(60px, 60px, $font-lovinsans-bold);
+        }
+		.cont-items{
+          .row{
+            > div{
+              overflow: hidden;
+
+              .zoom-anim-parent{
+                overflow: visible;
+              }
+            }
+          }
+        }
+    }
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+  <title>
+    <%= htmlWebpackPlugin.options.title %>
+  </title>
+  <link rel="stylesheet" type="text/css" href="css/homepage.css" />
+  <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+  <header>
+    <% include ./src/components/global-navigation/global-navigation %>
+  </header>
+  <main class="main-container">
+    <% include ./src/components/search/search %>
+    <% include ./src/templates/search-results/search-results %>
+    <% include ./src/components/legal-disclaimer/legal-disclaimer %>
+    <% include ./src/components/social-feed/social-feed %>
+  </main>
+
+  <footer>
+      <% include ./src/components/global-footer/mcd-global-footer %>
+  </footer>
+  <!-- keep the following lines -->
+  <% if (!htmlWebpackPlugin.options.MODE_DEV_SERVER) { %>
+    <script src="<%= Object.prototype.toString.call(webpack.assetsByChunkName['templates/homepage']) === '[object Array]' ? webpack.assetsByChunkName['templates/homepage'][0] : webpack.assetsByChunkName['templates/homepage'] %>"></script>
+    <% } %>
+
+</body>
+
+</html>
+<!-- <%= htmlWebpackPlugin.options.BANNER_HTML %> -->

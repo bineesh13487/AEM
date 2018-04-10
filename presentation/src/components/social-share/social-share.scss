@@ -1,0 +1,37 @@
+.mcd-social-share {
+  &--header {
+    color: $dark-gray-2;
+    font-family: "ArchSans-Bold";
+    line-height: to-rem(20);
+    text-align: center;
+  }
+  &--list {
+    @include make-container();
+    &--section {
+      @extend .clearfix;
+    }
+    &__icons {
+      margin-top: to-rem(21);
+      padding: 0;
+      text-align: center;
+      & li {
+        display: inline;
+        padding-right: to-rem(10);
+        list-style: none;
+        font-size: to-rem(48);
+        & a {
+          &:hover,
+          &:focus {
+            text-decoration: none;
+            .path1 {
+              margin-top: to-rem(10);
+              -ms-text-fill-color: black;
+              -webkit-text-fill-color: black;
+              fill: black;
+            }
+          }
+        }
+      }
+    }
+  }
+}

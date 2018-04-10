@@ -1,0 +1,45 @@
+
+<sly data-sly-use.commentsInfo="com.mcd.rwd.arabia.core.sightly.CommentsHandler">
+    <section class="page-contact-us__subpage__about-yourself  paddTop0 " >
+        <div class="container">
+            <sly data-sly-test="${!commentsInfo.hideComments}">
+            <label id="contactUs-message-label" class="control-label" for="contactUs-message" aria-hidden="true">${commentsInfo.commentMessage}
+                <sup class="asteriskAr" data-sly-test="${commentsInfo.commentReq=='yes'}">*</sup></label>
+            <div class="cont-sub"> <sub class="commentfloatRght"><span id="characterCount">${commentsInfo.commentCount}</span>/${commentsInfo.commentCount} ${commentsInfo.charactersText}</sub> </div>
+            <div class="form-group">
+                <textarea aria-labelledby="contactUs-message-label" name="Feedback" id="enter-commentsArabia" maxlength="${commentsInfo.commentCount}" rows="5" class="form-control  ${commentsInfo.commentReq}" aria-label="${commentsInfo.commentMessage}"></textarea>
+            </div>
+                </sly>
+            <div>
+                <div class="checkbox"> <input type="checkbox" id="checkbox_termscond" role="checkbox" aria-checked="false" class="yes"> <label for="checkbox_termscond" class="click-before-outline" style="outline: none;">
+                    ${commentsInfo.legalText  @ context='html'}
+                </label>
+
+                </div>
+                <input type="hidden" id="termscondVal" name="terms_conditions" />
+            </div>
+            <div>
+                <div class="checkbox"> <input type="checkbox" id="checkbox_optIn" role="checkbox" aria-checked="true" checked="true"> <label for="checkbox_optIn" class="click-before-outline" style="outline: none;">
+                    ${commentsInfo.optInText  @ context='html'}
+                </label>
+                    <input type="hidden" id="optInVal" name="Opt_in" value="Y"/>
+                </div>
+            </div>
+            <div id="confirmcustomermailid" class="form-group" style="display:none;">
+                <input type="text" class="form-control placeholder yes" id="confirm_customer_email" name="confirm_customer_email" value="">
+            </div>
+            <div class="form-spacer"></div>
+            <div> <button onclick="javascript:validateArabiaForm();" data-toggle="modal" id="@@id" class="btn btn-red @@modifiers">${commentsInfo.submitButtonText}</button> </div>
+            </div>
+
+    </section>
+    <div style="display:none;">
+        <div id="contactUs-comments-message">${commentsInfo.commentValidationMessage}</div>
+        <div id="contactUs-optin-message"></div>
+        <div id="contactUs-terms-cond-message">${commentsInfo.legalValidationMessage}</div>
+        <input type="hidden" name="commentsInfoFieldList" id="commentsInfoFieldList" value="${commentsInfo.formFieldList}">
+    </div>
+
+
+
+    </sly>

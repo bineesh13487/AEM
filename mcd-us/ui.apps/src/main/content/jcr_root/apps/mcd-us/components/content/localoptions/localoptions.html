@@ -1,0 +1,99 @@
+
+	<div class="template page-local-options" data-sly-use.local="com.mcd.rwd.us.core.sightly.LocalOptionsHandler" data-ng-controller="localOptionsController" data-ng-init="init()">
+	    <div class="coopErrorMsg" data-errormsg-id="${local.coopErrorMsg}"></div>
+	    <div class="showLiveData" data-showlive-value="${local.showLiveDataValue}"></div>
+	    <div style="display: none;">
+	        <sly data-sly-list.localItem="${local.allLocalItemsUrl}">
+	            <a href="${localItem.categoryItemFullUrl}" title="${localItem.itemMarketingName}">${localItem.itemMarketingName}
+	            </a>
+	        </sly>
+	    </div>
+		<section title="Learn more about {{data.marketingName}}">
+	          <div class="cont-banner prod-banner" ng-repeat="data in itemsList" >
+	            <div class="border-container">
+	              <div class="border"></div>
+	            </div>
+	            <div class="text-container hidden-xs">
+	              <div class="container">
+	                <div class="row">
+	                  <div class="col-xs-6 vert-container">
+	                    <div class="absolute-content">
+	                      <div class="absolute-content-wrapper fadein">
+	                        <div class="text-wrapper-white">
+	                          <h2>${local.getProductSubTitle}<span class="h1">{{data.marketingName}}</span></h2>
+	                          <p ng-bind-html="data.description"></p> 
+	                          <a ng-href={{data.path}} aria-label="Learn more about {{data.marketingName}}" title="Learn more about {{data.marketingName}}" class="zoom-anim btn btn-red small">${local.getProductCtaText}</a>      
+							 </div>
+	                      </div>
+	                    </div>
+	                  </div>
+	                </div>
+	              </div>
+	            </div>
+	            <div class="row">
+	              <div class="col-xs-12 col-sm-6 col-sm-push-6 img-cont">
+	                <div class="fade-cont"><div class="fade"></div></div> 
+					<picture>
+						<!--[if IE 9]><video style="display: none;"><![endif]-->
+						<source srcset="${local.getDynamicMediaServerContextURL @context='uri'}${local.desktopFolderImgPath @context='uri'}/{{data.imagePath}}${local.getDynamicMediaXSmallParameter @context='uri'}" media="(max-width: 432px)">
+						<source srcset="${local.getDynamicMediaServerContextURL @context='uri'}${local.desktopFolderImgPath @context='uri'}/{{data.imagePath}}${local.getDynamicMediaSmallParameter @context='uri'}" media="(max-width: 767px)">
+						<source srcset="${local.getDynamicMediaServerContextURL @context='uri'}${local.desktopFolderImgPath @context='uri'}/{{data.imagePath}}${local.getDynamicMediaMediumParameter @context='uri'}" media="(max-width: 1024px)">
+						<source srcset="${local.desktopFolderImgPath @context='uri'}/{{data.imagePath}}" media="(max-width: 1920px)">
+						<!--[if IE 9]></video><![endif]-->
+						<img class="breakfast-img" srcset="${local.desktopFolderImgPath}/{{data.imagePath}}" alt="{{data.marketingName}}" />
+				    </picture>
+	                </div>
+	              <div class="col-xs-12 col-sm-6 col-sm-pull-6">	
+	                <div class="text-wrapper-white visible-xs-block">
+	                  <h2>${local.getProductSubTitle}<span class="h1">{{data.marketingName}}</span></h2>
+	                  <p ng-bind-html="data.description"></p> 
+	                   <a ng-href={{data.path}} aria-label="Learn more about {{data.marketingName}}" title="Learn more about {{data.marketingName}}" class="zoom-anim btn btn-red small">${local.getProductCtaText}</a> 
+	                  </div>
+	              </div>
+	            </div>
+	          </div>
+	        </section>
+	    <div class="cont-banner cont-banner-itemError-msg" style="display: none;">
+	        <div class="template-hero" style="background:#00;">
+	            <div style="height: 100px;" class="container">
+	            </div>
+	            <div style="outline: medium none;" class="absolute-content">
+	                <div style="opacity: 1;" class="absolute-content-wrapper fadein fadeinnow align-bottom-mobile">
+	                    <div class="container">
+	                        <div class="row">
+	                            <div class="col-xs-12">
+	                                <div class="text-wrapper" style="text-align:center;">
+	                                    <h2>${local.itemsErrorMsg}
+	                                    </h2>
+	                                </div>
+	                            </div>
+	                        </div>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	    <div class="cont-banner cont-banner-coopError-msg" style="display: none;">
+	        <div class="template-hero" style="background:#00;">
+	            <div style="height: 100px;" class="container">
+	            </div>
+	            <div style="outline: medium none;" class="absolute-content">
+	                <div style="opacity: 1;" class="absolute-content-wrapper fadein fadeinnow align-bottom-mobile">
+	                    <div class="container">
+	                        <div class="row">
+	                            <div class="col-xs-12">
+	                                <div class="text-wrapper" style="text-align:center;">
+	                                    <h2>${local.coopErrorMsg}
+	                                    </h2>
+	                                </div>
+	                            </div>
+	                        </div>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	    <sly data-sly-test="${(local.coopErrorMsg ==null) && (wcmmode.edit || wcmmode.design)}">
+	    <h3>Please Configure the Local Options Component.</h3>
+		</sly>
+	</div>

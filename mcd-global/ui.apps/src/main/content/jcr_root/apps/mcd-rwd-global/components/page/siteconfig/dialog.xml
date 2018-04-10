@@ -1,0 +1,665 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Dialog"
+    title="Site Level Global Configuration"
+    xtype="dialog">
+    <items jcr:primaryType="cq:WidgetCollection">
+        <logo
+            jcr:primaryType="cq:Panel"
+            title="Logo">
+            <items jcr:primaryType="cq:WidgetCollection">
+                <image
+                    jcr:primaryType="cq:Widget"
+                    border="true"
+                    cropParameter="./logo/image/imageCrop"
+                    ddGroups="[media]"
+                    fileNameParameter="./logo/image/fileName"
+                    fileReferenceParameter="./logo/image/fileReference"
+                    height="300"
+                    hideLabel="false"
+                    mapParameter="./logo/image/imageMap"
+                    name="./logo/image/file"
+                    requestSuffix="/logo/image.img.png"
+                    rotateParameter="./logo/image/imageRotate"
+                    sizeLimit="100"
+                    width="50%"
+                    xtype="html5smartimage"/>
+                <advanced
+                    jcr:primaryType="cq:Widget"
+                    border="{Boolean}false"
+                    layout="form"
+                    xtype="panel">
+                    <items jcr:primaryType="cq:WidgetCollection">
+                    	<header
+                            jcr:primaryType="cq:Widget"
+                            fieldLabel="Aria Label for logo(For screen readers)"
+                            name="./logo/header"
+                            width="100%"
+                            xtype="textfield"/>
+                        <alt
+                            jcr:primaryType="cq:Widget"
+                            fieldLabel="Alternate Text"
+                            name="./logo/alt"
+                            width="100%"
+                            xtype="textfield"/>
+                        <resourceType
+                            jcr:primaryType="cq:Widget"
+                            ignoreData="true"
+                            name="./logo/image/sling:resourceType"
+                            value="foundation/components/image"
+                            width="100%"
+                            xtype="hidden"/>
+                        <link
+                            jcr:primaryType="cq:Widget"
+                            fieldLabel="Link"
+                            name="./logo/link"
+                            rootPath="/content"
+                            width="100%"
+                            xtype="pathfield"/>
+                    </items>
+                </advanced>
+            </items>
+            <layout
+                jcr:primaryType="nt:unstructured"
+                align="stretchmax"
+                defaultMargins="10px"
+                flex="1"
+                pack="center"
+                type="hbox"/>
+        </logo>
+        <smartbanner
+            jcr:primaryType="cq:Panel"
+            title="Smart Banner">
+            <items jcr:primaryType="cq:WidgetCollection">
+                <leftpanel
+                    jcr:primaryType="cq:Widget"
+                    border="{Boolean}false"
+                    layout="form"
+                    xtype="panel">
+                    <items jcr:primaryType="cq:WidgetCollection">
+                        <enable
+                            jcr:primaryType="cq:Widget"
+                            fieldDescription="Check this to display smart app banner for mobiles."
+                            fieldLabel="Enable"
+                            name="./smartbanner/enabled"
+                            type="checkbox"
+                            width="100%"
+                            xtype="selection"/>
+                        <iosappid
+                            jcr:primaryType="cq:Widget"
+                            fieldLabel="iOS App Id"
+                            name="./smartbanner/iosId"
+                            width="100%"
+                            xtype="textfield"/>
+                        <androidappid
+                            jcr:primaryType="cq:Widget"
+                            fieldLabel="Android App Id"
+                            name="./smartbanner/androidId"
+                            width="100%"
+                            xtype="textfield"/>
+                        <windowsappid
+                            jcr:primaryType="cq:Widget"
+                            fieldLabel="Windows App Id"
+                            name="./smartbanner/windowsId"
+                            width="100%"
+                            xtype="textfield"/>
+                        <title
+                            jcr:primaryType="cq:Widget"
+                            fieldDescription="Title of the app in the banner. Defaults to value of &amp;lt;title&amp;gt; if unavailable."
+                            fieldLabel="App Title"
+                            name="./smartbanner/title"
+                            width="100%"
+                            xtype="textfield"/>
+                        <description
+                            jcr:primaryType="cq:Widget"
+                            fieldDescription="Description of the app in the banner. Defaults to App Title if unavailable."
+                            fieldLabel="Description"
+                            name="./smartbanner/desc"
+                            width="100%"
+                            xtype="textfield"/>
+                    </items>
+                </leftpanel>
+                <rightpanel
+                    jcr:primaryType="cq:Widget"
+                    border="{Boolean}false"
+                    layout="form"
+                    xtype="panel">
+                    <items jcr:primaryType="cq:WidgetCollection">
+                        <icon
+                            jcr:primaryType="cq:Widget"
+                            fieldDescription="The URL of the Icon"
+                            fieldLabel="Icon"
+                            name="./smartbanner/icon"
+                            width="100%"
+                            xtype="textfield"/>
+                        <url
+                            jcr:primaryType="cq:Widget"
+                            fieldDescription="The URL for the button. Leave this field blank if you want the button to link to app store."
+                            fieldLabel="URL"
+                            name="./smartbanner/url"
+                            width="100%"
+                            xtype="textfield"/>
+                        <button
+                            jcr:primaryType="cq:Widget"
+                            fieldDescription="The Text for the Button."
+                            fieldLabel="Button Text"
+                            name="./smartbanner/buttonText"
+                            width="100%"
+                            xtype="textfield"/>
+                        <dayshidden
+                            jcr:primaryType="cq:Widget"
+                            fieldDescription="Duration to hide the banner after being closed. A value of 0 always shows the banner."
+                            fieldLabel="Days Hidden"
+                            minValue="0"
+                            name="./smartbanner/daysHidden"
+                            width="100%"
+                            xtype="numberfield"/>
+                        <daysreminder
+                            jcr:primaryType="cq:Widget"
+                            fieldDescription="Duration to hide the banner after the app was viewed. A value of 0 always shows the banner."
+                            fieldLabel="Days Reminder"
+                            minValue="0"
+                            name="./smartbanner/daysReminder"
+                            width="100%"
+                            xtype="numberfield"/>
+                         <aria
+		                    jcr:primaryType="cq:Widget"
+		                    fieldLabel="Aria Label for Smart App Banner Close Button"
+		                    name="./smartbanner/aria"
+		                    width="100%"
+		                    xtype="textfield"/>
+                    </items>
+                </rightpanel>
+            </items>
+            <layout
+                jcr:primaryType="nt:unstructured"
+                align="stretchmax"
+                defaultMargins="10px"
+                flex="1"
+                pack="center"
+                type="hbox"/>
+        </smartbanner>
+        <bumper
+            jcr:primaryType="cq:Panel"
+            title="Legal Bumper">
+            <items jcr:primaryType="cq:WidgetCollection">
+                <enable
+                    jcr:primaryType="cq:Widget"
+                    fieldDescription="Check this to enable legal bumper while navigating to externals sites."
+                    fieldLabel="Enable"
+                    name="./bumper/enabled"
+                    type="checkbox"
+                    xtype="selection"/>
+                <title
+                    jcr:primaryType="cq:Widget"
+                    fieldDescription="Please specify the title for the bumper modal window."
+                    fieldLabel="Title"
+                    name="./bumper/title"
+                    xtype="textfield"/>
+                <text
+                    jcr:primaryType="cq:Widget"
+                    fieldDescription="Please specify the disclaimer message for the bumper."
+                    fieldLabel="Text"
+                    name="./bumper/text"
+                    xtype="textarea"/>
+                <btnok
+                    jcr:primaryType="cq:Widget"
+                    fieldDescription="Please specify the text for the OK (Confirm) button."
+                    fieldLabel="OK Button Text"
+                    name="./bumper/btnOk"
+                    xtype="textfield"/>
+                <btncancel
+                    jcr:primaryType="cq:Widget"
+                    fieldDescription="Please specify the text for the Cancel button."
+                    fieldLabel="Cancel Button Text"
+                    name="./bumper/btnCancel"
+                    xtype="textfield"/>
+                <ignore
+                    jcr:primaryType="cq:Widget"
+                    fieldDescription="Add the domains for which the bumper should not be displayed."
+                    fieldLabel="Whitelisted Domains"
+                    name="./bumper/ignore"
+                    xtype="multifield"/>
+                <ignoreTypeHint
+                    jcr:primaryType="cq:Widget"
+                    ignoreData="{Boolean}true"
+                    name="./bumper/ignore@TypeHint"
+                    value="String[]"
+                    xtype="hidden"/>
+            </items>
+        </bumper>
+        <languagetoggle
+            jcr:primaryType="cq:Panel"
+            title="Language Toggle">
+            <items jcr:primaryType="cq:WidgetCollection">
+                <enable
+                    jcr:primaryType="cq:Widget"
+                    fieldDescription="Check this to display language toggle."
+                    fieldLabel="Enable"
+                    name="./languagetoggle/enabled"
+                    type="checkbox"
+                    xtype="selection"/>
+                 <esLang
+                    jcr:primaryType="cq:Widget"
+                    fieldLabel="Language code for Espanol"
+                    name="./languagetoggle/esLang"
+                    width="100%"
+                    xtype="textfield"/>
+                <enLang
+                    jcr:primaryType="cq:Widget"
+                    fieldLabel="Language code for English"
+                    name="./languagetoggle/enLang"
+                    width="100%"
+                    xtype="textfield"/>
+                <manual
+                    jcr:primaryType="cq:Widget"
+                    defaultValue="{Boolean}false"
+                    fieldDescription="Check this to add language toggle link manually"
+                    fieldLabel="Add Link Manually"
+                    itemId="manualenabled"
+                    name="./languagetoggle/manual"
+                    type="checkbox"
+                    xtype="selection">
+                    <listeners
+                        jcr:primaryType="nt:unstructured"
+                        loadcontent="function(tab,value,isChecked)&#xa;{&#x9;&#xa;&#x9;if (tab.findParentByType('panel').getComponent('manualenabled').value=='true'){&#xa;&#x9;tab.findParentByType('panel').getComponent('linkpath').show();&#xa;} else{&#xa;&#x9;tab.findParentByType('panel').getComponent('linkpath').hide();&#xa;}&#xa;}"
+                        selectionchanged="function(tab,value,isChecked)&#xa;{&#x9;&#xa;&#x9;if (isChecked==true){&#xa;&#x9;tab.findParentByType('panel').getComponent('linkpath').show();&#xa;} else{&#xa;&#x9;tab.findParentByType('panel').getComponent('linkpath').hide();&#xa;}&#xa;}"/>
+                </manual>
+                <paths
+                    jcr:primaryType="cq:Widget"
+                    fieldLabel="Path"
+                    itemId="linkpath"
+                    name="./languagetoggle/languagetogglelinks"
+                    xtype="multifield">
+                    <fieldConfig
+                        jcr:primaryType="cq:Widget"
+                        editable="{Boolean}false"
+                        xtype="pathfield"/>                                         
+                </paths>
+            </items>
+        </languagetoggle>
+        <footernav
+            jcr:primaryType="cq:Panel"
+            title="Footer Navigation">
+            <items jcr:primaryType="cq:WidgetCollection">
+                <rootType
+                    jcr:primaryType="cq:Widget"
+                    defaultValue="auto"
+                    fieldDescription="&lt;b>Auto Generated&lt;/b> - Navigation will be generated automatically by providing root path.&lt;br>&#xa;&lt;b>Manual&lt;/b> - First and second level navigation path have to be configured manually."
+                    fieldLabel="Navigation Type"
+                    name="./footernav/listType"
+                    type="select"
+                    xtype="selection">
+                    <options jcr:primaryType="cq:WidgetCollection">
+                        <auto
+                            jcr:primaryType="nt:unstructured"
+                            text="Auto Generated"
+                            value="auto"/>
+                        <manual
+                            jcr:primaryType="nt:unstructured"
+                            text="Manual"
+                            value="manual"/>
+                    </options>
+                    <listeners
+                        jcr:primaryType="nt:unstructured"
+                        loadcontent="function(field, recs, path) {&#xa;&#x9;var panel = field.findParentByType('panel');&#xa;&#x9;if(recs.get(&quot;./footernav/listType&quot;) === &quot;manual&quot;) {&#xa;&#x9;&#x9;panel.getComponent('manual').show();&#xa;&#x9;&#x9;panel.getComponent('auto').hide();&#xa;&#x9;} else {&#xa;&#x9;&#x9;panel.getComponent('manual').hide();&#xa;&#x9;&#x9;panel.getComponent('auto').show();&#xa;&#x9;}&#xa;}"
+                        selectionchanged="&#xa;function(tab,value)&#xa;{&#xa;&#x9;if (value=='manual'){&#xa;&#x9;tab.findParentByType('panel').getComponent('manual').show();&#xa;&#x9;tab.findParentByType('panel').getComponent('auto').hide();&#xa;} else{&#xa;&#x9;tab.findParentByType('panel').getComponent('manual').hide();&#xa;&#x9;tab.findParentByType('panel').getComponent('auto').show();&#xa;}&#xa;}"/>
+                </rootType>
+                <resType
+                    jcr:primaryType="cq:Widget"
+                    name="./footernav/resType"
+                    value="mcd-us/components/content/footernav"
+                    xtype="hidden"/>
+                <autogenerated
+                    jcr:primaryType="cq:Widget"
+                    collapsed="{Boolean}true"
+                    collapsible="{Boolean}true"
+                    itemId="auto"
+                    title="Auto Generated"
+                    xtype="dialogfieldset">
+                    <items jcr:primaryType="cq:WidgetCollection">
+                        <rootpath
+                            jcr:primaryType="cq:Widget"
+                            fieldDescription="Please select the Root path for navigation.&lt;br>&#xa;Default path:/content/&amp;lt;country&amp;gt;/&amp;lt;language&amp;gt;"
+                            fieldLabel="Root Path"
+                            name="./footernav/rootPath"
+                            rootPath="/content"
+                            xtype="pathfield"/>
+                    </items>
+                </autogenerated>
+                <manual
+                    jcr:primaryType="cq:Widget"
+                    collapsed="{Boolean}true"
+                    collapsible="{Boolean}true"
+                    itemId="manual"
+                    title="Manual"
+                    xtype="dialogfieldset">
+                    <items jcr:primaryType="cq:WidgetCollection">
+                        <pathField
+                            jcr:primaryType="cq:Widget"
+                            hideLabel="{Boolean}true"
+                            name="./footernav/customList"
+                            xtype="multifield">
+                            <fieldConfig
+                                jcr:primaryType="nt:unstructured"
+                                limit="{Long}6"
+                                width="155"
+                                xtype="pathfield"/>
+                        <listeners
+		                        jcr:primaryType="nt:unstructured"
+		                        beforeadd="function(list, component, index) {&#xa;   var length = list.items.length;&#xa;    var addButton = list.items.items[length - 1];&#xa;    if (length == list.fieldConfig.limit) {&#xa;        addButton.hide();&#xa;    }&#xa;}&#xa;"
+		                        removeditem="function(list) {&#xa;  var length = list.items.length;&#xa;  if (length &lt;= list.fieldConfig.limit) {&#xa;    list.items.items[length - 1].show();&#xa;  }}&#xa;"/>    
+                        </pathField>
+                    </items>
+                </manual>
+            </items>
+        </footernav>
+        <footer
+            jcr:primaryType="cq:Panel"
+            title="Footer Configuration">
+            <items jcr:primaryType="cq:WidgetCollection">
+                <copyright
+                    jcr:primaryType="cq:Widget"
+                    fieldDescription="To enter Copyright Text "
+                    fieldLabel="Copyright Text"
+                    height="100"
+                    name="./footer/copyright"
+                    xtype="textarea"/>
+                <channels
+                    jcr:primaryType="cq:Widget"
+                    fieldDescription="To add items in footer channel"
+                    fieldLabel="Footer Channels"
+                    name="./footer/channels"
+                    xtype="multifield">
+                    <fieldConfig
+                        jcr:primaryType="nt:unstructured"
+                        xtype="multifieldpanel">
+                        <items jcr:primaryType="cq:WidgetCollection">
+                            <title
+                                jcr:primaryType="cq:Widget"
+                                fieldLabel="Footer Channel Text"
+                                key="title"
+                                width="400"
+                                xtype="textfield"/>
+                            <path
+                                jcr:primaryType="cq:Widget"
+                                fieldLabel="Link"
+                                key="path"
+                                width="400"
+                                xtype="pathfield"/>
+                            <target
+                                jcr:primaryType="cq:Widget"
+                                fieldDescription="Check to load page in a new window"
+                                fieldLabel="Open in New Window?"
+                                key="target"
+                                width="100"
+                                xtype="checkbox"/>
+                        </items>
+                    </fieldConfig>
+                </channels>
+                <socialchanneltitle
+                    jcr:primaryType="cq:Widget"
+                    fieldDescription="To enter title for Social channel section"
+                    fieldLabel="Social Section Title"
+                    name="./footer/socialchanneltitle"
+                    xtype="textfield"/>
+                <socialchannels
+                    jcr:primaryType="cq:Widget"
+                    fieldDescription="To add items for Social Channels"
+                    fieldLabel="Social Channels"
+                    name="./footer/socialchannels"
+                    xtype="multifield">
+                    <fieldConfig
+                        jcr:primaryType="nt:unstructured"
+                        xtype="multifieldpanel">
+                        <items jcr:primaryType="cq:WidgetCollection">
+                            <sociallink
+                                jcr:primaryType="cq:Widget"
+                                fieldLabel="Social Link"
+                                key="sociallink"
+                                width="400"
+                                xtype="pathfield"/>
+                            <socialicon
+                                jcr:primaryType="cq:Widget"
+                                fieldLabel="Social Icon Path"
+                                key="socialicon"
+                                width="400"
+                                editable="{Boolean}false"
+                                xtype="pathfield"/>
+                            <socialscript
+                                jcr:primaryType="cq:Widget"
+                                fieldLabel="Script"
+                                key="socialscript"
+                                width="400"
+                                xtype="textarea"/>
+                            <alt
+                                jcr:primaryType="cq:Widget"
+                                fieldLabel="Social Icon Alt Text"
+                                key="alt"
+                                width="400"
+                                xtype="textfield"/>
+                            <socialtarget
+                                jcr:primaryType="cq:Widget"
+                                fieldDescription="Check to load page in a new window"
+                                fieldLabel="Open in New Window?"
+                                key="target"
+                                width="400"
+                                xtype="checkbox"/>
+                        </items>
+                    </fieldConfig>
+                </socialchannels>
+                <showappbadge
+                    jcr:primaryType="cq:Widget"
+                    fieldDescription="Check this to show App Badge"
+                    fieldLabel="Show App Badge"
+                    itemId="showappbadge"
+                    name="./footer/showappbadge"
+                    type="checkbox"
+                    xtype="selection">
+                    <listeners
+                        jcr:primaryType="nt:unstructured"
+                        loadcontent="function(tab,value,isChecked)&#xa;{&#x9;&#xa;&#x9;if (tab.findParentByType('panel').getComponent('showappbadge').value=='true'){&#xa;&#x9;tab.findParentByType('panel').getComponent('appbadgetitle').show();&#xa;} else{&#xa;&#x9;tab.findParentByType('panel').getComponent('appbadgetitle').hide();&#xa;}&#xa;}"
+                        selectionchanged="function(tab,value,isChecked)&#xa;{&#x9;&#xa;&#x9;if (isChecked==true){&#xa;&#x9;tab.findParentByType('panel').getComponent('appbadgetitle').show();&#xa;} else{&#xa;&#x9;tab.findParentByType('panel').getComponent('appbadgetitle').hide();&#xa;}&#xa;}"/>
+                </showappbadge>
+                <appbadgetitle
+                    jcr:primaryType="cq:Widget"
+                    fieldDescription="To enter title for App Download"
+                    fieldLabel="App Download Title"
+                    itemId="appbadgetitle"
+                    name="./footer/appbadgetitle"
+                    xtype="textfield"/>
+                <aria
+                    jcr:primaryType="cq:Widget"
+                    fieldLabel="Aria Label for Footer"
+                    name="./footer/aria"
+                    width="100%"
+                    xtype="textfield"/>
+            </items>
+        </footer>
+        <appbadge
+            jcr:primaryType="cq:Panel"
+            title="App Badge Config">
+            <items jcr:primaryType="cq:WidgetCollection">
+                <leftpanel
+                    jcr:primaryType="cq:Widget"
+                    border="{Boolean}false"
+                    layout="form"
+                    xtype="panel">
+                    <items jcr:primaryType="cq:WidgetCollection">
+                        <image
+                            jcr:primaryType="cq:Widget"
+                            border="true"
+                            cropParameter="./appbadge/android/imageCrop"
+                            ddGroups="[media]"
+                            fileNameParameter="./appbadge/android/fileName"
+                            fileReferenceParameter="./appbadge/android/fileReference"
+                            height="300"
+                            hideLabel="{Boolean}true"
+                            mapParameter="./appbadge/android/imageMap"
+                            name="./appbadge/android/file"
+                            requestSuffix="/appbadge/android.img.png"
+                            rotateParameter="./appbadge/android/imageRotate"
+                            sizeLimit="100"
+                            title="Android Badge Image"
+                            width="450"
+                            xtype="html5smartimage"/>
+                        <title
+                            jcr:primaryType="cq:Widget"
+                            fieldLabel="Title Text"
+                            name="./appbadge/android/title"
+                            width="100%"
+                            xtype="textfield"/>
+                        <resourceType
+                            jcr:primaryType="cq:Widget"
+                            ignoreData="true"
+                            name="./appbadge/android/sling:resourceType"
+                            value="foundation/components/image"
+                            width="100%"
+                            xtype="hidden"/>
+                        <link
+                            jcr:primaryType="cq:Widget"
+                            fieldLabel="Link"
+                            name="./appbadge/android/link"
+                            width="100%"
+                            xtype="pathfield"/>
+                    </items>
+                </leftpanel>
+                <rightpanel
+                    jcr:primaryType="cq:Widget"
+                    border="{Boolean}false"
+                    layout="form"
+                    xtype="panel">
+                    <items jcr:primaryType="cq:WidgetCollection">
+                        <image
+                            jcr:primaryType="cq:Widget"
+                            border="true"
+                            cropParameter="./appbadge/ios/imageCrop"
+                            ddGroups="[media]"
+                            fileNameParameter="./appbadge/ios/fileName"
+                            fileReferenceParameter="./appbadge/ios/fileReference"
+                            height="300"
+                            hideLabel="{Boolean}true"
+                            mapParameter="./appbadge/ios/imageMap"
+                            name="./appbadge/ios/file"
+                            requestSuffix="/appbadge/ios.img.png"
+                            rotateParameter="./appbadge/ios/imageRotate"
+                            sizeLimit="100"
+                            title="iOS Badge Image"
+                            width="450"
+                            xtype="html5smartimage"/>
+                        <title
+                            jcr:primaryType="cq:Widget"
+                            fieldLabel="Title Text"
+                            name="./appbadge/ios/title"
+                            width="100%"
+                            xtype="textfield"/>
+                        <resourceType
+                            jcr:primaryType="cq:Widget"
+                            ignoreData="true"
+                            name="./appbadge/ios/sling:resourceType"
+                            value="foundation/components/image"
+                            width="100%"
+                            xtype="hidden"/>
+                        <link
+                            jcr:primaryType="cq:Widget"
+                            fieldLabel="Link"
+                            name="./appbadge/ios/link"
+                            width="100%"
+                            xtype="pathfield"/>
+                    </items>
+                </rightpanel>
+            </items>
+            <layout
+                jcr:primaryType="nt:unstructured"
+                align="stretchmax"
+                defaultMargins="10px"
+                flex="1"
+                pack="center"
+                type="hbox"/>
+        </appbadge>
+        <top-navigation
+            jcr:primaryType="cq:Panel"
+            title="Top Navigation Links">
+            <items jcr:primaryType="cq:WidgetCollection">
+                <paths
+                    jcr:primaryType="cq:Widget"
+                    fieldLabel="Path"
+                    name="./top-navigation/links"
+                    xtype="multifield">
+                    <fieldConfig
+                        jcr:primaryType="cq:Widget"
+                        editable="{Boolean}false"
+                        xtype="pathfield"/>
+                </paths>
+                <localurl
+                    jcr:primaryType="cq:Widget"
+                    editable="{Boolean}false"
+                    fieldLabel="Local Options Page"
+                    name="./top-navigation/localurl"
+                    xtype="pathfield"/>
+                 <aria
+                    jcr:primaryType="cq:Widget"
+                    fieldLabel="Aria Label for Top Navigation"
+                    name="./top-navigation/aria"
+                    width="100%"
+                    xtype="textfield"/>
+            </items>
+        </top-navigation>
+        <categories
+            jcr:primaryType="cq:Panel"
+            title="Page Types">
+            <items jcr:primaryType="cq:WidgetCollection">
+                <type
+                    jcr:primaryType="cq:Widget"
+                    fieldLabel="Types"
+                    name="./pagecategory/type"
+                    xtype="multifield">
+                    <fieldConfig
+                        jcr:primaryType="cq:Widget"
+                        xtype="textfield"/>
+                </type>
+            </items>
+        </categories>
+        <legaldisclaimer
+            jcr:primaryType="cq:Panel"
+            title="Legal DisclaimerText">
+            <items jcr:primaryType="cq:WidgetCollection">
+            	<legalStatementHeading
+            		jcr:primaryType="cq:Widget"
+            		fieldLabel="Enter the Legal Disclaimer Heading"
+                    name="./legalfooter/heading"
+                    removeSingleParagraphContainer="{Boolean}true"
+                    xtype="textfield"/>
+                <legalStatement
+                    jcr:primaryType="cq:Widget"
+                    name="./legalfooter/text"
+                    removeSingleParagraphContainer="{Boolean}true"
+                    xtype="richtext"/>
+            </items>
+        </legaldisclaimer>
+        <scripts
+                jcr:primaryType="cq:Panel"
+                title="Analytics">
+            <items jcr:primaryType="cq:WidgetCollection">
+                <head
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Head Section"
+                        fieldDescription="Analytics Script to be added within the head section of the document."
+                        name="./scripts/head"
+                        xtype="textarea"/>
+                <body
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Body Section Start"
+                        fieldDescription="Analytics Script to be added as soon as the body tag starts."
+                        name="./scripts/bodyStart"
+                        xtype="textarea"/>
+                <bodyend
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Body Section End"
+                        fieldDescription="Analytics Script to be added before the close of the body tag."
+                        name="./scripts/bodyEnd"
+                        xtype="textarea"/>
+            </items>
+        </scripts>
+    </items>
+</jcr:root>

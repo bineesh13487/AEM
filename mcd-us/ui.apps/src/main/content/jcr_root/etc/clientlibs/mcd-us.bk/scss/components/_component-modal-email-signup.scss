@@ -1,0 +1,14 @@
+.email-signup-headline {
+  .large-modal-text {
+    @include fontSet(70px, 1.1em, $font-lovinsans-black);
+    @include breakpoint(sm){ @include fontSet(120px, 1.1em, $font-lovinsans-black); }
+  }
+  .mid-modal-text {
+    @include fontSet(40px, 1.1em, $font-lovinsans-bold);
+      @include breakpoint(sm){ @include fontSet(50px, 1.1em, $font-lovinsans-bold); }
+  }
+  p {
+    color: $gray;
+    @include fontSet(20px, 1.1em, $font-lovinsans);
+  }
+}

@@ -1,0 +1,17 @@
+<div data-sly-use.articleList="com.mcd.rwd.newsroom.core.sightly.ArticleSearchHandler" >
+	<sly data-sly-test="${articleList.articleDetailList.size>0}">
+		<section class="component-newsroom-newslist">
+			<div class="newsroom-article-list" style="display: none;">
+				<ul><sly data-sly-list.article="${articleList.articleDetailList}">
+					<li><a class="text-center" href="${article.articlePagePath}">${article.articlePagePath}</a></li>
+				</sly>
+				</ul>
+			</div>
+			<div><h3>Please click to Edit the Component</h3></div>
+		</section>
+	</sly>
+
+	<sly data-sly-test="${(!articleList.newsFolderPath) && (wcmmode.edit || wcmmode.design)}">
+		<h3>Please Configure Article Search Component - No News folder path is selected.</h3>
+	</sly>
+</div>

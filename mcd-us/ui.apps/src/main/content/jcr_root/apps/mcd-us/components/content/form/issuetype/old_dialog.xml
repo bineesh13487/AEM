@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Dialog"
+    xtype="dialog">
+    <items
+        jcr:primaryType="cq:Widget"
+        xtype="tabpanel">
+        <items jcr:primaryType="cq:WidgetCollection">
+            <section
+                jcr:primaryType="cq:Panel"
+                title="What is this about?">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <topHeading
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Heading to be displayed on top of section."
+                        fieldLabel="Section Top Heading"
+                        name="./sectionTopHeading"
+                        xtype="textfield"/>
+                    <subHeading
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Sub heading to be displayed on top of section. Default set to &lt;b>Choose one of the following:*&lt;/b>"
+                        fieldLabel="Section Sub Heading"
+                        name="./sectionSubHeading"
+                        xtype="textfield"/>
+                    <wta
+                        jcr:primaryType="cq:Widget"
+                        fieldDescrition="Please provide options for what is this about dropdown."
+                        fieldLabel="Dropdown Options *"
+                        name="./whatIsThisAbout"
+                        xtype="multifield">
+                        <fieldConfig
+                            jcr:primaryType="nt:unstructured"
+                            type="select"
+                            xtype="selection">
+                            <options jcr:primaryType="cq:WidgetCollection">
+                                <col-1
+                                    jcr:primaryType="cq:Widget"
+                                    text="Menu Items &amp; Nutrition"
+                                    value="foodmatters_Menu Items &amp; Nutrition"/>
+                                <col-2
+                                    jcr:primaryType="cq:Widget"
+                                    text="Marketing, Games &amp; Promotions"
+                                    value="marketing_Marketing, Games &amp; Promotions"/>
+                                <col-3
+                                    jcr:primaryType="cq:Widget"
+                                    text="Social Responsibility &amp; Contributions"
+                                    value="socialresp_Social Responsibility &amp; Contributions"/>
+                                <col-4
+                                    jcr:primaryType="cq:Widget"
+                                    text="Other Topics"
+                                    value="mcbiz_Other Topics"/>
+                            </options>
+                        </fieldConfig>
+                    </wta>
+                    <wtaRequired
+                        jcr:primaryType="cq:Widget"
+                        defaultValue="no"
+                        fieldDescription="Please select what is this about reason required or not. Default set to &lt;b>No&lt;/b>"
+                        fieldLabel="What is this about Required"
+                        name="./wtaReq"
+                        type="select"
+                        xtype="selection">
+                        <options jcr:primaryType="cq:WidgetCollection">
+                            <yes
+                                jcr:primaryType="nt:unstructured"
+                                text="Yes"
+                                value="yes"/>
+                            <no
+                                jcr:primaryType="nt:unstructured"
+                                text="No"
+                                value="no"/>
+                        </options>
+                    </wtaRequired>
+                    <wtaReqMessage
+                            jcr:primaryType="cq:Widget"
+                            fieldDescription="Validation message for what is this about field. Default set to &lt;b>Please choose what is this about reason&lt;/b>"
+                            fieldLabel="Mobile App Validation Message"
+                            name="./wtaReqMessage"
+                            xtype="textfield"/>
+                            
+                     <wtaLabel
+                        jcr:primaryType="cq:Widget"                        
+                        fieldLabel="Label for What is this about"
+                        fieldDescription="default value is 'Select what this inquiry is about.'"
+                        name="./wtaLabel"
+                        xtype="textfield"/>
+                    <wtaTitle
+                        jcr:primaryType="cq:Widget"                        
+                        fieldLabel="Title for What is this about"
+                        fieldDescription="default value is 'Choose Subject'"
+                        name="./wtaTitle"
+                        xtype="textfield"/>  
+                    <bgcolor
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="This will change the background color of section on selection of this category."
+                        fieldLabel="Background Color"
+                        name="./sectionBGColor"
+                        showHexValue="{Boolean}true"
+                        xtype="colorfield"/>
+                    <showlocation
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="This will display location fields for this section."
+                        fieldLabel="Show Location Fields"
+                        inputValue="true"
+                        name="./showLocation"
+                        type="checkbox"
+                        xtype="selection"/>
+					<wtaDropdownDefOption
+                            jcr:primaryType="cq:Widget"
+                            fieldDescription="Default value for what is this about field. Default set to &lt;b>Please select any one option&lt;/b>"
+                            fieldLabel="Default value for what is this about field"
+                            name="./wtaDefaultOption"
+                            xtype="textfield"/>	
+                </items>
+            </section>
+        </items>
+    </items>
+    <listeners
+        jcr:primaryType="nt:unstructured"
+        beforeSubmit="function(dialog) {&#xa;&#x9;if (dialog.getField('./whatIsThisAbout').getValue() == '') {&#xa;&#x9;&#x9;CQ.Ext.Msg.show({&#xa;&#x9;&#x9;'title': CQ.I18n.getMessage('What Is This About Dialog Validation'),&#xa;&#x9;&#x9;'msg': CQ.I18n.getMessage('Please provide section Dropdown Options.'),&#xa;&#x9;&#x9;'buttons': CQ.Ext.Msg.OK,&#xa;&#x9;&#x9;'icon': CQ.Ext.MessageBox.INFO,&#xa;&#x9;&#x9;'scope': this&#xa;&#x9;&#x9;});&#xa;&#x9;&#x9;return false;&#xa;&#x9;} &#xa;&#x9;else {&#xa;&#x9;&#x9;var item = dialog.getField('./whatIsThisAbout').getValue();&#xa;&#x9;&#x9;for (i = 0; i &lt; item.length; i++) {&#xa;&#x9;&#x9;&#x9;var option = item[i];&#xa;&#x9;&#x9;&#x9;if (option == '') {&#xa;&#x9;&#x9;&#x9;&#x9;CQ.Ext.Msg.show({&#xa;&#x9;&#x9;&#x9;&#x9;&#x9;'title': CQ.I18n.getMessage('What Is This About Dialog Validation'),&#xa;&#x9;&#x9;&#x9;&#x9;&#x9;'msg': CQ.I18n.getMessage('Please provide section Dropdown Option for each item.'),&#xa;&#x9;&#x9;&#x9;&#x9;&#x9;'buttons': CQ.Ext.Msg.OK,&#xa;&#x9;&#x9;&#x9;&#x9;&#x9;'icon': CQ.Ext.MessageBox.INFO,&#xa;&#x9;&#x9;&#x9;&#x9;&#x9;'scope': this&#xa;&#x9;&#x9;&#x9;&#x9;});&#xa;&#x9;&#x9;&#x9;&#x9;return false;&#xa;&#x9;&#x9;&#x9;}&#xa;&#x9;&#x9;}&#xa;&#x9;}&#xa;}"/>
+</jcr:root>

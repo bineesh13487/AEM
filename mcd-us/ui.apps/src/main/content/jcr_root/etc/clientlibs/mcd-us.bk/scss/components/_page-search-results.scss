@@ -1,0 +1,330 @@
+.page-search-results {
+  .template-hero-bg {
+    min-height: 350px;
+
+    @include breakpoint(sm) {
+      min-height: 400px;
+    }
+
+    .absolute-content .absolute-content-wrapper {
+      vertical-align: middle;
+      text-align: center;
+
+      h1 {
+        margin: 0;
+        @include fontSet(50px, 50px, $font-lovinsans-black);
+
+        @media only screen and (min-width: 320px) {
+            @include fontSet(75px, 75px, $font-lovinsans-black);
+        }
+        @media only screen and (min-width: 480px) {
+            @include fontSet(100px, 100px, $font-lovinsans-black);
+        }
+        @media only screen and (min-width: 768px) {
+            @include fontSet(125px, 125px, $font-lovinsans-black);
+        }
+        @media only screen and (min-width: 992px) {
+            @include fontSet(150px, 150px, $font-lovinsans-black);
+        }
+      }
+      p {
+        margin-bottom: 0;
+        @include fontSet(26px, 36px, $font-lovinsans);
+      }
+      .bold {
+        font-family: $font-lovinsans-medium;
+      }
+
+      .form-group {
+        margin-bottom: 0;
+      }
+
+      .select-container {
+        margin-top: 10px;
+
+        @media only screen and (min-width: 480px) {
+          margin-top: 20px;
+        }
+        @media only screen and (min-width: 768px) {
+          margin-top: 10px;
+        }
+        @media only screen and (min-width: 992px) {
+          margin-top: 20px;
+        }
+
+        .padright {
+          padding-right: 15px;
+        }
+      }
+
+      .cont-news-search {
+        @include fontSet(22px, 32px, $font-lovinsans);
+        padding-top: 10px;
+
+        @media only screen and (min-width: 992px) {
+          padding-top: 20px;
+        }
+
+        .link {
+          color: $white;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+
+  .search-results-cont {
+
+    .cont-filter{
+      padding: 20px 0;
+
+      .cont-select {
+        width: 50%;
+        max-width: 300px;
+        display: inline-block;
+      }
+      .cont-btn {
+        display: inline-block;
+        padding-left: 10px;
+
+        .btn {
+          padding-left: 10px;
+          padding-right: 10px;
+
+          @media only screen and (min-width: 480px) {
+            padding-left: 20px;
+            padding-right: 20px;
+          }
+          @media only screen and (min-width: 768px) {
+            padding-left: 30px;
+            padding-right: 30px;
+          }
+        }
+      }
+      .label-select {
+        display: inline-block;
+        padding-right: 5px;
+        @include fontSet(22px, 36px, $font-lovinsans-medium);
+        line-height: 39px;
+
+        @media only screen and (min-width: 480px) {
+          padding-right: 10px;
+          @include fontSet(26px, 36px, $font-lovinsans-medium);
+          line-height: 39px;
+        }
+        @media only screen and (min-width: 768px) {
+          padding-right: 15px;
+        }
+      }
+
+    }
+
+    .results-total{
+      font-family: $font-lovinsans-medium;
+
+      h2{
+        font-size: 14px;
+        margin-top: 10px;
+      }
+
+      .bold{
+        font-family: $font-lovinsans-bold;
+      }
+    }
+
+    .media-body{
+        padding: 20px 0px 20px 0;
+    }
+
+    .table-striped>tbody>tr>td:first-child,
+    .table-striped>tbody>tr>td:last-child {
+      position: relative;
+    }
+    .table-striped>tbody>tr>td:first-child:before,
+    .table-striped>tbody>tr>td:last-child:after {
+      /*content: '';
+      position: absolute;
+      top: 0px;
+      bottom: 0px;
+      width: 100vw;
+      display: block;
+      background: inherit;
+      border: inherit;*/
+    }
+    .table-striped>tbody>tr>td:first-child:before {
+      //right: 100%;
+    }
+    .table-striped>tbody>tr>td:last-child:after {
+      //left: 100%
+    }
+    .table-striped>tbody>tr:nth-child(odd)>td {
+      background-color: $light-gray;
+    }
+    .table-striped>tbody>tr:nth-child(even)>td {
+      background-color: $white;
+    }
+
+    .table tbody {
+      td {
+        height: 100%;
+        color: $gray;
+        border: 0;
+        vertical-align: middle;
+        padding: 25px 0 15px 0;
+      }
+    }
+
+    .large {
+      margin-top: 0;
+      @include fontSet(25px, 30px, $font-lovinsans-bold);
+      margin-bottom: 5px;
+      color: $red;
+
+      @media only screen and (min-width: 480px) {
+        @include fontSet(35px, 40px, $font-lovinsans-bold);
+      }
+      @media only screen and (min-width: 768px) {
+        @include fontSet(30px, 35px, $font-lovinsans-bold);
+        margin-bottom: 5px;
+      }
+      @media only screen and (min-width: 992px) {
+        @include fontSet(35px, 40px, $font-lovinsans-bold);
+      }
+    }
+
+    p.small {
+      @include fontSet(22px, 32px, $font-lovinsans);
+      color: $gray;
+      margin-bottom: 0;
+
+      @media only screen and (min-width: 480px) {
+        @include fontSet(26px, 36px, $font-lovinsans);
+      }
+      @media only screen and (min-width: 768px) {
+        @include fontSet(24px, 34px, $font-lovinsans);
+      }
+      @media only screen and (min-width: 992px) {
+        @include fontSet(26px, 36px, $font-lovinsans);
+      }
+
+      .bold {
+        font-family: $font-lovinsans-medium;
+      }
+
+      &.link {
+        margin-top: 10px;
+        color: $red;
+        font-family: $font-lovinsans-medium;
+      }
+    }
+
+    .media-object {
+      max-width: 80px;
+      /*float: left;*/
+      margin-right: 20px;
+      margin-bottom: 10px;
+
+      @media only screen and (min-width: 480px) {
+        max-width: 100px;
+      }
+    }
+
+    .media-left {
+      padding: 20px 15px 20px 0;
+
+        @media only screen and (min-width: 480px) {
+          padding: 35px 15px 35px 0;
+        }
+        @media only screen and (min-width: 768px) {
+          padding: 20px 25px 20px 0;
+        }
+        @media only screen and (min-width: 992px) {
+          padding: 35px 25px 35px 0;
+        }
+    }
+
+    a {
+      text-decoration: none;
+      color: $red;
+      /*white-space: nowrap;*/
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 100%;
+
+      &.small{
+          &.link{
+              margin-top: 5px;
+              display: block;
+
+              @include fontSet(16px, 32px, $font-lovinsans-medium);
+
+              @media only screen and (min-width: 480px) {
+                @include fontSet(18px, 36px, $font-lovinsans-medium);
+              }
+              @media only screen and (min-width: 768px) {
+                @include fontSet(20px, 34px, $font-lovinsans-medium);
+              }
+              @media only screen and (min-width: 992px) {
+                @include fontSet(22px, 36px, $font-lovinsans-medium);
+              }
+          }
+      }
+
+      &:hover {
+        .large {
+          color: $red-hover;
+        }
+
+        a.small.link {
+          color: $red-hover;
+        }
+      }
+    }
+
+  }
+
+    .cta-cont {
+      margin-bottom: 0;
+
+      @media only screen and (min-width: 768px) {
+        margin-bottom: 50px;
+      }
+    }
+
+    .noMoreResults {
+        font-size: 20px;
+        font-size: 1.25rem;
+        line-height: 1.4em;
+        font-family: "LovinSansWeb-Bold", sans-serif;
+        background: transparent;
+        border: 0;
+        color: #bf0c0c;
+        display: block;
+        text-align: center;
+        text-transform: uppercase;
+        text-decoration: none;
+        padding-bottom: 40px;
+    }
+
+    .search_deactivate  {
+        color : #9B9B9B !important;
+    }
+    .search-image  {
+            float:left;
+        }
+    .search-text  {
+            float:left;
+            width:70%;
+        }
+
+  }
+
+  @media(max-width:767px){
+    .search-image  {
+                float:left;
+                width:30%;
+            }
+  }

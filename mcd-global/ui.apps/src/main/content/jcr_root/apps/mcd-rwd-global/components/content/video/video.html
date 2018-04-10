@@ -1,0 +1,28 @@
+<!--/*
+    Video Component for Responsive Pages
+*/-->
+<p data-sly-test="${wcmmode.edit && !properties.type}"> Configure Video Component </p>
+<sly data-sly-use.tpl="templates.html"></sly>
+<div class="video-bg" data-sly-use.video="com.mcd.rwd.global.core.sightly.VideoHandler"
+     data-sly-unwrap="${!video.isBackground }">
+    <div class="videoBox container-fluid" data-sly-test.isThumbnail="${video.isThumbnail}"
+         style="width: ${ video.options.width || '100%' @ context='styleToken' };">
+        <sly data-sly-call="${ tpl.thumb @ video=video }"></sly>
+        <div class="clearfix"></div>
+    </div>
+    <div class="videoBox" data-sly-test="${ !isThumbnail }"
+         style="width: ${ video.options.width || '100%' @ context='styleToken'};">
+         
+        <div class="sr-only">${ video.ariaLabel } 
+			<a href="${ video.youtubeSrc }" class="external" tabindex="0"
+				data-at="Exit:${ video.pageTitle }:Play the video on YouTube.com." 
+				data-track="externalLink">Play the video on YouTube.com.</a>
+		</div>
+		
+        <div class="videoWrapper">
+            <sly data-sly-call="${tpl.drawVideo @ video=video }"></sly>
+        </div>
+        <sly data-sly-call="${tpl.showTitle @ video=video, isThumbnail=false }"></sly>
+        <div class="clearfix"></div>
+    </div>
+</div>

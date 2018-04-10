@@ -1,0 +1,50 @@
+.sso-hero {
+  position: relative;
+  margin-top: -91px;
+
+  @media (min-width: 768px){
+    margin-top: -110px;
+  }
+
+  .sso-hero-content {
+    top:0;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding-top: 91px;
+
+    @media (min-width: 768px){
+      padding-top: 110px;
+    }
+  }
+  .sso-hero-wrapper {
+    color: $white;
+    padding: 15px 20px;
+
+    @media (min-width: 768px){
+      padding: 40px;
+    }
+  }
+  .sso-hero-title {
+    @include fontLight();
+    @include fontSet(30px, 30px);
+
+    @media (min-width: 768px){
+      @include fontSet(50px, 50px);
+    }
+  }
+  .sso-hero-text {
+    @include fontLight();
+    @include fontSet(15px, 18px);
+    max-width: 85%;
+
+    @media (min-width: 768px){
+      max-width: 55%;
+      @include fontSet(20px, 23px);
+    }
+  }
+  .sso-img-full {
+    width: 100%;
+  }
+}

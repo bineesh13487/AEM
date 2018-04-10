@@ -1,0 +1,578 @@
+.simple-red {
+	display: inline-block;
+	color: $red;
+	@include fontSet(16px, 26px);
+
+	&:hover {
+		color: $red-hover;
+	}
+	&:focus,
+	&:active {
+		color: $red-hover;
+	}
+
+	@media only screen and (min-width: 480px){
+		@include fontSet(20px, 30px);
+	}
+}
+
+.simple-white {
+	display: inline-block;
+	color: $white;
+	@include fontSet(16px, 26px);
+	border-bottom: 1px solid transparent;
+	@include transition();
+
+	&:hover {
+		color: $white;
+		border-bottom: 1px solid $white;
+	}
+	&:focus,
+	&:active {
+		color: $white;
+		border-bottom: 1px solid $white;
+	}
+
+	@media only screen and (min-width: 480px){
+		@include fontSet(20px, 30px);
+	}
+}
+
+.btn {
+	outline: none;
+
+	&.cont-100 {
+		padding-left:0px;
+		padding-right:0px;
+	}
+
+	&:active{
+		&:focus{
+			//outline:0px;
+		}
+	}
+
+	&:focus{
+		//outline:0px;
+	}
+}
+
+.btn-red {
+	background: $red;
+	color: $white !important;
+	text-transform: uppercase;
+	padding: 0px 30px 0px;
+	opacity: 1;
+	border: 3px solid $red;
+	@include fontSet(22px, 0px, 'LovinSansWeb-Medium');
+	@include border-radius(35px);
+	@include transition(scale, 0.1s, ease-out, 0s);
+	position: relative;
+	display: inline-block;
+  	transform: translateZ(0);
+	-webkit-transform: translateZ(0);
+	//-webkit-perspective: 1000;
+	//-webkit-backface-visibility: hidden;
+  	height: 39px;
+    line-height: 35px;
+
+	.fa {
+    @include transition(transform, 0.1s, ease-out, 0s);
+		margin-left: 3px;
+	}
+
+	&.small {
+    @include fontSet(20px, 20px, 'LovinSansWeb-Medium');
+		padding: 0px 25px;
+		height: 30px;
+		line-height: 26px;
+
+		@media only screen and (min-width: 480px){
+			@include fontSet(22px, 22px, 'LovinSansWeb-Medium');
+			line-height: 26px;
+		}
+		@media only screen and (min-width: 768px){
+			@include fontSet(20px, 20px, 'LovinSansWeb-Medium');
+			line-height: 26px;
+		}
+		@media only screen and (min-width: 992px){
+			@include fontSet(22px, 22px, 'LovinSansWeb-Medium');
+			line-height: 26px;
+		}
+	}
+
+	// Modifier
+	&.btn--xsm {
+		padding: 0px 25px;
+		@include fontSet(16px, 16px, $font-lovinsans-bold);
+		height: 29px;
+    	line-height: 25px;
+	}
+
+	&:before{
+		content: "";
+		position: absolute;
+		z-index: -1;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		border: 0;
+		background: $red-hover;
+		@include border-radius(30px);
+		-webkit-transform: scale(0);
+		transform: scale(0);
+		opacity: 0;
+		-webkit-transform-origin: 50% 50%;
+		transform-origin: 50% 50%;
+		@include transition(transform, opacity, 0.2s, ease-out, 0s);
+	}
+
+	&:hover {
+		color: $white;
+		border-color: $red-hover;
+		background: $red-hover;
+
+		&:before{
+			-webkit-transform: scale(1);
+    		transform: scale(1);
+			opacity: 0.8;
+		}
+	}
+	&:focus {
+		color: $white;
+	}
+
+	@media only screen and (min-width: 320px){
+		@include fontSet(22px, 0px, 'LovinSansWeb-Medium');
+		line-height: 35px;
+	}
+	@media only screen and (min-width: 480px){
+		@include fontSet(24px, 0px, 'LovinSansWeb-Medium');
+		line-height: 35px;
+	}
+	@media only screen and (min-width: 768px){
+		@include fontSet(22px, 0px, 'LovinSansWeb-Medium');
+		line-height: 35px;
+	}
+	@media only screen and (min-width: 992px){
+		@include fontSet(24px, 0px, 'LovinSansWeb-Medium');
+		line-height: 35px;
+	}
+}
+
+.btn-red-inverse {
+	background: $white;
+	color: $red;
+	text-transform: uppercase;
+	padding: 13px 25px;
+	opacity: 1;
+	border: 3px solid $red;
+	@include fontSet(16px, 16px, 'LovinSansWeb-Medium');
+	@include border-radius(30px);
+	@include transition(scale, 0.1s, ease-out, 0s);
+	position: relative;
+	display: inline-block;
+	-webkit-transform: translateZ(0);
+  	transform: translateZ(0);
+
+	.fa {
+		margin-left: 3px;
+		@include transition(transform, 0.1s, ease-out, 0s);
+	}
+
+	&.small {
+		padding: 7px 25px;
+		@include fontSet(16px, 16px, 'LovinSansWeb-Thin');
+	}
+
+	&:before{
+		content: "";
+		position: absolute;
+		z-index: -1;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		border: 3px solid $red-hover;
+		background: $red-hover;
+		@include border-radius(30px);
+		-webkit-transform: scale(0);
+		transform: scale(0);
+		opacity: 0;
+		-webkit-transform-origin: 50% 50%;
+		transform-origin: 50% 50%;
+		@include transition(transform, opacity, 0.2s, ease-out, 0s);
+	}
+
+	&:hover {
+		color: $white;
+		border-color: $red-hover;
+		background: $red-hover;
+
+
+		.fa-chevron-circle-right{
+			-webkit-transform: translateX(4px);
+			-ms-transform: translateX(4px);
+			transform: translateX(4px);
+		}
+
+		&:before{
+			-webkit-transform: scale(1);
+    		transform: scale(1);
+			opacity: 0.8;
+		}
+	}
+	&:focus {
+		color: $red;
+	}
+
+	@media only screen and (min-width: 320px){
+		@include fontSet(22px, 22px, 'LovinSansWeb-Medium');
+		padding: 12px 25px;
+	}
+	@media only screen and (min-width: 480px){
+		@include fontSet(24px, 24px, 'LovinSansWeb-Medium');
+		padding: 10px 25px;
+	}
+	@media only screen and (min-width: 768px){
+		@include fontSet(22px, 22px, 'LovinSansWeb-Medium');
+		padding: 10px 30px;
+	}
+	@media only screen and (min-width: 992px){
+		@include fontSet(24px, 24px, 'LovinSansWeb-Medium');
+	}
+
+}
+
+.navbar-default{
+	.navbar-toggle{
+		float: none;
+		margin: 23px 15px 20px 0px;
+		padding: 9px 0px;
+		border: 0;
+
+		.icon-bar{
+			background-color: $white;
+			height: 4px;
+			width: 28px;
+			border-radius: 4px;
+
+			&+.icon-bar{
+				margin-top: 5px;
+			}
+		}
+
+		&:focus, &:hover{
+			background-color: transparent;
+		}
+
+		&:focus{
+			outline: -webkit-focus-ring-color auto 5px;
+		}
+
+		@media only screen and (max-width: 480px){
+			margin: 23px 15px 20px 0px;
+		}
+	}
+
+}
+
+
+.cursor{
+	cursor: pointer;
+}
+
+
+.btn-border {
+	background: $black;
+	color: $white;
+	text-transform: uppercase;
+	padding: 10px 30px;
+	opacity: 1;
+	border: 3px solid $gray-border;
+	@include fontSet(22px, 22px, 'LovinSansWeb-Medium');
+	@include border-radius(35px);
+	@include transition(scale, 0.1s, ease-out, 0s);
+	position: relative;
+	display: inline-block;
+	-webkit-transform: translateZ(0);
+  	transform: translateZ(0);
+
+	.fa {
+		color: $red;
+		margin-left: 3px;
+		@include transition(transform, 0.1s, ease-out, 0s);
+	}
+
+	&:hover {
+		background: $gray-background;
+		color: $white;
+	}
+
+	&:active,
+	&:focus {
+		color: $white;
+	}
+
+	@media only screen and (min-width: 320px){
+		@include fontSet(22px, 22px, 'LovinSansWeb-Medium');
+	}
+	@media only screen and (min-width: 480px){
+		@include fontSet(24px, 24px, 'LovinSansWeb-Medium');
+	}
+	@media only screen and (min-width: 768px){
+		@include fontSet(22px, 22px, 'LovinSansWeb-Medium');
+	}
+	@media only screen and (min-width: 992px){
+		@include fontSet(24px, 24px, 'LovinSansWeb-Medium');
+	}
+}
+
+
+.add-item{
+	@include roundEdges;
+	background-color: $red;
+	border: 0px;
+	width: 40px;
+	height: 40px;
+	display: inline-block;
+	padding: 0;
+	margin: 10px 0 0 0;
+
+	&:after{
+		font-family: FontAwesome;
+		display: block;
+		color: $white;
+		content: "\f067";
+		font-size: 26px;
+		position: relative;
+		margin-top: 4px;
+	}
+
+	@media only screen and (max-width:767px){
+		width: 36px;
+		height: 36px;
+
+		&:after{
+			font-size: 28px;
+			margin-top: 1px;
+		}
+	}
+
+	@media only screen and (max-width:420px){
+		width: 22px;
+		height: 22px;
+		top: -3px;
+		position: relative;
+
+		&:after{
+			font-size: 14px;
+			margin-top: 2px;
+		}
+	}
+}
+
+.remove-item{
+	@include roundEdges;
+	background-color: $red;
+	border: 0px;
+	width: 40px;
+	height: 40px;
+	display: inline-block;
+	padding: 0;
+	margin: 10px 0 0 0;
+
+	&:after{
+		font-family: FontAwesome;
+		display: block;
+		color: $white;
+		content: "\f068";
+		font-size: 26px;
+		position: relative;
+		margin-top: 4px;
+	}
+
+	@media only screen and (max-width:767px){
+		width: 36px;
+		height: 36px;
+
+		&:after{
+			font-size: 28px;
+			margin-top: 1px;
+		}
+	}
+
+	@media only screen and (max-width:420px){
+		width: 22px;
+		height: 22px;
+		top: -3px;
+		position: relative;
+
+		&:after{
+			font-size: 14px;
+			margin-top: 2px;
+		}
+	}
+}
+
+//FLEX CUSTOM NAV BUTTONS
+.custom-flex-navigation{
+
+	.flex-direction-nav{
+		a{
+			width: 44px;
+			height: 44px;
+		}
+	}
+
+	.flex-prev{
+		position: absolute;
+		background: #f1f1eb;
+		height: 44px;
+		width: 44px;
+		border-radius: 0% 50% 50% 0%;
+		padding: 3px 13px;
+		display: block;
+		left: 0px;
+		top:-30px;
+		margin-top: -25px;
+		opacity: 1;
+
+		@media only screen and (min-width:768px){
+			left: -60px;
+			top:50%;
+			border-radius: 50%;
+			margin-top: -50px;
+
+		}
+
+
+		&:before{
+			font-family: "flexslider-icon";
+			font-size: 26px;
+			display: inline-block;
+			color: $red;
+			content: "\f001";
+		}
+	}
+
+	.flex-next{
+		position: absolute;
+		background: #f1f1eb;
+		height: 44px;
+		width: 44px;
+		border-radius: 50% 0% 0% 50%;
+		padding: 3px 14px;
+		display: block;
+		right: 0px;
+		top:-30px;
+		margin-top: -25px;
+		opacity: 1;
+
+		@media only screen and (min-width:768px){
+			right: -60px;
+			top:50%;
+			border-radius: 50%;
+			margin-top: -50px;
+
+		}
+
+
+		&:before{
+			font-family: "flexslider-icon";
+			font-size: 26px;
+			display: inline-block;
+			color: $red;
+			content: "\f002";
+		}
+	}
+}
+.btn-app {
+	max-width:160px;
+	display: inline-block;
+
+	img {
+		width: auto;
+		padding: 5px 15px;
+		background: #424242;
+		border: 1px solid #4d4a4b;
+		border-radius: 5px;		
+		-webkit-border-radius: 5px;
+		-khtml-border-radius: 5px;
+		-moz-border-radius: 5px;
+		-ms-border-radius: 5px;
+		-o-border-radius: 5px;		
+	}
+}
+.btn-red-new {
+  border-radius: 30px;
+  text-transform: uppercase;
+}
+
+.btn-configurable {
+  text-transform: uppercase;
+  padding: 0px 30px 0px;
+  margin-bottom: 6px;
+  opacity: 1;
+  font-family: "LovinSansWeb-Medium";
+  border-radius: 35px;
+  transition: scale, 0.1s, ease-out, 0s;
+  position: relative;
+  display: inline-block;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  -webkit-perspective: 1000;
+  -webkit-backface-visibility: hidden;
+  height: 39px;
+  line-height: 35px;
+  &:hover {
+    opacity: 0.8;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .btn-configurable {
+    font-family: "LovinSansWeb-Medium";
+    font-size: 20px;
+    line-height: 26px;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .btn-configurable {
+    font-family: "LovinSansWeb-Medium";
+    font-size: 22px;
+    line-height: 26px;
+  }
+}
+.btn-app {
+	img {
+		width: auto;
+		padding: 5px 15px;
+		background: #424242;
+		border-radius: 5px;
+		-webkit-border-radius: 5px;
+		-khtml-border-radius: 5px;
+		-moz-border-radius: 5px;
+		-ms-border-radius: 5px;
+		-o-border-radius: 5px;
+		border: 1px solid #4d4a4b;
+		&:hover {
+			background: transparent;
+			-webkit-transition: all 0.2s ease-in-out 0s;
+			-khtml-transition: all 0.2s ease-in-out 0s;
+			-moz-transition: all 0.2s ease-in-out 0s;
+			-ms-transition: all 0.2s ease-in-out 0s;
+			-o-transition: all 0.2s ease-in-out 0s;
+			transition: all 0.2s ease-in-out 0s;
+			text-decoration: none;
+		}
+	}
+}
+
+
+
+

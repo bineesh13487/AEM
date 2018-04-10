@@ -1,0 +1,53 @@
+.button {
+  background: $background;
+  border: to-rem(1) solid $rules-strokes;
+  border-radius: to-rem(4);
+  box-shadow: 0 to-rem(1.5) to-rem(1.5) 0 rgba(0, 0, 0, 0.08);
+  color: $dark-gray-2;
+  font-size: to-rem(16);
+  line-height: to-rem(20);
+  outline: none;
+  padding: to-rem(15) to-rem(25);
+  text-align: center;
+  display: inline-block;
+
+  &--yellow {
+    background: linear-gradient(0deg, $yellow-1 0%, $yellow-2 100%);
+    box-shadow: none;
+    color: $dark-gray-2;
+
+    &:hover {
+      background: $yellow-2;
+    }
+  }
+
+  &--transparent {
+    background-color: transparent;
+    font-weight: bold;
+  }
+
+  &--dark-border {
+    border: to-rem(1) solid $dark-gray-2;
+    font-weight: bold;
+  }
+
+  &--yellow-border {
+    border: to-rem(1) solid $call-to-action-yellow;
+    font-weight: bold;
+  }
+
+  &--sm {
+    height: to-rem(36);
+    width: to-rem(44);
+    padding: 0 !important;
+  }
+}
+
+@media screen and (min-width: 48rem) {
+  .button {
+    &--sm {
+      height: to-rem(48);
+      width: to-rem(60);
+    }
+  }
+}

@@ -1,0 +1,198 @@
+<sly data-sly-use.secNavInfo="com.mcd.rwd.us.core.sightly.SecondaryNavigationHandler">
+    <sly data-sly-test="${(secNavInfo.linksList.isEmpty) && (wcmmode.edit || wcmmode.design)}">
+        <h5 class="component-authoring-text">Please Configure the Microsite Navigation Component</h5>
+    </sly>
+    <sly data-sly-test="${!secNavInfo.linksList.isEmpty}">
+        <!-- <div class="header-microsite">
+            <div class="component-microsite-header hidden-xs" data-ng-controller="secondaryNavController" data-ng-init="init()">
+                <div class="header-box" style="background-image: url(${secNavInfo.bgUrl @ context='unsafe'});">
+                    <div class="header-title">
+                        <h2 class="header-title-text" aria-label="${secNavInfo.bannerAreaLabel}">
+		           	  	<sly data-sly-test=${secNavInfo.title}>
+		           			<span class="cmh-text">${secNavInfo.title}</span>
+		            	</sly>
+		            	<sly data-sly-test="${secNavInfo.logo}">
+		            		<img src="${secNavInfo.logo}" class="cmh-logo" alt="${secNavInfo.logoAltText}">
+		            	</sly>		            	           	
+		            </h2> </div>
+                </div>
+                <nav class="navbar navbar-default desktop-nav">
+                    <div class="container-fluid">
+                        <ul id="dSecondaryNavigation" role="menu" class="nav navbar-nav desktop-nav-items">
+                            <sly data-sly-list.link="${secNavInfo.linksList}">
+                                <li><a role="menuitem" id="${linkList.index}" href="#" ng-class="{active: microNavActive == ${linkList.index}}" class="${link.target}" ng-click="redirectToLink('${link.href}',$event)">${link.text}</a></li>
+                            </sly>
+                            <li class="dropdown language-toggle">
+                                <sly data-sly-list.langToggle="${secNavInfo.presentPageLanguageList}">
+                                    <sly data-sly-test=${langToggle.defaultLanguage}>
+                                        <a type="button" id="msdlanguageBox" href="${langToggle.currentPage}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-label="${langToggle.ariaLabel} Language Selector"> <span class="dropdown-text">${langToggle.langName}</span> <span class="dropdown-arrow-icon"><em class="fa fa-chevron-down" aria-hidden="true"></em></span> </a>
+                                    </sly>
+                                </sly>
+                                <ul class="dropdown-menu" aria-label="Language" id="languageItems" aria-expanded="false">
+                                    <sly data-sly-list.langToggle="${secNavInfo.presentPageLanguageList}">
+                                        <sly data-sly-test=${!langToggle.defaultLanguage}>
+                                            <li><a id="msdlanguage${langToggleList.index}" role="menuitem" href="#" ng-click="setMicrositeredirectToLink('${langToggle.multiSiteLangNode}','${langToggle.currentPage}',$event)" aria-label="${langToggle.ariaLabel}">${langToggle.langName}</a></li>
+                                        </sly>
+                                    </sly>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+            <div class="component-microsite-header visible-xs" data-ng-controller="secondaryNavController">
+                <div class="header-box" style="background-image: url(${secNavInfo.bgUrl @ context='unsafe'});">
+                    <div class="header-title">
+                        <h2 class="header-title-text" tabindex="0" aria-label="${secNavInfo.bannerAreaLabel}">
+		            	<sly data-sly-test=${secNavInfo.title}>
+		           			<span class="cmh-text">${secNavInfo.title}</span>
+		            	</sly>
+		            	<sly data-sly-test=${secNavInfo.logo}>
+		            		<img src="${secNavInfo.logo}" class="cmh-logo" alt="${secNavInfo.logoAltText}">
+		            	</sly>		            	  
+		            </h2> </div>
+                    <div class="mobile-nav dropdown custome-dd" tabindex="0">
+                        <sly data-sly-list.link="${secNavInfo.linksList}">
+                            <sly data-sly-test=${linkList.index==0}>
+                                <button type="button" class="btn btn-default btn-block mobile-nav-button" data-toggle="dropdown" aria-label="Secondary Navigation" role="button" aria-expanded="false" type="button" id="msmSecondNav"> <span class="button-text">${link.text}</span><span class="sr-only">${link.text} selected</span> <span class="pull-right dropdown-arrow-icon dropdwon-arrow-pos">
+				                  	<em class="fa fa-chevron-down" aria-hidden="true"></em>
+				             	</span> </button>
+                            </sly>
+                        </sly>
+                        <ul class="dropdown-menu mobile-nav-items" id="mSecondaryNavigation" aria-labelledby="${secNavInfo.linkAreaLabel}">
+                            <sly data-sly-list.link="${secNavInfo.linksList}">
+                                <li><a role="menuitem" id="${linkList.index}" href="#" ng-class="{active: mobMicroNavActive == ${linkList.index}}" class="${link.target}" ng-click="mredirectToLink('${link.href}',$event)">${link.text}</a></li>
+                            </sly>
+                        </ul>
+                    </div>
+                    <div class="mobile-lang-toggler">
+                        <sly data-sly-list.langToggle="${secNavInfo.presentPageLanguageList}">
+                            <sly data-sly-test=${langToggle.defaultLanguage}>
+                                <button type="button" class="btn btn-link collapsed" data-toggle="collapse" data-target="#cmhLanguageToggler" aria-expanded="false" aria-controls="collapseExample" aria-label="${langToggle.ariaLabel} Language Selector" role="button" id="msmlanguageBox"> <span class="button-text">${langToggle.langName}</span> <span class="dropdown-arrow-icon"><em class="fa fa-chevron-down" aria-hidden="true"></em></span> </button>
+                            </sly>
+                        </sly>
+                        <ul id="cmhLanguageToggler" class="collapse language-items" aria-labelledby="msmlanguageBox">
+                            <sly data-sly-list.langToggle="${secNavInfo.presentPageLanguageList}">
+                                <sly data-sly-test=${!langToggle.defaultLanguage}>
+                                    <li><a role="menuitem" id="msmlangauge${langToggleList.index}" aria-label="${langToggle.ariaLabel}" href="#" ng-click="setMicrositeredirectToLink('${langToggle.multiSiteLangNode}','${langToggle.currentPage}',$event)">${langToggle.langName}</a></li>
+                                </sly>
+                            </sly>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div id="component-microsite-header-dummy" class="hide"></div>
+        </div> -->
+
+        
+        <div class="mcd-microsite-navigation" data-component="micrositeNavigation">
+            <!-- Need to pull hex title color code from AEM - doesn't seem to be working at this time even though I have provided a hex color. There isn't existing HTL to pull this value from -->
+            <div class="mobile-nav" style="background-color: #ED3B25">
+                <div class="mobile-nav__nav-logo">
+                    <sly data-sly-resource="${'logo' @ resourceType='mcd-rwd-global/components/content/logo'}"></sly>
+                </div>
+
+                <div class="mobile-nav__info-logo">
+                    <a href="/" title="${secNavInfo.logoAltText}" class="link">
+                        <img src="${secNavInfo.logo}" class="cmh-logo" alt="${secNavInfo.logoAltText}">
+                    </a>
+                </div>
+
+                <div class="mobile-nav__menu-icons">
+                    <div class="menu-icon">
+                        <i class="icon-hamburger"></i>
+                    </div>
+                    <div class="close-icon">
+                        <i class="icon-times"></i>
+                    </div>
+                </div>
+
+                <div class="mobile-nav__links-panel">
+                    <ul class="links">
+                        <sly data-sly-list.link="${secNavInfo.linksList}">
+                            <li class="links__item">
+                                <a href="${link.href}" class="main-link" title="${link.text}">${link.text}</a>
+                            </li>
+                        </sly>
+                    </ul>
+                    <hr />
+                    <ul class="links">
+                        <!-- Need to apply link to AEM -->
+                        <li class="links__item" >
+                            <a href="/" title="McDonald's" class="link">McDonald's <i class="icon-external-link"></i></a>
+                        </li>
+                        <li class="links__item">
+                            <a href="#" class="link language-toggle" title="">Language <i class="icon-plus"></i></a>
+                            <div class="mcd-language-toggle">
+                                <ul class="language-items">
+                                    <li class="language-item"><a href="" title="English" class="language active">English</a></li>
+                                    <li class="language-item"><a href="" title="Espa&ntilde;ol" class="language">Espa&ntilde;ol</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <!-- Need to apply link to AEM -->
+                        <li class="links__item" >
+                            <a href="#" title="Search" class="link">Search <i class="icon-search"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+
+
+
+            <div class="desktop-nav">
+                <div class="desktop-nav__top">
+                    <div class="top-container">
+                        <ul class="left-rail links">
+                            <li class="links-item">
+                                <sly data-sly-resource="${'logo' @ resourceType='mcd-rwd-global/components/content/logo'}"></sly>
+                            </li>
+                            <li class="links-item">
+                                <a href="/" title="McDonalds.com" class="link"><i class="icon-chevron-left"></i> McDonalds.com</a>
+                            </li>
+                        </ul>
+                        <ul class="right-rail links">
+                            <li class="links-item">
+                                <a href="#" class="link language-toggle" title="Language">Language <i class="icon-chevron-down"></i></a>
+                                <!-- Need to utilize Language Toggle once BE change has been implemented -->
+                                <div class="mcd-language-toggle">
+                                    <ul class="language-items">
+                                        <li class="language-item"><a href="#" title="English" class="language active">English</a></li>
+                                        <li class="language-item"><a href="#" title="Espa&ntilde;ol" class="language">Espa&ntilde;ol</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="links-item">
+                                <a href="#" class="link" title="Search">
+                                    <i class="icon-search"></i> Search
+                                </a>
+                            </li>
+                        </ul>
+                        <div style="clear: both"></div>
+                    </div>
+                </div>
+                <!-- Need to pull hex title color code from AEM - doesn't seem to be working at this time even though I have provided a hex color. There isn't existing HTL to pull this value from -->
+                <div class="desktop-nav__bottom" style="background-color: #ED3B25">
+                    <div class="bottom-container">
+                        <ul class="links" id="" aria-labelledby="${secNavInfo.linkAreaLabel}">
+                            <sly data-sly-test="${secNavInfo.logo}">
+                                <li class="links-item">
+                                    <a href="/" title="${secNavInfo.logoAltText}" class="link">
+                                        <img src="${secNavInfo.logo}" class="cmh-logo" alt="${secNavInfo.logoAltText}">
+                                    </a>
+                                </li>
+                            </sly>
+                            <sly data-sly-list.link="${secNavInfo.linksList}">
+                                <li class="links-item">
+                                    <a href="${link.href}" class="link" title="${link.text}">${link.text}</a>
+                                </li>
+                            </sly>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </sly>
+</sly>

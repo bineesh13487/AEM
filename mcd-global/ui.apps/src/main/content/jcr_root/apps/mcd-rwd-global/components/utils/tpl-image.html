@@ -1,0 +1,10 @@
+<div data-sly-template.image="${ @logo, styleClass }">
+    <a href="${logo.image.link}" class="" data-at="TopLinks:${logo.pageNameForAnalytics}:${logo.image.alt}" data-track="topLinks" title="${logo.image.header}">
+        <span class="visually-hidden">${logo.image.header}</span>
+        <img src="${logo.image.src}" alt="${logo.image.alt}" >
+    </a>
+    <sly data-sly-test="${ (!logo.image.src) && (wcmmode.edit || wcmmode.preview) }">
+        <span class="visually-hidden">${ logo.image.header }</span>
+        <img src="/etc/designs/default/0.gif" alt="${logo.image.alt}" class="cq-image-placeholder">
+    </sly>
+</div>

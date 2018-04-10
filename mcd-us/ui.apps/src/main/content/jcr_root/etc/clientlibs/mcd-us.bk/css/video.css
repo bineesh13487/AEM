@@ -1,0 +1,247 @@
+
+.videoBox {
+  position: relative;
+  height: auto;
+  width: 100%;
+  margin: auto;
+}
+.videoBox .videoWrapper {
+  z-index: 1;
+  position: static;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  overflow: hidden;
+  line-height: 0;
+}
+.videoBox .videoWrapper video {
+  width: 100%;
+}
+.videoBox .videoWrapper iframe {
+  width: 100%;
+  height: 360px;
+  margin: auto;
+  display: block;
+}
+.videoBox .videoText {
+  text-align: center;
+  width: 90%;
+  margin: auto;
+  position: static;
+}
+.videoBox .videoText h4.videoTitle {
+  font-weight: 400;
+}
+.videoBox .thumbsWrapper .shareVideo {
+  display: none;
+}
+.videoBox .thumbsWrapper .thumbs-video {
+  margin: auto;
+  text-align: center;
+  margin-bottom: 10px;
+}
+.videoBox .thumbsWrapper .thumbs-video img {
+  max-width: 300px;
+  width: 100%;
+  transition: all 500ms ease-out;
+}
+.videoBox .thumbsWrapper .thumbs-video img:hover {
+  transform: scale(1.1);
+}
+.videoBox .thumbsWrapper .thumbs-video xx
+video, .videoBox .thumbsWrapper .thumbs-video iframe {
+  display: none;
+}
+.videoBox .thumbsWrapper .thumbs-video .thumb.mobile {
+  display: none;
+}
+.videoBox .thumbsWrapper .thumbs-video .vid-buttons {
+  z-index: 5;
+  position: absolute;
+  top: 30%;
+  left: 40%;
+}
+.videoBox .thumbsWrapper .thumbs-video .vid-buttons .play-button {
+  height: 52px;
+  width: 61px;
+  background: url("../images/play.png");
+}
+.videoBox .thumbsWrapper .thumbs-video .vid-buttons .pause-button {
+  height: 52px;
+  width: 61px;
+  background: url("../images/pause.png");
+}
+.videoBox .thumbsWrapper .thumbs-video .vid-buttons .button-position {
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  bottom: 0;
+  top: 0;
+  margin-top: auto;
+  margin-bottom: auto;
+  background-position: -1px -5px;
+}
+.videoBox .thumbsWrapper .videoText {
+  text-align: left;
+  width: auto;
+}
+.videoBox .thumbsWrapper .videoText.v-align {
+  text-align: center;
+}
+.videoBox .thumbsWrapper .thumb-box {
+  width: 300px;
+  overflow: hidden;
+  padding: 0px;
+  margin: auto;
+}
+
+.video-bg {
+  position: relative;
+}
+.video-bg .videoBox {
+  position: relative;
+  display: none;
+}
+.video-bg .videoBox .videoWrapper {
+  position: relative;
+  width: 100%;
+}
+.video-bg .videoBox .videoWrapper .video-bg-poster {
+  display: none;
+}
+.video-bg .videoBox .videoText {
+  z-index: 2;
+  margin: auto;
+  width: auto;
+  color: white;
+  position: absolute;
+  left: 0;
+  right: 0;
+  text-align: center;
+  top: 0;
+  bottom: 0;
+  padding-top: 10%;
+}
+.video-bg .videoBox .videoText h2.videoTitle {
+  font-size: 3em;
+  margin-bottom: 25px;
+  font-weight: 400;
+}
+.video-bg .videoBox .videoText .videoDescription {
+  margin-bottom: 50px;
+}
+.video-bg .videoBox .videoText a {
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.35);
+  padding: 10px 20px;
+  font-weight: 400;
+}
+.video-bg .videoBox .videoText a:hover {
+  text-decoration: none;
+  background-color: #bd0017;
+}
+
+.fallback {
+  background: url("../images/fallback.jpg");
+  height: 700px;
+  width: 100%;
+  display: none;
+}
+
+.shareVideo {
+  position: absolute;
+  top: 0px;
+  color: #fff;
+  width: 35px;
+  min-height: 35px;
+  border-radius: 5px;
+  right: 0px;
+  text-align: center;
+  line-height: 25px;
+  font-size: 1em;
+  font-weight: 400;
+  cursor: pointer;
+}
+.shareVideo .shareButton {
+  background: url("../images/share_sprite.png") no-repeat;
+  background-position: 2px 0px;
+  min-height: 35px;
+  display: block;
+  opacity: 0.7;
+}
+.shareVideo .shareButton:hover {
+  opacity: 1.0;
+}
+.shareVideo .shareVia {
+  display: none;
+  font-size: 0.8em;
+  text-align: left;
+  line-height: 25px;
+}
+.shareVideo .shareVia ul {
+  list-style-type: none;
+  padding-left: 0px;
+}
+.shareVideo .shareVia ul .share {
+  background: url("../images/share_sprite.png") no-repeat;
+  display: block;
+  min-height: 32px;
+  opacity: 0.7;
+}
+.shareVideo .shareVia ul .share.fb {
+  background-position: -97px 0px;
+}
+.shareVideo .shareVia ul .share.twt {
+  background-position: -30px 0px;
+}
+.shareVideo .shareVia ul .share.gplus {
+  background-position: -64px 0px;
+}
+.shareVideo .shareVia ul .share:hover {
+  opacity: 1.0;
+}
+
+@media (max-width: 767px) {
+  .thumbsWrapper .thumbs-video {
+    margin: auto;
+    text-align: center;
+    margin-bottom: 10px;
+    overflow: hidden;
+  }
+  .thumbsWrapper .thumbs-video .thumb-box {
+    width: 100%;
+  }
+  .thumbsWrapper .thumbs-video .thumb-box img, .thumbsWrapper .thumbs-video .thumb-box .vid-buttons {
+    display: none;
+  }
+  .thumbsWrapper .thumbs-video .thumb-box .thumb.mobile {
+    display: block;
+    width: 100%;
+  }
+  .thumbsWrapper .thumbs-video .thumb-box .thumb.mobile video, .thumbsWrapper .thumbs-video .thumb-box .thumb.mobile iframe {
+    display: block;
+    width: 100%;
+  }
+  .thumbsWrapper .thumbs-video .thumb-box .thumb.mobile iframe {
+    position: absolute;
+    height: 100%;
+  }
+
+  .videoBox {
+    width: 100% !important;
+  }
+  .videoBox .videoWrapper iframe {
+    width: 100%;
+    height: 175px;
+  }
+
+  .video-bg .videoBox .videoWrapper video {
+    display: none;
+  }
+  .video-bg .videoBox .videoWrapper .video-bg-poster {
+    display: block;
+    max-width: 100%;
+  }
+}

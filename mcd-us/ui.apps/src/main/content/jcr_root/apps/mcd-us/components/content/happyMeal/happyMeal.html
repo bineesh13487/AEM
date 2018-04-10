@@ -1,0 +1,67 @@
+<div class="template page-has-meal-sliders page-happy-meal ${wcmmode.edit ? 'cq-dd-image' : ''}" ng-controller="happyMealController">
+<div ng-controller="adaTextController" data-ng-init="getAdaGenericText()">
+<sly data-sly-use.info="com.mcd.rwd.us.core.sightly.HappyMeal">
+<h3 data-sly-test="${wcmmode.edit && info.link==null && !info.happyMealList && info.imageHref==null}">Please click to configure the Happy Meal component</h3>
+                   <div class="col-xs-12 cont-logo"> <img src="${info.imageHref}" class="img-responsive" alt="${info.image.altText}" title="${info.image.imgTitle}" aria-hidden="true"/>
+                  <p class="text"> ${info.imageSubTitle} </p>
+                  <h2 class="screen-reader">${info.buttonTitle}</h2>
+        	</div>
+          
+          
+          <sly data-sly-list.happyMealList="${info.happyMealList}">
+            <div class="container cont-slides component-related-items" ng-cloak>
+              <div class="row no-gutter">
+                <div class="col-xs-12">
+                  <div class="wrapper">
+                    <h2>${happyMealList.title}</h2>
+                    <div class="related-flex-container">
+                      <div class="related-flexslider flexslider no-init">
+                        <div class="custom-navigation">
+                          <a href="javascript:void(0)" role="button" class="flex-prev" aria-label="{{adaGenericText.prevtext}} ${happyMealList.title}"></a>
+                          <div class="custom-controls-container"></div>
+                          <a href="javascript:void(0)" role="button" class="flex-next" aria-label="{{adaGenericText.nexttext}} ${happyMealList.title}"></a>
+                        </div>
+                        <div class="hidden hmhidden" hmaria1="${info.ariaLabel}" hmaria2="${info.ariaLabel1}"></div>
+                        <ul class="slides" role="group" aria-label="${happyMealList.title}">
+                        <sly data-sly-list.sublist="${happyMealList.happyMealItem}">
+                          <li role="option" class="${sublist.coops !='' && sublist.coops !=' ' && sublist.coops !=null ? 'happymeallocalitem' : '' }"  data-coopid="${sublist.coops}">
+                            <a href="#" aria-label="${info.ariaLabel} ${sublist.title} ${info.ariaLabel1}" data-id="${sublist.itemId}" role="button">
+                            
+                             <picture>
+									<!--[if IE 9]><video style="display: none;"><![endif]-->
+									<source srcset="${info.getDynamicMediaServerContextURL @context='uri'}${sublist.imageUrl}${info.getDynamicMediaSmallParameter @context='uri'}" media="(max-width: 432px)">
+									<source srcset="${info.getDynamicMediaServerContextURL @context='uri'}${sublist.imageUrl}${info.getDynamicMediaSmallParameter @context='uri'}" media="(max-width: 767px)">
+									<source srcset="${info.getDynamicMediaServerContextURL @context='uri'}${sublist.imageUrl}${info.getDynamicMediaLargeParameter @context='uri'}" media="(max-width: 1024px)">
+									<source srcset="${info.getDynamicMediaServerContextURL @context='uri'}${sublist.imageUrl}${info.getDynamicMediaLargeParameter @context='uri'}" media="(max-width: 1920px)">
+									<!--[if IE 9]></video><![endif]-->
+                                    <img class="img-responsive" srcset="${sublist.imageUrl @context='uri'}" alt="" />
+									<div class="red-border"></div>
+							 </picture>
+                            
+                            </a>
+                            <div class="caption">${sublist.title}</div>
+                          </li>
+                        </sly>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            </sly>
+            <section title="nutrition calculator">
+            <sly data-sly-test="${info.link}">
+	      		<div class="container cont-cta">
+		          <div class="row">
+		            <div class="col-xs-12">
+		              <p class="light">${info.buttonTitle}</p>
+		              <a ng-click="addToNc($event)" data-defaultitems="${info.defaultItems}" href="${info.link}" class="btn btn-red">${info.buttonName}</a>
+		            </div>
+		          </div>
+	        	</div>
+        	</sly>
+        	</section>
+      </sly>
+</div>
+</div>

@@ -1,0 +1,6 @@
+#base=js
+multifieldpanel.js
+mainsliderpanel.js
+carouselwidget.js
+calloutPanel.js
+colorpicker.js

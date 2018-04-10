@@ -1,0 +1,180 @@
+.page-my-deals {
+
+  .error-headline {
+    @include fontSet(56px, 56px, $font-lovinsans-bold);
+    margin-top: 50px;
+  }
+
+  .modal {
+    .btn-red {
+      margin-top: 30px;
+    }
+  }
+
+  .template-hero-bg {
+    min-height: 250px;
+    @media only screen and (min-width: 480px){
+      min-height: 300px;
+    }
+    @media only screen and (min-width: 768px){
+      min-height: 400px;
+    }
+  }
+
+  .cont-location {
+    padding: 15px 0px 5px;
+    background: $light-gray;
+    font-family: $font-lovinsans;
+    text-align: center;
+
+    .list-inline>li {
+      text-align: right;
+      vertical-align: middle;
+    }
+
+    .bold{
+      @include fontSet(26px, 26px, $font-lovinsans-bold);
+      margin-bottom: 5px;
+    }
+
+    .change-loc{
+      a {
+        color: $red;
+        @include fontSet(16px, 16px, $font-lovinsans-bold);
+      }
+    }
+  }
+
+  .cont-fpo {
+    margin-top: 30px;
+    img {
+      width: 100%;
+    }
+  }
+
+  .redeem{
+    @include fontSet(32px, 38px, $font-lovinsans-bold);
+    text-transform: uppercase;
+    margin-bottom: 0;
+    margin-top: 30px;
+    text-align: center;
+
+    button{
+      color:$red;
+      background: transparent;
+      padding: 0;
+      margin: 0 3px 0 0;
+      border: 0;
+
+      .fa{
+        font-size: 70%;
+        vertical-align: top;
+      }
+    }
+  }
+
+  .cont-account-links {
+    .cont-box {
+      position: relative;
+      margin-bottom: 20px;
+    }
+
+    .cont-bg img {
+      width: 100%;
+    }
+
+    .cont-title {
+      @include fontSet(36px, 36px, $font-lovinsans-bold);
+      text-align: center;
+      margin-top: 50px;
+      margin-bottom: 30px;
+    }
+
+    .cont-text {
+      position: absolute;
+      width: 100%;
+      top: 0;
+      right: 0;
+    }
+
+    .text {
+      color: $white;
+      @include fontSet(24px, 24px, $font-lovinsans-bold);
+      padding: 30px 15px;
+
+      @media only screen and (min-width: 480px){
+        padding: 60px 30px 0px;
+        @include fontSet(44px, 44px, $font-lovinsans-bold);
+      }
+
+      @media only screen and (min-width: 768px){
+        padding: 45px 15px 0px;
+        @include fontSet(30px, 30px, $font-lovinsans-bold);
+      }
+      @media only screen and (min-width: 992px){
+        padding: 60px 30px 0px;
+        @include fontSet(44px, 44px, $font-lovinsans-bold);
+      }
+
+      .btn {
+        margin-top: 10px;
+      }
+    }
+  }
+
+  .cont-border-box {
+    border: 1px solid $gray-border-2;
+    margin-top: 20px;
+    margin-bottom: 0px;
+    height: 180px;
+    margin-right: 0px;
+    margin-left: 0px;
+
+    background-size: cover;
+    background-position: center left;
+    background-color: $white;
+    background-repeat: no-repeat;
+
+    @media only screen and (min-width: 768px){
+      margin-bottom: 20px;
+    }
+
+    .cont-border-box-text {
+      padding: 15px;
+      height: 100%;
+    }
+
+    .cont-border-box-img {
+      background-size: cover;
+      background-position: center left;
+      background-color: $white;
+      background-repeat: no-repeat;
+      height: 100%;
+    }
+
+    .title {
+      @include fontSet(26px, 30px, $font-lovinsans-bold);
+      //max-width: 170px;
+
+      @media only screen and (min-width: 420px){
+        //max-width: 200px;
+      }
+
+      @media only screen and (min-width: 992px){
+        @include fontSet(30px, 34px, $font-lovinsans-bold);
+        //max-width: 250px;
+      }
+    }
+
+    .date {
+      @include fontSet(20px, 24px, $font-lovinsans);
+      max-width: 200px;
+    }
+
+    .terms{
+      color: $red;
+      @include fontSet(16px, 16px, $font-lovinsans-bold);
+    }
+  }
+
+}

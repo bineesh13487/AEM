@@ -1,0 +1,11 @@
+<!--/*  Includes the header content and footer. */-->
+<div class="se-pre-con" aria-label="loading"></div>
+<sly data-sly-use.body="com.mcd.rwd.global.core.sightly.page.Body"/>
+
+${body.getAnalyticsStart @ context = 'unsafe'}
+
+<sly data-sly-include="header.html"></sly>
+<sly data-sly-include="content.html"></sly>
+<sly data-sly-include="footer.html"></sly>
+
+${body.getAnalyticsEnd @ context = 'unsafe'}

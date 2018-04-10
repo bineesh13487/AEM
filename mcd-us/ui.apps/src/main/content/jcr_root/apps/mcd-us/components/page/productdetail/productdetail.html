@@ -1,0 +1,113 @@
+<!DOCTYPE HTML>
+<html ng-app="usr" data-sly-use.product="com.mcd.rwd.us.core.sightly.ProductDetailHandler">
+    <head>
+
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport"
+              content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8"
+              data-sly-use.meta="com.mcd.rwd.global.core.sightly.page.PageMeta"
+              data-sly-use.headlibRenderer="headlibs.html"
+              data-sly-use.clientLib="${'/libs/granite/sightly/templates/clientlib.html'}">
+        <meta name="keywords" content="${product.getProductInfo.getItem.getKeywords @ context = 'attribute'}">
+        <!--/*<meta name="description" content="${product.getProductInfo.getItem.getDescription @ context = 'attribute'}">*/-->
+        <meta name="description" content="${product.getItemMetaDescription @ context='html'}">
+        <meta name="thumbnail" content="${product.getProductInfo.getItem.getProductSearchImagePath @ context = 'attribute'}">
+        <meta name="pagetype" content="${meta.pageType}">
+        <!--/*<meta name="title" content="${product.getProductInfo.getItem.getItemMarketingName}"> */-->
+        <meta name="title" content="${product.getItemMetaTitle @ context='html'}">
+        <!--/* Meta Tags used by social sites to display appropriate information when sharing the page. */-->
+        <meta property="og:type" content="${ meta.ogType }">
+        <meta property="og:url" content="${ meta.ogUrl }">
+        <!--/*<meta property="og:title" content="${ meta.title }">*/-->
+        <meta property="og:title" content="${product.getItemMetaTitle @ context='html' }">
+        <!--/*<meta property="og:description" content="${ meta.desc }">*/-->
+        <!--/*<meta property="og:description" content="${product.getProductInfo.getItem.getDescription @ context = 'attribute'}">*/-->
+        <meta property="og:description" content="${product.getItemMetaDescription @ context='html'}">
+        <meta property="og:image" content="${ meta.ogImg }">
+        <meta property="twitter:card" content="summary">
+        <meta property="twitter:site" content="${ meta.twitterHandle }">
+
+        <!--/* Added for backlog update */-->
+		<!--/* <sly data-sly-test.scheme="${request.scheme}"/>
+		<sly data-sly-test.servername="${request.serverName}"/>
+		<sly data-sly-test.serverport="${request.serverPort}"/>
+		<sly data-sly-test.val="${request.requestURI}"/>
+		<link rel="canonical" href="${scheme}://${servername}:${serverport}${val}" /> */-->
+		<sly data-sly-test.scheme="${request.scheme}"/>
+		<sly data-sly-test.servername="${request.serverName}"/>
+		<!--/*<sly data-sly-test.serverport="${request.serverPort}"/>*/-->
+		<link rel="canonical" href="${scheme}://${servername}${product.getCanonicalURL}" />
+
+        <sly data-sly-call="${headlibRenderer.headlibs @ designPath = meta.designPath}"/>
+        <sly data-sly-include="author.html"/>
+        <!--/* Leaving it blank to add project specific libraries if required */-->
+        <sly data-sly-include="customheaderlibs.html"/>
+        <link data-sly-test="${meta.faviconPath}" rel="icon" type="image/vnd.microsoft.icon"
+              href="${meta.faviconPath}"/>
+        <link data-sly-test="${meta.faviconPath}" rel="shortcut icon" type="image/vnd.microsoft.icon"
+              href="${meta.faviconPath}"/>
+        <!--/*<title>${product.getProductInfo.getItem.getItemMarketingName @ context = 'unsafe'}</title>*/-->
+        <title>${product.getItemMetaTitle @ context='html'}</title>
+
+		<sly data-sly-test="${wcmmode.disabled}">
+			<SCRIPT LANGUAGE = javascript>
+				document.addEventListener("DOMContentLoaded", function(event) {
+				if (self != top)
+				window.open(self.document.location,"_top","");
+				});
+			</SCRIPT>
+		</sly>
+
+    </head>
+    <body ng-controller="MainController as main" data-sly-use.body="com.mcd.rwd.global.core.sightly.page.Body">
+        <sly data-sly-test="${body.analyticsStart}">${body.analyticsStart @ context='unsafe'}</sly>
+        <script data-sly-use.config="com.mcd.rwd.us.core.sightly.page.Config">
+        var config = (function() {
+            var settings = {
+                "country": "${config.country @ context='scriptString'}",
+                "lang": "${config.language @ context='scriptString'}",
+                "analyticsPageName": "${config.analyticsPageName @ context='scriptString'}"
+            };
+
+            return {
+                get: function(key) {
+                    if(settings && key && settings[key]) {
+                        return settings[key];
+                    }
+                    return '';
+                }
+            };
+        })();
+        </script>
+        <sly data-sly-include="header.html"></sly>
+        <style>
+            #maincontent {
+            ${ body.margin.getMarginTop @ context='styleString'}
+            }
+
+            @media only screen and (min-width: 0px) and (max-width: 767px) {
+            #maincontent {
+            ${ body.mobileMargin.getMarginTop @ context='styleString'}
+            }
+            }
+        </style>
+        <main id="maincontent" tabindex="0" class="main" role="main" ng-style="{'margin-top': marginTop}">
+        <sly data-sly-test="${wcmmode.edit || wcmmode.design}">
+			<style>
+				input[type='checkbox']:focus {-webkit-appearance: checkbox;}
+				#CQ *{box-sizing: content-box!important;}
+				legend {width: auto;}
+				fieldset {min-width:-webkit-min-content;}
+			</style>
+		</sly>
+            <sly data-sly-use.tpl="templates.html"></sly>      
+            <sly data-sly-call="${tpl.showProductInfo @ product=product}"></sly>
+            <div data-sly-resource="${'ipar' @ resourceType='wcm/foundation/components/iparsys'}"></div>
+        </main>
+        <sly data-sly-include="footer.html"></sly>
+        <sly data-sly-test="${body.analyticsEnd}">${body.analyticsEnd @ context='unsafe'}</sly>
+
+
+    </body>
+</html>

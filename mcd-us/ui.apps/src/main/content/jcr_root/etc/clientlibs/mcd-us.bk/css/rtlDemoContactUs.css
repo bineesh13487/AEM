@@ -1,0 +1,40 @@
+#contactusArabia{
+direction: rtl;
+}
+.contactusArabia .col-sm-1, #contactusArabia .col-sm-10, #contactusArabia .col-sm-11,#contactusArabia  .col-sm-12, #contactusArabia .col-sm-2,
+ #contactusArabia .col-sm-3, #contactusArabia .col-sm-4,#contactusArabia .col-sm-5,#contactusArabia .col-sm-6,#contactusArabia .col-sm-7,#contactusArabia .col-sm-8, #contactusArabia .col-sm-9{
+    float: right !important;;
+}
+.contactusArabia button.ui-datepicker-trigger{
+    left: 14px !important;
+}
+contactusArabia. main .select button.dropdown-toggle:after{
+left: 12px !important;
+}
+.contactusArabia .bootstrap-select.btn-group .dropdown-toggle .filter-option{
+text-align: right !important;
+}
+#contactusArabia .resturantinfo{
+direction: rtl;
+}
+#contactusArabia .comments{
+direction: rtl;
+}
+#contactusArabia .checkbox label::before
+{
+right: 0 !important;
+}
+#contactusArabia .checkbox label::after{
+right: 0 !important;
+}
+#contactusArabia .checkbox label
+{
+    margin-right: -20px;
+    padding-right: 25px;
+}
+  .arContactUs .bootstrap-select.btn-group .dropdown-toggle .filter-option{
+   text-align: right;
+     }
+  .arContactUs main .select button.dropdown-toggle:after{
+         left: 12px !important;
+     }

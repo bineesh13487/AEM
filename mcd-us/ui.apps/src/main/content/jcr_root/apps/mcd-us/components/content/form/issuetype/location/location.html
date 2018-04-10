@@ -1,0 +1,121 @@
+<sly data-sly-use.wtaInfoLocation="com.mcd.rwd.us.core.sightly.forms.IssueTypeLocation">
+    <div class="row">
+        <div class="col-xs-12 col-sm-7 col-md-6 col-lg-5">
+            <p> ${wtaInfoLocation.locationText} </p>
+        </div>
+        <div class="col-xs-12 col-sm-4 col-md-6 col-lg-7">
+            <div class="form-group">
+                <div class="radio radio-inline" data-toggle="collapse" data-target="#restaurant-feedback-form-container.collapse"> <input type="radio" value="yes" name="contactUs-restaurantFeedback-locationSpecific" id="contactUs-restaurantFeedback-locationSpecific-yes" aria-label="${wtaInfoLocation.locationYesText}"> <label for="contactUs-restaurantFeedback-locationSpecific-yes">
+                    ${wtaInfoLocation.locationYesText}
+                    </label> 
+                </div>
+                <div class="radio radio-inline" data-toggle="collapse" data-target="#restaurant-feedback-form-container.collapse.in"> <input type="radio" checked="" value="no" name="contactUs-restaurantFeedback-locationSpecific" id="contactUs-restaurantFeedback-locationSpecific-no" aria-label="${wtaInfoLocation.locationNoText}"> <label for="contactUs-restaurantFeedback-locationSpecific-no">
+                    ${wtaInfoLocation.locationNoText}
+                    </label> 
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="restaurant-feedback-form-container" class="row collapse" aria-expanded="false" style="height: 0px;">
+        <div class="col-xs-12">
+            <div id="restaurantLocatorFormContainer">
+                <div class="restaurantLocatorOpenModalBtn collapse in">
+                    <div class="form-group"> <label for="">${wtaInfoLocation.searchText}</label><br> <button type="button" class="btn btn-red" data-toggle="modal" data-target="#restaurantLocatorMapModal">
+                        ${wtaInfoLocation.buttonText}
+                        </button> 
+                    </div>
+                    <div><a class="cant-find collapsed" data-toggle="collapse" data-target="#restaurantLocatorForm" role="button" style="outline: none;" aria-expanded="false">${wtaInfoLocation.locatorSearchText}</a></div>
+                </div>
+                <!--/#restaurantLocatorOpenModalBtn-->
+                <div id="restaurantLocatorForm" class="restaurantLocatorForm collapse" aria-expanded="false" style="height: 0px;">
+                    <div class="container-fluid no-gutter">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-6 col-sm-push-6">
+                                <div class="form-group">
+                                    <label class="control-label" for="">&nbsp;</label>
+                                    <div class="clear"></div>
+                                </div>
+                            </div>
+                    		<input type="hidden" name="resNtlStrNumber" id="resNtlStrNumber">
+                    		<div class="col-xs-12 col-sm-6 col-sm-pull-6">
+                                <div class="form-group"> <label class="control-label" for="">${wtaInfoLocation.resAddress}</label> <input type="text" class="form-control ${wtaInfoLocation.resAddressReq}" name="restAddress" id="restAddress" placeholder="" aria-label="${wtaInfoLocation.resAddress}" maxlength="40"> </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-3">
+                                <div class="form-group"> <label class="control-label" for="">${wtaInfoLocation.resCity}</label> <input type="text" class="form-control ${wtaInfoLocation.resCityReq}" name="restCity" id="restCity" placeholder="" aria-label="${wtaInfoLocation.resCity}" maxlength="30"> </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-3">
+                                <div class="form-group resstateclass">
+                                    <label class="control-label" for="" id="resStateTextID">${wtaInfoLocation.resStateText}</label>
+                                    <div class="select select--state resStateList ${wtaInfoLocation.resStateReq} ddCustom" id="contactUs-resstate-select" name="contactUs-resstate-select">
+                                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <span class="value" id="resStateValue" aria-label="${wtaInfoLocation.resStateText}">${wtaInfoLocation.resStateText}</span>
+                                        <i class="fa fa-chevron-down"></i>
+                                        </button>
+                                        <ul id="contactUs-resstate-personalinfo" class="dropdown-menu">
+                                            <div class="dropdown-list-wrapper" data-sly-list="${wtaInfoLocation.resStateOptions}">
+                                                <li><a href="#" value="${item}">${item}</a></li>
+                                            </div>
+                                        </ul>
+                                        <input type="text" class="hidden" id="contactUs-resstate-input" name="restState" value="" maxlength="6">
+                                    </div>
+                                </div>
+                            </div>							                                        
+                            <div class="col-xs-12 col-sm-6">
+                                <div class="form-group"> <label class="control-label" for="">${wtaInfoLocation.landmark}</label> <a data-sly-test="${wtaInfoLocation.landmarkPopupContent}" role="button" data-toggle="popover" data-placement="left" data-trigger="focus" tabindex="0" title="" data-content="${wtaInfoLocation.landmarkPopupContent}" class="pull-right" data-original-title="${wtaInfoLocation.landmarkPopupTitle}"><i class="fa fa-info-circle"></i></a> <input type="text" name="restLandmark" id="restLandmark" class="form-control placeholder ${wtaInfoLocation.landmarkReq}" placeholder="" aria-label="${wtaInfoLocation.landmark}" maxlength="80"> </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-6">
+                            	<div class="form-group has-input-icon-right"> <label class="control-label" for="">${wtaInfoLocation.dateText}</label> 
+                            	<input type="text" id="datepicker" name="incidentDate" class="form-control ${wtaInfoLocation.dateReq} incidentDateCheck" aria-label="${wtaInfoLocation.dateText}" readonly="readonly">
+                            	</div>
+                            </div>
+                            <div class="col-xs-6 col-sm-3" data-sly-test="${wtaInfoLocation.timeOptions}">
+                                <div class="form-group">
+                                    <label class="control-label" for="">&nbsp;</label>
+                                    <div class="select select--@@modifiers">
+                                        <select aria-label="Time" class="form-control" name="time" id="resTime" data-sly-list="${wtaInfoLocation.timeOptions}">
+                                            <option value="${item}">${item}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-sm-3" data-sly-test="${wtaInfoLocation.periodOptions}">
+                                <div class="form-group">
+                                    <label for="">&nbsp;</label>
+                                    <div class="select select--@@modifiers">
+                                        <select aria-label="AM/PM" class="form-control" name="ampm" id="resPeriod" data-sly-list="${wtaInfoLocation.periodOptions}">
+                                            <option value="${item}">${item}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clear"></div>
+                            <div class="col-xs-12">
+                                <div class="form-group ${wtaInfoLocation.visitTypeReq}" id="contactUs-visitType">
+                                    <div class="radio"> <input type="radio" name="visitType" id="ontactUs-driveThru" aria-label="${wtaInfoLocation.driveThru}" value="${wtaInfoLocation.driveThruValue}"> <label for="ontactUs-driveThru">
+                                        ${wtaInfoLocation.driveThru}
+                                        </label> 
+                                    </div>
+                                    <div class="radio"> <input type="radio" name="visitType" id="ontactUs-inStore" aria-label="${wtaInfoLocation.inStore}" value="${wtaInfoLocation.inStoreValue}"> <label for="ontactUs-inStore">
+                                        ${wtaInfoLocation.inStore}
+                                        </label> 
+                                    </div>
+                    				<label for="visitType" generated="true" class="error"></label> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--/#restaurantLocatorForm-->
+            </div>
+            <!--/#restaurantLocatorFormContainer-->
+        </div>
+    </div>
+	<div style="display:none;">
+		<div id="restAddress-message">${wtaInfoLocation.resAddressMessage}</div>
+		<div id="restCity-message">${wtaInfoLocation.resCityMessage}</div>
+		<div id="restState-message">${wtaInfoLocation.resStateMessage}</div>                                            
+        <div id="restLandmark-message">${wtaInfoLocation.landmarkMessage}</div>
+		<div id="resDate-message">${wtaInfoLocation.dateMessage}</div>
+        <div id="visitType-message">${wtaInfoLocation.visitTypeValidationMessage}</div>                                     
+	</div>                     
+</sly>

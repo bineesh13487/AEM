@@ -1,0 +1,9 @@
+<sly data-sly-use.loginStatus="com.mcd.rwd.us.core.sso_profile.LoginStatusIndicator">
+    <li data-sly-test.includeLinks="${loginStatus.includeLinksInHeader}" class="loginstatus" id="js-sso-config" ng-controller="loginStatusIndicator" data-json="${loginStatus.includeConfig ? loginStatus.json : ''}">
+        <a href="#" class="userLoggedIn" ng-if="loggedin" ng-click="logout()" data-at="TopLinks:${loginStatus.pageNameForAnalytics}:${loginStatus.logoutLinkTitle}" data-track="topLinks" ng-cloak>${loginStatus.logoutLinkTitle}</a>
+        <a ng-if="loggedout" class="userNotLoggedIn" href="${loginStatus.loginLinkHref}" data-at="TopLinks:${loginStatus.pageNameForAnalytics}:${loginStatus.loginLinkTitle}" data-track="topLinks" ng-cloak>${loginStatus.loginLinkTitle}</a>
+    </li>
+    <sly data-sly-test="${!includeLinks}">
+    <div id="js-sso-config" data-json="${loginStatus.includeConfig ? loginStatus.json : ''}"></div>
+    </sly>
+</sly>

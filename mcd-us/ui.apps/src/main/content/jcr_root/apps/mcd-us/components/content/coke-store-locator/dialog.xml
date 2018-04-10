@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="cq:Dialog"
+    title="Coke Store locator"
+    xtype="dialog">
+    <items
+        jcr:primaryType="cq:Widget"
+        xtype="tabpanel">
+        <items jcr:primaryType="cq:WidgetCollection">
+            <links
+                jcr:primaryType="cq:Panel"
+                title="Coke Store Locator Details">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <hideFilters
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Hide Filters Section"
+                        name="./hideFilterSection"
+                        type="checkbox"
+                        xtype="selection"/>
+                    <hideLocateMe
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Hide Locate Me"
+                        name="./hideLocateMe"
+                        type="checkbox"
+                        xtype="selection"/>
+					<hideLocateMe
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Hide Locate Me"
+                        name="./hideLocateMe"
+                        type="checkbox"
+                        xtype="selection"/>
+					<redirect
+		                jcr:primaryType="cq:Widget"
+		                defaultValue="{Boolean}false"
+		                fieldDescription="Check this to redirect to results page"
+		                fieldLabel="Redirect to Coke page"
+		                itemId="redirectenabled"
+		                name="./redirect"
+		                type="checkbox"
+		                xtype="selection">
+		                </redirect>
+                </items>
+            </links>
+        </items>
+    </items>
+</jcr:root>

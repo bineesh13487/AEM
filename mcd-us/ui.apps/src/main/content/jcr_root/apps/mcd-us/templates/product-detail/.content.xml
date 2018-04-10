@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0"
+          xmlns:jcr="http://www.jcp.org/jcr/1.0"
+          jcr:description="Template for displaying Product Details."
+          jcr:primaryType="cq:Template"
+          jcr:title="Product Page"
+          allowedParents="/apps/mcd-us/templates/template-a"
+          allowedPaths="[/content(/.*)?]"
+          ranking="{Long}5">
+    <jcr:content
+            jcr:primaryType="cq:PageContent"
+            sling:resourceType="mcd-us/components/page/productdetail"
+            hideInNav="{Boolean}true"/>
+</jcr:root>

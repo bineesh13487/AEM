@@ -1,0 +1,128 @@
+
+<div class="template page-sign-in-offers page-deals" data-sly-use.signin="com.mcd.rwd.us.core.sightly.SignInHandler" ng-controller="myAccountController" ng-cloak data-ng-init="init('${signin.cookiesDomain @context='scriptString'}','signin','${signin.popupCheck}')">
+	<sly data-sly-test.redirect="${signin.redirectLink}">
+		<div class="epsilonURL" data-epsilon-url="${signin.epsilonURL}"></div>
+		<div class="signinURL" data-sign-url="${signin.signinLink}"></div>
+		<div class="forgotpassURL" data-forgotpass-url="${signin.forgotPassLink}"></div>
+		<div class="registerURL" data-registration-url="${signin.registerLink}"></div>
+		<div class="resetPasswordURL" data-resetpassword-url="${signin.resetPasswordLink}"></div>
+		<div class="changePasswordURL" data-changepassword-url="${signin.changePasswordLink}"></div>
+		<div class="redirectURL" data-redirect-url="${signin.redirectLink}"></div>
+		<div data-sly-test="${!signin.popupCheck}" class="container cont-profile">
+			<form name="signinForm">
+				<div class="row">
+					<div class="col-sm-6 col-sm-offset-3  cont-copy gray-border-on-white signin_form">
+						<div class="row">
+							<div class="col-xs-12"><label for="emailIdSignIn" class="hasErrors">
+								<span class="messageError errSomeWentWrong" style="display:none;color:red"><i class="fa fa-exclamation-triangle"><span class="visuallyhidden">error</span></i>${signin.netErrorMsg}</span>
+								<span class="messageError errLoginFailed" style="display:none;color:red"><i class="fa fa-exclamation-triangle"><span class="visuallyhidden">error</span></i>${signin.loginFailedMsg}</span>
+								<span class="messageError errActivation" style="display:none;color:red"><i class="fa fa-exclamation-triangle"><span class="visuallyhidden">error</span></i>${signin.activationErrorMsg}</span>
+								 ${signin.emailPlaceholder}<span class="red">*</span> <span class="required">-required field</span>
+									<span class="messageError" ng-show="signinForm.signinEmail.$touched && signinForm.signinEmail.$error.required"><i class="fa fa-exclamation-triangle"><span class="visuallyhidden">error</span></i>${signin.emailReqText}</span>
+									<span class="messageError" ng-show="signinForm.signinEmail.$touched && (signinForm.signinEmail.$error.email || signinForm.signinEmail.$error.pattern)"><i class="fa fa-exclamation-triangle"><span class="visuallyhidden">error</span></i>${signin.emailInvalidMsg}</span></label>
+									<input type="email" name="signinEmail" ng-model="signinEmail" ng-pattern="${signin.regexPattern}" class="form-control" id="emailIdSignIn" required >
+
+
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12">
+								<div class="form-group"> <label for="passwdIdSignIn">${signin.passwordPlaceholder}<span class="red">*</span> <span class="required">-required field</span>
+									<span class="messageError" ng-show="signinForm.signinPassword.$touched && signinForm.signinPassword.$error.required"><i class="fa fa-exclamation-triangle"><span class="visuallyhidden">error</span></i>${signin.passReqText}</span></label>
+									<input type="password" name="signinPassword" ng-model="signinPassword" class="form-control" id="passwdIdSignIn" required >
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12 text-center">
+								<div class="checkbox">
+									<input title="${signin.remembermeText}" aria-label="${signin.remembermeText}" type="checkbox" class="signinremember" role="checkbox" aria-checked="false">
+									<label for="checkbox_remember">
+										${signin.remembermeText}
+									</label> </div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12 text-center">
+								<span class="icon-spinner signinSpinner"></span>
+								<a href="#" ng-disabled="signinForm.$invalid" ng-click="submitForm('sign','signin',$event)" class="btn btn-red" aria-label="${signin.signinButtonText}">${signin.signinButtonText}</a> <br />
+								<a href="#" class="btn btn-border" ng-click="submitForm('register','signin',$event)" aria-label="${signin.registerText}">${signin.registerText}</a> <br />
+								<a href="#" class="link-red" ng-click="submitForm('forgotpassword','signin',$event)" aria-label="${signin.forgotPassText}">${signin.forgotPassText}</a>
+							</div>
+						</div>
+					</div>
+				</div></form>
+		</div>
+		<sly data-sly-test="${signin.popupCheck}">
+			<div id="signbox1">
+				<sly data-sly-resource="${signin.promoPath}"></sly>
+			</div>
+			<div class="modal fade in" id="signInToAccount" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false" style="display: none;">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content cont-sign-in-offers cont-copy gray-border-on-white signin_form">
+						<button class="btn-close" data-dismiss="modal" aria-label="close">
+							<i class="fa fa-times"></i>
+						</button>
+						<h1 class="headline-text">
+							<span class="large-modal-text">${signin.signinTitle}</span>
+						</h1>
+						<form name="signinForm">
+							<div class="row">
+								<div class="col-xs-12">
+									<div class="form-group">
+										<label for="inputEmail" class="hasErrors">
+										<span class="messageError errSomeWentWrong" style="display:none;color:red"><i class="fa fa-exclamation-triangle"><span class="visuallyhidden">error</span></i>${signin.netErrorMsg}</span>
+										<span class="messageError errLoginFailed" style="display:none;color:red"><i class="fa fa-exclamation-triangle"><span class="visuallyhidden">error</span></i>${signin.loginFailedMsg}</span>
+										<span class="messageError errActivation" style="display:none;color:red"><i class="fa fa-exclamation-triangle"><span class="visuallyhidden">error</span></i>${signin.activationErrorMsg}</span>
+										${signin.emailPlaceholder}<span class="red">*</span> <span class="required">-required field</span>
+										<span class="messageError" ng-show="signinForm.signinEmail.$touched && signinForm.signinEmail.$error.required"><i class="fa fa-exclamation-triangle"><span class="visuallyhidden">error</span></i>${signin.emailReqText}</span>
+										<span class="messageError" ng-show="signinForm.signinEmail.$touched && (signinForm.signinEmail.$error.email || signinForm.signinEmail.$error.pattern)"><i class="fa fa-exclamation-triangle"><span class="visuallyhidden">error</span></i>${signin.emailInvalidMsg}</span></label>
+										<input type="email" id="inputEmail" class="form-control email-signin" name="signinEmail" ng-model="signinEmail" ng-pattern="${signin.regexPattern}" class="form-control" required>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-xs-12">
+									<div class="form-group">
+										<label for="inputPassword">${signin.passwordPlaceholder}<span class="red">*</span> <span class="required">-required field</span>
+										<span class="messageError" ng-show="signinForm.signinPassword.$touched && signinForm.signinPassword.$error.required"><i class="fa fa-exclamation-triangle"><span class="visuallyhidden">error</span></i>${signin.passReqText}</span></label>
+										<input type="password" id="inputPassword" class="form-control pass-signin" name="signinPassword" ng-model="signinPassword" required>
+
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-xs-12 text-center">
+									<div class="checkbox">
+										<input aria-label="${signin.remembermeText}" type="checkbox" class="signinremember" role="checkbox" aria-checked="false">
+										<label for="checkbox_remember">${signin.remembermeText}</label>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-xs-12 text-center">
+									<span class="icon-spinner signinSpinner"></span>
+									<a ng-if="signinForm.$invalid" href="#" class="btn btn-red" ng-disabled="signinForm.$invalid" aria-label="${signin.signinButtonText}" ng-click="submitForm('sign','signin',$event)" title="SignIn Disabled">${signin.signinButtonText}</a> <br>
+									<a ng-if="!signinForm.$invalid"href="#" class="btn btn-red" ng-disabled="signinForm.$invalid" aria-label="${signin.signinButtonText}" ng-click="submitForm('sign','signin',$event)" title="SignIn Enabled">${signin.signinButtonText}</a> <br>
+									<a href="#" class="btn btn-border" aria-label="${signin.registerText}" ng-click="submitForm('register','signin',$event)">${signin.registerText}</a> <br>
+									<a href="#" class="link-red" aria-label="${signin.forgotPassText}" ng-click="submitForm('forgotpassword','signin',$event)">${signin.forgotPassText}</a>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</sly>
+	</sly>
+	<sly data-sly-test="${!redirect}">
+		<div><span>Please configure the sign-in component.</span></div>
+	</sly>
+</div>
+
+<!--
+<div id="spinner" style="height: 1400px; display: block;">
+    <div style="margin-top:400px;">
+        <span class="icon-spinner"> src="/etc/clientlibs/mcd-us/images/spinner.gif"></span>
+    </div>
+</div>
+-->

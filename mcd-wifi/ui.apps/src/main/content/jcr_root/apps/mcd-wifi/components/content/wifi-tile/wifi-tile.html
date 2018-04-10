@@ -1,0 +1,18 @@
+<sly data-sly-use.meta="com.mcd.rwd.global.core.sightly.page.PageMeta"/>
+<sly data-sly-use.handler="com.mcd.rwd.wifi.core.sightly.TileHandler">
+	<sly data-sly-test="${handler.empty && wcmmode.edit}">
+		<h2>Please configure the tile component to render on the page</h2>
+	</sly>
+	<sly data-sly-test="${!handler.empty}">
+		<sly data-sly-list.tile="${handler.tileList}">
+			<div class="grid-item" data-time="${tile.daypartType}" style="display:none">
+				<div class="recruiter-tile">
+					<a href="#" title="${tile.alttext}" data-src="${tile.imageurl}" data-link-target="${tile.target}" data-at="Exit:${meta.title @ context = 'unsafe'}:${tile.alttext}" data-track="externalLink">
+						<span class="recruiter-tile-text ${tile.textalign}" style="color:${tile.colorpicker @ context='styleToken'};">${tile.title}</span>
+						<img src="${tile.imagePath}" alt="${tile.alttext}" />
+					</a>
+				</div>
+			</div>
+		</sly>
+	</sly>
+</sly>

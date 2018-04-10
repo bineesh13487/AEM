@@ -1,0 +1,222 @@
+.page-mcpick {
+
+	.template-hero {
+		margin-bottom: 0;
+
+		.absolute-top,
+		.absolute-bottom {
+			position: absolute;
+			text-align: center;
+			width: 100%;
+		}
+		.absolute-top {
+			top: $mobile-post-nav-space;
+		}
+
+		.absolute-bottom {
+			bottom: 0;
+		}
+
+		h1 {
+			text-transform: uppercase;
+			color: $white;
+			margin: 0;
+			@include fontSet(50px, 50px, $font-lovinsans-black);
+
+			@media only screen and (min-width: 320px) {
+				@include fontSet(75px, 75px, $font-lovinsans-black);
+			}
+			@media only screen and (min-width: 480px) {
+				@include fontSet(100px, 100px, $font-lovinsans-black);
+			}
+		}
+		h2 {
+			margin-top: 0;
+			margin-bottom: 5px;
+			@include fontSet(30px, 30px, $font-lovinsans-medium);
+			color: $white;
+
+			@media only screen and (min-width: 320px) {
+				margin-top: 5px;
+				@include fontSet(35px, 35px, $font-lovinsans-medium);
+			}
+			@media only screen and (min-width: 480px) {
+				margin-top: 30px;
+				@include fontSet(40px, 40px, $font-lovinsans-medium);
+			}
+		}
+		p {
+			@include fontSet(22px, 32px, $font-lovinsans);
+			color: $white;
+			margin-bottom: 55px;
+
+			@media only screen and (min-width: 480px) {
+				margin-bottom: 70px;
+				@include fontSet(24px, 34px, $font-lovinsans);
+			}
+		}
+	}
+
+	.template-hero-bg {
+		.absolute-content .absolute-content-wrapper {
+			text-align: center;
+
+			@media only screen and (min-width: 768px) {
+				text-align: left;
+			}
+		}
+		h1 {
+			@include fontSet(50px, 50px, $font-lovinsans-black);
+
+			@media only screen and (min-width: 320px) {
+				@include fontSet(75px, 75px, $font-lovinsans-black);
+			}
+			@media only screen and (min-width: 480px) {
+				@include fontSet(100px, 100px, $font-lovinsans-black);
+			}
+			@media only screen and (min-width: 768px) {
+				@include fontSet(100px, 100px, $font-lovinsans-black);
+			}
+			@media only screen and (min-width: 992px) {
+				@include fontSet(125px, 125px, $font-lovinsans-black);
+			}
+		}
+	}
+
+	.cont-logo {
+		text-align: center;
+
+		img {
+			max-width: 100px;
+			padding-top: 30px;
+			padding-bottom: 0px;
+
+			@media only screen and (min-width: 480px) {
+				max-width: 150px;
+			}
+			@media only screen and (min-width: 768px) {
+				padding-bottom: 30px;
+				max-width: none;
+			}
+		}
+	}
+
+	.cont-feature-callout {
+		margin-bottom: 0px;
+
+		@media only screen and (min-width: 768px) {
+			margin-bottom: 50px;
+		}
+	}
+
+	.cont-cta {
+		margin-top: 30px;
+		margin-bottom: 30px;
+		text-align: center;
+
+		@media only screen and (min-width: 768px) {
+			margin-bottom: 50px;
+		}
+
+		.btn {
+			padding-left: 15px;
+			padding-right: 15px;
+
+			@media only screen and (min-width: 480px) {
+				padding-left: 30px;
+				padding-right: 30px;
+			}
+		}
+
+		p.light {
+			@include fontSet(26px, 36px, $font-lovinsans);
+		}
+	}
+
+	.cont-slides {
+		margin-bottom: 15px;
+
+		@media only screen and (min-width: 768px) {
+			margin-bottom: 50px;
+		}
+
+		h2 {
+			color: $gray;
+			@include fontSet(26px, 60px, 'LovinSansWeb-Bold');
+
+			@media only screen and (min-width: 480px) {
+				@include fontSet(30px, 60px, 'LovinSansWeb-Bold');
+			}
+			@media only screen and (min-width: 768px) {
+				@include fontSet(30px, 30px, 'LovinSansWeb-Bold');
+			}
+		}
+
+		.wrapper {
+			@include flex-related-scale();
+			padding-left: 0;
+			padding-right: 0;
+		}
+		.related-flexslider {
+			overflow: visible;
+
+			.flex-viewport {
+				background: transparent;
+
+				@media only screen and (min-width: 768px) {
+					background: url('../img/mcpick/slide-bg.jpg') no-repeat;
+					background-size: 100%;
+				}
+			}
+			.slides {
+				li {
+					overflow: hidden;
+
+					a {
+						display: block;
+						overflow: hidden;
+						box-shadow: 0;
+						border-bottom: 5px solid transparent;
+
+						@media only screen and (min-width: 768px) {
+							box-shadow: inset 0 -5px 0 0 transparent;
+							border-bottom: 0;
+						}
+
+						&.active {
+							box-shadow: 0;
+							border-bottom: 5px solid $red;
+
+							@media only screen and (min-width: 768px) {
+								box-shadow: inset 0 -5px 0 0 $red;
+								border-bottom: 0;
+							}
+						}
+					}
+
+					img {
+						background: url('../img/mcpick/slide-bg.jpg') no-repeat;
+						background-size: cover;
+						background-position: center top;
+
+						@media only screen and (min-width: 768px) {
+							background: transparent;
+						}
+					}
+				}
+			}
+
+			.custom-navigation {
+				.flex-prev,
+				.flex-next {
+					margin-top: -25px;
+
+					@media only screen and (min-width: 768px) {
+						margin-top: -30px;
+					}
+				}
+			}
+		}
+
+	}
+}

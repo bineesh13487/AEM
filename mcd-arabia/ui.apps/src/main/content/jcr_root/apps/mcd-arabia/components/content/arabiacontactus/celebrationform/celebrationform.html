@@ -1,0 +1,125 @@
+<sly
+	data-sly-use.formInfo="com.mcd.rwd.arabia.core.sightly.CelebrationFormHandler">
+<section
+	class="row-title page-contact-us__subpage__about-yourself  paddTop0">
+	<div class="container">
+		<div class="row">
+			<sly data-sly-test="${formInfo.childName}">
+			<div class="col-xs-12 col-sm-6 ">
+				<div class="form-group">
+					<label class="control-label" for="">${formInfo.childName} <sup
+						class="asteriskAr" data-sly-test="${formInfo.childNameReq=='yes'}">*</sup></label>
+					<input type="text"
+						class="form-control placeholder ${formInfo.childNameReq}"
+						id="contactUs-childName" name="childName" placeholder=""
+						aria-labelledby="contactUs-childName-error" maxlength="40">
+				</div>
+			</div>
+			</sly>
+
+			<sly data-sly-test="${formInfo.dateOfParty}">
+			<div class="col-xs-12 col-sm-12 col-md-6">
+				<div class="form-group">
+				<div class="row">
+					<fieldset>
+						<div class="col-xs-12">
+							<legend>
+								${formInfo.dateOfParty} <sup class="asteriskAr"
+									data-sly-test="${formInfo.dateOfPartyReq =='yes'}">*</sup>
+							</legend>
+						</div>
+						<div class="col-xs-12 col-sm-4 margin-bottom2">
+							<div class="form-group">
+								<div class="select dropDownHeight ${formInfo.dateOfPartyReq}"
+									id="contactUs-partyday-select" name="contactUs-partyday-select">
+									<label for="" id="title-select-day-label"
+										class="visuallyhidden" aria-hidden="true">Day</label> <select
+										class="form-control" id="arabia-partyday-select" title="Day">
+										<option value="day">${formInfo.date}</option>
+										<sly data-sly-list="${formInfo.dateOptions}">
+										<option value="${item}">${item}</option>
+										</sly>
+
+									</select>
+								</div>
+								<input type="hidden" class="" id="contactUs-partyday-input"
+									name="partydayInput" maxlength="6" autocomplete="off">
+							</div>
+						</div>
+						<div class="col-xs-12 col-sm-4 margin-bottom2">
+							<div class="form-group">
+								<div class="select  dropDownHeight ${formInfo.dateOfPartyReq}"
+									id="contactUs-partymonth-select"
+									name="contactUs-partymonth-select">
+									<label for="" id="title-select-month-label"
+										class="visuallyhidden" aria-hidden="true">Month</label> <select
+										class="form-control" id="arabia-partymonth-select" title="Month">
+										<option value="month">${formInfo.month}</option>
+										<sly data-sly-list="${formInfo.monthOptions}">
+										<option value="${item}">${formInfo.monthOptions[item]}</option>
+										</sly>
+									</select>
+								</div>
+								<input type="hidden" class="" id="contactUs-partymonth-input"
+									name="partymonthInput" maxlength="6" autocomplete="off">
+							</div>
+						</div>
+
+						<div class="col-xs-12 col-sm-4 margin-bottom2">
+							<div class="form-group">
+								<div class="select  dropDownHeight ${formInfo.dateOfPartyReq}"
+									id="contactUs-partyyear-select" name="contactUs-partyyear-select">
+									<label for="" id="title-select-year-label"
+										class="visuallyhidden" aria-hidden="true">Year</label> <select
+										class="form-control" id="arabia-partyyear-select" title="Year">
+										<option value="year">${formInfo.year}</option>
+										<sly data-sly-list="${formInfo.yearOptions}">
+										<option value="${item}">${item}</option>
+										</sly>
+									</select>
+								</div>
+								<input type="hidden" class="" id="contactUs-partyyear-input"
+									name="partyyearInput" maxlength="6" autocomplete="off">
+							</div>
+						</div>
+					</fieldset>
+						</div>
+					<input type="hidden" name="dateOfParty" id="dateOfParty"
+						class="form-control placeholder ${formInfo.dateOfPartyReq}"
+						aria-label="Date of Party" maxlength="30"
+						autocomplete="off">
+					<label for="partyDate" generate="true"
+						class="error pl15" style="display: none;"></label>
+
+				</div>
+			</div>
+			</sly>
+
+			<div class="clear"></div>
+
+			<sly data-sly-test="${formInfo.noOfKids}">
+			<div class="col-xs-12 col-sm-6 ">
+				<div class="form-group">
+					<label class="control-label" for="">${formInfo.noOfKids} <sup
+						class="asteriskAr" data-sly-test="${formInfo.noOfKidsReq=='yes'}">*</sup></label>
+					<input type="text"
+						class="form-control placeholder ${formInfo.noOfKidsReq}"
+						id="contactUs-noOfKids" name="kidsAttending" placeholder=""
+						aria-labelledby="contactUs-noOfKids-error" maxlength="40">
+				</div>
+			</div>
+			</sly>
+
+		</div>
+	</div>
+</section>
+<div style="display: none;">
+	<div id="contactUs-child-name-message">${formInfo.childNameMessage}</div>
+	<div id="contactUs-dateofparty-message">${formInfo.dateOfPartyMessage}</div>
+	<div id="contactUs-nokids-message">${formInfo.noOfKidsMessage}</div>
+	<input type="hidden" name="celebrationInfoFieldList"
+		id="celebrationInfoFieldList" value="${formInfo.formFieldList}">
+</div>
+
+
+</sly>

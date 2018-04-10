@@ -1,0 +1,1237 @@
+// COMPONENT: PRODUCT DETAIL
+.component-product-detail {
+	padding-bottom: 0px;
+
+	@media only screen and (min-width: 768px) {
+		padding-bottom: 40px;
+	}
+
+	.cont-hero {
+		position: relative;
+		color: $white;
+		background: $black;		
+		padding-top: 87px;
+
+		.absolute-content .absolute-content-wrapper {
+			vertical-align: top;
+
+			@media only screen and (min-width: 768px) {
+				vertical-align: middle;
+			}
+
+			.text-wrapper {
+				margin-top: $exact-mobile-nav-space;
+
+				@media only screen and (min-width: 768px) {
+					margin-top: $detail-nav-space;
+				}
+			}
+		}
+
+		.cont-img {
+			img {
+				min-height: 450px;
+
+				@media only screen and (max-width: 480px) {
+					visibility: visible;
+				}
+				@media only screen and (min-width: 768px) {
+					min-height: initial;
+				}
+			}
+		}
+
+		.cont-breadcrumb {
+			z-index: 20;
+			position: absolute;
+			width: 100%;
+			top: $mobile-post-nav-space;
+
+			@media only screen and (min-width: 768px) {
+				top: $post-nav-space;
+			}
+		}
+		.cont-title {
+			.headline-text {
+				color: $white;
+				text-align: left;
+				margin-bottom: 10px;
+				@include fontSet(26px, 36px);
+
+				.large {
+					@include fontSet(50px, 50px, $font-lovinsans-black);
+					margin-top: 6px;
+					margin-bottom: 10px;
+				}
+				.small {
+					@include fontSet(22px, 34px, $font-lovinsans);
+				}
+
+				.large,
+				.small {
+					color: $white;
+				}
+
+				@media only screen and (min-width: 320px) {
+					@include fontSet(28px, 38px, $font-lovinsans-bold);
+					text-align: center;
+
+					.large {
+						@include fontSet(50px, 50px, $font-lovinsans-black);
+					}
+					.small {
+						@include fontSet(22px, 34px, $font-lovinsans);
+					}
+				}
+				@media only screen and (min-width: 480px) {
+					@include fontSet(28px, 38px, $font-lovinsans-bold);
+					text-align: center;
+
+					.large {
+						@include fontSet(70px, 70px, $font-lovinsans-black);
+					}
+					.small {
+						@include fontSet(22px, 34px, $font-lovinsans);
+					}
+				}
+				@media only screen and (min-width: 768px) {
+					@include fontSet(30px, 42px, $font-lovinsans-bold);
+					text-align: left;
+
+					.large {
+						@include fontSet(54px, 54px, $font-lovinsans-black);
+					}
+					.small {
+						@include fontSet(18px, 28px, $font-lovinsans);
+					}
+				}
+				@media only screen and (min-width: 992px) {
+					@include fontSet(30px, 42px, $font-lovinsans-bold);
+					text-align: left;
+
+					.large {
+						@include fontSet(70px, 70px, $font-lovinsans-black);
+					}
+					.small {
+						@include fontSet(22px, 34px, $font-lovinsans);
+					}
+				}
+				@media only screen and (min-width: 1200px) {
+					@include fontSet(56px, 66px, $font-lovinsans-bold);
+
+					.large {
+						@include fontSet(90px, 90px, $font-lovinsans-black);
+					}
+					.small {
+						@include fontSet(22px, 34px, $font-lovinsans);
+					}
+				}
+			}
+
+			p{
+				&.headline-text{
+					@media only screen and (min-width: 768px) {
+						padding-right: 40px;
+					}
+
+					@media only screen and (min-width: 992px) {
+						padding-right: 0px;
+					}
+				}
+			}
+
+
+		}
+
+		.barrier {
+			height: 20px;
+			position: relative;
+			z-index: 1;
+			top: -20px;
+			margin-bottom: -20px;
+			background: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 48%, rgba(0, 0, 0, 1) 100%); /* FF3.6-15 */
+			background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 48%, rgba(0, 0, 0, 1) 100%); /* Chrome10-25,Safari5.1-6 */
+			background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 48%, rgba(0, 0, 0, 1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+			filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#000000', GradientType=0); /* IE6-9 */
+		}
+
+		.description {
+			background: $black;
+			padding-bottom: 15px;
+			padding-top: 10px;
+
+			.small {
+				p {
+					@media only screen and (min-width: 320px) {
+						@include fontSet(22px, 34px, $font-lovinsans);
+					}
+					@media only screen and (min-width: 480px) {
+						@include fontSet(24px, 36px, $font-lovinsans);
+					}
+				}
+			}
+		}
+
+		&.dynamic{
+			background-size: cover;
+			background-position: center;
+			padding-top: 100px;
+		}
+
+		.border-wrapper{
+			.offer{
+				padding-bottom: 320px;
+				//padding-bottom: 100%;
+			}
+
+		}
+
+		@media only screen and (min-width: 480px) {
+			.border-wrapper{
+				.offer{
+					padding-bottom: 400px;
+				}
+
+			}
+		}
+
+		@media only screen and (min-width: 768px) {
+			padding-top: 0px;
+
+			.border-wrapper{
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				font: 0/0 a; /* remove the gap between inline(-block) elements */
+
+				&:before {
+					content: ' ';
+					display: inline-block;
+					height: 100%;
+					vertical-align: middle;
+				}
+
+				.offer{
+					display: inline-block;
+					vertical-align: middle;
+					text-align: center;
+					color: $white;
+					width: 100%;
+					padding: 1% 0;
+					margin-top: 90px;
+				}
+
+			}
+		}
+	}
+
+	.barrier {
+		height: 20px;
+		position: relative;
+		z-index: 1;
+		top: -20px;
+		margin-bottom: -20px;
+		background: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 48%, rgba(0, 0, 0, 1) 100%); /* FF3.6-15 */
+		background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 48%, rgba(0, 0, 0, 1) 100%); /* Chrome10-25,Safari5.1-6 */
+		background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 48%, rgba(0, 0, 0, 1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#000000', GradientType=0); /* IE6-9 */
+	}
+
+	.description {
+		background: $black;
+		color: $white;
+		padding-bottom: 15px;
+		padding-top: 10px;
+
+		&.visible-xs{
+			padding-bottom: 65px;
+		}
+
+		.small {
+			p {
+				@media only screen and (min-width: 320px) {
+					@include fontSet(22px, 34px, $font-lovinsans);
+				}
+				@media only screen and (min-width: 480px) {
+					@include fontSet(24px, 36px, $font-lovinsans);
+				}
+			}
+		}
+	}
+
+	.ingredients-wrapper {
+		background: url('../images/product-detail/bg-ingredients.jpg') no-repeat;
+		background-position: center;
+		background-size: cover;
+		color: $white;
+		position: relative;
+
+		.ingredients-flex-container{
+			padding-bottom: 50px;
+
+			@media only screen and (max-width: 767px) {
+				margin-top: -50px;
+			}
+		}
+
+		.flexslider {
+			.flex-direction-nav {
+				opacity: 1;
+
+				@media only screen and (max-width: 767px) {
+					position: absolute;
+					width: 100%;
+					top: 61px;
+				}
+
+				.flex-prev {
+					opacity: 1;
+				}
+
+				.flex-next {
+					opacity: 1;
+				}
+
+				a {
+					background: $white;
+
+					&:before {
+						color: $red;
+					}
+
+				}
+			}
+		}
+
+		.ingredients-flexslider {
+			max-height: 347px;
+			background: transparent;
+			padding-top: 41px;
+			padding-bottom: 0px;
+			@include flex-viewport-scale();
+
+			@media only screen and (min-width: 768px) {
+				padding-top: 40px;
+				padding-bottom: 40px;
+			}
+
+			@media only screen and (min-width: 992px) {
+				padding-top: 60px;
+				padding-bottom: 60px;
+			}
+
+			ul,
+			ol {
+				&:focus{
+					outline: none;
+				}
+
+				&.slides {
+
+					li {
+						padding: 5px 0px 5px 5px;
+						width: 16.66666%;
+						position: relative;
+
+						>span{
+							position: relative;
+							z-index: 10;
+						}
+
+						.visuallyhidden{
+							width: 95%;
+							height: 95%;
+							opacity: 0;
+							margin: -3px;
+						}
+
+						img {
+							@include transition(transform 0.5s cubic-bezier(0.190, 1, 0.220, 1) 0s);
+						}
+						&:hover {
+							img {
+								@include transform(scale(1.1));
+							}
+						}
+					}
+
+					&.centerItems {
+						@media only screen and (min-width: 768px) {
+							width: 100% !important;
+							text-align: center;
+						}
+
+						li {
+							@media only screen and (min-width: 768px) {
+								display: inline-block!important;
+				        *display: inline!important;
+				        float: none!important;
+								vertical-align: top!important;
+							}
+						}
+					}
+
+				}
+			}
+
+			.ingredient-caption {
+				text-align: center;
+				@include fontSet(20px, 26px, 'LovinSansWeb-Medium');
+
+				.caption-wrapper {
+					margin: 0 auto;
+					padding-top: 10px;
+				}
+			}
+		}
+
+		.calories-wrapper {
+			background: rgba(0, 0, 0, 0.3);
+			padding-top: 20px;
+			padding-bottom: 20px;
+
+			@media only screen and (min-width: 768px) {
+				padding-top: 10px;
+				padding-bottom: 10px;
+
+			}
+
+			.calories {
+				margin: 0 auto;
+				text-align: center;
+				@include fontSet(24px, 30px, 'LovinSansWeb-Medium');
+
+				.link {
+					@include fontSet(18px, 30px, 'LovinSansWeb-Medium');
+					display: block;
+					color: #a6a6a6;
+					text-transform: uppercase;
+					cursor: pointer;
+					margin-top: 15px;
+
+					@media only screen and (min-width: 768px) {
+						margin-left: 20px;
+						display: inline-block;
+						margin-top: 0px;
+					}
+
+					&:hover {
+						text-decoration: underline;
+					}
+
+					i {
+						margin-left: 5px;
+					}
+				}
+			}
+		}
+
+	}
+
+	$nutrition-tabheight: 50px;
+
+	.nutrition-wrapper{
+		background: transparent;
+		position: relative;
+
+		&:before{
+			content: "";
+			background: #f1f1eb;
+			display: block;
+			position: absolute;
+			height: auto;
+			width: 100%;
+			top: 50px;
+			bottom: 0px;
+		}
+
+		.panel-group{
+			position: relative;
+			margin-bottom: 0;
+			margin-top: -$nutrition-tabheight;
+			padding-top: $nutrition-tabheight;
+			min-height: $nutrition-tabheight;
+		}
+
+		.panel-heading{
+			position: absolute;
+			top: 0;
+			width: 50%;
+			height: $nutrition-tabheight;
+			padding: 0px;
+			border-bottom: 0px solid transparent;
+			border-top-left-radius: 0px;
+			border-top-right-radius: 0px;
+
+
+
+			a{
+				display: block;
+				position: relative;
+				background: #f1f1eb;
+				border-radius: 5px 5px 0 0;
+				padding: 15px 30px 15px 15px;
+				color: $red;
+				@include fontSet(16px, 20px, $font-lovinsans-medium);
+				letter-spacing: 0.05em;
+				text-transform: uppercase;
+				text-decoration: none;
+				border: 0;
+				height: $nutrition-tabheight;
+
+				&:hover{
+					border: 0;
+				}
+
+				.fa{
+					position: absolute;
+					right: 15px;
+					top: 50%;
+					-ms-transform: translateY(-50%);
+					-moz-transform: translateY(-50%);
+					transform: translateY(-50%);
+
+					&:before{
+						content: "\f078";
+					}
+				}
+
+				&.collapsed{
+					background: $red;
+					color: $white;
+
+					.fa{
+						&:before{
+							content: "\f054";
+						}
+					}
+				}
+
+				@media only screen and (min-width: 375px) {
+					padding: 12px 30px 15px 15px;
+					@include fontSet(20px, 25px, 'LovinSansWeb-Medium');
+				}
+
+				@media only screen and (min-width: 768px) {
+					padding: 18px 40px 15px 30px;
+					@include fontSet(24px, 24px, 'LovinSansWeb-Medium');
+
+					.fa{
+						position: absolute;
+						right: 30px;
+					}
+				}
+
+				@media only screen and (min-width: 990px) {
+					padding: 18px 40px 15px 40px;
+					@include fontSet(28px, 28px, 'LovinSansWeb-Medium');
+				}
+
+			}
+
+			&.left{
+				left: 0px;
+				padding-right: 0px;
+				a{
+					margin-right: 5px;
+				}
+
+				@media only screen and (min-width: 376px) {
+					left: 15px;
+					padding-right: 10px;
+					a{
+						margin-right: 10px;
+					}
+				}
+			}
+
+			&.right{
+				right: 0px;
+				padding-left: 0px;
+				a{
+					margin-left: 5px;
+				}
+
+				@media only screen and (min-width: 376px) {
+					right: 15px;
+					padding-left: 10px;
+					a{
+						margin-left: 10px;
+					}
+				}
+			}
+		}
+
+
+		.panel{
+			background-color: transparent;
+    	border: 0px solid transparent;
+			box-shadow: none;
+			border-radius: 0;
+			margin-top: 0;
+
+			.panel-body{
+				background: #f1f1eb;
+				padding: 30px 0;
+				border: 0;
+				color: $gray;
+				font: 300 13px/1.6 "LovinSansWeb-Regular", sans-serif;
+
+				h5{
+					font-family: $font-lovinsans-bold;
+					margin-top: 20px;
+
+					&:first-child{
+						margin-top: 10px;
+					}
+
+					@media only screen and (max-width:767px){
+						font-size: 90%;
+					}
+				}
+
+				p{
+					font-family: $font-lovinsans;
+
+					@media only screen and (max-width:767px){
+						font-size: 12px;
+					}
+				}
+
+				.item-options{
+					.select{
+						font-family: $font-lovinsans-bold;
+
+						.select-title{
+							display: inline-block;
+							margin-right: 15px;
+							@include fontSet(28px, 1.42857143, $font-lovinsans-medium);
+
+							@media only screen and (max-width:767px){
+								@include fontSet(20px, 1.42857143, $font-lovinsans-medium);
+							}
+						}
+
+						.selectable{
+							display: inline-block;
+							position: relative;
+
+							button.dropdown-toggle{
+								background: $light-gray;
+								z-index: 22;
+								width:236px;
+								@include fontSet(28px, 1, $font-lovinsans-medium);
+								padding: 6px 50px 6px 20px;
+								border-color: $gray-separator;
+
+								@media only screen and (max-width:767px){
+									width:192px;
+									@include fontSet(20px, 1.42857143, $font-lovinsans-medium);
+									height: 32px;
+								}
+
+								.fa{
+									color: $gray;
+								}
+
+								&:after{
+									color: $gray;
+								}
+							}
+
+							.dropdown-menu{
+								.dropdown-list-wrapper{
+									padding: 20px 0px 5px 0px;
+								}
+							}
+						}
+					}
+				}
+
+				.nutrition-numbers{
+					border: 1px solid $gray-separator;
+					margin-top: 20px;
+					margin-left: -15px;
+			    margin-right: -15px;
+			    border-left: 0;
+			    border-right: 0;
+
+					@media only screen and (min-width: 768px) {
+						border: 2px solid $gray-separator;
+						margin-left: 0;
+				    margin-right: 0;
+					}
+
+					.totals{
+						padding: 15px 20px 0px 20px;
+						border-bottom: 1px solid $gray-separator;
+
+						@media only screen and (min-width: 768px) {
+							border-bottom: 2px solid $gray-separator;
+						}
+
+						ul{
+							text-align: justify;
+							padding: 0;
+							margin: 0;
+
+							@media only screen and (max-width:420px){
+								margin-bottom: 0;
+							}
+
+							&:after{
+								content: '';
+									display: inline-block;
+									width: 100%;
+							}
+
+							li{
+								display: inline-block;
+								text-align: center;
+							}
+						}
+
+						.number{
+							position: relative;
+							@include fontSet(48px, 1.42857143, $font-lovinsans-medium);
+
+							@media only screen and (max-width:767px){
+								@include fontSet(30px, 1.42857143, $font-lovinsans-medium);
+							}
+
+							sub{
+								font-size: 60%;
+								bottom: 0;
+							}
+
+							.visuallyhidden{
+								top: 0;
+								left: 0;
+								width: 100%;
+							}
+
+						}
+						.type{
+							position: relative;
+							@include fontSet(22px, 1.42857143, $font-lovinsans-medium);
+
+							@media only screen and (max-width:767px){
+								@include fontSet(16px, 1.42857143, $font-lovinsans-medium);
+							}
+
+							.visuallyhidden{
+								top: 0;
+								left: 0;
+								width: 100%;
+							}
+						}
+					}
+
+
+					.detailed{
+						margin-left: 0;
+						margin-right: 0;
+						position: relative;
+						padding: 15px 5px;
+						@include fontSet(24px, 1.7, $font-lovinsans);
+
+						span{
+							&:first-child{
+							@include fontSet(24px, 1.7, $font-lovinsans-medium);
+						}
+							  }
+
+						@media only screen and (max-width:767px){
+							@include fontSet(18px, 1.8, $font-lovinsans);
+
+							span{
+								@include fontSet(18px, 1.8, $font-lovinsans-medium);
+							}
+						}
+
+						&:before{
+							display: block;
+							background: $gray-separator;
+							
+							height: 100%;
+							position: absolute;
+							top: 0;
+							bottom: 0;
+							left: 49%;
+						}
+
+						@media only screen and (min-width:768px){
+							&:before{
+								width: 2px;
+								left: 32.33%;
+							}
+
+							&:after{
+								display: block;
+								background: $gray-separator;
+								width: 2px;
+								height: 100%;
+								position: absolute;
+								top: 0;
+								bottom: 0;
+								right: 34%;
+							}
+						}
+
+
+
+						.column-wrapper{
+							margin-left: 0;
+							margin-right: 0;
+							padding-left: 0;
+
+							div,
+							li{
+								white-space: nowrap;
+							}
+							li{
+								list-style-type: none;
+							}
+						}
+
+
+					}
+
+
+					~.legaluk{
+						display: none;
+					}
+
+					.uk{
+						display: block;
+					}
+					.width-manager{
+						width:100%;
+					}
+
+					
+						.detailed{
+							//display: none;
+
+							&.uk{
+								display: block;
+
+								table{
+									th{
+										font-family: $font-lovinsans;
+									}
+
+									tr.table-headers{
+										th{
+											font-family: $font-lovinsans-bold;
+										}
+									}
+
+									width: 100%;
+								}
+
+								span{
+									&:first-child{
+										//@include fontSet(24px, 1.7, $font-lovinsans-medium);
+										font-family: inherit;
+										line-height: inherit;
+										font-size: inherit;
+									}
+							}
+
+								ul{
+									margin: 0;
+									padding: 0;
+
+									li{
+										list-style-type: none;
+										position: relative;
+
+										&.headers{
+											font-family: $font-lovinsans-bold;
+							}
+
+										.visual{
+											div{
+												display: inline-block;
+												padding-left: 15px;
+												padding-right: 5px;
+												width: 30%;
+
+												@media only screen and (min-width:768px){
+													padding-right: 15px;
+							}
+
+												&:first-child{
+													width: 38%;
+
+							@media only screen and (min-width:768px){
+
+													}
+
+												}
+											}
+								}
+
+										.visuallyhidden{
+											width: 100%;
+									top: 0;
+								}
+
+
+									}
+								}
+
+							}
+
+
+							
+
+							@media only screen and (min-width:768px){
+								
+							}
+						}
+
+						~.legal{
+							display: block;
+						}
+						~.legalca{
+							display: block;
+						}
+						~.legal{
+							&.legaluk{
+								display: block;
+							}
+						}
+					
+				}
+
+
+				.legal{
+					text-align: center;
+					font-family: $font-lovinsans-light;
+					font-size: 10px;
+					font-style: italic;
+					margin-top: 40px;
+					margin-bottom: -20px;
+
+					@media only screen and (min-width:768px){
+						font-size: 12px;
+					}
+				}
+
+				.legalca {
+					font-family: $font-lovinsans-medium;
+					font-size: 10px;
+					margin-top: 10px;
+					margin-bottom: 0px;
+					padding: 0;
+					
+					span{
+						display: block;
+					}
+
+					@media only screen and (min-width:768px){
+						font-size: 12px;
+						margin-top: 10px;
+						margin-bottom: 0px;
+						padding: 0;
+					}
+
+					a {
+						color: $gray;
+						text-decoration: underline;
+					}
+				}
+
+				.nutrition-numbers{
+					&.nutrition-uk{
+
+					}
+				}
+
+			}
+
+
+		}
+
+
+	}
+
+
+	.customize-wrapper{
+		padding-top: 30px;
+		padding-bottom: 30px;
+		text-align: center;
+
+		h2 {
+			margin-top: 0px;
+			margin-bottom: 20px;
+			@include fontSet(30px, 40px, $font-lovinsans-medium);
+			text-align: center;
+
+			@media only screen and (min-width: 768px) {
+				@include fontSet(46px, 56px, $font-lovinsans-medium);
+				max-width: 80%;
+				margin: 0 auto;
+				margin-bottom: 20px;
+			}
+
+			@media only screen and (min-width: 990px) {
+				max-width: 60%;
+			}
+		}
+
+		.divider{
+			border-bottom: 1px solid #cccccc;
+			height: 1px;
+			width: 100%;
+			margin-top: 40px;
+		}
+	}
+
+	.related-items-wrapper {
+		background: $white;
+		padding-top: 0px;
+		padding-bottom: 100px;
+
+		@media only screen and (min-width: 768px) {
+			padding-top: 40px;
+		}
+	}
+
+	.component-related-items {
+		.related-flex-container {
+			padding-bottom: 20px;
+			border-bottom: 1px solid #e1e1e1;
+		}
+
+		&:last-child {
+			.related-flex-container {
+				border-bottom: 0px solid #e1e1e1;
+			}
+		}
+
+	}
+
+}
+
+
+							.nutrition-calculator-alter .cont-hero .my-meal .detailed .nc-col-4,
+							.nutrition-calculator-alter .cont-hero .my-meal .detailed .nc-col-6,
+							.nutrition-calculator-alter .cont-hero .my-meal .detailed .nc-col-12{								
+								margin:0;
+							}
+							
+							.nutrition-calculator-alter .cont-hero .my-meal .detailed .nc-col-4:before,
+							.nutrition-calculator-alter .cont-hero .my-meal .detailed .nc-col-6:before,
+							.nutrition-calculator-alter .cont-hero .my-meal .detailed .nc-col-12:before,
+							.nutrition-calculator-alter .cont-hero .my-meal .detailed .nc-col-4:after,
+							.nutrition-calculator-alter .cont-hero .my-meal .detailed .nc-col-6:after,
+							.nutrition-calculator-alter .cont-hero .my-meal .detailed .nc-col-12:after{								
+								content: "";
+								display: block;
+								background: #4d4a4b;								
+								height: 100%;
+								position: absolute;
+								top:0;
+								bottom:0;
+							}
+							
+							
+							.nutrition-calculator-alter .cont-hero .my-meal .detailed .nc-col-4:before{
+								width: 2px;
+								left: 32.33%;
+								
+							}							
+							.nutrition-calculator-alter .cont-hero .my-meal .detailed .nc-col-4:after{
+								width: 2px;
+								right: 34%;
+								
+							}	
+							
+							.nutrition-calculator-alter .cont-hero .my-meal .detailed .nc-col-6:before{
+								width: 2px;
+								left: 49.33%;
+								
+							}
+							
+							.nutrition-calculator-alter .cont-hero .my-meal .detailed .nc-col-6:after{
+								width:0px;
+								right:0%;
+							}
+											
+														
+							.nutrition-calculator-alter .cont-hero .my-meal .detailed.nc-col-12:before{
+								width: 0px;
+								left: 0%;
+							}
+							
+							.nutrition-calculator-alter .cont-hero .my-meal .detailed.nc-col-12:after{
+								width:0px;
+								right:0%;
+							}		
+
+							.item-inner{
+								border-bottom: 1px solid #cccccc;
+								margin-bottom:15px;
+							}
+							
+							.button-text-lowercase {text-transform: none!important;}
+							
+							.nutrition-calculator-alter .nutrition-meal-details .meal-list .meal-item input[type=radio].activate-check{
+							visibility: hidden;
+							position: absolute;
+						}
+						.nutrition-calculator-alter .nutrition-meal-details .meal-list .meal-item input[type=radio].activate-check:checked ~ .item-content label.item-activate, .nutrition-calculator-alter .nutrition-meal-details .meal-list .meal-item input[type=radio].activate-check:checked ~ .controls label.item-activate, .nutrition-calculator-alter .nutrition-meal-details .meal-list .meal-item input[type=radio].activate-check:checked ~ .ingredients label.item-activate{
+							pointer-events: auto;
+						}
+						
+						.nutrition-calculator-alter .nutrition-meal-details .meal-list .meal-item input[type=radio].activate-check:checked + label:after{
+							opacity: 1;
+						}
+						
+						.nutrition-calculator-alter .nutrition-meal-details .meal-list .meal-item input[type=radio].activate-check:checked ~ .item-content, .nutrition-calculator-alter .nutrition-meal-details .meal-list .meal-item input[type=radio].activate-check:checked ~ .controls, .nutrition-calculator-alter .nutrition-meal-details .meal-list .meal-item input[type=radio].activate-check:checked ~ .ingredients{
+							opacity: 1;
+						}
+						
+						.no-border-bottom {border-bottom:none!important;}
+						
+						
+							//backlog update start (28-Dec-2017)
+							
+							.component-product-detail {
+								.cont-hero {
+									.cont-title {
+										.headline-text {
+											.midium {
+												margin: 0;
+											}
+											.large {
+												margin: 6px 0 10px 0;
+											}
+										}
+									}
+								}
+							}
+							
+							//backlog update end (28-Dec-2017)
+						
+						
+						.component-product-detail .nutrition-wrapper .panel .panel-body .nutrition-numbers .detailed {
+  							.nc-col-4, .nc-col-6, .nc-col-12 {
+							    margin: 0;
+							  }
+							  .nc-col-4:before, .nc-col-6:before, .nc-col-12:before, .nc-col-4:after, .nc-col-6:after, .nc-col-12:after {
+							    content: "";
+							    display: block;
+							    height: 100%;
+							    position: absolute;
+							    top: 0;
+							    bottom: 0;
+							    background:#cccccc;
+							  }
+							  .nc-col-4 {
+							    &:before {
+							      width: 2px;
+							      left: 32.33%;
+							    }
+							    &:after {
+							      width: 2px;
+							      right: 34%;
+							    }
+							  }
+							  .nc-col-6 {
+							    &:before {
+							      width: 2px;
+							      left: 49.33%;
+							    }
+							    &:after {
+							      width: 0px;
+							      right: 0%;
+							    }
+							  }
+							  .nc-col-12 {
+							    &:before {
+							      width: 0px;
+							      left: 0%;
+							    }
+							    &:after {
+							      width: 0px;
+							      right: 0%;
+							    }
+							  }
+							}
+			
+.nutrition-numbers .detailed .pc-border:before {
+  width: 2px;
+  left: 49.33%;
+  content: "";
+  display: block;
+  background: #ccc;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+}
+.cont-hero {
+	.headline-text.hidden-xs {
+		a {
+			color: #ffffff;
+			font-size: 22px;
+			font-size: 1.375rem;
+			line-height: 34px;
+			line-height: 2.125rem;
+			font-family: "LovinSansWeb-Regular", sans-serif;
+		}
+	}
+}
+.cont-hero {
+	.headline-text.hidden-xs {
+		a {
+			&:after {
+				display: inline-block;
+				content: "\f054";
+				font: normal normal normal 14px/1 FontAwesome;
+				font-size: 12px;
+				padding-left: 1px;
+				text-rendering: auto;
+				-webkit-font-smoothing: antialiased;
+				-moz-osx-font-smoothing: grayscale;
+			}
+		}
+	}
+}
+.description {
+	.small {
+		a {
+			color: #ffffff;
+			font-size: 22px;
+			font-size: 1.375rem;
+			line-height: 34px;
+			line-height: 2.125rem;
+			font-family: "LovinSansWeb-Regular", sans-serif;
+		}
+	}
+}
+.description {
+	span.small {
+		a {
+			&:after {
+				display: inline-block;
+				content: "\f054";
+				font: normal normal normal 14px/1 FontAwesome;
+				font-size: 12px;
+				padding-left: 2px;
+				text-rendering: auto;
+				-webkit-font-smoothing: antialiased;
+				-moz-osx-font-smoothing: grayscale;
+			}
+		}
+	}
+}
+
+
+																																												

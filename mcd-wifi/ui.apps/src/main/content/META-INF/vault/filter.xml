@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+    <filter root="/apps/mcd-wifi">
+        <exclude pattern="/apps/mcd-wifi/install" />
+    </filter>
+    <filter root="/etc/clientlibs/mcd-wifi"/>
+</workspaceFilter>

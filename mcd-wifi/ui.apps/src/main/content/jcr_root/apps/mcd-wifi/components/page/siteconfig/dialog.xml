@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Dialog"
+    title="Site Level Configuration"
+    xtype="dialog">
+    <items jcr:primaryType="cq:WidgetCollection">
+        <logo
+            jcr:primaryType="cq:Widget"
+            path="/apps/mcd-rwd-global/components/page/siteconfig/dialog/items/logo.infinity.json"
+            xtype="cqinclude"/>
+        <logoText
+            jcr:primaryType="cq:Panel"
+            title="Logo Text">
+            <items jcr:primaryType="cq:WidgetCollection">
+                <logotext
+                    jcr:primaryType="cq:Widget"
+                    fieldDescription="Please provide text to display next to Logo. (Ex: WiFi)"
+                    fieldLabel="Logo Text"
+                    name="./logoText/logotext"
+                    width="400"
+                    xtype="textfield"/>
+            </items>
+        </logoText>
+        <languagetoggle
+            jcr:primaryType="cq:Panel"
+            title="Language Toggle">
+            <items jcr:primaryType="cq:WidgetCollection">
+                <enable
+                    jcr:primaryType="cq:Widget"
+                    fieldDescription="Check this to display language toggle."
+                    fieldLabel="Enable"
+                    name="./languagetoggle/enabled"
+                    type="checkbox"
+                    xtype="selection"/>
+            </items>
+        </languagetoggle>
+        <headerGreetings
+            jcr:primaryType="cq:Panel"
+            title="Header Greetings">
+            <items jcr:primaryType="cq:WidgetCollection">
+                <default
+                    jcr:primaryType="cq:Widget"
+                    collapsed="false"
+                    collapsible="true"
+                    title="Daypart Greetings"
+                    xtype="dialogfieldset">
+                    <items jcr:primaryType="cq:WidgetCollection">
+                        <dayPartMorning
+                            jcr:primaryType="cq:Widget"
+                            fieldDescription="Please enter greeting from 12:00 AM to 11:59 AM."
+                            key="dayPartMorning"
+                            name="./headerGreetings/dayPartMorning"
+                            xtype="textfield"/>
+                        <dayPartAfternoon
+                            jcr:primaryType="cq:Widget"
+                            fieldDescription="Please enter greeting from 12:00 PM to 05:59 PM."
+                            key="dayPartAfternoon"
+                            name="./headerGreetings/dayPartAfternoon"
+                            xtype="textfield"/>
+                        <dayPartEvening
+                            jcr:primaryType="cq:Widget"
+                            fieldDescription="Please enter greeting from 06:00 PM to 11:59 PM."
+                            key="dayPartEvening"
+                            name="./headerGreetings/dayPartEvening"
+                            xtype="textfield"/>
+                    </items>
+                </default>
+                <cookieGreetings
+                    jcr:primaryType="cq:Widget"
+                    fieldDescription="Please add greetings based on number of visits in ascending order. This filed is limited to 5 greetings. "
+                    fieldLabel="Cookie Greetings"
+                    name="./headerGreetings/cookieGreetings"
+                    xtype="multifield">
+                    <fieldConfig
+                        jcr:primaryType="nt:unstructured"
+                        allowBlank="{Boolean}false"
+                        limit="{Long}10"
+                        regex="/^[^,]*[^ ,][^,]*$/"
+                        regexText="Please enter greetings without comma (','). "
+                        xtype="textfield"/>
+                    <listeners
+                        jcr:primaryType="nt:unstructured"
+                        beforeadd="function(list, component, index) {&#xa;   var length = list.items.length;&#xa;    var addButton = list.items.items[length - 1];&#xa;    if (length == list.fieldConfig.limit) {&#xa;        addButton.hide();&#xa;    }&#xa;}&#xa;"
+                        removeditem="function(list) {&#xa;  var length = list.items.length;&#xa;  if (length &lt;= list.fieldConfig.limit) {&#xa;    list.items.items[length - 1].show();&#xa;  }}&#xa;"/>
+                </cookieGreetings>
+                <defaultGreeting
+                    jcr:primaryType="nt:unstructured"
+                    fieldDescription="Default greeting after exceeds the greetings limit for number of revisits. "
+                    fieldLabel="Default Greeting"
+                    name="./headerGreetings/defaultGreeting"
+                    xtype="textfield"/>
+            </items>
+        </headerGreetings>
+        <backgroundColor
+            jcr:primaryType="cq:Panel"
+            title="Background Color">
+            <items jcr:primaryType="cq:WidgetCollection">
+                <hexcode
+                    jcr:primaryType="cq:Widget"
+                    defaultValue="#efefef"
+                    fieldDescription="Please provide hex code to change the background color of the page. Note: Default Hex Code is : #efefef"
+                    fieldLabel="Hex Code"
+                    name="./backgroundColor/hexcode"
+                    width="400"
+                    xtype="textfield"/>
+            </items>
+        </backgroundColor>
+        <footer
+            jcr:primaryType="cq:Panel"
+            title="Footer Configuration">
+            <items jcr:primaryType="cq:WidgetCollection">
+                <textColor
+                    jcr:primaryType="cq:Widget"
+                    fieldDescription="Provide hex-code for the footer text color. (optional)"
+                    fieldLabel="Footer Text Color"
+                    name="./footer/textColor"
+                    xtype="textfield"/>
+                <bgColor
+                    jcr:primaryType="cq:Widget"
+                    fieldDescription="Provide hex-code for footer background color. (optional)"
+                    fieldLabel="Footer Background Color"
+                    name="./footer/bgColor"
+                    xtype="textfield"/>
+                <copyright
+                    jcr:primaryType="cq:Widget"
+                    fieldDescription="To enter Copyright Text "
+                    fieldLabel="Copyright Text"
+                    height="100"
+                    name="./footer/copyright"
+                    xtype="textarea"/>
+                <channels
+                    jcr:primaryType="cq:Widget"
+                    fieldDescription="To add items in footer channel. Limited to 2 channels for WiFi terms &amp; conditions and privacy. "
+                    fieldLabel="Footer Channels"
+                    name="./footer/channels"
+                    xtype="multifield">
+                    <fieldConfig
+                        jcr:primaryType="nt:unstructured"
+                        limit="2"
+                        xtype="multifieldpanel">
+                        <items jcr:primaryType="cq:WidgetCollection">
+                            <title
+                                jcr:primaryType="cq:Widget"
+                                allowBlank="{Boolean}false"
+                                fieldDescription="This is the channel text which appear as a link in the footer. "
+                                fieldLabel="Footer Channel Text"
+                                key="title"
+                                width="400"
+                                xtype="textfield"/>
+                            <path
+                                jcr:primaryType="cq:Widget"
+                                allowBlank="{Boolean}false"
+                                fieldDescription="Please provide the URL you wish to redirect. "
+                                fieldLabel="Link"
+                                key="path"
+                                width="400"
+                                xtype="pathfield"/>
+                            <target
+                                jcr:primaryType="cq:Widget"
+                                fieldDescription="Check to load page in a new window. Leave it unchecked to open in the URL inside Modal. "
+                                fieldLabel="Open in New Window?"
+                                key="target"
+                                width="100"
+                                xtype="checkbox"/>
+                        </items>
+                    </fieldConfig>
+                    <listeners
+                        jcr:primaryType="nt:unstructured"
+                        beforeadd="function(list, component, index) {&#xa;   var length = list.items.length;&#xa;    var addButton = list.items.items[length - 1];&#xa;    if (length == list.fieldConfig.limit) {&#xa;        addButton.hide();&#xa;    }&#xa;}&#xa;"
+                        removeditem="function(list) {&#xa;  var length = list.items.length;&#xa;  if (length &lt;= list.fieldConfig.limit) {&#xa;    list.items.items[length - 1].show();&#xa;  }}&#xa;"/>
+                </channels>
+            </items>
+        </footer>
+        <scripts
+            jcr:primaryType="cq:Widget"
+            path="/apps/mcd-rwd-global/components/page/siteconfig/dialog/items/scripts.infinity.json"
+            xtype="cqinclude"/>
+    </items>
+</jcr:root>

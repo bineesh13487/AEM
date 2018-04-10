@@ -1,0 +1,38 @@
+<!--/*
+    Content Section
+*/-->
+<div data-sly-resource="${'headipar' @ resourceType='wcm/foundation/components/iparsys'}"></div>
+<div data-sly-resource="${'par' @ resourceType='wcm/foundation/components/parsys'}"></div>
+<div data-sly-resource="${'footipar' @ resourceType='wcm/foundation/components/iparsys'}"></div>
+	<sly data-sly-test="${wcmmode.edit || wcmmode.design}">
+		<style> 
+			input[type='checkbox']:focus {-webkit-appearance: checkbox;}
+			#CQ *{box-sizing: content-box!important;}
+			legend {width: auto;}
+			fieldset {min-width:-webkit-min-content;}
+		</style>
+	</sly>
+<div   data-ng-controller="fcontroller" data-ng-init="init()" class="modal fade" id="restaurantLocatorDisambiguityModal" tabindex="-1" role="dialog" aria-labelledby="restaurantLocatorDisambiguityModal">
+   <div class="modal-dialog" role="document">
+      <div class="modal-content">
+         <div class="container-fluid">
+            <div class="row no-gutter">
+               <div class="col-xs-12 cont-select">
+                  <div class="heading">Please select a location below:</div>
+               </div>
+            </div>
+            <div class="row no-gutter">
+               <div class="col-xs-12 location-list">
+                  <div ng-repeat="location in multipleLocations" ng-click="showRestaurantForMulti($event,location)"   ng-modal="" class="location"> <a data-value="location.formattedAddress" href="">{{location.formattedAddress}}</a> </div>
+               </div>
+            </div>
+         </div>
+         <!--<div class="btn-back" data-toggle="modal" data-target="#restaurantLocatorFormModal"><i class="fa fa-arrow-left"></i></div>-->
+         <!--/.btn-back-->
+         <div class="btn-close" data-dismiss="modal"><i class="fa fa-times"></i></div>
+         <!--/.btn-close-->
+      </div>
+      <!--/.modal-content-->
+   </div>
+   <!--/.modal-dialog-->
+</div>

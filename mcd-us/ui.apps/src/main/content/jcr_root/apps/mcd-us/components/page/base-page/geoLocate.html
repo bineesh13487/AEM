@@ -1,0 +1,141 @@
+<ul class="dropdown-menu" aria-expanded="false">
+    <li>
+        <div class="container component-nearest-location-desktop">
+            <div class="row">
+                <div class="col-sm-3 col-md-4">
+                	<p class="heading" style="color: #bf0c0c;" ng-bind="restaurant.properties.storeNotice"></p>
+                    <p class="location-street"
+                       ng-bind="restaurant.properties.name?restaurant.properties.name:restaurant.properties.addressLine1"></p>
+                    <p class="location-city"
+                       ng-bind-html="getRestaurantFullAddress1(restaurant.properties.name, restaurant.properties.addressLine1, restaurant.properties.addressLine3, restaurant.properties.subDivision, restaurant.properties.postcode)"></p>
+                    <p class="change-location">
+                        <a href="restaurant-locator.html" aria-label="change prefered location"
+                           title="change prefered location">${restaurantResult.changeLocation}</a>
+                    </p>
+                    <p class="location-desc">This is customer friendly text limited to fifty characters.</p>
+                    <div class="form-group">
+                        <div class="checkbox">
+                            <input type="checkbox" name="preferred-location" id="preferred-location"
+                                   role="checkbox" aria-checked="false">
+                            <label for="preferred-location">${restaurantResult.PreferredText}</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3 col-md-3">
+                    <p class="location-directions"> {{restaurant.properties.distance}} {{distanceUnit}} ${restaurantResult.getAway}:<br/>
+                        <a ng-href="http://maps.google.com/?saddr={{currentLatitude}},{{currentLongitude}}&daddr={{restaurant.geometry.coordinates[1]}},{{restaurant.geometry.coordinates[0]}}"
+                           title="Get directions" class="simple-white">${restaurantResult.getDirectionLinkName}</a>
+                    </p>
+                    <p class="location-phone">${restaurantResult.getPhoneHeading}:<br/>
+                        <a href="tel:{{restaurant.properties.telephone}}" class="phone">
+                            <span class="light">{{restaurant.properties.telephone}}</span>
+                        </a>
+                    </p>
+                </div>
+                <div class="col-sm-6 col-md-5">
+                    <div class="row no-gutter cont-hours parent-collapse">
+                        <div class="col-sm-7 col-md-8" ng-show="restaurant.RestaurantOpen">
+                            <span class="heading">${restaurantResult.getOpenTimeHeading}</span>
+                        </div>
+                        <div class="col-sm-7 col-md-8" ng-show="restaurant.driveOpen">
+                            <span class="heading">${restaurantResult.getDriveOpenText}</span>
+                        </div>
+                       <!--  <div class="col-sm-7 col-md-8" ng-show="restaurant.spcialOpen">
+                            <span class="heading">${restaurantResult.getSpecialOpenText}</span>
+                        </div> -->
+                        <div class="col-sm-7 col-md-8" ng-show="restaurant.closed">
+                            <span class="heading">${restaurantResult.getRestaurantClosedText}</span>
+                        </div>
+                        <div class="col-sm-5 col-md-4 cont-btn">
+                            <button class="simple-white" type="button"
+                                    data-text-show="${restaurantResult.getShowHours} <i class='fa fa-chevron-down'></i>"
+                                    data-text-hide="${restaurantResult.getHideHours} <i class='fa fa-chevron-up'></i>"
+                                    data-toggle="collapse" data-target="#collapseLocateHours"
+                                    aria-expanded="false" aria-controls="collapseLocateHours">${restaurantResult.getShowHours} <i class="fa fa-chevron-down"></i></button>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="dontscroll cont-hours-details collapse" id="collapseLocateHours">
+                                <table class="table">
+                                    <tr>
+                                        <td class="col-xs-6" ng-if="!restaurant.noHours">
+                                            <p class="hours-heading">${restaurantResult.getRestaurantHours}:</p>
+                                            <p ng-show="!restaurant.RestaurantOpen" class="hours-heading">${restaurantResult.getRestaurantHoursClosed}</p>
+                                        </td>
+                                        <td class="col-xs-6" ng-if="fullRlData.enableDriveHours && !restaurant.noDriveHours">
+                                            <p class="hours-heading">${restaurantResult.getDrivethHours}:</p>
+                                            <p ng-show="!restaurant.RestaurantOpen" class="hours-heading">${restaurantResult.getRestaurantHoursClosed}</p>
+                                        </td>
+                                    </tr>
+                                    <!-- <tr>
+                                        <td class="col-xs-6">
+                                            <p ng-show="restaurant.spcialOpen" class="hours-heading"
+                                               ng-show="!restaurant.driveOpen">${restaurantResult.getSpecialHours}:{{restaurant.properties.specialHours}} </p>
+                                        </td>
+                                        <td class="col-xs-6">
+                                            <p ng-show="restaurant.spcialOpen" class="hours-heading"
+                                               ng-show="!restaurant.driveOpen">${restaurantResult.getSpecialHours}:{{restaurant.properties.specialHours}} </p>
+                                        </td>
+                                    </tr> -->
+                                    <tr>
+                                        <td class="col-xs-6" ng-if="!restaurant.noHours && !fullRlData.enableHoursFromSunday">
+                                            <ul role="list" class="list-unstyled hours-details">
+                                                <li class="listitem">${restaurantResult.getMondayText}:{{restaurant.properties.drivethruhours.driveHoursMonday}}</li>
+                                                <li class="listitem">${restaurantResult.getTuesdayText}:{{restaurant.properties.drivethruhours.driveHoursTuesday}}</li>
+                                                <li class="listitem">${restaurantResult.getWednesdayText}:{{restaurant.properties.drivethruhours.driveHoursWednesday}}</li>
+                                                <li class="listitem">${restaurantResult.getThursdayText}:{{restaurant.properties.drivethruhours.driveHoursThursday}}</li>
+                                                <li class="listitem">${restaurantResult.getFridayText}:{{restaurant.properties.drivethruhours.driveHoursFriday}}</li>
+                                                <li class="listitem">${restaurantResult.getSaturdayText}:{{restaurant.properties.drivethruhours.driveHoursSaturday}}</li>
+                                                <li class="listitem">${restaurantResult.getSundayText}:{{restaurant.properties.drivethruhours.driveHoursSunday}}</li>
+                                            </ul>
+                                        </td>
+                                        <td class="col-xs-6" ng-if="!restaurant.noHours && fullRlData.enableHoursFromSunday">
+                                            <ul role="list" class="list-unstyled hours-details">
+                                                <li class="listitem">${restaurantResult.getSundayText}:{{restaurant.properties.drivethruhours.driveHoursSunday}}</li>
+                                                <li class="listitem">${restaurantResult.getMondayText}:{{restaurant.properties.drivethruhours.driveHoursMonday}}</li>
+                                                <li class="listitem">${restaurantResult.getTuesdayText}:{{restaurant.properties.drivethruhours.driveHoursTuesday}}</li>
+                                                <li class="listitem">${restaurantResult.getWednesdayText}:{{restaurant.properties.drivethruhours.driveHoursWednesday}}</li>
+                                                <li class="listitem">${restaurantResult.getThursdayText}:{{restaurant.properties.drivethruhours.driveHoursThursday}}</li>
+                                                <li class="listitem">${restaurantResult.getFridayText}:{{restaurant.properties.drivethruhours.driveHoursFriday}}</li>
+                                                <li class="listitem">${restaurantResult.getSaturdayText}:{{restaurant.properties.drivethruhours.driveHoursSaturday}}</li>
+                                            </ul>
+                                        </td>
+                                        <td class="col-xs-6" ng-if="fullRlData.enableDriveHours && !restaurant.noDriveHours && !fullRlData.enableHoursFromSunday">
+                                            <ul role="list" class="list-unstyled hours-details">
+                                                <li class="listitem">${restaurantResult.getMondayText}:{{restaurant.properties.drivethruhours.driveHoursMonday}}</li>
+                                                <li class="listitem">${restaurantResult.getTuesdayText}:{{restaurant.properties.drivethruhours.driveHoursTuesday}}</li>
+                                                <li class="listitem">${restaurantResult.getWednesdayText}:{{restaurant.properties.drivethruhours.driveHoursWednesday}}</li>
+                                                <li class="listitem">${restaurantResult.getThursdayText}:{{restaurant.properties.drivethruhours.driveHoursThursday}}</li>
+                                                <li class="listitem">${restaurantResult.getFridayText}:{{restaurant.properties.drivethruhours.driveHoursFriday}}</li>
+                                                <li class="listitem">${restaurantResult.getSaturdayText}:{{restaurant.properties.drivethruhours.driveHoursSaturday}}</li>
+                                                <li class="listitem">${restaurantResult.getSundayText}:{{restaurant.properties.drivethruhours.driveHoursSunday}}</li>
+                                            </ul>
+                                        </td>
+                                        <td class="col-xs-6" ng-if="fullRlData.enableDriveHours && !restaurant.noDriveHours && fullRlData.enableHoursFromSunday">
+                                            <ul role="list" class="list-unstyled hours-details">
+                                                <li class="listitem">${restaurantResult.getSundayText}:{{restaurant.properties.drivethruhours.driveHoursSunday}}</li>
+                                                <li class="listitem">${restaurantResult.getMondayText}:{{restaurant.properties.drivethruhours.driveHoursMonday}}</li>
+                                                <li class="listitem">${restaurantResult.getTuesdayText}:{{restaurant.properties.drivethruhours.driveHoursTuesday}}</li>
+                                                <li class="listitem">${restaurantResult.getWednesdayText}:{{restaurant.properties.drivethruhours.driveHoursWednesday}}</li>
+                                                <li class="listitem">${restaurantResult.getThursdayText}:{{restaurant.properties.drivethruhours.driveHoursThursday}}</li>
+                                                <li class="listitem">${restaurantResult.getFridayText}:{{restaurant.properties.drivethruhours.driveHoursFriday}}</li>
+                                                <li class="listitem">${restaurantResult.getSaturdayText}:{{restaurant.properties.drivethruhours.driveHoursSaturday}}</li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row no-gutter location-services">
+                        <h4>Services:</h4>
+                        <ul role="list" class="list-unstyled no-gutter">
+                            <li ng-repeat="selfilter in getFilterName(restaurant)" class="col-xs-6">
+                                <span class="template-icon-abs-text">{{selfilter.filterName}}</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+</ul>

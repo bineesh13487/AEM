@@ -1,0 +1,52 @@
+<sly data-sly-use.wifisurvey="com.mcd.rwd.wifi.core.sightly.WifiSurveyHandler">
+<sly data-sly-test="${!wifisurvey.question  && wcmmode.edit}">
+   <h2>Please configure Wifi Survey component</h2>
+</sly>
+<div class=" grid-item ">
+   <div class="special-tile-mobile">
+      <div class="frame-container ">
+         <div class="survey-container">
+            <div tabindex="0" aria-label="${wifisurvey.question} ${wifisurvey.questionDescription} ${wifisurvey.option1} or ${wifisurvey.option2}">
+               <h2 aria-hidden="true">${wifisurvey.question}</h2>
+            </div>
+            <div class="f-left">
+               <label>
+               <img src="${wifisurvey.optionOneImage}" tabindex="0"  alt="${wifisurvey.optionOneAlt}" id="option1" class="survey-box-img">
+               <input id="opt1" type="radio" name="food" value="${wifisurvey.option1}">
+               <span class="h3 survey-icon-text">${wifisurvey.option1}</span>
+               </label>                                                                               
+            </div>
+            <div class="p-holder">
+               <p tabindex="0">-or-</p>
+            </div>
+            <div class="f-right">
+               <label>
+               <img src="${wifisurvey.optionTwoImage}" tabindex="0" alt="${wifisurvey.optionTwoAlt}" id="option2" class="survey-box-img">
+               <input id="opt2" type="radio" name="food" value="${wifisurvey.option2}">
+               <span class="h3 survey-icon-text">${wifisurvey.option2}</span>
+               </label>                                                                               
+            </div>
+            <div class="btn-holder">
+               <a id="surveySubmit" href="#" class="promotional-content-btn" aria-label="Submit Your Survey"> ${wifisurvey.buttonText} </a>
+            </div>
+            <div class="survey-error-msg-box">
+               <p role="alert"> ${wifisurvey.errorMsg}</p>
+            </div>
+         </div>
+         <div class="survey-complete" tabindex="0">
+            <p>${wifisurvey.thankyouText @context="unsafe"}</p>
+            <div class="f-left">
+               <img src="${properties.optionOneImageSelected}" alt="${wifisurvey.optionOneAltSelected}" class="survey-box-img">
+               <span id="optionOneCountID" class="count">50</span>
+               <span class="h3 survey-icon-text">Likes ${wifisurvey.option1}</span>
+            </div>
+            <div class="f-right">
+               <img src="${wifisurvey.optionTwoImageSelected}" alt="${wifisurvey.optionTwoAltSelected}" class="survey-box-img">
+               <span id="optionTwoCountID" class="count">50</span>
+               <span class="h3 survey-icon-text">Likes ${wifisurvey.option2}</span>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+<span class="dataforselector" data-option1selectedimage="${wifisurvey.optionOneImageSelected}" data-option1altselected="${wifisurvey.optionOneAltSelected}" data-option2image="${wifisurvey.optionTwoImage}" data-option2alt="${wifisurvey.optionTwoAlt}" data-option2selectedimage="${wifisurvey.optionTwoImageSelected}" data-option2altselected="${wifisurvey.optionTwoAltSelected}" data-option1image="${wifisurvey.optionOneImage}" data-option1alt="${wifisurvey.optionOneAlt}" data-option1="${wifisurvey.option1}" data-option2="${wifisurvey.option2}" data-databaseurl="${wifisurvey.databaseUrl}"> </span>

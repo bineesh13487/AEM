@@ -1,0 +1,87 @@
+.component-sm-email-offer {
+  color: $white;
+
+  .border-wrapper {
+		margin: 10px;
+		border: 2px solid #4d4a4b !important;
+		border: 2px solid rgba(255, 255, 255, .25) !important;
+	}
+
+  .nopad {
+    padding-left: 0;
+  }
+
+  .form-group {
+    margin-bottom: 5px;
+
+    @media only screen and (min-width: 480px) {
+      margin-bottom: 10px;
+    }
+    @media only screen and (min-width: 768px) {
+      margin-bottom: 5px;
+    }
+    @media only screen and (min-width: 992px) {
+      margin-bottom: 15px;
+    }
+  }
+
+  .form-content-wrapper {
+    margin: 0 auto;
+    padding: 5px 25px;
+
+    .headline-text {
+
+      @media (max-width: 1100px) and (min-width: 768px) {
+        margin-bottom: 0 !important;
+      }
+
+      .large, .small {
+        color: $white;
+      }
+
+      .large {
+
+        @include fontSet(45px, 35px, $font-lovinsans-black);
+
+          @media only screen and (min-width: 320px) {
+            @include fontSet(60px, 50px, $font-lovinsans-black);
+          }
+          @media only screen and (min-width: 480px) {
+            @include fontSet(100px, 100px, $font-lovinsans-black);
+          }
+          @media only screen and (min-width: 768px) {
+            @include fontSet(60px, 50px, $font-lovinsans-black);
+          }
+          @media only screen and (min-width: 992px) {
+            @include fontSet(80px, 90px, $font-lovinsans-black);
+          }
+          @media only screen and (min-width: 1200px) {
+            @include fontSet(120px, 120px, $font-lovinsans-black);
+          }
+      }
+
+      .small {
+
+        margin-bottom: 5px;
+        @include fontSet(18px, 30px, $font-lovinsans-medium);
+
+        @media only screen and (min-width: 320px) {
+          @include fontSet(20px, 30px, $font-lovinsans-medium);
+        }
+        @media only screen and (min-width: 480px) {
+          margin-bottom: 10px;
+          @include fontSet(25px, 30px, $font-lovinsans-medium);
+        }
+        @media only screen and (min-width: 768px) {
+          margin-bottom: 5px;
+          @include fontSet(20px, 30px, $font-lovinsans-medium);
+        }
+        @media only screen and (min-width: 992px) {
+          margin-bottom: 10px;
+          @include fontSet(25px, 30px, $font-lovinsans-medium);
+        }
+
+      }
+    }
+  }
+}

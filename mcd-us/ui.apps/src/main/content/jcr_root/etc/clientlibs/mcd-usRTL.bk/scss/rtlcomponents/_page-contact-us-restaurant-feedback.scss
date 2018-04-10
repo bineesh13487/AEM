@@ -1,0 +1,59 @@
+/// @group pages
+$page-contact-us__restaurant-feedback: ".page-contact-us__restaurant-feedback";
+
+#{$page-contact-us__restaurant-feedback} {
+}
+
+@include withinBlock($page-contact-us__restaurant-feedback, $component-hero, true) {
+
+}
+
+/// This for Locate me button
+.fa-margin{margin-left:3px;}
+
+#restaurantLocatorFormContainer .cont-btns .wrapper {
+  display: inline-block;
+  width: 230px;
+  &.middle {
+    text-align: center;
+    width: 35px;
+  }
+  .text-or {
+    text-transform: uppercase;
+    font-size: 20px;
+    font-size: 1.25rem;
+    line-height: 30px;
+    line-height: 1.875rem;
+    font-family: "Droid_Arabic_Kufi_Bold";
+  }
+  .btn-red {
+    width: 230px;
+  }
+  .btn-border {
+    width: 230px;
+    background: transparent;
+    color: #000;
+    text-transform: uppercase;
+    padding: 10px 30px;
+    opacity: 1;
+    border: 3px solid #c3c3c3;
+    font-size: 22px;
+    font-size: 1.375rem;
+    line-height: 22px;
+    line-height: 1.375rem;
+    font-family: "Droid_Arabic_Kufi_Bold";
+    border-radius: 35px;
+    transition: scale, 0.1s, ease-out, 0s;
+    position: relative;
+    display: inline-block;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  #restaurantLocatorFormContainer .cont-btns .wrapper.bottom {
+    display: block;
+    margin-top: 10px;
+  }
+}

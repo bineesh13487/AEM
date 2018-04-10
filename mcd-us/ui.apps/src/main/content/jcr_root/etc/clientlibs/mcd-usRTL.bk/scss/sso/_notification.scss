@@ -1,0 +1,80 @@
+.sso-notification {
+  background: $color-notification-bg;
+  color: $white;
+
+  position: absolute;
+  top: 90px;
+  width: 100%;
+  z-index: 89;
+
+  @media (min-width: 768px){
+    top: 110px;
+  }
+
+  &.sso-notification-floating {
+    position: absolute;
+    top: 90px;
+    width: 100%;
+    z-index: 89;
+
+    @media (min-width: 768px){
+      top: 110px;
+    }
+  }
+
+  .sso-notification-wrapper {
+    padding: 20px 20px 30px 20px;
+    text-align: left;
+    //margin-bottom: -15px;
+    position: relative;
+
+    @media (min-width: 768px){
+      //top: 53px;
+      text-align: center;
+    }
+  }
+  .sso-notification-title {
+    @include fontBold();
+    @include fontSet(18px, 24px);
+    margin: 0;
+    text-transform: uppercase;
+  }
+  .sso-notification-text {
+    @include fontLight();
+    @include fontSet(18px, 24px);
+    margin: 0;
+  }
+  .sso-notification-close{
+    cursor: pointer;
+    position: absolute;
+    right: 45%;
+    bottom: -15px;
+    display: block;
+    color: $red;
+    @include fontBold();
+    @include fontSet(35px, 35px);
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: 20px;
+    -ms-transform-origin: 50% 0; /* IE 9 */
+    -webkit-transform-origin: 50% 0; /* Chrome, Safari, Opera */
+    transform-origin: 50% 0;
+    z-index: 60;
+
+    @media (min-width: 768px){
+      right: 49%;
+    }
+
+    > .fa {
+      background: $white;
+      @include border-radius(50%);
+      height: 29px;
+
+      &:before {
+        display: block;
+        margin-top: -3px;
+        margin-right: -1px;
+      }
+    }
+  }
+}

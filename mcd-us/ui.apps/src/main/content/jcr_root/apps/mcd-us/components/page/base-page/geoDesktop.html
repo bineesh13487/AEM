@@ -1,0 +1,159 @@
+    <ul class="dropdown-menu" role="menu" aria-expanded="false">
+        <li>
+            <div data-ng-repeat="restaurant in restaurants" class="container component-nearest-location-desktop">
+                <div class="row">
+                    <div class="col-sm-6 col-md-location-street7">
+                    	<p class="location-alert" ng-bind="restaurant.properties.storeNotice"></p>
+                    	<div class="row">
+                    	<div class="col-sm-6 col-md-7">
+	                        <p class="location-street"
+	                           ng-bind="restaurant.properties.name?restaurant.properties.name:restaurant.properties.addressLine1"></p>
+	                        <p class="location-city"
+	                           ng-bind-html="getRestaurantFullAddress1(restaurant.properties.name, restaurant.properties.addressLine1, restaurant.properties.addressLine3, restaurant.properties.subDivision, restaurant.properties.postcode)"></p>
+	                        <p class="change-location" ng-show="showPrefered">
+	                            <a ng-href="{{fullRlData.restLocPath}}" aria-label="{{fullRlData.changeLocation}}"
+	                                title="{{fullRlData.changeLocation}}" ng-clock>{{fullRlData.changeLocation}}</a>
+	                        </p>
+	                        <p class="location-desc" ng-clock ng-if="fullRlData.showCustomerFriendlyText">{{restaurant.properties.longDescription}}</p>
+	                        <div class="form-group">
+	                            <div ng-show="showGeo" class="checkbox">
+	                                <input type="checkbox" ng-click="setPrefered(restaurant)"
+	                                       name="preferred-location" id="preferred-location"
+	                                       role="checkbox" aria-checked="false">
+	                                <label for="preferred-location">{{fullRlData.preferedText}}</label>
+	                            </div>
+	                        </div>
+                    	</div>
+	                    <div class="col-sm-6 col-md-5">
+	                        <p class="location-directions"> {{restaurant.properties.distance}} {{fullRlData.distanceUnitLocal}} {{fullRlData.away}}:<br/>
+	                            <a target="_blank" data-at="Exit:{{fullRlData.page_name}}:{{fullRlData.directionLinkName}}" data-track="externalLink"  style="position: relative;display: initial;" ng-href="http://maps.google.com/?saddr={{currentLatitude}},{{currentLongitude}}&daddr={{restaurant.geometry.coordinates[1]}},{{restaurant.geometry.coordinates[0]}}"
+	                               title="{{fullRlData.directionLinkName}}" class="simple-white external">{{fullRlData.directionLinkName}}</a>
+	                        </p>
+	                        <p class="location-phone">{{fullRlData.phoneHeading}}:<br/>
+	                            <a x-cq-linkchecker="skip" ng-href="{{getPhoneNumber(restaurant.properties.telephone)}}" class="phone" aria-label="{{restaurant.properties.telephoneTitle}}">
+	                                <span class="light">{{restaurant.properties.telephone}}</span></a>
+	                        </p>
+	                    </div>
+	                   </div>
+	                 </div>
+                    <div class="col-sm-6 col-md-5">
+                        <div class="row no-gutter cont-hours parent-collapse">
+                            <div class="col-sm-7 col-md-8" ng-show="!restaurant.noHours && restaurant.RestaurantOpen">
+                                <span class="heading">{{fullRlData.openTimeHeading}}</span></div>
+                            <div class="col-sm-7 col-md-8"
+                                 ng-show="!restaurant.noHours && !restaurant.RestaurantOpen && restaurant.driveOpen">
+                                <span class="heading">{{fullRlData.driveOpenText}}</span></div>
+                            <!-- <div class="col-sm-7 col-md-8"
+                                 ng-show="!restaurant.RestaurantOpen && !restaurant.driveOpen && restaurant.spcialOpen">
+                                <span class="heading">{{fullRlData.specialOpenText}}</span></div> -->
+                            <div class="col-sm-7 col-md-8" ng-show="!restaurant.noHours && restaurant.closed">
+                                <span class="heading">{{fullRlData.restaurantClosedText}}</span>
+                            </div>
+							<div class="col-sm-7 col-md-8" ng-show="restaurant.noHours" ng-cloak>
+                                <span class="heading">{{fullRlData.restaurantNotAvailable}}</span>
+                            </div>
+                            <div class="col-sm-5 col-md-4 cont-btn">
+							    <button class="simple-white ada-select" type="button"
+                                        data-text-show="{{fullRlData.showHours}}" 
+                                        data-text-hide="{{fullRlData.hideHours}}"
+                                        data-toggle="collapse" data-target="#collapseLocateHours"
+                                        aria-expanded="false" aria-controls="collapseLocateHours">{{fullRlData.showHours}} 
+                                </button>
+                            </div>
+							<!--<div class="col-sm-5 col-md-4 cont-btn"> <button class="simple-white" type="button" data-text-show="Show hours" data-text-hide="Hide hours" data-toggle="collapse" data-target="#collapseLocateHours" aria-expanded="false" aria-controls="collapseLocateHours">
+																	  Show hours
+																	</button> </div>-->
+                            <div class="col-sm-12">
+                                <div class="dontscroll cont-hours-details collapse" id="collapseLocateHours">
+                                    <table class="table">
+                                        <tr>
+                                            <td class="col-xs-6" ng-if="!restaurant.noHours">
+                                                <p class="hours-heading">{{fullRlData.restaurantHours}}:</p>
+                                                <p ng-show="!restaurant.RestaurantOpen" class="hours-subheading">{{fullRlData.restaurantHoursClosed}}</p>
+                                            </td>
+                                            <td class="col-xs-6" ng-if="fullRlData.enableDriveHours && !restaurant.noDriveHours">
+                                                <p class="hours-heading">{{fullRlData.drivethHours}}:</p>
+                                                <p ng-show="!restaurant.driveOpen" class="hours-subheading">{{fullRlData.drivethHoursClosed}}</p>
+                                            </td>
+                                        </tr>
+                                        <!-- <tr>
+                                            <td class="col-xs-6">
+                                                <p ng-show="restaurant.spcialOpen" class="hours-subheading"
+                                                   >{{fullRlData.specialHours}}:{{restaurant.properties.specialHours}}</p>
+                                            </td>
+                                            <td class="col-xs-6">
+                                                <p ng-show="restaurant.spcialOpen" class="hours-subheading"
+                                                   >{{fullRlData.specialHours}}:{{restaurant.properties.specialHours}}</p>
+                                            </td>
+                                        </tr> -->
+                                        <tr>
+                                            <td class="col-xs-6" ng-if="!restaurant.noHours && !fullRlData.enableHoursFromSunday">
+                                                <ul role="list" class="list-unstyled hours-details">
+                                                    <li><span class="visuallyhidden">{{fullRlData.mondayTextForAriaLabel}} {{restaurant.properties.restauranthours.hoursMondayForScreenReader}}</span><span aria-hidden="true"><span style="display: inline-block;min-width: 40px">{{fullRlData.mondayText}}:</span>{{restaurant.properties.restauranthours.hoursMonday}}</span></li>
+                                                    <li><span class="visuallyhidden">{{fullRlData.tuesdayTextForAriaLabel}} {{restaurant.properties.restauranthours.hoursTuesdayForScreenReader}}</span><span aria-hidden="true"><span style="display: inline-block;min-width: 40px">{{fullRlData.tuesdayText}}:</span>{{restaurant.properties.restauranthours.hoursTuesday}}</span></li>
+                                                    <li><span class="visuallyhidden">{{fullRlData.wednesdayTextForAriaLabel}} {{restaurant.properties.restauranthours.hoursWednesdayForScreenReader}}</span><span aria-hidden="true"><span style="display: inline-block;min-width: 40px">{{fullRlData.wednesdayText}}:</span>{{restaurant.properties.restauranthours.hoursWednesday}}</span></li>
+                                                    <li><span class="visuallyhidden">{{fullRlData.thursdayTextForAriaLabel}} {{restaurant.properties.restauranthours.hoursThursdayForScreenReader}}</span><span aria-hidden="true"><span style="display: inline-block;min-width: 40px">{{fullRlData.thursdayText}}:</span>{{restaurant.properties.restauranthours.hoursThursday}}</span></li>
+                                                    <li><span class="visuallyhidden">{{fullRlData.fridayTextForAriaLabel}} {{restaurant.properties.restauranthours.hoursFridayForScreenReader}}</span><span aria-hidden="true"><span style="display: inline-block;min-width: 40px">{{fullRlData.fridayText}}:</span>{{restaurant.properties.restauranthours.hoursFriday}}</span></li>
+                                                    <li><span class="visuallyhidden">{{fullRlData.saturdayTextForAriaLabel}} {{restaurant.properties.restauranthours.hoursSaturdayForScreenReader}}</span><span aria-hidden="true"><span style="display: inline-block;min-width: 40px">{{fullRlData.saturdayText}}:</span>{{restaurant.properties.restauranthours.hoursSaturday}}</span></li>
+                                                    <li><span class="visuallyhidden">{{fullRlData.sundayTextForAriaLabel}} {{restaurant.properties.restauranthours.hoursSundayForScreenReader}}</span><span aria-hidden="true"><span style="display: inline-block;min-width: 40px">{{fullRlData.sundayText}}:</span>{{restaurant.properties.restauranthours.hoursSunday}}</span></li>
+                                                </ul>
+                                            </td>
+                                            <td class="col-xs-6" ng-if="!restaurant.noHours && fullRlData.enableHoursFromSunday">
+                                                <ul role="list" class="list-unstyled hours-details">
+                                                    <li><span class="visuallyhidden">{{fullRlData.sundayTextForAriaLabel}} {{restaurant.properties.restauranthours.hoursSundayForScreenReader}}</span><span aria-hidden="true"><span style="display: inline-block;min-width: 40px">{{fullRlData.sundayText}}:</span>{{restaurant.properties.restauranthours.hoursSunday}}</span></li>
+                                                    <li><span class="visuallyhidden">{{fullRlData.mondayTextForAriaLabel}} {{restaurant.properties.restauranthours.hoursMondayForScreenReader}}</span><span aria-hidden="true"><span style="display: inline-block;min-width: 40px">{{fullRlData.mondayText}}:</span>{{restaurant.properties.restauranthours.hoursMonday}}</span></li>
+                                                    <li><span class="visuallyhidden">{{fullRlData.tuesdayTextForAriaLabel}} {{restaurant.properties.restauranthours.hoursTuesdayForScreenReader}}</span><span aria-hidden="true"><span style="display: inline-block;min-width: 40px">{{fullRlData.tuesdayText}}:</span>{{restaurant.properties.restauranthours.hoursTuesday}}</span></li>
+                                                    <li><span class="visuallyhidden">{{fullRlData.wednesdayTextForAriaLabel}} {{restaurant.properties.restauranthours.hoursWednesdayForScreenReader}}</span><span aria-hidden="true"><span style="display: inline-block;min-width: 40px">{{fullRlData.wednesdayText}}:</span>{{restaurant.properties.restauranthours.hoursWednesday}}</span></li>
+                                                    <li><span class="visuallyhidden">{{fullRlData.thursdayTextForAriaLabel}} {{restaurant.properties.restauranthours.hoursThursdayForScreenReader}}</span><span aria-hidden="true"><span style="display: inline-block;min-width: 40px">{{fullRlData.thursdayText}}:</span>{{restaurant.properties.restauranthours.hoursThursday}}</span></li>
+                                                    <li><span class="visuallyhidden">{{fullRlData.fridayTextForAriaLabel}} {{restaurant.properties.restauranthours.hoursFridayForScreenReader}}</span><span aria-hidden="true"><span style="display: inline-block;min-width: 40px">{{fullRlData.fridayText}}:</span>{{restaurant.properties.restauranthours.hoursFriday}}</span></li>
+                                                    <li><span class="visuallyhidden">{{fullRlData.saturdayTextForAriaLabel}} {{restaurant.properties.restauranthours.hoursSaturdayForScreenReader}}</span><span aria-hidden="true"><span style="display: inline-block;min-width: 40px">{{fullRlData.saturdayText}}:</span>{{restaurant.properties.restauranthours.hoursSaturday}}</span></li>
+
+                                                </ul>
+                                            </td>
+                                            <td class="col-xs-6" ng-if="restaurant.noHours">
+                                                <p class="hours-heading">{{fullRlData.restaurantHours}}:</p>
+                                                <p ng-show="!restaurant.RestaurantOpen" class="hours-heading"ng-cloak>{{fullRlData.restaurantNotAvailable}}</p>
+                                            </td>
+                                            <td class="col-xs-6" ng-if="fullRlData.enableDriveHours && !restaurant.noDriveHours && !fullRlData.enableHoursFromSunday">
+                                                <ul role="list" class="list-unstyled hours-details">
+                                                    <li><span class="visuallyhidden">{{fullRlData.mondayTextForAriaLabel}} {{restaurant.properties.drivethruhours.driveHoursMondayForScreenReader}}</span><span aria-hidden="true"><span style="display: inline-block;min-width: 40px">{{fullRlData.mondayText}}:</span>{{restaurant.properties.drivethruhours.driveHoursMonday}}</span></li>
+                                                    <li><span class="visuallyhidden">{{fullRlData.tuesdayTextForAriaLabel}} {{restaurant.properties.drivethruhours.driveHoursTuesdayForScreenReader}}</span><span aria-hidden="true"><span style="display: inline-block;min-width: 40px">{{fullRlData.tuesdayText}}:</span>{{restaurant.properties.drivethruhours.driveHoursTuesday}}</span></li>
+                                                    <li><span class="visuallyhidden">{{fullRlData.wednesdayTextForAriaLabel}} {{restaurant.properties.drivethruhours.driveHoursWednesdayForScreenReader}}</span><span aria-hidden="true"><span style="display: inline-block;min-width: 40px">{{fullRlData.wednesdayText}}:</span>{{restaurant.properties.drivethruhours.driveHoursWednesday}}</span></li>
+                                                    <li><span class="visuallyhidden">{{fullRlData.thursdayTextForAriaLabel}} {{restaurant.properties.drivethruhours.driveHoursThursdayForScreenReader}}</span><span aria-hidden="true"><span style="display: inline-block;min-width: 40px">{{fullRlData.thursdayText}}:</span>{{restaurant.properties.drivethruhours.driveHoursThursday}}</span></li>
+                                                    <li><span class="visuallyhidden">{{fullRlData.fridayTextForAriaLabel}} {{restaurant.properties.drivethruhours.driveHoursFridayForScreenReader}}</span><span aria-hidden="true"><span style="display: inline-block;min-width: 40px">{{fullRlData.fridayText}}:</span>{{restaurant.properties.drivethruhours.driveHoursFriday}}</span></li>
+                                                    <li><span class="visuallyhidden">{{fullRlData.saturdayTextForAriaLabel}} {{restaurant.properties.drivethruhours.driveHoursSaturdayForScreenReader}}</span><span aria-hidden="true"><span style="display: inline-block;min-width: 40px">{{fullRlData.saturdayText}}:</span>{{restaurant.properties.drivethruhours.driveHoursSaturday}}</span></li>
+                                                    <li><span class="visuallyhidden">{{fullRlData.sundayTextForAriaLabel}} {{restaurant.properties.drivethruhours.driveHoursSundayForScreenReader}}</span><span aria-hidden="true"><span style="display: inline-block;min-width: 40px">{{fullRlData.sundayText}}:</span>{{restaurant.properties.drivethruhours.driveHoursSunday}}</span></li>
+                                                </ul>
+                                            </td>
+                                            <td class="col-xs-6" ng-if="fullRlData.enableDriveHours && !restaurant.noDriveHours && fullRlData.enableHoursFromSunday">
+                                                <ul role="list" class="list-unstyled hours-details">
+                                                   <li><span class="visuallyhidden">{{fullRlData.sundayTextForAriaLabel}} {{restaurant.properties.drivethruhours.driveHoursSundayForScreenReader}}</span><span aria-hidden="true"><span style="display: inline-block;min-width: 40px">{{fullRlData.sundayText}}:</span>{{restaurant.properties.drivethruhours.driveHoursSunday}}</span></li>
+                                                    <li><span class="visuallyhidden">{{fullRlData.mondayTextForAriaLabel}} {{restaurant.properties.drivethruhours.driveHoursMondayForScreenReader}}</span><span aria-hidden="true"><span style="display: inline-block;min-width: 40px">{{fullRlData.mondayText}}:</span>{{restaurant.properties.drivethruhours.driveHoursMonday}}</span></li>
+                                                    <li><span class="visuallyhidden">{{fullRlData.tuesdayTextForAriaLabel}} {{restaurant.properties.drivethruhours.driveHoursTuesdayForScreenReader}}</span><span aria-hidden="true"><span style="display: inline-block;min-width: 40px">{{fullRlData.tuesdayText}}:</span>{{restaurant.properties.drivethruhours.driveHoursTuesday}}</span></li>
+                                                    <li><span class="visuallyhidden">{{fullRlData.wednesdayTextForAriaLabel}} {{restaurant.properties.drivethruhours.driveHoursWednesdayForScreenReader}}</span><span aria-hidden="true"><span style="display: inline-block;min-width: 40px">{{fullRlData.wednesdayText}}:</span>{{restaurant.properties.drivethruhours.driveHoursWednesday}}</span></li>
+                                                    <li><span class="visuallyhidden">{{fullRlData.thursdayTextForAriaLabel}} {{restaurant.properties.drivethruhours.driveHoursThursdayForScreenReader}}</span><span aria-hidden="true"><span style="display: inline-block;min-width: 40px">{{fullRlData.thursdayText}}:</span>{{restaurant.properties.drivethruhours.driveHoursThursday}}</span></li>
+                                                    <li><span class="visuallyhidden">{{fullRlData.fridayTextForAriaLabel}} {{restaurant.properties.drivethruhours.driveHoursFridayForScreenReader}}</span><span aria-hidden="true"><span style="display: inline-block;min-width: 40px">{{fullRlData.fridayText}}:</span>{{restaurant.properties.drivethruhours.driveHoursFriday}}</span></li>
+                                                    <li><span class="visuallyhidden">{{fullRlData.saturdayTextForAriaLabel}} {{restaurant.properties.drivethruhours.driveHoursSaturdayForScreenReader}}</span><span aria-hidden="true"><span style="display: inline-block;min-width: 40px">{{fullRlData.saturdayText}}:</span>{{restaurant.properties.drivethruhours.driveHoursSaturday}}</span></li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row no-gutter location-services">
+                            <h4>{{fullRlData.serviceText}}:</h4>
+                            <ul role="list" class="list-unstyled no-gutter">
+                                <li ng-repeat="selfilter in getFilterName(restaurant)" class="col-xs-6">
+                                    <span class="template-icon-abs-text">{{selfilter.filterName}}</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li class="visuallyhidden">
+          <a href="javaScript:void(0);" class="end-menu"></a>
+        </li>
+    </ul>

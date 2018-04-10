@@ -1,0 +1,167 @@
+<sly data-sly-use.restInfo="com.mcd.rwd.us.core.sightly.forms.RestaurantInfo">
+    <section class="page-contact-us__subpage__what-is-it-about gray-border-on-white ${restInfo.formCategoryClasses}" style="background:${restInfo.sectionBackgroundColor @ context='styleToken'};">
+        <div class="container restInfo">
+            <h3 style="outline: none;">${restInfo.sectionTopHeading}</h3>
+            <div id="restaurant-feedback-form-container" class="row">
+                <div class="col-xs-12">
+                    <div id="restaurantLocatorFormContainer">
+                        <div class="restaurantLocatorOpenModalBtn collapse in">
+                            <div class="form-group">
+                            	<div class="cont-btns">
+									<div class="wrapper"> 
+                               			<label for="">${restInfo.sectionSubHeading}</label><br> 
+                            			<button type="button" class="btn btn-red" data-toggle="modal" data-target="#restaurantLocatorMapModal">${restInfo.buttonText}</button>
+                            		</div>
+                            		<div class="wrapper middle"> <span class="text-or">or</span> </div>
+                            		         		
+									<div class="wrapper bottom" data-ng-controller="restaurantLocatorController">
+										<button type="button" class="btn btn-border" data-toggle="modal" ng-click="searchRestaurantForLocateMe()" >
+											<i class="fa fa-map-marker fa-lg fa-margin"></i>${restInfo.getLocateMeButtonText}
+										</button> 
+									</div> 
+								</div>
+							</div>
+                            <div><a class="cant-find" tabindex="0" data-toggle="collapse" data-target="#restaurantLocatorForm" role="button">${restInfo.locatorSearchText}</a></div>
+                            
+                        <!--/#restaurantLocatorOpenModalBtn-->
+                        <div id="restaurantLocatorForm" class="restaurantLocatorForm collapse">
+                            <div class="container-fluid no-gutter">
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-6 col-sm-push-6">
+                                        <div class="form-group">
+                                            <label class="control-label" for="">&nbsp;</label>
+                                            <div class="clear"></div>
+                                        </div>
+                                    </div>
+                                    <input type="hidden" name="resNtlStrNumber" id="resNtlStrNumber" maxlength="40">
+                                    <div class="col-xs-12 col-sm-6 col-sm-pull-6">
+                                        <div class="form-group"> <label class="control-label" for="restAddress-head-label">${restInfo.resAddress}</label> <input type="text" name="restAddress" id="restAddress" class="form-control ${restInfo.resAddressReq}" placeholder="" aria-labelledby="restAddress-error" aria-label="${restInfo.resAddress}" maxlength="40"> </div>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-3">
+                                        <div class="form-group"> <label class="control-label" for="restCity-head-label">${restInfo.resCity}</label> <input type="text" name="restCity" id="restCity" class="form-control ${restInfo.resCityReq}" placeholder="" aria-labelledby="restCity-error" aria-label="${restInfo.resCity}" maxlength="30"> </div>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-3">
+                                        <div class="form-group resstateclass">
+                                            <label class="control-label" for="resStateValue" id="resStateTextID">${restInfo.resStateText}</label>
+                                            <div class="select select--state resStateList ${restInfo.resStateReq}" id="contactUs-resstate-select">
+                                                <select id="contactUs-state" class="form-control" name="contactUs-state">
+                                                    <option data-hidden="true" value="">${restInfo.resStateText}</option>
+                                                    <sly data-sly-list="${restInfo.resStateOptions}">
+                                                        <option data-content="<span aria-hidden='true'>${item}</span><span class='visuallyhidden'> ${restInfo.resStateOptions[item]} </span>" value="${item}">${item}</option>
+                                                    </sly>
+                                                </select>
+                                                <input type="text" class="hidden" id="contactUs-resstate-input" name="restState" maxlength="6">
+                                                <label id="contactUs-state-label" class="error" for="contactUs-resstate-input"></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-6">
+                                        <div class="form-group"> <label class="control-label" for="restLandmark">${restInfo.landmark}</label> <a href="#" data-sly-test="${restInfo.landmarkPopupContent}" role="button" data-toggle="popover" aria-label="popover toggle" data-placement="left" data-trigger="focus" tabindex="0" title="${restInfo.landmarkPopupTitle}" data-content="${restInfo.landmarkPopupContent}" class="pull-right" data-original-title="${restInfo.landmarkPopupTitle}"><i class="fa fa-info-circle"></i></a> <input type="text" name="restLandmark" id="restLandmark" class="form-control placeholder ${restInfo.landmarkReq}" placeholder="" aria-label="${restInfo.landmark}" maxlength="80"> </div>
+                                    </div>
+                                    <div class="clear"></div>
+                                    <div class="col-xs-12 col-sm-6">
+                                        <div class="row">
+										   <fieldset>
+										      <div class="col-xs-12">
+										         <legend>${restInfo.dateText}</legend>
+										      </div>
+										      <div class="col-xs-12 col-sm-4">
+										         <div class="form-group">
+										            <div class="select ${restInfo.dateOfVisitReq}" id="contactUs-month-select">
+										               <!-- <label for="title-select-month" id="title-select-month-label" class="visuallyhidden" aria-hidden="true">Month</label>  -->
+										               <select class="form-control" id="month-select">
+										               		<option data-hidden="true" value="">${restInfo.adaTextForMonthField}</option>
+										               </select>
+										            </div>
+										            <input type="text" class="hidden" id="contactUs-month-input" name="monthInput" maxlength="6">
+										            <label id="month-select-label" class="error" for="contactUs-month-input"></label>
+										         </div>
+										      </div>
+										      <div class="col-xs-12 col-sm-4">
+										         <div class="form-group">
+										            <div class="select ${restInfo.dateOfVisitReq}" id="contactUs-day-select">
+										               <!-- <label for="title-select-day" id="title-select-day-label" class="visuallyhidden" aria-hidden="true">Day</label>  -->
+										               <select class="form-control" id="day-select">
+										                  	<option data-hidden="true" value="">${restInfo.adaTextForDayField}</option>
+		                                                    <sly  data-sly-list="${restInfo.dayOptions}">
+		                                                        <option value="${item}">${item}</option>
+		                                                    </sly>
+										               </select>
+										            </div>
+										            <input type="text" class="hidden" id="contactUs-day-input" name="dayInput" maxlength="6">
+										            <label id="day-select-label" class="error" for="contactUs-day-input"></label>
+										         </div>
+										      </div>
+										      <div class="col-xs-12 col-sm-4">
+										         <div class="form-group">
+										            <div class="select ${restInfo.dateOfVisitReq}" id="contactUs-year-select">
+										               <!-- <label for="title-select-year" id="title-select-year-label" class="visuallyhidden" aria-hidden="true">Year</label> -->
+										               <select class="form-control" id="year-select">
+										                  	<option data-hidden="true" value="">${restInfo.adaTextForYearField}</option>
+										               </select>
+										            </div>
+										            <input type="text" class="hidden" id="contactUs-year-input" name="yearInput" maxlength="6">
+										            <label id="year-select-label" class="error" for="contactUs-year-input"></label>
+										         </div>
+										      </div>
+										   </fieldset>
+										   <input type="text" name="incidentDate" id="resDate" class="hidden form-control hidden ${restInfo.dateOfVisitReq}" aria-label="${restInfo.dateText}" maxlength="30">
+										   <label id="invalid-entered-date" for="resDate" generate="true" class="error pl15"></label>
+										</div>
+                                    </div>
+                                    <div class="col-xs-6 col-sm-3" data-sly-test="${restInfo.timeOptions}">
+                                        <div class="form-group">
+                                            <label class="control-label" for="">&nbsp;</label>
+                                            <div class="select select--@@modifiers">
+                                                <select aria-label="Select a time" class="form-control" name="time" id="resTime" data-sly-list="${restInfo.timeOptions}">
+                                                    <option value="${item}">${item}</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6 col-sm-3" data-sly-test="${restInfo.periodOptions}">
+                                        <div class="form-group">
+                                            <label for="">&nbsp;</label>
+                                            <div class="select select--@@modifiers">
+                                                <select aria-label="Select AM or PM" class="form-control" name="ampm" id="resPeriod" data-sly-list="${restInfo.periodOptions}">
+                                                    <option value="${item}">${item}</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="clear"></div>
+                                    <div class="col-xs-12">
+                                        <div class="form-group ${restInfo.visitTypeReq}" id="contactUs-visitType">
+                                            <div class="radio"> <input type="radio" name="visitType" id="contactUs-driveThru" value="${restInfo.driveThruValue}" aria-label="${restInfo.driveThru}" aria-labelledby="contactUS-driveThru-error"> <label for="contactUs-driveThru">
+                                                ${restInfo.driveThru}
+                                            </label>
+                                            </div>
+                                            <div class="radio"> <input type="radio" name="visitType" id="contactUs-inStore" value="${restInfo.inStoreValue}" aria-label="${restInfo.inStore}" aria-labelledby="contactUS-driveThru-error"> <label for="contactUs-inStore">
+                                                ${restInfo.inStore}
+                                            </label>
+                                            </div>
+                                            <label id="contactUS-driveThru-error" for="visitType" generated="true" class="error"></label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/#restaurantLocatorForm-->
+                    </div>
+                    <!--/#restaurantLocatorFormContainer-->
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+    <div style="display:none;">
+        <div id="restAddress-message">${restInfo.resAddressMessage}</div>
+        <div id="restCity-message">${restInfo.resCityMessage}</div>
+        <div id="restState-message">${restInfo.resStateMessage}</div>
+        <div id="restLandmark-message">${restInfo.landmarkMessage}</div>
+        <div id="resDate-validation-message">${restInfo.dateOfVisitValidationMessage}</div>
+        <div id="visitType-message">${restInfo.visitTypeValidationMessage}</div>
+        <div id="generalize-drop-down-message">${restInfo.dropDownValidationText}</div>
+    </div>
+   
+</sly>

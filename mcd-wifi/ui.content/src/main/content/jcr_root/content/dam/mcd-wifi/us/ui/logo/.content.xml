@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="sling:OrderedFolder">
+    <jcr:content
+        cq:lastModified="{Date}2016-06-03T15:20:20.964+05:30"
+        cq:lastModifiedBy="admin"
+        jcr:primaryType="nt:unstructured"
+        jcr:title="Logo">
+        <folderThumbnail/>
+    </jcr:content>
+    <mcd-logo.png/>
+    <mcd-logo-Medium.png/>
+    <mcd-logo-Small.png/>
+    <mcd-logo-2.png/>
+    <mcd-logo-Large.png/>
+    <WiFiLogo_grey.png/>
+</jcr:root>

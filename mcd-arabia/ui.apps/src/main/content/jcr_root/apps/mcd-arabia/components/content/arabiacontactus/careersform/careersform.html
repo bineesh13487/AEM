@@ -1,0 +1,70 @@
+<sly data-sly-use.formInfo="com.mcd.rwd.arabia.core.sightly.CareersFormHandler">
+    <sly data-sly-test="${!formInfo.coverletter && !wcmmode.disabled}">
+        <p>Please configure contactus forms in dialog.</p>
+    </sly>
+    <section class="row-title page-contact-us__subpage__about-yourself  paddTop0" >
+        <div class="container">
+            <div class="row">
+                <sly data-sly-test="${formInfo.coverLetter}">
+                    <div class="col-xs-12 col-sm-6">
+                        <div class="form-group">
+                            <label class="control-label" for="">${formInfo.coverLetter}
+                                <sup class="asteriskAr" data-sly-test="${formInfo.coverLetterReq=='yes'}">*</sup> </label>
+                            <textarea  aria-labelledby="contactUs-cover-label" name="applicantCoverLetter" id="enter-coverLetterArabia" rows="5" class="form-control  placeholder ${formInfo.coverLetterReq}" aria-label="${formInfo.coverLetter}"></textarea>
+                        </div>
+                    </div>
+                </sly>
+            </div>
+                <sly data-sly-test="${formInfo.uploadCv}">
+                    <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-md-6">
+                        <div class="container-fluid no-gutter browsefocus">
+                            <label class="control-label" for="">${formInfo.uploadCv}
+                                <sup class="asteriskAr" data-sly-test="${formInfo.uploadCvReq=='yes'}">*</sup></label>
+                            <div class="row">
+                                <div class="col-xs-7 col-sm-7 col-md-8">
+                                    <div class="form-group">
+                                        <input id="contactus-file-input-1" name="uploadedCvFileName"  type="text" class="form-control whiteBg placeholder ${formInfo.uploadCvReq}" readonly="readonly"> </div>
+                                </div>
+                                <div class="col-xs-5 col-sm-5 col-md-4"> <input type="file" name="uploadCV" id="file1" class="input-red"  maxlength="200">
+                                    <label class="floatRght" for="file1">${formInfo.uploadButtonText}</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+					</div>
+                </sly>
+
+        
+                <sly data-sly-test="${formInfo.deptName}">
+                    <div class="row">
+                    <div class="col-xs-12 col-sm-6 ">
+                        <div class="form-group">
+                            <div class="select dropDownHeight ${formInfo.deptNameReq}" id="contactUs-dept-select" name="contactUs-dept-select" aria-labelledby="contactUs-dept-select-error">
+                                <label class="control-label" for="">${formInfo.deptName}
+                                    <sup class="asteriskAr" data-sly-test="${formInfo.deptNameReq=='yes'}">*</sup></label>
+                                <select id="deptValue" class="form-control" name="select-dept" title="">
+
+                                    <sly data-sly-list="${formInfo.deptNameOptions}">
+                                        <option value="${item}">${item}</option>
+                                    </sly>
+                                </select>
+                                <input type="text" class="hidden" id="contactUs-dept-input" name="department">
+                            </div>
+                        </div>
+                    </div>
+					</div>
+                </sly>
+            
+        </div>
+    </section>
+    <div style="display:none;">
+        <div id="contactUs-deptname-message">${formInfo.deptNameMessage}</div>
+        <div id="contactUs-uplaodcv-message">${formInfo.uplaodCvMessage}</div>
+        <div id="contactUs-cover-letter-message">${formInfo.coverLetterMessage}</div>
+         <input type="hidden" name="celebrationInfoFieldList" id="celebrationInfoFieldList" value="${formInfo.formFieldList}">
+    </div>
+
+</sly>
+
+

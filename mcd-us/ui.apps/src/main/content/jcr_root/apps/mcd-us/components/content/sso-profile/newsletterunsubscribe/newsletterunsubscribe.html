@@ -1,0 +1,22 @@
+<sly data-sly-use.unsubscribe="com.mcd.rwd.us.core.sso_profile.NewsletterUnsubscribe"/>
+<div tabindex="0" class="main sso-full-height ssoMainContent" role="main">
+    <div class="container" ng-controller="NewsletterUnsubscribeController" ng-cloak redirect="${unsubscribe.redirectOnSuccessHref}">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+                <h1 class="sso-h1">${unsubscribe.newsletterUnsubscribeFormTitle}</h1>
+                <h2 class="sso-h2">${unsubscribe.newsletterUnsubscribeFormSubtitle}</h2>
+                <div class="sso-spacer-wrapper"></div>
+                <div class="sso-preloader" ng-show="preloader"></div>
+                <valid-form submitbtntext="${unsubscribe.unsubscribeButtonText}"
+                            inputs="${unsubscribe.directiveInputsJson}"
+                            requiredfieldstext="${unsubscribe.requiredFieldsText}"
+                            error-msg="errorMsg"
+                            submit-fn="submitFn(session, ref)" form-name="formName" session="session" ref="ref">
+                </valid-form>
+                <div class="sso-cta-link-spacer-align">
+                    <a data-sly-test="${unsubscribe.manageSubscriptionHref}" href="${unsubscribe.manageSubscriptionHref}" title="${unsubscribe.manageSubscriptionLinkTitle}" class="sso-cta-link">${unsubscribe.manageSubscriptionLinkTitle}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

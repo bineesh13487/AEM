@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+    <filter root="/apps/mcd-us">
+        <exclude pattern="/apps/mcd-us/install" />
+    </filter>
+    <!-- commenting below until entire other overlayed code in higher env brought to code base -->
+    <!-- <filter root="/apps/cq"/> -->
+    <filter root="/etc/clientlibs/mcd-us"/>
+    <filter root="/etc/clientlibs/mcd-usRTL"/>
+    <filter root="/etc/languages"/>
+</workspaceFilter>

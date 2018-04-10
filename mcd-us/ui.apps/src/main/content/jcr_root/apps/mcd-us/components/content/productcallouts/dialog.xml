@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Dialog"
+    height="600"
+    width="800"
+    xtype="dialog">
+    <items
+        jcr:primaryType="cq:Widget"
+        hideAllTabs="function(){&#xa;&#x9;var tabs=['static1','static2','static3','static4'];&#xa;&#x9;for(var i=0;i&lt;tabs.length;i++){&#xa;&#x9;&#x9;this.hideTabStripItem(i+1);&#xa;&#x9;}&#xa;}"
+        manageTabs="function(tab,noSwitch){&#xa;&#x9;var tabs=['static1','static2','static3','static4'];&#xa;&#x9;for(var j=0; j&lt;tab.length; j++) {&#xa;&#x9;&#x9;var index=tabs.indexOf(tab[j]);&#xa;&#x9;&#x9;if(index==-1) return;&#xa;&#x9;&#x9;for(var i=0;i&lt;tabs.length;i++){&#xa;&#x9;&#x9;&#x9;if(index==i){&#xa;&#x9;&#x9;&#x9;&#x9;this.unhideTabStripItem(i+1);&#xa;&#x9;&#x9;&#x9;}&#xa;&#x9;&#x9;}&#xa;&#x9;}&#xa;&#x9;this.doLayout();&#xa;}"
+        xtype="tabpanel">
+        <items jcr:primaryType="cq:WidgetCollection">
+            <general
+                jcr:primaryType="cq:Panel"
+                title="General Settings">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <number
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Number of Callouts to be displayed on the page."
+                        fieldLabel="No. of Callouts"
+                        name="./number"
+                        type="select"
+                        xtype="selection">
+                        <options jcr:primaryType="cq:WidgetCollection">
+                            <three
+                                jcr:primaryType="nt:unstructured"
+                                text="3"
+                                value="3"/>
+                            <four
+                                jcr:primaryType="nt:unstructured"
+                                text="4"
+                                value="4"/>
+                        </options>
+                        <listeners
+                            jcr:primaryType="nt:unstructured"
+                            loadcontent="function(){&#xa;&#x9;var tabPanel = this.findParentByType('tabpanel');&#xa;&#x9;var number = this.getValue();&#xa;&#x9;tabPanel.hideAllTabs();&#xa;&#x9;var tabType = 'static';&#xa;&#x9;&#xa;&#x9;var tabs = [];&#xa;&#x9;for(var i=1; i&lt;=number; i++) {&#xa;&#x9;&#x9;tabs.push(tabType+i);&#xa;&#x9;}&#xa;&#x9;tabPanel.manageTabs(tabs,true);&#xa;}"
+                            selectionchanged="function(box, value) {&#xa;&#x9;var tabPanel = box.findParentByType('tabpanel');&#xa;&#x9;tabPanel.hideAllTabs();&#xa;&#x9;var tabType = 'static';&#xa;&#x9;&#xa;&#x9;var tabs = [];&#xa;&#x9;for(var i=1; i&lt;=value; i++) {&#xa;&#x9;&#x9;tabs.push(tabType+i);&#xa;&#x9;}&#xa;&#x9;tabPanel.manageTabs(tabs,true);&#xa;}"/>
+                    </number>
+                </items>
+            </general>
+            <static1
+                jcr:primaryType="cq:Panel"
+                title="Callout 1">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <calloutwidth
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Width"
+                        name="./static1/width"
+                        type="select"
+                        xtype="selection">
+                        <options jcr:primaryType="cq:WidgetCollection">
+                            <col-3
+                                jcr:primaryType="cq:Widget"
+                                text="~25%"
+                                value="3"/>
+                            <col-4
+                                jcr:primaryType="cq:Widget"
+                                text="~33%"
+                                value="4"/>
+                            <col-6
+                                jcr:primaryType="cq:Widget"
+                                text="~50%"
+                                value="6"/>
+                        </options>
+                    </calloutwidth>
+                    <link
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Please choose or enter any URL of scaffolding page."
+                        fieldLabel="Link*"
+                        name="./static1/link"
+                        rootPath="/content"
+                        xtype="pathfield"/>
+                </items>
+                <listeners
+                    jcr:primaryType="nt:unstructured"
+                    render="function() { this.findParentByType('tabpanel').hideTabStripItem(1); }"/>
+            </static1>
+            <static2
+                jcr:primaryType="cq:Panel"
+                title="Callout 2">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <calloutwidth
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Width"
+                        name="./static2/width"
+                        type="select"
+                        xtype="selection">
+                        <options jcr:primaryType="cq:WidgetCollection">
+                            <col-3
+                                jcr:primaryType="cq:Widget"
+                                text="~25%"
+                                value="3"/>
+                            <col-4
+                                jcr:primaryType="cq:Widget"
+                                text="~33%"
+                                value="4"/>
+                            <col-6
+                                jcr:primaryType="cq:Widget"
+                                text="~50%"
+                                value="6"/>
+                        </options>
+                    </calloutwidth>
+                    <link
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Please choose or enter any URL of scaffolding page."
+                        fieldLabel="Link*"
+                        name="./static2/link"
+                        rootPath="/content"
+                        xtype="pathfield"/>
+                </items>
+                <listeners
+                    jcr:primaryType="nt:unstructured"
+                    render="function() { this.findParentByType('tabpanel').hideTabStripItem(2); }"/>
+            </static2>
+            <static3
+                jcr:primaryType="cq:Panel"
+                title="Callout 3">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <calloutwidth
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Width"
+                        name="./static3/width"
+                        type="select"
+                        xtype="selection">
+                        <options jcr:primaryType="cq:WidgetCollection">
+                            <col-3
+                                jcr:primaryType="cq:Widget"
+                                text="~25%"
+                                value="3"/>
+                            <col-4
+                                jcr:primaryType="cq:Widget"
+                                text="~33%"
+                                value="4"/>
+                            <col-6
+                                jcr:primaryType="cq:Widget"
+                                text="~50%"
+                                value="6"/>
+                        </options>
+                    </calloutwidth>
+                    <link
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Please choose or enter any URL of scaffolding page."
+                        fieldLabel="Link*"
+                        name="./static3/link"
+                        rootPath="/content"
+                        xtype="pathfield"/>
+                </items>
+                <listeners
+                    jcr:primaryType="nt:unstructured"
+                    render="function() { this.findParentByType('tabpanel').hideTabStripItem(3); }"/>
+            </static3>
+            <static4
+                jcr:primaryType="cq:Panel"
+                title="Callout 4">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <calloutwidth
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Width"
+                        name="./static4/width"
+                        type="select"
+                        xtype="selection">
+                        <options jcr:primaryType="cq:WidgetCollection">
+                            <col-3
+                                jcr:primaryType="cq:Widget"
+                                text="~25%"
+                                value="3"/>
+                            <col-4
+                                jcr:primaryType="cq:Widget"
+                                text="~33%"
+                                value="4"/>
+                            <col-6
+                                jcr:primaryType="cq:Widget"
+                                text="~50%"
+                                value="6"/>
+                        </options>
+                    </calloutwidth>
+                    <link
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Please choose or enter any URL of scaffolding page."
+                        fieldLabel="Link*"
+                        name="./static4/link"
+                        rootPath="/content"
+                        xtype="pathfield"/>
+                </items>
+                <listeners
+                    jcr:primaryType="nt:unstructured"
+                    render="function() { this.findParentByType('tabpanel').hideTabStripItem(4); }"/>
+            </static4>
+        </items>
+    </items>
+    <listeners
+        jcr:primaryType="nt:unstructured"
+        beforesubmit="function(dialog){&#xa;//validate static callout mandatory fields.&#xa;&#x9;var number = dialog.getField('./number').getValue();&#xa;&#x9;var type = dialog.getField('./type').getValue();&#xa;&#x9;for(var i=1; i&lt;=number; i++) {&#xa;&#x9;&#x9;if(type=='static'){&#xa;&#x9;&#x9;&#x9;var fieldValue = dialog.getField('./static'+i+'/link').getValue();&#xa;&#x9;&#x9;&#x9;if( fieldValue==''){&#xa;&#x9;&#x9;&#x9;&#x9;CQ.Ext.Msg.show({title: 'Callout Validation',  msg: 'Please provide the mandatory configurations for Callout '+i+'.',icon:CQ.Ext.MessageBox.WARNING,buttons: CQ.Ext.Msg.OK});&#xa;&#x9;&#x9;&#x9;&#x9;return false;&#xa;&#x9;&#x9;&#x9;}&#xa;&#x9;&#x9;}&#xa;&#x9;}&#xa;&#x9;&#xa;//validate column width for all callouts.&#xa;&#x9;var fcpWdth= 0;&#xa;&#x9;for(var i=1; i&lt;=number; i++) {&#xa;&#x9;var callOutWidthObj = dialog.getField('./static'+i+'/width').getValue();&#xa;    &#x9;&#x9;&#x9;&#x9;fcpWdth = fcpWdth + parseInt(callOutWidthObj);&#xa;&#x9; &#x9;}&#xa;&#x9;&#x9;if(fcpWdth !==12){&#xa;&#x9;&#x9;&#x9;&#x9;CQ.Ext.Msg.show({title: 'Callout Width Validation',  msg: 'Please provide proper width for Feature Call Out',icon:CQ.Ext.MessageBox.WARNING,buttons: CQ.Ext.Msg.OK});&#xa;&#x9;&#x9;&#x9;&#x9;&#x9; return false;&#xa;&#x9;&#x9;&#x9;&#x9;}&#xa;}"/>
+</jcr:root>

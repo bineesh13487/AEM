@@ -1,0 +1,63 @@
+<li data-ng-repeat="restaurant in restaurants">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 cont-details">
+            	<p class="location-alert">{{restaurant.properties.storeNotice}}</p>
+                <p class="heading" ng-clock>
+                    {{fullRlData.mcdName}}<span class="light" ng-clock>{{fullRlData.on}} {{firstRestaurantName}}</span>
+                </p>
+                <div class="row no-gutter cont-map">
+                    <div class="col-xs-6 cont-img">
+                    <div class="map-container-nav"> 
+                       <div id='gmap_canvas_nav' class="nav-map" style='height:100%;width:100%;'></div>
+                                      <style>
+                                        #gmap_canvas_nav img {
+                                          max-width: none!important;
+                                          background: none!important
+                                        }
+                                      </style>
+                                     </div> 
+                    </div>
+                    <div class="col-xs-6 cont-text">
+                        <div class="wrapper">
+                            <p class="light" ng-bind="restaurant.properties.name?restaurant.properties.name:restaurant.properties.addressLine1">
+                             <p class="light" ng-bind-html="getRestaurantFullAddress1(restaurant.properties.name, restaurant.properties.addressLine1, restaurant.properties.addressLine3, restaurant.properties.subDivision, restaurant.properties.postcode)">
+                            </p>
+                            <p class="text">
+                                {{restaurant.properties.distance}} {{fullRlData.distanceUnitLocal}} {{fullRlData.away}} :
+                            </p>
+                            <a target="_blank" data-at="Exit:{{fullRlData.page_name}}:{{fullRlData.directionLinkName}}" data-track="externalLink" ng-href="http://maps.google.com/?saddr={{currentLatitude}},{{currentLongitude}}&daddr={{restaurant.geometry.coordinates[1]}},{{restaurant.geometry.coordinates[0]}}"
+                               title="{{fullRlData.directionLinkName}}" class="simple-red external">{{fullRlData.directionLinkName}}</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="checkbox" ng-show="showGeo">
+                        <input type="checkbox" ng-click="setPrefered(restaurant)" name="preferred-location-mobile" id="preferred-location-mobile" role="checkbox" aria-checked="false">
+                        <label for="preferred-location-mobile" ng-clock>{{fullRlData.preferedText}}</label>
+                    </div>
+                </div>
+                <p class="hours">{{fullRlData.todayrestauranthours}}: <br/>
+                    <span class="light" ng-bind="todayRestaurantHours(restaurant)"></span>
+                </p>
+                <p class="text">{{fullRlData.phoneHeading}}: <br/>
+				 <a x-cq-linkchecker="skip" ng-href="{{getPhoneNumber(restaurant.properties.telephone)}}" class="phone" aria-label="{{restaurant.properties.telephoneTitle}}">
+                    <span class="light">{{restaurant.properties.telephone}}</span>
+				</a>
+                </p>
+                <p class="text">{{fullRlData.serviceText}}: <br/> 
+                <div ng-repeat="selfilter in getFilterName(restaurant)">
+                    <span class="light">{{selfilter.filterName}}</span>
+                </div>
+                </p>
+                <p ng-show="showPrefered" class="change-location">
+                    <a ng-href="{{fullRlData.restLocPath}}" aria-label="{{fullRlData.changeLocation}}" title="{{fullRlData.changeLocation}}" ng-clock>{{fullRlData.changeLocation}}</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <li class="visuallyhidden">
+	   <a href="javaScript:void(0);" class="end-menu"></a>
+	 </li>
+</li>

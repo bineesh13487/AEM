@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html data-sly-use.redirect="com.mcd.rwd.global.core.sightly.page.Redirect" ng-app="usr" data-sly-use.articleDetail="com.mcd.rwd.newsroom.core.sightly.ArticleDetailPageHandler">
+<sly data-sly-test.hasRedirect="${ redirect.path }" data-sly-include="redirect.html"></sly>
+<sly data-sly-test="${!hasRedirect}">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"
+          data-sly-use.meta="com.mcd.rwd.global.core.sightly.page.PageMeta"
+          data-sly-use.headlibRenderer="headlibs.html"
+          data-sly-use.clientLib="${'/libs/granite/sightly/templates/clientlib.html'}">
+    <meta name="keywords" content="${meta.keywords @ context = 'attribute'}">
+    <meta name="description" content="${articleDetail.detailBean.articleDescription @ context = 'attribute'}">
+    <meta name="thumbnail" content="${articleDetail.detailBean.articleImagePath @ context = 'attribute'}">
+    <meta name="pagetype" content="${meta.pageType}">
+    <meta name="title" content="${articleDetail.detailBean.articleTitle @ context='html'}">
+    <!--/* Meta Tags used by social sites to display appropriate information when sharing the page. */-->
+    <meta property="og:type" content="${ meta.ogType }">
+    <meta property="og:url" content="${ meta.ogUrl }">
+    <meta property="og:title" content="${articleDetail.detailBean.articleTitle @ context='html' }">
+    <meta property="og:description" content="${articleDetail.detailBean.articleDescription @ context = 'attribute'}">
+    <meta property="og:image" content="${ meta.ogImg }">
+    <meta property="twitter:card" content="summary">
+    <meta property="twitter:site" content="${ meta.twitterHandle }">
+
+    <!--/*Canonical Url For the page */-->
+    <sly data-sly-test.scheme="${request.scheme}"/>
+    <sly data-sly-test.servername="${request.serverName}"/>
+    <link data-sly-test="${meta.ogUrl}" rel="canonical" href="${scheme}://${servername}${meta.ogUrl}.html" />
+    <sly data-sly-call="${headlibRenderer.headlibs @ designPath = meta.designPath}"/>
+    <sly data-sly-include="author.html"/>
+
+    <!--/* Leaving it blank to add project specific libraries if required */-->
+    <sly data-sly-include="customheaderlibs.html"/>
+    <link data-sly-test="${meta.faviconPath}" rel="icon" type="image/vnd.microsoft.icon"
+          href="${meta.faviconPath}"/>
+    <link data-sly-test="${meta.faviconPath}" rel="shortcut icon" type="image/vnd.microsoft.icon"
+          href="${meta.faviconPath}"/>
+    <!-- <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet"> -->
+    <title>${articleDetail.detailBean.articleTitle @ context = 'unsafe'}</title>
+
+    <sly data-sly-test="${wcmmode.disabled}">
+        <SCRIPT LANGUAGE = javascript>
+                                                                document.addEventListener("DOMContentLoaded", function(event) {
+                                                                if (self != top)
+                                                                window.open(self.document.location,"_top","");
+                                                                });
+                                                </SCRIPT>
+    </sly>
+
+    <body data-sly-include="body.html" ng-controller="MainController as main"></body>
+</sly>
+</html>

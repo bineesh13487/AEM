@@ -1,0 +1,165 @@
+// COMPONENT: CAROUSEL/GALLERY
+.fancybox-overlay-fixed {
+	overflow: hidden !important;
+}
+
+.carousel-video {
+
+	.fancybox-inner {
+		overflow: hidden !important;
+		zoom: 1 !important;
+	}
+
+	.fancybox-skin {
+		background: transparent;
+		@include border-radius(0px);
+		@include box-shadow(0, 0, 0);
+	}
+
+	.video-title {
+		margin-top: 0;
+		margin-left: 15px;
+		color: $white;
+		@include fontSet(24px, 26px, 'Droid_Arabic_Kufi_Bold');
+
+		@media only screen and (min-width: 480px) {
+			@include fontSet(28px, 28px, 'Droid_Arabic_Kufi_Bold');
+		}
+		@media only screen and (min-width: 768px) {
+			@include fontSet(30px, 30px, 'Droid_Arabic_Kufi_Bold');
+		}
+	}
+	.cont-playlist {
+		overflow-y: scroll;
+		margin-top: 5px;
+		//max-height: 150px;
+		max-height: 35vh;
+
+		@media only screen and (min-width: 480px) {
+			//max-height: 200px;
+		}
+		@media only screen and (min-width: 768px) {
+			//max-height: 250px;
+		}
+
+		// scrollbar styles
+		&::-webkit-scrollbar {
+			width: 10px;
+		}
+		&::-webkit-scrollbar-track {
+			background: $gray;
+			border-radius: 10px;
+		}
+		&::-webkit-scrollbar-thumb {
+			border: 3px solid transparent;
+			background: #858585;
+			border-radius: 10px;
+			background-clip: content-box;
+		}
+
+		li {
+			padding: 5px 0;
+		}
+		.media-object {
+			max-width: 70px;
+			margin: 5px;
+
+			@media only screen and (min-width: 480px) {
+				max-width: 100px;
+			}
+			@media only screen and (min-width: 768px) {
+				max-width: 140px;
+			}
+		}
+		.media-body {
+			padding-left: 15px;
+			color: $white;
+			@include fontSet(14px, 26px, 'Droid_Arabic_Kufi_Regular');
+
+			@media only screen and (min-width: 480px) {
+				@include fontSet(16px, 26px, 'Droid_Arabic_Kufi_Regular');
+			}
+			@media only screen and (min-width: 768px) {
+				@include fontSet(18px, 26px, 'Droid_Arabic_Kufi_Regular');
+			}
+		}
+		.media-heading {
+			@include fontSet(18px, 26px, 'Droid_Arabic_Kufi_Bold');
+			margin-bottom: 0px;
+
+			@media only screen and (min-width: 480px) {
+				@include fontSet(20px, 26px, 'Droid_Arabic_Kufi_Bold');
+			}
+			@media only screen and (min-width: 768px) {
+				margin-bottom: 10px;
+				@include fontSet(24px, 26px, 'Droid_Arabic_Kufi_Bold');
+			}
+		}
+		.media {
+			cursor: pointer;
+
+			&:hover {
+				.media-object {
+					outline: 5px solid $red-hover;
+				}
+			}
+		}
+		.active {
+			.media {
+				cursor: auto;
+
+				.media-object {
+					outline: 5px solid $red;
+				}
+			}
+		}
+	}
+}
+
+.component-video {
+	display: none;
+
+	// for tablet and mobile landscape
+	@media all and (max-width:768px) and (orientation:landscape) {
+		max-width: 40%!important;
+    	margin: auto;
+
+    	.video-title {
+			@include fontSet(20px, 26px, 'Droid_Arabic_Kufi_Bold');
+			margin-left: 0;
+		}
+
+    	.cont-playlist {
+		    //max-height: 100px;
+			max-height: 35vh;
+
+		    .media-object {
+		    	max-width: 40px;
+		    }
+		}
+    }
+
+    @media all and (min-width:769px) and (max-width:1024px) and (orientation:landscape) {
+		max-width: 75%!important;
+    	margin: auto;
+
+    	.video-title {
+			@include fontSet(20px, 26px, 'Droid_Arabic_Kufi_Bold');
+			margin-left: 0;
+		}
+
+    	.cont-playlist {
+		    //max-height: 150px;
+			max-height: 35vh;
+
+		    .media-object {
+		    	max-width: 90px;
+		    }
+		}
+    }
+
+	> .container {
+		max-width: 650px;
+		width: 100%;
+	}
+}

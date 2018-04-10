@@ -1,0 +1,226 @@
+.page-sign-in {
+	.cont-hero .text-wrapper {
+		text-align: center;
+		padding-top: 100px;
+	}
+	.tabs-container .tabs li a {
+		text-transform: uppercase;
+	}
+	.template-hero-bg {
+		min-height: 350px;
+
+		@include breakpoint(sm) {
+			min-height: 400px;
+		}
+
+		h1,
+		.h1 {
+			margin: 0;
+		}
+	}
+	.template-hero {
+		margin-bottom: 0;
+		min-height: 350px;
+
+		@include breakpoint(sm) {
+			min-height: 400px;
+		}
+
+		h1,
+		.h1 {
+			margin: 0;
+		}
+	}
+	.table {
+		table-layout: fixed;
+		word-wrap: break-word;
+	}
+	.template-body-copy {
+		@include fontSet(22px, 32px, $font-lovinsans);
+
+		@include breakpoint(sm) {
+			@include fontSet(26px, 36px, $font-lovinsans);
+		}
+	}
+	.template-body-copy-subheading {
+		@include fontSet(22px, 32px, $font-lovinsans-medium);
+
+		@include breakpoint(sm) {
+			@include fontSet(26px, 36px, $font-lovinsans-medium);
+		}
+	}
+	.cont-feature-callout {
+		margin-bottom: 0px;
+
+		@include breakpoint(sm) {
+			margin-bottom: 50px;
+		}
+	}
+	.cont-headline {
+		margin-top: 15px;
+		text-align: center;
+
+		@include breakpoint(sm) {
+			margin-top: 50px;
+			text-align: left;
+		}
+	}
+	.cont-btn {
+		text-align: center;
+		margin: 30px 0 50px;
+	}
+	.cont-disclaimer {
+		text-align: center;
+		margin-top: 50px;
+	}
+	.cont-profile {
+		.cont-btn .simple-red {
+			margin-top: 15px;
+			font-family: $font-lovinsans-medium;
+		}
+	}
+	.cont-copy {
+		color: $gray;
+
+		h2,
+		.h2 {
+			font-family: $font-lovinsans-medium;
+		}
+		.template-body-copy-subheading {
+			margin-bottom: 0;
+		}
+		.template-body-copy {
+			margin-bottom: 15px;
+		}
+
+		.checkbox {
+			margin: 0;
+
+			label {
+				color: $gray;
+				margin-bottom: 25px;
+				letter-spacing: 0.01em;
+				@include fontSet(22px, 32px, $font-lovinsans);
+
+				@include breakpoint(sm) {
+					@include fontSet(26px, 36px, $font-lovinsans);
+				}
+
+				&::before{
+					background-color: transparent;
+				}
+			}
+		}
+
+		.title-text {
+			text-align: left;
+			margin-bottom: 5px;
+			@include fontSet(26px, 26px, $font-lovinsans-medium);
+
+			@include breakpoint(sm) {
+				text-align: right;
+			}
+		}
+
+		.text {
+			@include fontSet(24px, 26px, $font-lovinsans);
+			margin-bottom: 15px;
+
+			a {
+				display: inline-block;
+				margin-left: 5px;
+				color: $red;
+				@include fontSet(20px, 26px, $font-lovinsans-medium);
+
+				&.pwd {
+					margin-left: 0;
+				}
+			}
+
+			.checkbox {
+				label {
+					@include fontSet(24px, 26px, $font-lovinsans);
+					margin-bottom: 0;
+
+					&:before {
+						top: -2px;
+					}
+
+					&:after {
+
+					}
+				}
+			}
+		}
+
+		.cont-unsubscribe {
+			margin: 30px auto 50px;
+
+			@include breakpoint(sm) {
+				margin: 50px auto 100px;
+			}
+		}
+
+		.cont-unsubscribe-form {
+			margin-bottom: 30px;
+
+			label {
+				font-family: $font-lovinsans-medium;
+
+				.required {
+					color: $gray;
+					font-family: $font-lovinsans-medium;
+					display: inline-block;
+					margin-left: 5px;
+				}
+			}
+		}
+
+		.noleft {
+			padding-left: 15px;
+
+			@include breakpoint(sm) {
+				padding-left: 0;
+			}
+		}
+	}
+	.cont-welcome {
+		.table td {
+			border: 0;
+		}
+	}
+	.cont-sign-in {
+		.cont-btn {
+			.btn {
+				margin-bottom: 15px;
+			}
+			.simple-red {
+				margin: 0;
+			}
+			.template-separator {
+				margin: 15px 0;
+			}
+		}
+		.checkbox label {
+			margin-bottom: 0;
+		}
+	}
+	.survey {
+		margin-bottom: 50px;
+	}
+
+	.modal-content {
+		.btn {
+			margin: 15px auto 0px;
+			padding:0;
+
+			@include breakpoint(sm) {
+				margin: 30px auto 15px;
+			}
+
+			&.dropdown-toggle {
+				margin: 0;
+			}
+		}
+	}
+}

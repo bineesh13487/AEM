@@ -1,0 +1,1329 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Dialog"
+    title="dialog"
+    xtype="dialog">
+    <items
+        jcr:primaryType="cq:Widget"
+        xtype="tabpanel">
+        <items jcr:primaryType="cq:WidgetCollection">
+            <personalDetails
+                jcr:primaryType="cq:Panel"
+                title="Employee Personal Details">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <empFirstName
+                        jcr:primaryType="cq:Widget"
+                        collapsed="{Boolean}true"
+                        collapsible="{Boolean}true"
+                        title="Employee First Name Details"
+                        xtype="dialogfieldset">
+                        <items jcr:primaryType="cq:WidgetCollection">
+                            <firstName
+                                jcr:primaryType="cq:Widget"
+                                defaultValue="Employee First Name"
+                                fieldLabel="Label"
+                                name="./firstName"
+                                value="Employee First Name"
+                                xtype="textfield"/>
+                            <firstNameRequired
+                                jcr:primaryType="cq:Widget"
+                                defaultValue="true"
+                                fieldDescription="Please select first name is required or not. Default set to &lt;b>Yes&lt;/b>"
+                                fieldLabel="Required"
+                                layout="hbox"
+                                name="./firstNameReq"
+                                type="radio"
+                                value="true"
+                                xtype="selection">
+                                <options jcr:primaryType="cq:WidgetCollection">
+                                    <yes
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Yes"
+                                        value="true"/>
+                                    <no
+                                        jcr:primaryType="nt:unstructured"
+                                        text="No"
+                                        value="false"/>
+                                </options>
+                                <optionsConfig
+                                    jcr:primaryType="nt:unstructured"
+                                    width="50"/>
+                            </firstNameRequired>
+                        </items>
+                    </empFirstName>
+                    <empLastName
+                        jcr:primaryType="cq:Widget"
+                        collapsed="{Boolean}true"
+                        collapsible="{Boolean}true"
+                        title="Employee Last Name Details"
+                        xtype="dialogfieldset">
+                        <items jcr:primaryType="cq:WidgetCollection">
+                            <lastName
+                                jcr:primaryType="cq:Widget"
+                                defaultValue="Employee Last Name"
+                                fieldLabel="Label"
+                                name="./lastName"
+                                value="Employee Last Name"
+                                xtype="textfield"/>
+                            <lastNameRequired
+                                jcr:primaryType="cq:Widget"
+                                defaultValue="true"
+                                fieldDescription="Please select last name is required or not. Default set to &lt;b>Yes&lt;/b>"
+                                fieldLabel="Required"
+                                layout="hbox"
+                                name="./lastNameReq"
+                                type="radio"
+                                value="true"
+                                xtype="selection">
+                                <options jcr:primaryType="cq:WidgetCollection">
+                                    <yes
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Yes"
+                                        value="true"/>
+                                    <no
+                                        jcr:primaryType="nt:unstructured"
+                                        text="No"
+                                        value="false"/>
+                                </options>
+                                <optionsConfig
+                                    jcr:primaryType="nt:unstructured"
+                                    width="50"/>
+                            </lastNameRequired>
+                        </items>
+                    </empLastName>
+                    <empEmail
+                        jcr:primaryType="cq:Widget"
+                        collapsed="{Boolean}true"
+                        collapsible="{Boolean}true"
+                        title="Employee Email Details"
+                        xtype="dialogfieldset">
+                        <items jcr:primaryType="cq:WidgetCollection">
+                            <email
+                                jcr:primaryType="cq:Widget"
+                                defaultValue="Employee Email Address"
+                                fieldDescription="Text for email field.Default set to &lt;b>Employee Email Address&lt;/b>"
+                                fieldLabel="Label"
+                                name="./email"
+                                value="Employee Email Address"
+                                xtype="textfield"/>
+                            <emailValidationMessage
+                                jcr:primaryType="cq:Widget"
+                                defaultValue="Please enter (valid) 'Your e-mail address' Information"
+                                fieldDescription="Validation message for email field.Default set to &lt;b>Please enter (valid) 'Your e-mail address' Information&lt;/b>"
+                                fieldLabel="Validation Message"
+                                name="./emailFmtValidationMessage"
+                                value="Please enter (valid) 'Your e-mail address' Information"
+                                xtype="textfield"/>
+                            <emailRequired
+                                jcr:primaryType="cq:Widget"
+                                defaultValue="true"
+                                fieldDescription="Please select Email is required or not. Default set to &lt;b>Yes&lt;/b>"
+                                fieldLabel="Required"
+                                layout="hbox"
+                                name="./emailReq"
+                                type="radio"
+                                value="true"
+                                xtype="selection">
+                                <options jcr:primaryType="cq:WidgetCollection">
+                                    <yes
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Yes"
+                                        value="true"/>
+                                    <no
+                                        jcr:primaryType="nt:unstructured"
+                                        text="No"
+                                        value="false"/>
+                                </options>
+                                <optionsConfig
+                                    jcr:primaryType="nt:unstructured"
+                                    width="50"/>
+                            </emailRequired>
+                        </items>
+                    </empEmail>
+                    <empPhoneNumber
+                        jcr:primaryType="cq:Widget"
+                        collapsed="{Boolean}true"
+                        collapsible="{Boolean}true"
+                        title="Employee Phone Number Details"
+                        xtype="dialogfieldset">
+                        <items jcr:primaryType="cq:WidgetCollection">
+                            <phoneNumber
+                                jcr:primaryType="cq:Widget"
+                                defaultValue="Employee Phone Number"
+                                fieldDescription="Text for phone number field. Default set to &lt;b>Employee Email Address&lt;/b>"
+                                fieldLabel="Label"
+                                name="./phone"
+                                value="Employee Phone Number"
+                                xtype="textfield"/>
+                            <phoneNumberRequired
+                                jcr:primaryType="cq:Widget"
+                                defaultValue="true"
+                                fieldDescription="Please select phone required and number validation should be applied or not. Default set to &lt;b>Yes&lt;/b>"
+                                fieldLabel="Required"
+                                layout="hbox"
+                                name="./phoneReq"
+                                type="radio"
+                                value="true"
+                                xtype="selection">
+                                <options jcr:primaryType="cq:WidgetCollection">
+                                    <yes
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Yes"
+                                        value="true"/>
+                                    <no
+                                        jcr:primaryType="nt:unstructured"
+                                        text="No"
+                                        value="false"/>
+                                </options>
+                                <optionsConfig
+                                    jcr:primaryType="nt:unstructured"
+                                    width="50"/>
+                            </phoneNumberRequired>
+                            <phoneNumberValidationMessage
+                                jcr:primaryType="cq:Widget"
+                                defaultValue="Please enter valid Phone Number"
+                                fieldDescription="Validation message for phone number field. Default set to &lt;b>Please enter valid Phone Number&lt;/b>"
+                                fieldLabel="Validation Message"
+                                name="./phoneValidationMessage"
+                                value="Please enter valid Phone Number"
+                                xtype="textfield"/>
+                        </items>
+                    </empPhoneNumber>
+                    <empCity
+                        jcr:primaryType="cq:Widget"
+                        collapsed="{Boolean}true"
+                        collapsible="{Boolean}true"
+                        title="Employee City"
+                        xtype="dialogfieldset">
+                        <items jcr:primaryType="cq:WidgetCollection">
+                            <city
+                                jcr:primaryType="cq:Widget"
+                                defaultValue="Employee City"
+                                fieldDescription="Text for city field. Default set to &lt;b>Employee City &lt;/b>"
+                                fieldLabel="Label"
+                                name="./city"
+                                value="Employee City"
+                                xtype="textfield"/>
+                            <cityRequired
+                                jcr:primaryType="cq:Widget"
+                                defaultValue="true"
+                                fieldDescription="Please select city is required or not. Default set to &lt;b>Yes&lt;/b>"
+                                fieldLabel="Required"
+                                layout="hbox"
+                                name="./cityReq"
+                                type="radio"
+                                value="true"
+                                xtype="selection">
+                                <options jcr:primaryType="cq:WidgetCollection">
+                                    <yes
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Yes"
+                                        value="true"/>
+                                    <no
+                                        jcr:primaryType="nt:unstructured"
+                                        text="No"
+                                        value="false"/>
+                                </options>
+                                <optionsConfig
+                                    jcr:primaryType="nt:unstructured"
+                                    width="50"/>
+                            </cityRequired>
+                        </items>
+                    </empCity>
+                    <empState
+                        jcr:primaryType="cq:Widget"
+                        collapsed="{Boolean}true"
+                        collapsible="{Boolean}true"
+                        defaultValue="true"
+                        title="Employee State"
+                        xtype="dialogfieldset">
+                        <items jcr:primaryType="cq:WidgetCollection">
+                            <stateLabel
+                                jcr:primaryType="cq:Widget"
+                                defaultValue="Employee State"
+                                fieldDescription="Default Text for state drop-down. Default set to &lt;b>Employee State&lt;/b>"
+                                fieldLabel="Label"
+                                name="./statesLabel"
+                                value="Employee State"
+                                xtype="textfield"/>
+                            <state
+                                jcr:primaryType="cq:Widget"
+                                defaultValue="Austin"
+                                fieldLabel="State List"
+                                name="./states"
+                                value="Austin"
+                                xtype="multifield">
+                                <fieldConfig
+                                    jcr:primaryType="nt:unstructured"
+                                    xtype="textfield"/>
+                            </state>
+                            <stateRequired
+                                jcr:primaryType="cq:Widget"
+                                defaultValue="true"
+                                fieldDescription="Please select phone required and number validation should be applied or not. Default set to &lt;b>Yes&lt;/b>"
+                                fieldLabel="Required"
+                                layout="hbox"
+                                name="./stateReq"
+                                type="radio"
+                                value="true"
+                                xtype="selection">
+                                <options jcr:primaryType="cq:WidgetCollection">
+                                    <yes
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Yes"
+                                        value="true"/>
+                                    <no
+                                        jcr:primaryType="nt:unstructured"
+                                        text="No"
+                                        value="false"/>
+                                </options>
+                                <optionsConfig
+                                    jcr:primaryType="nt:unstructured"
+                                    width="50"/>
+                            </stateRequired>
+                        </items>
+                    </empState>
+                </items>
+            </personalDetails>
+            <additionalDetails
+                jcr:primaryType="cq:Panel"
+                title="Employee Addtional Details">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <empPosition
+                        jcr:primaryType="cq:Widget"
+                        collapsed="{Boolean}true"
+                        collapsible="{Boolean}true"
+                        defaultValue="true"
+                        title="Employee Position Details"
+                        xtype="dialogfieldset">
+                        <items jcr:primaryType="cq:WidgetCollection">
+                            <positionDropDownDefaultText
+                                jcr:primaryType="cq:Widget"
+                                defaultValue="Employee Position"
+                                fieldDescription="Default Text for state drop-down. Default set to &lt;b>Employee Position &lt;/b>"
+                                fieldLabel="Label"
+                                name="./positionDropDownDefaultText"
+                                value="Employee Position"
+                                xtype="textfield"/>
+                            <employeePosition
+                                jcr:primaryType="cq:Widget"
+                                defaultValue="Employee"
+                                fieldDescription="Text label for state field. Default set to &lt;b>Employee &lt;/b>"
+                                fieldLabel="Position"
+                                name="./positions"
+                                value="Employee"
+                                xtype="multifield">
+                                <fieldConfig
+                                    jcr:primaryType="nt:unstructured"
+                                    xtype="textfield"/>
+                            </employeePosition>
+                            <positionRequired
+                                jcr:primaryType="cq:Widget"
+                                defaultValue="true"
+                                fieldDescription="Please select phone required and number validation should be applied or not. Default set to &lt;b>Yes&lt;/b>"
+                                fieldLabel="Required"
+                                layout="hbox"
+                                name="./positionReq"
+                                type="radio"
+                                value="true"
+                                xtype="selection">
+                                <options jcr:primaryType="cq:WidgetCollection">
+                                    <yes
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Yes"
+                                        value="true"/>
+                                    <no
+                                        jcr:primaryType="nt:unstructured"
+                                        text="No"
+                                        value="false"/>
+                                </options>
+                                <optionsConfig
+                                    jcr:primaryType="nt:unstructured"
+                                    width="50"/>
+                            </positionRequired>
+                        </items>
+                    </empPosition>
+                    <empFirstJob
+                        jcr:primaryType="cq:Widget"
+                        collapsed="{Boolean}true"
+                        collapsible="{Boolean}true"
+                        title="Employee First Job Details"
+                        xtype="dialogfieldset">
+                        <items jcr:primaryType="cq:WidgetCollection">
+                            <firstJob
+                                jcr:primaryType="cq:Widget"
+                                defaultValue="Is McDonald’s the employee's first job?"
+                                fieldDescription="Employee first job Radio Button Text. Default set to &lt;b> Is McDonald’s the employee's first job?&lt;/b>"
+                                fieldLabel="First Job"
+                                name="./employeeFirstJob"
+                                value="Is McDonald’s the employee's first job?"
+                                xtype="textfield"/>
+                            <firstJobRequired
+                                jcr:primaryType="cq:Widget"
+                                defaultValue="true"
+                                fieldDescription="Please select phone required and number validation should be applied or not. Default set to &lt;b>Yes&lt;/b>"
+                                fieldLabel="Required"
+                                layout="hbox"
+                                name="./firstJobReq"
+                                type="radio"
+                                value="true"
+                                xtype="selection">
+                                <options jcr:primaryType="cq:WidgetCollection">
+                                    <yes
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Yes"
+                                        value="true"/>
+                                    <no
+                                        jcr:primaryType="nt:unstructured"
+                                        text="No"
+                                        value="false"/>
+                                </options>
+                                <optionsConfig
+                                    jcr:primaryType="nt:unstructured"
+                                    width="50"/>
+                            </firstJobRequired>
+                            <yesText
+                                jcr:primaryType="cq:Widget"
+                                defaultValue="Yes"
+                                fieldDescription="Radio button yes text to be displayed for specific question. Default set to &lt;b>Yes&lt;/b>"
+                                fieldLabel="Yes Text"
+                                name="./firstJobYes"
+                                value="Yes"
+                                xtype="textfield"/>
+                            <noText
+                                jcr:primaryType="cq:Widget"
+                                defaultValue="No"
+                                fieldDescription="Radio button no text to be displayed for specific question. Default set to &lt;b>No&lt;/b>"
+                                fieldLabel="No Text"
+                                name="./firstJobNo"
+                                value="No"
+                                xtype="textfield"/>
+                        </items>
+                    </empFirstJob>
+                    <empAdditionalQuestions
+                        jcr:primaryType="cq:Widget"
+                        collapsed="{Boolean}true"
+                        collapsible="{Boolean}true"
+                        title="Employee Additional Questions"
+                        xtype="dialogfieldset">
+                        <items jcr:primaryType="cq:WidgetCollection">
+                            <isMcDGreatPlace
+                                jcr:primaryType="cq:Widget"
+                                collapsed="{Boolean}true"
+                                collapsible="{Boolean}true"
+                                title="Is Mcd Great Place Details"
+                                xtype="dialogfieldset">
+                                <items jcr:primaryType="cq:WidgetCollection">
+                                    <mcdGreatPlace
+                                        jcr:primaryType="cq:Widget"
+                                        defaultValue="What makes your McDonald’s a great place to work, based on the achievements you, a co-worker or an employee are working toward?"
+                                        fieldLabel="Label"
+                                        name="./isMcdGreatPlace"
+                                        value="What makes your McDonald’s a great place to work, based on the achievements you, a co-worker or an employee are working toward?"
+                                        xtype="textfield"/>
+                                    <mcdGreatPlaceRequired
+                                        jcr:primaryType="cq:Widget"
+                                        defaultValue="true"
+                                        fieldDescription="Please select first name is required or not. Default set to &lt;b>Yes&lt;/b>"
+                                        fieldLabel="Required"
+                                        layout="hbox"
+                                        name="./isMcdGreatPlaceReq"
+                                        type="radio"
+                                        value="true"
+                                        xtype="selection">
+                                        <options jcr:primaryType="cq:WidgetCollection">
+                                            <yes
+                                                jcr:primaryType="nt:unstructured"
+                                                text="Yes"
+                                                value="true"/>
+                                            <no
+                                                jcr:primaryType="nt:unstructured"
+                                                text="No"
+                                                value="false"/>
+                                        </options>
+                                        <optionsConfig
+                                            jcr:primaryType="nt:unstructured"
+                                            width="50"/>
+                                    </mcdGreatPlaceRequired>
+                                </items>
+                            </isMcDGreatPlace>
+                            <specificSkill
+                                jcr:primaryType="cq:Widget"
+                                collapsed="{Boolean}true"
+                                collapsible="{Boolean}true"
+                                title="Employee Specific Skill Set Details"
+                                xtype="dialogfieldset">
+                                <items jcr:primaryType="cq:WidgetCollection">
+                                    <specificSkillInfo
+                                        jcr:primaryType="cq:Widget"
+                                        defaultValue="What specific skills have you, a co-worker or an employee learned in the restaurant and how will these skills benefit you, a co-worker or an employee in the future?"
+                                        fieldLabel="Specific Skills"
+                                        name="./specificSkillInfo"
+                                        value="What specific skills have you, a co-worker or an employee learned in the restaurant and how will these skills benefit you, a co-worker or an employee in the future?"
+                                        xtype="textfield"/>
+                                    <specificSkillRequired
+                                        jcr:primaryType="cq:Widget"
+                                        defaultValue="true"
+                                        fieldDescription="Please select first name is required or not. Default set to &lt;b>Yes&lt;/b>"
+                                        fieldLabel="Required"
+                                        layout="hbox"
+                                        name="./specificSkillInfoReq"
+                                        type="radio"
+                                        value="true"
+                                        xtype="selection">
+                                        <options jcr:primaryType="cq:WidgetCollection">
+                                            <yes
+                                                jcr:primaryType="nt:unstructured"
+                                                text="Yes"
+                                                value="true"/>
+                                            <no
+                                                jcr:primaryType="nt:unstructured"
+                                                text="No"
+                                                value="false"/>
+                                        </options>
+                                        <optionsConfig
+                                            jcr:primaryType="nt:unstructured"
+                                            width="50"/>
+                                    </specificSkillRequired>
+                                </items>
+                            </specificSkill>
+                            <futureExplore
+                                jcr:primaryType="cq:Widget"
+                                collapsed="{Boolean}true"
+                                collapsible="{Boolean}true"
+                                title="Employee Future Explore Details"
+                                xtype="dialogfieldset">
+                                <items jcr:primaryType="cq:WidgetCollection">
+                                    <futureIntent
+                                        jcr:primaryType="cq:Widget"
+                                        defaultValue="What does he/she intend to explore in the future?"
+                                        fieldLabel="Future Intent"
+                                        name="./futureIntent"
+                                        value="What does he/she intend to explore in the future?"
+                                        xtype="textfield"/>
+                                    <futureIntentRequired
+                                        jcr:primaryType="cq:Widget"
+                                        defaultValue="true"
+                                        fieldDescription="Please select first name is required or not. Default set to &lt;b>Yes&lt;/b>"
+                                        fieldLabel="Required"
+                                        layout="hbox"
+                                        name="./futureIntentReq"
+                                        type="radio"
+                                        value="true"
+                                        xtype="selection">
+                                        <options jcr:primaryType="cq:WidgetCollection">
+                                            <yes
+                                                jcr:primaryType="nt:unstructured"
+                                                text="Yes"
+                                                value="true"/>
+                                            <no
+                                                jcr:primaryType="nt:unstructured"
+                                                text="No"
+                                                value="false"/>
+                                        </options>
+                                        <optionsConfig
+                                            jcr:primaryType="nt:unstructured"
+                                            width="50"/>
+                                    </futureIntentRequired>
+                                    <futureIntentValidationMessage
+                                        jcr:primaryType="cq:Widget"
+                                        defaultValue="Please be honest about goals whether at McDonald's or elseWhere"
+                                        fieldDescription="Default Text for Future Intent Description. Default set to &lt;b>Please be honest about goals whether at McDonald's or elseWhere&lt;/b>"
+                                        fieldLabel="Validation Message"
+                                        name="./futureIntentValidation"
+                                        value="Please be honest about goals whether at McDonald's or elseWhere"
+                                        xtype="textfield"/>
+                                </items>
+                            </futureExplore>
+                            <empGender
+                                jcr:primaryType="cq:Widget"
+                                collapsed="{Boolean}true"
+                                collapsible="{Boolean}true"
+                                title="Employee Gender Details"
+                                xtype="dialogfieldset">
+                                <items jcr:primaryType="cq:WidgetCollection">
+                                    <genderLabel
+                                        jcr:primaryType="cq:Widget"
+                                        defaultValue="What gender does he/she identify most with?"
+                                        fieldLabel="Label"
+                                        name="./genderLabel"
+                                        value="What gender does he/she identify most with?"
+                                        xtype="textfield"/>
+                                    <gender
+                                        jcr:primaryType="cq:Widget"
+                                        defaultValue="What gender does he/she identify most with? (Optional)"
+                                        fieldLabel="Gender List"
+                                        name="./genders"
+                                        value="What gender does he/she identify most with? (Optional)"
+                                        xtype="multifield">
+                                        <fieldConfig
+                                            jcr:primaryType="nt:unstructured"
+                                            xtype="textfield"/>
+                                    </gender>
+                                    <genderRequired
+                                        jcr:primaryType="cq:Widget"
+                                        defaultValue="true"
+                                        fieldDescription="Please select Gender is required or not. Default set to &lt;b>Yes&lt;/b>"
+                                        fieldLabel="Required"
+                                        layout="hbox"
+                                        name="./genderReq"
+                                        type="radio"
+                                        value="true"
+                                        xtype="selection">
+                                        <options jcr:primaryType="cq:WidgetCollection">
+                                            <yes
+                                                jcr:primaryType="nt:unstructured"
+                                                text="Yes"
+                                                value="true"/>
+                                            <no
+                                                jcr:primaryType="nt:unstructured"
+                                                text="No"
+                                                value="false"/>
+                                        </options>
+                                        <optionsConfig
+                                            jcr:primaryType="nt:unstructured"
+                                            width="50"/>
+                                    </genderRequired>
+                                </items>
+                            </empGender>
+                            <empEthnicity
+                                jcr:primaryType="cq:Widget"
+                                collapsed="{Boolean}true"
+                                collapsible="{Boolean}true"
+                                title="Employee Ethnicity Details"
+                                xtype="dialogfieldset">
+                                <items jcr:primaryType="cq:WidgetCollection">
+                                    <ethnicity
+                                        jcr:primaryType="cq:Widget"
+                                        defaultValue="What is his/her ethnicity? (Optional)"
+                                        fieldLabel="Label "
+                                        name="./etnicity"
+                                        value="What is his/her ethnicity? (Optional)"
+                                        xtype="textfield"/>
+                                    <ethnicityRequired
+                                        jcr:primaryType="cq:Widget"
+                                        defaultValue="true"
+                                        fieldDescription="Please select first name is required or not. Default set to &lt;b>Yes&lt;/b>"
+                                        fieldLabel="Required"
+                                        layout="hbox"
+                                        name="./ethnicityReq"
+                                        type="radio"
+                                        value="true"
+                                        xtype="selection">
+                                        <options jcr:primaryType="cq:WidgetCollection">
+                                            <yes
+                                                jcr:primaryType="nt:unstructured"
+                                                text="Yes"
+                                                value="true"/>
+                                            <no
+                                                jcr:primaryType="nt:unstructured"
+                                                text="No"
+                                                value="false"/>
+                                        </options>
+                                        <optionsConfig
+                                            jcr:primaryType="nt:unstructured"
+                                            width="50"/>
+                                    </ethnicityRequired>
+                                    <asian
+                                        jcr:primaryType="cq:Widget"
+                                        defaultValue="Asian"
+                                        fieldDescription="Checkbox for Ethnicity Type Asian option. Default set to &lt;b>Asian&lt;/b>"
+                                        fieldLabel="Asian"
+                                        name="./asian"
+                                        value="Asian"
+                                        xtype="textfield"/>
+                                    <blackAfricanAmerican
+                                        jcr:primaryType="cq:Widget"
+                                        defaultValue="Black/African American"
+                                        fieldLabel="Black/African American"
+                                        name="./blackAfricanAmerican"
+                                        value="Black/African American"
+                                        xtype="textfield"/>
+                                    <hawaiianPacificIslander
+                                        jcr:primaryType="cq:Widget"
+                                        defaultValue="Hawaiian/Pacific Islander"
+                                        fieldLabel="Hawaiian/Pacific Islander"
+                                        name="./hawaiianPacificIslandder"
+                                        value="Hawaiian/Pacific Islander"
+                                        xtype="textfield"/>
+                                    <americanAlaskan
+                                        jcr:primaryType="cq:Widget"
+                                        defaultValue="American/Alaskan"
+                                        fieldLabel="American/Alaskan"
+                                        name="./americanAlaskan"
+                                        value="American/Alaskan"
+                                        xtype="textfield"/>
+                                    <hispanicLatino
+                                        jcr:primaryType="cq:Widget"
+                                        defaultValue="Hispanic or Latino"
+                                        fieldLabel="Hispanic or Latino"
+                                        name="./hispanicLatino"
+                                        value="Hispanic or Latino"
+                                        xtype="textfield"/>
+                                    <whiteCaucasian
+                                        jcr:primaryType="cq:Widget"
+                                        defaultValue="White/Caucasian"
+                                        fieldLabel="White/Caucasian"
+                                        name="./whiteCaucasian"
+                                        value="White/Caucasian"
+                                        xtype="textfield"/>
+                                    <otherEthnicity
+                                        jcr:primaryType="cq:Widget"
+                                        defaultValue="Other Ethnicity"
+                                        fieldLabel="Other Ethnicity"
+                                        name="./otherEthnicity"
+                                        value="Other Ethnicity"
+                                        xtype="textfield"/>
+                                </items>
+                            </empEthnicity>
+                            <empPhotoUpload
+                                jcr:primaryType="cq:Widget"
+                                collapsed="{Boolean}true"
+                                collapsible="{Boolean}true"
+                                title="Employee Photo Upload Details"
+                                xtype="dialogfieldset">
+                                <items jcr:primaryType="cq:WidgetCollection">
+                                    <uploadPhoto
+                                        jcr:primaryType="cq:Widget"
+                                        defaultValue="Upload Employee Photo (Optional)"
+                                        fieldLabel="Upload Photo Label"
+                                        name="./uploadPhoto"
+                                        value="Upload Employee Photo (Optional)"
+                                        xtype="textfield"/>
+                                    <uploadPhotoButton
+                                        jcr:primaryType="cq:Widget"
+                                        defaultValue="Upload"
+                                        fieldDescription="Text to be displayed for upload button. Default set to &lt;b>Upload&lt;/b>"
+                                        fieldLabel="Upload Button Text"
+                                        name="./browseBtn"
+                                        value="Upload"
+                                        xtype="textfield"/>
+                                    <photoRequired
+                                        jcr:primaryType="cq:Widget"
+                                        defaultValue="true"
+                                        fieldLabel="Required"
+                                        layout="hbox"
+                                        name="./photoReq"
+                                        type="radio"
+                                        value="true"
+                                        xtype="selection">
+                                        <options jcr:primaryType="cq:WidgetCollection">
+                                            <yes
+                                                jcr:primaryType="nt:unstructured"
+                                                text="Yes"
+                                                value="true"/>
+                                            <no
+                                                jcr:primaryType="nt:unstructured"
+                                                text="No"
+                                                value="false"/>
+                                        </options>
+                                        <optionsConfig
+                                            jcr:primaryType="nt:unstructured"
+                                            width="50"/>
+                                    </photoRequired>
+                                    <photoValidationMessage
+                                        jcr:primaryType="cq:Widget"
+                                        defaultValue="Image must be a jpeg,jpg,or png file under 30 MB"
+                                        fieldDescription="Validation message for Photo Upload field.Default set to &lt;b>Image must be a jpeg,jpg,or png file under 30 MB&lt;/b>"
+                                        fieldLabel="Photo Validation Message"
+                                        name="./photoValidationMessage"
+                                        value="Image must be a jpeg,jpg,or png file under 30 MB"
+                                        xtype="textfield"/>
+                                    <browsePhotoInfo
+                                        jcr:primaryType="cq:Widget"
+                                        defaultValue="File Size Exceeds Limits"
+                                        fieldDescription="Validation message for Photo field.Default set to &lt;b>File Size Exceeds Limits&lt;/b>"
+                                        fieldLabel="Browse Validation Message"
+                                        name="./browseInfo"
+                                        value="File Size Exceeds Limits"
+                                        xtype="textfield"/>
+                                </items>
+                            </empPhotoUpload>
+                            <videoLink
+                                jcr:primaryType="cq:Widget"
+                                collapsed="{Boolean}true"
+                                collapsible="{Boolean}true"
+                                title="Video Link Details"
+                                xtype="dialogfieldset">
+                                <items jcr:primaryType="cq:WidgetCollection">
+                                    <videoLink
+                                        jcr:primaryType="cq:Widget"
+                                        defaultValue="Paste Video link from YouTube, Vimeo, etc. of Employee (Optional)"
+                                        fieldLabel="Label"
+                                        name="./videoLink"
+                                        value="Paste Video link from YouTube, Vimeo, etc. of Employee (Optional)"
+                                        xtype="textfield"/>
+                                    <videoLinkRequired
+                                        jcr:primaryType="cq:Widget"
+                                        defaultValue="true"
+                                        fieldDescription="Please select first name is required or not. Default set to &lt;b>Yes&lt;/b>"
+                                        fieldLabel="Required"
+                                        layout="hbox"
+                                        name="./videoLinkReq"
+                                        type="radio"
+                                        value="true"
+                                        xtype="selection">
+                                        <options jcr:primaryType="cq:WidgetCollection">
+                                            <yes
+                                                jcr:primaryType="nt:unstructured"
+                                                text="Yes"
+                                                value="true"/>
+                                            <no
+                                                jcr:primaryType="nt:unstructured"
+                                                text="No"
+                                                value="false"/>
+                                        </options>
+                                        <optionsConfig
+                                            jcr:primaryType="nt:unstructured"
+                                            width="50"/>
+                                    </videoLinkRequired>
+                                    <videoValidationMessage
+                                        jcr:primaryType="cq:Widget"
+                                        defaultValue="Invalid Link"
+                                        fieldDescription="Validation message for Photo Upload field.Default set to &lt;b>Invalid Link&lt;/b>"
+                                        fieldLabel="Validation Message"
+                                        name="./videoLinkFmtValidationMessage"
+                                        value="Invalid Link"
+                                        xtype="textfield"/>
+                                </items>
+                            </videoLink>
+                        </items>
+                    </empAdditionalQuestions>
+                </items>
+            </additionalDetails>
+            <opportunityProgramDetails
+                jcr:primaryType="cq:Panel"
+                title="Opportunity Program Details">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <archewayOpportunityProgram
+                        jcr:primaryType="cq:Widget"
+                        collapsed="{Boolean}true"
+                        collapsible="{Boolean}true"
+                        defaultValue="true"
+                        title="Archeway Opportunity Program Details"
+                        xtype="dialogfieldset">
+                        <items jcr:primaryType="cq:WidgetCollection">
+                            <archewayOpportunityProgam
+                                jcr:primaryType="cq:Widget"
+                                defaultValue="Is he/she in an Archways to Opportunity Program?"
+                                fieldDescription="Archeway Opportunity Program Radio Button Text. Default set to &lt;b>Is he/she in an Archways to Opportunity Program&lt;/b>"
+                                fieldLabel="Archways to Opportunity Program?"
+                                name="./archewayOpportunityProgram"
+                                value="Is he/she in an Archways to Opportunity Program?"
+                                xtype="textfield"/>
+                            <archewayRequired
+                                jcr:primaryType="cq:Widget"
+                                defaultValue="true"
+                                fieldDescription="Please select first name is required or not. Default set to &lt;b>Yes&lt;/b>"
+                                fieldLabel="Required"
+                                layout="hbox"
+                                name="./archewayReq"
+                                type="radio"
+                                value="true"
+                                xtype="selection">
+                                <options jcr:primaryType="cq:WidgetCollection">
+                                    <yes
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Yes"
+                                        value="true"/>
+                                    <no
+                                        jcr:primaryType="nt:unstructured"
+                                        text="No"
+                                        value="false"/>
+                                </options>
+                                <optionsConfig
+                                    jcr:primaryType="nt:unstructured"
+                                    width="50"/>
+                            </archewayRequired>
+                            <yesText
+                                jcr:primaryType="cq:Widget"
+                                defaultValue="Yes"
+                                fieldDescription="Radio button yes text to be displayed for specific question. Default set to &lt;b>Yes&lt;/b>"
+                                fieldLabel="Yes Text"
+                                name="./archewayYes"
+                                value="Yes"
+                                xtype="textfield"/>
+                            <noText
+                                jcr:primaryType="cq:Widget"
+                                defaultValue="No"
+                                fieldDescription="Radio button no text to be displayed for specific question. Default set to &lt;b>No&lt;/b>"
+                                fieldLabel="No Text"
+                                name="./archewayNo"
+                                value="No"
+                                xtype="textfield"/>
+                            <notSureText
+                                jcr:primaryType="cq:Widget"
+                                defaultValue="Not Sure"
+                                fieldDescription="Radio button not sure text to be displayed for specific question. Default set to &lt;b>I'm Not Sure&lt;/b>"
+                                fieldLabel="Not Sure Text"
+                                name="./archewayNotSure"
+                                value="Not Sure"
+                                xtype="textfield"/>
+                        </items>
+                    </archewayOpportunityProgram>
+                    <advisingService
+                        jcr:primaryType="cq:Widget"
+                        collapsed="{Boolean}true"
+                        collapsible="{Boolean}true"
+                        defaultValue="true"
+                        title="Advising Service Details"
+                        xtype="dialogfieldset">
+                        <items jcr:primaryType="cq:WidgetCollection">
+                            <advisingServices
+                                jcr:primaryType="cq:Widget"
+                                defaultValue="Advising Services"
+                                fieldDescription="Advising Services Check box Text. Default set to &lt;b>Current&lt;/b>"
+                                fieldLabel="Advising Services"
+                                name="./advisingServices"
+                                value="Advising Services"
+                                xtype="textfield"/>
+                            <currentText
+                                jcr:primaryType="cq:Widget"
+                                defaultValue="Current"
+                                fieldDescription="Check box Current text to be displayed for specific question. Default set to &lt;b>Current&lt;/b>"
+                                fieldLabel="Common Current Text"
+                                name="./currentText"
+                                value="Current"
+                                xtype="textfield"/>
+                            <pastText
+                                jcr:primaryType="cq:Widget"
+                                defaultValue="Past"
+                                fieldDescription="Check box Past text to be displayed for specific question. Default set to &lt;b>Past&lt;/b>"
+                                fieldLabel="Common Past Text"
+                                name="./pastText"
+                                value="Past"
+                                xtype="textfield"/>
+                        </items>
+                    </advisingService>
+                    <englishUnderArches
+                        jcr:primaryType="cq:Widget"
+                        collapsed="{Boolean}true"
+                        collapsible="{Boolean}true"
+                        defaultValue="true"
+                        title="English Under the Arches Details"
+                        xtype="dialogfieldset">
+                        <items jcr:primaryType="cq:WidgetCollection">
+                            <englishUnderArches
+                                jcr:primaryType="cq:Widget"
+                                defaultValue="English Under the Arches"
+                                fieldDescription="English Under Arches Check box Text. Default set to &lt;b>English Under Arches&lt;/b>"
+                                fieldLabel="English Under Arches"
+                                name="./englishUnderArches"
+                                value="English Under the Arches"
+                                xtype="textfield"/>
+                            <enrolled
+                                jcr:primaryType="cq:Widget"
+                                defaultValue="Enrolled"
+                                fieldDescription="&#xa;Check box Enrolled text to be displayed for specific question. Default set to &lt;b>Enrolled&lt;/b>"
+                                fieldLabel="Common Enrolled Text"
+                                name="./enrolledText"
+                                value="Enrolled"
+                                xtype="textfield"/>
+                            <graduate
+                                jcr:primaryType="cq:Widget"
+                                defaultValue="Graduate"
+                                fieldDescription="Check box Graduate text to be displayed for specific question. Default set to &lt;b>Graduate&lt;/b>"
+                                fieldLabel="Common Graduate Text"
+                                name="./graduateText"
+                                value="Graduate"
+                                xtype="textfield"/>
+                        </items>
+                    </englishUnderArches>
+                    <careerOnline
+                        jcr:primaryType="cq:Widget"
+                        collapsed="{Boolean}true"
+                        collapsible="{Boolean}true"
+                        defaultValue="true"
+                        title="Career Online Details"
+                        xtype="dialogfieldset">
+                        <items jcr:primaryType="cq:WidgetCollection">
+                            <careerOnline
+                                jcr:primaryType="cq:Widget"
+                                defaultValue="Career Online High School:"
+                                fieldDescription="Career Online High School Check box Text. Default set to &lt;b>Career Online High School&lt;/b>"
+                                fieldLabel="Career Online High School"
+                                name="./careerOnline"
+                                value="Career Online High School:"
+                                xtype="textfield"/>
+                            <enrolledOnline
+                                jcr:primaryType="cq:Widget"
+                                defaultValue="Enrolled"
+                                fieldDescription="&#xa;Check box Enrolled text to be displayed for specific question. Default set to &lt;b>Enrolled&lt;/b>"
+                                fieldLabel="Common Enrolled Text"
+                                name="./enrolledOnlineText"
+                                value="Enrolled"
+                                xtype="textfield"/>
+                            <graduateOnline
+                                jcr:primaryType="cq:Widget"
+                                defaultValue="Graduate"
+                                fieldDescription="Check box Graduate text to be displayed for specific question. Default set to &lt;b>Graduate&lt;/b>"
+                                fieldLabel="Common Graduate Text"
+                                name="./graduateOnlineText"
+                                value="Graduate"
+                                xtype="textfield"/>
+                        </items>
+                    </careerOnline>
+                    <collegeTuitions
+                        jcr:primaryType="cq:Widget"
+                        collapsed="{Boolean}true"
+                        collapsible="{Boolean}true"
+                        defaultValue="true"
+                        title="College Tution Details"
+                        xtype="dialogfieldset">
+                        <items jcr:primaryType="cq:WidgetCollection">
+                            <collegeTuition
+                                jcr:primaryType="cq:Widget"
+                                defaultValue="College Tuition Assistance"
+                                fieldDescription="College Tuition Assistance High School Check box Text. Default set to &lt;b>College Tuition Assistance&lt;/b>"
+                                fieldLabel="College Tuition Assistance"
+                                name="./collegeTuition"
+                                value="College Tuition Assistance"
+                                xtype="textfield"/>
+                            <enrolledTuition
+                                jcr:primaryType="cq:Widget"
+                                defaultValue="Enrolled"
+                                fieldDescription="&#xa;Check box Enrolled text to be displayed for specific question. Default set to &lt;b>Enrolled&lt;/b>"
+                                fieldLabel="Common Enrolled Text"
+                                name="./enrolledTuition"
+                                value="Enrolled"
+                                xtype="textfield"/>
+                            <graduateTuition
+                                jcr:primaryType="cq:Widget"
+                                defaultValue="Graduate"
+                                fieldDescription="Check box Graduate text to be displayed for specific question. Default set to &lt;b>Graduate&lt;/b>"
+                                fieldLabel="Common Graduate Text"
+                                name="./graduateTuitionText"
+                                value="Graduate"
+                                xtype="textfield"/>
+                        </items>
+                    </collegeTuitions>
+                    <additionalComments
+                        jcr:primaryType="cq:Widget"
+                        collapsed="{Boolean}true"
+                        collapsible="{Boolean}true"
+                        defaultValue="true"
+                        title="Additional Comments Details"
+                        xtype="dialogfieldset">
+                        <items jcr:primaryType="cq:WidgetCollection">
+                            <additionalComment
+                                jcr:primaryType="cq:Widget"
+                                defaultValue="Please add any additional comments about the employee’s Archways to Opportunity Program experience. (Optional):"
+                                fieldDescription="Default Text for Additional Comment Description. Default set to &lt;b>Please add any additional comments about the employee’s Archways to Opportunity Program experience&lt;/b>"
+                                fieldLabel="Additional Comments"
+                                name="./additionalComment"
+                                value="Please add any additional comments about the employee’s Archways to Opportunity Program experience. (Optional):"
+                                xtype="textfield"/>
+                            <additionalCommentRequired
+                                jcr:primaryType="cq:Widget"
+                                defaultValue="true"
+                                fieldDescription="Please select first name is required or not. Default set to &lt;b>Yes&lt;/b>"
+                                fieldLabel="Required"
+                                layout="hbox"
+                                name="./additionalCommentReq"
+                                type="radio"
+                                value="true"
+                                xtype="selection">
+                                <options jcr:primaryType="cq:WidgetCollection">
+                                    <yes
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Yes"
+                                        value="true"/>
+                                    <no
+                                        jcr:primaryType="nt:unstructured"
+                                        text="No"
+                                        value="false"/>
+                                </options>
+                                <optionsConfig
+                                    jcr:primaryType="nt:unstructured"
+                                    width="50"/>
+                            </additionalCommentRequired>
+                        </items>
+                    </additionalComments>
+                </items>
+            </opportunityProgramDetails>
+            <nonEmployeeDetails
+                jcr:primaryType="cq:Panel"
+                title="Non-Employee Details">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <nonEmpInfo
+                        jcr:primaryType="cq:Widget"
+                        defaultValue="If you are not the employee in question, please enter your contact information below (Optional)"
+                        fieldDescription="Default Text for Form Info Description. Default set to &lt;b>If you are not the employee in question, please enter your contact information below (Optional)&lt;/b>"
+                        fieldLabel="Form Info Label"
+                        name="./nonEmpInfo"
+                        value="If you are not the employee in question, please enter your contact information below (Optional)"
+                        xtype="textfield"/>
+                    <nonEmpFirstName
+                        jcr:primaryType="cq:Widget"
+                        collapsed="{Boolean}true"
+                        collapsible="{Boolean}true"
+                        title="Non Employee First Name Details"
+                        xtype="dialogfieldset">
+                        <items jcr:primaryType="cq:WidgetCollection">
+                            <firstName
+                                jcr:primaryType="cq:Widget"
+                                defaultValue="First Name"
+                                fieldLabel="Label"
+                                name="./nonEmpFirstName"
+                                value="First Name"
+                                xtype="textfield"/>
+                            <firstNameRequired
+                                jcr:primaryType="cq:Widget"
+                                defaultValue="true"
+                                fieldDescription="Please select first name is required or not. Default set to &lt;b>Yes&lt;/b>"
+                                fieldLabel="Required"
+                                layout="hbox"
+                                name="./nonEmpFirstNameReq"
+                                type="radio"
+                                value="true"
+                                xtype="selection">
+                                <options jcr:primaryType="cq:WidgetCollection">
+                                    <yes
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Yes"
+                                        value="true"/>
+                                    <no
+                                        jcr:primaryType="nt:unstructured"
+                                        text="No"
+                                        value="false"/>
+                                </options>
+                                <optionsConfig
+                                    jcr:primaryType="nt:unstructured"
+                                    width="50"/>
+                            </firstNameRequired>
+                        </items>
+                    </nonEmpFirstName>
+                    <nonEmpLastName
+                        jcr:primaryType="cq:Widget"
+                        collapsed="{Boolean}true"
+                        collapsible="{Boolean}true"
+                        title="Non Employee Last Name Details"
+                        xtype="dialogfieldset">
+                        <items jcr:primaryType="cq:WidgetCollection">
+                            <lastName
+                                jcr:primaryType="cq:Widget"
+                                defaultValue="Last Name"
+                                fieldLabel="Label"
+                                name="./nonEmpLastName"
+                                value="Last Name"
+                                xtype="textfield"/>
+                            <lastNameRequired
+                                jcr:primaryType="cq:Widget"
+                                defaultValue="true"
+                                fieldDescription="Please select first name is required or not. Default set to &lt;b>Yes&lt;/b>"
+                                fieldLabel="Required"
+                                layout="hbox"
+                                name="./nonEmpLastNameReq"
+                                type="radio"
+                                value="true"
+                                xtype="selection">
+                                <options jcr:primaryType="cq:WidgetCollection">
+                                    <yes
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Yes"
+                                        value="true"/>
+                                    <no
+                                        jcr:primaryType="nt:unstructured"
+                                        text="No"
+                                        value="false"/>
+                                </options>
+                                <optionsConfig
+                                    jcr:primaryType="nt:unstructured"
+                                    width="50"/>
+                            </lastNameRequired>
+                        </items>
+                    </nonEmpLastName>
+                    <nonEmpEmail
+                        jcr:primaryType="cq:Widget"
+                        collapsed="{Boolean}true"
+                        collapsible="{Boolean}true"
+                        title="Non Employee Email Details"
+                        xtype="dialogfieldset">
+                        <items jcr:primaryType="cq:WidgetCollection">
+                            <email
+                                jcr:primaryType="cq:Widget"
+                                defaultValue="Email Address"
+                                fieldDescription="Text for email field.Default set to &lt;b>Email  *&lt;/b>"
+                                fieldLabel="Label"
+                                name="./nonEmpEmail"
+                                value="Email Address"
+                                xtype="textfield"/>
+                            <emailValidationMessage
+                                jcr:primaryType="cq:Widget"
+                                defaultValue="Please enter the valid Email Adress"
+                                fieldDescription="Validation message for email field.Default set to &lt;b>Please enter (valid) 'Your e-mail address' Information&lt;/b>"
+                                fieldLabel="Validation Message"
+                                name="./nonEmpEmailValidation"
+                                value="Please enter the valid Email Adress"
+                                xtype="textfield"/>
+                            <emailRequired
+                                jcr:primaryType="cq:Widget"
+                                defaultValue="true"
+                                fieldDescription="Please select first name is required or not. Default set to &lt;b>Yes&lt;/b>"
+                                fieldLabel="Required"
+                                layout="hbox"
+                                name="./nonEmpEmailReq"
+                                type="radio"
+                                value="true"
+                                xtype="selection">
+                                <options jcr:primaryType="cq:WidgetCollection">
+                                    <yes
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Yes"
+                                        value="true"/>
+                                    <no
+                                        jcr:primaryType="nt:unstructured"
+                                        text="No"
+                                        value="false"/>
+                                </options>
+                                <optionsConfig
+                                    jcr:primaryType="nt:unstructured"
+                                    width="50"/>
+                            </emailRequired>
+                        </items>
+                    </nonEmpEmail>
+                    <additionalComments
+                        jcr:primaryType="cq:Widget"
+                        collapsed="{Boolean}true"
+                        collapsible="{Boolean}true"
+                        title="Additional Comments Details"
+                        xtype="dialogfieldset">
+                        <items jcr:primaryType="cq:WidgetCollection">
+                            <additionalComment
+                                jcr:primaryType="cq:Widget"
+                                defaultValue="Please add any additional comments about the employee’s Archways to Opportunity Program experience"
+                                fieldDescription="Default Text for Additional Comment Description. Default set to &lt;b>Please add any additional comments about the employee’s Archways to Opportunity Program experience&lt;/b>"
+                                fieldLabel="Additional Comments"
+                                name="./nonEmpAddComments"
+                                value="Please add any additional comments about the employee’s Archways to Opportunity Program experience"
+                                xtype="textfield"/>
+                            <additionalCommentRequired
+                                jcr:primaryType="cq:Widget"
+                                defaultValue="true"
+                                fieldDescription="Please select first name is required or not. Default set to &lt;b>Yes&lt;/b>"
+                                fieldLabel="Required"
+                                layout="hbox"
+                                name="./nonEmpAddCommentsReq"
+                                type="radio"
+                                value="true"
+                                xtype="selection">
+                                <options jcr:primaryType="cq:WidgetCollection">
+                                    <yes
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Yes"
+                                        value="true"/>
+                                    <no
+                                        jcr:primaryType="nt:unstructured"
+                                        text="No"
+                                        value="false"/>
+                                </options>
+                                <optionsConfig
+                                    jcr:primaryType="nt:unstructured"
+                                    width="50"/>
+                            </additionalCommentRequired>
+                        </items>
+                    </additionalComments>
+                </items>
+            </nonEmployeeDetails>
+            <formLevelConfig
+                jcr:primaryType="cq:Panel"
+                title="Form Level Config">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <formDescription
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Form Description Label"
+                        name="./formDescription"
+                        xtype="richtext">
+                        <rtePlugins jcr:primaryType="nt:unstructured">
+                            <edit
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <findreplace
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <format
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <justify
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <links
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <lists
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <misctools
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <subsuperscript
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <table
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <insertgatitle
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <image
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                        </rtePlugins>
+                        <linkbrowseConfig
+                            jcr:primaryType="nt:unstructured"
+                            protocols="[http://,https://,ftp://,mailto:]"/>
+                    </formDescription>
+                    <formInfo
+                        jcr:primaryType="cq:Widget"
+                        defaultValue="All fields are required unless otherwise noted"
+                        fieldDescription="Default Text for Form Info Description. Default set to &lt;b>All fields are required unless otherwise noted&lt;/b>"
+                        fieldLabel="Form Info Label"
+                        name="./formInfo"
+                        value="All fields are required unless otherwise noted"
+                        xtype="textfield"/>
+                    <formType
+                        jcr:primaryType="cq:Widget"
+                        defaultValue="US_People_Stories"
+                        fieldDescription="Default Text for Form Info Description. Default set to &lt;b>US_People_Stories&lt;/b>"
+                        fieldLabel="Form Type"
+                        name="./formType"
+                        value="US_People_Stories"
+                        xtype="textfield"/>
+                    <formAdminEmail
+                        jcr:primaryType="cq:Widget"
+                        defaultValue="US-People_Stories@us.mcd.com"
+                        fieldDescription="Default Text for Form Info Description. Default set to &lt;b>US-People_Stories@us.mcd.com&lt;/b>"
+                        fieldLabel="Form Admin Email"
+                        name="./formAdminEmail"
+                        value="US-People_Stories@us.mcd.com"
+                        xtype="textfield"/>
+                    <submitButton
+                        jcr:primaryType="cq:Widget"
+                        defaultValue="Submit"
+                        fieldDescription="Text to be displayed for upload button. Default set to &lt;b>Upload&lt;/b>"
+                        fieldLabel="Submit Button Text"
+                        name="./submitBtn"
+                        value="Submit"
+                        xtype="textfield"/>
+                    <errorMsgs
+                        jcr:primaryType="cq:Widget"
+                        collapsed="{Boolean}true"
+                        collapsible="{Boolean}true"
+                        title="Error Details"
+                        xtype="dialogfieldset">
+                        <items jcr:primaryType="cq:WidgetCollection">
+                            <globalErrorMessage
+                                jcr:primaryType="cq:Widget"
+                                defaultValue="You have errors highlighted in red below. Please complete all required fields"
+                                fieldDescription="Please fill in the global Error Message.Default set to &lt;b>You have errors highlighted in red below. Please complete all required fields&lt;/b>"
+                                fieldLabel="Global Error Message"
+                                name="./globalErrorMessage"
+                                value="You have errors highlighted in red below. Please complete all required fields"
+                                xtype="textfield"/>
+                        </items>
+                    </errorMsgs>
+                </items>
+            </formLevelConfig>
+        </items>
+    </items>
+</jcr:root>

@@ -1,0 +1,539 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Dialog"
+    xtype="dialog">
+    <items
+        jcr:primaryType="cq:Widget"
+        xtype="tabpanel">
+        <items jcr:primaryType="cq:WidgetCollection">
+            <section
+                jcr:primaryType="cq:Panel"
+                title="Tell us about yourself">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <topHeading
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Heading to be displayed on top of section."
+                        fieldLabel="Section Top Heading"
+                        name="./sectionTopHeading"
+                        xtype="textfield"/>
+                    <subHeading
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Sub heading to be displayed on top of section."
+                        fieldLabel="Section Sub Heading"
+                        name="./sectionSubHeading"
+                        xtype="textfield"/>
+                    <firstName
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Text for first name field. Default set to &lt;b>First Name *&lt;/b>"
+                        fieldLabel="First Name Text"
+                        name="./firstName"
+                        xtype="textfield"/>
+                     <firstNameAriaLabel
+                        jcr:primaryType="cq:Widget"                        
+                        fieldLabel="Aria Label for first name"
+                        name="./fnameAriaLabel"
+                        xtype="textfield"/>  
+                    <firstNameValidation
+                        jcr:primaryType="cq:Widget"
+                        defaultValue="yes"
+                        fieldDescription="Please select first name is required or not. Default set to &lt;b>Yes&lt;/b>"
+                        fieldLabel="First Name Required"
+                        name="./firstNameReq"
+                        type="select"
+                        xtype="selection">
+                        <options jcr:primaryType="cq:WidgetCollection">
+                            <yes
+                                jcr:primaryType="nt:unstructured"
+                                text="Yes"
+                                value="yes"/>
+                            <no
+                                jcr:primaryType="nt:unstructured"
+                                text="No"
+                                value="no"/>
+                        </options>
+                    </firstNameValidation>
+                    <firstNameValidationMessage
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Validation message for first name field. Default set to &lt;b>Please enter your First Name&lt;/b>"
+                        fieldLabel="First Name Validation Message"
+                        name="./firstNameMessage"
+                        xtype="textfield"/>
+                    <lastName
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Text for last name field. Default set to &lt;b>Last Name *&lt;/b>"
+                        fieldLabel="Last Name Text"
+                        name="./lastName"
+                        xtype="textfield"/>
+                    <lastNameAriaLabel
+                        jcr:primaryType="cq:Widget"                        
+                        fieldLabel="Aria Label for last name"
+                        name="./lnameAriaLabel"
+                        xtype="textfield"/> 
+                    <lastNameValidation
+                        jcr:primaryType="cq:Widget"
+                        defaultValue="yes"
+                        fieldDescription="Please select last name is required or not. Default set to &lt;b>Yes&lt;/b>"
+                        fieldLabel="Last Name Required"
+                        name="./lastNameReq"
+                        type="select"
+                        xtype="selection">
+                        <options jcr:primaryType="cq:WidgetCollection">
+                            <yes
+                                jcr:primaryType="nt:unstructured"
+                                text="Yes"
+                                value="yes"/>
+                            <no
+                                jcr:primaryType="nt:unstructured"
+                                text="No"
+                                value="no"/>
+                        </options>
+                    </lastNameValidation>
+                    <lastNameValidationMessage
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Validation message for last name field. Default set to &lt;b>Please enter your Last Name&lt;/b>"
+                        fieldLabel="Last Name Validation Message"
+                        name="./lastNameMessage"
+                        xtype="textfield"/>
+                    <address
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Text for address field. Default set to &lt;b>Address (US Only) *&lt;/b>"
+                        fieldLabel="Address Text"
+                        name="./address"
+                        xtype="textfield"/>
+                    <addressAriaLabel
+                        jcr:primaryType="cq:Widget"                        
+                        fieldLabel="Aria Label for address"
+                        name="./addressAriaLabel"
+                        xtype="textfield"/> 
+                    <addressValidation
+                        jcr:primaryType="cq:Widget"
+                        defaultValue="yes"
+                        fieldDescription="Please select address (us only) is required or not. Default set to &lt;b>Yes&lt;/b>"
+                        fieldLabel="Address Required"
+                        name="./addressReq"
+                        type="select"
+                        xtype="selection">
+                        <options jcr:primaryType="cq:WidgetCollection">
+                            <yes
+                                jcr:primaryType="nt:unstructured"
+                                text="Yes"
+                                value="yes"/>
+                            <no
+                                jcr:primaryType="nt:unstructured"
+                                text="No"
+                                value="no"/>
+                        </options>
+                    </addressValidation>
+                    <addressValidationMessage
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Validation message for address field. Default set to &lt;b>Please enter your Address (U.S. Only)&lt;/b>"
+                        fieldLabel="Address Validation Message"
+                        name="./addressMessage"
+                        xtype="textfield"/>
+                    <apt
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Text for apt/suite field. Default set to &lt;b>Apt/Suite&lt;/b>"
+                        fieldLabel="Apt/Suite Text"
+                        name="./apt"
+                        xtype="textfield"/>
+                    <aptAriaLabel
+                        jcr:primaryType="cq:Widget"                        
+                        fieldLabel="Aria Label for apt/suite"
+                        name="./aptAriaLabel"
+                        xtype="textfield"/> 
+                    <city
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Text for city field. Default set to &lt;b>City *&lt;/b>"
+                        fieldLabel="City Text"
+                        name="./city"
+                        xtype="textfield"/>
+                    <cityAriaLabel
+                        jcr:primaryType="cq:Widget"                        
+                        fieldLabel="Aria Label for city"
+                        name="./cityAriaLabel"
+                        xtype="textfield"/> 
+                    <cityValidation
+                        jcr:primaryType="cq:Widget"
+                        defaultValue="yes"
+                        fieldDescription="Please select city is required or not. Default set to &lt;b>Yes&lt;/b>"
+                        fieldLabel="City Required"
+                        name="./cityReq"
+                        type="select"
+                        xtype="selection">
+                        <options jcr:primaryType="cq:WidgetCollection">
+                            <yes
+                                jcr:primaryType="nt:unstructured"
+                                text="Yes"
+                                value="yes"/>
+                            <no
+                                jcr:primaryType="nt:unstructured"
+                                text="No"
+                                value="no"/>
+                        </options>
+                    </cityValidation>
+                    <cityValidationMessage
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Validation message for city field. Default set to &lt;b>Please enter your City&lt;/b>"
+                        fieldLabel="City Validation Message"
+                        name="./cityMessage"
+                        xtype="textfield"/>
+                    <stateText
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Text for city field. Default set to &lt;b>State *&lt;/b>"
+                        fieldLabel="State Text"
+                        name="./stateText"
+                        xtype="textfield"/>
+                    <stateAriaLabel
+                        jcr:primaryType="cq:Widget"                        
+                        fieldLabel="Aria Label for state"
+                        name="./stateAriaLabel"
+                        xtype="textfield"/> 
+                    <state
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Please provide state name by clicking + button."
+                        fieldLabel="State"
+                        name="./state"
+                        xtype="multifield">
+                        <fieldConfig
+                            jcr:primaryType="nt:unstructured"
+                            xtype="textfield"/>
+                    </state>
+                    <stateValidation
+                        jcr:primaryType="cq:Widget"
+                        defaultValue="yes"
+                        fieldDescription="Please select state is required or not. Default set to &lt;b>Yes&lt;/b>"
+                        fieldLabel="State Required"
+                        name="./stateReq"
+                        type="select"
+                        xtype="selection">
+                        <options jcr:primaryType="cq:WidgetCollection">
+                            <yes
+                                jcr:primaryType="nt:unstructured"
+                                text="Yes"
+                                value="yes"/>
+                            <no
+                                jcr:primaryType="nt:unstructured"
+                                text="No"
+                                value="no"/>
+                        </options>
+                    </stateValidation>
+                    <stateValidationMessage
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Validation message for state field. Default set to &lt;b>Please select your State&lt;/b>"
+                        fieldLabel="State Validation Message"
+                        name="./stateMessage"
+                        xtype="textfield"/>
+                   <zip
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Text for zip field.Default set to &lt;b>Zip *&lt;/b>"
+                        fieldLabel="Zip Text"
+                        name="./zip"
+                        xtype="textfield"/>
+                    <zipAriaLabel
+                        jcr:primaryType="cq:Widget"                        
+                        fieldLabel="Aria Label for zip code"
+                        name="./zipAriaLabel"
+                        xtype="textfield"/> 
+                    <zipValidation
+                        jcr:primaryType="cq:Widget"
+                        defaultValue="yes"
+                        fieldDescription="Please select zip required and number validation should be applied or not. Default set to &lt;b>Yes&lt;/b>"
+                        fieldLabel="Zip Required &amp; Number Validation"
+                        name="./zipReq"
+                        type="select"
+                        xtype="selection">
+                        <options jcr:primaryType="cq:WidgetCollection">
+                            <yes
+                                jcr:primaryType="nt:unstructured"
+                                text="Yes"
+                                value="yes"/>
+                            <no
+                                jcr:primaryType="nt:unstructured"
+                                text="No"
+                                value="no"/>
+                        </options>
+                    </zipValidation>
+                    <zipValidationMessage
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Validation message for zip field.Default set to &lt;b>Please enter a valid Zip code&lt;/b>"
+                        fieldLabel="Zip Validation Message"
+                        name="./zipMessage"
+                        xtype="textfield"/>
+                    <hearBackYes
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Text for hear back yes field. Default set to &lt;b>Please indicate whether you would like to hear back from the Owner’s organization.&lt;/b>"
+                        fieldLabel="Hear Back Yes Text"
+                        name="./hearBackYes"
+                        xtype="textfield"/>
+                    <yesText
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Radio button yes text to be displayed for specific question. Default set to &lt;b>Yes&lt;/b>"
+                        fieldLabel="Yes Text"
+                        name="./yesText"
+                        xtype="textfield"/>
+                    <hearBackNo
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Text for hear back no field.Default set to &lt;b>No (Please know there may be instances where we need to contact you for additional information regarding this matter)&lt;/b>"
+                        fieldLabel="Hear Back No Text"
+                        name="./hearBackNo"
+                        xtype="textfield"/>
+                    <noText
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Radio button no text to be displayed for specific question. Default set to &lt;b>No&lt;/b>"
+                        fieldLabel="No Text"
+                        name="./noText"
+                        xtype="textfield"/>
+                    <hearbackValidation
+                        jcr:primaryType="cq:Widget"
+                        defaultValue="no"
+                        fieldDescription="Please select hear back ( follow up) is required or not. Default set to &lt;b>No&lt;/b>"
+                        fieldLabel="Hear Back Required"
+                        name="./hearBackReq"
+                        type="select"
+                        xtype="selection">
+                        <options jcr:primaryType="cq:WidgetCollection">
+                            <yes
+                                jcr:primaryType="nt:unstructured"
+                                text="Yes"
+                                value="yes"/>
+                            <no
+                                jcr:primaryType="nt:unstructured"
+                                text="No"
+                                value="no"/>
+                        </options>
+                    </hearbackValidation>
+                    <hearBackValidationMessage
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Validation message for hear back field. Default set to &lt;b>Please select Request Followup option&lt;/b>"
+                        fieldLabel="Hear Back Validation Message"
+                        name="./hearBackMessage"
+                        xtype="textfield"/>
+                    <email
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Text for email field.Default set to &lt;b>Email  *&lt;/b>"
+                        fieldLabel="Email Text"
+                        name="./email"
+                        xtype="textfield"/>
+                    <emailAriaLabel
+                        jcr:primaryType="cq:Widget"                        
+                        fieldLabel="Aria Label for email"
+                        name="./emailAriaLabel"
+                        xtype="textfield"/> 
+                    <emailValidation
+                        jcr:primaryType="cq:Widget"
+                        defaultValue="yes"
+                        fieldDescription="Please select email required and formatvalidation should be applied or not. Default set to &lt;b>Yes&lt;/b>"
+                        fieldLabel="Email Required &amp; Format Validation"
+                        name="./emailReq"
+                        type="select"
+                        xtype="selection">
+                        <options jcr:primaryType="cq:WidgetCollection">
+                            <yes
+                                jcr:primaryType="nt:unstructured"
+                                text="Yes"
+                                value="yes"/>
+                            <no
+                                jcr:primaryType="nt:unstructured"
+                                text="No"
+                                value="no"/>
+                        </options>
+                    </emailValidation>
+                    <emailValidationMessage
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Validation message for email field.Default set to &lt;b>Please enter (valid) 'Your e-mail address' Information&lt;/b>"
+                        fieldLabel="Email Validation Message"
+                        name="./emailMessage"
+                        xtype="textfield"/>
+                    <confirmEmail
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Text for confirm email field.Default set to &lt;b>Confirm Email *&lt;/b>"
+                        fieldLabel="Confirm Email Text"
+                        name="./confirmEmail"
+                        xtype="textfield"/>
+                    <confirmAriaLabel
+                        jcr:primaryType="cq:Widget"                        
+                        fieldLabel="Aria Label for Confirm Email"
+                        name="./confirmAriaLabel"
+                        xtype="textfield"/> 
+                    <confirmEmailValidation
+                        jcr:primaryType="cq:Widget"
+                        defaultValue="yes"
+                        fieldDescription="Please select confirm email is required or not. Default set to &lt;b>Yes&lt;/b>"
+                        fieldLabel="Confirm Email Required"
+                        name="./confirmEmailReq"
+                        type="select"
+                        xtype="selection">
+                        <options jcr:primaryType="cq:WidgetCollection">
+                            <yes
+                                jcr:primaryType="nt:unstructured"
+                                text="Yes"
+                                value="yes"/>
+                            <no
+                                jcr:primaryType="nt:unstructured"
+                                text="No"
+                                value="no"/>
+                        </options>
+                    </confirmEmailValidation>
+                    <confirmEmailValidationMessage
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Validation message for confirm email field.Default set to &lt;b>Please confirm that both E-mail Addresses are the same&lt;/b>"
+                        fieldLabel="Confirm Email Validation Message"
+                        name="./confirmEmailMessage"
+                        xtype="textfield"/>
+                    <phoneNumber
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Text for phone number field. Default set to &lt;b>Phone Number *&lt;/b>"
+                        fieldLabel="Phone Number Text"
+                        name="./phoneNumber"
+                        xtype="textfield"/>
+                    <phoneAriaLabel
+                        jcr:primaryType="cq:Widget"                        
+                        fieldLabel="Aria Label for phone"
+                        name="./phoneAriaLabel"
+                        xtype="textfield"/> 
+                    <phoneValidation
+                        jcr:primaryType="cq:Widget"
+                        defaultValue="yes"
+                        fieldDescription="Please select phone required and number validation should be applied or not. Default set to &lt;b>Yes&lt;/b>"
+                        fieldLabel="Phone Required &amp; Number Validation"
+                        name="./phoneReq"
+                        type="select"
+                        xtype="selection">
+                        <options jcr:primaryType="cq:WidgetCollection">
+                            <yes
+                                jcr:primaryType="nt:unstructured"
+                                text="Yes"
+                                value="yes"/>
+                            <no
+                                jcr:primaryType="nt:unstructured"
+                                text="No"
+                                value="no"/>
+                        </options>
+                    </phoneValidation>
+                    <phoneNumberValidationMessage
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Validation message for phone number field. Default set to &lt;b>Please enter valid Phone Number&lt;/b>"
+                        fieldLabel="Phone Number Validation Message"
+                        name="./phoneNumberMessage"
+                        xtype="textfield"/>
+                    <richFlag
+                        jcr:primaryType="cq:Widget"
+                        ignoreData="{Boolean}true"
+                        name="./textIsRich"
+                        value="true"
+                        xtype="hidden"/>
+                    <text
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Disclaimer text to be displayed at end of form."
+                        fieldLabel="Disclaimer Text"
+                        hideLabel="{Boolean}false"
+                        name="./disclaimerText"
+                        xtype="richtext">
+                        <rtePlugins jcr:primaryType="nt:unstructured">
+                            <edit
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <findreplace
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <format
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <justify
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <links
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <lists
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <misctools
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <subsuperscript
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <table
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <insertgatitle
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <image
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                        </rtePlugins>
+                        <linkbrowseConfig
+                            jcr:primaryType="nt:unstructured"
+                            protocols="[http://,https://,ftp://,mailto:]"/>
+                    </text>
+                    
+                    <captchaOption
+                        jcr:primaryType="cq:Widget"
+                        defaultValue="yes"
+                        fieldDescription="Please select captcha option is required or not. Default set to &lt;b>reCaptcha&lt;/b>"
+                        fieldLabel="Captcha Option"
+                        name="./captchaOptionReq"
+                        type="select"
+                        xtype="selection">
+                        <options jcr:primaryType="cq:WidgetCollection">
+                            <recaptcha
+                                jcr:primaryType="nt:unstructured"
+                                text="reCaptcha"
+                                value="reCaptcha"/>
+                            <honeypot
+                                jcr:primaryType="nt:unstructured"
+                                text="Honeypot"
+                                value="Honeypot"/>
+                          	<none
+                                jcr:primaryType="nt:unstructured"
+                                text="None"
+                                value="None"/>
+                        </options>
+                    </captchaOption>
+                    
+                    <captchaText
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Text for captcha validation. Default set to &lt;b>Please select captcha.&lt;/b>"
+                        fieldLabel="Captcha Validation Text"
+                        name="./captchaText"
+                        xtype="textfield"/>
+                    <bgcolor
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="This will change the background color of section on selection of this category."
+                        fieldLabel="Background Color"
+                        name="./sectionBGColor"
+                        showHexValue="{Boolean}true"
+                        xtype="colorfield"/>
+                    <continue
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Text to be displayed for continue button. Default set to &lt;b>Continue&lt;/b>"
+                        fieldLabel="Continue Button Text"
+                        name="./contText"
+                        xtype="textfield"/>
+                </items>
+            </section>
+        </items>
+    <items jcr:primaryType="cq:WidgetCollection">
+            <section
+                jcr:primaryType="cq:Panel"
+                title="ADA Texts">
+                <items jcr:primaryType="cq:WidgetCollection">
+                   	<adaTextForOwnerHearbackYesRadioButton
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Text to be displayed for No Radio button. Default set to &lt;b>Yes i would like to hear back from the owner's organization&lt;/b>"
+                        fieldLabel="Radio Button Text"
+                        name="./adaTextForOwnerHearbackYesRadioButton"
+                        xtype="textfield"/>
+					<adaTextForOwnerHearbackNoRadioButton
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Text to be displayed for No Radio button. Default set to &lt;b>No i would not like to hear back from the owner's organization. Please know there may be instances where we need to contact you for additional information regarding this matter.&lt;/b>"
+                        fieldLabel="Radio Button Text"
+                        name="./adaTextForOwnerHearbackNoRadioButton"
+                        xtype="textfield"/>
+                </items>
+            </section>
+        </items>
+    </items>
+</jcr:root>

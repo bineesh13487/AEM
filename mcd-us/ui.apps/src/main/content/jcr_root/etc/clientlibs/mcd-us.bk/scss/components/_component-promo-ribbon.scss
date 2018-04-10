@@ -1,0 +1,87 @@
+//Component Promo Ribbon
+.promo-ribbon {
+  margin: 50px 0px 50px 0px;
+  .ribbonbox {
+    background-color: #f1f1eb;
+    padding-top: 1.2em;
+    padding-left: 1.2em;
+    padding-right: 1.2em;
+    padding-bottom: 0px;
+  }
+  .ribbon-gutter {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding-left: 0.3em !important;
+    padding-right: 0.3em !important;
+  }
+  .ribbon-inner {
+    background-color: #f1f1eb;
+    padding-left: 0.6em;
+    padding-right: 0.6em;
+  }
+  .ribbon-text-left {
+    text-align: left;
+  }
+  .ribbon-text-right {
+    text-align: right;
+  }
+  .ribbon-text-center {
+    text-align: center;
+  }
+  .ribbon-text-large {
+    font-size: 2.2rem !important;
+    line-height: 3.2rem !important;
+    font-family: LovinSansWeb-bold !important;
+  }
+  .ribbon-text-small {
+    font-size: 1.6rem !important;
+    line-height: 1.6rem !important;
+    font-family: LovinSansWeb-Regular !important;    
+  }
+  .ribbon-legalcopystyle {
+    color: #000000;    
+    padding: 10px;
+    font-size: 0.9rem !important;
+    line-height: 0.9rem !important;
+    font-family: LovinSansWeb-Regular !important; 
+  }
+  .btn-red.small{
+  	font-size: 1.2rem !important;    
+    font-family: LovinSansWeb-bold !important; 
+  }
+  .ribbon-relative {
+    position: relative;
+  }
+  .ribbon-no-gutter {
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 0px;
+    .ribbon-gutter {
+      padding-left: 0px !important;
+      padding-right: 0px !important;
+      .ribbon-inner {
+        padding-left: 0px;
+        padding-right: 0px;
+      }
+    }
+  }
+}
+
+@media (max-width: 767px) {
+.promo-ribbon{
+	  .ribbon-text-large {
+	    font-size: 2.5rem !important;
+	    line-height: 2.5rem !important;	    
+	  }
+	  
+	  .ribbon-legalcopystyle {
+	    font-size: 1rem !important;
+	    line-height: 1rem !important;	    
+	  }
+	  
+	  .btn-red.small{
+	  	font-size: 1.6rem !important;    
+	    font-family: LovinSansWeb-bold !important; 
+	  }
+  }
+}

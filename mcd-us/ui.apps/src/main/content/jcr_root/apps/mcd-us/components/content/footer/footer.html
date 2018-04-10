@@ -1,0 +1,179 @@
+<!--/*
+
+<sly data-sly-use.appBadge="com.mcd.rwd.global.core.sightly.AppBadgeHandler"
+     data-sly-use.footer="com.mcd.rwd.us.core.sightly.FooterHandler">
+    <sly data-sly-test.configured="${footer.isFooterComponentConfigured}">
+
+        <div class="visible-xs-block component-social-mobile">
+            <div class="wrapper">
+                <p id="${footer.ariaLabel}_mob" data-sly-test="${footer.socialChannelTitle}"
+                   data-sly-test="${footer.socialChannelTitle}">${footer.socialChannelTitle @ context='unsafe'}</p>
+                <div class="social-icons" aria-labelledby="${footer.ariaLabel}_mob" role="list">
+                    <sly data-sly-list="${footer.socialChannels}">
+                        <a href="${item.link}" title="${item.alt}" target="${item.target}"
+                           class="social external"
+                           style="background: url('${item.src @context='uri'}')" data-at="Footer:${item.alt}"
+                           data-track="footerSocialLinks"></a>
+                        <sly data-sly-test="${item.script}">${item.script @ context='unsafe'}</sly>
+                    </sly>
+                </div>
+                <div class="separator"></div>
+                <sly data-sly-test="${footer.showAppBadge}">
+                    <p data-sly-test="${footer.appBadgeTitle}">${footer.appBadgeTitle @ context='unsafe'}</p>
+                    <div class="row no-gutter">
+                        <div class="col-xs-6">
+                            <div class="cont-btn" data-sly-test="${appBadge.ios}">
+                                <a href="${appBadge.ios.link.href}" class="btn-app ${appBadge.ios.link.linkClass}"
+                                   title="${appBadge.ios.link.text}" target="_blank"
+                                   data-at="Apple iTunes:${footer.pageNameForAnalytics}:Download App" data-track="downloadApp">
+                                    <img src="${appBadge.ios.image}" alt=""/>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="cont-btn" data-sly-test="${appBadge.android}">
+                                <a href="${appBadge.android.link.href}"
+                                   class="btn-app ${appBadge.android.link.linkClass}"
+                                   title="${appBadge.android.link.text}" target="_blank"
+                                   data-at="Google Play Store:${footer.pageNameForAnalytics}:Download App" data-track="downloadApp">
+                                    <img src="${appBadge.android.image}" alt=""/>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </sly>
+            </div>
+        </div>
+        <div class="visible-xs-block component-footer-mobile">
+            <div class="wrapper">
+                <ul class="list-unstyled site-map-2" role="list">
+                    <li data-sly-repeat="${footer.channels}">
+                        <a data-sly-unwrap="${!item.href}" href="${item.href}"
+                           target="${item.target}"
+                           class="${item.linkClass}" data-at="Footer:${item.text}"
+                           data-track="footerChannelLinks">${item.text}</a>
+                    </li>
+                </ul>
+                <p class="light" data-sly-test="${footer.copyRight}"
+                   data-sly-test="${footer.copyRight}">${footer.copyRight @ context='unsafe'}</p>
+            </div>
+        </div>
+
+        <div class="cont-post-links hidden-xs">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 cont-misc clearfix">
+                        <ul role="list" class="list-inline social-icons pull-left" aria-labelledby="${footer.ariaLabel}">
+                            <li id="${footer.ariaLabel}" class="socialTitle" data-sly-test="${footer.socialChannelTitle}">${footer.socialChannelTitle @ context='unsafe'}</li>
+                            <li data-sly-repeat="${footer.socialChannels}">
+                                <a href="${item.link}" title="${item.alt}" target="${item.target}"
+                                   class="social external"
+                                   style="background: url('${item.src @context='uri'}')" data-at="Footer:${item.alt}"
+                                   data-track="footerSocialLinks">
+                                </a>
+                                <sly data-sly-test="${item.script}">${item.script @ context='unsafe'}</sly>
+                            </li>
+                        </ul>
+                        <ul class="list-inline cont-apps pull-right">
+                            <sly data-sly-test="${footer.showAppBadge}">
+                                <li data-sly-test="${footer.appBadgeTitle}">${footer.appBadgeTitle @ context='unsafe'}</li>
+                                <li>
+                                    <sly data-sly-test="${appBadge.ios}">
+                                        <a href="${appBadge.ios.link.href}"
+                                           class="btn-app ${appBadge.ios.link.linkClass}"
+                                           title="${appBadge.ios.link.text}" target="_blank"
+                                           data-at="Apple iTunes:${footer.pageNameForAnalytics}:Download App"
+                                           data-track="downloadApp">
+                                            <img src="${appBadge.ios.image}" alt=""/>
+                                        </a>
+                                    </sly>
+                                </li>
+                                <li>
+                                    <sly data-sly-test="${appBadge.android}">
+                                        <a href="${appBadge.android.link.href}"
+                                           class="btn-app ${appBadge.android.link.linkClass}"
+                                           title="${appBadge.android.link.text}" target="_blank"
+                                           data-at="Google Play Store:${footer.pageNameForAnalytics}:Download App"
+                                           data-track="downloadApp">
+                                            <img src="${appBadge.android.image}" alt=""/>
+                                        </a>
+                                    </sly>
+                                </li>
+                            </sly>
+                        </ul>
+                    </div>
+                    <div class="col-xs-12 cont-bottom clearfix">
+                        <ul role="list" class="list-inline">
+                            <li data-sly-repeat="${footer.channels}">
+                                <a data-sly-unwrap="${!item.href}" href="${item.href}"
+                                   target="${item.target}"
+                                   class="${item.linkClass}" data-at="Footer:${item.text}"
+                                   data-track="footerChannelLinks">${item.text}</a>
+                            </li>
+                        </ul>
+                        <p class="copy" data-sly-test="${footer.copyRight}">${footer.copyRight @ context='unsafe'}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </sly>
+    <sly data-sly-test="${!configured}">
+        <h2>Please configure the footer component</h2>
+    </sly>
+</sly>
+
+*/-->
+
+<sly data-sly-use.appBadge="com.mcd.rwd.global.core.sightly.AppBadgeHandler" data-sly-use.footer="com.mcd.rwd.us.core.sightly.FooterHandler">
+    <sly data-sly-test.configured="${footer.isFooterComponentConfigured}">
+        <nav data-component="footer" class="mcd-global-footer" aria-label="additional resources" role="navigation">
+            <div class="footer__container">
+                <div class="mcd-global-footer__profiles">
+                    <ul class="links social">
+                        <li class="links__item" data-sly-repeat="${footer.socialChannels}">
+                            <a href="${item.link}" title="${item.alt}" target="${item.target}" class="link" data-at="Footer:${item.alt}" data-track="footerSocialLinks">
+                                <!-- we need to be able to pass in the lowercase name of the social profile. I'm using alt here but since we are no longer loading in images, alt is no longer needed.  -->
+                                <sly data-sly-test="${item.alt == 'spotify'}">
+                                    <span class="icon-${item.alt}"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></span>
+                                </sly>
+                                <sly data-sly-test="${item.alt != 'spotify'}">
+                                    <span class="icon-${item.alt}"><span class="path1"></span><span class="path2"></span></span>
+                                </sly>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="links apps">
+                        <sly data-sly-test="${appBadge.android}">
+                            <li class="links__item">
+                                <a href="${appBadge.android.link.href}" class="${appBadge.android.link.linkClass}" title="${appBadge.android.link.text}" target="_blank" data-at="Google Play Store:${footer.pageNameForAnalytics}:Download App" data-track="downloadApp">
+                                    <span class="icon-google-play-store"></span>
+                                </a>
+                            </li>
+                        </sly>
+                        <sly data-sly-test="${appBadge.ios}">
+                            <li class="links__item">
+                                <a href="${appBadge.ios.link.href}" class="${appBadge.ios.link.linkClass}" title="${appBadge.ios.link.text}" target="_blank" data-at="Apple iTunes:${footer.pageNameForAnalytics}:Download App" data-track="downloadApp">
+                                    <span class="icon-apple-app-store"></span>
+                                </a>
+                            </li>
+                        </sly>
+                    </ul>
+                </div>
+
+                <div class="mcd-global-footer__legal">
+                    <ul class="links">
+                        <li class="links__item"><a href="#" class="country-switcher link" title="United States">United States</a></li>
+                        <li class="links__item" data-sly-repeat="${footer.channels}">
+                            <a data-sly-unwrap="${!item.href}" href="${item.href}" target="${item.target}" class="link ${item.linkClass}" data-at="Footer:${item.text}" data-track="footerChannelLinks" title="${item.text}">${item.text}</a>
+                        </li>
+                        <li class="links__item"><a href="https://www.mcdonalds.com/us/en-us/accessibility.html" class="link" title="Accessibility">Accessibility</a></li><!-- need to add the accessibility page in AEM. It currently only exists in PROD -->
+                    </ul>
+                
+                    <div class="details">
+                        <p class="copyright" data-sly-test="${footer.copyRight}"><span class="icon-golden-arches"></span> ${footer.copyRight @ context='unsafe'}</p>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </sly>
+</sly>

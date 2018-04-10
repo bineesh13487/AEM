@@ -1,0 +1,54 @@
+<sly data-sly-use.item="com.mcd.rwd.us.core.sightly.GoesWellWithHandler">
+    <div class="showLiveData" data-showlive-value="${item.showLiveDataValue}"></div>
+    <sly data-sly-test="${item.productId !=null}">
+        <div class="component-related-items goes-well-with" data-ng-controller="goesWellWithController" data-ng-init="init(${item.productId})" data-mode="authorMode_${wcmmode.edit || wcmmode.design}">
+            <div class="container wrapper">
+                <div class="row">
+                    <h2><span class="aria-hidden">${item.productMarketingName} ${item.sectionTitle}</span><span class="visuallyhidden">${item.productMarketingName} ${item.sectionTitle}</span></h2>
+                    <div class="loadingDiv" style="text-align:center;"><img src="/etc/clientlibs/mcd-us/images/spinner.gif" alt="loading"/></div>
+                    <div class="related-flex-container">
+                        <div class="related-flexslider flexslider no-init" data-count="6" data-id="${item.uuid}">
+                          <!--   <div class="flex-custom-nav custom-navigation">
+                                <a href="javascript:void(0)" role="button" class="flex-prev" tabindex="0" title="${item.productMarketingName} ${item.sectionTitle} with ${item.ariaPrev}" aria-label="${item.ariaPrev}">
+                                <span class="visuallyhidden">${item.productMarketingName} ${item.sectionTitle} with ${item.ariaPrev}</span> </a>
+                                <div class="custom-controls-container"></div>
+                                <a href="javascript:void(0)" role="button" class="flex-next"  tabindex="0" title="${item.productMarketingName} ${item.sectionTitle} with ${item.ariaNext}" aria-label="${item.ariaNext}">
+                                <span class="visuallyhidden">${item.productMarketingName} ${item.sectionTitle} with ${item.ariaNext}</span> </a>
+	                        </div> -->
+							<div class="custom-navigation">
+								<a href="javascript:void(0)" role="button" class="flex-prev">
+									<span class="visuallyhidden">${item.productMarketingName} ${item.sectionTitle} ${item.ariaPrev}</span>
+								</a>
+								<div class="custom-controls-container"></div>
+								<a href="javascript:void(0)" role="button" class="flex-next">
+									<span class="visuallyhidden">${item.productMarketingName} ${item.sectionTitle} ${item.ariaNext}</span>
+								</a>
+                            </div>
+                            <ul class="slides" role="group" tabindex="0" title="${item.sectionTitle}" aria-label="${item.ariaSlider}">
+                                <li ng-repeat="data in itemsList" fx-slider-directive class="first-focus">
+                                    <a  ng-href={{data.path}} href="#">
+								    <div><picture>
+										<!--[if IE 9]><video style="display: none;"><![endif]-->
+										<source srcset="${item.getDynamicMediaServerContextURL @context='uri'}${item.productImageFolderPath}/{{data.imagePath}}${item.getDynamicMediaXSmallParameter @context='uri'}" media="(max-width: 432px)">
+										<source srcset="${item.getDynamicMediaServerContextURL @context='uri'}${item.productImageFolderPath}/{{data.imagePath}}${item.getDynamicMediaXSmallParameter @context='uri'}" media="(max-width: 767px)">
+										<source srcset="${item.getDynamicMediaServerContextURL @context='uri'}${item.productImageFolderPath}/{{data.imagePath}}${item.getDynamicMediaMediumParameter @context='uri'}" media="(max-width: 1024px)">
+										<source srcset="${item.getDynamicMediaServerContextURL @context='uri'}${item.productImageFolderPath}/{{data.imagePath}}${item.getDynamicMediaMediumParameter @context='uri'}" media="(max-width: 1920px)">
+										<!--[if IE 9]></video><![endif]-->
+										<img class="img-responsive" srcset="${item.getDynamicMediaServerContextURL @context='uri'}${item.productImageFolderPath}/{{data.imagePath}}${item.getDynamicMediaMediumParameter @context='uri'}" alt="" aria-hidden="true"/>
+									</picture></div>
+									<div class="caption">{{data.marketingName}}</div>
+									</a>
+                                    
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div></sly>
+
+    <sly data-sly-test="${(item.productId == null) && (wcmmode.edit || wcmmode.design)}">
+        <h3>Please Configure the Goes Well With Component </h3>
+    </sly>
+</sly>

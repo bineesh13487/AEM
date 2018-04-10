@@ -1,0 +1,1821 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Dialog"
+    title="Site Level Configuration"
+    xtype="dialog">
+    <items jcr:primaryType="cq:WidgetCollection">
+        <logo
+            jcr:primaryType="cq:Widget"
+            path="/apps/mcd-rwd-global/components/page/siteconfig/dialog/items/logo.infinity.json"
+            xtype="cqinclude"/>
+        <languagetoggle
+            jcr:primaryType="cq:Widget"
+            path="/apps/mcd-rwd-global/components/page/siteconfig/dialog/items/languagetoggle.infinity.json"
+            xtype="cqinclude"/>
+        <myaccount
+            jcr:primaryType="cq:Panel"
+            title="My Account">
+            <items jcr:primaryType="cq:WidgetCollection">
+                <enable
+                    jcr:primaryType="cq:Widget"
+                    fieldDescription="Check this to display My Account."
+                    fieldLabel="Enable"
+                    name="./myaccount/enabled"
+                    type="checkbox"
+                    xtype="selection"/>
+				<signInRedirectLink
+                    jcr:primaryType="cq:Widget"
+                    fieldDescription="Sign In Redirect Link."
+                    fieldLabel="Sign In Redirect Link"
+                    name="./myaccount/signInRedirectLink"
+                    xtype="textfield"/>
+                <pagetitle
+                    jcr:primaryType="cq:Widget"
+                    defaultValue="My Account"
+                    fieldDescription="Enter the title for My account link in header"
+                    fieldLabel="MyAccount Title"
+                    name="./myaccount/headerTitle"
+                    xtype="textfield"/>
+
+                <mydealslink
+                    jcr:primaryType="cq:Widget"
+                    fieldDescription="Enter the GWC MyDeals page link to redirect upon click of set preferred location in restaurant locator"
+                    fieldLabel="Mydeals Link"
+                    name="./myaccount/mydealslink"
+                    xtype="textfield"/>
+
+                <signintitle
+                    jcr:primaryType="cq:Widget"
+                    fieldDescription="Enter the title for SignIn"
+                    fieldLabel="SignIn Title"
+                    name="./myaccount/signinTitle"
+                    xtype="textfield"/>
+                <rememberlabel
+                    jcr:primaryType="cq:Widget"
+                    fieldDescription="Enter the title for Remember me "
+                    fieldLabel="RememberMe Text"
+                    name="./myaccount/remembermeText"
+                    xtype="textfield"/>
+                <submitbuttontitle
+                    jcr:primaryType="cq:Widget"
+                    fieldLabel="SignIn Button text"
+                    name="./myaccount/siginButtonText"
+                    xtype="textfield"/>
+                <forgotpasswordtitle
+                    jcr:primaryType="cq:Widget"
+                    fieldLabel="ForgotPassword Title"
+                    name="./myaccount/forgotPassText"
+                    xtype="textfield"/>
+                <registrationlinktitle
+                    jcr:primaryType="cq:Widget"
+                    fieldLabel="Registration Title"
+                    name="./myaccount/registrationTitle"
+                    xtype="textfield"/>
+                <welcomenote
+                    jcr:primaryType="cq:Widget"
+                    fieldDescription="Message to show the user after successful login"
+                    fieldLabel="Welcome Title"
+                    name="./myaccount/welcomeTitle"
+                    xtype="textfield"/>
+                <updateprofiletille
+                    jcr:primaryType="cq:Widget"
+                    fieldLabel="Upadte Profile  Title"
+                    name="./myaccount/updateProfileTitle"
+                    xtype="textfield"/>
+                <logouttitle
+                    jcr:primaryType="cq:Widget"
+                    fieldLabel="Logout Title"
+                    name="./myaccount/logoutTitle"
+                    xtype="textfield"/>
+				<logoutlink
+                    jcr:primaryType="cq:Widget"
+                    fieldDescription="Enter the logout redirect URL"
+                    fieldLabel="Logout Link"
+                    name="./myaccount/signinlink"
+                    xtype="textfield"/>
+                <emailrequirederror
+                    jcr:primaryType="cq:Widget"
+                    fieldLabel="EmailRequired Validation message"
+                    name="./myaccount/emailReqText"
+                    xtype="textfield"/>
+                <passwordrequirederror
+                    jcr:primaryType="cq:Widget"
+                    fieldLabel="Password Required Validation"
+                    name="./myaccount/passReqText"
+                    xtype="textfield"/>
+                <activationerrormsg
+                    jcr:primaryType="cq:Widget"
+                    fieldLabel="Activation account Msg"
+                    name="./myaccount/acctivateErrorText"
+                    xtype="textfield"/>
+				 <ecpccpsyncerror
+                    jcr:primaryType="cq:Widget"
+                    fieldLabel="Error Message When user id is present"
+                    name="./myaccount/ecpccpsyncerror"
+                    xtype="textfield"/>
+                <emailvalidationmsg
+                    jcr:primaryType="cq:Widget"
+                    fieldLabel="Email Invalid format message"
+                    name="./myaccount/emailInvalidText"
+                    xtype="textfield"/>
+                <errornetworkmsg
+                    jcr:primaryType="cq:Widget"
+                    fieldLabel="Network Error Message"
+                    name="./myaccount/errorNetText"
+                    xtype="textfield"/>
+                <loginerrormsg
+                    jcr:primaryType="cq:Widget"
+                    fieldLabel="Login Error Message"
+                    name="./myaccount/loginErrorMsg"
+                    xtype="textfield"/>
+                <forgotpasswordlink
+                    jcr:primaryType="cq:Widget"
+                    fieldLabel="Forgot Password Link"
+                    name="./myaccount/forgotpassPath"
+                    xtype="textfield"/>
+                <registrationlink
+                    jcr:primaryType="cq:Widget"
+                    fieldLabel="Registration Link"
+                    name="./myaccount/registerLink"
+                    xtype="textfield"/>
+                <updateprofilelink
+                    jcr:primaryType="cq:Widget"
+                    fieldLabel="Update Profile Link"
+                    name="./myaccount/updateProfileLink"
+                    xtype="textfield"/>
+				<termsAndConditionsPagePath
+                    jcr:primaryType="cq:Widget"
+                    allowBlank="{Boolean}false"
+                    fieldDescription="Terms and Condition Path"
+                    fieldLabel="Terms and Condition Page Path"
+                    name="./myaccount/termsAndConditionsPagePath"
+                    rootPath="/"
+                    xtype="pathfield"/>
+                   <updatepasswordlink
+                    jcr:primaryType="cq:Widget"
+                    fieldLabel="Reset Password Page Link"
+                    name="./myaccount/resetPassWordLink"
+                    xtype="textfield"/>
+                <changepasswordlink
+                    jcr:primaryType="cq:Widget"
+                    fieldLabel="Change PassWord Link"
+                    name="./myaccount/changePassLink"
+                    xtype="textfield"/>
+                <emailplaceholder
+                    jcr:primaryType="cq:Widget"
+                    fieldLabel="Email Placeholder"
+                    name="./myaccount/emailPlaceholder"
+                    xtype="textfield"/>
+                <passwordplaceholder
+                    jcr:primaryType="cq:Widget"
+                    fieldLabel="Password Placeholder"
+                    name="./myaccount/passwordPlaceholder"
+                    xtype="textfield"/>
+                <myaccountinfo
+                    jcr:primaryType="cq:Widget"
+                    fieldLabel="MyAccount Info Title"
+                    name="./myaccount/myaccountInfo"
+                    xtype="textfield"/>
+                <channels
+                    jcr:primaryType="cq:Widget"
+                    fieldDescription="To add additional links in Myaccount Popup"
+                    fieldLabel="MyAccount Additional Links"
+                    name="./myaccount/additionalLinks"
+                    xtype="multifield">
+                    <fieldConfig
+                        jcr:primaryType="nt:unstructured"
+                        xtype="multifieldpanel">
+                        <items jcr:primaryType="cq:WidgetCollection">
+                            <title
+                                jcr:primaryType="cq:Widget"
+                                fieldLabel="Link Text"
+                                key="title"
+                                width="400"
+                                xtype="textfield"/>
+                            <path
+                                jcr:primaryType="cq:Widget"
+                                fieldLabel="Link"
+                                key="path"
+                                width="400"
+                                xtype="pathfield"/>
+                        </items>
+                    </fieldConfig>
+                </channels>
+                <popupsignintitle
+                    jcr:primaryType="cq:Widget"
+                    fieldDescription="Please provide the title which will appear on Sign-In component (Popup)."
+                    fieldLabel="Popup SignIn Title"
+                    name="./myaccount/popupSignInTitle"
+                    xtype="textfield"/>
+                <emailsigninpalceholder
+                    jcr:primaryType="cq:Widget"
+                    fieldDescription="Please provide Email Placeholder for Signin."
+                    fieldLabel="SignIn Email PlaceHolder"
+                    name="./myaccount/emailSigninPlaceholder"
+                    xtype="textfield"/>
+                <passwordsigninplaceholder
+                    jcr:primaryType="cq:Widget"
+                    fieldDescription="Please provide Password Placeholder for SignIn."
+                    fieldLabel="SignIn Password PlaceHolder"
+                    name="./myaccount/passwordSigninPlaceholder"
+                    xtype="textfield"/>
+                <image
+                    jcr:primaryType="cq:Widget"
+                    border="true"
+                    cropParameter="./myaccount/image/imageCrop"
+                    ddGroups="[media]"
+                    fileNameParameter="./myaccount/image/fileName"
+                    fileReferenceParameter="./myaccount/image/fileReference"
+                    height="300"
+                    hideLabel="{Boolean}true"
+                    mapParameter="./myaccount/image/imageMap"
+                    name="./myaccount/image/file"
+                    requestSuffix="/myaccount/image.img.png"
+                    rotateParameter="./myaccount/image/imageRotate"
+                    sizeLimit="100"
+                    title="MyAccount Popup Image"
+                    width="450"
+                    xtype="html5smartimage"/>
+                <resourceType
+                    jcr:primaryType="cq:Widget"
+                    ignoreData="true"
+                    name="./myaccount/image/sling:resourceType"
+                    value="foundation/components/image"
+                    width="100%"
+                    xtype="hidden"/>
+            </items>
+        </myaccount>
+        <headerlinks
+            jcr:primaryType="cq:Panel"
+            title="Header Links">
+            <items jcr:primaryType="cq:WidgetCollection">
+                <links
+                    jcr:primaryType="cq:Widget"
+                    fieldLabel="Header Links"
+                    name="./headerlinks/links"
+                    xtype="multifield">
+                    <fieldConfig
+                        jcr:primaryType="cq:Widget"
+                        xtype="multifieldpanel">
+                        <items jcr:primaryType="cq:WidgetCollection">
+                            <title
+                                jcr:primaryType="cq:Widget"
+                                fieldLabel="Title"
+                                key="title"
+                                width="400"
+                                xtype="textfield"/>
+                            <path
+                                jcr:primaryType="cq:Widget"
+                                fieldLabel="Link"
+                                key="path"
+                                width="400"
+                                xtype="pathfield"/>
+                            <target
+                                jcr:primaryType="cq:Widget"
+                                fieldDescription="Check to load page in a new window"
+                                fieldLabel="Open in New Window?"
+                                key="target"
+                                xtype="checkbox"/>
+                        </items>
+                    </fieldConfig>
+                </links>
+            </items>
+        </headerlinks>
+        <adagenerictexts
+            jcr:primaryType="cq:Panel"
+            title="ADA Generic Text">
+            <items jcr:primaryType="cq:WidgetCollection">
+    			<prevtext
+                    jcr:primaryType="cq:Widget"
+                    defaultValue="previous"
+                    fieldDescription="Enter the text to show as 'previous' in slider"
+                    fieldLabel="'previous' text"
+                    name="./adagenerictexts/prevtext"
+                    xtype="textfield"/>
+                <nexttext
+                    jcr:primaryType="cq:Widget"
+                    defaultValue="next"
+                    fieldDescription="Enter the text to show as 'next' in slider"
+                    fieldLabel="'next' text"
+                    name="./adagenerictexts/nexttext"
+                    xtype="textfield"/>
+                <playtext
+                    jcr:primaryType="cq:Widget"
+                    defaultValue="play"
+                    fieldDescription="Enter the text to show as 'play' in slider"
+                    fieldLabel="'play' text"
+                    name="./adagenerictexts/playtext"
+                    xtype="textfield"/>
+                <pausetext
+                    jcr:primaryType="cq:Widget"
+                    defaultValue="pause"
+                    fieldDescription="Enter the text to show as 'pause' in slider"
+                    fieldLabel="'pause' text"
+                    name="./adagenerictexts/pausetext"
+                    xtype="textfield"/>
+                <clicktoplaytext
+                    jcr:primaryType="cq:Widget"
+                    defaultValue="click to play"
+                    fieldDescription="Enter the aria-label text to show as 'click to play' in slider"
+                    fieldLabel="'click to play' text"
+                    name="./adagenerictexts/clicktoplaytext"
+                    xtype="textfield"/>
+                <clicktopausetext
+                    jcr:primaryType="cq:Widget"
+                    defaultValue="click to pause"
+                    fieldDescription="Enter the aria-label text to show as 'click to pause' in slider"
+                    fieldLabel="'click to pause' text"
+                    name="./adagenerictexts/clicktopausetext"
+                    xtype="textfield"/>
+                <sliderplayingtext
+                    jcr:primaryType="cq:Widget"
+                    defaultValue="slider playing"
+                    fieldDescription="Enter the aria-label text to show as 'slider playing' in slider"
+                    fieldLabel="'slider playing' text"
+                    name="./adagenerictexts/sliderplayingtext"
+                    xtype="textfield"/>
+                <sliderpausedtext
+                    jcr:primaryType="cq:Widget"
+                    defaultValue="slider paused"
+                    fieldDescription="Enter the aria-label text to show as 'slider paused' in slider"
+                    fieldLabel="'slider paused' text"
+                    name="./adagenerictexts/sliderpausedtext"
+                    xtype="textfield"/>
+                <activeslidetext
+                    jcr:primaryType="cq:Widget"
+                    defaultValue="active slide"
+                    fieldDescription="Enter the aria-label text to show as 'active slide' in slider"
+                    fieldLabel="'active slide' text"
+                    name="./adagenerictexts/activeslidetext"
+                    xtype="textfield"/>
+                <gotoslidetext
+                    jcr:primaryType="cq:Widget"
+                    defaultValue="go to slide"
+                    fieldDescription="Enter the aria-label text to show as 'go to slide' in slider"
+                    fieldLabel="'go to slide' text"
+                    name="./adagenerictexts/gotoslidetext"
+                    xtype="textfield"/>
+                <visitprevslidetext
+                    jcr:primaryType="cq:Widget"
+                    defaultValue="visit previous slide"
+                    fieldDescription="Enter the aria-label text to show as 'visit previous slide' in slider"
+                    fieldLabel="'visit previous slide' text"
+                    name="./adagenerictexts/visitprevslidetext"
+                    xtype="textfield"/>
+                <visitnextslidetext
+                    jcr:primaryType="cq:Widget"
+                    defaultValue="visit next slide"
+                    fieldDescription="Enter the aria-label text to show as 'visit next slide' in slider"
+                    fieldLabel="'visit next slide' text"
+                    name="./adagenerictexts/visitnextslidetext"
+                    xtype="textfield"/>
+                <expandedtext
+                    jcr:primaryType="cq:Widget"
+                    defaultValue="expanded"
+                    fieldDescription="Enter the aria-label text to show as 'expanded'"
+                    fieldLabel="'expanded' text"
+                    name="./adagenerictexts/expandedtext"
+                    xtype="textfield"/>
+                <collapsedtext
+                    jcr:primaryType="cq:Widget"
+                    defaultValue="collapsed"
+                    fieldDescription="Enter the aria-label text to show as 'collapsed'"
+                    fieldLabel="'collapsed' text"
+                    name="./adagenerictexts/collapsedtext"
+                    xtype="textfield"/>
+                <selectedtext
+                    jcr:primaryType="cq:Widget"
+                    defaultValue="selected"
+                    fieldDescription="Enter the aria-label text to show as 'selected'"
+                    fieldLabel="'selected' text"
+                    name="./adagenerictexts/selectedtext"
+                    xtype="textfield"/>
+                <clicktoplayvideotext
+                    jcr:primaryType="cq:Widget"
+                    defaultValue="click to play this video"
+                    fieldDescription="Enter the aria-label text to show as 'click to play this video'"
+                    fieldLabel="'click to play this video' text"
+                    name="./adagenerictexts/clicktoplayvideotext"
+                    xtype="textfield"/>
+               	<monthDetails
+                	jcr:primaryType="cq:Widget"
+                	fieldDescription="Enter month names from January to December"
+                	fieldLabel="Enter Month Names"
+                	name="./adagenerictexts/monthList"
+                    xtype="multifield">
+                    <fieldConfig
+                    	jcr:primaryType="nt:unstructured"
+                    	xtype="textfield"/>
+              	</monthDetails>
+            </items>
+        </adagenerictexts>
+        <joinlinktitle
+            jcr:primaryType="cq:Panel"
+            title="Join Link">
+            <items jcr:primaryType="cq:WidgetCollection">
+            	<enable
+                    jcr:primaryType="cq:Widget"
+                    defaultValue="{Boolean}true"
+                    fieldDescription="Check this to show Join link in Header"
+                    fieldLabel="Show Join link"
+                    itemId="joinenabled"
+                    name="./joinlinktitle/enabled"
+                    type="checkbox"
+                    xtype="selection">
+                    <listeners
+                        jcr:primaryType="nt:unstructured"
+                        loadcontent="function(tab,value,isChecked)&#xa;{&#xa;&#x9;if (tab.findParentByType('panel').getComponent('joinenabled').value=='true'){&#xa;&#x9;tab.findParentByType('panel').getComponent('joinlabel').show();&#xa;&#x9;tab.findParentByType('panel').getComponent('joinpath').show();&#xa;} else{&#xa;&#x9;tab.findParentByType('panel').getComponent('joinlabel').hide();&#xa;&#x9;tab.findParentByType('panel').getComponent('joinpath').hide();&#xa;}&#xa;}"
+                        selectionchanged="function(tab,value,isChecked)&#xa;{&#x9;&#xa;&#x9;if (isChecked==true){&#xa;&#x9;tab.findParentByType('panel').getComponent('joinlabel').show();&#xa;&#x9;tab.findParentByType('panel').getComponent('joinpath').show();&#xa;} else{&#xa;&#x9;tab.findParentByType('panel').getComponent('joinlabel').hide();&#xa;&#x9;tab.findParentByType('panel').getComponent('joinpath').hide();&#xa;}&#xa;}"/>
+                </enable>
+                <pagetitle
+                    jcr:primaryType="cq:Widget"
+                    defaultValue="Join"
+                    fieldDescription="Enter the title for join link in header"
+                    fieldLabel="Join Link Title"
+                    itemId="joinlabel"
+                    name="./joinlinktitle/text"
+                    xtype="textfield"/>
+                <joinPagePath
+                    jcr:primaryType="cq:Widget"
+                    fieldLabel="Join Page Path"
+                    fieldDescription="Page with the Newsletter Subscription component on it."
+                    itemId="joinpath"
+                    name="./joinlinktitle/pagePath"
+                    rootPath="/content"
+                    xtype="pathfield"/>
+            </items>
+        </joinlinktitle>
+        <top-navigation
+            jcr:primaryType="cq:Widget"
+            path="/apps/mcd-rwd-global/components/page/siteconfig/dialog/items/top-navigation.infinity.json"
+            xtype="cqinclude"/>
+        <footernav
+            jcr:primaryType="cq:Widget"
+            path="/apps/mcd-rwd-global/components/page/siteconfig/dialog/items/footernav.infinity.json"
+            xtype="cqinclude"/>
+        <footer
+            jcr:primaryType="cq:Widget"
+            path="/apps/mcd-rwd-global/components/page/siteconfig/dialog/items/footer.infinity.json"
+            xtype="cqinclude"/>
+        <appbadge
+            jcr:primaryType="cq:Widget"
+            path="/apps/mcd-rwd-global/components/page/siteconfig/dialog/items/appbadge.infinity.json"
+            xtype="cqinclude"/>
+        <rl
+            jcr:primaryType="cq:Panel"
+            title="Restaurant Locator">
+            <items jcr:primaryType="cq:WidgetCollection">
+                <restWidget
+                    jcr:primaryType="cq:Widget"
+                    collapsed="true"
+                    collapsible="true"
+                    title="Restaurant Widget"
+                    xtype="dialogfieldset">
+                    <items jcr:primaryType="cq:WidgetCollection">
+                    	<enable
+		                    jcr:primaryType="cq:Widget"
+		                    defaultValue="{Boolean}true"
+		                    fieldDescription="Check this to show Locate link in Header"
+		                    fieldLabel="Show Locate link"
+		                    itemId="locateenabled"
+		                    name="./rl/enabled"
+		                    type="checkbox"
+		                    xtype="selection">
+		                </enable>
+                        <storeLocatorHeading
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="Enter Your Location"
+                            fieldLabel="Search Field Heading"
+                            name="./rl/searchFieldHeading"
+                            xtype="textfield"/>
+                        <nearestRestaurantButtonText
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="Locate Me"
+                            fieldDescription="Enter text to display on button to locate me"
+                            fieldLabel="Locate me Button Text"
+                            name="./rl/locateMe"
+                            xtype="textfield"/>
+                          <radiusNearestLocation
+                            jcr:primaryType="cq:Widget"
+                            fieldDescription="Enter the radius for Nearest Location search."
+                            fieldLabel="Radius for Nearest Location search"
+                            maxValue="5000"
+                            minValue="5"
+                            name="./rl/radiusNearestLocation"
+                            xtype="numberfield"/>
+                        <restLocPath
+                            jcr:primaryType="cq:Widget"
+                            editable="{Boolean}false"
+                            fieldLabel="Restaurant Location Page Path"
+                            name="./rl/restLocPath"
+                            rootPath="/content"
+                            xtype="pathfield"/>
+                        <maxResults
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="20"
+                            fieldDescription="Recommended maximum number of restaurants to search (upto 75)"
+                            fieldLabel="Restaurants Search Limit"
+                            name="./rl/maxResults"
+                            xtype="textfield"/>
+                        <ortext
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="20"
+                            fieldDescription="or"
+                            fieldLabel="or text"
+                            name="./rl/ortext"
+                            xtype="textfield"/>
+                        <selectLocationBelow
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="Please select a location below"
+                            fieldDescription="Please select a location below(for disambiguity) label"
+                            fieldLabel="Select Location Below label(for disambiguity)"
+                            name="./rl/selectLocationBelow"
+                            xtype="textfield"/>
+                        <searchBoxDefaultText
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="Zip, City, State"
+                            fieldLabel="Default Text to show in search box"
+                            name="./rl/searchBoxDefaultText"
+                            xtype="textfield"/>
+                        <todayrestauranthours
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="Today's Restaurant Hours"
+                            fieldLabel="Default Text for Today's Restaurant Hours"
+                            name="./rl/todayrestauranthours"
+                            xtype="textfield"/>
+						<rlMapView
+							jcr:primaryType="cq:Widget"
+							defaultValue="Map View"
+							fieldLabel="Map View Label"
+							name="./rl/rlMapView"
+							xtype="textfield"/>
+						<rlListView
+							jcr:primaryType="cq:Widget"
+							defaultValue="List View"
+							fieldLabel="List View Label"
+							name="./rl/rlListView"
+							xtype="textfield"/>
+						<Hours24Text
+							jcr:primaryType="cq:Widget"
+							defaultValue="24 hours"
+							fieldLabel="24 hours label"
+							name="./rl/Hours24Text"
+							xtype="textfield"/>
+						<Hours24TextForAriaLabel
+							jcr:primaryType="cq:Widget"
+							defaultValue="open 24 hours"
+							fieldLabel="24 hours label for Aria Label"
+							name="./rl/Hours24TextForAriaLabel"
+							xtype="textfield"/>
+                        <changeLocatioin
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="change location"
+                            fieldLabel="Default Text for change location"
+                            name="./rl/changeLocation"
+                            xtype="textfield"/>
+                        <searchBoxSubmit
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="Submit"
+                            fieldLabel="Submit button text"
+                            name="./rl/searchBoxSubmit"
+                            xtype="textfield"/>
+                        <showmore
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="SHOW MORE"
+                            fieldLabel="Show More Field"
+                            name="./rl/showMore"
+                            xtype="textfield"/>
+                        <showless
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="SHOW LESS"
+                            fieldLabel="Show Less Field"
+                            name="./rl/showLess"
+                            xtype="textfield"/>
+                        <showCustomerFriendlyText
+		                   jcr:primaryType="cq:Widget"
+		                   fieldDescription="Check this to show customer friendly text below restaurant address."
+		                   fieldLabel="Show Customer Friendly Text"
+		                   name="./rl/showCustomerFriendlyText"
+		                   type="checkbox"
+		                   xtype="selection"/>
+                        <kilolocal
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="kilometer"
+                            fieldLabel="kilometer text"
+                            name="./rl/kilolocal"
+                            xtype="textfield"/>
+                        <mileslocal
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="miles"
+                            fieldLabel="miles text"
+                            name="./rl/mileslocal"
+                            xtype="textfield"/>
+                        <distanceUnit
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="kilometer"
+                            fieldLabel="Distance Unit"
+                            name="./rl/distanceUnit"
+                            type="select"
+                            xtype="selection">
+                            <options jcr:primaryType="cq:WidgetCollection">
+                                <kilometer
+                                    jcr:primaryType="nt:unstructured"
+                                    text="Kilometer"
+                                    value="kilometer"/>
+                                <miles
+                                    jcr:primaryType="nt:unstructured"
+                                    text="Miles"
+                                    value="miles"/>
+                            </options>
+                        </distanceUnit>
+                        <arialabelforradius
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="how far away"
+                            fieldLabel="Aria Label for distance radius button"
+                            name="./rl/arialabelforradius"
+                            xtype="textfield"/>
+                        <radius
+                            jcr:primaryType="cq:Widget"
+                            fieldDescription="Enter Radius to configure"
+                            fieldLabel="Enter Radius"
+                            name="./rl/radius"
+                            xtype="multifield">
+                            <fieldConfig
+                                jcr:primaryType="nt:unstructured"
+                                xtype="textfield"/>
+                        </radius>
+                        <restaurantFilters
+                            jcr:primaryType="cq:Widget"
+                            fieldDescription="Please configure Services(Amenities)/Filters."
+                            fieldLabel="Service/Filter Configuration"
+                            name="./rl/restaurantFilters"
+                            xtype="multifield">
+                            <fieldConfig
+                                jcr:primaryType="nt:unstructured"
+                                xtype="multifieldpanel">
+                                <items jcr:primaryType="cq:WidgetCollection">
+                                    <filter
+                                        jcr:primaryType="cq:Widget"
+                                        fieldLabel="Service"
+                                        key="filterName"
+                                        options="$PATH.restaurantUserAttributes.json"
+                                        type="select"
+                                        xtype="selection"/>
+                                    <filterMarketingName
+                                        jcr:primaryType="cq:Widget"
+                                        fieldLabel="Service Marketing Name"
+                                        key="filterMarketingName"
+                                        xtype="textfield"/>
+                                    <filterimage
+                                        jcr:primaryType="cq:Widget"
+                                        fieldLabel="Service Marketing Image"
+                                        key="filterMarketingCss"
+                                        xtype="pathfield"/>
+                                    <target
+		                                jcr:primaryType="cq:Widget"
+		                                fieldDescription="Check to make the Service as Filter"
+		                                fieldLabel="Show as Filter?"
+		                                key="serviceAsFilter"
+		                   				xtype="checkbox"/>
+                                </items>
+                            </fieldConfig>
+                        </restaurantFilters>
+                        <country
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="us"
+                            fieldLabel="RL Country"
+                            name="./rl/country"
+                            xtype="textfield"/>
+                        <language
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="en"
+                            fieldLabel="RL Language"
+                            name="./rl/language"
+                            xtype="textfield"/>
+                      	<countryLatitude
+                            jcr:primaryType="cq:Widget"
+                            fieldLabel="Latitude value for Contact us RL page"
+                            name="./rl/latitudeRL"
+                            xtype="textfield"/>
+                        <countryLongitude
+                            jcr:primaryType="cq:Widget"
+                            fieldLabel="Longitude value for Contact us RL page"
+                            name="./rl/longitudeRL"
+                            xtype="textfield"/>
+                    </items>
+                </restWidget>
+                <restResult
+                    jcr:primaryType="cq:Widget"
+                    collapsed="true"
+                    collapsible="true"
+                    title="Restaurant Result"
+                    xtype="dialogfieldset">
+                    <items jcr:primaryType="cq:WidgetCollection">
+		                <serviceText
+							jcr:primaryType="cq:Widget"
+							defaultValue="services"
+							fieldLabel="RL Service text"
+							name="./rl/serviceText"
+							xtype="textfield"/>
+                        <away
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="en"
+                            fieldLabel="RL Away"
+                            name="./rl/away"
+                            xtype="textfield"/>
+                        <arialabelsearchresult
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="Search Result List"
+                            fieldLabel="Aria Label for 'Search Result List'"
+                            name="./rl/arialabelsearchresult"
+                            xtype="textfield"/>
+                        <arialabelexpandrestdetail
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="Expand restaurant details"
+                            fieldLabel="Aria Label for 'Expand Restaurant Details'"
+                            name="./rl/arialabelexpandrestdetail"
+                            xtype="textfield"/>
+                        <arialabelcloserestdetail
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="Close restaurant details"
+                            fieldLabel="Aria Label for 'Close Restaurant Details'"
+                            name="./rl/arialabelcloserestdetail"
+                            xtype="textfield"/>
+                        <restaurantNumberText
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="Restaurant Number"
+                            fieldDescription="restaurant Number Text for Push pins"
+                            fieldLabel="restaurant Number Text(For push pins)"
+                            name="./rl/restaurantNumberText"
+                            xtype="textfield"/>
+                        <preferedText
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="Set as preferred location text"
+                            fieldDescription="Set as preferred location"
+                            fieldLabel="Preferred Location Text"
+                            name="./rl/preferedText"
+                            xtype="textfield"/>
+                        <getDirectionName
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="Get Directions"
+                            fieldDescription="Get Direction Link Text"
+                            fieldLabel="Get Direction Link Text"
+                            name="./rl/directionLinkName"
+                            xtype="textfield"/>
+                        <resultMessage
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="There are {0} McDonald's near you"
+                            fieldDescription="Use annotations as described below:&#xa;{0} - Total results"
+                            fieldLabel="Displayed Results Message"
+                            name="./rl/resultMessage"
+                            xtype="textfield"/>
+                        <loadmore
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="Load More"
+                            fieldDescription="Load More"
+                            fieldLabel="Load More"
+                            name="./rl/loadMore"
+                            xtype="textfield"/>
+                        <resultIterate
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="5"
+                            fieldLabel="Result Load Limit "
+                            name="./rl/resultIterate"
+                            xtype="textfield"/>
+                        <phoneHeading
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="Phone"
+                            fieldDescription="Get Phone Heading"
+                            fieldLabel="Phone Heading Text"
+                            name="./rl/phoneHeading"
+                            xtype="textfield"/>
+                        <locNearLabel
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="Location nearest you"
+                            fieldDescription="Location nearest you"
+                            fieldLabel="Location nearest you label"
+                            name="./rl/locNearLabel"
+                            xtype="textfield"/>
+                        <preferedLocLabel
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="Your Prefered Location is"
+                            fieldDescription="Your Prefered Location is"
+                            fieldLabel="Your Prefered Location is"
+                            name="./rl/preferedLocLabel"
+                            xtype="textfield"/>
+                        <nearestLocLabel
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="Check Nearest Location"
+                            fieldDescription="Check Nearest Location"
+                            fieldLabel="Check Nearest Location"
+                            name="./rl/nearestLocLabel"
+                            xtype="textfield"/>
+                        <mcdName
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="McDonald's"
+                            fieldDescription="McDonald's name"
+                            fieldLabel="McDonald's name"
+                            name="./rl/mcdName"
+                            xtype="textfield"/>
+                        <mcdOn
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="on"
+                            fieldDescription="on text"
+                            fieldLabel="on text"
+                            name="./rl/on"
+                            xtype="textfield"/>
+                        <locateLabel
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="Locate Label"
+                            fieldDescription="Locate label"
+                            fieldLabel="Locate label"
+                            name="./rl/locateLabel"
+                            xtype="textfield"/>
+                        <locationPermissionDeniedText
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="Location Permission Denied"
+                            fieldDescription="Location Permission Denied"
+                            fieldLabel="Location Permission Denied Label"
+                            name="./rl/locationPermissionDeniedText"
+                            xtype="textfield"/>
+                        <locationUnavailableText
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="LOCATION UNAVAIALBEL"
+                            fieldDescription="Location Unavaialable text"
+                            fieldLabel="Location Unavailable text"
+                            name="./rl/locationUnavailableText"
+                            xtype="textfield"/>
+                        <locationTimeoutText
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="Location Time out text"
+                            fieldDescription="Location Time Out Text"
+                            fieldLabel="Location Time Out Text"
+                            name="./rl/locationTimeoutText"
+                            xtype="textfield"/>
+                        <locationUnknownErrorText
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="Location Unknown  error Text"
+                            fieldDescription="Location Unknown  error Text"
+                            fieldLabel="Location Unknown  error Text"
+                            name="./rl/locationUnknownErrorText"
+                            xtype="textfield"/>
+                       <emptySearchErrorText
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="Please enter a zip code or city &amp; state to search"
+                            fieldDescription="Invalid RL search error Text"
+                            fieldLabel="Invalid RL search error Text"
+                            name="./rl/emptySearchErrorMsg"
+                            xtype="textfield"/>
+                       <!--  <noResultFoundText
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="No Result Found"
+                            fieldDescription="Error message to be displayed if restaurants are not found for the entered location."
+                            fieldLabel="Result Not Found"
+                            name="./rl/noResultFoundText"
+                            xtype="textfield"/> -->
+                         <showClosed
+		                   jcr:primaryType="cq:Widget"
+		                   fieldDescription="Check this to show close restaurants in result."
+		                   fieldLabel="Show Closed Restaurants"
+		                   name="./rl/showClosed"
+		                   type="checkbox"
+		                   xtype="selection"/>
+                    </items>
+                </restResult>
+                <timingConfiguration
+                    jcr:primaryType="cq:Widget"
+                    collapsed="true"
+                    collapsible="true"
+                    title="Days of Week Translations"
+                    xtype="dialogfieldset">
+                    <items jcr:primaryType="cq:WidgetCollection">
+                        <mondayText
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="MON"
+                            fieldLabel="MON"
+                            name="./rl/mondayText"
+                            xtype="textfield"/>
+                        <mondayTextForAriaLabel
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="monday"
+                            fieldLabel="Monday Text for Aria Label"
+                            name="./rl/mondayTextForAriaLabel"
+                            xtype="textfield"/>
+                        <tuesdayText
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="TUE"
+                            fieldLabel="TUE"
+                            name="./rl/tuesdayText"
+                            xtype="textfield"/>
+                        <tuesdayTextForAriaLabel
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="tuesday"
+                            fieldLabel="Tueday Text for Aria Label"
+                            name="./rl/tuesdayTextForAriaLabel"
+                            xtype="textfield"/>
+                        <wednesdayText
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="WED"
+                            fieldLabel="WED"
+                            name="./rl/wednesdayText"
+                            xtype="textfield"/>
+                        <wednesdayTextForAriaLabel
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="wednesday"
+                            fieldLabel="Wednesday Text for Aria Label"
+                            name="./rl/wednesdayTextForAriaLabel"
+                            xtype="textfield"/>
+                        <thursdayText
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="THU"
+                            fieldLabel="THU"
+                            name="./rl/thursdayText"
+                            xtype="textfield"/>
+                        <thursdayTextForAriaLabel
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="thursday"
+                            fieldLabel="Thursday Text for Aria Label"
+                            name="./rl/thursdayTextForAriaLabel"
+                            xtype="textfield"/>
+                        <fridayText
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="FRI"
+                            fieldLabel="FRI"
+                            name="./rl/fridayText"
+                            xtype="textfield"/>
+                        <fridayTextForAriaLabel
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="friday"
+                            fieldLabel="Friday Text for Aria Label"
+                            name="./rl/fridayTextForAriaLabel"
+                            xtype="textfield"/>
+                        <saturdayText
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="SAT"
+                            fieldLabel="SAT"
+                            name="./rl/saturdayText"
+                            xtype="textfield"/>
+                         <saturdayTextForAriaLabel
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="saturday"
+                            fieldLabel="Saturday Text for Aria Label"
+                            name="./rl/saturdayTextForAriaLabel"
+                            xtype="textfield"/>
+                        <sundayText
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="SUN"
+                            fieldLabel="SUN"
+                            name="./rl/sundayText"
+                            xtype="textfield"/>
+                        <sundayTextForAriaLabel
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="sunday"
+                            fieldLabel="Sunday Text for Aria Label"
+                            name="./rl/sundayTextForAriaLabel"
+                            xtype="textfield"/>
+                        <enableHoursFromSunday
+                            jcr:primaryType="cq:Widget"
+                            fieldDescription="Check this to display week start from Sunday to Saturday for Restaurant and Drive-Thru hours. (Default week start - Monday to Sunday)"
+                            fieldLabel="Restaurant Hours Week Display Section"
+                            name="./rl/enableHoursFromSunday"
+                            type="checkbox"
+                            xtype="selection"/>
+                        <enableDriveHours
+		                   jcr:primaryType="cq:Widget"
+		                   fieldDescription="Check this to display Drive-Thru hours."
+		                   fieldLabel="Enable Drive-Thru Hours Section"
+		                   name="./rl/enableDriveHours"
+		                   type="checkbox"
+		                   xtype="selection"/>
+               			<enableFestiveHours
+		                   jcr:primaryType="cq:Widget"
+		                   fieldDescription="Check this to display Festive hours."
+		                   fieldLabel="Enable Festive Hours Section"
+		                   name="./rl/enableFestiveHours"
+		                   type="checkbox"
+		                   xtype="selection"/>
+               			<enableFamilyEvents
+		                   jcr:primaryType="cq:Widget"
+		                   fieldDescription="Check this to enable Family Events and hours."
+		                   fieldLabel="Enable Upcoming Family Events Section"
+		                   name="./rl/enableFamilyEvents"
+		                   type="checkbox"
+		                   xtype="selection"/>
+                        <openTimeHeading
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="OPEN NOW"
+                            fieldLabel="Open Time Heading"
+                            name="./rl/openTimeHeading"
+                            xtype="textfield"/>
+                        <driveOpenText
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="DRIVE THRU OPEN"
+                            fieldLabel="Drive Thru Open Text"
+                            name="./rl/driveOpenText"
+                            xtype="textfield"/>
+                        <restaurantClosedText
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="CLOSED NOW"
+                            fieldLabel="Restaurant Closed Text"
+                            name="./rl/restaurantClosedText"
+                            xtype="textfield"/>
+                        <restaurantNotAvailable
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="RESTAURANT HOURS UNAVAILABLE"
+                            fieldLabel="Restaurant hours Unavailable"
+                            name="./rl/restaurantNotAvailable"
+                            xtype="textfield"/>
+                        <showHours
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="Show Hours"
+                            fieldLabel="Show Hours Text"
+                            name="./rl/showHours"
+                            xtype="textfield"/>
+                        <hideHours
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="Hide Hours"
+                            fieldLabel="Hide Hours Text"
+                            name="./rl/hideHours"
+                            xtype="textfield"/>
+                        <restaurantHours
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="Restaurant Hours"
+                            fieldLabel="Restaurant Hours"
+                            name="./rl/restaurantHours"
+                            xtype="textfield"/>
+                        <restaurantHoursClosed
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="Restaurant Hours Closed"
+                            fieldLabel="Restaurant Hours Closed"
+                            name="./rl/restaurantHoursClosed"
+                            xtype="textfield"/>
+                       <drivethHours
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="Drive-Thru Hours"
+                            fieldLabel="Drive Thr Hours"
+                            name="./rl/drivethHours"
+                            xtype="textfield"/>
+                        <drivethHoursClosed
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="Drive Thru closed"
+                            fieldLabel="Drive Thr Hours closed text"
+                            name="./rl/drivethHoursClosed"
+                            xtype="textfield"/>                        
+                         <!-- <specialHours
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="Special  Hours"
+                            fieldLabel="Special  Hours"
+                            name="./rl/specialHours"
+                            xtype="textfield"/> -->
+                        <!-- <specialOpenText
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="Open Now"
+                            fieldLabel="Restaurant open On Special Day Text"
+                            name="./rl/specialOpenText"
+                            xtype="textfield"/> -->                        
+                        <festiveHours
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="Festive Hours"
+                            fieldLabel="Festive Hours Label"
+                            name="./rl/festiveHours"
+                            xtype="textfield"/>
+                        <familyEventHours
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="Family Event Hours"
+                            fieldLabel="Family Event Hours Label"
+                            name="./rl/familyEventHours"
+                            xtype="textfield"/>
+                     </items>
+                </timingConfiguration>
+				<jobapplication
+                    jcr:primaryType="cq:Widget"
+                    collapsed="true"
+                    collapsible="true"
+                    title="HR JOBS"
+                    xtype="dialogfieldset">
+					<items jcr:primaryType="cq:WidgetCollection">
+					<showJobSection
+                            jcr:primaryType="cq:Widget"
+                            fieldDescription="Check this to show career/job application section"
+                            fieldLabel="Show career/job application section"
+                            name="./rl/showJobSection"
+                            type="checkbox"
+		                    xtype="selection"/>
+					<isApplyForJob
+                            jcr:primaryType="cq:Widget"
+                            fieldDescription="Check this to display only Apply for job"
+                            fieldLabel="Display apply for job"
+                            name="./rl/isApplyForJob"
+                            type="checkbox"
+                            xtype="selection"/>
+					 <applyforjob
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="Apply for Job"
+                            fieldLabel="Apply For Job Label"
+                            name="./rl/applyforjob"
+                            xtype="textfield"/>
+                        <carriersHeading
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="Careers heading"
+                            fieldDescription="Careers heading"
+                            fieldLabel="Careers heading"
+                            name="./rl/carriersHeading"
+                            xtype="textfield"/>
+                        <mCarriers
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="Crew or maintenance label"
+                            fieldDescription="Crew or maintenance label"
+                            fieldLabel="Crew or maintenance label"
+                            name="./rl/mCarriers"
+                            xtype="textfield"/>
+                        <maCarriers
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="Apply for Manager careers"
+                            fieldDescription="Manager label"
+                            fieldLabel="Manager label"
+                            name="./rl/maCarriers"
+                            xtype="textfield"/>
+                        <noCarrier
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="Contact US directly"
+                            fieldDescription="Non participating copy"
+                            fieldLabel="Non participating copy"
+                            name="./rl/noCarrier"
+                            xtype="textfield"/>
+					    <oLText
+                            jcr:primaryType="cq:Widget"
+							emptyText="This restaurant is owned and operated by McDonald’s Restaurants of {statecode}, Inc"
+                            defaultValue="This restaurant is owned and operated by McDonald’s Restaurants of {statecode}, Inc"
+                            fieldDescription="Operator legal text"
+                            fieldLabel="Operator legal text"
+                            name="./rl/oLText"
+                            xtype="textfield"/>
+						<oFText
+                            jcr:primaryType="cq:Widget"
+							emptyText="This restaurant is owned and operated by an independent franchisee"
+                            defaultValue="Franchise legal text"
+                            fieldDescription="Franchise legal text"
+                            fieldLabel="Franchise legal text"
+                            name="./rl/oFText"
+                            xtype="textfield"/>
+						</items>
+
+				</jobapplication>
+            </items>
+        </rl>
+       <coke-store-locator
+            jcr:primaryType="cq:Panel"
+            title="Coke Store Locator">
+            <items jcr:primaryType="cq:WidgetCollection">
+                <cokeWidget
+                    jcr:primaryType="cq:Widget"
+                    collapsed="true"
+                    collapsible="true"
+                    title="Coke Widget"
+                    xtype="dialogfieldset">
+					 <listeners
+                        jcr:primaryType="nt:unstructured"
+                        beforeexpand="//Coke Widget Renderer&#xa;function(event, value) {&#xa;&#x9;cokeWidgetRenderer(event, value);&#xa;}"/>
+                    <items jcr:primaryType="cq:WidgetCollection">
+                        <radiusNearestLocation
+                            jcr:primaryType="cq:Widget"
+                            fieldDescription="Enter the radius for Nearest Location search."
+                            fieldLabel="Radius for Nearest Location search"
+                            maxValue="5000"
+                            minValue="5"
+                            name="./coke/radiusNearestLocation"
+                            xtype="numberfield"/>
+                        <cokeLocPath
+                            jcr:primaryType="cq:Widget"
+                            editable="{Boolean}false"
+                            fieldLabel="Coke Store Location Page Path"
+                            name="./coke/cokeLocPath"
+                            rootPath="/content"
+                            xtype="pathfield"/>
+						<clientId 
+							jcr:primaryType="cq:Widget" 
+							defaultValue="44" 
+							fieldDescription="Enter the McDonalds ClientId for Coke" 
+							fieldLabel="Client Id" 
+							name="./coke/clientId" 
+							xtype="textfield"/>
+						<locale
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="en"
+                            fieldDescription="Enter the  Locale for Coke"
+                            fieldLabel="Locale"
+                            name="./coke/locale"
+                            xtype="textfield"/>
+                        <maxResults
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="20"
+                            fieldDescription="Recommended maximum number of restaurants to search (upto 75)"
+                            fieldLabel="Coke Store Search Limit"
+                            name="./coke/maxResults"
+                            xtype="textfield"/>
+                        <distanceUnit
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="kilometer"
+                            fieldLabel="Distance Unit"
+                            name="./coke/distanceUnit"
+                            type="select"
+                            xtype="selection">
+                            <options jcr:primaryType="cq:WidgetCollection">
+                                <kilometer
+                                    jcr:primaryType="nt:unstructured"
+                                    text="Kilometer"
+                                    value="km"/>
+                                <miles
+                                    jcr:primaryType="nt:unstructured"
+                                    text="Miles"
+                                    value="mi"/>
+                            </options>
+                        </distanceUnit>
+                        <radius
+                            jcr:primaryType="cq:Widget"
+                            fieldDescription="Enter radius to configure"
+                            fieldLabel="Enter Radius"
+                            name="./coke/radius"
+                            xtype="multifield">
+                            <fieldConfig
+                                jcr:primaryType="nt:unstructured"
+                                xtype="textfield"/>
+                        </radius>
+                        <category
+                            jcr:primaryType="cq:Widget"
+                            fieldLabel="Coke Store Filters"
+                            itemId="beveragecategory"
+                            name="./coke/categories"
+							 orderable="false"
+                            xtype="multifield">
+                            <fieldConfig
+                                jcr:primaryType="cq:Widget"
+                                xtype="multifieldpanel">
+                                <items jcr:primaryType="cq:WidgetCollection">
+                                    <categoryCode
+                                        jcr:primaryType="cq:Widget"
+                                        editable="{Boolean}false"
+                                        fieldDescription="Select a category"
+                                        fieldLabel="Category"
+                                        forceSelection="{Boolean}true"
+                                        itemId="category"
+                                        key="categoryText"
+                                        optionsProvider="//Categories - Option Provider&#xa;function(path, rec) {&#xa;  var filtersJSON = ' ';&#xa;  var categoryJSON = [];&#xa;  $.ajax({&#xa;    url: '/apps/mcd-us/components/content/coke-store-locator/coke-store-filters/coke-store-filters.json',&#xa;    dataType: 'json ',&#xa;    type: 'GET',&#xa;    async: false,&#xa;    success: function(data) {&#xa;      filtersJSON = data.beverageCategory;&#xa;    }&#xa;  }); //Parsing Local Json  &#xa;  $.each(filtersJSON, function(key, item) {&#xa;    var obj = {&#xa;      value: item.code,&#xa;      text: item.name&#xa;    }&#xa;    categoryJSON.push(obj);&#xa;  });&#xa;  this.addClass('catCount');&#xa;  console.log('Categories - Option Provider', categoryJSON);&#xa;  return categoryJSON;&#xa;}"
+                                        type="combobox"
+                                        xtype="selection">
+                                        <listeners
+                                            jcr:primaryType="nt:unstructured"
+                                            render="//Coke Category renderer function&#xa;function(event, value) {&#xa;&#x9;cokeCategoryRenderer(event, value);&#xa;}"
+                                            selectionchanged="//Coke Category selection change&#xa;function(event, value) {&#xa;&#x9;cokeCategorySelectionChange(event, value);&#xa;}"/>
+                                    </categoryCode>
+                                    <categoryVal
+                                        jcr:primaryType="cq:Widget"
+                                        hidden="{Boolean}true"
+                                        itemId="categoryVal"
+                                        key="categoryVal"
+                                        xtype="textfield"/>
+                                    <brandCode
+                                        jcr:primaryType="cq:Widget"
+                                        editable="{Boolean}false"
+                                        fieldDescription="Select a brand"
+                                        fieldLabel="Brand"
+                                        forceSelection="{Boolean}true"
+                                        itemId="brandCode"
+                                        key="brandText"
+                                        name="./coke/brandText"
+                                        type="combobox"
+                                        xtype="selection">
+                                        <listeners
+                                            jcr:primaryType="nt:unstructured"
+                                            render="//Coke Brand Renderer&#xa;function(event, value) {&#xa;&#x9;cokeBrandRenderer(event, value);&#xa;}"
+                                            selectionchanged="//Coke Brand Selection change&#xa;function(event, value) {&#xa;&#x9;cokeBrandSelectionChange(event, value);&#xa;}"/>
+                                    </brandCode>
+                                    <brandVal
+                                        jcr:primaryType="cq:Widget"
+                                        hidden="{Boolean}true"
+                                        itemId="brandVal"
+                                        key="brandVal"
+                                        xtype="textfield"/>
+                                    <flavorCode
+                                        jcr:primaryType="cq:Widget"
+                                        displayField="text"
+                                        fieldLabel="Flavor"
+                                        itemId="flavorId"
+                                        key="flavorCode"
+                                        name="./coke/flavorCode"
+                                        type="checkbox"
+                                        valueField="value"
+                                        xtype="selection">
+                                        <listeners
+                                            jcr:primaryType="nt:unstructured"
+                                            render="//Coke Flavor renderer Change &#xa;function(event, value) {&#xa;&#x9;cokeFlavorRenderer(event, value);&#xa;}"
+                                            selectionchanged="//Coke Flavor Selection Change&#xa;function(event, value, checked) {&#xa;&#x9;cokeFlavorSelectionChange(event, value, checked);&#xa;}"/>
+                                    </flavorCode>
+                                    <flavorVal
+                                        jcr:primaryType="cq:Widget"
+                                        hidden="{Boolean}true"
+                                        itemId="flavorVal"
+                                        key="flavorVal"
+                                        name="./coke/flavorVal"
+                                        xtype="textfield"/>
+                                </items>
+                            </fieldConfig>
+                        </category>
+                    </items>
+                </cokeWidget>
+                <cokeWidgetlabels
+                    jcr:primaryType="cq:Widget"
+                    collapsed="true"
+                    collapsible="true"
+                    title="Coke Widget Labels"
+                    xtype="dialogfieldset">
+                    <items jcr:primaryType="cq:WidgetCollection">
+                        <storeLocatorHeading
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="Find a Location Near You"
+                            fieldLabel="Store Locator Heading"
+                            name="./coke/storeLocatorHeading"
+                            xtype="textfield"/>
+                        <searchFieldHeading
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="Please enter location"
+                            fieldLabel="Search Field Heading"
+                            name="./coke/searchFieldHeading"
+                            xtype="textfield"/>
+                        <nearestCokeStoreButtonText
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="LOCATE ME"
+                            fieldDescription="Enter text to display on button to locate me"
+                            fieldLabel="Locate Me Button Text"
+                            name="./coke/locateMe"
+                            xtype="textfield"/>
+                        <selectLocationBelow
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="Please select a location below"
+                            fieldDescription="Please select a location below (for disambiguity) label"
+                            fieldLabel="Select Location Below Label (for disambiguity)"
+                            name="./coke/selectLocationBelow"
+                            xtype="textfield"/>
+                        <searchBoxDefaultText
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="Zip, City, State"
+                            fieldLabel="Default Text To Show In Search Box"
+                            name="./coke/searchBoxDefaultText"
+                            xtype="textfield"/>
+                        <categoryFieldText
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="Select your category"
+                            fieldLabel="Category Field Heading"
+                            name="./coke/categoryFieldText"
+                            xtype="textfield"/>
+						<allCategoriesText
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="All"
+                            fieldLabel="All Categories Text"
+                            name="./coke/allCategoriesText"
+                            xtype="textfield"/>
+                        <flavorFieldText
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="Select your flavor"
+                            fieldLabel="Flavor Field Heading"
+                            name="./coke/flavorFieldText"
+                            xtype="textfield"/>
+						<allFlavorsText
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="All"
+                            fieldLabel="All Flavors Text"
+                            name="./coke/allFlavorsText"
+                            xtype="textfield"/>
+                        <radiusAriaLabel
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="how far away"
+                            fieldLabel="Default Text For Radius Aria Label"
+                            name="./coke/radiusAriaLabel"
+                            xtype="textfield"/>
+                        <searchBoxSubmit
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="Submit"
+                            fieldLabel="Submit Button Text"
+                            name="./coke/searchBoxSubmit"
+                            xtype="textfield"/>
+                        <ortext
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="or"
+                            fieldDescription="or"
+                            fieldLabel="OR Text"
+                            name="./coke/ortext"
+                            xtype="textfield"/>
+                        <kilometerText
+                            jcr:primaryType="cq:Widget"
+                            fieldLabel="Kilometer Text"
+                            name="./coke/kilometerText"
+                            xtype="textfield"/>
+                        <milesText
+                            jcr:primaryType="cq:Widget"
+                            fieldLabel="Miles Text"
+                            name="./coke/milesText"
+                            xtype="textfield"/>
+                    </items>
+                </cokeWidgetlabels>
+                <cokeResult
+                    jcr:primaryType="cq:Widget"
+                    collapsed="true"
+                    collapsible="true"
+                    title="Coke Result"
+                    xtype="dialogfieldset">
+                    <items jcr:primaryType="cq:WidgetCollection">
+                        <resultIterate
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="5"
+                            fieldLabel="Result Load Limit "
+                            name="./coke/resultIterate"
+                            xtype="textfield"/>
+                        <cokeMapView
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="Map View"
+                            fieldLabel="Map View Label"
+                            name="./coke/cokeMapView"
+                            xtype="textfield"/>
+                        <cokeListView
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="List View"
+                            fieldLabel="List View Label"
+                            name="./coke/cokeListView"
+                            xtype="textfield"/>
+                        <resultMessage
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="There are {0} McDonald's near you"
+                            fieldDescription="Use annotations as described below:&#xa;{0} - Total results"
+                            fieldLabel="Displayed Results Message"
+                            name="./coke/resultMessage"
+                            xtype="textfield"/>
+                        <awayText
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="away"
+                            fieldLabel="Away text"
+                            name="./coke/awayText"
+                            xtype="textfield"/>
+                        <loadmoreText
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="Load More"
+                            fieldLabel="Load More Text"
+                            name="./coke/loadMoreText"
+                            xtype="textfield"/>
+                        <arialabelsearchresult
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="Search Result List"
+                            fieldLabel="Aria Label for 'Search Result List'"
+                            name="./coke/ariaLabelSearchResult"
+                            xtype="textfield"/>
+                        <arialabelcokestore
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="Coke Store Number"
+                            fieldLabel="Aria Label for Coke Store"
+                            name="./coke/ariaLabelCokeStore"
+                            xtype="textfield"/>
+                        <arialabelgetdir
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="Exit:restaurant-locator:Get Directions"
+                            fieldLabel="Aria Label for Get Directions"
+                            name="./coke/ariaLabelGetDir"
+                            xtype="textfield"/>
+                        <arialabelexpandstore
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="Expand coke store details"
+                            fieldLabel="Aria Label for Expand Coke Store Details"
+                            name="./coke/ariaLabelExpandStore"
+                            xtype="textfield"/>
+                        <arialabelcollapsestore
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="Collapse Coke Store Details"
+                            fieldLabel="Aria Label for Collapse Coke Store Details"
+                            name="./coke/ariaLabelCollapseStore"
+                            xtype="textfield"/>
+                        <directionLinkText
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="Get Directions"
+                            fieldDescription="Get Direction Link Text"
+                            fieldLabel="Get Direction Link Text"
+                            name="./coke/directionLinkText"
+                            xtype="textfield"/>
+                        <phoneHeading
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="Phone:"
+                            fieldLabel="Phone Heading Text"
+                            name="./coke/phoneHeading"
+                            xtype="textfield"/>
+                        <locNearLabel
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="Location nearest you"
+                            fieldLabel="Location Nearest You Label"
+                            name="./coke/locNearLabel"
+                            xtype="textfield"/>
+                        <nearestLocLabel
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="Check Nearest Location"
+                            fieldLabel="Check Nearest Location Text"
+                            name="./coke/checkNearestLocLabel"
+                            xtype="textfield"/>
+                        <mcdName
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="McDonald's"
+                            fieldLabel="McDonald's Name"
+                            name="./coke/mcdName"
+                            xtype="textfield"/>
+                        <onText
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="on"
+                            fieldLabel="ON Text"
+                            name="./coke/onText"
+                            xtype="textfield"/>
+                        <locationPermissionDeniedText
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="Location Permission Denied"
+                            fieldDescription="Location Permission Denied"
+                            fieldLabel="Location Permission Denied Label"
+                            name="./coke/locationPermissionDeniedText"
+                            xtype="textfield"/>
+                        <locationUnavailableText
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="LOCATION UNAVAIALBEL"
+                            fieldDescription="Location Unavaialable"
+                            fieldLabel="Location Unavailable Text"
+                            name="./coke/locationUnavailableText"
+                            xtype="textfield"/>
+                        <locationTimeoutText
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="Location Time Out"
+                            fieldDescription="Location Time Out Text"
+                            fieldLabel="Location Time Out Text"
+                            name="./coke/locationTimeoutText"
+                            xtype="textfield"/>
+                        <locationUnknownErrorText
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="Location Unknown  Error"
+                            fieldDescription="Location Unknown  Error"
+                            fieldLabel="Location Unknown  Error Text"
+                            name="./coke/locationUnknownErrorText"
+                            xtype="textfield"/>
+                        <emptySearchErrorText
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="Please enter a zip code or city &amp; state to search"
+                            fieldLabel="Invalid RL Search Error Text"
+                            name="./coke/emptySearchErrorMsg"
+                            xtype="textfield"/>
+						<serviceUnavailableErrorText
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="Service is Temporarily unavailable. Please try searching after some time"
+                            fieldLabel="Service not available text"
+                            name="./coke/serviceUnavailableErrorText"
+                            xtype="textfield"/>
+						<invalidGeoLocationErrorText
+                            jcr:primaryType="cq:Widget"
+                            defaultValue="No Geo Location found for your search."
+                            fieldLabel="Invalid text search, no geo locations found error text."
+                            name="./coke/invalidGeoLocationErrorText"
+                            xtype="textfield"/>
+                    </items>
+                    <flavorCodeOld
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Flavor"
+                        forceSelection="{Boolean}true"
+                        itemId="flavorId"
+                        key="flavorCode"
+                        type="combobox"
+                        xtype="selection"/>
+                </cokeResult>
+            </items>
+        </coke-store-locator>
+        <smartbanner
+            jcr:primaryType="cq:Widget"
+            path="/apps/mcd-rwd-global/components/page/siteconfig/dialog/items/smartbanner.infinity.json"
+            xtype="cqinclude"/>
+        <bumper
+            jcr:primaryType="cq:Widget"
+            path="/apps/mcd-rwd-global/components/page/siteconfig/dialog/items/bumper.infinity.json"
+            xtype="cqinclude"/>
+        <categories
+            jcr:primaryType="cq:Widget"
+            path="/apps/mcd-rwd-global/components/page/siteconfig/dialog/items/categories.infinity.json"
+            xtype="cqinclude"/>
+        <legaldisclaimer
+            jcr:primaryType="cq:Widget"
+            path="/apps/mcd-rwd-global/components/page/siteconfig/dialog/items/legaldisclaimer.infinity.json"
+            xtype="cqinclude"/>
+        <searchwidget
+            jcr:primaryType="cq:Panel"
+            title="Search Widget">
+            <items jcr:primaryType="cq:WidgetCollection">
+                <enable
+                    jcr:primaryType="cq:Widget"
+                    fieldDescription="Check this to enable search widget in Header"
+                    fieldLabel="Enable Search Widget"
+                    itemId="searchenabled"
+                    name="./searchwidget/enabled"
+                    type="checkbox"
+                    xtype="selection">
+                    <listeners
+                        jcr:primaryType="nt:unstructured"
+                        loadcontent="function(tab,value,isChecked)&#xa;{&#xa;&#x9;if (tab.findParentByType('panel').getComponent('searchenabled').value=='true'){&#xa;&#x9;tab.findParentByType('panel').getComponent('searchpagepath').show();&#xa;&#x9;tab.findParentByType('panel').getComponent('searchheadtitle').show();&#xa;&#x9;tab.findParentByType('panel').getComponent('searchheadplaceholder').show();&#xa;&#x9;tab.findParentByType('panel').getComponent('searchheadbtntext').show();&#xa;} else{&#xa;&#x9;tab.findParentByType('panel').getComponent('searchpagepath').hide();&#xa;&#x9;tab.findParentByType('panel').getComponent('searchheadtitle').hide();&#xa;&#x9;tab.findParentByType('panel').getComponent('searchheadplaceholder').hide();&#xa;&#x9;tab.findParentByType('panel').getComponent('searchheadbtntext').hide();&#xa;}&#xa;}"
+                        selectionchanged="function(tab,value,isChecked)&#xa;{&#x9;&#xa;&#x9;if (isChecked==true){&#xa;&#x9;tab.findParentByType('panel').getComponent('searchpagepath').show();&#xa;&#x9;tab.findParentByType('panel').getComponent('searchheadtitle').show();&#xa;&#x9;tab.findParentByType('panel').getComponent('searchheadplaceholder').show();&#xa;&#x9;tab.findParentByType('panel').getComponent('searchheadbtntext').show();&#xa;} else{&#xa;&#x9;tab.findParentByType('panel').getComponent('searchpagepath').hide();&#xa;&#x9;tab.findParentByType('panel').getComponent('searchheadtitle').hide();&#xa;&#x9;tab.findParentByType('panel').getComponent('searchheadplaceholder').hide();&#xa;&#x9;tab.findParentByType('panel').getComponent('searchheadbtntext').hide();&#xa;}&#xa;}"/>
+                </enable>
+                <searchpagepath
+                    jcr:primaryType="cq:Widget"
+                    editable="{Boolean}false"
+                    fieldDescription="Please provide Search Detail Page path"
+                    fieldLabel="Search Page Path"
+                    itemId="searchpagepath"
+                    name="./searchwidget/searchpagepath"
+                    width="100%"
+                    xtype="pathfield"/>
+                <pagetitle
+                    jcr:primaryType="cq:Widget"
+                    defaultValue="Search"
+                    fieldDescription="Enter the title for search link in header"
+                    fieldLabel="Search Title"
+                    itemId="searchheadtitle"
+                    name="./searchwidget/title"
+                    xtype="textfield"/>
+                <placeholder
+                    jcr:primaryType="cq:Widget"
+                    defaultValue="Search mcdonalds.com"
+                    fieldDescription="Enter text to be displayed in search box as water mark."
+                    fieldLabel="Default Search Text"
+                    itemId="searchheadplaceholder"
+                    name="./searchwidget/placeholder"
+                    xtype="textfield"/>
+                <submitButtonText
+                    jcr:primaryType="cq:Widget"
+                    defaultValue="Submit"
+                    fieldDescription="Enter text to display on button for Search"
+                    fieldLabel="Search Button Text"
+                    itemId="searchheadbtntext"
+                    name="./searchwidget/searchbuttontext"
+                    xtype="textfield"/>
+            </items>
+        </searchwidget>
+        <cookiedisclaimer
+            jcr:primaryType="cq:Panel"
+            title="Cookie Policy Disclaimer">
+            <items jcr:primaryType="cq:WidgetCollection">
+                <enable
+                    jcr:primaryType="cq:Widget"
+                    fieldDescription="Check this to display disclaimer for cookie policy."
+                    fieldLabel="Enable"
+                    itemId="cookieEnabled"
+                    name="./cookiedisclaimer/enableCookieMsg"
+                    type="checkbox"
+                    xtype="selection">
+                   <!--  <listeners
+                        jcr:primaryType="nt:unstructured"
+                        loadcontent="function(tab,value,isChecked)&#xa;{&#xa;&#x9;if (tab.findParentByType('panel').getComponent('cookieEnabled').value=='true'){&#xa;&#x9;tab.findParentByType('panel').getComponent('cookieMsg').show();&#xa;&#x9;tab.findParentByType('panel').getComponent('cookieFontColor').show();&#xa;&#x9;tab.findParentByType('panel').getComponent('cookieBgColor').show();&#xa;&#x9;tab.findParentByType('panel').getComponent('cookieButtonText').show();&#xa;&#x9;tab.findParentByType('panel').getComponent('buttonTextFontColor').show();&#xa;&#x9;tab.findParentByType('panel').getComponent('buttonColor').show();&#xa;} else{&#xa;&#x9;tab.findParentByType('panel').getComponent('cookieMsg').hide();&#xa;&#x9;tab.findParentByType('panel').getComponent('cookieFontColor').hide();&#xa;&#x9;tab.findParentByType('panel').getComponent('cookieBgColor').hide();&#xa;&#x9;tab.findParentByType('panel').getComponent('cookieButtonText').hide();&#xa;&#x9;tab.findParentByType('panel').getComponent('buttonTextFontColor').hide();&#xa;&#x9;tab.findParentByType('panel').getComponent('buttonColor').hide();&#xa;}&#xa;}"
+                        selectionchanged="function(tab,value,isChecked)&#xa;{&#x9;&#xa;&#x9;if (isChecked==true){&#xa;&#x9;tab.findParentByType('panel').getComponent('cookieMsg').show();&#xa;&#x9;tab.findParentByType('panel').getComponent('cookieFontColor').show();&#xa;&#x9;tab.findParentByType('panel').getComponent('cookieBgColor').show();&#xa;&#x9;tab.findParentByType('panel').getComponent('cookieButtonText').show();&#xa;&#x9;tab.findParentByType('panel').getComponent('buttonTextFontColor').show();&#xa;&#x9;tab.findParentByType('panel').getComponent('buttonColor').show();&#xa;} else{&#xa;&#x9;tab.findParentByType('panel').getComponent('cookieMsg').hide();&#xa;&#x9;tab.findParentByType('panel').getComponent('cookieFontColor').hide();&#xa;&#x9;tab.findParentByType('panel').getComponent('cookieBgColor').hide();&#xa;&#x9;tab.findParentByType('panel').getComponent('cookieButtonText').hide();&#xa;&#x9;tab.findParentByType('panel').getComponent('buttonTextFontColor').hide();&#xa;&#x9;tab.findParentByType('panel').getComponent('buttonColor').hide();&#xa;}&#xa;}"/> -->
+                </enable>
+                <message
+                    jcr:primaryType="cq:Widget"
+                    fieldDescription="Please specify the disclaimer message."
+                    fieldLabel="Message"
+                    itemId="cookieMsg"
+                    name="./cookiedisclaimer/cookieMsg"
+                    xtype="richtext"/>
+                <fontColor
+                    jcr:primaryType="cq:Widget"
+                    fieldDescription="Please specify the Text color for cookie disclaimer"
+                    fieldLabel="Disclaimer Text Color"
+                    itemId="cookieFontColor"
+                    name="./cookiedisclaimer/cookieFontColor"
+                    showHexValue="true"
+                    xtype="colorfield"/>
+                <bgColor
+                    jcr:primaryType="cq:Widget"
+                    fieldDescription="Please specify the background color for cookie disclaimer"
+                    fieldLabel="Background Color"
+                    itemId="cookieBgColor"
+                    name="./cookiedisclaimer/cookieBgColor"
+                    showHexValue="true"
+                    xtype="colorfield"/>
+                <accept
+                    jcr:primaryType="cq:Widget"
+                    fieldDescription="Please specify the text for the Accept button."
+                    fieldLabel="Accept Button Text"
+                    itemId="cookieButtonText"
+                    name="./cookiedisclaimer/cookieButtonText"
+                    xtype="textfield"/>
+                <acceptFont
+                    jcr:primaryType="cq:Widget"
+                    fieldDescription="Please specify the text color for the Accept button text."
+                    fieldLabel="Accept Button Text Color"
+                    itemId="buttonTextFontColor"
+                    name="./cookiedisclaimer/buttonTextFontColor"
+                    showHexValue="true"
+                    xtype="colorfield"/>
+                <acceptButtonColor
+                    jcr:primaryType="cq:Widget"
+                    fieldDescription="Please specify the color for Accept button."
+                    fieldLabel="Accept Button Color"
+                    itemId="buttonColor"
+                    name="./cookiedisclaimer/buttonColor"
+                    showHexValue="true"
+                    xtype="colorfield"/>
+            </items>
+        </cookiedisclaimer>
+        <scripts
+            jcr:primaryType="cq:Widget"
+            path="/apps/mcd-rwd-global/components/page/siteconfig/dialog/items/scripts.infinity.json"
+            xtype="cqinclude"/>
+        <GlobalSSOConfig jcr:primaryType="cq:Panel" title="Global SSO Config">
+            <items jcr:primaryType="cq:WidgetCollection">
+                <disableConfig allowBlank="{Boolean}true" disabled="{Boolean}false" fieldDescription="Check this checkbox if you want to disable the SSO configuration JSON (that will disable the SSO functionality).&lt;br&gt;With the JSON config disabled, don't include any SSO/Profile components on the site, as they will not work properly.&lt;br&gt;If you disable JSON config, Login/Logout links will automatically be hidden as well." fieldLabel="Disable JSON config" hideLabel="{Boolean}false" jcr:primaryType="cq:Widget" name="./sso/disableConfig" type="checkbox" xtype="selection"/>
+                <redirectNotLoggedInUserPath allowBlank="{Boolean}true" disabled="{Boolean}false" escapeAmp="{Boolean}false" fieldDescription="Path to the page (or fully qualified URL) where user should be redirected when they are not logged in and are trying to access components reserved for logged in users." fieldLabel="Page to redirect not logged in user" hideLabel="{Boolean}false" hideTrigger="{Boolean}false" jcr:primaryType="cq:Widget" name="./sso/redirectNotLoggedInUserPath" parBrowse="{Boolean}false" rootPath="/content" rootTitle="Websites" showTitleInTree="{Boolean}true" xtype="pathfield"/>
+                <whyLinkText allowBlank="{Boolean}true" disabled="{Boolean}false" emptyText="Why?" fieldDescription="The 'Why?' link shows up inside or next to a form field and upon click shows additional information (configured by an author for that form field).&lt;br/&gt;Please note that the 'Why?' link text cannot contain spaces. If there are any, they will be removed." fieldLabel="'Why?' link text" hideLabel="{Boolean}false" jcr:primaryType="cq:Widget" name="./sso/whyLinkText" xtype="textfield"/>
+                <backLinkText allowBlank="{Boolean}true" disabled="{Boolean}false" emptyText="Back" fieldDescription="The 'Back' link shows up on various components when there are multiple views." fieldLabel="'Back' link text" hideLabel="{Boolean}false" jcr:primaryType="cq:Widget" name="./sso/backLinkText" xtype="textfield"/>
+                <errorGeneric allowBlank="{Boolean}true" disabled="{Boolean}false" fieldDescription="Generic error message to show if web service returns error and no specific error message is found." fieldLabel="Generic error message" hideLabel="{Boolean}false" jcr:primaryType="cq:Widget" name="./sso/errorGeneric" xtype="textarea"/>
+            </items>
+        </GlobalSSOConfig>
+        <TemporaryNotifications jcr:primaryType="cq:Panel" title="Temporary Notifications">
+            <items jcr:primaryType="cq:WidgetCollection">
+                <userRegistered allowBlank="{Boolean}true" disabled="{Boolean}false" fieldDescription="Message to show to the user after successful completion of the registration form." fieldLabel="User registered" hideLabel="{Boolean}false" jcr:primaryType="cq:Widget" name="./sso/userRegistered" xtype="textfield"/>
+                <userRegisteredNeedsVerification allowBlank="{Boolean}true" disabled="{Boolean}false" fieldDescription="Message to show to the user after successful completion of the registration form, when email verification is needed.&lt;br&gt;You can use the &lt;code&gt;{{email}}&lt;/code&gt; placeholder in the text. That placeholder will be replaced with the user's email address." fieldLabel="User registered but needs verification" hideLabel="{Boolean}false" jcr:primaryType="cq:Widget" name="./sso/userRegisteredNeedsVerification" xtype="textfield"/>
+                <passwordReset allowBlank="{Boolean}true" disabled="{Boolean}false" fieldDescription="Message to show to the user after successful password reset." fieldLabel="Password reset" hideLabel="{Boolean}false" jcr:primaryType="cq:Widget" name="./sso/passwordReset" xtype="textfield"/>
+                <userLoggedIn allowBlank="{Boolean}true" disabled="{Boolean}false" fieldDescription="Message to show to the user after successful login." fieldLabel="User logged in" hideLabel="{Boolean}false" jcr:primaryType="cq:Widget" name="./sso/userLoggedIn" xtype="textfield"/>
+                <userLoggedOut allowBlank="{Boolean}true" disabled="{Boolean}false" fieldDescription="Message to show to the user after successful logout." fieldLabel="User logged out" hideLabel="{Boolean}false" jcr:primaryType="cq:Widget" name="./sso/userLoggedOut" xtype="textfield"/>
+                <accountVerified allowBlank="{Boolean}true" disabled="{Boolean}false" fieldDescription="Message to show to the user after successful account verification." fieldLabel="Account verified" hideLabel="{Boolean}false" jcr:primaryType="cq:Widget" name="./sso/accountVerified" xtype="textfield"/>
+                <accountAlreadyVerified allowBlank="{Boolean}true" disabled="{Boolean}false" fieldDescription="Message to show to the user after account verification, when their account had already been verified." fieldLabel="Account already verified" hideLabel="{Boolean}false" jcr:primaryType="cq:Widget" name="./sso/accountAlreadyVerified" xtype="textfield"/>
+                <!--<accountsMerged allowBlank="{Boolean}true" disabled="{Boolean}false" fieldDescription="Message to show to the user after successful accounts merging." fieldLabel="Accounts merged" hideLabel="{Boolean}false" jcr:primaryType="cq:Widget" name="./sso/accountsMerged" xtype="textfield"/>-->
+                <verificationEmailSent allowBlank="{Boolean}true" disabled="{Boolean}false" fieldDescription="Message to show to the user that account verification email was sent.&lt;br&gt;You can use the &lt;code&gt;{{email}}&lt;/code&gt; placeholder in the text. That placeholder will be replaced with the user's email address." fieldLabel="Verification email sent" hideLabel="{Boolean}false" jcr:primaryType="cq:Widget" name="./sso/verificationEmailSent" xtype="textfield"/>
+                <verificationNeeded allowBlank="{Boolean}true" disabled="{Boolean}false" fieldDescription="Message to show to the user that account verification is needed.&lt;br&gt;This notification is a CTA to send another verification email." fieldLabel="Verification needed" hideLabel="{Boolean}false" jcr:primaryType="cq:Widget" name="./sso/verificationNeeded" xtype="textfield"/>
+                <verificationCodeExpired allowBlank="{Boolean}true" disabled="{Boolean}false" fieldDescription="Message to show to the user trying to verify their account that verification failed (because of expired code or code not matching).&lt;br&gt;This notification is a CTA to send another verification email." fieldLabel="Verification code expired" hideLabel="{Boolean}false" jcr:primaryType="cq:Widget" name="./sso/verificationCodeExpired" xtype="textfield"/>
+                <accountDeleted allowBlank="{Boolean}true" disabled="{Boolean}false" fieldDescription="Message to show to the user that their account was deleted." fieldLabel="Account deleted" hideLabel="{Boolean}false" jcr:primaryType="cq:Widget" name="./sso/accountDeleted" xtype="textfield"/>
+                <emailUpdatedNeedsVerification allowBlank="{Boolean}true" disabled="{Boolean}false" fieldDescription="Message to show to the user that their email address was updated but it needs verification.&lt;br&gt;You can use the &lt;code&gt;{{email}}&lt;/code&gt; placeholder in the text. That placeholder will be replaced with the user's email address." fieldLabel="Email updated but needs verification" hideLabel="{Boolean}false" jcr:primaryType="cq:Widget" name="./sso/emailUpdatedNeedsVerification" xtype="textfield"/>
+                <userSubscribed allowBlank="{Boolean}true" disabled="{Boolean}false" fieldDescription="Message to show to the user that they have subscribed to the newsletter." fieldLabel="User subscribed to newsletter" hideLabel="{Boolean}false" jcr:primaryType="cq:Widget" name="./sso/userSubscribed" xtype="textfield"/>
+                <userUnsubscribed allowBlank="{Boolean}true" disabled="{Boolean}false" fieldDescription="Message to show to the user that they have unsubscribed from the newsletter." fieldLabel="User unsubscribed from the newsletter" hideLabel="{Boolean}false" jcr:primaryType="cq:Widget" name="./sso/userUnsubscribed" xtype="textfield"/>
+                <socialLoginFailed allowBlank="{Boolean}true" disabled="{Boolean}false" fieldDescription="Message to show to the user that social login failed." fieldLabel="Social login failed" hideLabel="{Boolean}false" jcr:primaryType="cq:Widget" name="./sso/socialLoginFailed" xtype="textfield"/>
+                <userLoggedOutBySystem allowBlank="{Boolean}true" disabled="{Boolean}false" fieldDescription="Message to show to the user when they have been logged out by the system." fieldLabel="User logged out by the system" hideLabel="{Boolean}false" jcr:primaryType="cq:Widget" name="./sso/userLoggedOutBySystem" xtype="textfield"/>
+                <accountUpdatedPersonalInformation allowBlank="{Boolean}true" disabled="{Boolean}false" fieldDescription="Message to show to the user that their personal information has been updated." fieldLabel="Account updated - personal information" hideLabel="{Boolean}false" jcr:primaryType="cq:Widget" name="./sso/accountUpdatedPersonalInformation" xtype="textfield"/>
+                <accountUpdatedCommunicationPreferences allowBlank="{Boolean}true" disabled="{Boolean}false" fieldDescription="Message to show to the user that their communication preferences have been updated." fieldLabel="Account updated - communication preferences" hideLabel="{Boolean}false" jcr:primaryType="cq:Widget" name="./sso/accountUpdatedCommunicationPreferences" xtype="textfield"/>
+            </items>
+        </TemporaryNotifications>
+        <LoginStatusIndicator jcr:primaryType="cq:Panel" title="Login Status Indicator">
+            <items jcr:primaryType="cq:WidgetCollection">
+                <hideLinks allowBlank="{Boolean}true" disabled="{Boolean}false" fieldDescription="Check this checkbox if you want to hide the Login/Logout links from the header." fieldLabel="Hide links" hideLabel="{Boolean}false" jcr:primaryType="cq:Widget" name="./sso/hideLinks" type="checkbox" xtype="selection"/>
+                <loginLinkTitle allowBlank="{Boolean}true" disabled="{Boolean}false" emptyText="Login" fieldDescription="Title of the Login link." fieldLabel="Login link title" hideLabel="{Boolean}false" jcr:primaryType="cq:Widget" name="./sso/loginLinkTitle" xtype="textfield"/>
+                <loginPagePath allowBlank="{Boolean}true" disabled="{Boolean}false" escapeAmp="{Boolean}false" fieldDescription="Path (or fully qualified URL) to the page containing the login form." fieldLabel="Login page" hideLabel="{Boolean}false" hideTrigger="{Boolean}false" jcr:primaryType="cq:Widget" name="./sso/loginPagePath" parBrowse="{Boolean}false" rootPath="/" rootTitle="Websites" showTitleInTree="{Boolean}true" xtype="pathfield"/>
+                <logoutLinkTitle allowBlank="{Boolean}true" disabled="{Boolean}false" emptyText="Logout" fieldDescription="Title of the Logout link." fieldLabel="Logout link title" hideLabel="{Boolean}false" jcr:primaryType="cq:Widget" name="./sso/logoutLinkTitle" xtype="textfield"/>
+            </items>
+        </LoginStatusIndicator>
+        <PrivacyAndTCUpdate jcr:primaryType="cq:Panel" title="Privacy Policy and Terms &amp; Conditions Update">
+            <items jcr:primaryType="cq:WidgetCollection">
+                <privacyPolicyUpdateFormTitle allowBlank="{Boolean}true" disabled="{Boolean}false" emptyText="NEW PRIVACY POLICY" fieldDescription="Form title for Privacy Policy Update." fieldLabel="Privacy Policy Update form title" hideLabel="{Boolean}false" jcr:primaryType="cq:Widget" name="./sso/privacyPolicyUpdateFormTitle" xtype="textfield"/>
+                <privacyPolicyUpdateFormSubTitle allowBlank="{Boolean}true" disabled="{Boolean}false" fieldDescription="Form subtitle for Privacy Policy Update." fieldLabel="Privacy Policy Update form subtitle" hideLabel="{Boolean}false" jcr:primaryType="cq:Widget" name="./sso/privacyPolicyUpdateFormSubTitle" xtype="textfield"/>
+                <privacyPolicyLinkTitle allowBlank="{Boolean}true" disabled="{Boolean}false" emptyText="Privacy Policy" fieldDescription="Title of the Privacy Policy link." fieldLabel="Privacy Policy link title" hideLabel="{Boolean}false" jcr:primaryType="cq:Widget" name="./sso/privacyPolicyLinkTitle" xtype="textfield"/>
+                <privacyPolicyPagePath allowBlank="{Boolean}true" disabled="{Boolean}false" escapeAmp="{Boolean}false" fieldDescription="Path (or fully qualified URL) to the Privacy Policy page." fieldLabel="Privacy Policy page" hideLabel="{Boolean}false" hideTrigger="{Boolean}false" jcr:primaryType="cq:Widget" name="./sso/privacyPolicyPagePath" parBrowse="{Boolean}false" rootPath="/" rootTitle="Websites" showTitleInTree="{Boolean}true" xtype="pathfield"/>
+                <currentPrivacyPolicyVersion allowDecimals="{Boolean}true" allowNegative="{Boolean}false" allowBlank="{Boolean}true" disabled="{Boolean}false" fieldDescription="Version of the current Privacy Policy." fieldLabel="Current Privacy Policy version" hideLabel="{Boolean}false" jcr:primaryType="cq:Widget" name="./sso/currentPrivacyPolicyVersion" xtype="numberfield"/>
+                <!--<lastUpdatedDateOfPrivacyPolicy allowBlank="{Boolean}true" disabled="{Boolean}false" fieldDescription="The date when the Privacy Policy was last updated." fieldLabel="Last updated date of Privacy Policy" hideLabel="{Boolean}false" jcr:primaryType="cq:Widget" name="./sso/lastUpdatedDateOfPrivacyPolicy" xtype="datefield"/>-->
+                <privacyNote allowBlank="{Boolean}true" disabled="{Boolean}false" fieldDescription="This checkbox will be shown to the user if he has to update Privacy Policy only.&lt;br/&gt;The label for 'Privacy Policy' checkbox can include a &lt;code&gt;{{privacy}}&lt;/code&gt; placeholder that will be replaced with the Privacy Policy link.&lt;br/&gt;E.g.: &lt;i&gt;I agree to the {{privacy}}.&lt;/i&gt;" fieldLabel="Privacy Policy checkbox label" hideLabel="{Boolean}false" jcr:primaryType="cq:Widget" name="./sso/privacyNote" xtype="textfield"/>
+
+                <termsAndConditionsUpdateFormTitle allowBlank="{Boolean}true" disabled="{Boolean}false" emptyText="NEW TERMS AND CONDITIONS" fieldDescription="Form title for Terms &amp; Conditions Update." fieldLabel="Terms &amp; Conditions Update form title" hideLabel="{Boolean}false" jcr:primaryType="cq:Widget" name="./sso/termsAndConditionsUpdateFormTitle" xtype="textfield"/>
+                <termsAndConditionsUpdateFormSubTitle allowBlank="{Boolean}true" disabled="{Boolean}false" fieldDescription="Form subtitle for Terms &amp; Conditions Update." fieldLabel="Terms &amp; Conditions Update form subtitle" hideLabel="{Boolean}false" jcr:primaryType="cq:Widget" name="./sso/termsAndConditionsUpdateFormSubTitle" xtype="textfield"/>
+                <termsAndConditionsLinkTitle allowBlank="{Boolean}true" disabled="{Boolean}false" emptyText="Terms and Conditions" fieldDescription="Title of the Terms &amp; Conditions link." fieldLabel="Terms &amp; Conditions link title" hideLabel="{Boolean}false" jcr:primaryType="cq:Widget" name="./sso/termsAndConditionsLinkTitle" xtype="textfield"/>
+                <termsAndConditionsPagePath allowBlank="{Boolean}true" disabled="{Boolean}false" escapeAmp="{Boolean}false" fieldDescription="Path (or fully qualified URL) to the Terms &amp; Conditions page." fieldLabel="Terms &amp; Conditions page" hideLabel="{Boolean}false" hideTrigger="{Boolean}false" jcr:primaryType="cq:Widget" name="./sso/termsAndConditionsPagePath" parBrowse="{Boolean}false" rootPath="/" rootTitle="Websites" showTitleInTree="{Boolean}true" xtype="pathfield"/>
+                <currentTermsAndConditionsVersion allowDecimals="{Boolean}true" allowNegative="{Boolean}false" allowBlank="{Boolean}true" disabled="{Boolean}false" fieldDescription="Version of the current Terms &amp; Conditions." fieldLabel="Current Terms &amp; Conditions version" hideLabel="{Boolean}false" jcr:primaryType="cq:Widget" name="./sso/currentTermsAndConditionsVersion" xtype="numberfield"/>
+                <!--<lastUpdatedDateOfTermsAndConditions allowBlank="{Boolean}true" disabled="{Boolean}false" fieldDescription="The date when the Terms &amp; Conditions was last updated." fieldLabel="Last updated date of Terms &amp; Conditions" hideLabel="{Boolean}false" jcr:primaryType="cq:Widget" name="./sso/lastUpdatedDateOfTermsAndConditions" xtype="datefield"/>-->
+                <termsNote allowBlank="{Boolean}true" disabled="{Boolean}false" fieldDescription="This checkbox will be shown to the user if he has to update Terms &amp; Conditions only.&lt;br/&gt;The label for 'Terms &amp; Conditions' checkbox can include a &lt;code&gt;{{terms}}&lt;/code&gt; placeholder that will be replaced with the Terms &amp; Conditions link.&lt;br/&gt;E.g.: &lt;i&gt;I agree to the {{terms}}.&lt;/i&gt;" fieldLabel="Terms &amp; Conditions checkbox label" hideLabel="{Boolean}false" jcr:primaryType="cq:Widget" name="./sso/termsNote" xtype="textfield"/>
+
+                <combinationUpdateFormTitle allowBlank="{Boolean}true" disabled="{Boolean}false" emptyText="NEW TERMS AND CONDITIONS AND PRIVACY POLICY" fieldDescription="Form title for Privacy Policy and Terms &amp; Conditions update." fieldLabel="Privacy Policy and Terms &amp; Condition Update form title" hideLabel="{Boolean}false" jcr:primaryType="cq:Widget" name="./sso/combinationUpdateFormTitle" xtype="textfield"/>
+                <combinationUpdateFormSubTitle allowBlank="{Boolean}true" disabled="{Boolean}false" fieldDescription="Form subtitle for Privacy Policy and Terms &amp; Conditions Update." fieldLabel="Privacy Policy and Terms &amp; Conditions Update form subtitle" hideLabel="{Boolean}false" jcr:primaryType="cq:Widget" name="./sso/combinationUpdateFormSubTitle" xtype="textfield"/>
+                <combinedNote allowBlank="{Boolean}true" disabled="{Boolean}false" fieldDescription="This checkbox will be shown to the user if he has to update both Privacy Policy and Terms &amp; Conditions.&lt;br/&gt;The label for 'Privacy Policy and Terms &amp; Conditions' combined checkbox can include &lt;code&gt;{{privacy}}&lt;/code&gt; and &lt;code&gt;{{terms}}&lt;/code&gt; placeholders that will be replaced with the Privacy Policy and Terms &amp; Conditions links respectively.&lt;br/&gt;E.g.: &lt;i&gt;By clicking 'Submit' you agree to our {{privacy}} and {{terms}}.&lt;/i&gt;" fieldLabel="Combined checkbox label" hideLabel="{Boolean}false" jcr:primaryType="cq:Widget" name="./sso/combinedNote" xtype="textfield"/>
+                <proceedButtonTitle allowBlank="{Boolean}true" disabled="{Boolean}false" emptyText="Proceed" fieldDescription="Form submit button text." fieldLabel="Proceed button text" hideLabel="{Boolean}false" jcr:primaryType="cq:Widget" name="./sso/proceedButtonTitle" xtype="textfield"/>
+            </items>
+        </PrivacyAndTCUpdate>
+         <favicon
+            jcr:primaryType="cq:Panel"
+            title="Favicon Image">
+            <items jcr:primaryType="cq:WidgetCollection">
+                <faviconimage
+                    jcr:primaryType="cq:Widget"
+                    cropParameter="./favicon/image/imageCrop"
+                    ddGroups="[media]"
+                    fileNameParameter="./favicon/image/fileName"
+                    fileReferenceParameter="./favicon/image/fileReference"
+                    height="300"
+                    mapParameter="./favicon/image/imageMap"
+                    name="./favicon/image/file"
+                    renditionSuffix="/_jcr_content/renditions/original"
+                    requestSuffix="/favicon/image.img.png"
+                    rotateParameter="./favicon/image/imageRotate"
+                    title="Image"
+                    xtype="html5smartimage">
+                    <items jcr:primaryType="cq:WidgetCollection">
+                        <resType
+                            jcr:primaryType="cq:Widget"
+                            ignoreData="{Boolean}true"
+                            name="./image/sling:resourceType"
+                            value="foundation/components/image"
+                            xtype="hidden"/>
+                    </items>
+                </faviconimage>
+            </items>
+        </favicon>
+        
+    </items>
+</jcr:root>

@@ -1,0 +1,49 @@
+
+<sly data-sly-use.info="com.mcd.rwd.us.core.sightly.ImageListFlyOut">
+	<sly data-sly-test="${wcmmode.edit && !info.imageList}">
+        <h3>Please click to configure the Image List Flyout component</h3>
+    </sly>
+	<sly data-sly-test="${info.imageList}" >   
+		<div ng-controller="imageListFlyOut" class="${info.enableMultiRow == true ? 'media-limit' : ''} typical-list imglist-topnav">
+		 	<ul class="list-media list-inline">
+				<sly data-sly-list.imageList="${info.imageList @context='unsafe'}">
+					<li data-coopid="${imageList.tag}" class="${imageList.isLocalUrl ? 'localitemimagelist' : ''}">
+						<a class="${imageList.bumperLink.linkClass!=null ? imageList.bumperLink.linkClass : ''}" href="${imageList.bumperLink.href}" target="${imageList.bumperLink.target}" title="${imageList.bumperLink.text}" data-at="TopNav:${info.pageTitle}:${imageList.bumperLink.text}" data-track="topNav">
+							<div class="hidden-xs">
+							
+								<sly data-sly-test="${imageList.subTitle!=' '}">
+								<div class="cont-banner-wrapper">
+                                	<div class="cont-banner">
+                                    	<div class="text">${imageList.subTitle}</div>
+                                    </div>
+                             	</div>
+                             	</sly>
+								<img src="${imageList.src}"
+									alt=""
+									class="img-responsive hover-border">
+								<p class="img-caption">${imageList.bumperLink.text}</p>
+							</div>
+							<div class="media visible-xs-block">
+								<sly data-sly-test="${imageList.subTitle!=' '}">
+								<div class="cont-banner-wrapper">
+                                	<div class="cont-banner">
+                                    	<div class="text">${imageList.subTitle}</div>
+                                    </div>
+                             	</div>
+                             	</sly>
+								<div class="media-body media-middle">
+									<p class="img-caption">${imageList.bumperLink.text}</p>
+								</div>
+								<div class="media-right media-middle">
+									<img src="${imageList.src}"
+										alt=""
+										class="img-responsive hover-border">
+								</div>
+							</div>
+						</a>
+					</li>
+				</sly>
+			</ul>
+		</div>
+	</sly>  
+</sly>

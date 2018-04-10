@@ -1,0 +1,119 @@
+/* @import url(https://fonts.googleapis.com/css?family=Lato:400,300,700);*/
+
+
+@mixin fontSet($fontsize, $lineheight){
+  font-size: $fontsize;
+  line-height: $lineheight;
+}
+
+@mixin fontNormal(){
+  font-family: 'Lato', Arial, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+}
+
+@mixin fontLight(){
+  font-family: 'Lato', Arial, sans-serif;
+  font-style: normal;
+  font-weight: 300;
+}
+
+@mixin fontBold(){
+  font-family: 'Lato', Arial, sans-serif;
+  font-style: normal;
+  font-weight: 700;
+}
+
+@mixin transition(){
+  -webkit-transition: all 0.4s ease;
+  -moz-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+
+@mixin transition-half(){
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+/// Sets transition per argument. Allows transitioning individual properties.
+/// @group animation
+/// @param {*} $properties - Pass in as many properties as you'd like.
+@mixin transition-props($properties...) {
+
+	@if length($properties) >= 1 {
+		@include css3-prefix('transition', $properties);
+	}
+
+	@else {
+		@include css3-prefix('transition',  "all 0.2s ease-in-out 0s");
+	}
+}
+
+
+@mixin css3-prefix($property, $value) {
+  -webkit-#{$property}: #{$value};
+  -khtml-#{$property}: #{$value};
+  -moz-#{$property}: #{$value};
+  -ms-#{$property}: #{$value};
+  -o-#{$property}: #{$value};
+  #{$property}: #{$value};
+}
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  border-radius: $radius;
+  background-clip: padding-box;  /* stops bg color from leaking outside the border: */
+}
+
+@mixin border-top-radius($radius) {
+  -webkit-border-top-right-radius: $radius;
+  border-top-right-radius: $radius;
+  -webkit-border-top-left-radius: $radius;
+  border-top-left-radius: $radius;
+  background-clip: padding-box;
+}
+@mixin border-right-radius($radius) {
+  -webkit-border-bottom-right-radius: $radius;
+  border-bottom-right-radius: $radius;
+  -webkit-border-top-right-radius: $radius;
+  border-top-right-radius: $radius;
+  background-clip: padding-box;
+}
+@mixin border-bottom-radius($radius) {
+  -webkit-border-bottom-right-radius: $radius;
+  border-bottom-right-radius: $radius;
+  -webkit-border-bottom-left-radius: $radius;
+  border-bottom-left-radius: $radius;
+  background-clip: padding-box;
+}
+@mixin border-left-radius($radius) {
+  -webkit-border-bottom-left-radius: $radius;
+  border-bottom-left-radius: $radius;
+  -webkit-border-top-left-radius: $radius;
+  border-top-left-radius: $radius;
+  background-clip: padding-box;
+}
+
+@mixin center-block() {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@mixin transition-nav(){
+  -webkit-transition:  all 0.4s ease-in-out;
+  -moz-transition:  all 0.4s ease-in-out;
+  -ms-transition:  all 0.4s ease-in-out;
+  -o-transition:  all 0.4s ease-in-out;
+  transition:  all 0.4s ease-in-out;
+}
+
+@mixin dropshadow(){
+  -webkit-box-shadow: 0px 0px 29px 0px rgba(54,54,54,0.9);
+  -moz-box-shadow: 0px 0px 29px 0px rgba(54,54,54,0.9);
+  box-shadow: 0px 0px 29px 0px rgba(54,54,54,0.9);
+}

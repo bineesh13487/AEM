@@ -1,0 +1,121 @@
+<div class="sso-cmpt-registration" data-sly-use.reg="com.mcd.rwd.us.core.sso_profile.Registration" ng-controller="RegistrationController" data-json="${reg.json}">
+    <div ng-switch on="currentStep.step" ng-cloak>
+        <div ng-switch-when="initial">
+            <div ng-controller="RegistrationInitialController">
+                <div tabindex="0" class="main sso-full-height ssoMainContent" role="main">
+
+                    <div data-sly-test="${reg.includeCarousel}" data-sly-resource="${ 'imagegallery' @ resourceType='mcd/rwd/components/content/global/imagegallery'}"
+                         data-sly-unwrap="${wcmmode.preview || wcmmode.disabled }"></div>
+
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+
+                                <h1 class="sso-h1">${reg.titleView1}</h1>
+                                <!-- /*  Email Registration button (included if so configured) */ -->
+                                <a href="javascript:void(0);" ng-click="useEmail()" title="${reg.emailButtonTitle}" class="sso-btn-red" aria-disabled="false" data-sly-test="${reg.emailRegistrationEnabled}">${reg.emailButtonTitle}</a>
+                                <!-- /*  Social Registration buttons (included if so configured) */ -->
+                                <a href="javascript:void(0);" register-facebook
+                                    profile="socialProfile.value"
+                                    advance-fn="socialRegistrationFacebook()"
+                                    title="${reg.socialFacebookButtonTitle}"
+                                    class="sso-btn-red"
+                                    aria-disabled="false"
+                                    data-sly-test="${reg.facebookRegistrationEnabled}">
+                                        ${reg.socialFacebookButtonTitle}
+                                </a>
+                                <a href="javascript:void(0);" register-google
+                                    profile="socialProfile.value"
+                                    advance-fn="socialRegistrationGoogle()"
+                                    title="${reg.socialGoogleButtonTitle}"
+                                    class="sso-btn-red"
+                                    aria-disabled="false"
+                                    data-sly-test="${reg.googleRegistrationEnabled}">
+                                        ${reg.socialGoogleButtonTitle}
+                                </a>
+                                <div class="row">
+                                    <div class="col-xs-12 text-center">
+                                        <div class="sso-cta-link-small-wrapper">
+                                            <a href="${reg.loginLinkHref}" title="${reg.loginLinkTitle}" class="sso-cta-link-small">${reg.loginLinkTitle}</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div ng-switch-when="required"> <!-- view #2 - required fields -->
+            <div ng-controller="RegistrationRequiredController">
+
+                <div tabindex="0" class="main sso-full-height ssoMainContent" role="main">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xs-12  col-sm-6 col-sm-offset-3">
+                                <h1 class="sso-h1">${reg.titleView2}</h1>
+                                <h2 class="sso-h2" ng-if="isSocial">${reg.subtitleView2}</h2>
+                                <!--CM: this form is supposed to be build using directive -->
+                                <valid-form submitbtntext="${reg.submitButtonView2}"
+                                            inputs="${reg.directiveRequiredJson}"
+                                            requiredfieldstext="${reg.requiredFieldsText}"
+                                            hide-on-init="hideOnInit"
+                                            hide-check="hideCheck()"
+                                            no-visible-fields-callback="noVisibleFieldsCallback()"
+                                            blocking-validation-check="blockingValidationCheck"
+                                            field-names="names"
+                                            vm="thisForm"
+                                            after-render="afterRender()"
+                                            error-msg="errorMsg"
+                                            submit-fn="submitFn(session, ref)" form-name="formName" session="session" ref="ref">
+                                </valid-form>
+                                <div class="sso-cta-link-spacer-align">
+                                    <a ng-click="nextStep('initial')" href="javascript:void(0);" class="sso-cta-link back"><i class="fa fa-chevron-left"></i> {{backLinkText}}</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div ng-switch-when="optional"> <!-- view #3 - optional fields -->
+            <div ng-controller="RegistrationOptionalController" redirect="${reg.redirectPage}">
+                <!--CM: this form is supposed to be build using directive-->
+
+
+                <div tabindex="0" class="main sso-full-height ssoMainContent" role="main">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xs-12  col-sm-6 col-sm-offset-3">
+                                <h1 class="sso-h1">${reg.titleView3}</h1>
+                                <h2 class="sso-h2" ng-if="isSocial">${reg.subtitleView3}</h2>
+                                <!--CM: this form is supposed to be build using directive -->
+                                <valid-form submitbtntext="${reg.submitButtonView3}"
+                                            inputs="${reg.directiveOptionalJson}"
+                                            requiredfieldstext=""
+                                            hide-on-init="hideOnInit"
+                                            hide-check="hideCheck()"
+                                            no-visible-fields-callback="noVisibleFieldsCallback()"
+                                            blocking-validation-check="blockingValidationCheck"
+                                            field-names="names"
+                                            vm="thisForm"
+                                            after-render="afterRender()"
+                                            error-msg="errorMsg"
+                                            submit-fn="submitFn(session, ref)" form-name="formName" session="session" ref="ref">
+                                </valid-form>
+                                <div class="sso-cta-link-spacer-align">
+                                    <a ng-click="nextStep('required')" href="javascript:void(0);" class="sso-cta-link back"><i class="fa fa-chevron-left"></i> {{backLinkText}}</a>
+                                </div>
+                                <div class="sso-cta-link-spacer-align">
+                                    <a ng-click="skip()" href="javascript:void(0);" title="${reg.skipLinkTitle}" class="sso-cta-link">${reg.skipLinkTitle}</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

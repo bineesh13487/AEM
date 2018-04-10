@@ -1,0 +1,55 @@
+<div class="mcd-hero mcd-hero--title-on-top" data-sly-use.appBadge="com.mcd.rwd.global.core.sightly.AppBadgeHandler" data-sly-use.hero="com.mcd.rwd.us.core.sightly.HeroComponentHandler"
+  data-ng-controller="heroController" data-ng-init="init(${hero.isLocalUrl},${hero.showCoopName})">
+  <section title="${hero.imageAltText}" class="mcd-hero__section">
+    <sly data-sly-test="${hero.mobileImageHref}">
+      <style>
+        @media screen and (max-width: 468px) {
+          .mcd-hero__container {
+            background: url('${hero.mobileImageHref @context='uri'}') no-repeat center;
+            background-size: cover;
+          }
+        }
+      </style>
+    </sly>
+    <sly data-sly-test="${hero.imageHref}">
+      <style>
+        @media screen and (min-width: 469px) {
+          .mcd-hero__container {
+            background: url('${hero.imageHref @context='uri'}') no-repeat center;
+            background-size: cover;
+          }
+        }
+      </style>
+    </sly>
+
+    <!-- for align on top: -->
+    <sly data-sly-test="${hero.getTextAlignClass == 'top'}">
+      <div class="mcd-hero__content mcd-hero__content--title-on-top">
+        <h2 class="h1 mcd-hero__title">${hero.title @ context='html'}</h2>
+      </div>
+    </sly>
+
+    <div class="mcd-hero__container">
+      <sly data-sly-test="${true && hero.getTextAlignClass != 'top'}">
+        <div class="mcd-hero__content mcd-hero__content--title-on-${hero.getTextAlignClass}">
+          <!--
+              for dark theme:
+            -->
+          <sly data-sly-test="${true && !hero.theme }">
+            <h2 class="mcd-hero__title--light">${hero.title @ context='html'}</h2>
+          </sly>
+          <!--
+              for dark theme:
+            -->
+          <sly data-sly-test="${false && hero.theme == 'dark'}">
+            <h2 class="mcd-hero__title mcd-hero__title--dark">${hero.title @ context='html'}</h2>
+          </sly>
+        </div>
+      </sly>
+    </div>
+
+    <sly data-sly-test="${!hero.imageHref && (wcmmode.edit || wcmmode.design)}">
+      <h3>Please Configure the Hero Component - No Hero image is Selected.</h3>
+    </sly>
+  </section>
+</div>

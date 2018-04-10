@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="cq:Dialog"
+    xtype="dialog">
+    <items
+        jcr:primaryType="cq:Widget"
+        xtype="tabpanel">
+        <items jcr:primaryType="cq:WidgetCollection">
+            <relatedproduct
+                jcr:primaryType="cq:Panel"
+                title="Related Products">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <imagefolderpath
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}false"
+                        fieldLabel="Product Image Folder"
+                        name="./productSliderImageFolder"
+                        rootPath="/content/dam"
+                        xtype="pathfield"/>
+                </items>
+            </relatedproduct>
+        </items>
+    </items>
+</jcr:root>

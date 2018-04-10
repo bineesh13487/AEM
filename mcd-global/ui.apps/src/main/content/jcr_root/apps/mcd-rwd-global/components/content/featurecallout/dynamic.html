@@ -1,0 +1,15 @@
+<!--/*
+    Dynamic Callout Renderer.
+*/-->
+<sly data-sly-use.dynamicCallout="com.mcd.rwd.global.core.sightly.callouts.DynamicCalloutHandler">
+    <sly data-sly-list.callout="${dynamicCallout.calloutMap}">
+        <div class="promo col-xs-12 col-sm-${dynamicCallout.gridIdentifier}" title="${callout.getImageAlt}"
+             data-sly-attribute.data-attr="${dynamicCallout.calloutMap[callout]}"
+             data-sly-attribute.data-type="${dynamicCallout.type}" id="${callout}">
+			<img src="">
+			<a href="javascript:void(0);">
+                <h4></h4>
+            </a>
+        </div>
+    </sly>
+</sly>

@@ -1,0 +1,86 @@
+@mixin ssoSliderMaxHeight(){
+  max-height: 480px;
+}
+@mixin ssoSliderAutoHeight(){
+  height: auto!important;
+}
+
+.sso-slider {
+  @include ssoSliderAutoHeight();
+  @include ssoSliderMaxHeight();
+  margin-top: -91px;
+
+  @media (min-width: 768px){
+    margin-top: -110px;
+  }
+
+  .flex-viewport {
+    @include ssoSliderAutoHeight();
+    @include ssoSliderMaxHeight();
+
+    .slides[style] {
+      @include ssoSliderAutoHeight();
+      @include ssoSliderMaxHeight();
+    }
+  }
+
+  .flex-control-paging li {
+    width: 16px;
+    height: 16px;
+  }
+  .flex-control-paging li a {
+    width: 12px !important;
+    height: 12px !important;
+  }
+  .flex-control-paging li a.flex-active {
+    width: 16px !important;
+    height: 16px !important;
+  }
+
+  .slides > li {
+    position: relative;
+  }
+
+  .flex-control-paging {
+    bottom: 10px;
+  }
+
+  .sso-absolute-content {
+    @include ssoSliderMaxHeight();
+
+    .sso-absolute-content-wrapper {
+      padding-top: 60px;
+
+      .sso-slider-wrapper {
+        padding: 0px 15px;
+        //width: 80%;
+        margin: auto;
+        opacity: 0;
+        @include transition();
+      }
+      .sso-slider-text {
+        margin: 0;
+        padding: 0;
+        color: $black;
+        font-family: $font-lovinsans-bold;
+        text-transform: uppercase;
+        @include fontSet(22px, 22px);
+
+        @media (min-width: 321px){
+          @include fontSet(26px, 26px);
+        }
+
+        @media (min-width: 768px){
+          @include fontSet(52px, 52px);
+        }
+        @media (min-width: 992px){
+          @include fontSet(60px, 60px);
+        }
+      }
+    }
+  }
+
+  .flex-active-slide .sso-absolute-content .sso-absolute-content-wrapper .sso-slider-wrapper {
+    opacity: 1;
+  }
+}

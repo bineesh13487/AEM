@@ -1,0 +1,160 @@
+<script type="text/javascript" src="https://l2.io/ip.js?var=customerIp"></script>
+<script src='https://www.google.com/recaptcha/api.js'></script>
+
+<sly data-sly-use.contactInfo="com.mcd.rwd.us.core.sightly.forms.UKForm">
+    <sly data-sly-test="${!contactInfo.formAction && !wcmmode.disabled}">
+        <p>Please configure contact us forms in dialog.</p>
+    </sly>
+    <sly data-sly-test="${contactInfo.formAction}">
+    <main id="maincontent" tabindex="0" class="main" role="main">
+        <div id="contactUs-generalInquiry" class="page-contact-us__subpage page-contact-us__uk page-contact-us__general-inquiry">
+        <section title="restaurant feedback form">
+            <div id="formAction" style="display:none;">${contactInfo.formAction}</div>
+            <form class="contactusuk" name="contactusuk" id="contactusuk" method="post" data-at="${contactInfo.pageNameForAnalytics}:Form: ${contactInfo.formName}" data-track="formuk">
+                <div class="page-contact-us__subpage__content page-contact-us-section-override-uk">
+                     <section class="page-contact-us__subpage__how-can-we-help" style="outline: none;">
+                        <div class="container" style="outline: none;">
+                           <div class="row" data-sly-test="${contactInfo.sectionContentText}">
+                              <div class="how-can-we-help-text col-xs-12">
+                                 ${contactInfo.sectionContentText @ context='html'} <p> <a data-sly-test="${contactInfo.clickHere !=''}"  href=" ${contactInfo.clickHereLink}">  ${contactInfo.clickHere @ context='html'} <span class="visuallyhidden">${contactInfo.clickHereText @ context='html'}</span></a>${contactInfo.sectionContentText1 @ context='html'} </p>
+                         
+                              </div>
+                           </div>
+                           <div class="row age-check">
+                              <div class="col-xs-12">
+                                 <div class="form-group">
+                                    <fieldset>
+                                       <legend aria-hidden="true">
+                                          <p>${contactInfo.ageIndicatorText @ context='html'} <sup>*<span class="visuallyhidden"> required</span></sup></p>
+                                       </legend>
+                                       <div class="radio radio-group radio-inline contact-radio-control"> 
+                                       		<div class="radio"><input type="radio" name="contactUs-uk-agecheck" aria-labelledby="contactUs-uk-agecheck-yes-label" id="contactUs-uk-agecheck-yes"> 
+	                                       	<label id="contactUs-uk-agecheck-yes-label" for="contactUs-uk-agecheck-yes" aria-hidden="true"><span class="visuallyhidden">${contactInfo.ageIndicatorText @ context='html'} * required -</span>
+	                                          	${contactInfo.yesButtonText}
+	                                       	</label></div>
+	                                       	<div class="radio"><input type="radio" name="contactUs-uk-agecheck" aria-labelledby="contactUs-uk-agecheck-no-label" id="contactUs-uk-agecheck-no"> 
+	                                       	<label id="contactUs-uk-agecheck-no-label" for="contactUs-uk-agecheck-no" aria-hidden="true"><span class="visuallyhidden">${contactInfo.ageIndicatorText @ context='html'} * required -</span>
+	                                          	${contactInfo.noButtonText}
+	                                       	</label></div>
+                                       </div>
+                                    </fieldset>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </section>
+                     <div id="age-accordion">
+                        <div id="contact-form-underage-uk" class="form-section hide">
+                           <section class="page-contact-us__subpage bg-light-gray">
+                              <div class="container">
+                                 ${contactInfo.ageLimitText @ context='html'}
+                              </div>
+                           </section>
+                        </div>
+                        <div id="contact-form-main-uk" class="form-section hide">
+                           <section class="page-contact-us__subpage bg-light-gray">
+                            	<div data-sly-resource="${@path='contactussectionpara', resourceType='mcd-us/components/content/ukForm/ukContactusPersonalInformation'}"></div>
+                            	<div data-sly-resource="${@path='contactuschildpara', resourceType='mcd-us/components/content/ukForm/ukContactactusRestaurantInformation'}"></div>
+                           </section>
+							<div data-sly-resource="${@path='contactuschildparada', resourceType='mcd-us/components/content/ukForm/comments'}"></div>
+                        </div>
+                     </div>
+                  </div>                        
+                <input type="hidden" name="mobileFlag" id="mobileFlag" value="">
+                <input type="hidden" name="social" id="social" value="">
+                <input type="hidden" name="thankYouPage" id="thankYouPage" value="${request.scheme}://${request.serverName}${contactInfo.thankYouPage}">
+                <input type="hidden" name="errorPage" id="errorPage" value="${request.scheme}://${request.serverName}${contactInfo.errorPage}">
+            </form></section>
+        </div>
+	</main>
+        
+                        <!--/.modal-->
+  <div class="modal fade uk-restaurant-modal" data-ng-app="restaurantLocatorApp" data-ng-controller="restaurantLocatorController" data-ng-init="init('body')" id="restaurantLocatorMapModal" tabindex="-1" role="dialog" aria-labelledby="restaurantLocatorMapModal">
+         <div class="modal-dialog" role="document">
+            <div class="modal-content">
+               <div class="container-fluid">
+                  <div class="row no-gutter">
+                     <div class="col-xs-12 cont-enter-location">
+                        <div class="row no-gutter">
+                           <div class="col-xs-12">
+                              <div class="heading" aria-hidden="true" data-sly-test="${contactInfo.resSearchHeading}">${contactInfo.resSearchHeading}</div>
+                           </div>
+                           <div class="col-xs-9 col-sm-10 pad-right">
+								<form>
+									<div class="form-group"> 
+									<label id="enter-location-label" class="visuallyhidden" for="zip-city-state" aria-hidden="true">${contactInfo.resSearchHeading}</label> 
+									<input type="text" class="form-control placeholder" id="zip-city-state" ng-model="restaurantSearchText" placeholder="${contactInfo.resSearchPlaceholder}" aria-labelledby="enter-location-label"> </div>
+								</form>
+							</div>
+                           <div class="col-xs-3 col-sm-2">
+                              <button type="button" class="btn btn-red" ng-click="searchUKRestaurants(restaurantSearchText)">
+                              ${contactInfo.resSearchButtonText}
+                              </button> 
+                              <!-- Extra Functionality Starts-->
+                              <a ng-show="isMulti" class="disambiguitydemo"  data-toggle="modal" data-target="#restaurantLocatorDisambiguityModal">Location Disambiguity</a>
+                              <!-- Extra Functionality Ends-->
+                           </div>
+                           <div class="col-xs-12">
+                              <label class="no-location-error-message error pl20 hidden">${contactInfo.noTextErrorMessage}</label>
+                           </div>
+                           <!-- Extra Functionality Starts-->
+                        </div>
+                     </div>
+                     <div class="hidden-xs col-sm-12 cont-map-display" aria-hidden="true">
+                        <div id="map-canvas" class="map-container">
+                           <!-- Extra Script Call Starts-->
+                           <div id='gmap_canvas' style='height:100%;width:100%;'></div>
+                           <style>
+                              #gmap_canvas img {
+                              max-width: none!important;
+                              background: none!important
+                              }
+                           </style>
+                        </div>
+                     </div>
+                     <div class="col-xs-0 cont-restaurant-list" aria-hidden="true">
+                     	<div class="results-num" tabindex="0">{{restaurants.length}} ${contactInfo.searchResultText}</div>
+                       	<ol class="restaurant-location-modal-list" title="restaurant results">
+						   <li data-ng-repeat="restaurant in restaurants" id="restaurant-location-{{restaurant.properties.id}}" class="restaurant-location">
+							  <div class="row" id="{{restaurant.properties.id}}">
+								 <div class="col-xs-12">
+									<div class="restaurant-location__address-container">
+										   	<div class="restaurant-location__map-pin"><span aria-hidden="true">{{restaurant.enabledCount}}</span><span class="visuallyhidden">${contactInfo.restaurantNumnerTextDesktop} {{restaurant.enabledCount}}</span> </div>
+									   <h3 class="restaurant-location__title" ng-bind="restaurant.properties.name?restaurant.properties.name:restaurant.properties.addressLine1"></h3>
+									   <h4 class="restaurant-location__address" ng-bind="getRestaurantFullAddress(restaurant.properties.addressLine3, restaurant.properties.subDivision, restaurant.properties.postcode)"></h4>
+									   <h4 class="restaurant-location__address" ng-bind="restaurant.properties.telephone"></h4>
+									   <h4 class="restaurant-location__address" ng-bind="restaurant.properties.crossStreets"></h4>
+									   <input type="hidden" value="{{restaurant.properties.addressLine3}}" id="resSearchCity">
+									   <input type="hidden" value="{{restaurant.properties.id}}" id="restaurantId">
+									   <input type="hidden" value="{{restaurant.properties.identifiers.storeIdentifier}}" id="storeIdentifier">
+									   <input type="hidden" value="{{restaurant.properties.subDivision}}" id="restaurantState">
+									   <input type="hidden" value="{{restaurant.properties.filterType}}" id="restaurantFilterType">
+									</div>
+								 </div>
+								 <div class="col-xs-12 cont-btn"> <button id="selectRestaurantuk" data-dismiss="modal" class="btn btn-red btn--xsm select-restaurant-location">${contactInfo.resSelectButtonText} <span class="visuallyhidden">${contactInfo.restaurantNumnerTextMobile} {{restaurant.enabledCount}}</span></button> </div>
+							  </div>
+						   </li>
+						</ol>
+                     </div>
+                  </div>
+               </div>
+               <!--<div class="btn-back" data-toggle="modal" data-target="#restaurantLocatorFormModal"><i class="fa fa-arrow-left"></i></div>-->
+               <!--/.btn-back--><button class="btn-close" data-dismiss="modal" aria-label="close"><i class="fa fa-times"></i></button>
+               <!--/.btn-close-->
+            </div>
+            <!--/.modal-content-->
+         </div>
+         <!--/.modal-dialog-->
+      </div>
+        <!--/#restaurantLocatorModal.modal-->
+    </sly>
+</sly>
+</sly>
+<style>
+    .error {
+    color: #bf0c0c !important;
+    }
+    .form-group.error label {
+    color: #333333;
+    }
+</style>

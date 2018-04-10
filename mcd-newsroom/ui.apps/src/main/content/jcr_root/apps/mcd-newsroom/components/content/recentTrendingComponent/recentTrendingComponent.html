@@ -1,0 +1,63 @@
+<div data-sly-use.articleInfo="com.mcd.rwd.newsroom.core.sightly.RecentTrendingHandler" ng-controller="RecentTrendingController">
+  <sly data-sly-test="${articleInfo.articleDetailList.size > 0 && (articleInfo.section) && articleInfo.viewType=='Slider'}">
+    <section class="mcd-recent-trending-news">
+      <h1 class="mcd-recent-trending-news__title">${articleInfo.newsTitle}</h1>
+      <sly data-sly-test="${articleInfo.articleDetailList}">
+        <div class="mcd-recent-trending-news__croppane">
+          <ul class="mcd-recent-trending-news__slides">
+            <sly data-sly-list.article="${articleInfo.articleDetailList}">
+              <li class="mcd-news-item--slide mcd-recent-trending-news__slide" data-slide-index="${articleList.index}">
+                <article tabindex="0" class="mcd-news-item__article">
+                  <img class="mcd-news-item__thumbnail" data-src="${article.articleImagePath}" src="/content/dam/usa/promotions/desktop/SS-LopezPotatoes_292x292.jpg"
+                  />
+                  <div class="mcd-news-item__date">${article.publishDate}</div>
+                  <h3 class="mcd-news-item__title">${article.articleMinTitle}</h3>
+                  <div class="mcd-news-item__preview-text">${article.articleDescription}</div>
+                  <div class="mcd-news-item__cta">
+                    <a x-cq-linkchecker="valid" class="mcd-news-item__cta-link" href="${article.articlePagePath}">${articleInfo.readMoreText}</a>
+                  </div>
+                </article>
+              </li>
+            </sly>
+          </ul>
+        </div>
+        <ul class="mcd-recent-trending-news__pagination-container">
+          <li class="mcd-recent-trending-news__nextprev">
+            <button class="mcd-recent-trending-news__nextprev-btn--prev" aria-hidden="true" tabindex="-1">
+              <span class="icon-chevron-left"></span>
+            </button>
+          </li>
+          <li>
+            <ul class="mcd-recent-trending-news__pagination">
+              <sly data-sly-list.article="${articleInfo.articleDetailList}">
+                <sly data-sly-test="${articleList.index == 0}">
+                  <li class="mcd-recent-trending-news__page mcd-recent-trending-news__page--selected" data-page-index="${articleList.index}"></li>
+                </sly>
+                <sly data-sly-test="${articleList.index != 0}">
+                  <li class="mcd-recent-trending-news__page" data-page-index="${articleList.index}"></li>
+                </sly>
+              </sly>
+            </ul>
+          </li>
+          <li class="mcd-recent-trending-news__nextprev">
+            <button class="mcd-recent-trending-news__nextprev-btn--next" aria-hidden="true" tabindex="-1">
+              <span class="icon-chevron-right"></span>
+            </button>
+          </li>
+        </ul>
+      </sly>
+    </section>
+  </sly>
+
+  <sly data-sly-test="${articleInfo.articleDetailList.size<=0}">
+    <div class="clearfix load-more-row">
+      <span class="noMoreResults">${articleInfo.noNewsText}</span>
+    </div>
+  </sly>
+
+
+
+  <sly data-sly-test="${(!articleInfo.section) && (wcmmode.edit || wcmmode.design)}">
+    <h3>Please Configure Recent and Trending Component No NewsType is selected.</h3>
+  </sly>
+</div>

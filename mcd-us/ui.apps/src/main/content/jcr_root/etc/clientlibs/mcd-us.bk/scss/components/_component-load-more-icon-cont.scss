@@ -1,0 +1,23 @@
+.load-more-cont {
+  height: 300px;
+  @media (max-width: 767px) {
+    height: 150px
+  }
+  .load-more-wrapper {
+    position: relative;
+    top: 110px;
+    @media (max-width: 767px) {
+      top: 50px
+    }
+    a {
+      text-align: center;
+      letter-spacing: 1px;
+      text-decoration: none;
+      color: $red;
+      @include fontSet(20px, 20px, 'LovinSansWeb-Bold');
+      p > img {
+        padding-top: 8px;
+      }
+    }
+  }
+}

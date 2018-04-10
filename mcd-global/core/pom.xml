@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ |  Copyright 2015 Adobe Systems Incorporated
+ |
+ |  Licensed under the Apache License, Version 2.0 (the "License");
+ |  you may not use this file except in compliance with the License.
+ |  You may obtain a copy of the License at
+ |
+ |      http://www.apache.org/licenses/LICENSE-2.0
+ |
+ |  Unless required by applicable law or agreed to in writing, software
+ |  distributed under the License is distributed on an "AS IS" BASIS,
+ |  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ |  See the License for the specific language governing permissions and
+ |  limitations under the License.
+--><project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.mcd.rwd</groupId>
+        <artifactId>mcd-rwd-global</artifactId>
+        <version>0.0.5</version>
+        <relativePath>../../pom.xml</relativePath>
+    </parent>
+    <artifactId>mcd-rwd-global.core</artifactId>
+    <packaging>bundle</packaging>
+    <name>mcd-rwd-global - Core</name>
+    <description>Core bundle for mcd-rwd-global</description>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-scr-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <extensions>true</extensions>
+                <configuration>
+                    <instructions>
+                        <Bundle-SymbolicName>mcd-rwd-global.core</Bundle-SymbolicName>
+                        <Import-Package>!javax.jms.*,!org.hibernate,!org.hibernate.cache,!org.hibernate.cache.access,!org.hibernate.cfg,!org.hibernate.impl,!org.hibernate.stat,!org.hibernate.transaction,!sun.misc,!sun.security.util,!com.citytechinc.cq.component.*,*
+                        </Import-Package>
+                        <Export-Package>
+                            com.mcd.rwd.global.core.utils.*,
+                            com.mcd.rwd.global.core.constants.*,
+                            com.mcd.rwd.global.core.sightly.*,
+                            com.mcd.rwd.global.core.sightly.page.*,
+                            com.mcd.rwd.global.core.service.*,
+                            com.mcd.rwd.global.core.bean.*,
+                            com.mcd.rwd.global.core.bean.style.*,
+                            com.mcd.rwd.global.core.models.*,
+                            com.mcd.rwd.global.core.components.common.*
+                        </Export-Package>
+                        <Sling-Model-Packages>com.mcd.rwd.global.core</Sling-Model-Packages>
+                        <Embed-Dependency>ehcache-core,gson;scope=compile|runtime</Embed-Dependency>
+                    </instructions>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+    <profiles>
+        <!-- Development profile: install only the bundle -->
+        <profile>
+            <id>autoInstallBundle</id>
+            <activation>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.sling</groupId>
+                        <artifactId>maven-sling-plugin</artifactId>
+                        <configuration>
+                            <!-- Note that this requires /apps/mcd-rwd-global/install to exist!!          -->
+                            <!--    This is typically the case when ui.apps is deployed first                -->
+                            <!--    Otherwise, create /apps/mcd-rwd-global/install manually (CRXDE|Lite)  -->
+                            <slingUrlSuffix>/apps/mcd-rwd-global/install/</slingUrlSuffix>
+                            <failOnError>true</failOnError>
+                        </configuration>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.felix</groupId>
+                        <artifactId>maven-bundle-plugin</artifactId>
+                        <extensions>true</extensions>
+                        <configuration>
+                            <instructions>
+                                <Bundle-SymbolicName>mcd-rwd-global.core</Bundle-SymbolicName>
+                                <Import-Package>org.hibernate;resolution:="optional",
+                                    org.hibernate.*;resolution:="optional",sun.misc;resolution:="optional",!com.citytechinc.cq.component.*,*
+                                </Import-Package>
+                                <Export-Package>com.mcd.rwd.global.core.utils.*,
+                                    com.mcd.rwd.global.core.constants.*,
+                                    com.mcd.rwd.global.core.sightly.*,
+                                    com.mcd.rwd.global.core.sightly.page.*,
+                                    com.mcd.rwd.global.core.service.*,
+                                    com.mcd.rwd.global.core.bean.*,
+                                    com.mcd.rwd.global.core.bean.style.*,
+                                    com.mcd.rwd.global.core.models.*
+                                </Export-Package>
+                                <Sling-Model-Packages>com.mcd.rwd.global.core.models</Sling-Model-Packages>
+                                <Embed-Dependency>ehcache-core,gson;scope=compile|runtime</Embed-Dependency>
+                            </instructions>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+    <dependencies>
+        <!-- OSGi Dependencies -->
+        <dependency>
+            <groupId>org.apache.felix</groupId>
+            <artifactId>org.apache.felix.scr</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.felix</groupId>
+            <artifactId>org.apache.felix.scr.annotations</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>biz.aQute</groupId>
+            <artifactId>bndlib</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.osgi</groupId>
+            <artifactId>org.osgi.core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.osgi</groupId>
+            <artifactId>org.osgi.compendium</artifactId>
+        </dependency>
+        <!-- Other Dependencies -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>javax.jcr</groupId>
+            <artifactId>jcr</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.adobe.aem</groupId>
+            <artifactId>uber-jar</artifactId>
+            <scope>provided</scope>
+            <classifier>apis</classifier>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.sling</groupId>
+            <artifactId>org.apache.sling.models.api</artifactId>
+            <version>1.2.2</version>
+        </dependency>
+        <dependency>
+            <groupId>com.day.commons.osgi.wrapper</groupId>
+            <artifactId>com.day.commons.osgi.wrapper.commons-lang2</artifactId>
+            <version>2.5-0001</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.4</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>net.sf.ehcache</groupId>
+            <artifactId>ehcache-core</artifactId>
+            <version>2.6.11</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.3.1</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-all</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>junit-addons</groupId>
+            <artifactId>junit-addons</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.geronimo.specs</groupId>
+            <artifactId>geronimo-atinject_1.0_spec</artifactId>
+            <version>1.0</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.adobe.acs</groupId>
+            <artifactId>acs-aem-commons-bundle</artifactId>
+            <version>${acs-commons-version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.mcd.rwd</groupId>
+            <artifactId>akamai-replication-agent.core</artifactId>
+            <version>0.0.5</version>
+        </dependency>
+        <dependency>
+            <groupId>com.citytechinc.cq.cq-component-plugin</groupId>
+            <artifactId>cq-component-annotations</artifactId>
+            <version>4.3.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.icfolson.aem</groupId>
+            <artifactId>multicomposite-addon</artifactId>
+            <version>3.1.0</version>
+        </dependency>
+	<dependency>
+		<groupId>com.adobe.acs</groupId>
+		<artifactId>acs-aem-commons-bundle</artifactId>
+		<version>${acs-commons-version}</version>
+		<scope>provided</scope>
+	</dependency>
+
+
+
+        <!-- Jackson -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+        </dependency>
+	</dependencies>
+</project>

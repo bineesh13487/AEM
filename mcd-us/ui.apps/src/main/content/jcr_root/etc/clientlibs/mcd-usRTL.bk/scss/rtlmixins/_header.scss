@@ -1,0 +1,15 @@
+/// Mixin to style a header tag, or element with that class
+/// @group typography
+/// @param {string} $tag The tag you'd like to style
+/// @example
+///    .myBlock {
+///       @include header(h1){
+///          // h1, .h1 elements
+///       }
+///    }
+@mixin header($tag){
+  #{$tag},
+  '.#{$tag}' {
+
+  }
+}

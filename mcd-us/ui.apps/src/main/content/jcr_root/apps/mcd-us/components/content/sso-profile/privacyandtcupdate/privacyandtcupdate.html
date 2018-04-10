@@ -1,0 +1,47 @@
+<sly data-sly-use.policiesUpdate="com.mcd.rwd.us.core.sso_profile.PrivacyAndTCUpdate">
+    <!-- Modal -->
+    <div class="modal fade" id="sso-tc-modal" tabindex="-1" role="dialog" aria-labelledby="ssoTcModalLabel" data-json="${policiesUpdate.json}" ng-controller="PrivacyAndTCUpdateController">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <h1 class="sso-h1">{{tmplFields.popuptitle}}</h1>
+                            <h2 class="sso-h2">{{tmplFields.popupsubtitle}}</h2>
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <div class="sso-fac sso-fac-checkbox sso-fac-default sso-disclaimer">
+                                        <span>
+                                            <div tabindex="0" class="sso-checkbox-box-checked" role="checkbox" aria-checked="false" aria-label="By registering you agree to our Terms and Conditions and Privacy Policy.">
+                                                <i class="fa fa-check"></i>
+                                            </div>
+                                         </span>
+                                        <input class="sso-checkbox" id="checkbox-disclaimer" type="checkbox" value="1" aria-label="By registering you agree to our Terms and Conditions and Privacy Policy." role="checkbox" aria-checked="false" onkeydown="toggleCheckbox(event)" onclick="toggleCheckbox(event)" onfocus="focusCheckbox(event)" onblur="blurCheckbox(event)">
+                                        <label for="checkbox-disclaimer" class="sso-checkbox-short-label" ng-if="tmplFields.combinedlink" ng-click="toggleCheckPrivacyTerms()">
+                                            <div class="sso-checkbox-box">
+                                            </div>
+                                            ${policiesUpdate.combinedWithLink @ context='html'}
+                                        </label>
+                                        <label for="checkbox-disclaimer" class="sso-checkbox-short-label" ng-if="tmplFields.privacylink" ng-click="toggleCheckPrivacyTerms()">
+                                            <div class="sso-checkbox-box">
+                                            </div>
+                                            ${policiesUpdate.privacyWithLink @ context='html'}
+                                        </label>
+                                        <label for="checkbox-disclaimer" class="sso-checkbox-short-label" ng-if="tmplFields.termslink" ng-click="toggleCheckPrivacyTerms()">
+                                            <div class="sso-checkbox-box">
+                                            </div>
+                                            ${policiesUpdate.termsWithLink @ context='html'}
+                                        </label>
+                                    </div>
+                                    <div class="sso-spacer-wrapper"></div>
+                                    <a href="javascript:void(0);" ng-click="submitPolicyUpdate()" title="Proceed" class="sso-btn-red" aria-haspopup="true" aria-disabled="false" data-dismiss="modal" ng-disabled="!isChecked" data-at="TopLinks:${policiesUpdate.pageNameForAnalytics}:Proceed" data-track="topLinks">{{tmplFields.popupbutton}}</a>
+                                    <div class="sso-spacer-wrapper"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</sly>

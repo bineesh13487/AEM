@@ -1,0 +1,62 @@
+.cookie-policy {
+  background-color: $compliment-purple;
+  bottom: 0;
+  padding: to-rem(15);
+  position: fixed;
+  width: 100%;
+  z-index: 99;
+
+  @extend .clearfix;
+
+  .cookie-policy-container {
+    @include make-container();
+
+    &__message {
+      @include make-xs-column(8, 0);
+
+      color: white;
+      font-size: to-rem(13);
+
+      p {
+        margin: 0;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: underline;
+      }
+    }
+
+    &__action {
+      @include make-xs-column(4, 0);
+
+      text-align: right;
+
+      a {
+        display: inline-block;
+
+        &:hover {
+          color: inherit;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: $break-point) {
+  .cookie-policy {
+    padding: to-rem(30);
+
+    .cookie-policy-container {
+      &__message,
+      &__action {
+        text-align: center;
+      }
+
+      &__message {
+        font-size: to-rem(16);
+      }
+    }
+  }
+}

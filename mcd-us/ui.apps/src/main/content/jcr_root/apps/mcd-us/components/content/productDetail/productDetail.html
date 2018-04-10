@@ -1,0 +1,80 @@
+<div class="component-product-detail" data-sly-use.product="com.mcd.rwd.us.core.sightly.ProductDetailHandler">
+
+    <sly data-sly-test="${!product.getProductInfo && wcmmode.edit}">
+        <p>Configrue Product detail component</p>
+    </sly>
+    <h1>Whatever I want</h1>
+    <h1>Change</h1>
+    <div class="cont-hero">
+        <div class="cont-img" style="background: url('${product.getProductInfo.getItem.getAttach_item_thumbnail_image.getImagePath @context='uri'}') no-repeat; background-size: cover; background-position: 50% 0%;">
+            <img alt="" src="${product.getProductInfo.getItem.getAttach_item_hero_image.getImagePath}" class="hidden-xs img-responsive cont-100">
+            <img alt="" src="${product.getProductInfo.getItem.getAttach_item_thumbnail_image.getImagePath}" class="visible-xs-block img-responsive cont-100"> </div>
+        <div class="border-wrapper">
+            <div class="offer">
+                <div class="text-wrapper">
+                    <div class="cont-title">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-6 col-sm-7 col-xs-12 title">
+                                    <h1 class="headline-text">${product.getProductInfo.getItem.getText @context='unsafe'}
+                                        <span class="large">${product.getProductInfo.getItem.getItem_marketing_name}</span>
+                                    </h1>
+                                    <p class="headline-text hidden-xs">
+                                        <span class="small">${product.getProductInfo.getItem.getDescription @context='unsafe'}</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="barrier visible-xs"></div>
+    <div class="description visible-xs">
+        <div class="container">
+            <span class="small">
+                <p>${product.getProductInfo.getItem.getDescription}</p>
+            </span>
+        </div>
+    </div>
+
+
+    <div class="ingredients-wrapper">
+        <div class="ingredients-flex-container">
+            <div class="flex-nav-cust flex-nav-prev">
+                <a class="flex-prev" href="#" role="button">Previous ingredients</a>
+            </div>
+            <div id="productDetailCarouselComponent" class="ingredients-flexslider flexslider">
+                <ol class="slides">
+                    <sly data-sly-list.component="${product.getProductInfo.getItem.getComponents.getComponent}">
+                        <li>
+                            <div class="visuallyhidden">${component.getProduct_marketing_name}</div>
+                            <span aria-hidden="true">
+                                <img class="img-responsive" alt="" src="${component.getComponentImagePath}" />
+                                <div class="ingredient-caption">
+                                    <div class="caption-wrapper">
+                                        <span class="ingredient-text">${component.getProduct_marketing_name}</span>
+                                    </div>
+                                </div>
+                            </span>
+                        </li>
+                    </sly>
+                </ol>
+            </div>
+            <div class="flex-nav-cust flex-nav-next">
+                <a class="flex-next" href="#" role="button">Next ingredients</a>
+            </div>
+        </div>
+        <div class="calories-wrapper">
+            <div class="calories container">
+                <sly data-sly-list.nutrientsData="${product.getProductInfo.getItem.getNutrientInfo}">
+                    <span> ${nutrientsData.getValue}${nutrientsData.getUom} &nbsp;${nutrientsData.getName}</span>
+                </sly>
+                <a class="link" title="view full nutrition">view full nutrition &amp; ingredients
+                    <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="cq:Dialog"
+    xtype="dialog">
+    <items
+        jcr:primaryType="cq:Widget"
+        xtype="tabpanel">
+        <items jcr:primaryType="cq:WidgetCollection">
+            <localoptiontab
+                jcr:primaryType="cq:Panel"
+                title="Local Options">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <desktopImage
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}false"
+                        fieldDescription="Please Select the Folder for Product Images"
+                        fieldLabel="Product Desktop  Image Folder"
+                        name="./desktopImgFolder"
+                        rootPath="/content/dam"
+                        xtype="pathfield"/>
+                    <coopnoItemMsg
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}false"
+                        fieldDescription="Please Enter the Message to be Displayed if no Local Item is there."
+                        fieldLabel="Coop no Item Error message"
+                        name="./noLocalItemMsg"
+                        xtype="textfield"/>
+                    <coopInfoMsg
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}false"
+                        fieldDescription="Please Enter the Error Message to be displayed if no Coop is available"
+                        fieldLabel="Coop Information Error Message"
+                        name="./coopInformationMsg"
+                        xtype="textfield"/>
+                    <productsubtitle
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}true"
+                        fieldDescription="Please Enter the section sub title for Local items."
+                        fieldLabel="Product Sub Title"
+                        name="./productTitle"
+                        xtype="textfield"/>
+                    <productButtonText
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}false"
+                        fieldLabel="Local Product Button CTA Text"
+                        name="./localProductButtonText"
+                        xtype="textfield"/>
+                </items>
+            </localoptiontab>
+        </items>
+    </items>
+</jcr:root>

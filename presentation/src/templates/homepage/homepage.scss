@@ -1,0 +1,41 @@
+@import "main.scss";
+
+/* vendor */
+@import "vendor/icomoon.scss";
+@import "vendor/bootstrap.scss";
+@import "vendor/flexslider.scss";
+
+/* layout */
+@import "layout/containers.scss";
+
+/* components */
+@import "global-navigation/global-navigation.scss";
+@import "microsite-navigation/microsite-navigation.scss";
+@import "language-toggle/language-toggle.scss";
+@import "elements/cards/card.scss";
+@import "elements/button/button.scss";
+@import "search/search.scss";
+@import "search-result/search-result.scss";
+@import "filter/filter.scss";
+@import "nutrition/nutrition.scss";
+@import "nutrition-calculator/nutrition-calculator.scss";
+@import "social-feed/social-feed.scss";
+@import "legal-disclaimer/legal-disclaimer.scss";
+@import "global-footer/mcd-global-footer.scss";
+@import "footer-navigation/mcd-footer-navigation.scss";
+@import "cookie-policy/cookie-policy.scss";
+@import "cont-hero/cont-hero.scss";
+@import "faq/faq.scss";
+@import "hero/hero.scss";
+@import "qna/qna.scss";
+@import "social-share/social-share.scss";
+@import "../templates/restaurant-locator/restaurant-locator.scss";
+@import "promo/promo.scss";
+@import "carousel/carousel.scss";
+@import "ingredients-carousel/ingredients-carousel.scss";
+@import "related-items/related-items.scss";
+@import "product-callouts/product-callouts.scss";
+@import "publication/publication.scss";
+@import "legal-bumper/legal-bumper.scss";
+@import "generic-popup/generic-popup.scss";
+@import "country-switcher/country-switcher.scss";

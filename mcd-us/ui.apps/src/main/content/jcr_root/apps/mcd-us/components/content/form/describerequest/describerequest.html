@@ -1,0 +1,176 @@
+<sly data-sly-use.reqInfo="com.mcd.rwd.us.core.sightly.forms.DescribeRequest">
+    <section class="page-contact-us__subpage__tell-us gray-border-on-white" style="background:${reqInfo.sectionBackgroundColor @ context='styleToken'};">
+        <div class="container">
+            <h3 style="outline: none;" data-sly-test="${reqInfo.sectionTopHeading}">${reqInfo.sectionTopHeading}</h3>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        <label class="control-label" for="enter-comments-heading">${reqInfo.comment}</label>
+                        <div class="cont-sub"> <sub><span id="characterCount">${reqInfo.commentCount}</span>/${reqInfo.commentCount} ${reqInfo.commentValidation}</sub> </div>
+                        <textarea name="comments" id="enter-comments" rows="5" maxlength="${reqInfo.commentCount}" class="form-control ${reqInfo.commentReq}" aria-labelledby="enter-comments-error" aria-label="${reqInfo.comment}"></textarea>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6">
+                    <div class="form-group"> <label class="control-label" for="how-used-heading">${reqInfo.howUse}</label> <input name="usageType" id="how-used" type="text" class="form-control ${reqInfo.howUseReq}" aria-labelledby="how-used-error" aria-label="${reqInfo.howUse}" maxlength="100"> </div>
+                </div>
+                <div class="col-xs-12 col-sm-6">
+                    <div class="form-group"> <label class="control-label" for="intended-audience-heading">${reqInfo.intAud}</label> <input name="targetAudience" id="intended-audience" type="text" class="form-control ${reqInfo.intAudReq}" aria-labelledby="intended-audience-error" aria-label="${reqInfo.intAud}" maxlength="100"> </div>
+                </div>
+                <div class="col-xs-12 col-sm-6">
+                    <div class="form-group"> <label class="control-label" for="how-long-heading">${reqInfo.howLongUse}</label> <input name="operatingDuration" id="how-long" type="text" class="form-control ${reqInfo.howLongUseReq}" aria-labelledby="how-long-error" aria-label="${reqInfo.howLongUse}" maxlength="100"> </div>
+                </div>
+                <div class="clear">&nbsp;</div>
+                <div class="col-xs-12 col-sm-6 col-md-6 ${reqInfo.perReqReq}" id="prevPermissionRequest">
+                    <div class="form-group"> <label class="control-label">${reqInfo.perReq}</label> </div>
+                </div>
+                <div class="col-xs-12 col-sm-6">
+                    <div class="form-group" id="prevPermissionRequestOptions">
+                        <div class="radio inline"> <input type="radio" name="previousSubmissionDate" id="contactUs-previously-requested-permission" value="yes" aria-label="${reqInfo.yesText}" aria-labelledby="previousSubmissionDateLabel-id" > <label for="contactUs-previously-requested-permission">
+                            ${reqInfo.yesText}
+                        </label>
+                        </div>
+                        <div class="radio inline"> <input type="radio" name="previousSubmissionDate" id="contactUs-previously-requested-permission-no" value="no" aria-label="${reqInfo.noText}" aria-labelledby="previousSubmissionDateLabel-id" > <label for="contactUs-previously-requested-permission-no">
+                            ${reqInfo.noText}
+                        </label>
+                        </div>
+                        <label id="previousSubmissionDateLabel-id" for="previousSubmissionDate" generated="true" class="error"></label>
+                    </div>
+                </div>
+                <div class="clear">&nbsp;</div>
+                <div class="col-xs-12 col-sm-6">
+                    <div class="row">
+					   <fieldset>
+					      <div class="col-xs-12">
+					         <legend>${reqInfo.reqSubmit}</legend>
+					      </div>
+					      <div class="col-xs-12 col-sm-4">
+					         <div class="form-group">
+					            <div class="select ${reqInfo.dateOfVisitReq}" id="contactUs-month-select-trade">
+					               <label for="title-select-month" id="title-select-month-label-trade" class="visuallyhidden" aria-hidden="true">${reqInfo.adaTextForMonthFieldTrade}</label> 
+					               <select class="form-control" id="month-select-trade">
+					                  	<option data-hidden="true" value="">${reqInfo.adaTextForMonthFieldTrade}</option>
+					               </select>
+					            </div>
+					            <input type="text" class="hidden" id="contactUs-month-input-trade" name="monthInputTrade" maxlength="6">
+					            <label id="month-select-trade-label" class="error" for="contactUs-month-input-trade"></label>
+					         </div>
+					      </div>
+					      <div class="col-xs-12 col-sm-4">
+					         <div class="form-group">
+					            <div class="select ${reqInfo.dateOfVisitReq}" id="contactUs-day-select-trade">
+					               <label for="title-select-day" id="title-select-day-label-trade" class="visuallyhidden" aria-hidden="true">${reqInfo.adaTextForDayFieldTrade}</label> 
+					               <select class="form-control" id="day-select-trade">
+					                  <option data-hidden="true" value="">${reqInfo.adaTextForDayFieldTrade}</option>
+		                           		<sly data-sly-list="${reqInfo.dayOptionsTrade}">
+		                                	<option value="${item}">${item}</option>
+		                           		</sly>
+					               </select>
+					            </div>
+					            <input type="text" class="hidden" id="contactUs-day-input-trade" name="dayInputTrade" maxlength="6">
+					            <label id="day-select-trade-label" class="error" for="contactUs-day-input-trade"></label>
+					         </div>
+					      </div>
+					      <div class="col-xs-12 col-sm-4">
+					         <div class="form-group">
+					            <div class="select ${reqInfo.dateOfVisitReq}" id="contactUs-year-select-trade">
+					               <label for="title-select-year" id="title-select-year-label-trade" class="visuallyhidden" aria-hidden="true">${reqInfo.adaTextForYearFieldTrade}</label>
+					               <select class="form-control" id="year-select-trade">
+					                  <option data-hidden="true" value="">${reqInfo.adaTextForYearFieldTrade}</option>
+					               </select>
+					            </div>
+					            <input type="text" class="hidden" id="contactUs-year-input-trade" name="yearInputTrade" maxlength="6">
+					            <label id="year-select-trade-label" class="error" for="contactUs-year-input-trade"></label>
+					         </div>
+					      </div>
+					   </fieldset>
+					   <input name="requestSubmissionDate" id="when-submitted" type="text" class="hidden form-control ${reqInfo.dateOfVisitReq}" maxlength="30">
+					   <label for="when-submitted" generate="true" class="error pl15"></label>
+					</div>
+                </div>
+                <div class="col-xs-12 col-sm-6 ${reqInfo.outcomeReq}" id="outcomeRequired">
+                    <div class="form-group" data-sly-test="${reqInfo.outcomeOptions}" id="outcomeRequiredOptions">
+                        <p class="control-label">${reqInfo.outcome}</p>
+                        <div data-sly-list="${reqInfo.outcomeOptions}">
+                            <div class="radio inline" > <input type="radio" name="outcome" value="${item}" id="contactUs-previously-requested-outcome" aria-label="${item}" aria-labelledby="outcome-id">
+                                <label for="contactUs-previously-requested-outcome">${item}</label>
+                            </div>
+                        </div>
+                        <label id="outcome-id" for="outcome" generated="true" class="error"></label>
+                    </div>
+                </div>
+                <div class="form-spacer"></div>
+                <div class="col-xs-12">
+                    <h4>
+                        ${reqInfo.bookPubTopHeading}
+                    </h4>
+                     <p class="sub">
+                         ${reqInfo.bookPubSubHeading}
+                     </p>
+                </div>
+                <div class="col-xs-12 col-sm-6">
+                    <div class="form-group"> <label class="control-label" for="author-heading">${reqInfo.author}</label> <input name="author" id="author" type="text" class="form-control ${reqInfo.authorReq}" aria-labelledby="author-error" aria-label="${reqInfo.author}" maxlength="100"> </div>
+                </div>
+                <div class="col-xs-12 col-sm-6">
+                    <div class="form-group"> <label class="control-label" for="publisher-heading">${reqInfo.publisher}</label> <input name="publisher" id="publisher" type="text" class="form-control ${reqInfo.publisherReq}" aria-labelledby="publisher-error" aria-label="${reqInfo.publisher}" maxlength="100"> </div>
+                </div>
+                <div class="col-xs-12 col-sm-6">
+                    <div class="form-group"> <label class="control-label" for="pub-title-heading">${reqInfo.pubTitleEdition}</label> <input name="publicationTitle" id="pub-title" type="text" class="form-control ${reqInfo.pubTitleEditionReq}" aria-labelledby="pub-title-error" aria-label="${reqInfo.pubTitleEdition}" maxlength="100"> </div>
+                </div>
+                <div class="form-spacer"></div>
+                <div class="col-xs-12">
+                    <h4>
+                        ${reqInfo.supAttachTopHeading}
+                    </h4>
+                    <p class= "sub">
+                        ${reqInfo.supAttachSubHeading}<br>${reqInfo.supAttachNoteText}
+                    </p>
+                    
+                </div>
+                <div class="col-xs-12 col-sm-10 col-md-8 file-input-container">
+                    <div class="container-fluid no-gutter browsefocus">
+                        <div class="row">
+                            <div class="col-xs-6 col-sm-8">
+                                <div class="form-group"> <input id="contactus-file-input-1" name="@id" type="text" class="form-control placeholder" placeholder="${reqInfo.firstFile}"> </div>
+                            </div>
+                            <div class="col-xs-6 col-sm-4"> <input type="file" name="firstAttachment" id="file1" class="input-red" aria-labelledby="label-file1" maxlength="200"> <label id="label-file1" for="file1" aria-hidden="true">${reqInfo.browseText}<span class="visuallyhidden"> ${reqInfo.adaTextForForFileOne}</span></label> </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-10 col-md-8 file-input-container">
+                    <div class="container-fluid no-gutter browsefocus">
+                        <div class="row">
+                            <div class="col-xs-6 col-sm-8">
+                                <div class="form-group"> <input id="contactus-file-input-2" name="@id" type="text" class="form-control placeholder" placeholder="${reqInfo.secFile}"> </div>
+                            </div>
+                            <div class="col-xs-6 col-sm-4"> <input type="file" name="secondAttachment" id="file2" class="input-red" aria-labelledby="label-file2" maxlength="200"> <label id="label-file2" for="file2" aria-hidden="true">${reqInfo.browseText}<span class="visuallyhidden"> ${reqInfo.adaTextForForFileTwo}</span></label> </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-10 col-md-8 file-input-container browsefocus">
+                    <div class="container-fluid no-gutter">
+                        <div class="row">
+                            <div class="col-xs-6 col-sm-8">
+                                <div class="form-group"> <input id="contactus-file-input-3" name="@id" type="text" class="form-control placeholder" placeholder="${reqInfo.thirdFile}"> </div>
+                            </div>
+                            <div class="col-xs-6 col-sm-4"> <input type="file" name="thirdAttachment" id="file3" class="input-red" aria-labelledby="label-file3" maxlength="200"> <label id="label-file3" for="file3">${reqInfo.browseText}<span class="visuallyhidden"> ${reqInfo.adaTextForForFileThird}</span></label> </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div style="display:none">
+        <div id="enter-comments-message">${reqInfo.commentMessage}</div>
+        <div id="how-used-message">${reqInfo.howUseMessage}</div>
+        <div id="intended-audience-message">${reqInfo.intAudMessage}</div>
+        <div id="how-long-message">${reqInfo.howLongUseMessage}</div>
+        <div id="previousSubmissionDate-message">${reqInfo.perReqMessage}</div>
+        <div id="date-validation-message">${reqInfo.dateOfVisitValidationMessage}</div>
+        <div id="outcome-message">${reqInfo.outcomeMessage}</div>
+        <div id="author-message">${reqInfo.authorMessage}</div>
+        <div id="publisher-message">${reqInfo.publisherMessage}</div>
+        <div id="publicationTitle-message">${reqInfo.pubTitleEditionMessage}</div>
+        <div id="generalize-drop-down-message-trade">${reqInfo.dropDownValidationTradeText}</div>
+    </div>
+</sly>

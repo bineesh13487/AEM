@@ -1,0 +1,26 @@
+<!--/*
+    SmartBanner
+*/-->
+<div id="smartbanner" class="animate-show ng-cloak ng-hide"
+     data-sly-use.handler="com.mcd.rwd.global.core.sightly.page.BannerHandler"
+     ng-init="init({&#34;title&#34;:&#34;${handler.banner.title}&#34;,
+     &#34;iosId&#34; : &#34;${handler.banner.iosId}&#34;,
+     &#34;androidId&#34; : &#34;${handler.banner.androidId}&#34;,
+     &#34;windowsId&#34;: &#34;${handler.banner.windowsId}&#34;,
+     &#34;description&#34; : &#34;${handler.banner.desc}&#34;,
+     &#34;icon&#34; : &#34;${handler.banner.icon}&#34;,
+     &#34;url&#34;: &#34;${handler.banner.url}&#34;,
+     &#34;button&#34;: &#34;${handler.banner.buttonText}&#34;,
+     &#34;daysHidden&#34;: ${handler.banner.daysHidden},
+     &#34;aria&#34;: &#34;${handler.banner.aria}&#34;,
+     &#34;daysReminder&#34;: ${handler.banner.daysReminder}})" ng-model="banner" ng-show="banner.show"
+     ng-controller="SmartBannerController" data-sly-test="${handler.banner && handler.banner.enabled}">
+    <div class="sb-container">
+        <button ng-click="hideBanner($event)" title="{{banner.aria}}" class="sb-close" ><img src="/etc/clientlibs/mcd-us/images/close_button.png"/></button>
+        <span class="sb-icon" ng-style="{ 'background-image': 'url(' + banner.icon + ')'}"></span>
+        <div class="sb-info">
+            <strong>{{ banner.title }}</strong><span>{{banner.description}}</span>
+        </div>
+        <a x-cq-linkchecker="skip" ng-href="{{ banner.link }}" class="sb-button" ng-click="installApp()"><span>{{ banner.button }}</span></a>
+    </div>
+</div>

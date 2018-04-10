@@ -1,0 +1,101 @@
+/* stylelint-disable unit-whitelist, at-rule-empty-line-before */
+
+@function to-rem($pixels, $context: 16) {
+  @if (unitless($pixels)) {
+    $pixels: $pixels * 1px;
+  }
+
+  @if (unitless($context)) {
+    $context: $context * 1px;
+  }
+
+  @return ($pixels / $context) * 1rem;
+}
+
+/* stylelint-enable */
+
+@mixin make-container($margin:"", $padding:"") {
+  @include container-fixed;
+
+  @media (min-width: $screen-sm-min) {
+    width: $container-sm;
+  }
+
+  @media (min-width: $screen-md-min) {
+    width: $container-md;
+  }
+
+  @media (min-width: $screen-lg-min) {
+    width: $container-lg;
+  }
+
+  @if ($margin) {
+    margin: #{$margin};
+  }
+  @if ($padding) {
+    @if type-of($padding) == number {
+      padding: $padding;
+    }
+    @else {
+      padding: unquote($padding);
+    }
+  }
+}
+
+// the BEM modifier() mixin
+@mixin m($names) {
+  @each $name in $names {
+    @at-root {
+      // '&' is a double-wrapped list
+      $selector: nth(&, 1);
+      // direct parent will be the last item in that list
+      $direct-parent: nth($selector, length($selector));
+      // modifier should have all properties of parent
+      #{$direct-parent}--#{$name} { @extend #{$direct-parent} !optional; }
+      // '@content' will be in a nested selector however, if that is the context
+      #{&}--#{$name} { @content; }
+    }
+  }
+}
+
+// a BEM element() mixin--as has been seen elsewhere
+@mixin e($names) {
+  @each $name in $names {
+    @at-root {
+      #{&}__#{$name} {
+        @content;
+      }
+    }
+  }
+}
+
+%visuallyhidden {
+  margin: -0.0625rem;
+  padding: 0;
+  width: to-rem(1);
+  height: to-rem(1);
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip: rect(0, 0, 0, 0);
+  position: absolute;
+}
+
+%outline {
+  outline-color: rgb(59, 153, 252);
+  outline-style: auto;
+  outline-width: to-rem(5);
+}
+
+%vertical-middle {
+  &:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    margin-right: -0.25em; /* Adjusts for spacing */
+  }
+}
+
+@mixin make-box-shadow($size: to-rem(15), $color: rgba(0,0,0,0.08)) {
+  box-shadow: 0 $size $size 0 $color;
+}
